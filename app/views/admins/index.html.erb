@@ -1,0 +1,49 @@
+<h1>Listing admins</h1>
+
+<table>
+  <tr>
+    <th>Login no</th>
+    <th>Password</th>
+    <th>Status</th>
+    <th>Question</th>
+    <th>Answer</th>
+    <th>Last login time</th>
+    <th>Email</th>
+    <th>Sex</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Phone</th>
+    <th>Fax</th>
+    <th>Mobile</th>
+    <th>Post</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admins.each do |admin| %>
+  <tr>
+    <td><%= admin.login_no %></td>
+    <td><%= admin.password %></td>
+    <td><%= admin.status %></td>
+    <td><%= admin.question %></td>
+    <td><%= admin.answer %></td>
+    <td><%= admin.last_login_time %></td>
+    <td><%= admin.email %></td>
+    <td><%= admin.sex %></td>
+    <td><%= admin.name %></td>
+    <td><%= admin.address %></td>
+    <td><%= admin.phone %></td>
+    <td><%= admin.fax %></td>
+    <td><%= admin.mobile %></td>
+    <td><%= admin.post %></td>
+    <td><%= link_to 'Show', admin %></td>
+    <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
+    <td><%= link_to 'Destroy', admin, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Admin', new_admin_path %>

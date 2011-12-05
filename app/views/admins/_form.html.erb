@@ -1,0 +1,75 @@
+<%= form_for(@admin) do |f| %>
+  <% if @admin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin.errors.count, "error") %> prohibited this admin from being saved:</h2>
+
+      <ul>
+      <% @admin.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :帐号 %><br />
+    <%= f.text_field :login_no %>
+  </div>
+  <div class="field">
+    <%= f.label :密码 %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :状态 %><br />
+    <%= f.label :激活 %>
+    <%= f.radio_button :status,'1',:checked=>true%>
+    <%= f.label :锁定 %>
+    <%= f.radio_button :status, '0'%>
+  </div>
+  <div class="field">
+    <%= f.label :找回密码问题 %><br />
+    <%= f.text_field :question %>
+  </div>
+  <div class="field">
+    <%= f.label :找回密码答案 %><br />
+    <%= f.text_field :answer %>
+  </div>
+  <div class="field">
+    <%= f.label :Email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :性别 %><br />
+    <%= f.label :男%>
+    <%= f.radio_button :sex,'0',:checked=>true%>
+    <%= f.label :女%>
+    <%= f.radio_button :sex,'1'%>
+  </div>
+  <div class="field">
+    <%= f.label :姓名 %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :地址 %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :固话 %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :传真 %><br />
+    <%= f.text_field :fax %>
+  </div>
+  <div class="field">
+    <%= f.label :手机 %><br />
+    <%= f.text_field :mobile %>
+  </div>
+  <div class="field">
+    <%= f.label :邮编 %><br />
+    <%= f.text_field :post %>
+  </div>
+  <div class="actions">
+    <%= f.submit :提交 %>
+  </div>
+<% end %>
