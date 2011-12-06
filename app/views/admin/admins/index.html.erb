@@ -37,13 +37,13 @@
     <td><%= admin.fax %></td>
     <td><%= admin.mobile %></td>
     <td><%= admin.post %></td>
-    <td><%= link_to 'Show', admin %></td>
-    <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
-    <td><%= link_to 'Destroy', admin, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', admin_admin_path(admin)%></td>
+    <td><%= link_to 'Edit', edit_admin_admin_path(admin) %></td>
+    <td><%= link_to 'Destroy', admin_admin_path(admin), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Admin', new_admin_path %>
+<%= link_to 'New Admin', new_admin_admin_path %>

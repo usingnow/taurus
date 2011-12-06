@@ -1,4 +1,4 @@
-<%= form_for(@admin) do |f| %>
+<%= form_for([:admin, @admin]) do |f| %>
   <% if @admin.errors.any? %>
     <div id="error_explanation">
       <h2><%=I18n.t('activerecord.errors.template.header', :count => @admin.errors.size, :model => I18n.t('models.admin'))%></h2>

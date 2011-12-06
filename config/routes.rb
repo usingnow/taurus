@@ -1,5 +1,4 @@
 Ebiz::Application.routes.draw do
-  resources :admins
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -42,11 +41,9 @@ Ebiz::Application.routes.draw do
   #   end
 
   # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+   namespace :admin do
+     resources :admins
+   end
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
@@ -56,5 +53,5 @@ Ebiz::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
+   match ':controller(/:action(/:id(.:format)))'
 end

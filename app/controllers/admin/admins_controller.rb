@@ -1,4 +1,4 @@
-class AdminsController < ApplicationController
+class Admin::AdminsController < ApplicationController
   # GET /admins
   # GET /admins.xml
   def index
@@ -44,7 +44,7 @@ class AdminsController < ApplicationController
 
     respond_to do |format|
       if @admin.save
-        format.html { redirect_to(@admin, :notice => 'Admin was successfully created.') }
+        format.html { redirect_to(admin_admins_url, :notice => 'Admin was successfully created.') }
         format.xml  { render :xml => @admin, :status => :created, :location => @admin }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class AdminsController < ApplicationController
 
     respond_to do |format|
       if @admin.update_attributes(params[:admin])
-        format.html { redirect_to(@admin, :notice => 'Admin was successfully updated.') }
+        format.html { redirect_to(admin_admin_url(@admin), :notice => 'Admin was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -76,7 +76,7 @@ class AdminsController < ApplicationController
     @admin.destroy
 
     respond_to do |format|
-      format.html { redirect_to(admins_url) }
+      format.html { redirect_to(admin_admins_url) }
       format.xml  { head :ok }
     end
   end
