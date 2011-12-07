@@ -1,0 +1,2 @@
+module AdminGroupsHelper
+end

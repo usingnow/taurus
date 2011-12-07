@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111205073327) do
+ActiveRecord::Schema.define(:version => 20111207023314) do
+
+  create_table "admin_groups", :force => true do |t|
+    t.string   "group_no"
+    t.string   "group_name"
+    t.string   "group_desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "admins", :force => true do |t|
     t.string   "login_no"
