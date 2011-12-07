@@ -60,7 +60,7 @@ class Admin::AdminGroupsController < ApplicationController
 
     respond_to do |format|
       if @admin_group.update_attributes(params[:admin_group])
-        format.html { redirect_to(@admin_group, :notice => 'Admin group was successfully updated.') }
+        format.html { redirect_to([:admin, @admin_group], :notice => 'Admin group was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -76,7 +76,7 @@ class Admin::AdminGroupsController < ApplicationController
     @admin_group.destroy
 
     respond_to do |format|
-      format.html { redirect_to(admin_groups_url) }
+      format.html { redirect_to(admin_admin_groups_url) }
       format.xml  { head :ok }
     end
   end

@@ -3,12 +3,12 @@ require 'test_helper'
 
 class AdminTest < ActiveSupport::TestCase
   # Replace this with your real tests.
-  test "admin must be not empty" do
+  test "admin must not be empty" do
     admin = Admin.new
     assert admin.invalid?
   end
 
-  test "login_no must be not blank" do
+  test "login_no must not be blank" do
     admin = Admin.new(:password=>"123456",
                       :status=>"1",
                       :question=>"问题",
@@ -30,7 +30,7 @@ class AdminTest < ActiveSupport::TestCase
     assert admin.valid?
   end
 
-  test "password must be not blank" do
+  test "password must not be blank" do
     admin = Admin.new(:login_no=>"admin",
                       :status=>"1",
                       :question=>"问题",
@@ -52,7 +52,7 @@ class AdminTest < ActiveSupport::TestCase
     assert admin.valid?
   end
 
-  test "question must be not blank" do
+  test "question must not be blank" do
     admin = Admin.new(:login_no=>"admin",
                       :password=>"123456",
                       :status=>"1",
@@ -74,7 +74,7 @@ class AdminTest < ActiveSupport::TestCase
     assert admin.valid?
   end
 
-  test "answer must be not blank" do
+  test "answer must not be blank" do
     admin = Admin.new(:login_no=>"admin",
                       :password=>"123456",
                       :status=>"1",
@@ -96,7 +96,7 @@ class AdminTest < ActiveSupport::TestCase
     assert admin.valid?
   end
 
-  test "name must be not blank" do
+  test "name must not be blank" do
     admin = Admin.new(:login_no=>"admin",
                       :password=>"123456",
                       :status=>"1",
