@@ -7,8 +7,18 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div id="left_menu">
+    <ul>
+      <li>
+        <%=link_to '管理员',admin_admins_path%>
+      </li>
+      <li>
+        <%= link_to '用户组' %>
+      </li>
+    </ul>
+  </div>
+  <div id="main">
+    <%= yield %>
+  </div>
 </body>
 </html>
