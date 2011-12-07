@@ -195,6 +195,7 @@ zh-CN:
 
   models: &models
     admin: "管理员"
+    admin_group: "管理员组"
   attributes: &attributes
     admin:
       login_no: "帐号"
@@ -210,6 +211,10 @@ zh-CN:
       mobile: "手机"
       post: "邮编"
       name: "姓名"
+    admin_group:
+      group_no: "管理员组编号"
+      group_name: "管理员组名称"
+      group_desc: "管理员组描述"
 
 
   activerecord:

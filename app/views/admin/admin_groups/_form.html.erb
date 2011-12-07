@@ -1,0 +1,29 @@
+<%= form_for([:admin, @admin_group]) do |f| %>
+  <% if @admin_group.errors.any? %>
+    <div id="error_explanation">
+     <h2><%=I18n.t('activerecord.errors.template.header', :count => @admin_group.errors.size, :model => I18n.t('models.admin_group'))%></h2>
+
+      <ul>
+      <% @admin_group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%=f.label :group_no%><br />
+    <%= f.text_field :group_no %>
+  </div>
+  <div class="field">
+    <%=f.label :group_name%><br />
+    <%= f.text_field :group_name %>
+  </div>
+     <div class="field">
+    <%=f.label :group_desc%><br />
+    <%= f.text_field :group_desc %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

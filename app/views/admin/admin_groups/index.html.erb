@@ -1,0 +1,27 @@
+<h1>Listing admin_groups</h1>
+
+<table>
+  <tr>
+    <th><%= t('attributes.admin_group.group_no') %></th>
+    <th><%= t('attributes.admin_group.group_name') %></th>
+    <th><%= t('attributes.admin_group.group_desc') %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_groups.each do |admin_group| %>
+  <tr>
+    <td><%= admin_group.group_no %></td>
+    <td><%= admin_group.group_name %></td>
+    <td><%= admin_group.group_desc %></td>
+    <td><%= link_to 'Show', admin_admin_group_path(admin_group) %></td>
+    <td><%= link_to 'Edit', edit_admin_admin_group_path(admin_group) %></td>
+    <td><%= link_to 'Destroy', admin_admin_group_path(admin_group), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Admin group', new_admin_admin_group_path %>

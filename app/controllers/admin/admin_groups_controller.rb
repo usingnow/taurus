@@ -1,4 +1,4 @@
-class AdminGroupsController < ApplicationController
+class Admin::AdminGroupsController < ApplicationController
   # GET /admin_groups
   # GET /admin_groups.xml
   def index
@@ -44,7 +44,7 @@ class AdminGroupsController < ApplicationController
 
     respond_to do |format|
       if @admin_group.save
-        format.html { redirect_to(@admin_group, :notice => 'Admin group was successfully created.') }
+        format.html { redirect_to([:admin, @admin_group], :notice => 'Admin group was successfully created.') }
         format.xml  { render :xml => @admin_group, :status => :created, :location => @admin_group }
       else
         format.html { render :action => "new" }
