@@ -1,12 +1,12 @@
-<h1>Listing admin_groups</h1>
-
 <div class="page_content">
     <div class ="basic_form">
-      <%=raw jqgrid("Listing test5s", "admin_groups", "/admin_groups",
+      <%=raw jqgrid("管理员组列表", "admin_groups", "/admin/admin_groups",
         [
-        { :field => "group_no", :label => "name" },
+        { :field => "group_no", :label => "no", :width=>"500"},
+        { :field => "group_name", :label => "name" },
         { :field => "group_desc", :label => "description" }
-        ] , {:autowidth=>true}
+        ] , {:height=>"$('.ui-layout-center').height()-70",:width=>"1000"}
+
     ) %>
     </div>
 </div>

@@ -2,11 +2,12 @@ class Admin::AdminGroupsController < ApplicationController
   # GET /admin_groups
   # GET /admin_groups.xml
   def index
-    @admin_groups = AdminGroup.all
+    @admin_groups = AdminGroup.column_order(params[:sidx],params[:sord])
+    @admin_groups,count=paginate(@admin_groups,params[:page],params[:rows])
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @admin_groups }
+      format.json { render :json => @admin_groups.to_jqgrid_json([:group_no, :group_name, :group_desc],params[:page], params[:rows], count) }
     end
   end
 
