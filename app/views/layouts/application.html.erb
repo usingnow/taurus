@@ -8,19 +8,23 @@
   <%= csrf_meta_tag %>
   <script type="text/javascript">
   $(document).ready(function () {
-      $('body').layout({ applyDefaultStyles: true });
+      $('body').layout({
+          applyDefaultStyles: true,
+          north__closable:false,
+          north__resizable:false
+      });
   });
   </script>
 
 </head>
 <body>
+  <div class="ui-layout-north">Ebiz</div>
+
   <div class="ui-layout-center">
     <div id="main">
       <%= yield %>
     </div>
   </div>
-
-  <div class="ui-layout-north">Ebiz</div>
 
   <div class="ui-layout-west">
     <div id="left_menu">
