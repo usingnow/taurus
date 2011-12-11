@@ -2,11 +2,10 @@
     <div class ="basic_form">
       <%=raw jqgrid("管理员组列表", "admin_groups", "/admin/admin_groups",
         [
-        { :field => "group_no", :label => "no", :width=>"500"},
-        { :field => "group_name", :label => "name" },
-        { :field => "group_desc", :label => "description" }
-        ] , {:height=>"$('.ui-layout-center').height()-70",:width=>"1000"}
-
+        { :field => "group_no", :label =>t('attributes.admin_group.group_no'), :align=>"center", :sortable=>false, :width=>"120"},
+        { :field => "group_name", :label => "name", :sortable=>false, :width=>200 },
+        { :field => "group_desc", :label => "description", :sortable=>false, :width=>500}
+        ] , {:height=>"$('.ui-layout-center').height()-70", :width=>"$('.ui-layout-center').width()-20"}
     ) %>
     </div>
 </div>

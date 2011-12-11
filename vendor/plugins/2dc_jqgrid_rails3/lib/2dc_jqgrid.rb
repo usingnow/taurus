@@ -19,7 +19,7 @@ module Jqgrid
     def jqgrid(title, id, action, columns = [], options = {})
       
       # Default options
-      options = 
+      options =
         { 
           :rows_per_page       => '10',
           :sort_column         => '',
@@ -30,11 +30,12 @@ module Jqgrid
           :inline_edit_handler => 'null',
           :add                 => 'false',
           :delete              => 'false',
-          :search              => 'true',
+          :search              => 'false',
           :edit                => 'false',          
           :inline_edit         => 'false',
           :autowidth           => 'false',
-          :rownumbers          => 'false'                    
+          :rownumbers          => 'false',
+          :width               => '500'
         }.merge(options)
       
       # Stringify options values
@@ -254,6 +255,7 @@ module Jqgrid
               imgpath: '/images/jqgrid',
               sortname: '#{options[:sort_column]}',
               viewrecords: true,
+              width: #{options[:width]},
               height: #{options[:height]},
               sortorder: '#{options[:sort_order]}',
               gridview: #{options[:gridview]},
@@ -270,7 +272,7 @@ module Jqgrid
               caption: "#{title}"
             })
             .navGrid('##{id}_pager',
-              {edit:#{edit_button},add:#{options[:add]},del:#{options[:delete]},search:false,refresh:true},
+              {edit:#{edit_button},add:#{options[:add]},del:#{options[:delete]},search:false,refresh:false},
               {afterSubmit:function(r,data){return #{options[:error_handler_return_value]}(r,data,'edit');}},
               {afterSubmit:function(r,data){return #{options[:error_handler_return_value]}(r,data,'add');}},
               {afterSubmit:function(r,data){return #{options[:error_handler_return_value]}(r,data,'delete');}}
