@@ -1,6 +1,12 @@
-<div class="page_content">
+<div class="center-center">
+  <script type="text/javascript">
+    function handleSelection(name) {
+	alert('ID selected:' + name);
+    }
+  </script>
+  <div class="page_content">
     <div class ="basic_form">
-      <%=raw jqgrid("管理员列表", "admins", "/admin/admins",
+      <%=raw jqgrid(t('attributes.admin.admin_list'), "admins", "/admin/admins",
         [
         { :field => "name", :label =>t('attributes.admin.name'), :sortable=>false, :width=>120},
         { :field => "login_no", :label =>t('attributes.admin.login_no'), :sortable=>false, :width=>"120"},
@@ -9,11 +15,24 @@
         { :field => "sex", :label =>t('attributes.admin.sex'), :formatter=>'select', :editoptions=>{:value=>[["0","男"],["1","女"]]}, :align=>"center", :sortable=>false, :width=>60},
         { :field => "last_login_time", :label =>t('attributes.admin.last_login_time'), :sortable=>false, :width=>120},
         { :field => "status", :label =>t('attributes.admin.status'), :formatter=>'select', :editoptions=>{:value=>[["0","冻结"],["1","激活"]]}, :align=>"center", :sortable=>false, :width=>60 }
-        ] , {:height=>"$('.ui-layout-center').height()-70", :width=>"$('.ui-layout-center').width()-20"}
+        ] , {:height=>"$('.center-center').height()-90",
+             :width=>"$('.ui-layout-center').width()-20",
+             :selection_handler => "handleSelection",
+             :direct_selection => true}
     ) %>
     </div>
+  </div>
 </div>
-
-<br />
-
-<%= link_to 'New Admin', new_admin_admin_path %>
+<div class="center-south">
+  <div id="admin_tabs">
+	<ul>
+		<li><a href="#admin_tabs-1"><%= t('attributes.admin.group_info') %></a></li>
+	</ul>
+	<div id="admin_tabs-1">
+      <%= link_to 'ajax show', admin_admin_group_path(event), :remote => true, "data-type" => :json, :id => "update_foobar" %>
+	</div>
+  </div>
+  <script>
+     $("#admin_tabs").tabs();
+  </script>
+</div>

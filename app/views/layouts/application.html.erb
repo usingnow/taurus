@@ -9,9 +9,13 @@
   <script type="text/javascript">
   $(document).ready(function () {
       $('body').layout({
-          applyDefaultStyles: true,
           north__closable:false,
           north__resizable:false
+      });
+      $('div.ui-layout-center').layout({
+          center__paneSelector:	".center-center",
+          south__paneSelector:	".center-south",
+          south__size: "40%"
       });
   });
   </script>
@@ -21,9 +25,7 @@
   <div class="ui-layout-north">Ebiz</div>
 
   <div class="ui-layout-center">
-    <div id="main">
-      <%= yield %>
-    </div>
+     <%= yield %>
   </div>
 
   <div class="ui-layout-west">
@@ -31,6 +33,9 @@
       <ul>
         <li>
           <%=link_to '管理员',admin_admins_path%>
+        </li>
+        <li>
+         <%= link_to '新增管理员', new_admin_admin_path %>
         </li>
         <li>
           <%= link_to '管理员组', admin_admin_groups_path%>

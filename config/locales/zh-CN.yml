@@ -212,6 +212,11 @@ zh-CN:
       post: "邮编"
       name: "姓名"
       last_login_time: "上次登录时间"
+
+      #以下是扩展属性
+      admin_list: "管理员列表"
+      group_info: "管理员组信息"
+
     admin_group:
       group_no: "管理员组编号"
       group_name: "管理员组名称"
