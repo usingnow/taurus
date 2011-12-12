@@ -2,11 +2,11 @@ class Admin::AdminsController < ApplicationController
   # GET /admins
   # GET /admins.xml
   def index
-    @admins = Admin.all
+    @admins = Admin.column_order(params[:sidx],params[:sord])
+    @admins,count=paginate(@admins,params[:page],params[:rows])
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @admins }
+    if request.xhr?
+      render :json => @admins.to_jqgrid_json([:name, :login_no, :mobile, :email, :sex, :last_login_time, :status],params[:page], params[:rows], count) and return
     end
   end
 

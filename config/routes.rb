@@ -45,7 +45,11 @@ Ebiz::Application.routes.draw do
   # Sample resource route within a namespace:
    namespace :admin do
      resources :admins
-     resources :admin_groups
+     resources :admin_groups do
+       collection do
+         post :jqgrid
+       end
+    end
    end
 
   # You can have the root of your site routed with "root"

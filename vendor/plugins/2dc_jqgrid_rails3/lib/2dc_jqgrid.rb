@@ -21,7 +21,7 @@ module Jqgrid
       # Default options
       options =
         { 
-          :rows_per_page       => '10',
+          :rows_per_page       => '25',
           :sort_column         => '',
           :sort_order          => '',
           :height              => '150',
