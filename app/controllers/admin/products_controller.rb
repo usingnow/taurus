@@ -2,11 +2,11 @@ class Admin::ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
   def index
-    @products = Product.all
+    @products = Product.column_order(params[:sidx],params[:sord])
+    @products,count=paginate(@products,params[:page],params[:rows])
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @products }
+    if request.xhr?
+      render :json => @products.to_jqgrid_json([:name],params[:page], params[:rows], count) and return
     end
   end
 

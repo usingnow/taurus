@@ -1,0 +1,18 @@
+<div class="page_content">
+    <div class ="basic_form">
+      <%=raw jqgrid(t('attributes.product.product_list'), "products", "products",
+        [
+        { :field => "name", :label =>t('attributes.product.name'), :sortable=>false, :width=>120},
+        { :field => "login_no", :label =>t('attributes.admin.login_no'), :sortable=>false, :width=>"120"},
+        { :field => "mobile", :label =>t('attributes.admin.mobile'), :sortable=>false, :width=>100},
+        { :field => "email", :label =>t('attributes.admin.email'), :sortable=>false, :width=>150},
+        { :field => "sex", :label =>t('attributes.admin.sex'), :formatter=>'select', :editoptions=>{:value=>[["0","男"],["1","女"]]}, :align=>"center", :sortable=>false, :width=>60},
+        { :field => "last_login_time", :label =>t('attributes.admin.last_login_time'), :sortable=>false, :width=>120},
+        { :field => "status", :label =>t('attributes.admin.status'), :formatter=>'select', :editoptions=>{:value=>[["0","冻结"],["1","激活"]]}, :align=>"center", :sortable=>false, :width=>60 }
+        ] , {:height=>"$('.center-center').height()-90",
+             :width=>"$('.ui-layout-center').width()-2",
+             :selection_handler => "handleSelection",
+             :direct_selection => true}
+      )%>
+    </div>
+</div>
