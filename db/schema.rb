@@ -47,4 +47,49 @@ ActiveRecord::Schema.define(:version => 20111212104206) do
   add_index "admins_admin_groups", ["admin_group_id"], :name => "index_admins_admin_groups_on_admin_group_id"
   add_index "admins_admin_groups", ["admin_id", "admin_group_id"], :name => "index_admins_admin_groups_on_admin_id_and_admin_group_id", :unique => true
 
+  create_table "products", :force => true do |t|
+    t.string   "product_id"
+    t.string   "name"
+    t.decimal  "cost_bef_tax",              :precision => 8, :scale => 2
+    t.decimal  "cost_aft_tax",              :precision => 8, :scale => 2
+    t.string   "brand_id"
+    t.string   "product_category_id"
+    t.string   "unit"
+    t.string   "specification"
+    t.integer  "delivery_days"
+    t.integer  "type"
+    t.string   "model"
+    t.string   "size"
+    t.string   "delivery_descprition"
+    t.text     "description"
+    t.string   "color"
+    t.boolean  "can_on_behalf"
+    t.string   "barcode"
+    t.string   "supplier_id"
+    t.string   "manufacturer"
+    t.boolean  "have_shelf_life"
+    t.integer  "shelf_life"
+    t.boolean  "have_wanrranty"
+    t.integer  "wanrranty"
+    t.text     "wanrranty_description"
+    t.string   "origin"
+    t.string   "appendant"
+    t.boolean  "is_green"
+    t.boolean  "is_assembling_required"
+    t.decimal  "assembling_fee_bef_tax",    :precision => 8, :scale => 2
+    t.decimal  "assembling_fee_aft_tax",    :precision => 8, :scale => 2
+    t.boolean  "is_maintanable"
+    t.decimal  "maintenance_cost_bef_tax",  :precision => 8, :scale => 2
+    t.decimal  "maintenance_cost_aft_tax",  :precision => 8, :scale => 2
+    t.boolean  "is_installation_required"
+    t.decimal  "installation_cost_bef_tax", :precision => 8, :scale => 2
+    t.decimal  "insatllation_cost_aft_tax", :precision => 8, :scale => 2
+    t.time     "create_time"
+    t.string   "created_by"
+    t.time     "update_time"
+    t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 end

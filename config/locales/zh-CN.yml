@@ -196,6 +196,7 @@ zh-CN:
   models: &models
     admin: "管理员"
     admin_group: "管理员组"
+    product: "素材商品"
   attributes: &attributes
     admin:
       login_no: "帐号"
@@ -221,6 +222,54 @@ zh-CN:
       group_no: "管理员组编号"
       group_name: "管理员组名称"
       group_desc: "管理员组描述"
+
+    product:
+      product_id: "素材商品编号"
+      name: "素材商品名"
+      cost_bef_tax: "税前成本"
+      cost_aft_tax: "税后成本"
+      brand_id: "素材商品品牌id"
+      product_category_id: "素材商品目录id"
+      unit:  "素材商品单位"
+      specification: "素材商品规格"
+      delivery_days: "供应商交货日数"
+      type: "直送品或在库品"
+      model: "素材商品型号"
+      size: "素材商品尺寸"
+      delivery_descprition: "交货描述"
+      description: "素材商品描述"
+      color: "素材商品颜色"
+      can_on_behalf: "是否允许代购"
+      barcode: "素材商品Barcode"
+
+      #供应商、产地、质保、保修、附属品信息
+      supplier_id: "供应商id"
+      manufacturer: "素材商品生产商"
+      have_shelf_life: "是否有质保期"
+      shelf_life: "质保期"
+      have_wanrranty: "是否有保修期"
+      wanrranty: "保修期"
+      wanrranty_description: "保修期描述"
+      origin: "原产地"
+      appendant: "附属品"
+      is_green: "是否绿色环保产品"
+
+      #素材商品组装、安装、维修费用信息
+      is_assembling_required: "是否需要组装"
+      assembling_fee_bef_tax: "税前组装费"
+      assembling_fee_aft_tax: "税后组装费"
+      is_maintanable: "是否可维修商品"
+      maintenance_cost_bef_tax: "税前维护手续费"
+      maintenance_cost_aft_tax: "税后维护手续费"
+      is_installation_required: "是否需要安装"
+      installation_cost_bef_tax: "税前安装费用"
+      insatllation_cost_aft_tax: "税后安装费用"
+
+      #素材商品管理相关记录
+      create_time: "创建时间"
+      created_by: "创建人"
+      update_time: "最近更新时间"
+      updated_by: "更新人"
 
 
   activerecord:

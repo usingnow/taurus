@@ -1,0 +1,170 @@
+<%= form_for([:admin,@product]) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%=I18n.t('activerecord.errors.template.header', :count => @product.errors.size, :model => I18n.t('models.product'))%></h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :product_id %><br />
+    <%= f.text_field :product_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :brand_id %><br />
+    <%= f.text_field :brand_id %>
+  </div>
+  <div class="field">
+    <%= f.label :cost_bef_tax %><br />
+    <%= f.text_field :cost_bef_tax %>
+  </div>
+  <div class="field">
+    <%= f.label :cost_aft_tax %><br />
+    <%= f.text_field :cost_aft_tax %>
+  </div>
+  <div class="field">
+    <%= f.label :product_category_id %><br />
+    <%= f.text_field :product_category_id %>
+  </div>
+  <div class="field">
+    <%= f.label :unit %><br />
+    <%= f.text_field :unit %>
+  </div>
+  <div class="field">
+    <%= f.label :specification %><br />
+    <%= f.text_field :specification %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_days %><br />
+    <%= f.text_field :delivery_days, :columns => 2 %>
+  </div>
+  <div class="field">
+    <%= f.label :model %><br />
+    <%= f.text_field :model %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br />
+    <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_descprition %><br />
+    <%= f.text_area :delivery_descprition, :rows => 6 %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :rows => 6 %>
+  </div>
+  <div class="field">
+    <%= f.label :color %><br />
+    <%= f.text_field :color %>
+  </div>
+  <div class="field">
+    <%= f.label :can_on_behalf %><br />
+    <%= f.text_field :can_on_behalf %>
+  </div>
+  <div class="field">
+    <%= f.label :barcode %><br />
+    <%= f.text_field :barcode %>
+  </div>
+  <div class="field">
+    <%= f.label :supplier_id %><br />
+    <%= f.text_field :supplier_id %>
+  </div>
+  <div class="field">
+    <%= f.label :manufacturer %><br />
+    <%= f.text_field :have_shelf_life %>
+  </div>
+  <div class="field">
+    <%= f.label :shelf_life %><br />
+    <%= f.text_field :shelf_life %>
+  </div>
+  <div class="field">
+    <%= f.label :have_wanrranty %><br />
+    <%= f.text_field :have_wanrranty %>
+  </div>
+  <div class="field">
+    <%= f.label :wanrranty %><br />
+    <%= f.text_field :wanrranty %>
+  </div>
+  <div class="field">
+    <%= f.label :wanrranty_description %><br />
+    <%= f.text_field :wanrranty_description, :row => 6 %>
+  </div>
+  <div class="field">
+    <%= f.label :origin %><br />
+    <%= f.text_field :origin %>
+  </div>
+  <div class="field">
+    <%= f.label :appendant %><br />
+    <%= f.text_field :appendant %>
+  </div>
+  <div class="field">
+    <%= f.label :is_green %><br />
+    <%= f.text_field :is_green %>
+  </div>
+  <div class="field">
+    <%= f.label :is_assembling_required %><br />
+    <%= f.text_field :is_assembling_required %>
+  </div>
+  <div class="field">
+    <%= f.label :assembling_fee_bef_tax %><br />
+    <%= f.text_field :assembling_fee_bef_tax %>
+  </div>
+  <div class="field">
+    <%= f.label :assembling_fee_aft_tax %><br />
+    <%= f.text_field :assembling_fee_aft_tax %>
+  </div>
+  <div class="field">
+    <%= f.label :is_maintanable %><br />
+    <%= f.text_field :is_maintanable %>
+  </div>
+  <div class="field">
+    <%= f.label :maintenance_cost_bef_tax %><br />
+    <%= f.text_field :maintenance_cost_bef_tax %>
+  </div>
+  <div class="field">
+    <%= f.label :maintenance_cost_aft_tax %><br />
+    <%= f.text_field :maintenance_cost_aft_tax %>
+  </div>
+  <div class="field">
+    <%= f.label :is_installation_required %><br />
+    <%= f.text_field :is_installation_required %>
+  </div>
+  <div class="field">
+    <%= f.label :installation_cost_bef_tax %><br />
+    <%= f.text_field :installation_cost_bef_tax %>
+  </div>
+  <div class="field">
+    <%= f.label :insatllation_cost_aft_tax %><br />
+    <%= f.text_field :insatllation_cost_aft_tax %>
+  </div>
+  <div class="field">
+    <%= f.label :create_time %><br />
+    <%= f.text_field :create_time %>
+  </div>
+  <div class="field">
+    <%= f.label :created_by %><br />
+    <%= f.text_field :created_by %>
+  </div>
+  <div class="field">
+    <%= f.label :update_time %><br />
+    <%= f.text_field :update_time %>
+  </div>
+  <div class="field">
+    <%= f.label :updated_by %><br />
+    <%= f.text_field :updated_by %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
