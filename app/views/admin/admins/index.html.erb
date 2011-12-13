@@ -1,9 +1,24 @@
-<div class="center-center">
-  <script type="text/javascript">
-    function handleSelection(name) {
-	alert('ID selected:' + name);
+ <script type="text/javascript">
+    $(document).ready(function () {
+      $('div.ui-layout-center').layout({
+          center__paneSelector:	".center-center",
+          south__paneSelector:	".center-south",
+          south__size: "40%"
+      });
+    });
+    //管理员列表行点击事件
+    function handleSelection(id) {
+	   $.get("admins_admin_groups", null, function(data) {
+           $('#admin_id').val(id);
+           $('#admin_group_checkbox').html('');
+           $.each(data,function(idx,item){
+             var group = item.admin_group;
+             $('#admin_group_checkbox').append('<div><input type="checkbox" value="'+group.id+'" name="admin_group_ids"/>'+group.group_name+'</div>');
+           });
+       }, "json");
     }
-  </script>
+</script>
+<div class="center-center">
   <div class="page_content">
     <div class ="basic_form">
       <%=raw jqgrid(t('attributes.admin.admin_list'), "admins", "/admin/admins",
@@ -16,7 +31,7 @@
         { :field => "last_login_time", :label =>t('attributes.admin.last_login_time'), :sortable=>false, :width=>120},
         { :field => "status", :label =>t('attributes.admin.status'), :formatter=>'select', :editoptions=>{:value=>[["0","冻结"],["1","激活"]]}, :align=>"center", :sortable=>false, :width=>60 }
         ] , {:height=>"$('.center-center').height()-90",
-             :width=>"$('.ui-layout-center').width()-20",
+             :width=>"$('.ui-layout-center').width()-2",
              :selection_handler => "handleSelection",
              :direct_selection => true}
     ) %>
@@ -29,7 +44,14 @@
 		<li><a href="#admin_tabs-1"><%= t('attributes.admin.group_info') %></a></li>
 	</ul>
 	<div id="admin_tabs-1">
-      <%= link_to 'ajax show', admin_admin_group_path(event), :remote => true, "data-type" => :json, :id => "update_foobar" %>
+      <%= form_tag 'admins_admin_groups' ,:remote =>true do%>
+        <%=hidden_field_tag 'admin_id' %>
+        <div id="admin_group_checkbox"></div>
+        <div id="admin_group_button">
+          <%= submit_tag '保存' %>
+          <input type="button" value="重置"/>
+        </div>
+      <% end %>
 	</div>
   </div>
   <script>

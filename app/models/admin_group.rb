@@ -1,4 +1,5 @@
 class AdminGroup < ActiveRecord::Base
+
   validates :group_no, :group_name, :presence => true
 
   scope :match_value, lambda {|column, value|

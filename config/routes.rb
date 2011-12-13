@@ -1,7 +1,4 @@
 Ebiz::Application.routes.draw do
-
-  resources :admin_groups
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -45,11 +42,8 @@ Ebiz::Application.routes.draw do
   # Sample resource route within a namespace:
    namespace :admin do
      resources :admins
-     resources :admin_groups do
-       collection do
-         post :jqgrid
-       end
-    end
+     resources :admin_groups
+     resources :admins_admin_groups
    end
 
   # You can have the root of your site routed with "root"
@@ -60,5 +54,5 @@ Ebiz::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-   match ':controller(/:action(/:id(.:format)))'
+  # match ':controller(/:action(/:id(.:format)))'
 end
