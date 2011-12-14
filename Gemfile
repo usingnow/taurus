@@ -9,3 +9,6 @@ group :test, :development do
   gem "rspec"
   gem "rspec-rails"
 end
+
+#自动部署
+gem 'capistrano'
