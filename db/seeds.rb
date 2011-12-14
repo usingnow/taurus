@@ -1,7 +1,7 @@
+#encoding: utf-8
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
-# encoding: utf-8
 Product.delete_all
 Product.create(:product_id=>"2004078",
                :name=>"壹美壹家纯棉浅绿色面巾",
@@ -30,22 +30,17 @@ Product.create(:product_id=>"2004078",
                :origin=> "中国",
                :appendant=>"",
                :is_green=>"0",
-
-                #素材商品组装、安装、维修费用信息
                :is_assembling_required=>"0",
                :assembling_fee_bef_tax=>"0",
-               :assembling_fee_aft_tax=>"0"
-       #        :is_maintanable: "是否可维修商品"
-               # maintenance_cost_bef_tax: "税前维护手续费"
-               # maintenance_cost_aft_tax: "税后维护手续费"
-               # is_installation_required: "是否需要安装"
-               # installation_cost_bef_tax: "税前安装费用"
-              #  insatllation_cost_aft_tax: "税后安装费用"
-
-                #素材商品管理相关记录
-              #  create_time: "创建时间"
-              #  created_by: "创建人"
-             #   update_time: "最近更新时间"
-              #  updated_by: "更新人"
+               :assembling_fee_aft_tax=>"0",
+               :maintenance_cost_bef_tax=> "0",
+               :maintenance_cost_aft_tax=> "",
+               :is_installation_required=> "0",
+               :installation_cost_bef_tax=>"0",
+               :insatllation_cost_aft_tax=>"",
+               :create_time=> "2010-11-23 0:02:00",
+               #:created_by=> "创建人"
+               :update_time=> "2010-11-23 0:02:00"
+               #:updated_by=> "更新人"
 )
 

@@ -261,7 +261,7 @@ zh-CN:
       is_maintanable: "是否可维修商品"
       maintenance_cost_bef_tax: "税前维护手续费"
       maintenance_cost_aft_tax: "税后维护手续费"
-      is_installation_required: "是否需要安装"
+      is_installation_required: "安装区分"
       installation_cost_bef_tax: "税前安装费用"
       insatllation_cost_aft_tax: "税后安装费用"
 

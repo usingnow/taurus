@@ -1,18 +1,19 @@
+<div>
+  <%= link_to '新增素材商品', new_admin_product_path%>&nbsp;&nbsp;
+</div>
 <div class="page_content">
     <div class ="basic_form">
       <%=raw jqgrid(t('attributes.product.product_list'), "products", "products",
         [
-        { :field => "name", :label =>t('attributes.product.name'), :sortable=>false, :width=>120},
-        { :field => "login_no", :label =>t('attributes.admin.login_no'), :sortable=>false, :width=>"120"},
-        { :field => "mobile", :label =>t('attributes.admin.mobile'), :sortable=>false, :width=>100},
-        { :field => "email", :label =>t('attributes.admin.email'), :sortable=>false, :width=>150},
-        { :field => "sex", :label =>t('attributes.admin.sex'), :formatter=>'select', :editoptions=>{:value=>[["0","男"],["1","女"]]}, :align=>"center", :sortable=>false, :width=>60},
-        { :field => "last_login_time", :label =>t('attributes.admin.last_login_time'), :sortable=>false, :width=>120},
-        { :field => "status", :label =>t('attributes.admin.status'), :formatter=>'select', :editoptions=>{:value=>[["0","冻结"],["1","激活"]]}, :align=>"center", :sortable=>false, :width=>60 }
-        ] , {:height=>"$('.center-center').height()-90",
-             :width=>"$('.ui-layout-center').width()-2",
-             :selection_handler => "handleSelection",
-             :direct_selection => true}
+        { :field => "product_id", :label =>t('attributes.product.product_id'), :sortable=>false, :width=>100},
+        { :field => "name", :label =>t('attributes.product.name'), :sortable=>false, :width=>"150"},
+        { :field => "unit", :label =>t('attributes.product.unit'), :sortable=>false, :width=>80},
+        { :field => "brand_id", :label =>t('attributes.product.brand_id'), :sortable=>false, :width=>150},
+        { :field => "specification", :label =>t('attributes.product.specification'), :sortable=>false, :width=>100},
+        { :field => "model", :label =>t('attributes.product.model'), :sortable=>false, :width=>100},
+        { :field => "manufacturer", :label =>t('attributes.product.manufacturer'), :sortable=>false, :width=>150 },
+        { :field => "update_time", :label =>t('attributes.product.update_time'), :sortable=>false, :width=>120 }
+        ] , {:width=>"$('.ui-layout-center').width()-2"}
       )%>
     </div>
 </div>

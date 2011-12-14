@@ -4,9 +4,8 @@ class Admin::ProductsController < ApplicationController
   def index
     @products = Product.column_order(params[:sidx],params[:sord])
     @products,count=paginate(@products,params[:page],params[:rows])
-
     if request.xhr?
-      render :json => @products.to_jqgrid_json([:name],params[:page], params[:rows], count) and return
+      render :json => @products.to_jqgrid_json([:product_id,:name,:unit,:brand_id,:specification,:model,:manufacturer,:update_time],params[:page], params[:rows], count) and return
     end
   end
 
