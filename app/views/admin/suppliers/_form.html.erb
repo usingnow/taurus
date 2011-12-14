@@ -1,0 +1,57 @@
+<%= form_for(@supplier) do |f| %>
+  <% if @supplier.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@supplier.errors.count, "error") %> prohibited this supplier from being saved:</h2>
+
+      <ul>
+      <% @supplier.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :input_person %><br />
+    <%= f.text_field :input_person %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_name %><br />
+    <%= f.text_field :contact_name %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_way %><br />
+    <%= f.text_field :contact_way %>
+  </div>
+  <div class="field">
+    <%= f.label :terms_of_exchange %><br />
+    <%= f.text_field :terms_of_exchange %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery %><br />
+    <%= f.text_field :delivery %>
+  </div>
+  <div class="field">
+    <%= f.label :level %><br />
+    <%= f.text_field :level %>
+  </div>
+  <div class="field">
+    <%= f.label :active %><br />
+    <%= f.check_box :active %>
+  </div>
+  <div class="field">
+    <%= f.label :create_by %><br />
+    <%= f.text_field :create_by %>
+  </div>
+  <div class="field">
+    <%= f.label :update_by %><br />
+    <%= f.text_field :update_by %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
