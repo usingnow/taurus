@@ -12,3 +12,5 @@ end
 
 #自动部署
 gem 'capistrano'
+
+gem 'ckeditor', '3.5.3'
