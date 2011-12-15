@@ -199,6 +199,7 @@ zh-CN:
     product: "素材商品"
     supplier: "供应商"
     brand: "品牌"
+    product_category: "素材商品分类"
 
   attributes: &attributes
     admin:
@@ -300,6 +301,14 @@ zh-CN:
       update_by: "更新者"
       company_name: "公司名称"
       company_introduction: "公司简介"
+
+    product_category:
+      parent_id: "父ID"
+      number: "编号"
+      name: "名称"
+      description: "描述"
+      create_by: "创建者"
+      update_by: "更新者"
 
   activerecord:
     models:

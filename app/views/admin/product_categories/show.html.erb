@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Parent:</b>
+  <%= @product_category.parent_id %>
+</p>
+
+<p>
+  <b>Number:</b>
+  <%= @product_category.number %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @product_category.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @product_category.description %>
+</p>
+
+<p>
+  <b>Create by:</b>
+  <%= @product_category.create_by %>
+</p>
+
+<p>
+  <b>Update by:</b>
+  <%= @product_category.update_by %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_product_category_path(@product_category) %> |
+<%= link_to 'Back', admin_product_categories_path %>
