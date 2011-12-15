@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Chinese name:</b>
+  <%= @brand.chinese_name %>
+</p>
+
+<p>
+  <b>English name:</b>
+  <%= @brand.english_name %>
+</p>
+
+<p>
+  <b>Pinyin:</b>
+  <%= @brand.pinyin %>
+</p>
+
+<p>
+  <b>Web address:</b>
+  <%= @brand.web_address %>
+</p>
+
+<p>
+  <b>Company introduction:</b>
+  <%= @brand.company_introduction %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @brand.image_url %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @brand.active %>
+</p>
+
+<p>
+  <b>Update by:</b>
+  <%= @brand.update_by %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_brand_path(@brand) %> |
+<%= link_to 'Back', admin_brands_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111214103454) do
+ActiveRecord::Schema.define(:version => 20111215033756) do
 
   create_table "admin_groups", :force => true do |t|
     t.string   "group_no"
@@ -46,6 +46,21 @@ ActiveRecord::Schema.define(:version => 20111214103454) do
 
   add_index "admins_admin_groups", ["admin_group_id"], :name => "index_admins_admin_groups_on_admin_group_id"
   add_index "admins_admin_groups", ["admin_id", "admin_group_id"], :name => "index_admins_admin_groups_on_admin_id_and_admin_group_id", :unique => true
+
+  create_table "brands", :force => true do |t|
+    t.string   "chinese_name"
+    t.string   "english_name"
+    t.string   "pinyin"
+    t.string   "web_address"
+    t.string   "image_url"
+    t.boolean  "active"
+    t.string   "create_by"
+    t.string   "update_by"
+    t.string   "company_name"
+    t.text     "company_introduction"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "products", :force => true do |t|
     t.string   "product_id"

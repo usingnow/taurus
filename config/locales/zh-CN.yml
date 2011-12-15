@@ -198,6 +198,7 @@ zh-CN:
     admin_group: "管理员组"
     product: "素材商品"
     supplier: "供应商"
+    brand: "品牌"
 
   attributes: &attributes
     admin:
@@ -287,6 +288,18 @@ zh-CN:
       active: "状态"
       create_by: "创建者"
       update_by: "更新者"
+
+    brand:
+      chinese_name: "中文名称"
+      english_name: "英文名称"
+      pinyin: "拼音"
+      web_address: "网址"
+      image_url: "图片"
+      active: "状态"
+      create_by: "创建者"
+      update_by: "更新者"
+      company_name: "公司名称"
+      company_introduction: "公司简介"
 
   activerecord:
     models:
