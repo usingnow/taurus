@@ -197,6 +197,8 @@ zh-CN:
     admin: "管理员"
     admin_group: "管理员组"
     product: "素材商品"
+    supplier: "供应商"
+
   attributes: &attributes
     admin:
       login_no: "帐号"
@@ -274,6 +276,17 @@ zh-CN:
       #扩展属性
       product_list: "素材商品列表"
 
+    supplier:
+      name: "名称"
+      input_person: "登录者姓名"
+      contact_name: "联系人"
+      contact_way: "联系方式"
+      terms_of_exchange: "交易条件"
+      delivery: "交货期"
+      level: "级别"
+      active: "状态"
+      create_by: "创建者"
+      update_by: "更新者"
 
   activerecord:
     models:

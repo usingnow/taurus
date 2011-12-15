@@ -29,13 +29,13 @@
     <td><%= supplier.active %></td>
     <td><%= supplier.create_by %></td>
     <td><%= supplier.update_by %></td>
-    <td><%= link_to 'Show', supplier %></td>
-    <td><%= link_to 'Edit', edit_supplier_path(supplier) %></td>
-    <td><%= link_to 'Destroy', supplier, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', admin_supplier_path(supplier) %></td>
+    <td><%= link_to 'Edit', edit_admin_supplier_path(supplier) %></td>
+    <td><%= link_to 'Destroy', admin_supplier_path(supplier), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Supplier', new_supplier_path %>
+<%= link_to 'New Supplier', new_admin_supplier_path %>
