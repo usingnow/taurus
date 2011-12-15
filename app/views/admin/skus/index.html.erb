@@ -1,0 +1,35 @@
+<h1>Listing skus</h1>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Name</th>
+    <th>Sku category</th>
+    <th>Unit</th>
+    <th>Type</th>
+    <th>Sales status</th>
+    <th>Updated at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @skus.each do |sku| %>
+  <tr>
+    <td><%= sku.number %></td>
+    <td><%= sku.name %></td>
+    <td><%= sku.sku_category_id %></td>
+    <td><%= sku.unit %></td>
+    <td><%= sku.type %></td>
+    <td><%= sku.sales_status %></td>
+    <td><%= sku.updated_at %></td>
+    <td><%= link_to 'Show', admin_sku_path(sku) %></td>
+    <td><%= link_to 'Edit', edit_admin_sku_path(sku) %></td>
+    <td><%= link_to 'Destroy', admin_sku_path(sku), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sku', new_admin_sku_path %>

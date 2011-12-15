@@ -1,0 +1,145 @@
+<%= form_for([:admin,@sku]) do |f| %>
+  <% if @sku.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sku.errors.count, "error") %> prohibited this sku from being saved:</h2>
+
+      <ul>
+      <% @sku.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :number %><br />
+    <%= f.text_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :brand_id %><br />
+    <%= f.text_field :brand_id %>
+  </div>
+  <div class="field">
+    <%= f.label :sku_category_id %><br />
+    <%= f.text_field :sku_category_id %>
+  </div>
+  <div class="field">
+    <%= f.label :unit %><br />
+    <%= f.text_field :unit %>
+  </div>
+  <div class="field">
+    <%= f.label :specification %><br />
+    <%= f.text_field :specification %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_day %><br />
+    <%= f.text_field :delivery_day %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :model %><br />
+    <%= f.text_field :model %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br />
+    <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_description %><br />
+    <%= f.text_area :delivery_description %>
+  </div>
+  <div class="field">
+    <%= f.label :can_return %><br />
+    <%= f.check_box :can_return %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :color %><br />
+    <%= f.text_field :color %>
+  </div>
+  <div class="field">
+    <%= f.label :can_on_be_half %><br />
+    <%= f.check_box :can_on_be_half %>
+  </div>
+  <div class="field">
+    <%= f.label :classifcation %><br />
+    <%= f.text_field :classifcation %>
+  </div>
+  <div class="field">
+    <%= f.label :is_integral %><br />
+    <%= f.check_box :is_integral %>
+  </div>
+  <div class="field">
+    <%= f.label :integral %><br />
+    <%= f.text_field :integral %>
+  </div>
+  <div class="field">
+    <%= f.label :introduction %><br />
+    <%= f.text_area :introduction %>
+  </div>
+  <div class="field">
+    <%= f.label :advertisement %><br />
+    <%= f.text_area :advertisement %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :sales_status %><br />
+    <%= f.text_field :sales_status %>
+  </div>
+  <div class="field">
+    <%= f.label :cost_bef_tax %><br />
+    <%= f.text_field :cost_bef_tax %>
+  </div>
+  <div class="field">
+    <%= f.label :cost_aft_tax %><br />
+    <%= f.text_field :cost_aft_tax %>
+  </div>
+  <div class="field">
+    <%= f.label :market_price %><br />
+    <%= f.text_field :market_price %>
+  </div>
+  <div class="field">
+    <%= f.label :assembling_fee_bef_tax %><br />
+    <%= f.text_field :assembling_fee_bef_tax %>
+  </div>
+  <div class="field">
+    <%= f.label :assembling_fee_aft_tax %><br />
+    <%= f.text_field :assembling_fee_aft_tax %>
+  </div>
+  <div class="field">
+    <%= f.label :installation_cost_bef_tax %><br />
+    <%= f.text_field :installation_cost_bef_tax %>
+  </div>
+  <div class="field">
+    <%= f.label :insatllation_cost_aft_tax %><br />
+    <%= f.text_field :insatllation_cost_aft_tax %>
+  </div>
+  <div class="field">
+    <%= f.label :create_by %><br />
+    <%= f.text_field :create_by %>
+  </div>
+  <div class="field">
+    <%= f.label :update_by %><br />
+    <%= f.text_field :update_by %>
+  </div>
+  <div class="field">
+    <%= f.label :total_sale %><br />
+    <%= f.text_field :total_sale %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

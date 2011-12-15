@@ -50,6 +50,7 @@ Ebiz::Application.routes.draw do
      resources :brands
      resources :product_categories
      resources :sku_categories
+     resources :skus
    end
 
   # You can have the root of your site routed with "root"

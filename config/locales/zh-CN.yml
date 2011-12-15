@@ -201,6 +201,7 @@ zh-CN:
     brand: "品牌"
     product_category: "素材商品分类"
     sku_category: "媒体商品分类"
+    sku: "媒体商品"
 
   attributes: &attributes
     admin:
@@ -322,6 +323,41 @@ zh-CN:
       description: "描述"
       create_by: "创建者"
       update_by: "更新者"
+
+    sku:
+      number: "编号"
+      name: "名称"
+      brand_id: "品牌ID"
+      sku_category_id: "分类ID"
+      unit: "单位"
+      specification: "规格"
+      type: "类型"
+      model: "型号"
+      size: "尺寸"
+      color: "颜色"
+      classifcation: "种类"
+      advertisement: "广告语"
+      introduction: "简介"
+      description: "详细描述"
+      is_integral: "有无积分"
+      integral: "积分"
+      total_sale: "累计销售"
+      can_return: "可否退换"
+      sales_status: "上架/下架"
+      status: "确认状态"
+      can_on_be_half: "代购品区分"
+      delivery_day: "交货天数"
+      delivery_description: "交货描述"
+      market_price: "市场价"
+      cost_bef_tax: "税前成本价"
+      cost_aft_tax: "税后成本价"
+      assembling_fee_bef_tax: "税前组装费"
+      assembling_fee_aft_tax: "税后组装费"
+      installation_cost_bef_tax: "税前安装费"
+      insatllation_cost_aft_tax: "税后安装费"
+      create_by: "创建者"
+      update_by: "更新者"
+
 
 
   activerecord:
