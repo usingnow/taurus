@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111215064446) do
+ActiveRecord::Schema.define(:version => 20111215083858) do
 
   create_table "admin_groups", :force => true do |t|
     t.string   "group_no"
@@ -114,6 +114,21 @@ ActiveRecord::Schema.define(:version => 20111215064446) do
     t.string   "created_by"
     t.time     "update_time"
     t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sku_categories", :force => true do |t|
+    t.integer  "root_id"
+    t.integer  "parent_id"
+    t.string   "number"
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "is_show_in_navigation"
+    t.boolean  "is_show_in_column"
+    t.boolean  "active"
+    t.string   "create_by"
+    t.string   "update_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -2,10 +2,11 @@ class Admin::ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
   def index
-    @products = Product.column_order(params[:sidx],params[:sord])
-    @products,count=paginate(@products,params[:page],params[:rows])
-    if request.xhr?
-      render :json => @products.to_jqgrid_json([:product_id,:name,:unit,:brand_id,:specification,:model,:manufacturer,:update_time],params[:page], params[:rows], count) and return
+    @product = Product.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @product }
     end
   end
 
@@ -59,7 +60,7 @@ class Admin::ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
-        format.html { redirect_to(@product, :notice => 'Product was successfully updated.') }
+        format.html { redirect_to([:admin,@product], :notice => 'Product was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

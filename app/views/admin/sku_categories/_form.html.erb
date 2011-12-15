@@ -1,0 +1,57 @@
+<%= form_for([:admin,@sku_category]) do |f| %>
+  <% if @sku_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sku_category.errors.count, "error") %> prohibited this sku_category from being saved:</h2>
+
+      <ul>
+      <% @sku_category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :root_id %><br />
+    <%= f.text_field :root_id %>
+  </div>
+  <div class="field">
+    <%= f.label :parent_id %><br />
+    <%= f.text_field :parent_id %>
+  </div>
+  <div class="field">
+    <%= f.label :number %><br />
+    <%= f.text_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :is_show_in_navigation %><br />
+    <%= f.check_box :is_show_in_navigation %>
+  </div>
+  <div class="field">
+    <%= f.label :is_show_in_column %><br />
+    <%= f.check_box :is_show_in_column %>
+  </div>
+  <div class="field">
+    <%= f.label :active %><br />
+    <%= f.check_box :active %>
+  </div>
+  <div class="field">
+    <%= f.label :create_by %><br />
+    <%= f.text_field :create_by %>
+  </div>
+  <div class="field">
+    <%= f.label :update_by %><br />
+    <%= f.text_field :update_by %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

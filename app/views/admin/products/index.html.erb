@@ -1,19 +1,37 @@
-<div>
-  <%= link_to '新增素材商品', new_admin_product_path%>&nbsp;&nbsp;
-</div>
-<div class="page_content">
-    <div class ="basic_form">
-      <%=raw jqgrid(t('attributes.product.product_list'), "products", "products",
-        [
-        { :field => "product_id", :label =>t('attributes.product.product_id'), :sortable=>false, :width=>100},
-        { :field => "name", :label =>t('attributes.product.name'), :sortable=>false, :width=>"150"},
-        { :field => "unit", :label =>t('attributes.product.unit'), :sortable=>false, :width=>80},
-        { :field => "brand_id", :label =>t('attributes.product.brand_id'), :sortable=>false, :width=>150},
-        { :field => "specification", :label =>t('attributes.product.specification'), :sortable=>false, :width=>100},
-        { :field => "model", :label =>t('attributes.product.model'), :sortable=>false, :width=>100},
-        { :field => "manufacturer", :label =>t('attributes.product.manufacturer'), :sortable=>false, :width=>150 },
-        { :field => "update_time", :label =>t('attributes.product.update_time'), :sortable=>false, :width=>120 }
-        ] , {:width=>"$('.ui-layout-center').width()-2"}
-      )%>
-    </div>
-</div>
+<h1>Listing product</h1>
+
+<table>
+  <tr>
+    <th><%= t('attributes.product.product_id') %></th>
+    <th><%= t('attributes.product.name') %></th>
+    <th><%= t('attributes.product.unit') %></th>
+    <th><%= t('attributes.product.brand_id') %></th>
+    <th><%= t('attributes.product.specification') %></th>
+    <th><%= t('attributes.product.model') %></th>
+    <th><%= t('attributes.product.manufacturer') %></th>
+    <th><%= t('attributes.product.update_time') %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @product.each do |product| %>
+  <tr>
+    <td><%= product.product_id %></td>
+    <td><%= product.name %></td>
+    <td><%= product.unit %></td>
+    <td><%= product.brand_id %></td>
+    <td><%= product.specification %></td>
+    <td><%= product.model %></td>
+    <td><%= product.manufacturer %></td>
+    <td><%= product.update_time %></td>
+    <td><%= link_to 'Show', admin_product_path(product) %></td>
+    <td><%= link_to 'Edit', edit_admin_product_path(product) %></td>
+    <td><%= link_to 'Destroy', admin_product_path(product), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product', new_admin_product_path %>
