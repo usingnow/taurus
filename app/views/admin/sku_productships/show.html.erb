@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sku:</b>
+  <%= @sku_productship.sku_id %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @sku_productship.product_id %>
+</p>
+
+<p>
+  <b>Package name:</b>
+  <%= @sku_productship.package_name %>
+</p>
+
+<p>
+  <b>Package num:</b>
+  <%= @sku_productship.package_num %>
+</p>
+
+<p>
+  <b>Sales bef tax:</b>
+  <%= @sku_productship.sales_bef_tax %>
+</p>
+
+<p>
+  <b>Sales aft tax:</b>
+  <%= @sku_productship.sales_aft_tax %>
+</p>
+
+<p>
+  <b>Is main:</b>
+  <%= @sku_productship.is_main %>
+</p>
+
+<p>
+  <b>Created by:</b>
+  <%= @sku_productship.created_by %>
+</p>
+
+<p>
+  <b>Updated by:</b>
+  <%= @sku_productship.updated_by %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_sku_productship_path(@sku_productship) %> |
+<%= link_to 'Back', admin_sku_productships_path %>

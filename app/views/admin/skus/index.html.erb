@@ -12,6 +12,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @skus.each do |sku| %>
@@ -23,6 +24,7 @@
     <td><%= sku.type %></td>
     <td><%= sku.sales_status %></td>
     <td><%= sku.updated_at %></td>
+    <td><%= link_to '商品组成', admin_sku_productships_path %></td>
     <td><%= link_to 'Show', admin_sku_path(sku) %></td>
     <td><%= link_to 'Edit', edit_admin_sku_path(sku) %></td>
     <td><%= link_to 'Destroy', admin_sku_path(sku), :confirm => 'Are you sure?', :method => :delete %></td>

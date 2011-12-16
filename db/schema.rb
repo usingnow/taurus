@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111215094255) do
+ActiveRecord::Schema.define(:version => 20111216025822) do
 
   create_table "admin_groups", :force => true do |t|
     t.string   "group_no"
@@ -61,6 +61,24 @@ ActiveRecord::Schema.define(:version => 20111215094255) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                                 :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 25
+    t.string   "guid",              :limit => 10
+    t.integer  "locale",            :limit => 1,  :default => 0
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "fk_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_assetable_type"
+  add_index "ckeditor_assets", ["user_id"], :name => "fk_user"
 
   create_table "product_categories", :force => true do |t|
     t.integer  "parent_id"
@@ -129,6 +147,20 @@ ActiveRecord::Schema.define(:version => 20111215094255) do
     t.boolean  "active"
     t.string   "create_by"
     t.string   "update_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sku_productships", :force => true do |t|
+    t.integer  "sku_id"
+    t.integer  "product_id"
+    t.string   "package_name"
+    t.integer  "package_num"
+    t.decimal  "sales_bef_tax", :precision => 10, :scale => 0
+    t.decimal  "sales_aft_tax", :precision => 10, :scale => 0
+    t.boolean  "is_main"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

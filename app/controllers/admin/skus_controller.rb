@@ -41,15 +41,10 @@ class Admin::SkusController < ApplicationController
   # POST /skus.xml
   def create
     @sku = Sku.new(params[:sku])
+    session[:sku] = @sku
 
     respond_to do |format|
-      if @sku.save
-        format.html { redirect_to([:admin,@sku], :notice => 'Sku was successfully created.') }
-        format.xml  { render :xml => @sku, :status => :created, :location => @sku }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @sku.errors, :status => :unprocessable_entity }
-      end
+      format.html { redirect_to(admin_sku_productships_url) }
     end
   end
 

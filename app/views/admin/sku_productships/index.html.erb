@@ -1,0 +1,27 @@
+<h1>Listing sku_productships</h1>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Package name</th>
+    <th>Package num</th>
+    <th>Sales bef tax</th>
+    <th>Sales aft tax</th>
+    <th>Is main</th>
+  </tr>
+
+<% session[:sku_productships].each do |sku_productship| %>
+  <tr>
+    <td><%= sku_productship.product_id %></td>
+    <td><%= sku_productship.package_name %></td>
+    <td><%= sku_productship.package_num %></td>
+    <td><%= sku_productship.sales_bef_tax %></td>
+    <td><%= sku_productship.sales_aft_tax %></td>
+    <td><%= sku_productship.is_main %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= link_to 'New Sku productship', new_admin_sku_productship_path %> |
+<%= link_to '下一步' %>
