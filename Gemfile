@@ -14,3 +14,5 @@ end
 gem 'capistrano'
 
 gem 'ckeditor', '3.5.3'
+
+gem "paperclip", "2.4.0"

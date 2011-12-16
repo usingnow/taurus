@@ -382,3 +382,14 @@ zh-CN:
       submit: "储存%{model}"
 
 
+  ckeditor:
+      page_title: "CKEditor文件管理"
+      upload_files: "上传新文件"
+      buttons:
+        cancel: "取消"
+        refresh:
+          title: "刷新"
+          hint: "刷新页面"
+        upload:
+          title: "上传"
+          hint: "上传新文件"
