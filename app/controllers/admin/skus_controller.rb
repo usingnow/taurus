@@ -41,6 +41,10 @@ class Admin::SkusController < ApplicationController
   # POST /skus.xml
   def create
     @sku = Sku.new(params[:sku])
+
+    @sku_productships = Array.new
+    session[:sku_productships] = @sku_productships
+    session[:sku_images] = nil
     session[:sku] = @sku
 
     respond_to do |format|
@@ -73,6 +77,29 @@ class Admin::SkusController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(admin_skus_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def add
+    @sku = session[:sku]
+    @sku.save
+
+    @sku_productships = session[:sku_productships]
+    @sku_productships.each do |sku_productship|
+      sku_productship.sku_id = @sku.id
+      @sku_productship = sku_productship
+      @sku_productship.save
+    end
+
+    @sku_images = session[:sku_images]
+    @sku_images.each do |sku_image|
+      sku_image.sku_id = @sku.id
+      @sku_image = sku_image
+      @sku_image.save
+    end
+
+    respond_to do |format|
+       format.html { redirect_to(admin_skus_url) }
     end
   end
 end

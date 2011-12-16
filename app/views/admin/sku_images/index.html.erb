@@ -1,0 +1,26 @@
+<h1>Listing sku_images</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Image url</th>
+    <th>Image description</th>
+    <th>Sort</th>
+    <th>Is main</th>
+  </tr>
+
+<% session[:sku_images].each do |sku_image| %>
+  <tr>
+    <td><%= sku_image.name %></td>
+    <td><%= sku_image.image_url %></td>
+    <td><%= sku_image.image_description %></td>
+    <td><%= sku_image.sort %></td>
+    <td><%= sku_image.is_main %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sku image', new_admin_sku_image_path %> |
+<%= link_to '确定', add_admin_skus_path %>

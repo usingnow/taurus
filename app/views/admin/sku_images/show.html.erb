@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sku:</b>
+  <%= @sku_image.sku_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @sku_image.name %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @sku_image.image_url %>
+</p>
+
+<p>
+  <b>Image description:</b>
+  <%= @sku_image.image_description %>
+</p>
+
+<p>
+  <b>Sort:</b>
+  <%= @sku_image.sort %>
+</p>
+
+<p>
+  <b>Is main:</b>
+  <%= @sku_image.is_main %>
+</p>
+
+<p>
+  <b>Created by:</b>
+  <%= @sku_image.created_by %>
+</p>
+
+<p>
+  <b>Updated by:</b>
+  <%= @sku_image.updated_by %>
+</p>
+
+
+<%= link_to 'Edit', edit_sku_image_path(@sku_image) %> |
+<%= link_to 'Back', sku_images_path %>

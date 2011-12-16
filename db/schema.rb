@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111216025822) do
+ActiveRecord::Schema.define(:version => 20111216064033) do
 
   create_table "admin_groups", :force => true do |t|
     t.string   "group_no"
@@ -147,6 +147,19 @@ ActiveRecord::Schema.define(:version => 20111216025822) do
     t.boolean  "active"
     t.string   "create_by"
     t.string   "update_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sku_images", :force => true do |t|
+    t.integer  "sku_id"
+    t.string   "name"
+    t.string   "image_url"
+    t.text     "image_description"
+    t.integer  "sort"
+    t.boolean  "is_main"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
