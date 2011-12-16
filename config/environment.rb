@@ -5,5 +5,3 @@ require File.expand_path('../application', __FILE__)
 Ebiz::Application.initialize!
 
 
-Paperclip.options[:command_path] = "/usr/bin/"
-
