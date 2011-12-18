@@ -1,0 +1,6 @@
+<% @skus.each do |sku| %>
+  <div style="height: 50px">
+    <%= sku.name %>
+    <%= button_to '添加购物车', cart_skuships_path(:sku_id=>sku)%>
+  </div>
+<% end %>

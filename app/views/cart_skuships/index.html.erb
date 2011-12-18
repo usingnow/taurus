@@ -1,0 +1,26 @@
+<h1>Listing cart_skuships</h1>
+
+<table>
+  <tr>
+    <th>Sku</th>
+    <th>Cart</th>
+    <th>Quantity</th>
+    <th>Order</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cart_skuships.each do |cart_skuship| %>
+  <tr>
+    <td><%= cart_skuship.sku.name %></td>
+    <td><%= cart_skuship.cart_id %></td>
+    <td><%= cart_skuship.quantity %></td>
+    <td><%= cart_skuship.order_id %></td>
+    <td><%= link_to 'Show', cart_skuship %></td>
+    <td><%= link_to 'Destroy', cart_skuship, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= button_to '下单', new_admin_order_path, :method=>:get %>

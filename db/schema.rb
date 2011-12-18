@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111216064033) do
+ActiveRecord::Schema.define(:version => 20111218132615) do
 
   create_table "admin_groups", :force => true do |t|
     t.string   "group_no"
@@ -62,6 +62,20 @@ ActiveRecord::Schema.define(:version => 20111216064033) do
     t.datetime "updated_at"
   end
 
+  create_table "cart_skuships", :force => true do |t|
+    t.integer  "sku_id"
+    t.integer  "cart_id"
+    t.integer  "quantity",   :default => 1
+    t.integer  "order_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carts", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                                 :null => false
     t.string   "data_content_type"
@@ -79,6 +93,15 @@ ActiveRecord::Schema.define(:version => 20111216064033) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "fk_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_assetable_type"
   add_index "ckeditor_assets", ["user_id"], :name => "fk_user"
+
+  create_table "orders", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "email"
+    t.string   "pay_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "product_categories", :force => true do |t|
     t.integer  "parent_id"
