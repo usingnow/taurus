@@ -158,4 +158,29 @@ class UsersController < ApplicationController
       end
     end
   end
+
+  #登录页面
+  def login
+     @user = User.new
+
+    respond_to do |format|
+      format.html { render :layout => "home"}
+      format.xml  { render :xml => @user }
+    end
+  end
+
+  #登录
+  def sign_in
+    user = User.find_by_login_no_and_password(params[:login_no],params[:password])
+
+    respond_to do |format|
+      if user == nil
+        format.html{ render :action => "login", :notice => 'error', :layout=>"home"}
+      else
+        session[:user] = user
+        format.html { redirect_to(home_url) }
+      end
+
+    end
+  end
 end

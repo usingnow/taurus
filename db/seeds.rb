@@ -328,3 +328,35 @@ Sku.create(
   :total_sale=>"0"
 )
 
+#会员
+User.delete_all
+User.create(
+  :id=>"1",
+  :login_no=>"root",
+  :password=>"root",
+  :status=>"1",
+  :type=>"0",
+  :question=>"问题",
+  :answer=>"答案"
+)
+
+#个人会员信息扩展
+PersonExtend.delete_all
+PersonExtend.create(
+  :id=>"1",
+  :user_id=>"1",
+  :person_no=>"P000001",
+  :role_no=>"001",
+  :email=>"root@root.com",
+  :name=>"root",
+  :sex=>"",
+  :birth=>"",
+  :district_no=>"",
+  :phone=>"",
+  :address=>"",
+  :post=>"",
+  :created_by=>"初始添加",
+  :updated_by=>""
+)
+
+

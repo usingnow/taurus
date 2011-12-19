@@ -5,6 +5,8 @@
   </div>
 <% end %>
 
+<%= session[:user].login_no %>
 
 
-<%= link_to '注册', registration_users_path  %>
+<%= button_to '注册', registration_users_path, :method => :get  %>
+<%= button_to '登录', login_users_path, :method => :get %>

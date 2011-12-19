@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(:version => 20111219072242) do
   end
 
   create_table "person_extends", :force => true do |t|
+    t.integer  "user_id"
     t.string   "person_no"
     t.string   "role_no"
     t.string   "email"

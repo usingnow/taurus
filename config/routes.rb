@@ -25,8 +25,10 @@ Ebiz::Application.routes.draw do
       get  :registration
       get  :person_reg
       get  :company_reg
+      get  :login
       post :person_enroll
       post :company_enroll
+      post :sign_in
     end
   end
 

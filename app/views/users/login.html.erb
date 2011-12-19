@@ -1,0 +1,13 @@
+<%= form_tag(:sign_in_users) do %>
+  <div class="field">
+    <%= label_tag t('attributes.user.login_no') %><br />
+    <%= text_field_tag :login_no %>
+  </div>
+  <div class="field">
+    <%= label_tag t('attributes.user.password') %><br />
+    <%= text_field_tag :password %>
+  </div>
+  <div class="actions">
+    <%= submit_tag '登录'%>
+  </div>
+<% end %>

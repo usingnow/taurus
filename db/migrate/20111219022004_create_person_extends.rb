@@ -1,6 +1,7 @@
 class CreatePersonExtends < ActiveRecord::Migration
   def self.up
     create_table :person_extends do |t|
+      t.integer :user_id
       t.string :person_no
       t.string :role_no
       t.string :email
