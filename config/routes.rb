@@ -1,4 +1,10 @@
 Ebiz::Application.routes.draw do
+  resources :company_extends
+
+  resources :person_extends
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -14,6 +20,16 @@ Ebiz::Application.routes.draw do
   resources :home
   resources :cart_skuships
   resources :carts
+  resources :users do
+    collection do
+      get  :registration
+      get  :person_reg
+      get  :company_reg
+      post :person_enroll
+      post :company_enroll
+    end
+  end
+
   # Sample resource route with options:
   #   resources :products do
   #     member do

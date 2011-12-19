@@ -202,6 +202,9 @@ zh-CN:
     product_category: "素材商品分类"
     sku_category: "媒体商品分类"
     sku: "媒体商品"
+    person_extend: "单位会员扩展信息"
+    user: "会员"
+
 
   attributes: &attributes
     admin:
@@ -358,6 +361,35 @@ zh-CN:
       create_by: "创建者"
       update_by: "更新者"
 
+    person_extend:
+      name: "真实姓名"
+      email: "邮箱"
+
+      #扩展属性
+      email_confirmation: "确认邮箱"
+
+    company_extend:
+      company_name: "公司名称"
+      industry_type_id: "行业类别"
+      email: "邮箱"
+      district_no: "公司所属地"
+      address: "公司详细地址"
+      company_type_id: "公司性质"
+      company_scale_id: "公司规模"
+      web_address: "公司网址"
+      name: "联系人姓名"
+      phone: "电话"
+      mobile: "手机"
+
+      #扩展属性
+      email_confirmation: "确认邮箱"
+
+    user:
+      login_no: "用户名"
+      password: "密码"
+
+      #扩展属性
+      password_confirmation: "确认密码"
 
 
   activerecord:

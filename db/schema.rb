@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111218132615) do
+ActiveRecord::Schema.define(:version => 20111219072242) do
 
   create_table "admin_groups", :force => true do |t|
     t.string   "group_no"
@@ -94,11 +94,54 @@ ActiveRecord::Schema.define(:version => 20111218132615) do
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_assetable_type"
   add_index "ckeditor_assets", ["user_id"], :name => "fk_user"
 
+  create_table "company_extends", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "company_no"
+    t.string   "role_no"
+    t.integer  "industry_type_id"
+    t.integer  "company_type_id"
+    t.string   "district_no"
+    t.integer  "company_scale_id"
+    t.string   "email"
+    t.string   "company_name"
+    t.string   "contact_dept"
+    t.string   "contact_post"
+    t.string   "web_address"
+    t.integer  "sex"
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "mobile"
+    t.string   "zip"
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "orders", :force => true do |t|
     t.string   "name"
     t.string   "address"
     t.string   "email"
     t.string   "pay_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "person_extends", :force => true do |t|
+    t.string   "person_no"
+    t.string   "role_no"
+    t.string   "email"
+    t.string   "name"
+    t.integer  "sex"
+    t.date     "birth"
+    t.string   "district_no"
+    t.string   "phone"
+    t.string   "address"
+    t.string   "post"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -249,6 +292,18 @@ ActiveRecord::Schema.define(:version => 20111218132615) do
     t.boolean  "active"
     t.string   "create_by"
     t.string   "update_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "login_no"
+    t.string   "password"
+    t.integer  "status"
+    t.integer  "type"
+    t.string   "question"
+    t.string   "answer"
+    t.datetime "last_login_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

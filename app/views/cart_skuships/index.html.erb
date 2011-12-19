@@ -5,7 +5,7 @@
     <th>Sku</th>
     <th>Cart</th>
     <th>Quantity</th>
-    <th>Order</th>
+    <th>Price</th>
     <th></th>
     <th></th>
   </tr>
@@ -15,7 +15,7 @@
     <td><%= cart_skuship.sku.name %></td>
     <td><%= cart_skuship.cart_id %></td>
     <td><%= cart_skuship.quantity %></td>
-    <td><%= cart_skuship.order_id %></td>
+    <td><%= number_to_currency(cart_skuship.sku.cost_aft_tax) %></td>
     <td><%= link_to 'Show', cart_skuship %></td>
     <td><%= link_to 'Destroy', cart_skuship, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

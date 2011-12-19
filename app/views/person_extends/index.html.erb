@@ -1,0 +1,45 @@
+<h1>Listing person_extends</h1>
+
+<table>
+  <tr>
+    <th>Person no</th>
+    <th>Role no</th>
+    <th>Email</th>
+    <th>Name</th>
+    <th>Sex</th>
+    <th>Birth</th>
+    <th>District no</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Post</th>
+    <th>Created by</th>
+    <th>Updated by</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @person_extends.each do |person_extend| %>
+  <tr>
+    <td><%= person_extend.person_no %></td>
+    <td><%= person_extend.role_no %></td>
+    <td><%= person_extend.email %></td>
+    <td><%= person_extend.name %></td>
+    <td><%= person_extend.sex %></td>
+    <td><%= person_extend.birth %></td>
+    <td><%= person_extend.district_no %></td>
+    <td><%= person_extend.phone %></td>
+    <td><%= person_extend.address %></td>
+    <td><%= person_extend.post %></td>
+    <td><%= person_extend.created_by %></td>
+    <td><%= person_extend.updated_by %></td>
+    <td><%= link_to 'Show', person_extend %></td>
+    <td><%= link_to 'Edit', edit_person_extend_path(person_extend) %></td>
+    <td><%= link_to 'Destroy', person_extend, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Person extend', new_person_extend_path %>

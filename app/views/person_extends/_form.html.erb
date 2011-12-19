@@ -1,0 +1,65 @@
+<%= form_for(@person_extend) do |f| %>
+  <% if @person_extend.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@person_extend.errors.count, "error") %> prohibited this person_extend from being saved:</h2>
+
+      <ul>
+      <% @person_extend.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :person_no %><br />
+    <%= f.text_field :person_no %>
+  </div>
+  <div class="field">
+    <%= f.label :role_no %><br />
+    <%= f.text_field :role_no %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :sex %><br />
+    <%= f.text_field :sex %>
+  </div>
+  <div class="field">
+    <%= f.label :birth %><br />
+    <%= f.date_select :birth %>
+  </div>
+  <div class="field">
+    <%= f.label :district_no %><br />
+    <%= f.text_field :district_no %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :post %><br />
+    <%= f.text_field :post %>
+  </div>
+  <div class="field">
+    <%= f.label :created_by %><br />
+    <%= f.text_field :created_by %>
+  </div>
+  <div class="field">
+    <%= f.label :updated_by %><br />
+    <%= f.text_field :updated_by %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

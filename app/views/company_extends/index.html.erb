@@ -1,0 +1,63 @@
+<h1>Listing company_extends</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Company no</th>
+    <th>Role no</th>
+    <th>Industry type</th>
+    <th>Company type</th>
+    <th>District no</th>
+    <th>Company scale</th>
+    <th>Email</th>
+    <th>Company name</th>
+    <th>Contact dept</th>
+    <th>Contact post</th>
+    <th>Web address</th>
+    <th>Sex</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Phone</th>
+    <th>Fax</th>
+    <th>Mobile</th>
+    <th>Zip</th>
+    <th>Created by</th>
+    <th>Updated by</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @company_extends.each do |company_extend| %>
+  <tr>
+    <td><%= company_extend.user_id %></td>
+    <td><%= company_extend.company_no %></td>
+    <td><%= company_extend.role_no %></td>
+    <td><%= company_extend.industry_type_id %></td>
+    <td><%= company_extend.company_type_id %></td>
+    <td><%= company_extend.district_no %></td>
+    <td><%= company_extend.company_scale_id %></td>
+    <td><%= company_extend.email %></td>
+    <td><%= company_extend.company_name %></td>
+    <td><%= company_extend.contact_dept %></td>
+    <td><%= company_extend.contact_post %></td>
+    <td><%= company_extend.web_address %></td>
+    <td><%= company_extend.sex %></td>
+    <td><%= company_extend.name %></td>
+    <td><%= company_extend.address %></td>
+    <td><%= company_extend.phone %></td>
+    <td><%= company_extend.fax %></td>
+    <td><%= company_extend.mobile %></td>
+    <td><%= company_extend.zip %></td>
+    <td><%= company_extend.created_by %></td>
+    <td><%= company_extend.updated_by %></td>
+    <td><%= link_to 'Show', company_extend %></td>
+    <td><%= link_to 'Edit', edit_company_extend_path(company_extend) %></td>
+    <td><%= link_to 'Destroy', company_extend, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Company extend', new_company_extend_path %>

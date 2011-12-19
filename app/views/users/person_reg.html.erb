@@ -1,0 +1,40 @@
+<%= form_tag(person_enroll_users_path) do %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= label_tag t('activerecord.attributes.person_extend.name') %><br />
+    <%= text_field_tag :name %>
+  </div>
+  <div class="field">
+    <%= label_tag t('activerecord.attributes.user.login_no') %><br />
+    <%= text_field_tag :login_no %>
+  </div>
+  <div class="field">
+    <%= label_tag t('activerecord.attributes.user.password') %><br />
+    <%= text_field_tag :password %>
+  </div>
+  <div class="field">
+    <%= label_tag t('activerecord.attributes.user.password_confirmation') %><br />
+    <%= text_field_tag :password_confirmation %>
+  </div>
+  <div class="field">
+    <%= label_tag t('activerecord.attributes.person_extend.email') %><br />
+    <%= text_field_tag :email %>
+  </div>
+  <div class="field">
+    <%= label_tag t('activerecord.attributes.person_extend.email_confirmation') %><br />
+    <%= text_field_tag :email_confirmation %>
+  </div>
+  <div class="actions">
+    <%= submit_tag '注册' %>
+  </div>
+<% end %>
