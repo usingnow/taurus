@@ -21,7 +21,7 @@
 <div class="center-center">
   <div class="page_content">
     <div class ="basic_form">
-      <%=raw jqgrid(t('attributes.admin.admin_list'), "admins", "/admin/admins",
+      <%=raw jqgrid(t('attributes.admin.admin_list'), "admins", admin_admins_path,
         [
         { :field => "name", :label =>t('attributes.admin.name'), :sortable=>false, :width=>120},
         { :field => "login_no", :label =>t('attributes.admin.login_no'), :sortable=>false, :width=>"120"},

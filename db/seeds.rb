@@ -2,6 +2,48 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
+#品牌
+Brand.delete_all
+Brand.create(
+  :id=>"1",
+  :chinese_name=>"普乐士",
+  :english_name=>"",
+  :pinyin=>"puleshi",
+  :web_address=>"www.plus-cn.com",
+  :active=>"true",
+  :company_name=>"汕头普乐士仪器有限公司",
+  :company_introduction=>"plus",
+  :image_url=>"",
+  :create_by=>"",
+  :update_by=>""
+)
+Brand.create(
+  :id=>"2",
+  :chinese_name=>"万仕龙",
+  :english_name=>"",
+  :pinyin=>"",
+  :web_address=>"",
+  :active=>"true",
+  :company_name=>"亚龙纸制品（昆山）有限公司",
+  :company_introduction=>"APP",
+  :image_url=>"",
+  :create_by=>"",
+  :update_by=>""
+)
+Brand.create(
+  :id=>"3",
+  :chinese_name=>"壹美壹家",
+  :english_name=>"",
+  :pinyin=>"yimeiyijia",
+  :web_address=>"",
+  :image_url=>"",
+  :active=>"true",
+  :create_by=>"",
+  :update_by=>"",
+  :company_name=>"壹美壹家贸易有限公司",
+  :company_introduction=>""
+)
+
 #素材商品
 Product.delete_all
 Product.create(
@@ -9,7 +51,7 @@ Product.create(
   :name=>"壹美壹家纯棉浅绿色面巾",
   :cost_bef_tax=>"0.00",
   :cost_aft_tax=>"0.00",
-  :brand_id=>"30",
+  :brand_id=>"3",
   :product_category_id=>"033409001",
   :unit=> "条",
   :specification=> "无",
@@ -40,40 +82,10 @@ Product.create(
   :is_installation_required=> "0",
   :installation_cost_bef_tax=>"0",
   :insatllation_cost_aft_tax=>"",
-  :create_time=> "2010-11-23 0:02:00",
-  #:created_by=> "创建人"
-  :update_time=> "2010-11-23 0:02:00"
-  #:updated_by=> "更新人"
+  :created_by=> "",
+  :updated_by=> ""
 )
 
-#品牌
-Brand.delete_all
-Brand.create(
-  :id=>"1",
-  :chinese_name=>"普乐士",
-  :english_name=>"",
-  :pinyin=>"puleshi",
-  :web_address=>"www.plus-cn.com",
-  :active=>"true",
-  :company_name=>"汕头普乐士仪器有限公司",
-  :company_introduction=>"plus",
-  :image_url=>"",
-  :create_by=>"",
-  :update_by=>""
-)
-Brand.create(
-  :id=>"2",
-  :chinese_name=>"万仕龙",
-  :english_name=>"",
-  :pinyin=>"",
-  :web_address=>"",
-  :active=>"true",
-  :company_name=>"亚龙纸制品（昆山）有限公司",
-  :company_introduction=>"APP",
-  :image_url=>"",
-  :create_by=>"",
-  :update_by=>""
-)
 
 #媒体商品分类
 SkuCategory.delete_all

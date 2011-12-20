@@ -12,17 +12,38 @@
   <% end %>
   
   <div class="field">
-    <%= f.label :product_id %><br />
+    <%= f.label :product_id %><span class="red">*</span><br />
     <%= f.text_field :product_id %>
   </div>
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %><span class="red">*</span><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :brand_id %><br />
+    <%= f.label :brand_id %><span class="red">*</span><br />
     <%= f.text_field :brand_id %>
   </div>
+  <div class="field">
+    <%= f.label :product_category_id %><span class="red">*</span><br />
+    <%= f.text_field :product_category_id %>
+  </div>
+  <div class="field">
+    <%= f.label :unit %><span class="red">*</span><br />
+    <%= f.text_field :unit %>
+  </div>
+  <div class="field">
+    <%= f.label :specification %><span class="red">*</span><br />
+    <%= f.text_field :specification %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_days %><span class="red">*</span><br />
+    <%= f.text_field :delivery_days, :columns => 2 %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_descprition %><br />
+    <%= f.text_area :delivery_descprition, :rows => 6 %>
+  </div>
+
   <div class="field">
     <%= f.label :cost_bef_tax %><br />
     <%= f.text_field :cost_bef_tax %>
@@ -31,22 +52,9 @@
     <%= f.label :cost_aft_tax %><br />
     <%= f.text_field :cost_aft_tax %>
   </div>
-  <div class="field">
-    <%= f.label :product_category_id %><br />
-    <%= f.text_field :product_category_id %>
-  </div>
-  <div class="field">
-    <%= f.label :unit %><br />
-    <%= f.text_field :unit %>
-  </div>
-  <div class="field">
-    <%= f.label :specification %><br />
-    <%= f.text_field :specification %>
-  </div>
-  <div class="field">
-    <%= f.label :delivery_days %><br />
-    <%= f.text_field :delivery_days, :columns => 2 %>
-  </div>
+
+
+
   <div class="field">
     <%= f.label :model %><br />
     <%= f.text_field :model %>
@@ -55,10 +63,7 @@
     <%= f.label :size %><br />
     <%= f.text_field :size %>
   </div>
-  <div class="field">
-    <%= f.label :delivery_descprition %><br />
-    <%= f.text_area :delivery_descprition, :rows => 6 %>
-  </div>
+
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description, :rows => 6 %>
@@ -69,19 +74,31 @@
   </div>
   <div class="field">
     <%= f.label :can_on_behalf %><br />
-    <%= f.text_field :can_on_behalf %>
+    <%= f.radio_button :can_on_behalf, '1', :checked => true %>
+    <%= f.label "否" %>
+    <%= f.radio_button :can_on_behalf, '2' %>
+    <%= f.label "是" %>
   </div>
   <div class="field">
     <%= f.label :barcode %><br />
     <%= f.text_field :barcode %>
   </div>
   <div class="field">
-    <%= f.label :supplier_id %><br />
+    <%= f.label :supplier_id %><span class="red">*</span><br />
     <%= f.text_field :supplier_id %>
   </div>
   <div class="field">
     <%= f.label :manufacturer %><br />
-    <%= f.text_field :have_shelf_life %>
+    <%= f.text_field :manufacturer %>
+  </div>
+  <div class="field">
+    <%= f.label :have_shelf_life %><br />
+    <%= f.radio_button :have_shelf_life, '1', :checked => true %>
+    <%= f.label "无保质期" %>
+    <%= f.radio_button :have_shelf_life, '2' %>
+    <%= f.label "按生产日期" %>
+    <%= f.radio_button :have_shelf_life, '3' %>
+    <%= f.label "按失效日期" %>
   </div>
   <div class="field">
     <%= f.label :shelf_life %><br />
@@ -89,7 +106,10 @@
   </div>
   <div class="field">
     <%= f.label :have_wanrranty %><br />
-    <%= f.text_field :have_wanrranty %>
+    <%= f.radio_button :have_wanrranty, '1', :checked => true %>
+    <%= f.label "否" %>
+    <%= f.radio_button :have_wanrranty, '2' %>
+    <%= f.label "是" %>
   </div>
   <div class="field">
     <%= f.label :wanrranty %><br />
@@ -109,11 +129,17 @@
   </div>
   <div class="field">
     <%= f.label :is_green %><br />
-    <%= f.text_field :is_green %>
+    <%= f.radio_button :is_green, '1', :checked => true %>
+    <%= f.label "否" %>
+    <%= f.radio_button :is_green, '2' %>
+    <%= f.label "是" %>
   </div>
   <div class="field">
     <%= f.label :is_assembling_required %><br />
-    <%= f.text_field :is_assembling_required %>
+    <%= f.radio_button :is_assembling_required, '1', :checked => true %>
+    <%= f.label "否" %>
+    <%= f.radio_button :is_assembling_required, '2' %>
+    <%= f.label "是" %>
   </div>
   <div class="field">
     <%= f.label :assembling_fee_bef_tax %><br />
@@ -125,7 +151,10 @@
   </div>
   <div class="field">
     <%= f.label :is_maintanable %><br />
-    <%= f.text_field :is_maintanable %>
+    <%= f.radio_button :is_maintanable, '1', :checked => true %>
+    <%= f.label "否" %>
+    <%= f.radio_button :is_maintanable, '2' %>
+    <%= f.label "是" %>
   </div>
   <div class="field">
     <%= f.label :maintenance_cost_bef_tax %><br />
@@ -137,7 +166,10 @@
   </div>
   <div class="field">
     <%= f.label :is_installation_required %><br />
-    <%= f.text_field :is_installation_required %>
+    <%= f.radio_button :is_installation_required, '1', :checked => true %>
+    <%= f.label "否" %>
+    <%= f.radio_button :is_installation_required, '2' %>
+    <%= f.label "是" %>
   </div>
   <div class="field">
     <%= f.label :installation_cost_bef_tax %><br />
@@ -146,22 +178,6 @@
   <div class="field">
     <%= f.label :insatllation_cost_aft_tax %><br />
     <%= f.text_field :insatllation_cost_aft_tax %>
-  </div>
-  <div class="field">
-    <%= f.label :create_time %><br />
-    <%= f.text_field :create_time %>
-  </div>
-  <div class="field">
-    <%= f.label :created_by %><br />
-    <%= f.text_field :created_by %>
-  </div>
-  <div class="field">
-    <%= f.label :update_time %><br />
-    <%= f.text_field :update_time %>
-  </div>
-  <div class="field">
-    <%= f.label :updated_by %><br />
-    <%= f.text_field :updated_by %>
   </div>
 
   <div class="actions">

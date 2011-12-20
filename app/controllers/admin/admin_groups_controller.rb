@@ -2,11 +2,8 @@ class Admin::AdminGroupsController < ApplicationController
   # GET /admin_groups
   # GET /admin_groups.xml
   def index
-    @admin_groups = AdminGroup.column_order(params[:sidx],params[:sord])
-    @admin_groups,count=paginate(@admin_groups,params[:page],params[:rows])
-
-    if request.xhr?
-      render :json => @admin_groups.to_jqgrid_json([:group_no, :group_name, :group_desc],params[:page], params[:rows], count) and return
+    respond_to do |format|
+      format.html
     end
   end
 
@@ -78,6 +75,16 @@ class Admin::AdminGroupsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(admin_admin_groups_url) }
       format.xml  { head :ok }
+    end
+  end
+
+
+  def jqgrid
+    @admin_groups = AdminGroup.column_order(params[:sidx],params[:sord])
+    @admin_groups,count=paginate(@admin_groups,params[:page],params[:rows])
+
+    if request.xhr?
+      render :json => @admin_groups.to_jqgrid_json([:group_no, :group_name, :group_desc],params[:page], params[:rows], count) and return
     end
   end
 end

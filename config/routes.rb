@@ -1,10 +1,4 @@
 Ebiz::Application.routes.draw do
-
-
-
-
-  resources :order_details
-
   # The priority is based upon orders of creation:
   # first created -> highest priority.
 
@@ -21,6 +15,7 @@ Ebiz::Application.routes.draw do
   resources :cart_skuships
   resources :carts
   resources :orders
+  resources :order_details
   resources :users do
     collection do
       get  :registration
@@ -64,8 +59,16 @@ Ebiz::Application.routes.draw do
 
   # Sample resource route within a namespace:
    namespace :admin do
-     resources :admins
-     resources :admin_groups
+     resources :admins do
+       collection do
+         get  :jqgrid
+       end
+     end
+     resources :admin_groups do
+       collection do
+         get  :jqgrid
+       end
+     end
      resources :admins_admin_groups
      resources :products
      resources :suppliers

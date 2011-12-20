@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111220071204) do
+ActiveRecord::Schema.define(:version => 20111220085103) do
 
   create_table "admin_groups", :force => true do |t|
     t.string   "group_no"
@@ -237,9 +237,7 @@ ActiveRecord::Schema.define(:version => 20111220071204) do
     t.boolean  "is_installation_required"
     t.decimal  "installation_cost_bef_tax", :precision => 8, :scale => 2
     t.decimal  "insatllation_cost_aft_tax", :precision => 8, :scale => 2
-    t.time     "create_time"
     t.string   "created_by"
-    t.time     "update_time"
     t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"

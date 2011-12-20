@@ -1,11 +1,6 @@
 class Product < ActiveRecord::Base
-  scope :match_value, lambda {|column, value|
-  return {} if value.blank?
-    { :conditions => ["#{column} like ?", "%#{value}%"] }
-  }
-  #排序构建
-  scope :column_order, lambda { |key_part1,key_part2|
-    {:orders => key_part1.to_s+" "+ key_part2.to_s
-    }
-  }
+  belongs_to :brand
+
+  validates :product_id, :name, :brand_id, :product_category_id, :unit, :specification, :delivery_days, :supplier_id, :presence => true
+
 end

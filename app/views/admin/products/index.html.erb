@@ -5,11 +5,11 @@
     <th><%= t('attributes.product.product_id') %></th>
     <th><%= t('attributes.product.name') %></th>
     <th><%= t('attributes.product.unit') %></th>
-    <th><%= t('attributes.product.brand_id') %></th>
+    <th><%= t('attributes.product.brand_chinese_name') %></th>
     <th><%= t('attributes.product.specification') %></th>
     <th><%= t('attributes.product.model') %></th>
     <th><%= t('attributes.product.manufacturer') %></th>
-    <th><%= t('attributes.product.update_time') %></th>
+    <th><%= t('attributes.product.updated_at') %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -20,11 +20,11 @@
     <td><%= product.product_id %></td>
     <td><%= product.name %></td>
     <td><%= product.unit %></td>
-    <td><%= product.brand_id %></td>
+    <td><%= product.brand.chinese_name %></td>
     <td><%= product.specification %></td>
     <td><%= product.model %></td>
     <td><%= product.manufacturer %></td>
-    <td><%= product.update_time %></td>
+    <td><%= product.updated_at %></td>
     <td><%= link_to 'Show', admin_product_path(product) %></td>
     <td><%= link_to 'Edit', edit_admin_product_path(product) %></td>
     <td><%= link_to 'Destroy', admin_product_path(product), :confirm => 'Are you sure?', :method => :delete %></td>
@@ -34,4 +34,4 @@
 
 <br />
 
-<%= link_to 'New Product', new_admin_product_path %>
+<%= link_to '新建素材商品', new_admin_product_path %>
