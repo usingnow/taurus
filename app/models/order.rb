@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  has_many :cart_skuships, :dependent => :destroy
+  has_many :order_details, :dependent => :destroy
 
   def add_cart_skuships_from_cart(cart)
     cart.cart_skuships.each do |sku|

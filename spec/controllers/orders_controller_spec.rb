@@ -36,25 +36,25 @@ describe OrdersController do
   end
 
   describe "GET show" do
-    it "assigns the requested order as @order" do
+    it "assigns the requested orders as @orders" do
       order = Order.create! valid_attributes
       get :show, :id => order.id
-      assigns(:order).should eq(order)
+      assigns(:orders).should eq(order)
     end
   end
 
   describe "GET new" do
-    it "assigns a new order as @order" do
+    it "assigns a new orders as @orders" do
       get :new
-      assigns(:order).should be_a_new(Order)
+      assigns(:orders).should be_a_new(Order)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested order as @order" do
+    it "assigns the requested orders as @orders" do
       order = Order.create! valid_attributes
       get :edit, :id => order.id
-      assigns(:order).should eq(order)
+      assigns(:orders).should eq(order)
     end
   end
 
@@ -62,34 +62,34 @@ describe OrdersController do
     describe "with valid params" do
       it "creates a new Order" do
         expect {
-          post :create, :order => valid_attributes
+          post :create, :orders => valid_attributes
         }.to change(Order, :count).by(1)
       end
 
-      it "assigns a newly created order as @order" do
-        post :create, :order => valid_attributes
-        assigns(:order).should be_a(Order)
-        assigns(:order).should be_persisted
+      it "assigns a newly created orders as @orders" do
+        post :create, :orders => valid_attributes
+        assigns(:orders).should be_a(Order)
+        assigns(:orders).should be_persisted
       end
 
-      it "redirects to the created order" do
-        post :create, :order => valid_attributes
+      it "redirects to the created orders" do
+        post :create, :orders => valid_attributes
         response.should redirect_to(Order.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved order as @order" do
+      it "assigns a newly created but unsaved orders as @orders" do
         # Trigger the behavior that occurs when invalid params are submitted
         Order.any_instance.stub(:save).and_return(false)
-        post :create, :order => {}
-        assigns(:order).should be_a_new(Order)
+        post :create, :orders => {}
+        assigns(:orders).should be_a_new(Order)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Order.any_instance.stub(:save).and_return(false)
-        post :create, :order => {}
+        post :create, :orders => {}
         response.should render_template("new")
       end
     end
@@ -97,50 +97,50 @@ describe OrdersController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested order" do
+      it "updates the requested orders" do
         order = Order.create! valid_attributes
         # Assuming there are no other orders in the database, this
         # specifies that the Order created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Order.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => order.id, :order => {'these' => 'params'}
+        put :update, :id => order.id, :orders => {'these' => 'params'}
       end
 
-      it "assigns the requested order as @order" do
+      it "assigns the requested orders as @orders" do
         order = Order.create! valid_attributes
-        put :update, :id => order.id, :order => valid_attributes
-        assigns(:order).should eq(order)
+        put :update, :id => order.id, :orders => valid_attributes
+        assigns(:orders).should eq(order)
       end
 
-      it "redirects to the order" do
+      it "redirects to the orders" do
         order = Order.create! valid_attributes
-        put :update, :id => order.id, :order => valid_attributes
+        put :update, :id => order.id, :orders => valid_attributes
         response.should redirect_to(order)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the order as @order" do
+      it "assigns the orders as @orders" do
         order = Order.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Order.any_instance.stub(:save).and_return(false)
-        put :update, :id => order.id, :order => {}
-        assigns(:order).should eq(order)
+        put :update, :id => order.id, :orders => {}
+        assigns(:orders).should eq(order)
       end
 
       it "re-renders the 'edit' template" do
         order = Order.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Order.any_instance.stub(:save).and_return(false)
-        put :update, :id => order.id, :order => {}
+        put :update, :id => order.id, :orders => {}
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested order" do
+    it "destroys the requested orders" do
       order = Order.create! valid_attributes
       expect {
         delete :destroy, :id => order.id

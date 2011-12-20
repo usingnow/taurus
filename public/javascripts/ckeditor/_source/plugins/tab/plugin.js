@@ -164,7 +164,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 /**
  * Moves the UI focus to the element following this element in the tabindex
- * order.
+ * orders.
  * @example
  * var element = CKEDITOR.document.getById( 'example' );
  * element.focusNext();
@@ -252,7 +252,7 @@ CKEDITOR.dom.element.prototype.focusNext = function( ignoreChildren, indexToUse 
 };
 
 /**
- * Moves the UI focus to the element before this element in the tabindex order.
+ * Moves the UI focus to the element before this element in the tabindex orders.
  * @example
  * var element = CKEDITOR.document.getById( 'example' );
  * element.focusPrevious();

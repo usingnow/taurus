@@ -183,4 +183,14 @@ class UsersController < ApplicationController
 
     end
   end
+
+  #登出
+  def sign_out
+    session[:user] = nil
+
+    respond_to do |format|
+        format.html { redirect_to(home_url) }
+    end
+  end
+
 end

@@ -1,3 +1,4 @@
+#encoding:UTF-8
 class CartSkushipsController < ApplicationController
   layout "home"
   # GET /cart_skuships
@@ -46,13 +47,13 @@ class CartSkushipsController < ApplicationController
     @cart_skuship = @cart.add_sku(sku.id)
 
     respond_to do |format|
-      if @cart_skuship.save
-        format.html { redirect_to(@cart_skuship, :notice => 'Cart skuship was successfully created.') }
-        format.xml  { render :xml => @cart_skuship, :status => :created, :location => @cart_skuship }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @cart_skuship.errors, :status => :unprocessable_entity }
-      end
+        if @cart_skuship.save
+          format.html { redirect_to(cart_skuships_url) }
+          format.xml  { render :xml => @cart_skuship, :status => :created, :location => @cart_skuship }
+        else
+          format.html { render :action => "new" }
+          format.xml  { render :xml => @cart_skuship.errors, :status => :unprocessable_entity }
+        end
     end
   end
 

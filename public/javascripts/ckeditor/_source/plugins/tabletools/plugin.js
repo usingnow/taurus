@@ -557,7 +557,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 			if ( !targetCell || firstCell.$ == targetCell  )
 				return false;
 
-			// Sort in map order regardless of the DOM sequence.
+			// Sort in map orders regardless of the DOM sequence.
 			cells[ ( mergeDirection == 'up' || mergeDirection == 'left' ) ?
 			         'unshift' : 'push' ]( new CKEDITOR.dom.element( targetCell ) );
 		}

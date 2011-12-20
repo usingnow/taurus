@@ -1,3 +1,4 @@
+#encoding:UTF-8
 class Admin::OrdersController < ApplicationController
   # GET /orders
   # GET /orders.xml
@@ -40,7 +41,7 @@ class Admin::OrdersController < ApplicationController
   # POST /orders
   # POST /orders.xml
   def create
-    @order = Order.new(params[:order])
+    @order = Order.new(params[:orders])
     @order.add_cart_skuships_from_cart(current_cart)
 
     respond_to do |format|
@@ -62,7 +63,7 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
 
     respond_to do |format|
-      if @order.update_attributes(params[:order])
+      if @order.update_attributes(params[:orders])
         format.html { redirect_to(@order, :notice => 'Order was successfully updated.') }
         format.xml  { head :ok }
       else

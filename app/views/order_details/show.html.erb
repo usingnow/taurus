@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Order:</b>
+  <%= @order_detail.order_id %>
+</p>
+
+<p>
+  <b>Sku:</b>
+  <%= @order_detail.sku_id %>
+</p>
+
+<p>
+  <b>Unit price:</b>
+  <%= @order_detail.unit_price %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @order_detail.quantity %>
+</p>
+
+<p>
+  <b>Is need install:</b>
+  <%= @order_detail.is_need_install %>
+</p>
+
+<p>
+  <b>Install cost:</b>
+  <%= @order_detail.install_cost %>
+</p>
+
+<p>
+  <b>Is need assemble:</b>
+  <%= @order_detail.is_need_assemble %>
+</p>
+
+<p>
+  <b>Assemble cost:</b>
+  <%= @order_detail.assemble_cost %>
+</p>
+
+<p>
+  <b>Other cost:</b>
+  <%= @order_detail.other_cost %>
+</p>
+
+<p>
+  <b>Created admin:</b>
+  <%= @order_detail.created_admin_id %>
+</p>
+
+<p>
+  <b>Updated admin:</b>
+  <%= @order_detail.updated_admin_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_detail_path(@order_detail) %> |
+<%= link_to 'Back', order_details_path %>

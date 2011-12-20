@@ -110,7 +110,7 @@ CKEDITOR.DIALOG_RESIZE_BOTH = 3;
 			buttonsOrder = editor.config.dialog_buttonsOrder || 'OS',
 			dir = editor.lang.dir;
 
-			if ( ( buttonsOrder == 'OS' && CKEDITOR.env.mac ) ||    // The buttons in MacOS Apps are in reverse order (#4750)
+			if ( ( buttonsOrder == 'OS' && CKEDITOR.env.mac ) ||    // The buttons in MacOS Apps are in reverse orders (#4750)
 				( buttonsOrder == 'rtl' && dir == 'ltr' ) ||
 				( buttonsOrder == 'ltr' && dir == 'rtl' ) )
 					defaultDefinition.buttons.reverse();
@@ -151,7 +151,7 @@ CKEDITOR.DIALOG_RESIZE_BOTH = 3;
 			lastTab : null,
 			tabBarMode : false,
 
-			// Initialize the tab order array for input widgets.
+			// Initialize the tab orders array for input widgets.
 			focusList : [],
 			currentFocusIndex : 0,
 			hasFocus : false
@@ -316,13 +316,13 @@ CKEDITOR.DIALOG_RESIZE_BOTH = 3;
 					evt.data.preventDefault();
 				}, this );
 
-		// Sort focus list according to tab order definitions.
+		// Sort focus list according to tab orders definitions.
 		function setupFocus()
 		{
 			var focusList = me._.focusList;
 			focusList.sort( function( a, b )
 				{
-					// Mimics browser tab order logics;
+					// Mimics browser tab orders logics;
 					if ( a.tabIndex != b.tabIndex )
 						return b.tabIndex - a.tabIndex;
 					//  Sort is not stable in some browsers,
@@ -465,7 +465,7 @@ CKEDITOR.DIALOG_RESIZE_BOTH = 3;
 		this.on( 'show', function()
 			{
 				// Setup tabIndex on showing the dialog instead of on loading
-				// to allow dynamic tab order happen in dialog definition.
+				// to allow dynamic tab orders happen in dialog definition.
 				setupFocus();
 
 				if ( editor.config.dialog_startupFocusTab
@@ -485,7 +485,7 @@ CKEDITOR.DIALOG_RESIZE_BOTH = 3;
 						// Focus the field that the user specified.
 						initialFocus && initialFocus.focus();
 					}
-					// Focus the first field in layout order.
+					// Focus the first field in layout orders.
 					else
 						changeFocus( true );
 
@@ -3100,9 +3100,9 @@ CKEDITOR.plugins.add( 'dialog',
 /**
  * The guideline to follow when generating the dialog buttons. There are 3 possible options:
  * <ul>
- *     <li>'OS' - the buttons will be displayed in the default order of the user's OS;</li>
- *     <li>'ltr' - for Left-To-Right order;</li>
- *     <li>'rtl' - for Right-To-Left order.</li>
+ *     <li>'OS' - the buttons will be displayed in the default orders of the user's OS;</li>
+ *     <li>'ltr' - for Left-To-Right orders;</li>
+ *     <li>'rtl' - for Right-To-Left orders.</li>
  * </ul>
  * @name CKEDITOR.config.dialog_buttonsOrder
  * @type String

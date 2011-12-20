@@ -85,7 +85,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 		 * Binds callback to instanceReady event of all instances. If editor is already created, than
 		 * callback is fired right away.
 		 *
-		 * Mixed parameter order allowed.
+		 * Mixed parameter orders allowed.
 		 *
 		 * @param callback Function to be run on editor instance. Passed parameters: [ textarea ].
 		 * Callback is fiered in "this" scope being ckeditor instance and having source textarea as first param.

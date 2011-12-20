@@ -144,7 +144,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 								name = element.getName();
 
 							// Use this variable to add conditional stuff to the
-							// HTML (because we are doing it in reverse order... unshift).
+							// HTML (because we are doing it in reverse orders... unshift).
 							var extra = '';
 
 							// Some browsers don't cancel key events in the keydown but in the

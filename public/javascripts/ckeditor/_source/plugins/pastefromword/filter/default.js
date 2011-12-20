@@ -543,7 +543,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 								// Simply use decimal/disc for the rest forms of unrepresentable
 								// numerals, e.g. Chinese..., but as long as there a second part
-								// included, it has a bigger chance of being a order list ;)
+								// included, it has a bigger chance of being a orders list ;)
 								!listType && ( listType = bullet[ 2 ] ? 'ol' : 'ul' );
 							}
 

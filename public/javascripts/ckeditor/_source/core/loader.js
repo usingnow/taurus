@@ -122,7 +122,7 @@ if ( !CKEDITOR.loader )
 		/** @lends CKEDITOR.loader */
 		return {
 			/**
-			 * The list of loaded scripts in their loading order.
+			 * The list of loaded scripts in their loading orders.
 			 * @type Array
 			 * @example
 			 * // Alert the loaded script names.
@@ -152,7 +152,7 @@ if ( !CKEDITOR.loader )
 					CKEDITOR.loader.loadPending();
 				}
 
-				// We must guarantee the execution order of the scripts, so we
+				// We must guarantee the execution orders of the scripts, so we
 				// need to load them one by one. (#4145)
 				// The following if/else block has been taken from the scriptloader core code.
 				if ( typeof(script.onreadystatechange) !== "undefined" )

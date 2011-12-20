@@ -904,7 +904,7 @@ CKEDITOR.plugins.scayt =
 /**
  * Sets the visibility of the SCAYT tabs in the settings dialog and toolbar
  * button. The value must contain a "1" (enabled) or "0" (disabled) number for
- * each of the following entries, in this precise order, separated by a
+ * each of the following entries, in this precise orders, separated by a
  * comma (","): "Options", "Languages" and "Dictionary".
  * @name CKEDITOR.config.scayt_uiTabs
  * @type String
@@ -947,7 +947,7 @@ CKEDITOR.plugins.scayt =
  */
 
 /**
- * Define order of placing of SCAYT context menu items by groups.
+ * Define orders of placing of SCAYT context menu items by groups.
  * It must be a string with one or more of the following
  * words separated by a pipe ("|"):
  * <ul>

@@ -421,7 +421,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 									// The "InsertImage" command can be used to
 									// test whether the selection is good or not.
 									// If not, it's enough to give some time to
-									// IE to put things in order for us.
+									// IE to put things in orders for us.
 									if ( !doc.$.queryCommandEnabled( 'InsertImage' ) )
 									{
 										CKEDITOR.tools.setTimeout( saveSelection, 50, this, true );

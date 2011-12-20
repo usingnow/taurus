@@ -148,7 +148,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 		/**
 		 * The <a href="http://en.wikipedia.org/wiki/Tabbing_navigation">tabbing
-		 * navigation</a> order that has been calculated for this editor
+		 * navigation</a> orders that has been calculated for this editor
 		 * instance. This can be set by the {@link CKEDITOR.config.tabIndex}
 		 * setting or taken from the "tabindex" attribute of the
 		 * {@link #element} associated to the editor.

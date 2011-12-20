@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111219072242) do
+ActiveRecord::Schema.define(:version => 20111220071204) do
 
   create_table "admin_groups", :force => true do |t|
     t.string   "group_no"
@@ -120,11 +120,53 @@ ActiveRecord::Schema.define(:version => 20111219072242) do
     t.datetime "updated_at"
   end
 
+  create_table "order_details", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "sku_id"
+    t.decimal  "unit_price",       :precision => 10, :scale => 0
+    t.integer  "quantity"
+    t.integer  "is_need_install"
+    t.decimal  "install_cost",     :precision => 10, :scale => 0
+    t.integer  "is_need_assemble"
+    t.decimal  "assemble_cost",    :precision => 10, :scale => 0
+    t.decimal  "other_cost",       :precision => 10, :scale => 0
+    t.integer  "created_admin_id"
+    t.integer  "updated_admin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "orders", :force => true do |t|
+    t.string   "number"
+    t.string   "batch"
+    t.datetime "expect_date"
+    t.integer  "instance_id"
+    t.integer  "user_id"
+    t.integer  "take_admin_id"
+    t.integer  "created_admin_id"
+    t.integer  "updated_admin_id"
+    t.text     "customer_note"
+    t.text     "inner_note"
+    t.string   "reserve_reason"
+    t.decimal  "other_cost",          :precision => 8, :scale => 2
+    t.integer  "is_affect_details"
+    t.string   "district_no"
     t.string   "name"
     t.string   "address"
+    t.string   "zip"
+    t.string   "phone"
+    t.string   "mobile"
     t.string   "email"
-    t.string   "pay_type"
+    t.decimal  "carriage_cost",       :precision => 8, :scale => 2
+    t.integer  "invoice_type"
+    t.string   "account_bank"
+    t.string   "account_person_name"
+    t.string   "account_no"
+    t.string   "account_phone"
+    t.string   "added_value_tax_no"
+    t.string   "account_reg_add"
+    t.integer  "is_invoice_head"
+    t.string   "company_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

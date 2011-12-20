@@ -86,7 +86,7 @@ CKEDITOR.dom.elementPath.prototype =
 	 * @param {CKEDITOR.dom.elementPath} otherPath The elementPath object to be
 	 * compared with this one.
 	 * @returns {Boolean} "true" if the paths are equal, containing the same
-	 * number of elements and the same elements in the same order.
+	 * number of elements and the same elements in the same orders.
 	 */
 	compare : function( otherPath )
 	{

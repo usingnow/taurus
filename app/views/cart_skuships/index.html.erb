@@ -1,3 +1,4 @@
+<p id="notice"><%= notice %></p>
 <h1>Listing cart_skuships</h1>
 
 <table>
@@ -7,7 +8,6 @@
     <th>Quantity</th>
     <th>Price</th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @cart_skuships.each do |cart_skuship| %>
@@ -16,11 +16,11 @@
     <td><%= cart_skuship.cart_id %></td>
     <td><%= cart_skuship.quantity %></td>
     <td><%= number_to_currency(cart_skuship.sku.cost_aft_tax) %></td>
-    <td><%= link_to 'Show', cart_skuship %></td>
-    <td><%= link_to 'Destroy', cart_skuship, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', cart_skuship_path(cart_skuship), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-<%= button_to '下单', new_admin_order_path, :method=>:get %>
+<%= button_to '返回购物', home_path, :method=>:get %>
+<%= button_to '下单', new_order_path, :method=>:get %>

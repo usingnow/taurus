@@ -163,7 +163,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 					return element;
 				},
 
-				// The contents of table should be in correct order (#4809).
+				// The contents of table should be in correct orders (#4809).
 				table : function( element )
 				{
 					var children = element.children;

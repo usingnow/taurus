@@ -205,7 +205,7 @@ CKEDITOR.plugins.add( 'menu',
 			{
 				// Later we may sort the items, but Array#sort is not stable in
 				// some browsers, here we're forcing the original sequence with
-				// 'order' attribute if it hasn't been assigned. (#3868)
+				// 'orders' attribute if it hasn't been assigned. (#3868)
 				if ( !item.order )
 					item.order = this.items.length;
 
@@ -306,7 +306,7 @@ CKEDITOR.plugins.add( 'menu',
 						this );
 				}
 
-				// Put the items in the right order.
+				// Put the items in the right orders.
 				sortItems( items );
 
 				var chromeRoot = editor.container.getChild( 1 ),
@@ -384,7 +384,7 @@ CKEDITOR.plugins.add( 'menu',
 					className : 'cke_button_' + name
 				});
 
-			// Transform the group name into its order number.
+			// Transform the group name into its orders number.
 			this.group = editor._.menuGroups[ this.group ];
 
 			this.editor = editor;
@@ -490,7 +490,7 @@ CKEDITOR.plugins.add( 'menu',
 
 /**
  * A comma separated list of items group names to be displayed in the context
- * menu. The items order will reflect the order in this list if no priority
+ * menu. The items orders will reflect the orders in this list if no priority
  * has been definted in the groups.
  * @type String
  * @default 'clipboard,form,tablecell,tablecellproperties,tablerow,tablecolumn,table,anchor,link,image,flash,checkbox,radio,textfield,hiddenfield,imagebutton,button,select,textarea'

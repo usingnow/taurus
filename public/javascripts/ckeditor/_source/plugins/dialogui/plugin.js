@@ -1486,7 +1486,7 @@ CKEDITOR.plugins.add( 'dialogui' );
 					{
 						// If this method is called several times (I'm not sure about how this can happen but the default
 						// onChange processor includes this protection)
-						// In order to reapply to the new element, the property is deleted at the beggining of the registerEvents method
+						// In orders to reapply to the new element, the property is deleted at the beggining of the registerEvents method
 						if ( !this._.domOnChangeRegistered )
 						{
 							// By listening for the formLoaded event, this handler will get reapplied when a new

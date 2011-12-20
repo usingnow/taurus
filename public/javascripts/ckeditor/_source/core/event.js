@@ -92,7 +92,7 @@ if ( !CKEDITOR.event )
 			 *		listener.
 			 * @param {Number} [priority] The listener priority. Lower priority
 			 *		listeners are called first. Listeners with the same priority
-			 *		value are called in registration order. Defaults to 10.
+			 *		value are called in registration orders. Defaults to 10.
 			 * @example
 			 * someObject.on( 'someEvent', function()
 			 *     {

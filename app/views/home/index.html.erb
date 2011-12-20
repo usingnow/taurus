@@ -1,12 +1,16 @@
+<p id="notice"><%= notice %></p>
 <% @skus.each do |sku| %>
   <div style="height: 50px">
     <%= sku.name %>
     <%= button_to '添加购物车', cart_skuships_path(:sku_id=>sku)%>
   </div>
 <% end %>
-
-<%= session[:user].login_no %>
-
-
-<%= button_to '注册', registration_users_path, :method => :get  %>
+<% if session[:user] != nil %>
+登录帐号：<%= session[:user].login_no %>
+<%= button_to '退出', sign_out_users_path, :method => :get %>
+<% else %>
 <%= button_to '登录', login_users_path, :method => :get %>
+<%= button_to '注册', registration_users_path, :method => :get  %>
+<% end %>
+
+

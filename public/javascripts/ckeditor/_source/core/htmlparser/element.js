@@ -118,7 +118,7 @@ CKEDITOR.htmlParser.element = function( name, attributes )
 			var isChildrenFiltered;
 
 			/**
-			 * Providing an option for bottom-up filtering order ( element
+			 * Providing an option for bottom-up filtering orders ( element
 			 * children to be pre-filtered before the element itself ).
 			 */
 			element.filterChildren = function()

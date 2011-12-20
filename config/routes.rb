@@ -1,11 +1,11 @@
 Ebiz::Application.routes.draw do
-  resources :company_extends
-
-  resources :person_extends
 
 
 
-  # The priority is based upon order of creation:
+
+  resources :order_details
+
+  # The priority is based upon orders of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
@@ -20,17 +20,21 @@ Ebiz::Application.routes.draw do
   resources :home
   resources :cart_skuships
   resources :carts
+  resources :orders
   resources :users do
     collection do
       get  :registration
       get  :person_reg
       get  :company_reg
       get  :login
+      get  :sign_out
       post :person_enroll
       post :company_enroll
       post :sign_in
     end
   end
+  resources :company_extends
+  resources :person_extends
 
   # Sample resource route with options:
   #   resources :products do
@@ -70,7 +74,7 @@ Ebiz::Application.routes.draw do
      resources :sku_categories
      resources :skus do
        collection do
-          get  :add
+         get  :add
        end
      end
      resources :sku_productships

@@ -1,0 +1,43 @@
+<h1>Listing order_details</h1>
+
+<table>
+  <tr>
+    <th>Order</th>
+    <th>Sku</th>
+    <th>Unit price</th>
+    <th>Quantity</th>
+    <th>Is need install</th>
+    <th>Install cost</th>
+    <th>Is need assemble</th>
+    <th>Assemble cost</th>
+    <th>Other cost</th>
+    <th>Created admin</th>
+    <th>Updated admin</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @order_details.each do |order_detail| %>
+  <tr>
+    <td><%= order_detail.order_id %></td>
+    <td><%= order_detail.sku_id %></td>
+    <td><%= order_detail.unit_price %></td>
+    <td><%= order_detail.quantity %></td>
+    <td><%= order_detail.is_need_install %></td>
+    <td><%= order_detail.install_cost %></td>
+    <td><%= order_detail.is_need_assemble %></td>
+    <td><%= order_detail.assemble_cost %></td>
+    <td><%= order_detail.other_cost %></td>
+    <td><%= order_detail.created_admin_id %></td>
+    <td><%= order_detail.updated_admin_id %></td>
+    <td><%= link_to 'Show', order_detail %></td>
+    <td><%= link_to 'Edit', edit_order_detail_path(order_detail) %></td>
+    <td><%= link_to 'Destroy', order_detail, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Order detail', new_order_detail_path %>

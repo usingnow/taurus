@@ -20,7 +20,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 /**
  * A list of plugins that are required by this plugin. Note that this property
- * doesn't guarantee the loading order of the plugins.
+ * doesn't guarantee the loading orders of the plugins.
  * @name CKEDITOR.pluginDefinition.prototype.requires
  * @type Array
  * @example

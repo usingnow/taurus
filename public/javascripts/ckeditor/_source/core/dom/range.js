@@ -717,7 +717,7 @@ CKEDITOR.dom.range = function( document )
 						startNode = startNode.lastChild;
 					startNode = new CKEDITOR.dom.node( startNode );
 
-					// Normally we should take the next node in DFS order. But it
+					// Normally we should take the next node in DFS orders. But it
 					// is also possible that we've already reached the end of
 					// document.
 					startNode = startNode.getNextSourceNode() || startNode;

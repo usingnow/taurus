@@ -2773,7 +2773,7 @@ $.fn.layout = function (opts) {
 		,	shrunkW	= (sC.innerWidth < oldW)
 		,	o, s, dir
 		;
-		// NOTE special order for sizing: S-N-E-W
+		// NOTE special orders for sizing: S-N-E-W
 		$.each(["south","north","east","west"], function (i, pane) {
 			if (!$Ps[pane]) return; // no pane - SKIP
 			s	= state[pane];

@@ -65,7 +65,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 					child = listItem.getChild( j );
 					if ( child.type == CKEDITOR.NODE_ELEMENT && listNodeNames[ child.getName() ] )
 						// Note the recursion here, it pushes inner list items with
-						// +1 indentation in the correct order.
+						// +1 indentation in the correct orders.
 						CKEDITOR.plugins.list.listToArray( child, database, baseArray, baseIndentLevel + 1, itemObj.grandparent );
 					else
 						itemObj.contents.push( child );
@@ -608,7 +608,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 						 sibling.getName() == listCommand.type )
 					{
 						sibling.remove();
-						// Move children order by merge direction.(#3820)
+						// Move children orders by merge direction.(#3820)
 						sibling.moveChildren( listNode, rtl );
 					}
 				} )();

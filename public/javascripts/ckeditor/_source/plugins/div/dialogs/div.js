@@ -235,7 +235,7 @@
 		}
 		/**
 		 * Divide a set of nodes to different groups by their path's blocklimit element.
-		 * Note: the specified nodes should be in source order naturally, which mean they are supposed to producea by following class:
+		 * Note: the specified nodes should be in source orders naturally, which mean they are supposed to producea by following class:
 		 *  * CKEDITOR.dom.range.Iterator
 		 *  * CKEDITOR.dom.domWalker
 		 *  @return {Array []} the grouped nodes

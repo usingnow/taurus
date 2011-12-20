@@ -11,7 +11,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 	 * @constructor
 	 * @param {CKEDITOR.dom.range|Array} [ranges] The ranges contained on this list.
 	 *		Note that, if an array of ranges is specified, the range sequence
-	 *		should match its DOM order. This class will not help to sort them.
+	 *		should match its DOM orders. This class will not help to sort them.
 	 */
 	CKEDITOR.dom.rangeList = function( ranges )
 	{
