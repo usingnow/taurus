@@ -294,16 +294,18 @@ zh-CN:
       active: "状态"
       create_by: "创建者"
       update_by: "更新者"
+      updated_at: "更新时间"
 
     brand:
       chinese_name: "中文名称"
       english_name: "英文名称"
       pinyin: "拼音"
       web_address: "网址"
-      image_url: "图片"
+      image: "图片"
       active: "状态"
       create_by: "创建者"
       update_by: "更新者"
+      updated_at: "更新时间"
       company_name: "公司名称"
       company_introduction: "公司简介"
 
@@ -314,6 +316,7 @@ zh-CN:
       description: "描述"
       create_by: "创建者"
       update_by: "更新者"
+      updated_at: "更新时间"
 
     sku_category:
       root_id: "根ID"

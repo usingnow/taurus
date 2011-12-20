@@ -40,17 +40,7 @@ class Admin::BrandsController < ApplicationController
   # POST /brands
   # POST /brands.xml
   def create
-    brand = Brand.new(params[:brand])
-
-    img = params[:image_url]
-    content_size = img.size
-    file_data = img.read
-    @file_type = img.content_type
-    @file_name = img.original_filename
-    File.open(RAILS_ROOT+"/public/uploads/"+@file_name,"wb"){ |f| f.write(file_data) }
-    brand.image_url = "/uploads/"+@file_name
-
-    @brand = brand
+    @brand = Brand.new(params[:brand])
 
     respond_to do |format|
       if @brand.save
@@ -67,15 +57,6 @@ class Admin::BrandsController < ApplicationController
   # PUT /brands/1.xml
   def update
     @brand = Brand.find(params[:id])
-
-    img = params[:image_url]
-    content_size = img.size
-    file_data = img.read
-    @file_type = img.content_type
-    @file_name = img.original_filename
-    File.open(RAILS_ROOT+"/public/uploads/"+@file_name,"wb"){ |f| f.write(file_data) }
-
-    @brand.image_url = "/uploads/"+@file_name
 
     respond_to do |format|
       if @brand.update_attributes(params[:brand])

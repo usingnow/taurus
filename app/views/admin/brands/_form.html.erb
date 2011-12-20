@@ -1,7 +1,7 @@
 <%= form_for([:admin,@brand],:html => {:multipart=>true})  do |f| %>
   <% if @brand.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@brand.errors.count, "error") %> prohibited this brand from being saved:</h2>
+      <h2><%= t('activerecord.errors.template.header', :count => @brand.errors.size, :model => t('models.brand'))  %></h2>
 
       <ul>
       <% @brand.errors.full_messages.each do |msg| %>
@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :chinese_name %><br />
+    <%= f.label :chinese_name %><span class="red">*</span><br />
     <%= f.text_field :chinese_name %>
   </div>
   <div class="field">
@@ -28,12 +28,16 @@
     <%= f.text_field :web_address %>
   </div>
   <div class="field">
+    <%= f.label :company_name %><span class="red">*</span><br />
+    <%= f.text_field :company_name %>
+  </div>
+  <div class="field">
     <%= f.label :company_introduction %><br />
     <%= f.text_area :company_introduction %>
   </div>
   <div class="field">
-    <%= f.label :image_url %><br />
-    <%= file_field_tag :image_url %>
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
   </div>
   <div class="field">
     <%= f.label :active %><br />

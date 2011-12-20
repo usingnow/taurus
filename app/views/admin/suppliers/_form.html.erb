@@ -1,7 +1,7 @@
 <%= form_for([:admin,@supplier]) do |f| %>
   <% if @supplier.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@supplier.errors.count, "error") %> prohibited this supplier from being saved:</h2>
+      <h2><%=I18n.t('activerecord.errors.template.header', :count => @supplier.errors.size, :model => I18n.t('models.supplier'))%></h2>
 
       <ul>
       <% @supplier.errors.full_messages.each do |msg| %>
@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %><span class="red">*</span><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :input_person %><br />
+    <%= f.label :input_person %><span class="red">*</span><br />
     <%= f.text_field :input_person %>
   </div>
   <div class="field">
@@ -41,15 +41,10 @@
   </div>
   <div class="field">
     <%= f.label :active %><br />
-    <%= f.check_box :active %>
-  </div>
-  <div class="field">
-    <%= f.label :create_by %><br />
-    <%= f.text_field :create_by %>
-  </div>
-  <div class="field">
-    <%= f.label :update_by %><br />
-    <%= f.text_field :update_by %>
+    <%= f.radio_button :active, '0', :checked => true %>
+    <%= f.label '激活' %>
+    <%= f.radio_button :active, '1' %>
+    <%= f.label '关闭' %>
   </div>
   <div class="actions">
     <%= f.submit %>

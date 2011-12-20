@@ -1,15 +1,11 @@
-<h1>Listing brands</h1>
+<h1>品牌列表</h1>
 
 <table>
   <tr>
-    <th>Chinese name</th>
-    <th>English name</th>
-    <th>Pinyin</th>
-    <th>Web address</th>
-    <th>Company introduction</th>
-    <th>Image url</th>
-    <th>Active</th>
-    <th>Update by</th>
+    <th><%= t('attributes.brand.chinese_name') %></th>
+    <th><%= t('attributes.brand.english_name') %></th>
+    <th><%= t('attributes.brand.company_name') %></th>
+    <th><%= t('attributes.brand.updated_at') %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,12 +15,8 @@
   <tr>
     <td><%= brand.chinese_name %></td>
     <td><%= brand.english_name %></td>
-    <td><%= brand.pinyin %></td>
-    <td><%= brand.web_address %></td>
-    <td><%= brand.company_introduction %></td>
-    <td><%= brand.image_url %></td>
-    <td><%= brand.active %></td>
-    <td><%= brand.update_by %></td>
+    <td><%= brand.company_name %></td>
+    <td><%= brand.updated_at %></td>
     <td><%= link_to 'Show', admin_brand_path(brand) %></td>
     <td><%= link_to 'Edit', edit_admin_brand_path(brand) %></td>
     <td><%= link_to 'Destroy', admin_brand_path(brand), :confirm => 'Are you sure?', :method => :delete %></td>
@@ -34,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New Brand', new_admin_brand_path %>
+<%= link_to '新建品牌', new_admin_brand_path %>

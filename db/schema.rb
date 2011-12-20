@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111220085103) do
+ActiveRecord::Schema.define(:version => 20111220154343) do
 
   create_table "admin_groups", :force => true do |t|
     t.string   "group_no"
@@ -52,14 +52,17 @@ ActiveRecord::Schema.define(:version => 20111220085103) do
     t.string   "english_name"
     t.string   "pinyin"
     t.string   "web_address"
-    t.string   "image_url"
-    t.boolean  "active"
+    t.integer  "active"
     t.string   "create_by"
     t.string   "update_by"
     t.string   "company_name"
     t.text     "company_introduction"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "cart_skuships", :force => true do |t|
@@ -330,7 +333,7 @@ ActiveRecord::Schema.define(:version => 20111220085103) do
     t.string   "terms_of_exchange"
     t.string   "delivery"
     t.string   "level"
-    t.boolean  "active"
+    t.integer  "active"
     t.string   "create_by"
     t.string   "update_by"
     t.datetime "created_at"

@@ -1,13 +1,11 @@
-<h1>Listing product_categories</h1>
+<h1>素材商品分类列表</h1>
 
 <table>
   <tr>
-    <th>Parent</th>
-    <th>Number</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Create by</th>
-    <th>Update by</th>
+    <th><%= t('attributes.product_category.number') %></th>
+    <th><%= t('attributes.product_category.name') %></th>
+    <th><%= t('attributes.product_category.description') %></th>
+    <th><%= t('attributes.product_category.updated_at') %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,12 +13,10 @@
 
 <% @product_categories.each do |product_category| %>
   <tr>
-    <td><%= product_category.parent_id %></td>
     <td><%= product_category.number %></td>
     <td><%= product_category.name %></td>
     <td><%= product_category.description %></td>
-    <td><%= product_category.create_by %></td>
-    <td><%= product_category.update_by %></td>
+    <td><%= product_category.updated_at %></td>
     <td><%= link_to 'Show', admin_product_category_path(product_category) %></td>
     <td><%= link_to 'Edit', edit_admin_product_category_path(product_category) %></td>
     <td><%= link_to 'Destroy', admin_product_category_path(product_category), :confirm => 'Are you sure?', :method => :delete %></td>
@@ -30,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New Product category', new_admin_product_category_path %>
+<%= link_to '新建素材商品分类', new_admin_product_category_path %>
