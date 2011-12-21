@@ -1,7 +1,7 @@
 <%= form_for([:admin,@sku_image],:html => {:multipart=>true}) do |f| %>
   <% if @sku_image.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@sku_image.errors.count, "error") %> prohibited this sku_image from being saved:</h2>
+      <h2><%= t('activerecord.errors.template.header', :count => @sku_image.errors.size, :model => t('models.sku_image')) %></h2>
 
       <ul>
       <% @sku_image.errors.full_messages.each do |msg| %>
@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %><span class="red">*</span><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :image_url %><br />
-    <%= file_field_tag :image_url %>
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
   </div>
   <div class="field">
     <%= f.label :image_description %><br />

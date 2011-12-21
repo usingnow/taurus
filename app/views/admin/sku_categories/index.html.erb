@@ -1,17 +1,13 @@
-<h1>Listing sku_categories</h1>
+<h1>媒体商品分类列表</h1>
 
 <table>
   <tr>
-    <th>Root</th>
-    <th>Parent id</th>
-    <th>Number</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Is show in navigation</th>
-    <th>Is show in column</th>
-    <th>Active</th>
-    <th>Create by</th>
-    <th>Update by</th>
+    <th><%= t('attributes.sku_category.number') %></th>
+    <th><%= t('attributes.sku_category.name') %></th>
+    <th><%= t('attributes.sku_category.is_show_in_navigation') %></th>
+    <th><%= t('attributes.sku_category.is_show_in_column') %></th>
+    <th><%= t('attributes.sku_category.description') %></th>
+    <th><%= t('attributes.sku_category.updated_at') %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,16 +15,12 @@
 
 <% @sku_categories.each do |sku_category| %>
   <tr>
-    <td><%= sku_category.root_id %></td>
-    <td><%= sku_category.parent_id %></td>
     <td><%= sku_category.number %></td>
     <td><%= sku_category.name %></td>
-    <td><%= sku_category.description %></td>
     <td><%= sku_category.is_show_in_navigation %></td>
     <td><%= sku_category.is_show_in_column %></td>
-    <td><%= sku_category.active %></td>
-    <td><%= sku_category.create_by %></td>
-    <td><%= sku_category.update_by %></td>
+    <td><%= sku_category.description %></td>
+    <td><%= sku_category.updated_at %></td>
     <td><%= link_to 'Show', admin_sku_category_path(sku_category) %></td>
     <td><%= link_to 'Edit', edit_admin_sku_category_path(sku_category) %></td>
     <td><%= link_to 'Destroy', admin_sku_category_path(sku_category), :confirm => 'Are you sure?', :method => :delete %></td>
@@ -38,4 +30,4 @@
 
 <br />
 
-<%= link_to 'New Sku category', new_admin_sku_category_path %>
+<%= link_to '新建媒体商品分类', new_admin_sku_category_path %>

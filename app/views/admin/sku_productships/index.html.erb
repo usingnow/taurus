@@ -1,20 +1,22 @@
-<h1>Listing sku_productships</h1>
+<h1>素材商品列表</h1>
 
 <table>
   <tr>
-    <th>Product</th>
-    <th>Package name</th>
-    <th>Package num</th>
-    <th>Sales bef tax</th>
-    <th>Sales aft tax</th>
-    <th>Is main</th>
+    <th><%= t('attributes.product.product_id') %></th>
+    <th><%= t('attributes.product.name') %></th>
+    <th><%= t('attributes.sku_productship.package_num') %></th>
+    <th><%= t('attributes.sku_productship.package_name') %></th>
+    <th><%= t('attributes.sku_productship.sales_bef_tax') %></th>
+    <th><%= t('attributes.sku_productship.sales_aft_tax') %></th>
+    <th><%= t('attributes.sku_productship.is_main') %></th>
   </tr>
 
-<% session[:sku_productships].each do |sku_productship| %>
+<% @sku_productships.each do |sku_productship| %>
   <tr>
-    <td><%= sku_productship.product_id %></td>
-    <td><%= sku_productship.package_name %></td>
+    <td><%= sku_productship.product.product_id %></td>
+    <td><%= sku_productship.product.name %></td>
     <td><%= sku_productship.package_num %></td>
+    <td><%= sku_productship.package_name %></td>
     <td><%= sku_productship.sales_bef_tax %></td>
     <td><%= sku_productship.sales_aft_tax %></td>
     <td><%= sku_productship.is_main %></td>
@@ -23,5 +25,5 @@
 </table>
 
 <br />
-<%= link_to 'New Sku productship', new_admin_sku_productship_path %> |
+<%= link_to '添加素材商品', new_admin_sku_productship_path %> |
 <%= link_to '下一步', admin_sku_images_path %>

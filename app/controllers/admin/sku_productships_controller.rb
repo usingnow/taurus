@@ -2,7 +2,13 @@ class Admin::SkuProductshipsController < ApplicationController
   # GET /sku_productships
   # GET /sku_productships.xml
   def index
-    @sku_productships = SkuProductship.all
+    if params[:sku_id] != nil
+      sku_id = params[:sku_id]
+    else
+      sku_id = session[:sku_id]
+    end
+
+    @sku_productships = SkuProductship.find_all_by_sku_id(sku_id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,12 +47,15 @@ class Admin::SkuProductshipsController < ApplicationController
   # POST /sku_productships.xml
   def create
     @sku_productship = SkuProductship.new(params[:sku_productship])
-
-    @sku_productships = session[:sku_productships] ||= Array.new
-    @sku_productships<<@sku_productship
+    @sku_productship.sku_id = session[:sku_id]
 
     respond_to do |format|
-        format.html { redirect_to(admin_sku_productships_path) }
+      if @sku_productship.save
+        format.html { redirect_to(admin_sku_productships_url) }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @sku_productship.errors, :status => :unprocessable_entity }
+      end
     end
   end
 

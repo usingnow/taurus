@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111220154343) do
+ActiveRecord::Schema.define(:version => 20111221054621) do
 
   create_table "admin_groups", :force => true do |t|
     t.string   "group_no"
@@ -264,7 +264,6 @@ ActiveRecord::Schema.define(:version => 20111220154343) do
   create_table "sku_images", :force => true do |t|
     t.integer  "sku_id"
     t.string   "name"
-    t.string   "image_url"
     t.text     "image_description"
     t.integer  "sort"
     t.boolean  "is_main"
@@ -272,6 +271,10 @@ ActiveRecord::Schema.define(:version => 20111220154343) do
     t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "sku_productships", :force => true do |t|
@@ -296,7 +299,7 @@ ActiveRecord::Schema.define(:version => 20111220154343) do
     t.string   "unit"
     t.string   "specification"
     t.string   "delivery_day"
-    t.integer  "type"
+    t.integer  "sku_type"
     t.string   "model"
     t.string   "size"
     t.text     "delivery_description"

@@ -1,14 +1,15 @@
-<h1>Listing skus</h1>
+<h1>媒体商品列表</h1>
 
 <table>
   <tr>
-    <th>Number</th>
-    <th>Name</th>
-    <th>Sku category</th>
-    <th>Unit</th>
-    <th>Type</th>
-    <th>Sales status</th>
-    <th>Updated at</th>
+    <th><%= t('attributes.sku.number') %></th>
+    <th><%= t('attributes.sku.name') %></th>
+    <th><%= t('attributes.sku.sku_category_id') %></th>
+    <th><%= t('attributes.sku.unit') %></th>
+    <th><%= t('attributes.sku.sku_type') %></th>
+    <th><%= t('attributes.sku.status') %></th>
+    <th><%= t('attributes.sku.sales_status') %></th>
+    <th><%= t('attributes.sku.updated_at') %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -21,10 +22,12 @@
     <td><%= sku.name %></td>
     <td><%= sku.sku_category_id %></td>
     <td><%= sku.unit %></td>
-    <td><%= sku.type %></td>
+    <td><%= sku.sku_type %></td>
+    <td><%= sku.status %></td>
     <td><%= sku.sales_status %></td>
     <td><%= sku.updated_at %></td>
-    <td><%= link_to '商品组成', admin_sku_productships_path %></td>
+    <td><%= link_to '商品组成', 'sku_productships?sku_id='+sku.id.to_s %></td>
+    <td><%= link_to '相册', 'sku_images?sku_id='+sku.id.to_s %></td>
     <td><%= link_to 'Show', admin_sku_path(sku) %></td>
     <td><%= link_to 'Edit', edit_admin_sku_path(sku) %></td>
     <td><%= link_to 'Destroy', admin_sku_path(sku), :confirm => 'Are you sure?', :method => :delete %></td>
@@ -34,4 +37,4 @@
 
 <br />
 
-<%= link_to 'New Sku', new_admin_sku_path %>
+<%= link_to '新建素材商品', new_admin_sku_path %>

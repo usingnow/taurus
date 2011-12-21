@@ -1,7 +1,7 @@
 <%= form_for([:admin,@sku_productship]) do |f| %>
   <% if @sku_productship.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@sku_productship.errors.count, "error") %> prohibited this sku_productship from being saved:</h2>
+      <h2><%= t('activerecord.errors.template.header', :count => @sku_productship.errors.size, :model => t('models.sku_productship')) %></h2>
 
       <ul>
       <% @sku_productship.errors.full_messages.each do |msg| %>
@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :product_id %><br />
+    <%= f.label :product_id %><span class="red">*</span><br />
     <%= f.text_field :product_id %>
   </div>
   <div class="field">

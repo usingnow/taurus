@@ -2,8 +2,13 @@ class Admin::SkuImagesController < ApplicationController
   # GET /sku_images
   # GET /sku_images.xml
   def index
-    @sku_images = session[:sku_images] ||= Array.new
-    session[:sku_images] = @sku_images
+    if params[:sku_id] != nil
+      sku_id = params[:sku_id]
+    else
+      sku_id = session[:sku_id]
+    end
+
+    @sku_images = SkuImage.find_all_by_sku_id(sku_id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,25 +45,16 @@ class Admin::SkuImagesController < ApplicationController
   # POST /sku_images
   # POST /sku_images.xml
   def create
-    sku_image = SkuImage.new(params[:sku_image])
-
-    img = params[:image_url]
-    content_size = img.size
-    file_data = img.read
-    @file_type = img.content_type
-    @file_name = img.original_filename
-    File.open(RAILS_ROOT+"/public/uploads/images/"+@file_name,"wb"){ |f| f.write(file_data) }
-    sku_image.image_url = "/uploads/images/"+@file_name
-
-    @sku_image = sku_image
-
-
-
-    @sku_images = session[:sku_images] ||= Array.new
-    @sku_images<<@sku_image
+    @sku_image = SkuImage.new(params[:sku_image])
+    @sku_image.sku_id = session[:sku_id]
 
     respond_to do |format|
+      if @sku_image.save
         format.html { redirect_to(admin_sku_images_path) }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @sku_image.errors, :status => :unprocessable_entity }
+      end
     end
   end
 

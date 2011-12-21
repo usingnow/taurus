@@ -42,13 +42,14 @@ class Admin::SkusController < ApplicationController
   def create
     @sku = Sku.new(params[:sku])
 
-    @sku_productships = Array.new
-    session[:sku_productships] = @sku_productships
-    session[:sku_images] = nil
-    session[:sku] = @sku
-
     respond_to do |format|
-      format.html { redirect_to(admin_sku_productships_url) }
+      if @sku.save
+        session[:sku_id] = @sku.id
+        format.html { redirect_to(admin_sku_productships_url) }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @sku.errors, :status => :unprocessable_entity }
+      end
     end
   end
 

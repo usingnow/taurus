@@ -204,6 +204,8 @@ zh-CN:
     sku: "媒体商品"
     person_extend: "单位会员扩展信息"
     user: "会员"
+    sku_productship: "媒体商品组成"
+    sku_image: "媒体商品相册"
 
 
   attributes: &attributes
@@ -329,6 +331,7 @@ zh-CN:
       description: "描述"
       create_by: "创建者"
       update_by: "更新者"
+      updated_at: "更新时间"
 
     sku:
       number: "编号"
@@ -337,7 +340,7 @@ zh-CN:
       sku_category_id: "分类ID"
       unit: "单位"
       specification: "规格"
-      type: "类型"
+      sku_type: "类型区分"
       model: "型号"
       size: "尺寸"
       color: "颜色"
@@ -350,7 +353,7 @@ zh-CN:
       total_sale: "累计销售"
       can_return: "可否退换"
       sales_status: "上架/下架"
-      status: "确认状态"
+      status: "商品状态"
       can_on_be_half: "代购品区分"
       delivery_day: "交货天数"
       delivery_description: "交货描述"
@@ -363,6 +366,22 @@ zh-CN:
       insatllation_cost_aft_tax: "税后安装费"
       create_by: "创建者"
       update_by: "更新者"
+      updated_at: "更新时间"
+
+    sku_productship:
+      product_id: "素材商品ID"
+      package_num: "包装数量"
+      package_name: "包装名称"
+      sales_bef_tax: "销售价格(税前)"
+      sales_aft_tax: "销售价格(税后)"
+      is_main: "是否主商品"
+
+    sku_image:
+      name: "图片名称"
+      image_description: "图片描述"
+      is_main: "是否主图片"
+      sort: "显示顺序"
+      image: "图片"
 
     person_extend:
       name: "真实姓名"
