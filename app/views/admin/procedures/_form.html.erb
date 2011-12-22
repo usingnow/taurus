@@ -1,0 +1,36 @@
+<%= form_for([:admin,@procedure]) do |f| %>
+  <% if @procedure.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= t('activerecord.errors.template.header', :count => @procedure.errors.size, :model => t('models.procedure'))  %></h2>
+
+      <ul>
+      <% @procedure.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><span class="red">*</span><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :display_name %><span class="red">*</span><br />
+    <%= f.text_field :display_name %>
+  </div>
+  <div class="field">
+    <%= f.label :sequence %><span class="red">*</span><br />
+    <%= f.text_field :sequence %>
+  </div>
+  <div class="field">
+    <%= f.label :active %><br />
+    <%= f.radio_button :active, 'true', :checked => true %>
+    <%= label_tag '是'%>
+    <%= f.radio_button :active, 'false' %>
+    <%= label_tag '否'%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

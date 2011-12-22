@@ -1,0 +1,29 @@
+<h1>流程列表</h1>
+
+<table>
+  <tr>
+    <th><%= t('attributes.procedure.id') %></th>
+    <th><%= t('attributes.procedure.name') %></th>
+    <th><%= t('attributes.procedure.display_name') %></th>
+    <th><%= t('attributes.procedure.active') %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @procedures.each do |procedure| %>
+  <tr>
+    <td><%= procedure.id %></td>
+    <td><%= procedure.name %></td>
+    <td><%= procedure.display_name %></td>
+    <td><%= procedure.active %></td>
+    <td><%= link_to 'Show', admin_procedure_path(procedure) %></td>
+    <td><%= link_to 'Edit', edit_admin_procedure_path(procedure) %></td>
+    <td><%= link_to 'Destroy', admin_procedure_path(procedure), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '新建流程', new_admin_procedure_path %>
