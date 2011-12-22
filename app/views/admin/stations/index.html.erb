@@ -1,0 +1,34 @@
+<h1>站别列表</h1>
+
+<table>
+  <tr>
+    <th><%= t('attributes.station.id') %></th>
+    <th><%= t('attributes.station.name') %></th>
+    <th><%= t('attributes.station.display_name') %></th>
+    <th><%= t('attributes.station.condition_function') %></th>
+    <th><%= t('attributes.station.business_function') %></th>
+    <th><%= t('attributes.station.station_type') %></th>
+    <th><%= t('attributes.station.sequence') %></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @stations.each do |station| %>
+  <tr>
+    <td><%= station.id %></td>
+    <td><%= station.name %></td>
+    <td><%= station.display_name %></td>
+    <td><%= station.condition_function %></td>
+    <td><%= station.business_function %></td>
+    <td><%= station.station_type %></td>
+    <td><%= station.sequence %></td>
+    <td><%= link_to 'Show', admin_station_path(station) %></td>
+    <td><%= link_to 'Edit', edit_admin_station_path(station) %></td>
+    <td><%= link_to 'Destroy', admin_station_path(station), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '新建站别', new_admin_station_path %>

@@ -1,5 +1,4 @@
 Ebiz::Application.routes.draw do
-
   # The priority is based upon orders of creation:
   # first created -> highest priority.
 
@@ -85,6 +84,7 @@ Ebiz::Application.routes.draw do
      resources :sku_images
      resources :orders
      resources :procedures
+     resources :stations
    end
 
   # You can have the root of your site routed with "root"
