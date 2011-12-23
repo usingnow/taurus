@@ -1,0 +1,64 @@
+<%= form_for([:admin,@station_procedureship]) do |f| %>
+  <% if @station_procedureship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@station_procedureship.errors.count, "error") %> prohibited this station_procedureship from being saved:</h2>
+
+      <ul>
+      <% @station_procedureship.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field :procedure_id%>
+  <div class="field">
+    <%= f.label :procedure_id %>:
+  </div>
+  <div class="field">
+    <%= f.label :station_id %><br />
+    <%= collection_select :station_procedureship, :station_id, Station.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :condition_id %><br />
+    <%= collection_select :station_procedureship, :condition_id, Condition.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :next_station_id %><br />
+    <%= collection_select :station_procedureship, :next_station_id, Station.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :business_function_id %><br />
+    <%= collection_select :station_procedureship, :business_function_id, BusinessFunction.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :operate_url %><br />
+    <%= f.text_field :operate_url %>
+  </div>
+  <div class="field">
+    <%= f.label :target %><br />
+    <%= f.text_field :target %>
+  </div>
+  <div class="field">
+    <%= f.label :width %><br />
+    <%= f.text_field :width %>
+  </div>
+  <div class="field">
+    <%= f.label :height %><br />
+    <%= f.text_field :height %>
+  </div>
+  <div class="field">
+    <%= f.label :sequence %><br />
+    <%= f.text_field :sequence %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_sequence %><br />
+    <%= f.text_field :sub_sequence %>
+  </div>
+  <div class="field">
+    <%= f.label :active %><br />
+    <%= f.check_box :active %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

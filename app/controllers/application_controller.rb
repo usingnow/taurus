@@ -16,4 +16,12 @@ class ApplicationController < ActionController::Base
       cart
     end
 
+    def current_procedure(id)
+      if id != nil
+        Procedure.find(id)
+      else
+        procedures = Procedure.find_all_by_active(true)
+        procedures[0]
+      end
+    end
 end

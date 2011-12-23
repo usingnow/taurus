@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111222070652) do
+ActiveRecord::Schema.define(:version => 20111223075625) do
 
   create_table "admin_groups", :force => true do |t|
     t.string   "group_no"
@@ -63,6 +63,13 @@ ActiveRecord::Schema.define(:version => 20111222070652) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "business_functions", :force => true do |t|
+    t.string   "name"
+    t.string   "function"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "cart_skuships", :force => true do |t|
@@ -119,6 +126,12 @@ ActiveRecord::Schema.define(:version => 20111222070652) do
     t.string   "zip"
     t.string   "created_by"
     t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "conditions", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -333,6 +346,23 @@ ActiveRecord::Schema.define(:version => 20111222070652) do
     t.string   "create_by"
     t.string   "update_by"
     t.integer  "total_sale"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "station_procedureships", :force => true do |t|
+    t.integer  "procedure_id"
+    t.integer  "station_id"
+    t.integer  "condition_id"
+    t.integer  "next_station_id"
+    t.integer  "business_function_id"
+    t.string   "operate_url"
+    t.string   "target"
+    t.integer  "width"
+    t.integer  "height"
+    t.boolean  "active"
+    t.integer  "sequence"
+    t.integer  "sub_sequence"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

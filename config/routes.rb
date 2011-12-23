@@ -85,6 +85,7 @@ Ebiz::Application.routes.draw do
      resources :orders
      resources :procedures
      resources :stations
+     resources :station_procedureships
    end
 
   # You can have the root of your site routed with "root"

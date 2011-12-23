@@ -208,6 +208,7 @@ zh-CN:
     sku_image: "媒体商品相册"
     procedure: "流程"
     station: "站别"
+    station_procedureship: "流程规则"
 
 
   attributes: &attributes
@@ -431,6 +432,20 @@ zh-CN:
       station_type: "站点类型"
       sequence: "次序"
       safe_quantity: "安全数量"
+
+    station_procedureship:
+      station_id: "当前站"
+      condition_id: "过站参数"
+      next_station_id: "下一站"
+      business_function_id: "业务函数"
+      procedure_id: "流程名称"
+      operate_url: "操作地址"
+      target: "开启方式"
+      width: "宽度"
+      height: "高度"
+      sequence: "次序"
+      sub_sequence: "子次序"
+      active: "启用该规则"
 
   activerecord:
     models:
