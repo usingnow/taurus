@@ -28,7 +28,7 @@
   </div>
   <div class="field">
     <%= f.label :business_function_id %><br />
-    <%= collection_select :station_procedureship, :business_function_id, BusinessFunction.all, :id, :name %>
+    <%= collection_select :station_procedureship, :business_function_id, BusinessFunction.all, :id, :name, :prompt => true %>
   </div>
   <div class="field">
     <%= f.label :operate_url %><br />

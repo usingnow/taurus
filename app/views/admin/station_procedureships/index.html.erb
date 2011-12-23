@@ -16,15 +16,27 @@
     <th></th>
   </tr>
 
-<% @station_procedureships.each do |station_procedureship| %>
-  <tr>
-    <td><%= station_procedureship.station.name %></td>
-    <td><%= station_procedureship.condition.name %></td>
-    <td><%= station_procedureship.next_station.name %></td>
-    <td><%= station_procedureship.business_function.name %></td>
-    <td><%= station_procedureship.sequence %></td>
-    <td><%= link_to 'Edit', edit_admin_station_procedureship_path(station_procedureship) %></td>
-    <td><%= link_to 'Destroy', admin_station_procedureship_path(station_procedureship), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+
+<% 50.times.each do |k| %>
+  <% flag = false %>
+  <% @station_procedureships.each do |station_procedureship| %>
+    <% if station_procedureship.sequence == k+1  %>
+      <tr>
+            <td><%= station_procedureship.station.name %></td>
+            <td><%= station_procedureship.condition.name %></td>
+            <td><%= station_procedureship.next_station.name %></td>
+            <td><% if station_procedureship.business_function != nil  %><%= station_procedureship.business_function.name %><% end %></td>
+            <td><%= station_procedureship.sequence %></td>
+            <td><%= link_to 'Edit', edit_admin_station_procedureship_path(station_procedureship) %></td>
+            <td><%= link_to 'Destroy', admin_station_procedureship_path(station_procedureship), :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+      <% flag = true %>
+    <% end %>
+  <% end %>
+  <% if flag == true %>
+  <tr><td colspan="7" style="background: gray">&nbsp;</td></tr>
+  <% else %>
+      <% break %>
+  <% end %>
 <% end %>
 </table>
