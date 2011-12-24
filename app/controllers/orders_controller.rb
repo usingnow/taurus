@@ -17,7 +17,12 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(params[:orders])
+    station_procedureship = StationProcedureship.find_by_procedure_id_and_sequence(params[:procedure][:procedure_id],1)
+    instance = Instance.new(:procedure_id=>params[:procedure][:procedure_id],:station_id=>station_procedureship.station_id)
+    instance.save
+
+    @order = Order.new(params[:order])
+    @order.instance_id = instance.id
 
     respond_to do |format|
       if @order.save

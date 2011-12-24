@@ -34,16 +34,12 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :district_no %><br />
-    <%= f.text_field :district_no %>
-  </div>
-  <div class="field">
     <%= f.label :address %><br />
     <%= f.text_field :address %>
   </div>
   <div class="field">
-    <%= f.label :instance_id %><br />
-    <%= f.text_field :instance_id %>
+    <%= f.label :procedure_id %><br />
+    <%= collection_select :procedure, :procedure_id,Procedure.all, :id,:display_name %>
   </div>
 
   <div class="actions">

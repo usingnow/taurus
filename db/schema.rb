@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111223075625) do
+ActiveRecord::Schema.define(:version => 20111224050357) do
 
   create_table "admin_groups", :force => true do |t|
     t.string   "group_no"
@@ -132,6 +132,13 @@ ActiveRecord::Schema.define(:version => 20111223075625) do
 
   create_table "conditions", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "instances", :force => true do |t|
+    t.integer  "station_id"
+    t.integer  "procedure_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -390,6 +397,16 @@ ActiveRecord::Schema.define(:version => 20111223075625) do
     t.integer  "active"
     t.string   "create_by"
     t.string   "update_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tracks", :force => true do |t|
+    t.integer  "instance_id"
+    t.integer  "station_id"
+    t.integer  "condition_id"
+    t.integer  "next_station_id"
+    t.string   "created_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

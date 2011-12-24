@@ -209,6 +209,7 @@ zh-CN:
     procedure: "流程"
     station: "站别"
     station_procedureship: "流程规则"
+    order: "订单"
 
 
   attributes: &attributes
@@ -446,6 +447,11 @@ zh-CN:
       sequence: "次序"
       sub_sequence: "子次序"
       active: "启用该规则"
+
+    order:
+      name: "收货人姓名"
+      address: "收货地址"
+      procedure_id: "支付方式"
 
   activerecord:
     models:
