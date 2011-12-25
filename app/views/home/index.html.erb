@@ -5,6 +5,7 @@
     <%= button_to '添加购物车', cart_skuships_path(:sku_id=>sku)%>
   </div>
 <% end %>
+<%= link_to '购物车', cart_skuships_path  %> <br />
 <% if session[:user] != nil %>
 登录帐号：<%= session[:user].login_no %>
 <%= button_to '退出', sign_out_users_path, :method => :get %>

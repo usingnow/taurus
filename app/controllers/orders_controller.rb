@@ -17,16 +17,39 @@ class OrdersController < ApplicationController
   end
 
   def create
+    #获得此 流程的首站
     station_procedureship = StationProcedureship.find_by_procedure_id_and_sequence(params[:procedure][:procedure_id],1)
-    instance = Instance.new(:procedure_id=>params[:procedure][:procedure_id],:station_id=>station_procedureship.station_id)
+
+
+    @cart_skuships = CartSkuship.find_all_by_cart_id(session[:cart_id])
+
+    station_id = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(params[:procedure][:procedure_id],station_procedureship.next_station_id,2)
+    #判断 订单时候保留
+    @cart_skuships.each do |cart_skuship|
+      if cart_skuship.sku.sku_type == 2
+        station_id = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(params[:procedure][:procedure_id],station_procedureship.next_station_id,1)
+        break
+      end
+    end
+
+    instance = Instance.new(:procedure_id=>params[:procedure][:procedure_id],:station_id=>station_id.next_station_id)
     instance.save
+
+
 
     @order = Order.new(params[:order])
     @order.instance_id = instance.id
+    @order.number = current_number   #获得订单编号
+    @order.user_id = session[:user].id
 
+    total_price = 0
+    @cart_skuships.each do |cart_skuship|
+      total_price += cart_skuship.sku.cost_aft_tax*cart_skuship.quantity
+    end
+    @order.total_price = total_price
     respond_to do |format|
       if @order.save
-        @cart_skuships = CartSkuship.find_all_by_cart_id(session[:cart_id])
+
         @cart_skuships.each do |cart_skuship|
            @order_detail = OrderDetail.new
            @order_detail.order_id = @order.id

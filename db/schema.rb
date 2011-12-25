@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111224050357) do
+ActiveRecord::Schema.define(:version => 20111225170426) do
 
   create_table "admin_groups", :force => true do |t|
     t.string   "group_no"
@@ -134,6 +134,8 @@ ActiveRecord::Schema.define(:version => 20111224050357) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "condition_type"
+    t.string   "action"
   end
 
   create_table "instances", :force => true do |t|
@@ -159,10 +161,15 @@ ActiveRecord::Schema.define(:version => 20111224050357) do
     t.datetime "updated_at"
   end
 
+  create_table "order_numbers", :force => true do |t|
+    t.date     "date"
+    t.integer  "seq"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "orders", :force => true do |t|
     t.string   "number"
-
-
     t.string   "batch"
     t.datetime "expect_date"
     t.integer  "instance_id"
@@ -194,6 +201,7 @@ ActiveRecord::Schema.define(:version => 20111224050357) do
     t.string   "company_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "total_price",         :precision => 8, :scale => 2
   end
 
   create_table "person_extends", :force => true do |t|
@@ -417,7 +425,7 @@ ActiveRecord::Schema.define(:version => 20111224050357) do
     t.string   "login_no"
     t.string   "password"
     t.integer  "status"
-    t.integer  "type"
+    t.integer  "user_type"
     t.string   "question"
     t.string   "answer"
     t.datetime "last_login_time"

@@ -30,12 +30,28 @@
 </table>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %><sapn class="red">*</sapn><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :address %><br />
+    <%= f.label :address %><sapn class="red">*</sapn><br />
     <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile %>
+  </div>
+    <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+    <div class="field">
+    <%= f.label :zip %><br />
+    <%= f.text_field :zip %>
   </div>
   <div class="field">
     <%= f.label :procedure_id %><br />

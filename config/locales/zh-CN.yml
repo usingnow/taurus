@@ -449,9 +449,21 @@ zh-CN:
       active: "启用该规则"
 
     order:
+      number: "订单号码"
       name: "收货人姓名"
       address: "收货地址"
       procedure_id: "支付方式"
+      phone: "固定电话"
+      zip: "邮编"
+      mobile: "手机"
+      email: "邮箱"
+      user_id: "客户名"
+      instance_id: "支付流程"
+      total_price: "订单金额"
+      station_id: "订单状态"
+      make_by: "制单人"
+      sku_type: "商品类型"
+
 
   activerecord:
     models:
@@ -486,3 +498,6 @@ zh-CN:
         upload:
           title: "上传"
           hint: "上传新文件"
+
+  #s常见字段
+  created_at: "创建时间"
