@@ -1,3 +1,4 @@
+#encoding:UTF-8
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
@@ -171,14 +172,17 @@ class UsersController < ApplicationController
 
   #登录
   def sign_in
-    user = User.find_by_login_no_and_password(params[:login_no],params[:password])
-
     respond_to do |format|
-      if user == nil
-        format.html{ render :action => "login", :notice => 'error', :layout=>"home"}
+      if session[:code]==params[:image_code]
+        user = User.find_by_login_no_and_password(params[:login_no],params[:password])
+        if user == nil
+          format.html{ render :action => "login", :notice => 'error', :layout=>"home"}
+        else
+          session[:user] = user
+          format.html { redirect_to(home_url) }
+        end
       else
-        session[:user] = user
-        format.html { redirect_to(home_url) }
+        format.html{ render :action => "login", :notice => 'error', :layout=>"home"}
       end
 
     end
@@ -192,5 +196,4 @@ class UsersController < ApplicationController
         format.html { redirect_to(home_url) }
     end
   end
-
 end

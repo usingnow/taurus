@@ -161,6 +161,8 @@ ActiveRecord::Schema.define(:version => 20111224050357) do
 
   create_table "orders", :force => true do |t|
     t.string   "number"
+
+
     t.string   "batch"
     t.datetime "expect_date"
     t.integer  "instance_id"

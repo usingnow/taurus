@@ -30,6 +30,7 @@ Ebiz::Application.routes.draw do
   end
   resources :company_extends
   resources :person_extends
+  resources :codes
 
   # Sample resource route with options:
   #   resources :products do
