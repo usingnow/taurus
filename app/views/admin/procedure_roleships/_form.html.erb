@@ -1,0 +1,21 @@
+<%= form_for([:admin,@procedure_roleship]) do |f| %>
+  <% if @procedure_roleship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@procedure_roleship.errors.count, "error") %> prohibited this procedure_roleship from being saved:</h2>
+
+      <ul>
+      <% @procedure_roleship.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= hidden_field_tag :role_id, @role_id %>
+
+  <%=raw procedure_role(@procedure_roleships) %>
+
+    <div class="actions">
+    <%= f.submit '确定'%>
+  </div>
+<% end %>

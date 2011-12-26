@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111225170426) do
+ActiveRecord::Schema.define(:version => 20111226032745) do
 
   create_table "admin_groups", :force => true do |t|
     t.string   "group_no"
@@ -222,6 +222,13 @@ ActiveRecord::Schema.define(:version => 20111225170426) do
     t.datetime "updated_at"
   end
 
+  create_table "procedure_roleships", :force => true do |t|
+    t.integer  "procedure_id"
+    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "procedures", :force => true do |t|
     t.string   "name"
     t.string   "display_name"
@@ -281,6 +288,15 @@ ActiveRecord::Schema.define(:version => 20111225170426) do
     t.decimal  "insatllation_cost_aft_tax", :precision => 8, :scale => 2
     t.string   "created_by"
     t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "number"
+    t.string   "name"
+    t.string   "description"
+    t.boolean  "is_reserve"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

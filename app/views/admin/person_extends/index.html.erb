@@ -1,0 +1,35 @@
+<h1>个人会员列表</h1>
+
+<table>
+  <tr>
+    <th><%= t 'attributes.person_extend.person_no' %></th>
+    <th><%= t 'attributes.user.login_no' %></th>
+    <th><%= t 'attributes.person_extend.name' %></th>
+    <th><%= t 'attributes.user.created_at' %></th>
+    <th><%= t 'attributes.person_extend.role_no' %></th>
+    <th><%= t 'attributes.user.status' %></th>
+    <th><%= t 'attributes.user.history_status' %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @person_extends.each do |person| %>
+  <tr>
+    <td><%= person.person_no %></td>
+    <td><%= person.user.login_no %></td>
+    <td><%= person.user.person_extend.name %></td>
+    <td><%= person.user.created_at %></td>
+    <td></td>
+    <td><%= format_user_status(person.user.status) %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>

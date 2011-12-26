@@ -7,4 +7,20 @@ module ApplicationHelper
       "直送品"
     end
   end
+
+  def format_user_status(status)
+    if status == 1
+      "激活"
+    else
+      "锁定"
+    end
+  end
+
+  def format_boolean(boolean)
+    if boolean == true
+      "是"
+    else
+      "否"
+    end
+  end
 end

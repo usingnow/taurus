@@ -1,0 +1,33 @@
+<h1>个人会员列表</h1>
+
+<table>
+  <tr>
+    <th><%= t 'attributes.person_extend.person_no' %></th>
+    <th><%= t 'attributes.user.login_no' %></th>
+    <th><%= t 'attributes.person_extend.name' %></th>
+    <th><%= t 'attributes.user.created_at' %></th>
+    <th><%= t 'attributes.user.status' %></th>
+    <th><%= t 'attributes.user.history_status' %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.person_extend.person_no %></td>
+    <td><%= user.login_no %></td>
+    <td><%= user.person_extend.name %></td>
+    <td><%= user.created_at %></td>
+    <td><%= format_status(user.status) %></td>
+    <td></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>

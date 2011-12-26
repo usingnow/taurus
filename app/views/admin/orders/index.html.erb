@@ -27,13 +27,10 @@
     <td><% if order.user_id == nil %><%= order.admin.name  %><% else %>客户<% end %></td>
     <td><%= format_sku_type(order.order_details[0].sku.sku_type) %></td>
     <td><%= order.created_at %></td>
-    <td><%= link_to 'Show', admin_order_path(order) %></td>
-    <td><%= link_to 'Edit', edit_admin_order_path(order) %></td>
-    <td><%= link_to 'Destroy', admin_order_path(order), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
   <tr>
-    <td colspan="9">订单概述：总共含<%= order.total_details %>种商品，合计<%= order.total_skus %>个商品，订单总金额<%= order.total_price %>元</td>
-    <td colspan="3"><% order.next_action.each do |action| %><%= action.condition.name %>&nbsp;<% end %></td>
+    <td colspan="8">订单概述：总共含<%= order.total_details %>种商品，合计<%= order.total_skus %>个商品，订单总金额<%= order.total_price %>元</td>
+    <td colspan="1"><% order.next_action.each do |action| %><%= action.condition.name %>&nbsp;<% end %></td>
   </tr>
   <tr>
     <td colspan="12">&nbsp;</td>

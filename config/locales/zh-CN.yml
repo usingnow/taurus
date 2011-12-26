@@ -210,6 +210,7 @@ zh-CN:
     station: "站别"
     station_procedureship: "流程规则"
     order: "订单"
+    role: "角色"
 
 
   attributes: &attributes
@@ -390,6 +391,8 @@ zh-CN:
     person_extend:
       name: "真实姓名"
       email: "邮箱"
+      person_no: "会员编号"
+      role_no: "角色"
 
       #扩展属性
       email_confirmation: "确认邮箱"
@@ -413,6 +416,9 @@ zh-CN:
     user:
       login_no: "用户名"
       password: "密码"
+      created_at: "注册时间"
+      status: "帐号状态"
+      history_status: "历史状态"
 
       #扩展属性
       password_confirmation: "确认密码"
@@ -463,6 +469,13 @@ zh-CN:
       station_id: "订单状态"
       make_by: "制单人"
       sku_type: "商品类型"
+
+    role:
+      number: "角色代码"
+      name: "角色名称"
+      description: "角色描述"
+      is_reserve: "是否保留"
+      set_procedure_permission: "设置流程权限"
 
 
   activerecord:
