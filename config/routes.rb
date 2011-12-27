@@ -84,7 +84,13 @@ Ebiz::Application.routes.draw do
      end
      resources :sku_productships
      resources :sku_images
-     resources :orders
+     resources :orders do
+       collection do
+         get  :take_over
+         get  :cancel
+         get  :condition
+       end
+     end
      resources :procedures
      resources :stations
      resources :station_procedureships

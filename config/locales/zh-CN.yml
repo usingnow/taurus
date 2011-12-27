@@ -456,7 +456,9 @@ zh-CN:
 
     order:
       number: "订单号码"
+      batch: "订单批次"
       name: "收货人姓名"
+      contact_name: "联系人姓名"
       address: "收货地址"
       procedure_id: "支付方式"
       phone: "固定电话"
@@ -469,6 +471,11 @@ zh-CN:
       station_id: "订单状态"
       make_by: "制单人"
       sku_type: "商品类型"
+      user_login_no: "会员用户名"
+      created_at: "下单日期"
+      inner_note: "订单备注"
+
+
 
     role:
       number: "角色代码"
@@ -512,5 +519,6 @@ zh-CN:
           title: "上传"
           hint: "上传新文件"
 
-  #s常见字段
+  #常见字段
   created_at: "创建时间"
+  user_number: "会员编号"

@@ -3,8 +3,13 @@ class Admin::OrdersController < ApplicationController
   # GET /orders
   # GET /orders.xml
   def index
-    @orders = Order.all
-
+    @orders = Order.find_by_sql("select *
+                                 from   orders
+                                 where  instance_id in(select id
+                                                       from   instances
+                                                       where  station_id in(select id
+                                                                            from   stations
+                                                                            where  station_type != 2))")
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @orders }
@@ -63,8 +68,8 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
 
     respond_to do |format|
-      if @order.update_attributes(params[:orders])
-        format.html { redirect_to(@order, :notice => 'Order was successfully updated.') }
+      if @order.update_attributes(params[:order])
+        format.html { redirect_to(edit_admin_order_url(@order), :notice => 'Order was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -85,5 +90,39 @@ class Admin::OrdersController < ApplicationController
     end
   end
 
+  #订单接管与取消
+  def take_over
+    admin_id = params[:admin_id]
 
+
+    @order = Order.find(params[:id])
+
+    @order.update_attributes(:take_admin_id=>admin_id)
+
+    respond_to do |format|
+      format.html { redirect_to(admin_orders_url) }
+      format.xml  { head :ok }
+    end
+  end
+
+  def cancel
+    @order = Order.find(params[:id])
+    session[:order_id] = @order.id
+    session[:condition_id] = params[:condition_id]
+  end
+
+  def condition
+    @order = Order.find(session[:order_id])
+    @instance = Instance.find(@order.instance_id)
+    @station_procedureship = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(@instance.procedure_id,
+                                                                                                       @instance.station_id,
+                                                                                                       session[:condition_id])
+    @instance.update_attributes(:station_id=>@station_procedureship.next_station_id)
+
+    session[:order_id] = nil
+    session[:condition_id] = nil
+    respond_to do |format|
+      format.html { redirect_to(admin_orders_url) }
+    end
+  end
 end

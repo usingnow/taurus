@@ -23,4 +23,12 @@ module ApplicationHelper
       "否"
     end
   end
+
+  def is_blank(value)
+    if value == ''
+
+    else
+      value
+    end
+  end
 end

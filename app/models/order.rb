@@ -3,6 +3,7 @@ class Order < ActiveRecord::Base
   belongs_to :instance, :dependent => :destroy
   belongs_to :user
   belongs_to :admin, :class_name => "Admin", :foreign_key => "take_admin_id"
+  belongs_to :make_admin, :class_name => "Admin", :foreign_key => "created_admin_id"
 
   def add_cart_skuships_from_cart(cart)
     cart.cart_skuships.each do |sku|
