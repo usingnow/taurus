@@ -88,7 +88,10 @@ Ebiz::Application.routes.draw do
        collection do
          get  :take_over
          get  :cancel
+         get  :paid
          get  :condition
+         get  :output
+         get  :sign_in
        end
      end
      resources :procedures

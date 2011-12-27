@@ -16,6 +16,12 @@ module Admin::OrdersHelper
       url = edit_admin_order_url(order,:condition_id=>action.condition.id)
     elsif action.condition.action == "order_cancel"
       url = cancel_admin_orders_url(:id=>order,:condition_id=>action.condition.id)
+    elsif action.condition.action == "order_paid"
+      url = paid_admin_orders_url(:id=>order,:condition_id=>action.condition.id)
+    elsif action.condition.action == "output"
+      url = output_admin_orders_url(:id=>order,:condition_id=>action.condition.id)
+    elsif action.condition.action == "sign_in"
+      url = sign_in_admin_orders_url(:id=>order,:condition_id=>action.condition.id)
     end
 
     "<a href='#{url}'>#{action.condition.display_name}</a>"

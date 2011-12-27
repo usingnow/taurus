@@ -9,7 +9,8 @@ class Admin::OrdersController < ApplicationController
                                                        from   instances
                                                        where  station_id in(select id
                                                                             from   stations
-                                                                            where  station_type != 2))")
+                                                                            where  station_type != 2
+                                                                            and    station_type != 1))")
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @orders }
@@ -124,5 +125,23 @@ class Admin::OrdersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(admin_orders_url) }
     end
+  end
+
+  def paid
+    @order = Order.find(params[:id])
+    session[:order_id] = @order.id
+    session[:condition_id] = params[:condition_id]
+  end
+
+  def output
+    @order = Order.find(params[:id])
+    session[:order_id] = @order.id
+    session[:condition_id] = params[:condition_id]
+  end
+
+   def sign_in
+    @order = Order.find(params[:id])
+    session[:order_id] = @order.id
+    session[:condition_id] = params[:condition_id]
   end
 end
