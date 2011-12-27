@@ -23,11 +23,13 @@ class OrdersController < ApplicationController
 
     @cart_skuships = CartSkuship.find_all_by_cart_id(session[:cart_id])
 
-    station_id = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(params[:procedure][:procedure_id],station_procedureship.next_station_id,2)
+    condition = Condition.find_by_action("false")
+    station_id = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(params[:procedure][:procedure_id],station_procedureship.next_station_id,condition.id)
     #判断 订单是否保留
     @cart_skuships.each do |cart_skuship|
       if cart_skuship.sku.sku_type == 2
-        station_id = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(params[:procedure][:procedure_id],station_procedureship.next_station_id,1)
+        condition = Condition.find_by_action("true")
+        station_id = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(params[:procedure][:procedure_id],station_procedureship.next_station_id,condition.id)
         break
       end
     end
