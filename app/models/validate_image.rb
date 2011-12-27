@@ -1,5 +1,4 @@
 require 'rubygems'
-require 'RMagick'
 
 class ValidateImage
   include Magick
