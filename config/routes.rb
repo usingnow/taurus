@@ -89,7 +89,7 @@ Ebiz::Application.routes.draw do
          get  :take_over
          get  :cancel
          get  :paid
-         get  :condition
+         post  :condition
          get  :output
          get  :sign_in
        end

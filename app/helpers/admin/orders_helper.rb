@@ -62,4 +62,20 @@ module Admin::OrdersHelper
       "否"
     end
   end
+
+  def format_invoice_type(value)
+    if value == 0
+      "普通"
+    else
+       "增值税发票"
+    end
+  end
+
+  def format_is_invoice_head(value)
+    if value == 0
+      "个人"
+    else
+      "单位"
+    end
+  end
 end

@@ -1,6 +1,10 @@
 <%= render 'condition' %>
 
 
-<%= link_to '确定签收', condition_admin_orders_path %>
+<%= form_tag(condition_admin_orders_path) do%>
+  <%= text_area_tag 'order[inner_note]', nil, :cols=>50, :rows=>5 %>
+
+  <%= submit_tag '确定签收' %>
+<% end %>
 
 

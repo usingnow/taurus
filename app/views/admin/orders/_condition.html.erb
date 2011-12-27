@@ -1,4 +1,14 @@
 <table>
+  <tr>
+    <td>订单号码</td><td><%= @order.number %></td>
+    <td>订单批次</td><td><%= @order.batch %></td>
+    <td>订单类型</td><td><%= format_sku_type(@order.order_details[0].sku.sku_type) %></td>
+    <td>订单状态</td><td><%= @order.instance.station.name %></td>
+    <td>客户</td><td><%= get_user_name(@order.user)  %></td>
+  </tr>
+</table>
+<hr />
+<table>
     <tr>
       <td>#</td>
       <td>商品编号</td>
@@ -32,75 +42,22 @@
 </table>
 <hr />
 
-<%= form_for([:admin,@order]) do |f| %>
-<% if @order.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<h2>收货人信息</h2>
+<div class="condition_consignee">
+  收货人姓名： <%= @order.name %> <br />
+  所属地区：	 <%= @order.district_no %><br />
+  收货地址：	 <%= @order.address %> <br />
+  固定电话：  <%= @order.phone %><br />
+  手机：	 <%= @order.mobile %>  <br />
+电子邮箱： <%= @order.email %>   <br />
+邮   编：<%= @order.zip %>
+</div>
 
-    <ul>
-      <% @order.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-   </div>
-<% end %>
 
-<table class="info_table">
-  <tr>
-    <td class="info_table_title"><%= f.label :instance_id %>:</td>
-    <td><%= f.label @order.instance.procedure.name %></td>
-    <td class="info_table_title"><%= f.label :station_id %>:</td>
-    <td><%= f.label @order.instance.station.name %></td>
-  </tr>
-  <tr>
-    <td class="info_table_title"><%= f.label :number %>:</td>
-    <td><%= f.label @order.number %></td>
-    <td class="info_table_title"><%= f.label :batch %>:</td>
-    <td><%= f.label @order.batch %></td>
-  </tr>
-  <tr>
-    <td class="info_table_title"><%= f.label :total_price %>:</td>
-    <td><%= f.label @order.total_price %></td>
-    <td class="info_table_title"> <%= f.label :user_id %>:</td>
-    <td><%= get_user_name @order.user %></td>
-  </tr>
-  <tr>
-    <td class="info_table_title"><%= f.label t :user_number %>:</td>
-    <td> <%= get_user_number @order.user %></td>
-    <td class="info_table_title"> <%= f.label :user_login_no %>:</td>
-    <td> <%= f.label @order.user.login_no %></td>
-  </tr>
-  <tr>
-    <td class="info_table_title"><%= f.label :created_at %>:</td>
-    <td><%= f.label @order.created_at %></td>
-    <td class="info_table_title"><%= f.label :make_by %>:</td>
-    <td><%= get_make_by @order %></td>
-  </tr>
-  <tr>
-    <td class="info_table_title"><%= f.label :contact_name %></td>
-    <td><%= f.label @order.name %></td>
-    <td class="info_table_title"><%= f.label :phone %>:</td>
-    <td><%= is_blank(@order.phone) %></td>
-  </tr>
-  <tr>
-    <td class="info_table_title"><%= f.label :mobile %></td>
-    <td><%= is_blank(@order.mobile) %></td>
-    <td class="info_table_title"><%= f.label :email %>:</td>
-    <td> <%= is_blank(@order.email) %></td>
-  </tr>
-  <tr>
-    <td class="info_table_title"><%= f.label :zip %></td>
-    <td><%= is_blank(@order.zip) %></td>
-    <td class="info_table_title"><%= f.label :address %>:</td>
-    <td colspan="3"> <%= f.label @order.address %></td>
-  </tr>
-  <tr>
-    <td class="info_table_title"><%= f.label :inner_note %></td>
-    <td colspan="3"><%= f.text_area :inner_note, :cols=>50, :rows=>5 %></td>
-  </tr>
-</table>
+<h2>支付及发票信息</h2>
+<div class="condition_pay">
+支付方式：	<%= @order.instance.procedure.display_name %>  <br />
+发票类型：	<%= format_invoice_type(@order.invoice_type) %>   <br />
+发票抬头：	 <%= format_is_invoice_head(@order.is_invoice_head) %>
 
-  <div class="actions">
-    <%= f.submit '保存'%>
-  </div>
-<% end %>
+</div>

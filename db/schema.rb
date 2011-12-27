@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111226071101) do
+ActiveRecord::Schema.define(:version => 20111227073259) do
 
   create_table "admin_groups", :force => true do |t|
     t.string   "group_no"
@@ -165,6 +165,26 @@ ActiveRecord::Schema.define(:version => 20111226071101) do
   create_table "order_numbers", :force => true do |t|
     t.date     "date"
     t.integer  "seq"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_pays", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "procedure_id"
+    t.string   "buyer_alipay_no"
+    t.datetime "alipay_date"
+    t.string   "alipay_no"
+    t.decimal  "alipay_price",    :precision => 8, :scale => 2
+    t.string   "province_no"
+    t.string   "remittance_no"
+    t.decimal  "price",           :precision => 8, :scale => 2
+    t.datetime "pay_date"
+    t.string   "pay_bank"
+    t.string   "remitter"
+    t.string   "note"
+    t.integer  "bank_id"
+    t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

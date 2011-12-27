@@ -114,11 +114,22 @@ class Admin::OrdersController < ApplicationController
 
   def condition
     @order = Order.find(session[:order_id])
+
+    if params[:order_pay] != nil
+      @order_pay = OrderPay.new(params[:order_pay])
+      @order_pay.order_id = @order.id
+      @order_pay.save
+    end
+
+
     @instance = Instance.find(@order.instance_id)
     @station_procedureship = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(@instance.procedure_id,
                                                                                                        @instance.station_id,
                                                                                                        session[:condition_id])
     @instance.update_attributes(:station_id=>@station_procedureship.next_station_id)
+
+    @order.update_attributes(params[:order])
+
 
     session[:order_id] = nil
     session[:condition_id] = nil

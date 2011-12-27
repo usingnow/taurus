@@ -1,6 +1,8 @@
 <%= render 'condition' %>
 
+<%= form_tag(condition_admin_orders_path) do%>
+  <%= text_area_tag 'order[inner_note]', nil, :cols=>50, :rows=>5 %>
 
-<%= link_to '确定取消订单', condition_admin_orders_path %>
-
+  <%= submit_tag '确定取消订单' %>
+<% end %>
 

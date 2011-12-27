@@ -28,7 +28,9 @@
   </tr>
 <% end %>
 </table>
+<hr />
 
+<h3>收货人信息</h3>
   <div class="field">
     <%= f.label :name %><sapn class="red">*</sapn><br />
     <%= f.text_field :name %>
@@ -53,12 +55,41 @@
     <%= f.label :zip %><br />
     <%= f.text_field :zip %>
   </div>
+<hr />
+<h3>支付方式</h3>
   <div class="field">
     <%= f.label :procedure_id %><br />
     <%= collection_select :procedure, :procedure_id,Procedure.all, :id,:display_name %>
   </div>
+<hr />
+  <h3>发票信息</h3>
+ *发票类型: <%= f.radio_button :invoice_type, '0',  :checked=>true %>普通
+          <%= f.radio_button :invoice_type, '1' %>增值税发票
+    <br />
+*开户银行：<%= f.text_field :account_bank %>   <br />
+*开户名称：<%= f.text_field :account_person_name %>      <br />
+*注册电话：<%= f.text_field :account_phone %>     <br />
+*银行帐号：<%= f.text_field :account_no %>    <br />
+*增值税登记号：<%= f.text_field :added_value_tax_no %>   <br />
+*注册地址：<%= f.text_field :account_reg_add %>   <br />
+   <br />
+*发票抬头：<%= f.radio_button :is_invoice_head, '0',  :checked=>true %>个人
+          <%= f.radio_button :is_invoice_head, '1' %> 单位
+   <br />
+*单位名称：<%= f.text_field :company_name %>
 
+<hr />
+<h3>订单备注</h3>
   <div class="actions">
     <%= f.submit '提交'%>
   </div>
 <% end %>
+
+
+
+
+
+
+
+
+
