@@ -32,4 +32,21 @@ module ApplicationHelper
     end
   end
 
+  def set_odd_even_class(value)
+    if value[0]!=1
+      "even"
+    else
+      "odd"
+    end
+  end
+
+  def format_sex(value)
+    if !value.nil?
+      if value == 0
+        "男"
+      else
+        "女"
+      end
+    end
+  end
 end

@@ -13,6 +13,13 @@
           north__closable:false,
           north__resizable:false
       });
+
+      $("[group]").hover(function(){
+        $("[group='"+$(this).attr('group')+"']").addClass("highlight");
+      },function(){
+        $("[group='"+$(this).attr('group')+"']").removeClass("highlight");
+      });
+
   });
   </script>
 

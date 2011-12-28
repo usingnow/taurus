@@ -92,6 +92,9 @@ Ebiz::Application.routes.draw do
          post  :condition
          get  :output
          get  :sign_in
+         post :step1
+         get  :step2
+         get  :step3
        end
      end
      resources :procedures

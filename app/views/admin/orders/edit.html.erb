@@ -1,3 +1,162 @@
-<%= render 'form' %>
+<script>
+  $(function(){
+     $("#order_tabs").tabs();
+  });
+</script>
 
-<%= link_to '完成修改并且过站', admin_orders_path %>
+<div id="order_tabs">
+	<ul>
+		<li><a href="#order_tabs-1">基本信息</a></li>
+        <li><a href="#order_tabs-2">商品信息</a></li>
+        <li><a href="#order_tabs-3">发票信息</a></li>
+        <li><a href="#order_tabs-4">收获地址</a></li>
+	</ul>
+	<div id="order_tabs-1">
+      <%= form_for([:admin,@order]) do |f| %>
+        <% if @order.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+            <ul>
+              <% @order.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+           </div>
+        <% end %>
+
+        <table class="info_table">
+          <tr>
+            <td class="info_table_title"><%= f.label :instance_id %>:</td>
+            <td><%= f.label @order.instance.procedure.name %></td>
+            <td class="info_table_title"><%= f.label :station_id %>:</td>
+            <td><%= f.label @order.instance.station.name %></td>
+          </tr>
+          <tr>
+            <td class="info_table_title"><%= f.label :number %>:</td>
+            <td><%= f.label @order.number %></td>
+            <td class="info_table_title"><%= f.label :batch %>:</td>
+            <td><%= f.label @order.batch %></td>
+          </tr>
+          <tr>
+            <td class="info_table_title"><%= f.label :total_price %>:</td>
+            <td><%= f.label @order.total_price %></td>
+            <td class="info_table_title"> <%= f.label :user_id %>:</td>
+            <td><%= get_user_name @order.user %></td>
+          </tr>
+          <tr>
+            <td class="info_table_title"><%= f.label t :user_number %>:</td>
+            <td> <%= get_user_number @order.user %></td>
+            <td class="info_table_title"> <%= f.label :user_login_no %>:</td>
+            <td> <%= f.label @order.user.login_no %></td>
+          </tr>
+          <tr>
+            <td class="info_table_title"><%= f.label :created_at %>:</td>
+            <td><%= f.label @order.created_at %></td>
+            <td class="info_table_title"><%= f.label :make_by %>:</td>
+            <td><%= get_make_by @order %></td>
+          </tr>
+          <tr>
+            <td class="info_table_title"><%= f.label :contact_name %></td>
+            <td><%= f.label @order.name %></td>
+            <td class="info_table_title"><%= f.label :phone %>:</td>
+            <td><%= is_blank(@order.phone) %></td>
+          </tr>
+          <tr>
+            <td class="info_table_title"><%= f.label :mobile %></td>
+            <td><%= is_blank(@order.mobile) %></td>
+            <td class="info_table_title"><%= f.label :email %>:</td>
+            <td> <%= is_blank(@order.email) %></td>
+          </tr>
+          <tr>
+            <td class="info_table_title"><%= f.label :zip %></td>
+            <td><%= is_blank(@order.zip) %></td>
+            <td class="info_table_title"><%= f.label :address %>:</td>
+            <td colspan="3"> <%= f.label @order.address %></td>
+          </tr>
+          <tr>
+            <td class="info_table_title"><%= f.label :inner_note %></td>
+            <td colspan="3"><%= f.text_area :inner_note, :cols=>50, :rows=>5 %></td>
+          </tr>
+        </table>
+
+          <div class="actions">
+            <%= f.submit '保存'%>
+          </div>
+      <% end %>
+	</div>
+    <div id="order_tabs-2">
+      <table>
+        <tr>
+          <td>#</td>
+          <td>商品编号</td>
+          <td>商品名称</td>
+          <td>单位</td>
+          <td>单价</td>
+          <td>数量</td>
+          <td>安装</td>
+          <td>安装费用</td>
+          <td>组装</td>
+          <td>组装费用</td>
+          <td>交货期</td>
+          <td>合计</td>
+        </tr>
+        <% @order.order_details.each_with_index do |detail,index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= detail.sku.number %></td>
+            <td><%= detail.sku.name %></td>
+            <td><%= detail.sku.unit %></td>
+            <td><%= detail.unit_price %></td>
+            <td><%= detail.quantity %></td>
+            <td><%= format_is_need(detail.is_need_install) %></td>
+            <td><%= detail.install_cost %></td>
+            <td><%= format_is_need(detail.is_need_assemble) %></td>
+            <td><%= detail.assemble_cost %></td>
+            <td><%= detail.sku.delivery_day %></td>
+            <td><%= detail.unit_price*detail.quantity %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div id="order_tabs-3">
+      <%= form_for([:admin,@order]) do |f| %>
+          *发票类型: <%= f.radio_button :invoice_type, '0',  :checked=>true %>普通
+          <%= f.radio_button :invoice_type, '1' %>增值税发票
+            <br />
+            *开户银行：<%= f.text_field :account_bank %>   <br />
+            *开户名称：<%= f.text_field :account_person_name %>      <br />
+            *注册电话：<%= f.text_field :account_phone %>     <br />
+            *银行帐号：<%= f.text_field :account_no %>    <br />
+            *增值税登记号：<%= f.text_field :added_value_tax_no %>   <br />
+            *注册地址：<%= f.text_field :account_reg_add %>   <br />
+            <br />
+            *发票抬头：<%= f.radio_button :is_invoice_head, '0',  :checked=>true %>个人
+                  <%= f.radio_button :is_invoice_head, '1' %> 单位
+            <br />
+*单位名称：<%= f.text_field :company_name %>
+          <div class="actions">
+            <%= f.submit '保存'%>
+          </div>
+      <% end %>
+    </div>
+    <div id="order_tabs-4">
+       <%= form_for([:admin,@order]) do |f| %>
+          收货人姓名：<%= f.text_field :name %> <br />
+          所属地区：	<%= f.text_field :district_no %> <br />
+           地址：	<%= f.text_field :address %>     <br />
+          固定电话：          <%= f.text_field :phone %>   <br />
+           手机：        <%= f.text_field :mobile %>    <br />
+          电子邮箱：    <%= f.text_field :email %>    <br />
+          邮编：        <%= f.text_field :zip %>
+          <div class="actions">
+            <%= f.submit '保存'%>
+          </div>
+       <% end %>
+    </div>
+</div>
+
+
+
+
+<%= button_to '完成修改并且过站', condition_admin_orders_path %>

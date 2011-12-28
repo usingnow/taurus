@@ -1,40 +1,49 @@
 <h1>流程规则维护</h1>
 
 <% form_tag(admin_station_procedureships_path,:method => :get) do  %>
-    <%= collection_select :station_procedureship, :procedure_id, Procedure.all,:id, :name %>
+    <%= select :station_procedureship, :procedure_id,
+               Procedure.all.collect {|p| [ p.name, p.id ] },
+               { :selected => session[:procedure_id] } %>
     <%= submit_tag '应用' %>
 <% end %>
-<%= link_to '新建', new_admin_station_procedureship_path, :onclick => "return this.href+='?procedure_id='+$('#station_procedureship_procedure_id').val()" %>
-<table>
-  <tr>
-    <th><%= t('attributes.station_procedureship.station_id') %></th>
-    <th><%= t('attributes.station_procedureship.condition_id') %></th>
-    <th><%= t('attributes.station_procedureship.next_station_id') %></th>
-    <th><%= t('attributes.station_procedureship.business_function_id') %></th>
-    <th><%= t('attributes.station_procedureship.sequence') %></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="grid_button">
+  <%= link_to '新建', new_admin_station_procedureship_path, :onclick => "return this.href+='?procedure_id='+$('#station_procedureship_procedure_id').val()" %>
+</div>
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('attributes.station_procedureship.station_id') %></th>
+      <th><%= t('attributes.station_procedureship.condition_id') %></th>
+      <th><%= t('attributes.station_procedureship.next_station_id') %></th>
+      <th><%= t('attributes.station_procedureship.business_function_id') %></th>
+      <th><%= t('attributes.station_procedureship.sequence') %></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
 
 
 <% 50.times.each do |k| %>
   <% flag = false %>
-  <% @station_procedureships.each do |station_procedureship| %>
+  <% @station_procedureships.each_with_index do |station_procedureship,index| %>
     <% if station_procedureship.sequence == k+1  %>
-      <tr>
-            <td><%= station_procedureship.station.name %></td>
-            <td><%= station_procedureship.condition.name %></td>
-            <td><%= station_procedureship.next_station.name %></td>
-            <td><% if station_procedureship.business_function != nil  %><%= station_procedureship.business_function.name %><% end %></td>
-            <td><%= station_procedureship.sequence %></td>
-            <td><%= link_to 'Edit', edit_admin_station_procedureship_path(station_procedureship) %></td>
-            <td><%= link_to 'Destroy', admin_station_procedureship_path(station_procedureship), :confirm => 'Are you sure?', :method => :delete %></td>
+      <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
+        <td><%= index+1 %></td>
+        <td><%= station_procedureship.station.name %></td>
+        <td><%= station_procedureship.condition.name %></td>
+        <td><%= station_procedureship.next_station.name %></td>
+        <td><% if station_procedureship.business_function != nil  %><%= station_procedureship.business_function.name %><% end %></td>
+        <td><%= station_procedureship.sequence %></td>
+        <td><%= link_to 'Edit', edit_admin_station_procedureship_path(station_procedureship) %></td>
+        <td><%= link_to 'Destroy', admin_station_procedureship_path(station_procedureship), :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
       <% flag = true %>
     <% end %>
   <% end %>
   <% if flag == true %>
-  <tr><td colspan="7" style="background: gray">&nbsp;</td></tr>
+  <tr><td colspan="8" style="background: gray;height: 4px"></td></tr>
   <% else %>
       <% break %>
   <% end %>

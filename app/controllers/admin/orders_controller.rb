@@ -31,7 +31,12 @@ class Admin::OrdersController < ApplicationController
   # GET /orders/new
   # GET /orders/new.xml
   def new
-    @order = Order.new
+    @date = Time.now.strftime('%Y-%m-%d')
+    if session[:step1].nil?
+      @user = User.new
+      session[:step1] = @user
+    end
+
 
     respond_to do |format|
       format.html { render :layout => "home"}
@@ -42,19 +47,64 @@ class Admin::OrdersController < ApplicationController
   # GET /orders/1/edit
   def edit
     @order = Order.find(params[:id])
+    session[:order_id] = @order.id
+    session[:condition_id] = params[:condition_id]
   end
 
   # POST /orders
   # POST /orders.xml
   def create
-    @order = Order.new(params[:orders])
-    @order.add_cart_skuships_from_cart(current_cart)
+     #获得此 流程的首站
+    station_procedureship = StationProcedureship.find_by_procedure_id_and_sequence(params[:procedure][:procedure_id],1)
+
+    @cart_skuships = CartSkuship.find_all_by_cart_id(session[:cart_id])
+
+    condition = Condition.find_by_action("false")
+
+    station_id = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(params[:procedure][:procedure_id],station_procedureship.next_station_id,condition.id)
+
+    #判断 订单是否保留
+    @cart_skuships.each do |cart_skuship|
+      if cart_skuship.sku.sku_type == 2
+        condition = Condition.find_by_action("true")
+        station_id = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(params[:procedure][:procedure_id],station_procedureship.next_station_id,condition.id)
+        break
+      end
+    end
+
+    instance = Instance.new(:procedure_id=>params[:procedure][:procedure_id],:station_id=>station_id.next_station_id)
+    instance.save
+
+    @order = Order.new(params[:order])
+    @order.instance_id = instance.id
+    @order.number = current_number   #获得订单编号
+    @order.batch = @order.number
+    @order.user_id = session[:step1].id
+
+    session[:step1] = nil
+
+    total_price = 0
+    @cart_skuships.each do |cart_skuship|
+      total_price += cart_skuship.sku.cost_aft_tax*cart_skuship.quantity
+    end
+    @order.total_price = total_price
 
     respond_to do |format|
       if @order.save
+
+        @cart_skuships.each do |cart_skuship|
+           @order_detail = OrderDetail.new
+           @order_detail.order_id = @order.id
+           @order_detail.sku_id = cart_skuship.sku_id
+           @order_detail.unit_price = cart_skuship.sku.cost_aft_tax
+           @order_detail.quantity = cart_skuship.quantity
+           @order_detail.save
+        end
+
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
-        format.html { redirect_to([:admin,@order], :notice => 'Order was successfully created.') }
+
+        format.html { redirect_to(admin_orders_url, :notice => 'Order was successfully created.') }
         format.xml  { render :xml => @order, :status => :created, :location => @order }
       else
         format.html { render :action => "new" }
@@ -150,9 +200,57 @@ class Admin::OrdersController < ApplicationController
     session[:condition_id] = params[:condition_id]
   end
 
-   def sign_in
+  def sign_in
     @order = Order.find(params[:id])
     session[:order_id] = @order.id
     session[:condition_id] = params[:condition_id]
+  end
+
+  #内部 新建订单第一步
+  def step1
+    user_no = params[:user_no]
+    login_no = params[:login_no]
+
+    info = ''
+    respond_to do |format|
+      if !user_no.blank?
+        person_extend = PersonExtend.find_by_person_no(user_no)
+        company_extend = CompanyExtend.find_by_company_no(user_no)
+        if !person_extend.nil?
+          user_id = person_extend.user_id
+        else
+          user_id = company_extend.user_id
+        end
+        @user = User.find(user_id)
+        session[:step1] = @user
+      elsif !login_no.blank?
+        @user = User.find_by_login_no(login_no)
+        session[:step1] = @user
+      else
+        info = "会员编号或会员用户名为空"
+      end
+
+      format.html { redirect_to new_admin_order_url , :notice => info }
+    end
+  end
+
+  def step2
+    name = params[:name] ||= '!@#$%'
+    @skus = Sku.all(:conditions => ['name LIKE ?', "%#{name}%"])
+
+    @cart = Cart.new(:id=>0)
+    if !params[:sku_id].nil?
+      @cart = current_cart
+      sku = Sku.find(params[:sku_id])
+      @cart_skuship = @cart.add_sku(sku.id)
+      @cart_skuship.save
+    end
+
+    @cart_skuships = CartSkuship.find_all_by_cart_id(@cart.id)
+  end
+
+  def step3
+    @order = Order.new
+
   end
 end

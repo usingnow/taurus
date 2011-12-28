@@ -2,7 +2,7 @@ class Admin::StationsController < ApplicationController
   # GET /admin/stations
   # GET /admin/stations.xml
   def index
-    @stations = Station.all
+    @stations = Station.all(:order=>"sequence")
 
     respond_to do |format|
       format.html # index.html.erb

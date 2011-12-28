@@ -1,0 +1,69 @@
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>商品编号</th>
+      <th>商品名称</th>
+      <th>单位</th>
+      <th>单价</th>
+      <th>数量</th>
+      <th>安装费用</th>
+      <th>组装费用</th>
+      <th>交货期</th>
+      <th>合计</th>
+    </tr>
+  </thead>
+  <% @cart_skuships.each_with_index do |cart,index| %>
+    <tr class="<%= set_odd_even_class(index) %>">
+      <td><%= index+1 %></td>
+      <td><%= cart.sku.number %></td>
+      <td><%= cart.sku.name %></td>
+      <td><%= cart.sku.unit %></td>
+      <td><%= cart.sku.cost_aft_tax %></td>
+      <td><%= cart.quantity %></td>
+      <td><%= cart.sku.insatllation_cost_aft_tax %></td>
+      <td><%= cart.sku.assembling_fee_aft_tax %></td>
+      <td><%= cart.sku.delivery_day %></td>
+      <td><%= cart.quantity*cart.sku.cost_aft_tax %></td>
+    </tr>
+  <% end %>
+</table>
+
+<hr />
+<div>
+  <%= form_tag(step2_admin_orders_path,:method => :get) do %>
+    商品名称:<%= text_field_tag 'name' %>
+    <%= submit_tag '查询' %>
+  <% end %>
+</div>
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>商品编号</th>
+      <th>商品名称</th>
+      <th>单位</th>
+      <th>单价</th>
+      <th>安装费用</th>
+      <th>组装费用</th>
+      <th>交货期</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <% @skus.each_with_index do |sku,index| %>
+    <tr class="<%= set_odd_even_class(index) %>">
+      <td><%= index+1 %></td>
+      <td><%= sku.number %></td>
+      <td><%= sku.name %></td>
+      <td><%= sku.unit %></td>
+      <td><%= sku.cost_aft_tax %></td>
+      <td><%= sku.insatllation_cost_aft_tax %></td>
+      <td><%= sku.assembling_fee_aft_tax %></td>
+      <td><%= sku.delivery_day %></td>
+      <td><%= link_to '添加', step2_admin_orders_path(:sku_id=>sku) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div><%= link_to '下一步', step3_admin_orders_path %></div>
+

@@ -2,13 +2,20 @@ class Admin::StationProcedureshipsController < ApplicationController
   # GET /station_procedureships
   # GET /station_procedureships.xml
   def index
-    if params[:station_procedureship] != nil
+    if !params[:station_procedureship].nil?
       @procedure = current_procedure(params[:station_procedureship][:procedure_id])
     else
-      @procedure = current_procedure(nil)
+      if !session[:procedure_id].nil?
+        @procedure = current_procedure(session[:procedure_id])
+      else
+        @procedure = current_procedure(nil)
+      end
     end
 
+
     @station_procedureships = StationProcedureship.find_all_by_procedure_id(@procedure.id)
+
+    session[:procedure_id] = @procedure.id
 
     respond_to do |format|
       format.html # index.html.erb
@@ -53,7 +60,7 @@ class Admin::StationProcedureshipsController < ApplicationController
 
     respond_to do |format|
       if @station_procedureship.save
-        format.html { redirect_to([:admin,@station_procedureship], :notice => 'Station procedureship was successfully created.') }
+        format.html { redirect_to(admin_station_procedureships_url, :notice => 'Station procedureship was successfully created.') }
         format.xml  { render :xml => @station_procedureship, :status => :created, :location => @station_procedureship }
       else
         format.html { render :action => "new" }

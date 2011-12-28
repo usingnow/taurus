@@ -1,35 +1,4 @@
-<%= form_for(@order) do |f| %>
-  <% if @order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
-      <ul>
-      <% @order.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<table>
-  <tr>
-    <th>Sku</th>
-    <th>Cart</th>
-    <th>Quantity</th>
-    <th>Price</th>
-  </tr>
-
-<% @cart_skuships.each do |cart_skuship| %>
-  <tr>
-    <td><%= cart_skuship.sku.name %></td>
-    <td><%= cart_skuship.cart_id %></td>
-    <td><%= cart_skuship.quantity %></td>
-    <td><%= number_to_currency(cart_skuship.sku.cost_aft_tax) %></td>
-  </tr>
-<% end %>
-</table>
-<hr />
-
+<%= form_for([:admin,@order]) do |f| %>
 <h3>收货人信息</h3>
   <div class="field">
     <%= f.label :name %><sapn class="red">*</sapn><br />
@@ -77,20 +46,5 @@
           <%= f.radio_button :is_invoice_head, '1' %> 单位
    <br />
 *单位名称：<%= f.text_field :company_name %>
-
-<hr />
-<h3>订单备注</h3>
-  <%= f.text_field :customer_note %>
-  <div class="actions">
-    <%= f.submit '提交'%>
-  </div>
+  <%= submit_tag '提交' %>
 <% end %>
-
-
-
-
-
-
-
-
-

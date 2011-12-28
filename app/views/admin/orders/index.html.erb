@@ -1,25 +1,27 @@
 <h1>订单列表</h1>
 
-<table>
-  <tr>
-    <th>#</th>
-    <th><%= t 'attributes.order.number' %></th>
-    <th><%= t 'attributes.order.user_id' %></th>
-    <th><%= t 'attributes.order.instance_id' %></th>
-    <th><%= t 'attributes.order.total_price' %></th>
-    <th><%= t 'attributes.order.station_id' %></th>
-    <th><%= t 'attributes.order.make_by' %></th>
-    <th><%= t 'attributes.order.sku_type' %></th>
-    <th><%= t :created_at %></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="grid_button">
+  <%= link_to '订单创建向导', new_admin_order_path %>
+</div>
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t 'attributes.order.number' %></th>
+      <th><%= t 'attributes.order.user_id' %></th>
+      <th><%= t 'attributes.order.instance_id' %></th>
+      <th><%= t 'attributes.order.total_price' %></th>
+      <th><%= t 'attributes.order.station_id' %></th>
+      <th><%= t 'attributes.order.make_by' %></th>
+      <th><%= t 'attributes.order.sku_type' %></th>
+      <th><%= t :created_at %></th>
+    </tr>
+  </thead>
 
 <% @orders.each_with_index do |order,index| %>
-  <tr>
+  <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
     <td><%= index+1 %></td>
-    <td><%= order.number %></td>
+    <td><%= link_to order.number, admin_order_path(order) %></td>
     <td><%= get_user_name(order.user) %></td>
     <td><%= order.instance.procedure.name %></td>
     <td><%= order.total_price %></td>
@@ -28,8 +30,8 @@
     <td><%= format_sku_type(order.order_details[0].sku.sku_type) %></td>
     <td><%= order.created_at %></td>
   </tr>
-  <tr>
-    <td colspan="8">
+  <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
+    <td colspan="8" class="summary">
       订单概述：总共含<%= order.total_details %>种商品，
       合计<%= order.total_skus %>个商品，
       订单总金额<%= order.total_price %>元
@@ -41,8 +43,8 @@
       <% end %>
     </td>
   </tr>
-  <tr>
-    <td colspan="12">&nbsp;</td>
+  <tr class="gap">
+    <td colspan="12" height="4"></td>
   </tr>
 <% end %>
 </table>

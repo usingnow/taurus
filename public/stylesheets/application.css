@@ -1,0 +1,102 @@
+#admin_group_checkbox{
+  overflow: auto;
+}
+#admin_group_checkbox div{
+  float: left;
+  margin-left: 20px;
+}
+#admin_tabs{
+  height:98%;
+}
+
+#admin_group_button{
+  text-align:center;
+}
+
+.red{
+  color: red;
+}
+
+.info_table{
+  width: 100%;
+}
+
+.info_table_title{
+  width: 120px;
+}
+
+table.grid{
+  border: 1px solid #E4E4E4;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table.grid{
+  background-color: #EEE;
+  padding: 4px;
+  white-space: nowrap;
+}
+
+table.grid tr{
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+table.grid tr.odd {
+  background-color: #F6F7F8;
+}
+
+table.grid tr.even {
+  background-color: white;
+}
+
+table.grid thead th{
+  border-width: 1px;
+  border-style: solid;
+  border-top-color: #D7D7D7;
+  border-right-color: #D7D7D7;
+  border-left-color: #D7D7D7;
+  border-bottom-color: #999;
+}
+
+table.grid tbody tr td{
+  border: solid 1px #D7D7D7;
+}
+
+table.grid tbody tr.gap{
+  background: #ffffff;
+}
+
+table.grid tbody tr td.summary{
+  text-align: left;
+}
+
+table.grid tbody tr.highlight{
+  background-color: #FFD;
+}
+
+div.grid_button{
+  width: 100%;
+  text-align: right;
+}
+
+div.split_content_left{
+  float: left;
+  width: 49%;
+}
+
+div.split_content_right{
+  float: right;
+  width: 49%;
+}
+
+div.attributes{
+  clear: both;
+}
+
+
+
+
+
+

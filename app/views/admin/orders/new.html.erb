@@ -1,5 +1,33 @@
-<h1>New order</h1>
+<h1><%= notice %></h1>
+<div class="attributes">
+  <div class="split_content_left">
+    <p>
+      <%= form_tag(step1_admin_orders_path)  do %>
+        会员编号:<%= text_field_tag 'user_no', get_user_number(session[:step1]) %>
+        <%= submit_tag '查询' %>
+      <% end %>
+    </p>
+    <p>下单日期：<%= @date %></p>
+    <p>联系人姓名：<%= get_user_name(session[:step1]) %></p>
+    <p>联系电话：<%= get_user_phone(session[:step1]) %></p>
+    <p>电子邮件：<%= get_user_email(session[:step1]) %></p>
+  </div>
+  <div class="split_content_right">
+    <p>
+      <%= form_tag(step1_admin_orders_path)  do %>
+        会员用户名:<%= text_field_tag 'login_no', session[:step1].login_no %>
+        <%= submit_tag '查询' %>
+      <% end %>
+    </p>
+    <p>制单人:</p>
+    <p>联系人性别:<%= get_user_sex(session[:step1]) %></p>
+    <p>手机:<%= get_user_mobile(session[:step1]) %></p>
+    <p>邮编:<%= get_user_zip(session[:step1]) %></p>
+  </div>
+  <div style="clear: both;"></div>
+</div>
 
-<%= render 'form' %>
+<div><%= link_to '下一步', step2_admin_orders_path %></div>
+<div><%= link_to '关闭', admin_orders_path %></div>
 
-<%= link_to 'Back', admin_orders_path %>
+
