@@ -194,7 +194,7 @@ zh-CN:
       body: "如下字段出现错误："
 
   models: &models
-    admin: "管理员"
+    administrator: "管理员"
     admin_group: "管理员组"
     product: "素材商品"
     supplier: "供应商"
@@ -214,21 +214,18 @@ zh-CN:
 
 
   attributes: &attributes
-    admin:
+    administrator:
       login_no: "帐号"
       password: "密码"
-      question: "找回密码问题"
-      answer: "找回密码答案"
       email: "邮箱"
       status: "状态"
-      sex: "性别"
       address: "地址"
       phone: "电话"
       fax: "传真"
       mobile: "手机"
-      post: "邮编"
+      zip: "邮编"
       name: "姓名"
-      last_login_time: "上次登录时间"
+      last_sign_in_at: "上次登录时间"
 
       #以下是扩展属性
       admin_list: "管理员列表"

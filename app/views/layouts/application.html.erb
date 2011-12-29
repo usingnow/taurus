@@ -25,7 +25,15 @@
 
 </head>
 <body>
-  <div class="ui-layout-north">Ebiz</div>
+  <div class="ui-layout-north">
+    <% if administrator_signed_in? %>
+      Signed in as <%= current_administrator.email %>. Not you?
+      <%= link_to "Sign out", destroy_administrator_session_path %>
+    <% else %>
+      <%= link_to "Sign up", new_administrator_registration_path %> or
+      <%= link_to "Sign in", new_administrator_session_path %>
+    <% end %>
+  </div>
 
   <div class="ui-layout-center">
      <%= yield %>
@@ -35,10 +43,7 @@
     <div id="left_menu">
       <ul>
         <li>
-          <%=link_to '管理员',admin_admins_path%>
-        </li>
-        <li>
-         <%= link_to '新增管理员', new_admin_admin_path %>
+          <%=link_to '管理员维护',admin_administrators_path%>
         </li>
         <li>
           <%= link_to '管理员组', admin_admin_groups_path%>

@@ -10,13 +10,9 @@ group :test, :development do
   gem "rspec-rails"
 end
 
-#自动部署
-gem 'capistrano'
-
-gem 'ckeditor', '3.5.3'
-
-gem "paperclip", "2.4.0"
-
-gem 'factory_girl_rails','1.4.0'
-
-gem 'rmagick', '2.13.1', :require => 'RMagick'
+gem 'capistrano'  #自动部署
+gem 'ckeditor', '3.5.3' #富文本编辑器
+gem "paperclip", "2.4.0"   #文件上传
+gem 'factory_girl_rails','1.4.0' #测试夹具
+gem 'rmagick', '2.13.1', :require => 'RMagick' #图像处理
+gem 'devise','1.5.3'

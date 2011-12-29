@@ -1,0 +1,38 @@
+<h1>管理员列表</h1>
+
+<div class="grid_button">
+  <%= link_to '新建管理员', new_admin_administrator_path %>
+</div>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('attributes.administrator.name') %></th>
+      <th><%= t('attributes.administrator.login_no') %></th>
+      <th><%= t('attributes.administrator.mobile') %></th>
+      <th><%= t('attributes.administrator.email') %></th>
+      <th><%= t('attributes.administrator.last_sign_in_at') %></th>
+      <th><%= t('attributes.administrator.status') %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @administrators.each_with_index do |admin,index| %>
+      <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
+        <td><%= index+1 %></td>
+        <td><%= admin.name %></td>
+        <td><%= admin.login_no %></td>
+        <td><%= admin.mobile %></td>
+        <td><%= admin.email %></td>
+        <td><%= admin.last_sign_in_at %></td>
+        <td><%= format_user_status(admin.status) %></td>
+        <td></td>
+        <td><%= link_to '修改', edit_admin_administrator_path(admin)  %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,5 +1,9 @@
 Ebiz::Application.routes.draw do
 
+  devise_for :administrators,
+             :path =>"admin",
+             :controllers => { :sessions => "admin/devise/sessions",
+                               :registrations => "admin/devise/registrations"  }
   # The priority is based upon orders of creation:
   # first created -> highest priority.
 
@@ -61,11 +65,7 @@ Ebiz::Application.routes.draw do
 
   # Sample resource route within a namespace:
    namespace :admin do
-     resources :admins do
-       collection do
-         get  :jqgrid
-       end
-     end
+     resources :administrators
      resources :admin_groups do
        collection do
          get  :jqgrid

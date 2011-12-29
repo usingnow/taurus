@@ -1,10 +1,12 @@
-<%= form_for([:admin, @admin]) do |f| %>
-  <% if @admin.errors.any? %>
+<h1>管理员修改</h1>
+
+<%= form_for([:admin, @administrator]) do |f| %>
+  <% if @administrator.errors.any? %>
     <div id="error_explanation">
-      <h2><%=I18n.t('activerecord.errors.template.header', :count => @admin.errors.size, :model => I18n.t('models.admin'))%></h2>
+      <h2><%=I18n.t('activerecord.errors.template.header', :count => @administrator.errors.size, :model => I18n.t('models.administrator'))%></h2>
 
       <ul>
-      <% @admin.errors.full_messages.each do |msg| %>
+      <% @administrator.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -13,11 +15,7 @@
 
   <div class="field">
     <%= f.label :login_no %><br />
-    <%= f.text_field :login_no %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+    <%= f.text_field :login_no, :readonly => true%>
   </div>
   <div class="field">
     <%= f.label :status %><br />
@@ -27,23 +25,8 @@
     <%= f.radio_button :status, '0'%>
   </div>
   <div class="field">
-    <%= f.label :question%><br />
-    <%= f.text_field :question %>
-  </div>
-  <div class="field">
-    <%= f.label :answer %><br />
-    <%= f.text_field :answer %>
-  </div>
-  <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :sex %><br />
-    <%= f.label :'男'%>
-    <%= f.radio_button :sex,'0',:checked=>true%>
-    <%= f.label :'女'%>
-    <%= f.radio_button :sex,'1'%>
   </div>
   <div class="field">
     <%= f.label :name %><br />
@@ -66,10 +49,13 @@
     <%= f.text_field :mobile %>
   </div>
   <div class="field">
-    <%= f.label :post %><br />
-    <%= f.text_field :post %>
+    <%= f.label :zip %><br />
+    <%= f.text_field :zip %>
   </div>
   <div class="actions">
     <%= f.submit%>
   </div>
 <% end %>
+
+
+<%= link_to 'Back', admin_administrators_path %>
