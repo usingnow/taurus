@@ -211,6 +211,7 @@ zh-CN:
     station_procedureship: "流程规则"
     order: "订单"
     role: "角色"
+    esc: "升级单"
 
 
   attributes: &attributes
@@ -472,14 +473,24 @@ zh-CN:
       created_at: "下单日期"
       inner_note: "订单备注"
 
-
-
     role:
       number: "角色代码"
       name: "角色名称"
       description: "角色描述"
       is_reserve: "是否保留"
       set_procedure_permission: "设置流程权限"
+
+    esc:
+      number: "编号"
+      esc_category_id: "类型"
+      user_id: "会员登录名"
+      status: "状态"
+      order_id: "订单编号"
+      not_registration_user_info: "非注册会员信息"
+      user_other_info: "会员其他信息"
+      title: "标题"
+      description: "详细内容"
+
 
 
   activerecord:

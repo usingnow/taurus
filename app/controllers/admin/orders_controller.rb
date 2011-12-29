@@ -3,14 +3,9 @@ class Admin::OrdersController < ApplicationController
   # GET /orders
   # GET /orders.xml
   def index
-    @orders = Order.find_by_sql("select *
-                                 from   orders
-                                 where  instance_id in(select id
-                                                       from   instances
-                                                       where  station_id in(select id
-                                                                            from   stations
-                                                                            where  station_type != 2
-                                                                            and    station_type != 1))")
+    @query = Order.search(params[:q])
+    @orders = @query.result(:distinct => true)
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @orders }
@@ -235,6 +230,12 @@ class Admin::OrdersController < ApplicationController
   end
 
   def step2
+    if session[:step1].id.nil?
+      respond_to do |format|
+        format.html { redirect_to new_admin_order_url , :notice => "会员编号或会员用户名为空" }
+      end
+      return
+    end
     name = params[:name] ||= '!@#$%'
     @skus = Sku.all(:conditions => ['name LIKE ?', "%#{name}%"])
 

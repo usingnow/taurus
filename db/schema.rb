@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111228124309) do
+ActiveRecord::Schema.define(:version => 20111229062633) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -135,6 +135,38 @@ ActiveRecord::Schema.define(:version => 20111228124309) do
     t.integer  "condition_type"
     t.string   "action"
     t.string   "display_name"
+  end
+
+  create_table "esc_categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "sequence"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "esc_replies", :force => true do |t|
+    t.integer  "esc_id"
+    t.integer  "replier"
+    t.text     "content"
+    t.string   "status_changed_info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "escs", :force => true do |t|
+    t.string   "number"
+    t.integer  "esc_category_id"
+    t.integer  "user_id"
+    t.integer  "status"
+    t.integer  "order_id"
+    t.string   "not_registration_user_info"
+    t.string   "user_other_info"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "created_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "groups", :force => true do |t|
@@ -324,6 +356,14 @@ ActiveRecord::Schema.define(:version => 20111228124309) do
     t.string   "name"
     t.string   "description"
     t.boolean  "is_reserve"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "serial_numbers", :force => true do |t|
+    t.string   "name"
+    t.string   "date"
+    t.integer  "sequence"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

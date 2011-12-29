@@ -1,0 +1,92 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Number:</b>
+  <%= @esc.number %>
+</p>
+
+<p>
+  <b>Esc category:</b>
+  <%= @esc.esc_category_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @esc.user_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @esc.status %>
+</p>
+
+<p>
+  <b>Order:</b>
+  <%= @esc.order_id %>
+</p>
+
+<p>
+  <b>Not registration user info:</b>
+  <%= @esc.not_registration_user_info %>
+</p>
+
+<p>
+  <b>User other info:</b>
+  <%= @esc.user_other_info %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @esc.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @esc.description %>
+</p>
+
+<p>
+  <b>Created by:</b>
+  <%= @esc.created_by %>
+</p>
+
+<table>
+  <tr>
+    <th>#</th>
+    <th>内容</th>
+  </tr>
+  <% @esc_replies.each_with_index do |reply,index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= reply.content %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<%= form_for([:admin,@esc_reply]) do |f| %>
+  <% if @esc_reply.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@esc_reply.errors.count, "error") %> prohibited this esc_reply from being saved:</h2>
+
+      <ul>
+      <% @esc_reply.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :esc_id %>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :status_changed_info %><br />
+    <%= f.select :status_changed_info, "<option value='已升级'>已升级</option><option value='已解决'>已解决</option><option value='已回复'>已回复</option>" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

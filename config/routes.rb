@@ -1,5 +1,4 @@
 Ebiz::Application.routes.draw do
-
   devise_for :administrators,
              :path =>"admin",
              :controllers => { :sessions => "admin/devise/sessions",
@@ -104,6 +103,8 @@ Ebiz::Application.routes.draw do
      resources :person_extends
      resources :roles
      resources :procedure_roleships
+     resources :esc_replies
+     resources :escs
    end
 
   # You can have the root of your site routed with "root"

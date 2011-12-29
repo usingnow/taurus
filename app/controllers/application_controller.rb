@@ -48,4 +48,30 @@ class ApplicationController < ActionController::Base
 
       order_number.date.to_s(:number)+'_'+seq
     end
+
+    def current_serial_number(value)
+      date = Time.now.strftime('%Y%d').to_s[2,4]
+
+      serial_number = SerialNumber.find_by_name_and_date(value,date)
+      if serial_number.nil?
+        serial_number = SerialNumber.create(:name=>value, :date=>date, :sequence=>1)
+      else
+        serial_number.update_attributes(:sequence=>serial_number.sequence)
+      end
+
+      seq = serial_number.sequence.to_s
+      if seq.length == 1
+        seq = '00000'+seq
+      elsif seq.length == 2
+        seq = '0000'+seq
+      elsif seq.length == 3
+        seq = '000'+seq
+      elsif seq.length == 4
+        seq = '00'+seq
+      elsif seq.length == 5
+        seq = '0'+seq
+      end
+
+      serial_number.name+serial_number.date.to_s+seq
+    end
 end
