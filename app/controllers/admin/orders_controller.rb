@@ -3,8 +3,9 @@ class Admin::OrdersController < ApplicationController
   # GET /orders
   # GET /orders.xml
   def index
-    @query = Order.search(params[:q])
-    @orders = @query.result(:distinct => true)
+    q = {"instance_station_station_type_in" => ['0','3','4']}.merge(params[:q] || {})
+    @q = Order.search(q)
+    @orders = @q.result(:distinct => true)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,6 +1,31 @@
 <h1>订单列表</h1>
 
 <div class="search_fields">
+  <%= search_form_for [:admin,@q] do |f| %>
+    <p>
+      <%= f.label '订单号码' %>
+      <%= f.text_field :number_eq %>
+    </p>
+    <p>
+      <%= f.label '日期范围' %>
+      <%= f.date_select :created_at_gt,{:include_blank=>true} %> ~
+      <%= f.date_select :created_at_lt,{:include_blank=>true} %>
+    </p>
+    <p>
+      <%= f.label '用户名' %>
+      <%= f.text_field :user_login_no_eq %>
+    </p>
+    <p>
+      <%= f.label '商品名称' %>
+      <%= f.text_field :order_details_sku_name_cont %>
+    </p>
+    <p>
+      <%= f.label '订单金额' %>
+      <%= f.text_field :total_price_gt %>~
+      <%= f.text_field :total_price_lt %>
+    </p>
+    <%= f.submit %>
+  <% end %>
 </div>
 <div class="grid_button">
   <%= link_to '订单创建向导', new_admin_order_path %>
