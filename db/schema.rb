@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111229062633) do
+ActiveRecord::Schema.define(:version => 20111229142541) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -84,6 +84,17 @@ ActiveRecord::Schema.define(:version => 20111229062633) do
     t.datetime "updated_at"
   end
 
+  create_table "cities", :force => true do |t|
+    t.integer  "province_no"
+    t.string   "name"
+    t.string   "number"
+    t.decimal  "free_shipping_limit", :precision => 10, :scale => 0
+    t.decimal  "precision",           :precision => 10, :scale => 0
+    t.decimal  "shipping_fee",        :precision => 10, :scale => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                                 :null => false
     t.string   "data_content_type"
@@ -135,6 +146,17 @@ ActiveRecord::Schema.define(:version => 20111229062633) do
     t.integer  "condition_type"
     t.string   "action"
     t.string   "display_name"
+  end
+
+  create_table "districts", :force => true do |t|
+    t.integer  "city_no"
+    t.string   "name"
+    t.string   "number"
+    t.decimal  "free_shipping_limit", :precision => 10, :scale => 0
+    t.decimal  "precision",           :precision => 10, :scale => 0
+    t.decimal  "shipping_fee",        :precision => 10, :scale => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "esc_categories", :force => true do |t|
@@ -227,6 +249,15 @@ ActiveRecord::Schema.define(:version => 20111229062633) do
     t.datetime "updated_at"
   end
 
+  create_table "ordering_companies", :force => true do |t|
+    t.string   "number"
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "orders", :force => true do |t|
     t.string   "number"
     t.string   "batch"
@@ -308,6 +339,17 @@ ActiveRecord::Schema.define(:version => 20111229062633) do
     t.datetime "updated_at"
   end
 
+  create_table "product_purchaseships", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "purchase_id"
+    t.integer  "quantity"
+    t.decimal  "unit_price_aft_tax", :precision => 10, :scale => 0
+    t.decimal  "total_amount",       :precision => 10, :scale => 0
+    t.date     "delivery_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", :force => true do |t|
     t.string   "product_id"
     t.string   "name"
@@ -347,6 +389,26 @@ ActiveRecord::Schema.define(:version => 20111229062633) do
     t.decimal  "insatllation_cost_aft_tax", :precision => 8, :scale => 2
     t.string   "created_by"
     t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "provinces", :force => true do |t|
+    t.string   "number"
+    t.string   "name"
+    t.decimal  "free_shipping_limit", :precision => 8,  :scale => 2
+    t.decimal  "shipping_fee",        :precision => 10, :scale => 0
+    t.decimal  "precision",           :precision => 10, :scale => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "purchases", :force => true do |t|
+    t.string   "number"
+    t.integer  "ordering_company_id"
+    t.integer  "status"
+    t.text     "note"
+    t.integer  "supplier_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

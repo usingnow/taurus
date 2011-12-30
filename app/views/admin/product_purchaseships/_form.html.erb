@@ -1,0 +1,37 @@
+<%= form_for([:admin,@product_purchaseship]) do |f| %>
+  <% if @product_purchaseship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product_purchaseship.errors.count, "error") %> prohibited this product_purchaseship from being saved:</h2>
+
+      <ul>
+      <% @product_purchaseship.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :product_id %><br />
+    <%= f.text_field :product_id %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br />
+    <%= f.text_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :unit_price_aft_tax %><br />
+    <%= f.text_field :unit_price_aft_tax %>
+  </div>
+  <div class="field">
+    <%= f.label :total_amount %><br />
+    <%= f.text_field :total_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_date %><br />
+    <%= f.date_select :delivery_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

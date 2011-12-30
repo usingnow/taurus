@@ -1,3 +1,4 @@
+#encoding:UTF-8
 class Admin::AdministratorsController < ApplicationController
 
   def index
@@ -77,6 +78,11 @@ class Admin::AdministratorsController < ApplicationController
       format.html { redirect_to(admin_admins_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def select_with_ajax
+    @cities = [["请选择",""]]+City.all(:conditions => ["city_no = ?", params[:parent_id]]).collect { |item| [item.name, item.number] }
+    render(:layout => false)
   end
 
 end

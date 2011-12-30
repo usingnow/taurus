@@ -1,11 +1,7 @@
+#encoding:UTF-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  def paginate(scoped,page,per_page)
-     page||=1
-     per_page||=10
-     [scoped.offset((page.to_i-1)*per_page.to_i).limit(per_page),scoped.count]
-  end
 
   private
     #获得购物车
@@ -50,7 +46,7 @@ class ApplicationController < ActionController::Base
     end
 
     def current_serial_number(value)
-      date = Time.now.strftime('%Y%d').to_s[2,4]
+      date = Time.now.strftime('%Y%m%d').to_s
 
       serial_number = SerialNumber.find_by_name_and_date(value,date)
       if serial_number.nil?

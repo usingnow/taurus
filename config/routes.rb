@@ -105,6 +105,19 @@ Ebiz::Application.routes.draw do
      resources :procedure_roleships
      resources :esc_replies
      resources :escs
+     resources :cities do
+       collection do
+         get  :ajax
+       end
+     end
+     resources :districts do
+       collection do
+         get  :ajax
+       end
+     end
+     resources :product_purchaseships
+     resources :purchases
+     resources :ordering_companies
    end
 
   # You can have the root of your site routed with "root"

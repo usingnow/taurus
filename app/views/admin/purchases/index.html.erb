@@ -1,0 +1,31 @@
+<h1>Listing purchases</h1>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Ordering company</th>
+    <th>Status</th>
+    <th>Note</th>
+    <th>Supplier</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @purchases.each do |purchase| %>
+  <tr>
+    <td><%= purchase.number %></td>
+    <td><%= purchase.ordering_company_id %></td>
+    <td><%= purchase.status %></td>
+    <td><%= purchase.note %></td>
+    <td><%= purchase.supplier_id %></td>
+    <td><%= link_to '商品', admin_product_purchaseships_path(:purchase=>purchase) %></td>
+    <td><%= link_to 'Edit', edit_admin_purchase_path(purchase) %></td>
+    <td><%= link_to 'Destroy', admin_purchase_path(purchase), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '新建采购单', new_admin_purchase_path %>

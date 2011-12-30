@@ -49,4 +49,9 @@ module ApplicationHelper
       end
     end
   end
+
+
+  def get_district_select_options
+    Province.all(:order=>'number').collect{|item|[item.name,item.number]}.insert(0,["请选择..",nil])
+  end
 end

@@ -1,0 +1,4 @@
+<option value="">-请选择-</option>
+<% for district in @districts %>
+  <option value="<%= district.number %>"><%= district.name %></option>
+<% end %>
