@@ -1,5 +1,6 @@
 #encoding:UTF-8
 class Admin::OrdersController < ApplicationController
+  before_filter :authenticate_administrator!
   # GET /orders
   # GET /orders.xml
   def index

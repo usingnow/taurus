@@ -70,4 +70,20 @@ class ApplicationController < ActionController::Base
 
       serial_number.name+serial_number.date.to_s+seq
     end
+
+    def set_store_to_product(product,store_ids)
+      line_items = []
+
+      store_ids.each do |id|
+        product_storeship = ProductStoreship.find_by_product_id_and_store_id(product.id,id)
+        if product_storeship.nil?
+          line_items<<{:store_id=>id,:product_id=>product.id,:quantity=>0,:stockout=>0}
+        else
+          line_items<<{:store_id=>id,:product_id=>product.id,:quantity=>product_storeship.quantity,:stockout=>product_storeship.stockout}
+        end
+      end
+
+      ProductStoreship.destroy_all(:product_id=>product.id)
+      ProductStoreship.create(line_items)
+    end
 end

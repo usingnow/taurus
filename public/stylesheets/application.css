@@ -92,6 +92,23 @@ div.split_content_right{
 }
 
 div.attributes{
+
+}
+
+div.attributes input{
+  width: 30%;
+}
+
+div.attributes label{
+  font-weight: bold;
+  float: left;
+  text-align: right;
+  width: 100px;
+}
+
+
+
+.clear{
   clear: both;
 }
 

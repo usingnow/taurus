@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Store:</b>
+  <%= @product_storeship.store_id %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @product_storeship.product_id %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @product_storeship.quantity %>
+</p>
+
+<p>
+  <b>Stockout:</b>
+  <%= @product_storeship.stockout %>
+</p>
+
+
+<%= link_to 'Edit', edit_product_storeship_path(@product_storeship) %> |
+<%= link_to 'Back', product_storeships_path %>

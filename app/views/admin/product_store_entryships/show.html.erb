@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Store entry:</b>
+  <%= @product_store_entryship.store_entry_id %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @product_store_entryship.product_id %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @product_store_entryship.quantity %>
+</p>
+
+<p>
+  <b>Delivery date:</b>
+  <%= @product_store_entryship.delivery_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_product_store_entryship_path(@product_store_entryship) %> |
+<%= link_to 'Back', product_store_entryships_path %>

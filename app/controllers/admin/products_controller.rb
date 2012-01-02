@@ -43,7 +43,7 @@ class Admin::ProductsController < ApplicationController
     @product = Product.new(params[:product])
 
     respond_to do |format|
-      if @product.save
+      if @product.save && set_store_to_product(@product,params[:store_id])
         format.html { redirect_to([:admin,@product], :notice => 'Product was successfully created.') }
         format.xml  { render :xml => @product, :status => :created, :location => @product }
       else
@@ -59,7 +59,7 @@ class Admin::ProductsController < ApplicationController
     @product = Product.find(params[:id])
 
     respond_to do |format|
-      if @product.update_attributes(params[:product])
+      if @product.update_attributes(params[:product]) && set_store_to_product(@product,params[:store_id])
         format.html { redirect_to([:admin,@product], :notice => 'Product was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -78,6 +78,16 @@ class Admin::ProductsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(products_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def search
+     @query = Product.search(params[:q])
+     @products = @query.result(:distinct => true)
+
+     respond_to do |format|
+      format.html # index.html.erb
+      format.js
     end
   end
 end

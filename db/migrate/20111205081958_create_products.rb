@@ -48,7 +48,7 @@ class CreateProducts < ActiveRecord::Migration
       #素材商品管理相关记录
       t.time :create_time  #创建时间
       t.string :created_by  #创建人
-      t.time :update_time  #最近更新时间
+      t.time :update_time  #最近更新时间                               ``
       t.string :updated_by  #更新人
 
       t.timestamps

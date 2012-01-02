@@ -28,7 +28,7 @@
   <div class="ui-layout-north">
     <% if administrator_signed_in? %>
       Signed in as <%= current_administrator.email %>. Not you?
-      <%= link_to "Sign out", destroy_administrator_session_path %>
+      <%= link_to "Sign out", destroy_administrator_session_path, :method => :delete %>
     <% else %>
       <%= link_to "Sign up", new_administrator_registration_path %> or
       <%= link_to "Sign in", new_administrator_session_path %>
@@ -46,7 +46,7 @@
           <%=link_to '管理员维护',admin_administrators_path%>
         </li>
         <li>
-          <%= link_to '管理员组', admin_admin_groups_path%>
+          <%= link_to '管理员组维护'%>
         </li>
         <li>
           <%= link_to '素材商品分类维护', admin_product_categories_path%>
@@ -92,6 +92,15 @@
         </li>
         <li>
           <%= link_to '订单', admin_orders_path%>
+        </li>
+        <li>
+          <%= link_to '入库单', admin_store_entries_path%>
+        </li>
+        <li>
+          <%= link_to '仓库维护', admin_stores_path %>
+        </li>
+        <li>
+          <%= link_to '库存查看', admin_product_storeships_path  %>
         </li>
       </ul>
     </div>

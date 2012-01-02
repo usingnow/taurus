@@ -32,6 +32,10 @@
     <%= f.text_field :unit %>
   </div>
   <div class="field">
+    <%= f.label '仓库' %><span class="red">*</span><br />
+    <%=raw product_stores(@product)  %>
+  </div>
+  <div class="field">
     <%= f.label :specification %><span class="red">*</span><br />
     <%= f.text_field :specification %>
   </div>

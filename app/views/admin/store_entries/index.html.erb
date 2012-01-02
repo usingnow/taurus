@@ -1,0 +1,33 @@
+<h1>Listing store_entries</h1>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Purchase</th>
+    <th>Ordering company</th>
+    <th>Supplier</th>
+    <th>Store</th>
+    <th>Note</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @store_entries.each do |store_entry| %>
+  <tr>
+    <td><%= store_entry.number %></td>
+    <td><%= store_entry.purchase_id %></td>
+    <td><%= store_entry.ordering_company_id %></td>
+    <td><%= store_entry.supplier_id %></td>
+    <td><%= store_entry.store_id %></td>
+    <td><%= store_entry.note %></td>
+    <td><%= link_to 'Show', store_entry %></td>
+    <td><%= link_to 'Edit', edit_store_entry_path(store_entry) %></td>
+    <td><%= link_to 'Destroy', store_entry, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Store entry', new_admin_store_entry_path %>

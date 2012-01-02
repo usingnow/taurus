@@ -1,0 +1,90 @@
+<h1>新建入库单</h1>
+
+<%= form_for([:admin,@store_entry]) do |f| %>
+  <% if @store_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@store_entry.errors.count, "error") %> prohibited this store_entry from being saved:</h2>
+
+      <ul>
+      <% @store_entry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="attributes">
+    <div class="split_content_left">
+     <p>
+       <%= f.label '订货公司' %>
+       <%= f.text_field :ordering_company_id %>
+     </p>
+     <p>
+       <%= f.label '仓库' %>
+       <%= f.text_field :store_id %>
+     </p>
+    </div>
+    <div class="split_content_right">
+     <p>
+       <%= f.label '供应商' %>
+        <%= f.text_field :supplier_id %>
+     </p>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="attributes">
+    <p>
+      <%= f.label '备注' %>
+      <%= f.text_area :note, :cols=>115, :rows=>5 %>
+    </p>
+  </div>
+
+  <table class="grid">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>商品编码</th>
+        <th>商品名称</th>
+        <th>规格</th>
+        <th>型号</th>
+        <th>单位</th>
+        <th>数量</th>
+        <th>交货日期</th>
+      </tr>
+    </thead>
+    <tbody id="product_carts"></tbody>
+  </table>
+  <div class="actions">
+    <%= f.submit '新建入库单'%>
+  </div>
+<% end %>
+
+<%= form_tag search_admin_products_path, :method => :get, :remote => true  do %>
+  <div class="attributes">
+    <div class="split_content_left">
+      <p>
+        <%= label_tag '商品名称' %>
+        <%= text_field_tag 'q[name_cont]' %>
+        <%= submit_tag '查询' %>
+      </p>
+    </div>
+    <div class="clear"></div>
+  </div>
+<% end %>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>商品编码</th>
+      <th>商品名称</th>
+      <th>规格</th>
+      <th>型号</th>
+      <th>单位</th>
+      <th>添加</th>
+    </tr>
+  </thead>
+  <tbody id="search_product"></tbody>
+</table>
+
+<%= link_to 'Back', admin_store_entries_path %>
+

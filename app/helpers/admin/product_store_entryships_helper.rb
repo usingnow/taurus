@@ -1,0 +1,2 @@
+module Admin::ProductStoreEntryshipsHelper
+end

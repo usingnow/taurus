@@ -1,0 +1,29 @@
+<%= form_for([:admin,@product_store_entryship]) do |f| %>
+  <% if @product_store_entryship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product_store_entryship.errors.count, "error") %> prohibited this product_store_entryship from being saved:</h2>
+
+      <ul>
+      <% @product_store_entryship.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :product_id %><br />
+    <%= f.text_field :product_id %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br />
+    <%= f.text_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_date %><br />
+    <%= f.date_select :delivery_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

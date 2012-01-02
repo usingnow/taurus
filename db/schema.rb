@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111229142541) do
+ActiveRecord::Schema.define(:version => 20120102033538) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -350,6 +350,24 @@ ActiveRecord::Schema.define(:version => 20111229142541) do
     t.datetime "updated_at"
   end
 
+  create_table "product_store_entryships", :force => true do |t|
+    t.integer  "store_entry_id"
+    t.integer  "product_id"
+    t.integer  "quantity",       :default => 0
+    t.date     "delivery_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_storeships", :force => true do |t|
+    t.integer  "store_id"
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.integer  "stockout"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", :force => true do |t|
     t.string   "product_id"
     t.string   "name"
@@ -537,6 +555,35 @@ ActiveRecord::Schema.define(:version => 20111229142541) do
     t.integer  "station_type"
     t.integer  "sequence"
     t.integer  "safe_quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "store_entries", :force => true do |t|
+    t.string   "number"
+    t.integer  "purchase_id"
+    t.integer  "ordering_company_id"
+    t.integer  "supplier_id"
+    t.integer  "store_id"
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "store_entry_product_carts", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "quantity",                                         :default => 0
+    t.date     "delivery_date"
+    t.decimal  "unit_price_aft_tax", :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "total_amount",       :precision => 8, :scale => 2, :default => 0.0
+    t.integer  "admin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stores", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

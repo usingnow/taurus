@@ -1,4 +1,5 @@
 Ebiz::Application.routes.draw do
+
   devise_for :administrators,
              :path =>"admin",
              :controllers => { :sessions => "admin/devise/sessions",
@@ -65,13 +66,11 @@ Ebiz::Application.routes.draw do
   # Sample resource route within a namespace:
    namespace :admin do
      resources :administrators
-     resources :admin_groups do
+     resources :products do
        collection do
-         get  :jqgrid
+         get  :search
        end
      end
-     resources :admins_admin_groups
-     resources :products
      resources :suppliers
      resources :brands
      resources :product_categories
@@ -118,15 +117,20 @@ Ebiz::Application.routes.draw do
      resources :product_purchaseships
      resources :purchases
      resources :ordering_companies
+     resources :product_storeships
+     resources :stores
+     resources :product_store_entryships
+     resources :store_entries
+     resources :store_entry_product_carts
    end
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'home#index', :as => 'home'
-
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   #match ':controller(/:action(/:id(.:format)))'
+  match '/admin', :to => 'admin/orders#index', :as => :admin
 end

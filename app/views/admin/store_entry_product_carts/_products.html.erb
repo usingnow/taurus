@@ -1,0 +1,12 @@
+<% @store_entry_.each_with_index do |product_store_entryship,index| %>
+      <tr>
+        <td><%= index %></td>
+        <td><%= product_store_entryship.product.product_id %></td>
+        <td><%= product_store_entryship.product.name %></td>
+        <td><%= product_store_entryship.product.specification %></td>
+        <td><%= product_store_entryship.product.model %></td>
+        <td><%= product_store_entryship.product.unit %></td>
+        <td><%= product_store_entryship.quantity %></td>
+        <td><%= product_store_entryship.delivery_date %></td>
+      </tr>
+    <% end %>

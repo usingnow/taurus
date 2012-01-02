@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Number:</b>
+  <%= @store_entry.number %>
+</p>
+
+<p>
+  <b>Purchase:</b>
+  <%= @store_entry.purchase_id %>
+</p>
+
+<p>
+  <b>Ordering company:</b>
+  <%= @store_entry.ordering_company_id %>
+</p>
+
+<p>
+  <b>Supplier:</b>
+  <%= @store_entry.supplier_id %>
+</p>
+
+<p>
+  <b>Store:</b>
+  <%= @store_entry.store_id %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @store_entry.note %>
+</p>
+
+
+<%= link_to 'Edit', edit_store_entry_path(@store_entry) %> |
+<%= link_to 'Back', store_entries_path %>

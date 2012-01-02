@@ -79,10 +79,4 @@ class Admin::AdministratorsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
-  def select_with_ajax
-    @cities = [["请选择",""]]+City.all(:conditions => ["city_no = ?", params[:parent_id]]).collect { |item| [item.name, item.number] }
-    render(:layout => false)
-  end
-
 end

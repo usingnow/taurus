@@ -1,0 +1,22 @@
+<h1>Listing product_storeships</h1>
+
+<table>
+  <tr>
+    <th>仓库</th>
+    <th>产品</th>
+    <th>库存数量</th>
+    <th>缺货数量</th>
+  </tr>
+
+<% @product_storeships.each do |product_storeship| %>
+  <tr>
+    <td><%= product_storeship.store.name %></td>
+    <td><%= product_storeship.product.name %></td>
+    <td><%= product_storeship.quantity %></td>
+    <td><%= product_storeship.stockout %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

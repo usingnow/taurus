@@ -15,9 +15,9 @@
     <td><%= ordering_company.name %></td>
     <td><%= ordering_company.address %></td>
     <td><%= ordering_company.phone %></td>
-    <td><%= link_to 'Show', admin_admin_admin_group_path(ordering_company) %></td>
+    <td><%= link_to 'Show', admin_ordering_company_path(ordering_company) %></td>
     <td><%= link_to 'Edit', edit_admin_ordering_company_path(ordering_company) %></td>
-    <td><%= link_to 'Destroy', admin_admin_admin_group_path(ordering_company), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', admin_ordering_company_path(ordering_company), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
