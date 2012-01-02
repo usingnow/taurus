@@ -1,0 +1,25 @@
+<h1>Listing pick_ups</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Href</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pick_ups.each do |pick_up| %>
+  <tr>
+    <td><%= pick_up.name %></td>
+    <td><%= pick_up.href %></td>
+    <td><%= link_to 'Show', pick_up %></td>
+    <td><%= link_to 'Edit', edit_pick_up_path(pick_up) %></td>
+    <td><%= link_to 'Destroy', pick_up, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pick up', new_pick_up_path %>

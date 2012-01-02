@@ -86,4 +86,23 @@ class ApplicationController < ActionController::Base
       ProductStoreship.destroy_all(:product_id=>product.id)
       ProductStoreship.create(line_items)
     end
+
+    #删除 入库单商品购物车 的 此用户 所有商品
+    def destroy_sepc_by_admin_id(admin_id)
+      StoreEntryProductCart.destroy_all(:admin_id => admin_id)
+    end
+
+    #更新库存
+    def change_store_quantity(line_items,store_id)
+      line_items.each do |item|
+        @product_storeship = ProductStoreship.find_by_product_id_and_store_id(item.product_id,store_id)
+        if item.quantity > @product_storeship.stockout
+          @product_storeship.update_attributes(:quantity => item.quantity-@product_storeship.stockout+@product_storeship.quantity,
+                                               :stockout => 0)
+        else
+          @product_storeship.update_attributes(:quantity => 0,
+                                               :stockout => @product_storeship.stockout-item.quantity)
+        end
+      end
+    end
 end

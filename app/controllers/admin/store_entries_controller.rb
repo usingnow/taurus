@@ -1,4 +1,5 @@
 class Admin::StoreEntriesController < ApplicationController
+  before_filter :authenticate_administrator!
   # GET /store_entries
   # GET /store_entries.xml
   def index
@@ -42,10 +43,31 @@ class Admin::StoreEntriesController < ApplicationController
   # POST /store_entries.xml
   def create
     @store_entry = StoreEntry.new(params[:store_entry])
+    @store_entry.number = current_serial_number("SE")
+
+    admin_id = current_administrator.id
+
+    store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id(admin_id)
 
     respond_to do |format|
       if @store_entry.save
-        format.html { redirect_to(@store_entry, :notice => 'Store entry was successfully created.') }
+
+        line_items = []
+
+        store_entry_product_carts.each do |cart|
+          line_items << {:store_entry_id => @store_entry.id,
+                         :product_id => cart.product_id,
+                         :quantity => cart.quantity,
+                         :delivery_date => cart.delivery_date}
+        end
+
+        if ProductStoreEntryship.create(line_items)
+          if destroy_sepc_by_admin_id(admin_id) #删除
+            change_store_quantity(store_entry_product_carts,@store_entry.store_id)
+          end
+        end
+
+        format.html { redirect_to([:admin,@store_entry], :notice => 'Store entry was successfully created.') }
         format.xml  { render :xml => @store_entry, :status => :created, :location => @store_entry }
       else
         format.html { render :action => "new" }
@@ -77,7 +99,7 @@ class Admin::StoreEntriesController < ApplicationController
     @store_entry.destroy
 
     respond_to do |format|
-      format.html { redirect_to(store_entries_url) }
+      format.html { redirect_to(admin_store_entries_url) }
       format.xml  { head :ok }
     end
   end

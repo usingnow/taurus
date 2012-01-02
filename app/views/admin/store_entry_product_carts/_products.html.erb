@@ -1,12 +1,24 @@
-<% @store_entry_.each_with_index do |product_store_entryship,index| %>
-      <tr>
-        <td><%= index %></td>
-        <td><%= product_store_entryship.product.product_id %></td>
-        <td><%= product_store_entryship.product.name %></td>
-        <td><%= product_store_entryship.product.specification %></td>
-        <td><%= product_store_entryship.product.model %></td>
-        <td><%= product_store_entryship.product.unit %></td>
-        <td><%= product_store_entryship.quantity %></td>
-        <td><%= product_store_entryship.delivery_date %></td>
-      </tr>
-    <% end %>
+<% @store_entry_product_carts.each_with_index do |product,index| %>
+  <tr class="<%= set_odd_even_class(index) %>">
+    <td><%= index+1 %></td>
+    <td><%= product.product.product_id %></td>
+    <td><%= product.product.name %></td>
+    <td><%= product.product.specification %></td>
+    <td><%= product.product.model %></td>
+    <td><%= product.product.unit %></td>
+    <td><input type="text" size="3"  value="<%= product.quantity %>" onchange="update_quantity_or_date_to_cart('<%= product.id %>',this.value,1)"/></td>
+    <td><input type='text' value="<%= product.delivery_date %>" class="delivery_date"  onchange="update_quantity_or_date_to_cart('<%= product.id %>',this.value,2)"/></td>
+  </tr>
+<% end %>
+
+<script type="text/javascript">
+  $(".delivery_date").datepicker({ dateFormat: 'yy-mm-dd' });
+
+  function update_quantity_or_date_to_cart(id,value,type){
+    jQuery.ajax({ type: 'put', //提交的类型
+                  url: '/admin/store_entry_product_carts/'+id,//提交地址
+                  data: 'value='+value+'&type='+type,//参数
+                  success: function(msg){ //回调方法
+                  }});
+  }
+</script>

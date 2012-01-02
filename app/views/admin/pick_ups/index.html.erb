@@ -1,0 +1,25 @@
+<h1>图片</h1>
+
+<table>
+  <tr>
+    <th>名称</th>
+    <th>链接</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pick_ups.each do |pick_up| %>
+  <tr>
+    <td><%= pick_up.name %></td>
+    <td><%= pick_up.href %></td>
+    <td><%= link_to 'Show', admin_pick_up_path(pick_up) %></td>
+    <td><%= link_to 'Edit', edit_admin_pick_up_path(pick_up) %></td>
+    <td><%= link_to 'Destroy', admin_pick_up_path(pick_up), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '添加', new_admin_pick_up_path %>

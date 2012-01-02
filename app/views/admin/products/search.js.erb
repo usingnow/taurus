@@ -11,7 +11,7 @@ function add_product_to_cart(id){
 $("#search_product").html("<% @products.each_with_index do |product,index| %><tr class='<%= set_odd_even_class(index) %>' group='<%= index %>'><td><%= index+1 %></td><td><%= product.name %></td><td><%= product.specification %></td><td><%= product.model %></td><td><%= product.unit %></td><td><%= product.product_id %></td><td><a href='#' onclick='add_product_to_cart(<%= product.id %>)'>添加</a></td></tr> <% end %>");
 
 $("[group]").hover(function(){
-        $("[group='"+$(this).attr('group')+"']").addClass("highlight");
-      },function(){
-        $("[group='"+$(this).attr('group')+"']").removeClass("highlight");
-      });
+  $("[group='"+$(this).attr('group')+"']").addClass("highlight");
+},function(){
+  $("[group='"+$(this).attr('group')+"']").removeClass("highlight");
+});

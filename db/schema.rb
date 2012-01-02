@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120102033538) do
+ActiveRecord::Schema.define(:version => 20120102064128) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -310,6 +310,17 @@ ActiveRecord::Schema.define(:version => 20120102033538) do
     t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "pick_ups", :force => true do |t|
+    t.string   "name"
+    t.string   "href"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "procedure_roleships", :force => true do |t|

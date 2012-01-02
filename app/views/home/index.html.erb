@@ -15,3 +15,22 @@
 <% end %>
 
 
+
+
+
+
+<div id="flashbox" class="smallslider" style="width: 320px;height: 200px;">
+  <ul>
+     <% @pick_ups.each do |pick_up| %>
+        <li><a href="#"><%= image_tag pick_up.image.url, :alt => pick_up.name %></a></li>
+     <% end %>
+  </ul>
+</div>
+
+<script type="text/javascript">
+  $('#flashbox').smallslider();
+</script>
+
+
+
+

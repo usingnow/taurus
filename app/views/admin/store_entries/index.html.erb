@@ -21,9 +21,9 @@
     <td><%= store_entry.supplier_id %></td>
     <td><%= store_entry.store_id %></td>
     <td><%= store_entry.note %></td>
-    <td><%= link_to 'Show', store_entry %></td>
-    <td><%= link_to 'Edit', edit_store_entry_path(store_entry) %></td>
-    <td><%= link_to 'Destroy', store_entry, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', admin_store_entry_path(store_entry) %></td>
+    <td><%= link_to 'Edit', edit_admin_store_entry_path(store_entry) %></td>
+    <td><%= link_to 'Destroy', admin_store_entry_path(store_entry), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

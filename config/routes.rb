@@ -37,6 +37,7 @@ Ebiz::Application.routes.draw do
   resources :person_extends
   resources :codes
 
+
   # Sample resource route with options:
   #   resources :products do
   #     member do
@@ -122,6 +123,7 @@ Ebiz::Application.routes.draw do
      resources :product_store_entryships
      resources :store_entries
      resources :store_entry_product_carts
+     resources :pick_ups
    end
 
   # You can have the root of your site routed with "root"
