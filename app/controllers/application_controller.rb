@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
       if serial_number.nil?
         serial_number = SerialNumber.create(:name=>value, :date=>date, :sequence=>1)
       else
-        serial_number.update_attributes(:sequence=>serial_number.sequence)
+        serial_number.update_attributes(:sequence=>serial_number.sequence+1)
       end
 
       seq = serial_number.sequence.to_s
