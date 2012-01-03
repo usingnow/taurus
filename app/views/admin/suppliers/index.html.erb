@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>ID</th>
     <th><%= t('attributes.supplier.name') %></th>
     <th><%= t('attributes.supplier.input_person') %></th>
     <th><%= t('attributes.supplier.updated_at') %></th>
@@ -12,6 +13,7 @@
 
 <% @suppliers.each do |supplier| %>
   <tr>
+    <td><%= supplier.id %></td>
     <td><%= supplier.name %></td>
     <td><%= supplier.input_person %></td>
     <td><%= supplier.updated_at %></td>

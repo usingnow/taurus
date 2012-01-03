@@ -42,11 +42,29 @@ class Admin::PurchasesController < ApplicationController
   def create
     @purchase = Purchase.new(params[:purchase])
     @purchase.number = current_serial_number('EME')
-    session[:purchase] = @purchase
+
+    admin_id = current_administrator.id
+
+    store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id_and_cart_type(admin_id,0)
 
     respond_to do |format|
       if @purchase.save
-        format.html { redirect_to(admin_product_purchaseships_url, :notice => 'Purchase was successfully created.') }
+
+        line_items = []
+
+        store_entry_product_carts.each do |cart|
+          line_items << {:purchase_id => @purchase.id,
+                         :product_id => cart.product_id,
+                         :quantity => cart.quantity,
+                         :unit_price_aft_tax => cart.unit_price_aft_tax,
+                         :total_amount => cart.total_amount,
+                         :delivery_date => cart.delivery_date}
+        end
+
+        if ProductPurchaseship.create(line_items)
+          destroy_sepc_by_admin_id(admin_id) #删除
+        end
+        format.html { redirect_to(admin_purchases_url, :notice => 'Purchase was successfully created.') }
         format.xml  { render :xml => @purchase, :status => :created, :location => @purchase }
       else
         format.html { render :action => "new" }
@@ -78,7 +96,7 @@ class Admin::PurchasesController < ApplicationController
     @purchase.destroy
 
     respond_to do |format|
-      format.html { redirect_to(purchases_url) }
+      format.html { redirect_to(admin_purchases_url) }
       format.xml  { head :ok }
     end
   end

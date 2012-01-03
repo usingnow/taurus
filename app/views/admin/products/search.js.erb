@@ -1,14 +1,14 @@
-function add_product_to_cart(id){
+function add_product_to_cart(id,cart_type){
   jQuery.ajax({ type: 'post', //提交的类型
                 url: '/admin/store_entry_product_carts',//提交地址
-                data: 'product_id='+id,//参数
+                data: 'product_id='+id+'&cart_type='+cart_type,//参数
                 success: function(msg){ //回调方法
                   $('#product_carts').html(msg);
                 }});
 }
 
 
-$("#search_product").html("<% @products.each_with_index do |product,index| %><tr class='<%= set_odd_even_class(index) %>' group='<%= index %>'><td><%= index+1 %></td><td><%= product.name %></td><td><%= product.specification %></td><td><%= product.model %></td><td><%= product.unit %></td><td><%= product.product_id %></td><td><a href='#' onclick='add_product_to_cart(<%= product.id %>)'>添加</a></td></tr> <% end %>");
+$("#search_product").html("<% @products.each_with_index do |product,index| %><tr class='<%= set_odd_even_class(index) %>' group='<%= index %>'><td><%= index+1 %></td><td><%= product.name %></td><td><%= product.specification %></td><td><%= product.model %></td><td><%= product.unit %></td><td><%= product.product_id %></td><td><a href='#' onclick='add_product_to_cart(<%= product.id %>,<%= @cart_type %>)'>添加</a></td></tr> <% end %>");
 
 $("[group]").hover(function(){
   $("[group='"+$(this).attr('group')+"']").addClass("highlight");

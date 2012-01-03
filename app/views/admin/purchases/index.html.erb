@@ -19,7 +19,7 @@
     <td><%= purchase.status %></td>
     <td><%= purchase.note %></td>
     <td><%= purchase.supplier_id %></td>
-    <td><%= link_to '商品', admin_product_purchaseships_path(:purchase=>purchase) %></td>
+    <td><%= link_to '商品', admin_product_purchaseships_path(:purchase_id=>purchase) %></td>
     <td><%= link_to 'Edit', edit_admin_purchase_path(purchase) %></td>
     <td><%= link_to 'Destroy', admin_purchase_path(purchase), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

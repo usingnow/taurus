@@ -1,5 +1,91 @@
-<h1>New purchase</h1>
+<h1>新建采购单</h1>
 
-<%= render 'form' %>
+<%= form_for([:admin,@purchase]) do |f| %>
+  <% if @purchase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
 
-<%= link_to 'Back', admin_purchases_path %>
+      <ul>
+      <% @purchase.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="attributes">
+    <div class="split_content_left">
+      <p>
+        <%= f.label '订货公司ID' %>
+        <%= f.text_field :ordering_company_id %>
+      </p>
+    </div>
+    <div class="split_content_right">
+      <p>
+        <%= f.label '供应商ID' %>
+        <%= f.text_field :supplier_id %>
+      </p>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="attributes">
+    <p>
+      <%= f.label '备注' %>
+      <%= f.text_area :note, :cols => 105, :rows => 5 %>
+    </p>
+  </div>
+  <table class="grid">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>商品编码</th>
+        <th>商品名称</th>
+        <th>规格</th>
+        <th>型号</th>
+        <th>单位</th>
+        <th>数量</th>
+        <th>含税单价</th>
+        <th>合计金额</th>
+        <th>交货日期</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody id="product_carts"></tbody>
+  </table>
+
+  <div class="button">
+    <p>
+      <%= f.submit '新增采购单' %>
+    </p>
+  </div>
+<% end %>
+
+
+<%= form_tag search_admin_products_path, :method => :get, :remote => true  do %>
+  <div class="attributes">
+    <div class="split_content_left">
+      <p>
+        <%= label_tag '商品名称' %>
+        <%= text_field_tag 'q[name_cont]' %>
+        <%= hidden_field_tag 'cart_type', '0'%>
+        <%= submit_tag '查询' %>
+      </p>
+    </div>
+    <div class="clear"></div>
+  </div>
+<% end %>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>商品编码</th>
+      <th>商品名称</th>
+      <th>规格</th>
+      <th>型号</th>
+      <th>单位</th>
+      <th>添加</th>
+    </tr>
+  </thead>
+  <tbody id="search_product"></tbody>
+</table>

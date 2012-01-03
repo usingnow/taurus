@@ -84,6 +84,7 @@ class Admin::ProductsController < ApplicationController
   def search
      @query = Product.search(params[:q])
      @products = @query.result(:distinct => true)
+     @cart_type = params[:cart_type]  # 判断是采购单还是入库单
 
      respond_to do |format|
       format.html # index.html.erb

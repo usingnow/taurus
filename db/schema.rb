@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120102064128) do
+ActiveRecord::Schema.define(:version => 20120103055754) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -348,6 +348,9 @@ ActiveRecord::Schema.define(:version => 20120102064128) do
     t.string   "update_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sequence",    :default => 0
+    t.integer  "level",       :default => 0
+    t.boolean  "active",      :default => false
   end
 
   create_table "product_purchaseships", :force => true do |t|
@@ -590,6 +593,7 @@ ActiveRecord::Schema.define(:version => 20120102064128) do
     t.integer  "admin_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cart_type"
   end
 
   create_table "stores", :force => true do |t|

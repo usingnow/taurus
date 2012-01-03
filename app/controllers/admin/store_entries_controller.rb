@@ -47,7 +47,7 @@ class Admin::StoreEntriesController < ApplicationController
 
     admin_id = current_administrator.id
 
-    store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id(admin_id)
+    store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id_and_cart_type(admin_id,1)
 
     respond_to do |format|
       if @store_entry.save

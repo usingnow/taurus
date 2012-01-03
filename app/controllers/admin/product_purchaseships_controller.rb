@@ -2,13 +2,7 @@ class Admin::ProductPurchaseshipsController < ApplicationController
   # GET /product_purchaseships
   # GET /product_purchaseships.xml
   def index
-    unless params[:purchase_id].nil?
-      purchase_id = params[:purchase_id]
-    else
-      purchase_id = session[:purchase].id
-    end
-
-    @product_purchaseships = ProductPurchaseship.find_all_by_purchase_id(purchase_id)
+    @product_purchaseships = ProductPurchaseship.find_all_by_purchase_id(params[:purchase_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -82,7 +76,7 @@ class Admin::ProductPurchaseshipsController < ApplicationController
     @product_purchaseship.destroy
 
     respond_to do |format|
-      format.html { redirect_to(product_purchaseships_url) }
+      format.html { redirect_to(admin_purchases_url) }
       format.xml  { head :ok }
     end
   end
