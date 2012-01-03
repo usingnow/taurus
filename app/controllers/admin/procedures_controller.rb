@@ -60,7 +60,7 @@ class Admin::ProceduresController < ApplicationController
 
     respond_to do |format|
       if @procedure.update_attributes(params[:procedure])
-        format.html { redirect_to(@procedure, :notice => 'Procedure was successfully updated.') }
+        format.html { redirect_to([:admin,@procedure], :notice => 'Procedure was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -256,4 +256,8 @@ class Admin::OrdersController < ApplicationController
     @order = Order.new
 
   end
+
+  def input_pay_info
+
+  end
 end

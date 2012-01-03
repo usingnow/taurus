@@ -22,6 +22,8 @@ module Admin::OrdersHelper
       url = output_admin_orders_url(:id=>order,:condition_id=>action.condition.id)
     elsif action.condition.action == "sign_in"
       url = sign_in_admin_orders_url(:id=>order,:condition_id=>action.condition.id)
+    elsif action.condition.action == "input_pay_info"
+      url = input_pay_info_admin_orders_url(:id=>order,:condition_id=>action.condition.id)
     end
 
     "<a href='#{url}'>#{action.condition.display_name}</a>"

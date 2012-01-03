@@ -91,6 +91,7 @@ Ebiz::Application.routes.draw do
          post  :condition
          get  :output
          get  :sign_in
+         get  :input_pay_info
          post :step1
          get  :step2
          get  :step3
