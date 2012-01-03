@@ -1,5 +1,7 @@
 Ebiz::Application.routes.draw do
 
+  resources :banks
+
   devise_for :administrators,
              :path =>"admin",
              :controllers => { :sessions => "admin/devise/sessions",

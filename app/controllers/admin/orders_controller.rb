@@ -258,6 +258,8 @@ class Admin::OrdersController < ApplicationController
   end
 
   def input_pay_info
-
+    @order = Order.find(params[:id])
+    session[:order_id] = @order.id
+    session[:condition_id] = params[:condition_id]
   end
 end
