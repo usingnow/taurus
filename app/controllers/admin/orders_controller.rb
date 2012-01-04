@@ -6,7 +6,7 @@ class Admin::OrdersController < ApplicationController
   def index
     q = {"instance_station_station_type_in" => ['0','3','4']}.merge(params[:q] || {})
     @q = Order.search(q)
-    @orders = @q.result(:distinct => true)
+    @orders = @q.result.paginate(:page => params[:page],:per_page => 15)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -253,8 +253,11 @@ class Admin::OrdersController < ApplicationController
   end
 
   def step3
-    @order = Order.new
-
+    if session[:cart_id].nil?
+      redirect_to step2_admin_orders_path , :notice =>  "必须选择一个商品"
+    else
+      @order = Order.new
+    end
   end
 
   def input_pay_info
