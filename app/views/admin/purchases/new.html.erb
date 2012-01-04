@@ -22,8 +22,8 @@
     </div>
     <div class="split_content_right">
       <p>
-        <%= f.label '供应商ID' %>
-        <%= f.text_field :supplier_id %>
+        <%= f.label '供应商' %>
+        <%= f.select :supplier_id, Supplier.all.collect {|s| [ s.name, s.id ] }  %>
       </p>
     </div>
     <div class="clear"></div>

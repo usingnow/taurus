@@ -3,11 +3,6 @@ class Admin::ProductPurchaseshipsController < ApplicationController
   # GET /product_purchaseships.xml
   def index
     @product_purchaseships = ProductPurchaseship.find_all_by_purchase_id(params[:purchase_id])
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @product_purchaseships }
-    end
   end
 
   # GET /product_purchaseships/1

@@ -41,6 +41,7 @@ class Admin::PurchasesController < ApplicationController
   # POST /purchases.xml
   def create
     @purchase = Purchase.new(params[:purchase])
+    @purchase.status = 1
     @purchase.number = current_serial_number('EME')
 
     admin_id = current_administrator.id
