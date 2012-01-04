@@ -1,31 +1,30 @@
-<h1>Listing purchases</h1>
+<h1>采购单列表</h1>
 
-<table>
-  <tr>
-    <th>Number</th>
-    <th>Ordering company</th>
-    <th>Status</th>
-    <th>Note</th>
-    <th>Supplier</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="grid_button">
+  <%= link_to '新建采购单', new_admin_purchase_path %>
+</div>
 
-<% @purchases.each do |purchase| %>
-  <tr>
+<table class="grid">
+  <thead>
+    <tr>
+      <th>编号</th>
+      <th>订货公司</th>
+      <th>供应商</th>
+      <th>状态</th>
+      <th>创建时间</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+<% @purchases.each_with_index do |purchase,index| %>
+  <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
     <td><%= purchase.number %></td>
-    <td><%= purchase.ordering_company_id %></td>
+    <td><%= purchase.ordering_company.name %></td>
+    <td><%= purchase.supplier.name %></td>
     <td><%= purchase.status %></td>
-    <td><%= purchase.note %></td>
-    <td><%= purchase.supplier_id %></td>
+    <td><%= purchase.created_at %></td>
     <td><%= link_to '商品', admin_product_purchaseships_path(:purchase_id=>purchase) %></td>
-    <td><%= link_to 'Edit', edit_admin_purchase_path(purchase) %></td>
-    <td><%= link_to 'Destroy', admin_purchase_path(purchase), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to '修改', edit_admin_purchase_path(purchase) %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to '新建采购单', new_admin_purchase_path %>
