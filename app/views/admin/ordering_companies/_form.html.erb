@@ -1,7 +1,7 @@
 <%= form_for([:admin,@ordering_company]) do |f| %>
   <% if @ordering_company.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@ordering_company.errors.count, "error") %> prohibited this ordering_company from being saved:</h2>
+      <h2><%= I18n.t('activerecord.errors.template.header', :count => @ordering_company.errors.size, :model => I18n.t('models.ordering_company')) %></h2>
 
       <ul>
       <% @ordering_company.errors.full_messages.each do |msg| %>
@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %><span class="red">*</span><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
