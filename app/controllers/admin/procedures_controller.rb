@@ -2,7 +2,7 @@ class Admin::ProceduresController < ApplicationController
   # GET /procedures
   # GET /procedures.xml
   def index
-    @procedures = Procedure.all
+    @procedures = Procedure.unscoped.all
 
     respond_to do |format|
       format.html # index.html.erb
