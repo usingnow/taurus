@@ -41,7 +41,10 @@
   </div>
   <div class="field">
     <%= f.label :active %><br />
-    <%= f.text_field :active %>
+    <%= f.radio_button :active, '1', :checked => true %>
+    <%= f.label '激活' %>
+    <%= f.radio_button :active, '0' %>
+    <%= f.label '关闭' %>
   </div>
   <div class="field">
     <%= f.label :update_by %><br />
