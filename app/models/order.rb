@@ -4,6 +4,7 @@ class Order < ActiveRecord::Base
   belongs_to :user
   belongs_to :admin, :class_name => "Admin", :foreign_key => "take_admin_id"
   belongs_to :make_admin, :class_name => "Admin", :foreign_key => "created_admin_id"
+  has_one :order_pay
 
 
   def add_cart_skuships_from_cart(cart)

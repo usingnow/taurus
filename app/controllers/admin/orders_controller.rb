@@ -203,6 +203,18 @@ class Admin::OrdersController < ApplicationController
     session[:condition_id] = params[:condition_id]
   end
 
+  def input_pay_info
+    @order = Order.find(params[:id])
+    session[:order_id] = @order.id
+    session[:condition_id] = params[:condition_id]
+  end
+
+  def pay_confirmation
+    @order = Order.find(params[:id])
+    session[:order_id] = @order.id
+    session[:condition_id] = params[:condition_id]
+  end
+
   #内部 新建订单第一步
   def step1
     user_no = params[:user_no]
@@ -258,12 +270,6 @@ class Admin::OrdersController < ApplicationController
     else
       @order = Order.new
     end
-  end
-
-  def input_pay_info
-    @order = Order.find(params[:id])
-    session[:order_id] = @order.id
-    session[:condition_id] = params[:condition_id]
   end
 
   #所有字段订单搜索

@@ -1,0 +1,80 @@
+<table>
+  <tr>
+    <td>订单号码</td><td><%= @order.number %></td>
+    <td>订单批次</td><td><%= @order.batch %></td>
+    <td>订单类型</td><td><%= format_sku_type(@order.order_details[0].sku.sku_type) %></td>
+    <td>订单状态</td><td><%= @order.instance.station.name %></td>
+    <td>客户</td><td><%= get_user_name(@order.user)  %></td>
+  </tr>
+</table>
+<hr />
+<table>
+    <tr>
+      <td>#</td>
+      <td>商品编号</td>
+      <td>商品名称</td>
+      <td>单位</td>
+      <td>单价</td>
+      <td>数量</td>
+      <td>安装</td>
+      <td>安装费用</td>
+      <td>组装</td>
+      <td>组装费用</td>
+      <td>交货期</td>
+      <td>合计</td>
+    </tr>
+    <% @order.order_details.each_with_index do |detail,index| %>
+      <tr>
+        <td><%= index+1 %></td>
+        <td><%= detail.sku.number %></td>
+        <td><%= detail.sku.name %></td>
+        <td><%= detail.sku.unit %></td>
+        <td><%= detail.unit_price %></td>
+        <td><%= detail.quantity %></td>
+        <td><%= format_is_need(detail.is_need_install) %></td>
+        <td><%= detail.install_cost %></td>
+        <td><%= format_is_need(detail.is_need_assemble) %></td>
+        <td><%= detail.assemble_cost %></td>
+        <td><%= detail.sku.delivery_day %></td>
+        <td><%= detail.unit_price*detail.quantity %></td>
+      </tr>
+    <% end %>
+</table>
+<hr />
+
+<h2>收货人信息</h2>
+<div class="condition_consignee">
+  收货人姓名： <%= @order.name %> <br />
+  所属地区：	 <%= @order.district_no %><br />
+  收货地址：	 <%= @order.address %> <br />
+  固定电话：  <%= @order.phone %><br />
+  手机：	 <%= @order.mobile %>  <br />
+电子邮箱： <%= @order.email %>   <br />
+邮   编：<%= @order.zip %>
+</div>
+
+
+<h2>支付及发票信息</h2>
+<div class="condition_pay">
+支付方式：	<%= @order.instance.procedure.display_name %>
+发票类型：	<%= format_invoice_type(@order.invoice_type) %>
+发票抬头：	 <%= format_is_invoice_head(@order.is_invoice_head) %>
+</div>
+
+<hr />
+
+   支付状态：<%= format_order_pay_status(@order.order_pay.status) %> <br />
+   汇出地： <%= @order.order_pay.province.name %>  <br />
+   汇款日期：<%= @order.order_pay.alipay_date  %>  <br />
+   交易流水号: <%= @order.order_pay.remittance_no %> <br />
+   交易行名: <%= @order.order_pay.pay_bank %> <br />
+   付款金额: <%= @order.order_pay.price %> <br />
+   汇款人姓名: <%= @order.order_pay.remitter %> <br />
+   汇入银行： <%= @order.order_pay.bank.name %> <br />
+   汇款备注: <%= @order.order_pay.note %>   <br />
+<%= form_tag(condition_admin_orders_path) do%>
+  内部备注: <%= text_area_tag :inner_note, nil, :cols => 105, :rows => 5 %>   <br />
+  <%= submit_tag '确认付款' %>
+<% end %>
+
+
