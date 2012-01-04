@@ -27,14 +27,14 @@
   <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
     <td><%= index+1 %></td>
     <td><%= esc.number %></td>
-    <td><%= esc.esc_category_id %></td>
-    <td><%= esc.user_id %></td>
-    <td><%= esc.status %></td>
-    <td><%= esc.order_id %></td>
-    <td><%= esc.not_registration_user_info %></td>
-    <td><%= esc.user_other_info %></td>
     <td><%= esc.title %></td>
-    <td><%= esc.description %></td>
+    <td><%= esc.esc_category.name %></td>
+    <td><%= format_esc_status(esc.status) %></td>
+    <td><%= esc.order_id %></td>
+    <td><%= get_user_number(esc.user) %></td>
+    <td><%= get_user_name(esc.user) %></td>
+    <td><%= esc.user_other_info %></td>
+    <td><%= esc.created_at %></td>
     <td><%= link_to 'Show', admin_esc_path(esc) %></td>
     <td><%= link_to 'Edit', edit_admin_esc_path(esc) %></td>
     <td><%= link_to 'Destroy', admin_esc_path(esc), :confirm => 'Are you sure?', :method => :delete %></td>

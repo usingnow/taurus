@@ -45,6 +45,7 @@ class Admin::EscsController < ApplicationController
   # POST /escs.xml
   def create
     @esc = Esc.new(params[:esc])
+    @esc.created_by = current_administrator.id
 
     respond_to do |format|
       if @esc.save

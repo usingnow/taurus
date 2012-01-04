@@ -8,14 +8,6 @@ module ApplicationHelper
     end
   end
 
-  def format_user_status(status)
-    if status == 1
-      "激活"
-    else
-      "锁定"
-    end
-  end
-
   def format_boolean(boolean)
     if boolean == true
       "是"
