@@ -80,7 +80,7 @@ class Admin::PurchasesController < ApplicationController
 
     respond_to do |format|
       if @purchase.update_attributes(params[:purchase])
-        format.html { redirect_to(admin_product_purchaseships_url, :notice => 'Purchase was successfully updated.') }
+        format.html { redirect_to([:admin,@purchase], :notice => 'Purchase was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

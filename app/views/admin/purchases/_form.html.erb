@@ -12,18 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :ordering_company_id %><br />
+    <%= f.label '订货公司' %><br />
     <%= f.text_field :ordering_company_id %>
   </div>
   <div class="field">
-    <%= f.label :note %><br />
-    <%= f.text_area :note %>
-  </div>
-  <div class="field">
-    <%= f.label :supplier_id %><br />
+    <%= f.label '供应商' %><br />
     <%= f.text_field :supplier_id %>
   </div>
+  <div class="field">
+    <%= f.label '备注' %><br />
+    <%= f.text_area :note, :cols => 105, :rows => 5 %>
+  </div>
+  <div class="field">
+    <%= f.label '状态' %><br />
+    <%= f.radio_button :status, '0' %>
+    <%= f.label '关闭' %>
+    <%= f.radio_button :status, '1' %>
+    <%= f.label '启用' %>
+  </div>
   <div class="actions">
-    <%= f.submit '下一步' %>
+    <%= f.submit '更新采购单' %>
   </div>
 <% end %>
