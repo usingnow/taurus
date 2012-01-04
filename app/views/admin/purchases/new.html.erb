@@ -16,8 +16,8 @@
   <div class="attributes">
     <div class="split_content_left">
       <p>
-        <%= f.label '订货公司ID' %>
-        <%= f.text_field :ordering_company_id %>
+        <%= f.label '订货公司' %>
+        <%= f.select :ordering_company_id, OrderingCompany.all.collect {|o| [ o.name, o.id ] }  %>
       </p>
     </div>
     <div class="split_content_right">

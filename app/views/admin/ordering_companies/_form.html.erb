@@ -23,6 +23,17 @@
     <%= f.label :phone %><br />
     <%= f.text_field :phone %>
   </div>
+  <div class="field">
+    <%= f.label '状态' %>
+    <%= f.radio_button :active , false %>
+    <%= f.label '关闭' %>
+    <% if @ordering_company.id.nil? %>
+      <%= f.radio_button :active , true, :checked => true %>
+    <% else %>
+      <%= f.radio_button :active , true%>
+    <% end %>
+    <%= f.label '激活' %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

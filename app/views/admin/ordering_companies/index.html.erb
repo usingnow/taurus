@@ -1,27 +1,29 @@
-<h1>Listing ordering_companies</h1>
+<h1>订货公司列表</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Phone</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="grid_button">
+  <%= link_to '新建订货公司', new_admin_ordering_company_path %>
+</div>
 
-<% @ordering_companies.each do |ordering_company| %>
-  <tr>
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>名称</th>
+      <th>地址</th>
+      <th>电话</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+<% @ordering_companies.each_with_index do |ordering_company,index| %>
+  <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+    <td><%= index+1 %></td>
     <td><%= ordering_company.name %></td>
     <td><%= ordering_company.address %></td>
     <td><%= ordering_company.phone %></td>
-    <td><%= link_to 'Show', admin_ordering_company_path(ordering_company) %></td>
-    <td><%= link_to 'Edit', edit_admin_ordering_company_path(ordering_company) %></td>
-    <td><%= link_to 'Destroy', admin_ordering_company_path(ordering_company), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to '详情', admin_ordering_company_path(ordering_company) %></td>
+    <td><%= link_to '修改', edit_admin_ordering_company_path(ordering_company) %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to '新建订货公司', new_admin_ordering_company_path %>

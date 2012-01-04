@@ -212,6 +212,7 @@ zh-CN:
     order: "订单"
     role: "角色"
     esc: "升级单"
+    ordering_company: "订货公司"
 
 
   attributes: &attributes
@@ -491,6 +492,12 @@ zh-CN:
       title: "标题"
       description: "详细内容"
 
+    ordering_company:
+      name: "名称"
+      address: "地址"
+      phone: "电话"
+
+
 
 
   activerecord:
@@ -530,6 +537,10 @@ zh-CN:
   #常见字段
   created_at: "创建时间"
   user_number: "会员编号"
+  number: "编号"
+  name: "名称"
+  address: "地址"
+  phone: "电话"
 
   #will_paginate
   will_paginate:
