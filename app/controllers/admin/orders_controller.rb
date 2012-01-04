@@ -262,4 +262,11 @@ class Admin::OrdersController < ApplicationController
     session[:order_id] = @order.id
     session[:condition_id] = params[:condition_id]
   end
+
+  #所有字段订单搜索
+  def all
+    @search = Order.search(params[:q])
+    @search.sorts = 'created_at desc'
+    @orders = @search.result.paginate(:page => params[:page],:per_page => 15)
+  end
 end

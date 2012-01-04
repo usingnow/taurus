@@ -1,7 +1,4 @@
 Ebiz::Application.routes.draw do
-
-  resources :banks
-
   devise_for :administrators,
              :path =>"admin",
              :controllers => { :sessions => "admin/devise/sessions",
@@ -97,6 +94,7 @@ Ebiz::Application.routes.draw do
          post :step1
          get  :step2
          get  :step3
+         get  :all
        end
      end
      resources :procedures
@@ -127,6 +125,7 @@ Ebiz::Application.routes.draw do
      resources :store_entries
      resources :store_entry_product_carts
      resources :pick_ups
+     resources :banks
    end
 
   # You can have the root of your site routed with "root"

@@ -1,0 +1,79 @@
+<h1>订单列表</h1>
+
+<div class="attributes">
+  <%= search_form_for @search, :url => all_admin_orders_path, :html => {:method => :get} do |f| %>
+    <div class="split_content_left">
+      <p>
+        <%= f.label '订单号码' %>
+        <%= f.text_field :number_eq %>
+      </p>
+      <p>
+        <%= f.label '日期范围' %>
+        <%= f.date_select :created_at_gt,{:include_blank=>true} %> ~
+        <%= f.date_select :created_at_lt,{:include_blank=>true} %>
+      </p>
+      <p>
+        <%= f.label '用户名' %>
+        <%= f.text_field :user_login_no_eq %>
+      </p>
+    </div>
+    <div class="split_content_right">
+      <p>
+        <%= f.label '商品名称' %>
+        <%= f.text_field :order_details_sku_name_cont %>
+      </p>
+      <p>
+        <%= f.label '订单金额' %>
+        <%= f.text_field :total_price_gt %>~
+        <%= f.text_field :total_price_lt %>
+      </p>
+      <p>
+        <label>&nbsp;</label>
+        <%= f.submit '查询'%>
+      </p>
+    </div>
+    <div class="clear"></div>
+  <% end %>
+</div>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t 'attributes.order.number' %></th>
+      <th><%= t 'attributes.order.user_id' %></th>
+      <th><%= t 'attributes.order.instance_id' %></th>
+      <th><%= t 'attributes.order.total_price' %></th>
+      <th><%= t 'attributes.order.station_id' %></th>
+      <th><%= t 'attributes.order.make_by' %></th>
+      <th><%= t 'attributes.order.sku_type' %></th>
+      <th><%= t :created_at %></th>
+    </tr>
+  </thead>
+
+<% @orders.each_with_index do |order,index| %>
+  <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
+    <td><%= index+1 %></td>
+    <td><%= link_to order.number, admin_order_path(order) %></td>
+    <td><%= get_user_name(order.user) %></td>
+    <td><%= order.instance.procedure.name %></td>
+    <td><%= order.total_price %></td>
+    <td><%= order.instance.station.name %></td>
+    <td><% if order.user_id == nil %><%= order.admin.name  %><% else %>客户<% end %></td>
+    <td><%= format_sku_type(order.order_details[0].sku.sku_type) %></td>
+    <td><%= order.created_at %></td>
+  </tr>
+  <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
+    <td colspan="9" class="summary">
+      订单概述：总共含<%= order.total_details %>种商品，
+      合计<%= order.total_skus %>个商品，
+      订单总金额<%= order.total_price %>元
+    </td>
+  </tr>
+  <tr class="gap">
+    <td colspan="12" height="4"></td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @orders %>
