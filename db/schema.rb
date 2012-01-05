@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120104081738) do
+ActiveRecord::Schema.define(:version => 20120105035917) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -257,6 +257,34 @@ ActiveRecord::Schema.define(:version => 20120104081738) do
     t.datetime "updated_at"
   end
 
+  create_table "order_print_logs", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "print_type"
+    t.string   "created_by"
+    t.integer  "admin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_take_logs", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "oper_type"
+    t.string   "created_by"
+    t.integer  "admin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_tracks", :force => true do |t|
+    t.integer  "order_id"
+    t.boolean  "is_display"
+    t.string   "description"
+    t.string   "created_by"
+    t.integer  "admin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "ordering_companies", :force => true do |t|
     t.string   "number"
     t.string   "name"
@@ -450,6 +478,19 @@ ActiveRecord::Schema.define(:version => 20120104081738) do
     t.integer  "status"
     t.text     "note"
     t.integer  "supplier_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rec_adds", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "district_no"
+    t.string   "name"
+    t.string   "address"
+    t.string   "zip"
+    t.string   "phone"
+    t.string   "mobile"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
