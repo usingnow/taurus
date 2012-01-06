@@ -2,7 +2,8 @@ class Admin::BrandsController < ApplicationController
   # GET /brands
   # GET /brands.xml
   def index
-    @brands = Brand.all
+    @search = Brand.search(params[:q])
+    @brands = @search.result.paginate(:page => params[:page], :per_page => 20)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -2,7 +2,8 @@ class Admin::SuppliersController < ApplicationController
   # GET /suppliers
   # GET /suppliers.xml
   def index
-    @suppliers = Supplier.all
+    @search = Supplier.search(params[:p])
+    @suppliers = @search.result.paginate(:page => params[:page], :per_page => 20)
 
     respond_to do |format|
       format.html # index.html.erb

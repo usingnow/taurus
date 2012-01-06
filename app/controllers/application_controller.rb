@@ -105,4 +105,19 @@ class ApplicationController < ActionController::Base
         end
       end
     end
+
+    #获得订单实例
+    def current_instance(procedure_id,next_station_id)
+      Instance.create(:procedure_id=>procedure_id,:station_id=>next_station_id)
+    end
+
+    #批量添加订单详情
+    def create_order_details(inner_sku_carts)
+      line_items = []
+      inner_sku_carts.each do |cart|
+        line_items << {:order_id => @order.id, :sku_id => cart.sku_id, :unit_price => cart.sku.cost_aft_tax,
+                       :quantity => cart.quantity}
+      end
+      OrderDetail.create(line_items)
+    end
 end

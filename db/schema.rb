@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120105035917) do
+ActiveRecord::Schema.define(:version => 20120106081541) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -203,6 +203,59 @@ ActiveRecord::Schema.define(:version => 20120105035917) do
     t.string   "number"
     t.string   "name"
     t.string   "desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "inner_order_addresses", :force => true do |t|
+    t.string   "name"
+    t.string   "district_no"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "mobile"
+    t.string   "email"
+    t.string   "zip"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "inner_order_payments", :force => true do |t|
+    t.integer  "procedure_id"
+    t.integer  "invoice_type"
+    t.string   "account_bank"
+    t.string   "account_person_name"
+    t.string   "account_phone"
+    t.string   "account_no"
+    t.string   "added_value_tax_no"
+    t.string   "account_reg_add"
+    t.integer  "is_invoice_head"
+    t.string   "company_name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "inner_sku_carts", :force => true do |t|
+    t.integer  "sku_id"
+    t.integer  "quantity",                                        :default => 1
+    t.decimal  "install_price",    :precision => 10, :scale => 0, :default => 0
+    t.decimal  "assembling_price", :precision => 10, :scale => 0, :default => 0
+    t.date     "delivery_date"
+    t.decimal  "total_amount",     :precision => 10, :scale => 0, :default => 0
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "inner_sku_carts_copy", :force => true do |t|
+    t.integer  "sku_id"
+    t.integer  "quantity",                                        :default => 1
+    t.decimal  "install_price",    :precision => 10, :scale => 0, :default => 0
+    t.decimal  "assembling_price", :precision => 10, :scale => 0, :default => 0
+    t.date     "delivery_date"
+    t.decimal  "total_amount",     :precision => 10, :scale => 0, :default => 0
+    t.integer  "administrator_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -429,7 +482,7 @@ ActiveRecord::Schema.define(:version => 20120105035917) do
     t.string   "unit"
     t.string   "specification"
     t.integer  "delivery_days"
-    t.integer  "type"
+    t.integer  "line_type"
     t.string   "model"
     t.string   "size"
     t.string   "delivery_descprition"
@@ -460,6 +513,7 @@ ActiveRecord::Schema.define(:version => 20120105035917) do
     t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "id_n"
   end
 
   create_table "provinces", :force => true do |t|
@@ -525,6 +579,8 @@ ActiveRecord::Schema.define(:version => 20120105035917) do
     t.string   "update_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sequence"
+    t.integer  "level"
   end
 
   create_table "sku_images", :force => true do |t|
@@ -592,6 +648,7 @@ ActiveRecord::Schema.define(:version => 20120105035917) do
     t.integer  "total_sale"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "id_n"
   end
 
   create_table "station_procedureships", :force => true do |t|

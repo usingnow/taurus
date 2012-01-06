@@ -76,7 +76,7 @@ class Admin::StationProcedureshipsController < ApplicationController
 
     respond_to do |format|
       if @station_procedureship.update_attributes(params[:station_procedureship])
-        format.html { redirect_to([:admin,@station_procedureship], :notice => 'Station procedureship was successfully updated.') }
+        format.html { redirect_to(admin_station_procedureships_url, :notice => 'Station procedureship was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

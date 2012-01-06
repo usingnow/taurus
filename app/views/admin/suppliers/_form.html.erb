@@ -41,10 +41,14 @@
   </div>
   <div class="field">
     <%= f.label :active %><br />
-    <%= f.radio_button :active, '0', :checked => true %>
-    <%= f.label '激活' %>
-    <%= f.radio_button :active, '1' %>
+    <%= f.radio_button :active, '0',%>
     <%= f.label '关闭' %>
+    <% if @supplier.id.nil? %>
+      <%= f.radio_button :active, '1', :checked => true  %>
+    <% else %>
+      <%= f.radio_button :active, '1' %>
+    <% end %>
+    <%= f.label '激活' %>
   </div>
   <div class="actions">
     <%= f.submit %>

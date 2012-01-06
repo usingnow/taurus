@@ -2,12 +2,8 @@ class Admin::ProductCategoriesController < ApplicationController
   # GET /product_categories
   # GET /product_categories.xml
   def index
-    @product_categories = ProductCategory.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @product_categories }
-    end
+    @search = ProductCategory.search(params[:p])
+    @product_categories = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /product_categories/1

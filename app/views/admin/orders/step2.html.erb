@@ -1,4 +1,14 @@
-<h1 class="notice"><%= notice %></h1>
+<% if @inner_sku_cart.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@inner_sku_cart.errors.count, "错误") %></h2>
+
+    <ul>
+    <% @inner_sku_cart.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <table class="grid">
   <thead>
     <tr>
@@ -14,26 +24,36 @@
       <th>合计</th>
     </tr>
   </thead>
-  <% @cart_skuships.each_with_index do |cart,index| %>
-    <tr class="<%= set_odd_even_class(index) %>">
-      <td><%= index+1 %></td>
-      <td><%= cart.sku.number %></td>
-      <td><%= cart.sku.name %></td>
-      <td><%= cart.sku.unit %></td>
-      <td><%= cart.sku.cost_aft_tax %></td>
-      <td><%= cart.quantity %></td>
-      <td><%= cart.sku.insatllation_cost_aft_tax %></td>
-      <td><%= cart.sku.assembling_fee_aft_tax %></td>
-      <td><%= cart.sku.delivery_day %></td>
-      <td><%= cart.quantity*cart.sku.cost_aft_tax %></td>
-    </tr>
-  <% end %>
+  <tbody id="sku_carts">
+    <% @inner_sku_carts.each_with_index do |cart,index| %>
+      <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
+        <td><%= index+1 %></td>
+        <td><%= cart.sku.number %></td>
+        <td><%= cart.sku.name %></td>
+        <td><%= cart.sku.unit %></td>
+        <td><%= cart.sku.cost_aft_tax %></td>
+        <td><%= text_field_tag :quantity, cart.quantity, :size => 3, :class=> "inner_sku_cart_quantity", :id => "#{cart.id}" %></td>
+        <td><%= cart.sku.insatllation_cost_aft_tax %></td>
+        <td><%= cart.sku.assembling_fee_aft_tax %></td>
+        <td><%= cart.sku.delivery_day %></td>
+        <td><%= cart.quantity*cart.sku.cost_aft_tax %></td>
+      </tr>
+    <% end %>
+  <script type="text/javascript">
+    $(".inner_sku_cart_quantity").change(function() {
+      $.ajax({url: "/admin/inner_sku_carts/"+this.id,
+              type: "put",
+              data: 'value=' + this.value,
+              dataType: 'script'})
+    });
+  </script>
+  </tbody>
 </table>
 
 <hr />
 <div>
-  <%= form_tag(step2_admin_orders_path,:method => :get) do %>
-    商品名称:<%= text_field_tag 'name' %>
+  <%= search_form_for @search, :url => sku_sear_admin_orders_path, :remote => true, :html => {:method => :get} do |f| %>
+    商品名称:<%= f.text_field :name_cont %>
     <%= submit_tag '查询' %>
   <% end %>
 </div>
@@ -51,20 +71,7 @@
       <th>操作</th>
     </tr>
   </thead>
-  <% @skus.each_with_index do |sku,index| %>
-    <tr class="<%= set_odd_even_class(index) %>">
-      <td><%= index+1 %></td>
-      <td><%= sku.number %></td>
-      <td><%= sku.name %></td>
-      <td><%= sku.unit %></td>
-      <td><%= sku.cost_aft_tax %></td>
-      <td><%= sku.insatllation_cost_aft_tax %></td>
-      <td><%= sku.assembling_fee_aft_tax %></td>
-      <td><%= sku.delivery_day %></td>
-      <td><%= link_to '添加', step2_admin_orders_path(:sku_id=>sku) %></td>
-    </tr>
-  <% end %>
+  <tbody id="search_skus"></tbody>
 </table>
 
 <div><%= link_to '上一步', new_admin_order_path %><%= link_to '下一步', step3_admin_orders_path %></div>
-

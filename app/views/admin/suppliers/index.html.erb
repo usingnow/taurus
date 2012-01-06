@@ -1,18 +1,25 @@
 <h1>供应商列表</h1>
 
-<table>
-  <tr>
-    <th>ID</th>
-    <th><%= t('attributes.supplier.name') %></th>
-    <th><%= t('attributes.supplier.input_person') %></th>
-    <th><%= t('attributes.supplier.updated_at') %></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="grid_button">
+  <%= link_to '新增供应商', new_admin_supplier_path %>
+</div>
 
-<% @suppliers.each do |supplier| %>
-  <tr>
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>ID</th>
+      <th><%= t('attributes.supplier.name') %></th>
+      <th><%= t('attributes.supplier.input_person') %></th>
+      <th><%= t('attributes.supplier.updated_at') %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+   </tr>
+  </thead>
+<% @suppliers.each_with_index do |supplier,index| %>
+  <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+    <td><%= index+1 %></td>
     <td><%= supplier.id %></td>
     <td><%= supplier.name %></td>
     <td><%= supplier.input_person %></td>
@@ -24,6 +31,5 @@
 <% end %>
 </table>
 
-<br />
+<%= will_paginate @suppliers %>
 
-<%= link_to '新建供应商', new_admin_supplier_path %>

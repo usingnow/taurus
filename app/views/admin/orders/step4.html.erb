@@ -1,0 +1,63 @@
+<%= form_tag step5_admin_orders_path do%>
+  <div class="attributes">
+    <div class="split_content_left">
+      <p>
+        <%= label_tag "收货人姓名" %><sapn class="red">*</sapn>
+        <%= text_field :inner_order_address, :name %>
+      </p>
+      <p>
+        <%= label_tag "所属地区" %><sapn>&nbsp;</sapn>
+        <select class="required" title="请选择省份"
+                onchange="jQuery.ajax({ type: 'get', //提交的类型
+                                        url: '/admin/cities/ajax',//提交地址
+                                        data: 'province_no='+this.value,//参数
+                                        success: function(msg){ //回调方法
+                                          $('#cities').html(msg);
+                                          $('#districts').html('<option value=>-请选择-</option>');
+                                        }});">
+          <option value="">-请选择-</option>
+          <% for province in Province.all %>
+            <option value="<%= province.number %>"><%= province.name %></option>
+          <% end %>
+        </select>
+        省份
+        <select id="cities" name="district[city_no]" class="required" title="请选择城市"
+                onchange="jQuery.ajax({ type: 'get', //提交的类型
+                                        url: '/admin/districts/ajax',//提交地址
+                                        data: 'city_no='+this.value,//参数
+                                        success: function(msg){ //回调方法
+                                          $('#districts').html(msg);
+                                        }});">
+          <option value="">-请选择-</option>
+        </select>
+        城市
+        <select id="districts" name="inner_order_address[district_no]" class="required" title="请选择区县">
+          <option value="">-请选择-</option>
+        </select>
+        区县
+      </p>
+      <p>
+        <%= label_tag "地址" %><sapn class="red">*</sapn>
+        <%= text_field :inner_order_address, :address %>
+      </p>
+      <p>
+        <%= label_tag "固定电话" %><sapn>&nbsp;</sapn>
+        <%= text_field :inner_order_address, :phone %>
+      </p>
+      <p>
+        <%= label_tag "手机" %><sapn>&nbsp;</sapn>
+        <%= text_field :inner_order_address, :mobile %>
+      </p>
+      <p>
+        <%= label_tag "电子邮箱" %><sapn>&nbsp;</sapn>
+        <%= text_field :inner_order_address, :email %>
+      </p>
+      <p>
+        <%= label_tag "邮编" %><sapn>&nbsp;</sapn>
+        <%= text_field :inner_order_address, :zip %>
+      </p>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <%= submit_tag '下一步' %>
+<% end %>

@@ -1,50 +1,53 @@
-<%= form_for([:admin,@order]) do |f| %>
-<h3>收货人信息</h3>
-  <div class="field">
-    <%= f.label :name %><sapn class="red">*</sapn><br />
-    <%= f.text_field :name %>
+<%= form_tag(step4_admin_orders_path, :method => :get) do %>
+  <div class="attributes">
+    <div class="split_content_left">
+      <p>
+        <%= label_tag "支付方式" %>
+        <%= select(:inner_order_payment, :procedure_id, options_from_collection_for_select(@procedures, "id", "display_name")) %>
+      </p>
+      <p>
+        <%= label_tag "发票类型" %>
+        <%= radio_button_tag "inner_order_payment[invoice_type]", '0', true, :class => "radio" %>普通
+        <%= radio_button_tag "inner_order_payment[invoice_type]", '1', false, :class => "radio" %>增值税发票
+      </p>
+      <div id="type_invoice"></div>
+      <p>
+        <%= label_tag "发票抬头" %>
+        <%= radio_button_tag "inner_order_payment[is_invoice_head]", '0', true, :class => "radio" %>个人
+        <%= radio_button_tag "inner_order_payment[is_invoice_head]", '1', false, :class => "radio" %> 单位
+      </p>
+      <p id="title_company_name"></p>
+    </div>
+    <div class="clear"></div>
   </div>
-  <div class="field">
-    <%= f.label :address %><sapn class="red">*</sapn><br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :mobile %><br />
-    <%= f.text_field :mobile %>
-  </div>
-    <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-    <div class="field">
-    <%= f.label :zip %><br />
-    <%= f.text_field :zip %>
-  </div>
-<hr />
-<h3>支付方式</h3>
-  <div class="field">
-    <%= f.label :procedure_id %><br />
-    <%= collection_select :procedure, :procedure_id,Procedure.all, :id,:display_name %>
-  </div>
-<hr />
-  <h3>发票信息</h3>
- *发票类型: <%= f.radio_button :invoice_type, '0',  :checked=>true %>普通
-          <%= f.radio_button :invoice_type, '1' %>增值税发票
-    <br />
-*开户银行：<%= f.text_field :account_bank %>   <br />
-*开户名称：<%= f.text_field :account_person_name %>      <br />
-*注册电话：<%= f.text_field :account_phone %>     <br />
-*银行帐号：<%= f.text_field :account_no %>    <br />
-*增值税登记号：<%= f.text_field :added_value_tax_no %>   <br />
-*注册地址：<%= f.text_field :account_reg_add %>   <br />
-   <br />
-*发票抬头：<%= f.radio_button :is_invoice_head, '0',  :checked=>true %>个人
-          <%= f.radio_button :is_invoice_head, '1' %> 单位
-   <br />
-*单位名称：<%= f.text_field :company_name %>
-  <%= submit_tag '提交' %>
+  <%= submit_tag '下一步' %>
 <% end %>
+
+<script type="text/javascript">
+  $(".radio").click(function(){
+    var value = this.value;
+    var name = this.name;
+    if(name == "is_invoice_head"){
+      if(value == "0"){
+         $("#title_company_name").html("");
+      }else{
+         $("#title_company_name").html('<%= label_tag "单位名称" %><%= text_field :inner_order_payment, :company_name %>');
+      }
+    }else{
+      if(value == "0"){
+        $("#type_invoice").html("");
+      }else{
+        var str = '';
+        str+= '<p><%= label_tag "开户银行" %><%= text_field :inner_order_payment, :account_bank %></p>';
+        str+= '<p><%= label_tag "开户名称" %><%= text_field :inner_order_payment, :account_person_name %></p>';
+        str+= '<p><%= label_tag "注册电话" %><%= text_field :inner_order_payment, :account_phone %></p>';
+        str+= '<p><%= label_tag "银行帐号" %><%= text_field :inner_order_payment, :account_no %></p>';
+        str+= '<p><%= label_tag "增值税登记号" %><%= text_field :inner_order_payment, :added_value_tax_no %></p>';
+        str+= '<p><%= label_tag "注册地址" %><%= text_field :inner_order_payment, :account_reg_add %></p>';
+        $("#type_invoice").html(str);
+      }
+    }
+  });
+</script>
+
+

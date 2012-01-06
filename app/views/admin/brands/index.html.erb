@@ -1,18 +1,26 @@
 <h1>品牌列表</h1>
 
-<table>
-  <tr>
-    <th><%= t('attributes.brand.chinese_name') %></th>
-    <th><%= t('attributes.brand.english_name') %></th>
-    <th><%= t('attributes.brand.company_name') %></th>
-    <th><%= t('attributes.brand.updated_at') %></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="grid_button">
+  <%= link_to '新建品牌', new_admin_brand_path %>
+</div>
 
-<% @brands.each do |brand| %>
-  <tr>
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('attributes.brand.chinese_name') %></th>
+      <th><%= t('attributes.brand.english_name') %></th>
+      <th><%= t('attributes.brand.company_name') %></th>
+      <th><%= t('attributes.brand.updated_at') %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <% @brands.each_with_index do |brand,index| %>
+  <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
+    <td><%= index+1 %></td>
     <td><%= brand.chinese_name %></td>
     <td><%= brand.english_name %></td>
     <td><%= brand.company_name %></td>
@@ -24,6 +32,7 @@
 <% end %>
 </table>
 
-<br />
+<%= will_paginate @brands %>
 
-<%= link_to '新建品牌', new_admin_brand_path %>
+
+

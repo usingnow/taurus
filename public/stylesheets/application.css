@@ -106,6 +106,10 @@ div.attributes label{
   width: 100px;
 }
 
+div.attributes input.radio{
+  width: 20px;
+}
+
 
 
 .clear{

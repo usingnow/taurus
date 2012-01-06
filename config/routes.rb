@@ -92,9 +92,12 @@ Ebiz::Application.routes.draw do
          get  :sign_in
          get  :input_pay_info
          get  :pay_confirmation
-         post :step1
+         get :user_sear
          get  :step2
+         get  :sku_sear
          get  :step3
+         get  :step4
+         post :step5
          get  :all
        end
      end
@@ -127,6 +130,7 @@ Ebiz::Application.routes.draw do
      resources :store_entry_product_carts
      resources :pick_ups
      resources :banks
+     resources :inner_sku_carts
    end
 
   # You can have the root of your site routed with "root"

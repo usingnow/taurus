@@ -2,12 +2,10 @@ class Admin::SkuCategoriesController < ApplicationController
   # GET /sku_categories
   # GET /sku_categories.xml
   def index
-    @sku_categories = SkuCategory.all
+    @search = SkuCategory.search(params[:p])
+    @search.sorts = "updated_at desc"
+    @sku_categories = @search.result.paginate(:page => params[:page], :per_page => 20)
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @sku_categories }
-    end
   end
 
   # GET /sku_categories/1

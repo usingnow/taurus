@@ -1,30 +1,37 @@
 <h1>媒体商品列表</h1>
 
-<table>
-  <tr>
-    <th><%= t('attributes.sku.number') %></th>
-    <th><%= t('attributes.sku.name') %></th>
-    <th><%= t('attributes.sku.sku_category_id') %></th>
-    <th><%= t('attributes.sku.unit') %></th>
-    <th><%= t('attributes.sku.sku_type') %></th>
-    <th><%= t('attributes.sku.status') %></th>
-    <th><%= t('attributes.sku.sales_status') %></th>
-    <th><%= t('attributes.sku.updated_at') %></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="grid_button">
+  <%= link_to '新建媒体商品', new_admin_sku_path %>
+</div>
 
-<% @skus.each do |sku| %>
-  <tr>
+<table class="grid">
+  <thead>
+    <tr>
+      <th><%= t('attributes.sku.number') %></th>
+      <th><%= t('attributes.sku.name') %></th>
+      <th><%= t('attributes.sku.sku_category_id') %></th>
+      <th><%= t('attributes.sku.unit') %></th>
+      <th><%= t('attributes.sku.sku_type') %></th>
+      <th><%= t('attributes.sku.status') %></th>
+      <th><%= t('attributes.sku.sales_status') %></th>
+      <th><%= t('attributes.sku.updated_at') %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+
+<% @skus.each_with_index do |sku,index| %>
+  <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
     <td><%= sku.number %></td>
     <td><%= sku.name %></td>
     <td><%= sku.sku_category_id %></td>
     <td><%= sku.unit %></td>
-    <td><%= sku.sku_type %></td>
-    <td><%= sku.status %></td>
-    <td><%= sku.sales_status %></td>
+    <td><%= format_sku_type sku.sku_type %></td>
+    <td><%= format_sku_status sku.status %></td>
+    <td><%= format_sku_sales_status sku.sales_status %></td>
     <td><%= sku.updated_at %></td>
     <td><%= link_to '商品组成', 'sku_productships?sku_id='+sku.id.to_s %></td>
     <td><%= link_to '相册', 'sku_images?sku_id='+sku.id.to_s %></td>
@@ -35,6 +42,6 @@
 <% end %>
 </table>
 
-<br />
 
-<%= link_to '新建媒体商品', new_admin_sku_path %>
+
+<%= will_paginate @skus %>

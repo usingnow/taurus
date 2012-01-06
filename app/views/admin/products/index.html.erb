@@ -1,22 +1,28 @@
-<h1>Listing product</h1>
+<h1>素材商品列表</h1>
 
-<table>
-  <tr>
-    <th><%= t('attributes.product.product_id') %></th>
-    <th><%= t('attributes.product.name') %></th>
-    <th><%= t('attributes.product.unit') %></th>
-    <th><%= t('attributes.product.brand_chinese_name') %></th>
-    <th><%= t('attributes.product.specification') %></th>
-    <th><%= t('attributes.product.model') %></th>
-    <th><%= t('attributes.product.manufacturer') %></th>
-    <th><%= t('attributes.product.updated_at') %></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="grid_button">
+  <%= link_to '新建素材商品', new_admin_product_path %>
+</div>
 
-<% @product.each do |product| %>
-  <tr>
+<table class="grid">
+  <thead>
+    <tr>
+      <th><%= t('attributes.product.product_id') %></th>
+      <th><%= t('attributes.product.name') %></th>
+      <th><%= t('attributes.product.unit') %></th>
+      <th><%= t('attributes.product.brand_chinese_name') %></th>
+      <th><%= t('attributes.product.specification') %></th>
+      <th><%= t('attributes.product.model') %></th>
+      <th><%= t('attributes.product.manufacturer') %></th>
+      <th><%= t('attributes.product.updated_at') %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+<% @products.each_with_index do |product,index| %>
+  <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
     <td><%= product.product_id %></td>
     <td><%= product.name %></td>
     <td><%= product.unit %></td>
@@ -32,6 +38,4 @@
 <% end %>
 </table>
 
-<br />
-
-<%= link_to '新建素材商品', new_admin_product_path %>
+<%= will_paginate @products %>

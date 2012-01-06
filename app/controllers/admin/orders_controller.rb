@@ -29,16 +29,7 @@ class Admin::OrdersController < ApplicationController
   # GET /orders/new.xml
   def new
     @date = Time.now.strftime('%Y-%m-%d')
-    if session[:step1].nil?
-      @user = User.new
-      session[:step1] = @user
-    end
-
-
-    respond_to do |format|
-      format.html { render :layout => "home"}
-      format.xml  { render :xml => @order }
-    end
+    @user = User.new
   end
 
   # GET /orders/1/edit
@@ -51,62 +42,70 @@ class Admin::OrdersController < ApplicationController
   # POST /orders
   # POST /orders.xml
   def create
-     #获得此 流程的首站
-    station_procedureship = StationProcedureship.find_by_procedure_id_and_sequence(params[:procedure][:procedure_id],1)
+    #获得选择的商品
+    inner_sku_carts = InnerSkuCart.find_all_by_user_id(session[:user_id])
 
-    @cart_skuships = CartSkuship.find_all_by_cart_id(session[:cart_id])
+    #获得 此流程 的首站
+    inner_order_payment = InnerOrderPayment.find_by_user_id(session[:user_id])
+    station_procedureship = StationProcedureship.find_by_procedure_id_and_sequence(inner_order_payment.procedure_id,1)
 
+    #获得 此流程 的下一站
     condition = Condition.find_by_action("false")
+    station = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(inner_order_payment.procedure_id,station_procedureship.next_station_id,condition.id)
 
-    station_id = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(params[:procedure][:procedure_id],station_procedureship.next_station_id,condition.id)
+    #获得收货地址
+    inner_order_address = InnerOrderAddress.find_by_user_id(session[:user_id])
+
+    #获得实例
+    instance = current_instance(inner_order_payment.procedure_id,station.next_station_id)
 
     #判断 订单是否保留
-    @cart_skuships.each do |cart_skuship|
-      if cart_skuship.sku.sku_type == 2
+    inner_sku_carts.each do |cart|
+      if cart.sku.sku_type == 2
         condition = Condition.find_by_action("true")
-        station_id = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(params[:procedure][:procedure_id],station_procedureship.next_station_id,condition.id)
+        #获得保留单的下一站
+        station = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(inner_order_payment.procedure_id,station_procedureship.next_station_id,condition.id)
         break
       end
     end
 
-    instance = Instance.new(:procedure_id=>params[:procedure][:procedure_id],:station_id=>station_id.next_station_id)
-    instance.save
-
-    @order = Order.new(params[:order])
-    @order.instance_id = instance.id
+    @order = Order.new
     @order.number = current_number   #获得订单编号
     @order.batch = @order.number
-    @order.user_id = session[:step1].id
-
-    session[:step1] = nil
-
+    @order.instance_id = instance.id
+    @order.user_id = session[:user_id]
+    @order.created_admin_id = current_administrator.id
+    @order.updated_admin_id = current_administrator.id
+    @order.district_no = inner_order_address.district_no
+    @order.name = inner_order_address.name
+    @order.address = inner_order_address.address
+    @order.zip = inner_order_address.zip
+    @order.phone = inner_order_address.phone
+    @order.mobile = inner_order_address.mobile
+    @order.email = inner_order_address.email
+    @order.invoice_type = inner_order_payment.invoice_type
+    @order.account_bank = inner_order_payment.account_bank
+    @order.account_person_name = inner_order_payment.account_person_name
+    @order.account_no = inner_order_payment.account_no
+    @order.account_phone = inner_order_payment.account_phone
+    @order.added_value_tax_no = inner_order_payment.added_value_tax_no
+    @order.account_reg_add = inner_order_payment.account_reg_add
+    @order.is_invoice_head = inner_order_payment.is_invoice_head
+    @order.company_name = inner_order_payment.company_name
     total_price = 0
-    @cart_skuships.each do |cart_skuship|
-      total_price += cart_skuship.sku.cost_aft_tax*cart_skuship.quantity
+    inner_sku_carts.each do |cart|
+      total_price += cart.sku.cost_aft_tax*cart.quantity
     end
     @order.total_price = total_price
 
-    respond_to do |format|
-      if @order.save
+    if @order.save
+      create_order_details(inner_sku_carts)
 
-        @cart_skuships.each do |cart_skuship|
-           @order_detail = OrderDetail.new
-           @order_detail.order_id = @order.id
-           @order_detail.sku_id = cart_skuship.sku_id
-           @order_detail.unit_price = cart_skuship.sku.cost_aft_tax
-           @order_detail.quantity = cart_skuship.quantity
-           @order_detail.save
-        end
+      InnerSkuCart.delete_all(:user_id => session[:user_id])
 
-        Cart.destroy(session[:cart_id])
-        session[:cart_id] = nil
-
-        format.html { redirect_to(admin_orders_url, :notice => 'Order was successfully created.') }
-        format.xml  { render :xml => @order, :status => :created, :location => @order }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @order.errors, :status => :unprocessable_entity }
-      end
+      redirect_to(admin_orders_url)
+    else
+      render :action => "new"
     end
   end
 
@@ -215,61 +214,75 @@ class Admin::OrdersController < ApplicationController
     session[:condition_id] = params[:condition_id]
   end
 
-  #内部 新建订单第一步
-  def step1
+  #内部 新建订单 用户搜索
+  def user_sear
+    session[:user_id] = nil
+    type = params[:type]
     user_no = params[:user_no]
     login_no = params[:login_no]
 
-    info = ''
-    respond_to do |format|
-      if !user_no.blank?
-        person_extend = PersonExtend.find_by_person_no(user_no)
+    if type == "0"
+      if user_no.slice(0,1) == "U"
         company_extend = CompanyExtend.find_by_company_no(user_no)
-        if !person_extend.nil?
-          user_id = person_extend.user_id
-        else
-          user_id = company_extend.user_id
-        end
-        @user = User.find(user_id)
-        session[:step1] = @user
-      elsif !login_no.blank?
-        @user = User.find_by_login_no(login_no)
-        session[:step1] = @user
-      else
-        info = "会员编号或会员用户名为空"
+        @user = User.find(company_extend.user_id) unless company_extend.nil?
+      elsif user_no.slice(0,1) == "P"
+        person_extend = PersonExtend.find_by_person_no(user_no)
+        @user = User.find(person_extend.user_id) unless person_extend.nil?
       end
 
-      format.html { redirect_to new_admin_order_url , :notice => info }
+      if @user.nil?
+        @user = User.new
+        @user.errors.add("会员编号", "不存在")
+      else
+        session[:user_id] = @user.id
+      end
+    else
+      @user = User.find_by_login_no(login_no)
+      if @user.nil?
+        @user = User.new
+        @user.errors.add("会员用户名", "不存在")
+      else
+        session[:user_id] = @user.id
+      end
+
     end
+
+    @date = Time.now.strftime("%Y-%m-%d")
+
+    render "new"
   end
 
   def step2
-    if session[:step1].id.nil?
-      respond_to do |format|
-        format.html { redirect_to new_admin_order_url , :notice => "会员编号或会员用户名为空" }
-      end
-      return
+    if session[:user_id].nil?
+      @date = Time.now.strftime("%Y-%m-%d")
+      @user = User.new
+      @user.errors.add("会员", "不能为空")
+      render "new"
+    else
+      @inner_sku_carts = InnerSkuCart.find_all_by_user_id(session[:user_id])
+      @search = Sku.search(params[:q])
+      @inner_sku_cart = InnerSkuCart.new
     end
-    name = params[:name] ||= '!@#$%'
-    @skus = Sku.all(:conditions => ['name LIKE ?', "%#{name}%"])
+  end
 
-    @cart = Cart.new(:id=>0)
-    if !params[:sku_id].nil?
-      @cart = current_cart
-      sku = Sku.find(params[:sku_id])
-      @cart_skuship = @cart.add_sku(sku.id)
-      @cart_skuship.save
-    end
-
-    @cart_skuships = CartSkuship.find_all_by_cart_id(@cart.id)
+  #内部 新建订单 第二部 搜索商品
+  def sku_sear
+    @search = Sku.search(params[:q])
+    @search.sorts = 'updated_at desc'
+    @skus = @search.result.paginate(:page => params[:page],:per_page => 20)
   end
 
   def step3
-    if session[:cart_id].nil?
-      redirect_to step2_admin_orders_path , :notice =>  "必须选择一个商品"
-    else
-      @order = Order.new
+    inner_sku_carts = InnerSkuCart.find_all_by_user_id(session[:user_id])
+    if inner_sku_carts.empty?
+      @inner_sku_cart = InnerSkuCart.new
+      @inner_sku_cart.errors.add("商品","至少一件")
+      @inner_sku_carts = inner_sku_carts
+      @search = Sku.search(params[:q])
+      render "step2"
+      return
     end
+    @procedures = Procedure.all
   end
 
   #所有字段订单搜索
@@ -277,5 +290,29 @@ class Admin::OrdersController < ApplicationController
     @search = Order.search(params[:q])
     @search.sorts = 'created_at desc'
     @orders = @search.result.paginate(:page => params[:page],:per_page => 15)
+  end
+
+  def step4
+    @inner_order_payment = InnerOrderPayment.find_by_user_id(session[:user_id])
+    if @inner_order_payment.nil?
+      @inner_order_payment = InnerOrderPayment.new(params[:inner_order_payment])
+      @inner_order_payment.user_id = session[:user_id]
+      @inner_order_payment.save
+    else
+      @inner_order_payment.update_attributes(params[:inner_order_payment])
+    end
+  end
+
+  def step5
+    @inner_order_address = InnerOrderAddress.find_by_user_id(session[:user_id])
+    if @inner_order_address.nil?
+      @inner_order_address = InnerOrderAddress.new(params[:inner_order_address])
+      @inner_order_address.user_id = session[:user_id]
+      @inner_order_address.save
+    else
+      @inner_order_address.update_attributes(params[:inner_order_address])
+    end
+
+    @inner_sku_carts = InnerSkuCart.find_all_by_user_id(session[:user_id])
   end
 end

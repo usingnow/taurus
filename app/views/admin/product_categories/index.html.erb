@@ -1,18 +1,26 @@
 <h1>素材商品分类列表</h1>
 
-<table>
-  <tr>
-    <th><%= t('attributes.product_category.number') %></th>
-    <th><%= t('attributes.product_category.name') %></th>
-    <th><%= t('attributes.product_category.description') %></th>
-    <th><%= t('attributes.product_category.updated_at') %></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="grid_button">
+  <%= link_to '新增素材商品分类', new_admin_product_category_path %>
+</div>
 
-<% @product_categories.each do |product_category| %>
-  <tr>
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('attributes.product_category.number') %></th>
+      <th><%= t('attributes.product_category.name') %></th>
+      <th><%= t('attributes.product_category.description') %></th>
+      <th><%= t('attributes.product_category.updated_at') %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+<% @product_categories.each_with_index do |product_category,index| %>
+  <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+    <td><%= index+1 %></td>
     <td><%= product_category.number %></td>
     <td><%= product_category.name %></td>
     <td><%= product_category.description %></td>
@@ -24,6 +32,5 @@
 <% end %>
 </table>
 
-<br />
+<%= will_paginate @product_categories %>
 
-<%= link_to '新建素材商品分类', new_admin_product_category_path %>
