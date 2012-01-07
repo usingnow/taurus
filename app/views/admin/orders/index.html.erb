@@ -9,7 +9,8 @@
       </p>
       <p>
         <%= f.label '日期范围' %>
-        <%= f.date_select :created_at_gt,{:include_blank=>true} %> ~
+        <%= f.date_select :created_at_gt,{:include_blank=>true} %><br />
+        <%= f.label '~' %>
         <%= f.date_select :created_at_lt,{:include_blank=>true} %>
       </p>
       <p>
@@ -61,7 +62,7 @@
     <td><%= order.instance.procedure.name %></td>
     <td><%= order.total_price %></td>
     <td><%= order.instance.station.name %></td>
-    <td><% if order.user_id == nil %><%= order.admin.name  %><% else %>客户<% end %></td>
+    <td><%= fetch_make_by order %></td>
     <td><%= format_sku_type(order.order_details[0].sku.sku_type) %></td>
     <td><%= order.created_at %></td>
   </tr>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106081541) do
+ActiveRecord::Schema.define(:version => 20120107061406) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -248,18 +248,6 @@ ActiveRecord::Schema.define(:version => 20120106081541) do
     t.datetime "updated_at"
   end
 
-  create_table "inner_sku_carts_copy", :force => true do |t|
-    t.integer  "sku_id"
-    t.integer  "quantity",                                        :default => 1
-    t.decimal  "install_price",    :precision => 10, :scale => 0, :default => 0
-    t.decimal  "assembling_price", :precision => 10, :scale => 0, :default => 0
-    t.date     "delivery_date"
-    t.decimal  "total_amount",     :precision => 10, :scale => 0, :default => 0
-    t.integer  "administrator_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "instances", :force => true do |t|
     t.integer  "station_id"
     t.integer  "procedure_id"
@@ -270,13 +258,13 @@ ActiveRecord::Schema.define(:version => 20120106081541) do
   create_table "order_details", :force => true do |t|
     t.integer  "order_id"
     t.integer  "sku_id"
-    t.decimal  "unit_price",       :precision => 10, :scale => 0
+    t.decimal  "unit_price",       :precision => 8, :scale => 2, :default => 0.0
     t.integer  "quantity"
     t.integer  "is_need_install"
-    t.decimal  "install_cost",     :precision => 10, :scale => 0
+    t.decimal  "install_cost",     :precision => 8, :scale => 2, :default => 0.0
     t.integer  "is_need_assemble"
-    t.decimal  "assemble_cost",    :precision => 10, :scale => 0
-    t.decimal  "other_cost",       :precision => 10, :scale => 0
+    t.decimal  "assemble_cost",    :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "other_cost",       :precision => 8, :scale => 2, :default => 0.0
     t.integer  "created_admin_id"
     t.integer  "updated_admin_id"
     t.datetime "created_at"
@@ -323,7 +311,7 @@ ActiveRecord::Schema.define(:version => 20120106081541) do
     t.integer  "order_id"
     t.integer  "oper_type"
     t.string   "created_by"
-    t.integer  "admin_id"
+    t.integer  "administrator_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -360,7 +348,7 @@ ActiveRecord::Schema.define(:version => 20120106081541) do
     t.text     "customer_note"
     t.text     "inner_note"
     t.string   "reserve_reason"
-    t.decimal  "other_cost",          :precision => 8, :scale => 2
+    t.decimal  "other_cost",          :precision => 8, :scale => 2, :default => 0.0
     t.integer  "is_affect_details"
     t.string   "district_no"
     t.string   "name"
@@ -369,7 +357,7 @@ ActiveRecord::Schema.define(:version => 20120106081541) do
     t.string   "phone"
     t.string   "mobile"
     t.string   "email"
-    t.decimal  "carriage_cost",       :precision => 8, :scale => 2
+    t.decimal  "carriage_cost",       :precision => 8, :scale => 2, :default => 0.0
     t.integer  "invoice_type"
     t.string   "account_bank"
     t.string   "account_person_name"
@@ -381,7 +369,7 @@ ActiveRecord::Schema.define(:version => 20120106081541) do
     t.string   "company_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "total_price",         :precision => 8, :scale => 2
+    t.decimal  "total_price",         :precision => 8, :scale => 2, :default => 0.0
   end
 
   create_table "person_extends", :force => true do |t|

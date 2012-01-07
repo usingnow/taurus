@@ -49,15 +49,9 @@ class Admin::OrdersController < ApplicationController
     inner_order_payment = InnerOrderPayment.find_by_user_id(session[:user_id])
     station_procedureship = StationProcedureship.find_by_procedure_id_and_sequence(inner_order_payment.procedure_id,1)
 
-    #获得 此流程 的下一站
+    #获得 此流程 首战 的下一站 的下一站
     condition = Condition.find_by_action("false")
     station = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(inner_order_payment.procedure_id,station_procedureship.next_station_id,condition.id)
-
-    #获得收货地址
-    inner_order_address = InnerOrderAddress.find_by_user_id(session[:user_id])
-
-    #获得实例
-    instance = current_instance(inner_order_payment.procedure_id,station.next_station_id)
 
     #判断 订单是否保留
     inner_sku_carts.each do |cart|
@@ -68,6 +62,24 @@ class Admin::OrdersController < ApplicationController
         break
       end
     end
+
+
+    #获得收货地址
+    inner_order_address = InnerOrderAddress.find_by_user_id(session[:user_id])
+
+    #获得实例
+    instance = current_instance(inner_order_payment.procedure_id,station.next_station_id)
+
+    #保存过站记录
+    hash = [{:instance_id => instance.id, :station_id => station_procedureship.station_id,
+             :condition_id => Condition.find_by_action("true").id, :next_station_id => station_procedureship.next_station_id,
+             :created_by => current_administrator.name},
+            {:instance_id => instance.id, :station_id => station_procedureship.next_station_id,
+             :condition_id => condition.id, :next_station_id => station.next_station_id,
+             :created_by => current_administrator.name}]
+    save_station_track(hash)
+
+
 
     @order = Order.new
     @order.number = current_number   #获得订单编号
@@ -139,12 +151,20 @@ class Admin::OrdersController < ApplicationController
 
   #订单接管与取消
   def take_over
-    admin_id = params[:admin_id]
-
-
     @order = Order.find(params[:id])
+    admin = current_administrator
 
-    @order.update_attributes(:take_admin_id=>admin_id)
+    if params[:type] == "0"
+      @order.update_attributes(:take_admin_id=>nil)
+    else
+      @order.update_attributes(:take_admin_id=>admin.id)
+    end
+
+
+    hash = [{:order_id => params[:id], :oper_type => params[:type], :created_by => admin.name,
+             :administrator_id => admin.id}]
+    save_take_log(hash)
+
 
     respond_to do |format|
       format.html { redirect_to(admin_orders_url) }
@@ -161,17 +181,26 @@ class Admin::OrdersController < ApplicationController
   def condition
     @order = Order.find(session[:order_id])
 
-    if params[:order_pay] != nil
-      @order_pay = OrderPay.new(params[:order_pay])
-      @order_pay.order_id = @order.id
-      @order_pay.save
+    #保存支付宝支付信息
+    if !params[:order_pay].nil?
+      hash = {"order_id" => @order.id}.merge(params[:order_pay] || {})
+      @order_pay = save_order_pay(hash)
+      if @order_pay.errors.size > 0
+        render "paid"
+        return
+      end
     end
-
 
     @instance = Instance.find(@order.instance_id)
     @station_procedureship = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(@instance.procedure_id,
                                                                                                        @instance.station_id,
                                                                                                        session[:condition_id])
+     #保存过站记录
+    hash = [{:instance_id => @instance.id, :station_id => @instance.station_id,
+             :condition_id => session[:condition_id], :next_station_id => @station_procedureship.next_station_id,
+             :created_by => current_administrator.name}]
+    save_station_track(hash)
+
     @instance.update_attributes(:station_id=>@station_procedureship.next_station_id)
 
     @order.update_attributes(params[:order])
@@ -188,6 +217,7 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     session[:order_id] = @order.id
     session[:condition_id] = params[:condition_id]
+    @order_pay = OrderPay.new
   end
 
   def output

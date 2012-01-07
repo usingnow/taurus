@@ -99,6 +99,13 @@ div.attributes input{
   width: 30%;
 }
 
+div.attributes label.long{
+  font-weight: bold;
+  float: left;
+  text-align: right;
+  width: 150px;
+}
+
 div.attributes label{
   font-weight: bold;
   float: left;
@@ -115,6 +122,8 @@ div.attributes input.radio{
 .clear{
   clear: both;
 }
+
+table
 
 
 

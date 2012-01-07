@@ -2,10 +2,10 @@
 module Admin::OrdersHelper
   #接管
   def take_over_order(admin_id,order)
-    if admin_id == nil
-      "<a href='#{take_over_admin_orders_url(:admin_id=>1,:id=>order)}'>【我来接管】</a>"
+    if admin_id.nil?
+      "<a href='#{take_over_admin_orders_url(:id=>order,:type => 1)}'>【我来接管】</a>"
     else
-      "<a href='#{take_over_admin_orders_url(:id=>order)}'>【取消接管】</a>"
+      "<a href='#{take_over_admin_orders_url(:id=>order,:type => 0)}'>【取消接管】</a>"
     end
   end
 
@@ -33,10 +33,19 @@ module Admin::OrdersHelper
 
   #获得制单人
   def get_make_by(order)
-    if order.created_admin_id == nil
+    if order.created_admin_id.nil?
       get_user_name(order.user)
     else
-      order.make_admin.name
+      order.make_administrator.name
+    end
+  end
+
+  #获得制单人 不显示客户名
+  def fetch_make_by(order)
+    if order.created_admin_id.nil?
+      "客户"
+    else
+      order.make_administrator.name
     end
   end
 

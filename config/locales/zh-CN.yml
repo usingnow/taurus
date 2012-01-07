@@ -497,6 +497,11 @@ zh-CN:
       address: "地址"
       phone: "电话"
 
+    order_pay:
+      buyer_alipay_no: "买家支付宝帐号"
+      alipay_no: "支付宝交易号"
+      alipay_price: "支付宝交易金额"
+
 
 
 

@@ -120,4 +120,21 @@ class ApplicationController < ActionController::Base
       end
       OrderDetail.create(line_items)
     end
+
+    #保存过站记录
+    def save_station_track(hash)
+      Track.create(hash)
+    end
+
+    #保存接管记录
+    def save_take_log(hash)
+      OrderTakeLog.create(hash)
+    end
+
+    #保存支付宝支付信息
+    def save_order_pay(hash)
+      @order_pay = OrderPay.new(hash)
+      @order_pay.save
+      @order_pay
+    end
 end

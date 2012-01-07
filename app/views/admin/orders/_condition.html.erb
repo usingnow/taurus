@@ -1,14 +1,15 @@
 <table>
   <tr>
-    <td>订单号码</td><td><%= @order.number %></td>
-    <td>订单批次</td><td><%= @order.batch %></td>
-    <td>订单类型</td><td><%= format_sku_type(@order.order_details[0].sku.sku_type) %></td>
-    <td>订单状态</td><td><%= @order.instance.station.name %></td>
-    <td>客户</td><td><%= get_user_name(@order.user)  %></td>
+    <td>订单号码:</td><td class="red"><%= @order.number %></td>
+    <td>订单批次:</td><td class="red"><%= @order.batch %></td>
+    <td>订单类型:</td><td class="red"><%= format_sku_type(@order.order_details[0].sku.sku_type) %></td>
+    <td>订单状态:</td><td class="red"><%= @order.instance.station.name %></td>
+    <td>客户:</td><td class="red"><%= get_user_name(@order.user)  %></td>
   </tr>
 </table>
 <hr />
-<table>
+<table class="grid">
+  <thead>
     <tr>
       <td>#</td>
       <td>商品编号</td>
@@ -23,8 +24,9 @@
       <td>交货期</td>
       <td>合计</td>
     </tr>
+  </thead>
     <% @order.order_details.each_with_index do |detail,index| %>
-      <tr>
+      <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
         <td><%= index+1 %></td>
         <td><%= detail.sku.number %></td>
         <td><%= detail.sku.name %></td>
@@ -42,22 +44,127 @@
 </table>
 <hr />
 
-<h2>收货人信息</h2>
-<div class="condition_consignee">
-  收货人姓名： <%= @order.name %> <br />
-  所属地区：	 <%= @order.district_no %><br />
-  收货地址：	 <%= @order.address %> <br />
-  固定电话：  <%= @order.phone %><br />
-  手机：	 <%= @order.mobile %>  <br />
-电子邮箱： <%= @order.email %>   <br />
-邮   编：<%= @order.zip %>
+<div class="attributes">
+  <div class="split_content_left">
+    <h2>收货人信息</h2>
+    <p>
+      <%= label_tag '收货人姓名：' %>
+      <%= @order.name %>
+    </p>
+    <p>
+      <%= label_tag '所属地区：' %>
+      <%= @order.district_no %>
+    </p>
+    <p>
+      <%= label_tag '收货地址：' %>
+      <%= @order.address %>
+    </p>
+    <p>
+      <%= label_tag '固定电话：' %>
+      <%= @order.phone %><br />
+    </p>
+    <p>
+      <%= label_tag '手机：' %>
+      <%= @order.mobile %><br />
+    </p>
+     <p>
+      <%= label_tag '电子邮箱：' %>
+      <%= @order.email %><br />
+    </p>
+    <p>
+      <%= label_tag '邮   编：' %>
+      <%= @order.zip %>
+    </p>
+  </div>
+  <div class="split_content_right">
+    <p>
+      <%= label_tag '商品总价：' %>
+      <%= @order.total_sku_amount %> 元
+    </p>
+    <p>
+      <%= label_tag '安装费：' %>
+      <%= @order.total_install_cost %> 元
+    </p>
+    <p>
+      <%= label_tag '组装费：' %>
+      <%= @order.total_assemble_cost %> 元
+    </p>
+    <p>
+      <%= label_tag '其他费用：' %>
+      <%= @order.other_cost %> 元
+    </p>
+    <p>
+      <%= label_tag '运费：' %>
+      <%= @order.carriage_cost %> 元
+    </p>
+    <p>
+      <%= label_tag '合计：' %>
+      <%= @order.total_amount %> 元
+    </p>
+  </div>
+  <div class="clear"></div>
 </div>
 
 
 <h2>支付及发票信息</h2>
-<div class="condition_pay">
-支付方式：	<%= @order.instance.procedure.display_name %>  <br />
-发票类型：	<%= format_invoice_type(@order.invoice_type) %>   <br />
-发票抬头：	 <%= format_is_invoice_head(@order.is_invoice_head) %>
-
+<div class="attributes">
+  <div class="split_content_left">
+    <p>
+      <%= label_tag '支付方式：' %>
+      <%= @order.instance.procedure.display_name %>
+    </p>
+    <p>
+      <%= label_tag '发票类型：' %>
+      <%= format_invoice_type(@order.invoice_type) %>
+    </p>
+    <p>
+       <%= label_tag '发票抬头：' %>
+      <%= format_is_invoice_head(@order.is_invoice_head) %>
+    </p>
+  </div>
+  <div class="clear"></div>
 </div>
+
+<h2>订单追踪</h2>
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>当前站</th>
+      <th>操作(条件)</th>
+      <th>下一站</th>
+      <th>操作者</th>
+      <th>操作时间</th>
+    </tr>
+  </thead>
+  <% @order.instance.tracks.each_with_index do |track,index| %>
+    <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+      <td><%= index+1 %></td>
+      <td><%= track.station.name %></td>
+      <td><%= track.condition.name %></td>
+      <td><%= track.next_station.name %></td>
+      <td><%= track.created_by %></td>
+      <td><%= track.created_at %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>接管记录</h2>
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>操作者</th>
+      <th>操作类型</th>
+      <th>操作时间</th>
+    </tr>
+  </thead>
+  <% @order.order_take_logs.each_with_index do |log,index| %>
+    <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+      <td><%= index+1 %></td>
+      <td><%= log.created_by %></td>
+      <td><%= format_order_take_log_type log.oper_type %></td>
+      <td><%= log.created_at %></td>
+    </tr>
+  <% end %>
+</table>
