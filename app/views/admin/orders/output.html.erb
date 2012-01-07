@@ -1,8 +1,9 @@
 <%= render 'condition' %>
 
 <%= form_tag(condition_admin_orders_path) do%>
-  <%= text_area_tag 'order[inner_note]', nil, :cols=>50, :rows=>5 %>
-
+  <div class="attributes">
+    <%= text_area_tag 'order[inner_note]', nil, :cols=>105, :rows=>5 %>
+  </div>
   <%= submit_tag '确定拣货出库' %>
 <% end %>
 

@@ -6,6 +6,8 @@ class Order < ActiveRecord::Base
   belongs_to :make_administrator, :class_name => "Administrator", :foreign_key => "created_admin_id"
   has_one :order_pay
   has_many :order_take_logs
+  has_many :skus, :through => :order_details
+  attr_accessor :condition_type
 
 
   def add_cart_skuships_from_cart(cart)
@@ -46,4 +48,10 @@ class Order < ActiveRecord::Base
   def total_amount
     total_sku_amount+total_install_cost+total_assemble_cost
   end
+
+  validates_presence_of :inner_note, :if => :cancel
+  protected
+    def cancel
+      condition_type == "3"
+    end
 end

@@ -5,8 +5,9 @@ class Admin::OrdersController < ApplicationController
   # GET /orders.xml
   def index
     q = {"instance_station_station_type_in" => ['0','3','4']}.merge(params[:q] || {})
-    @q = Order.search(q)
-    @orders = @q.result.paginate(:page => params[:page],:per_page => 15)
+    @search = Order.search(q)
+    @search.sorts = "created_at desc"
+    @orders = @search.result.paginate(:page => params[:page],:per_page => 15)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -181,12 +182,21 @@ class Admin::OrdersController < ApplicationController
   def condition
     @order = Order.find(session[:order_id])
 
+    if !@order.update_attributes(params[:order])
+      render "cancel"
+      return
+    end
+
     #保存支付宝支付信息
     if !params[:order_pay].nil?
       hash = {"order_id" => @order.id}.merge(params[:order_pay] || {})
       @order_pay = save_order_pay(hash)
       if @order_pay.errors.size > 0
-        render "paid"
+        if params[:order_pay][:condition_type] == "1"
+          render "paid"
+        elsif params[:order_pay][:condition_type] == "2"
+          render "input_pay_info"
+        end
         return
       end
     end
@@ -201,15 +211,10 @@ class Admin::OrdersController < ApplicationController
              :created_by => current_administrator.name}]
     save_station_track(hash)
 
-    @instance.update_attributes(:station_id=>@station_procedureship.next_station_id)
-
-    @order.update_attributes(params[:order])
-
-
-    session[:order_id] = nil
-    session[:condition_id] = nil
-    respond_to do |format|
-      format.html { redirect_to(admin_orders_url) }
+    if @instance.update_attributes(:station_id=>@station_procedureship.next_station_id)
+       session[:order_id] = nil
+       session[:condition_id] = nil
+       redirect_to(admin_orders_url)
     end
   end
 
@@ -236,6 +241,7 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     session[:order_id] = @order.id
     session[:condition_id] = params[:condition_id]
+    @order_pay = OrderPay.new
   end
 
   def pay_confirmation

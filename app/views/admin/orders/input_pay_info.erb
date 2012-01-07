@@ -1,22 +1,48 @@
+<% if @order_pay.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= t('activerecord.errors.template.header', :count => @order_pay.errors.size, :model => "付款信息")  %></h2>
+    <ul>
+    <% @order_pay.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <%= render "condition" %>
 
 <hr />
 <%= form_tag(condition_admin_orders_path) do%>
-  <% if @order.instance.procedure.name == "银行转账"%>
-   支付状态：<%= select :order_pay, :status, "<option value='0'>未付款</option><option value='1'>已付款</option>".html_safe %> <br />
-   汇出地： <%= select :order_pay, :province_no,Province.all.collect {|p| [ p.name, p.number ] }, { :selected => 310000 } %>  <br />
-   汇款日期：<%= date_select :order_pay, :alipay_date  %>  <br />
-   交易流水号: <%= text_field :order_pay, :remittance_no %> <br />
-   交易行名: <%= text_field :order_pay, :pay_bank %> <br />
-   付款金额: <%= text_field :order_pay, :price %> <br />
-   汇款人姓名: <%= text_field :order_pay, :remitter %> <br />
-   汇入银行： <%= select :order_pay, :bank_id, Bank.all.collect {|b| [ b.name, b.id] } %> <br />
-   汇款备注: <%= text_area :order_pay, :note, :cols => 105, :rows => 5 %>   <br />
-  <% else %>
-   支付日期：<%= date_select :order_pay, :alipay_date  %>  <br />
-   支付金额: <%= text_field :order_pay, :price %> <br />
-  <% end %>
-  内部备注: <%= text_area_tag :inner_note, nil, :cols => 105, :rows => 5 %>   <br />
+  <%= hidden_field_tag 'order_pay[condition_type]', '2' %>
+  <div class="attributes">
+    <% if @order.instance.procedure.name == "银行转账"%>
+     支付状态：<%= select :order_pay, :status, "<option value='0'>未付款</option><option value='1'>已付款</option>".html_safe %> <br />
+     汇出地： <%= select :order_pay, :province_no,Province.all.collect {|p| [ p.name, p.number ] }, { :selected => 310000 } %>  <br />
+     汇款日期：<%= date_select :order_pay, :alipay_date  %>  <br />
+     交易流水号: <%= text_field :order_pay, :remittance_no %> <br />
+     交易行名: <%= text_field :order_pay, :pay_bank %> <br />
+     付款金额: <%= text_field :order_pay, :price %> <br />
+     汇款人姓名: <%= text_field :order_pay, :remitter %> <br />
+     汇入银行： <%= select :order_pay, :bank_id, Bank.all.collect {|b| [ b.name, b.id] } %> <br />
+     汇款备注: <%= text_area :order_pay, :note, :cols => 105, :rows => 5 %>   <br />
+    <% else %>
+     <div class="split_content_left">
+       <p>
+         <%= label_tag '支付日期：' %>
+         <%= date_select :order_pay, :alipay_date  %>
+       </p>
+       <p>
+         <%= label_tag '支付金额：' %>
+         <%= text_field :order_pay, :price%><span class="red">*</span>
+       </p>
+     </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+  <div class="attributes">
+    <%= label_tag '内部备注：' %>
+    <%= text_area_tag :inner_note, nil, :cols => 105, :rows => 5 %>
+  </div>
+
   <%= submit_tag '确定' %>
 <% end %>
 

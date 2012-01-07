@@ -1,7 +1,7 @@
 <h1>订单列表</h1>
 
 <div class="attributes">
-  <%= search_form_for [:admin,@q] do |f| %>
+  <%= search_form_for [:admin,@search] do |f| %>
     <div class="split_content_left">
       <p>
         <%= f.label '订单号码' %>
@@ -21,7 +21,7 @@
     <div class="split_content_right">
       <p>
         <%= f.label '商品名称' %>
-        <%= f.text_field :order_details_sku_name_cont %>
+        <%= f.text_field :skus_name_cont %>
       </p>
       <p>
         <%= f.label '订单金额' %>

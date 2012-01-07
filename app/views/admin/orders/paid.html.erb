@@ -16,6 +16,7 @@
 
 <h2>输入支付宝支付信息</h2>
 <%= form_tag(condition_admin_orders_path) do%>
+  <%= hidden_field_tag 'order_pay[condition_type]', '1' %>
   <div class="attributes">
     <div class="split_content_left">
       <p>

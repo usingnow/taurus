@@ -501,6 +501,7 @@ zh-CN:
       buyer_alipay_no: "买家支付宝帐号"
       alipay_no: "支付宝交易号"
       alipay_price: "支付宝交易金额"
+      price: "支付金额"
 
 
 
