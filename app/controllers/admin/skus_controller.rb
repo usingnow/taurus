@@ -101,4 +101,11 @@ class Admin::SkusController < ApplicationController
        format.html { redirect_to(admin_skus_url) }
     end
   end
+
+   def search
+    @search = Sku.search(params[:q])
+    @search.sorts = 'updated_at desc'
+    @skus = @search.result.paginate(:page => params[:page],:per_page => 20)
+    @order_id = params[:order_id]
+  end
 end

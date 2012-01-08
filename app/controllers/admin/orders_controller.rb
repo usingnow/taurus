@@ -38,6 +38,7 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     session[:order_id] = @order.id
     session[:condition_id] = params[:condition_id]
+    @search = Sku.search(params[:q])
   end
 
   # POST /orders

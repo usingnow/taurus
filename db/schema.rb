@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120107061406) do
+ActiveRecord::Schema.define(:version => 20120108033202) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -259,10 +259,10 @@ ActiveRecord::Schema.define(:version => 20120107061406) do
     t.integer  "order_id"
     t.integer  "sku_id"
     t.decimal  "unit_price",       :precision => 8, :scale => 2, :default => 0.0
-    t.integer  "quantity"
-    t.integer  "is_need_install"
+    t.integer  "quantity",                                       :default => 1
+    t.integer  "is_need_install",                                :default => 0
     t.decimal  "install_cost",     :precision => 8, :scale => 2, :default => 0.0
-    t.integer  "is_need_assemble"
+    t.integer  "is_need_assemble",                               :default => 0
     t.decimal  "assemble_cost",    :precision => 8, :scale => 2, :default => 0.0
     t.decimal  "other_cost",       :precision => 8, :scale => 2, :default => 0.0
     t.integer  "created_admin_id"

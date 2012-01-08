@@ -9,7 +9,7 @@
 		<li><a href="#order_tabs-1">基本信息</a></li>
         <li><a href="#order_tabs-2">商品信息</a></li>
         <li><a href="#order_tabs-3">发票信息</a></li>
-        <li><a href="#order_tabs-4">收获地址</a></li>
+        <li><a href="#order_tabs-4">收货地址</a></li>
 	</ul>
 	<div id="order_tabs-1">
       <%= form_for([:admin,@order]) do |f| %>
@@ -86,38 +86,79 @@
       <% end %>
 	</div>
     <div id="order_tabs-2">
-      <table>
-        <tr>
-          <td>#</td>
-          <td>商品编号</td>
-          <td>商品名称</td>
-          <td>单位</td>
-          <td>单价</td>
-          <td>数量</td>
-          <td>安装</td>
-          <td>安装费用</td>
-          <td>组装</td>
-          <td>组装费用</td>
-          <td>交货期</td>
-          <td>合计</td>
-        </tr>
-        <% @order.order_details.each_with_index do |detail,index| %>
+      <table class="grid">
+        <thead>
           <tr>
-            <td><%= index+1 %></td>
-            <td><%= detail.sku.number %></td>
-            <td><%= detail.sku.name %></td>
-            <td><%= detail.sku.unit %></td>
-            <td><%= detail.unit_price %></td>
-            <td><%= detail.quantity %></td>
-            <td><%= format_is_need(detail.is_need_install) %></td>
-            <td><%= detail.install_cost %></td>
-            <td><%= format_is_need(detail.is_need_assemble) %></td>
-            <td><%= detail.assemble_cost %></td>
-            <td><%= detail.sku.delivery_day %></td>
-            <td><%= detail.unit_price*detail.quantity %></td>
+            <th>#</th>
+            <th>商品编号</th>
+            <th>商品名称</th>
+            <th>单位</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>安装</th>
+            <th>安装费用</th>
+            <th>组装</th>
+            <th>组装费用</th>
+            <th>交货期</th>
+            <th>合计</th>
+            <th>操作</th>
           </tr>
-        <% end %>
+        </thead>
+        <tbody id="order_details">
+          <% @order.order_details.each_with_index do |detail,index| %>
+            <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
+              <td><%= index+1 %></td>
+              <td><%= detail.sku.number %></td>
+              <td><%= detail.sku.name %></td>
+              <td><%= detail.sku.unit %></td>
+              <td><%= detail.sku.cost_aft_tax %></td>
+              <td><%= text_field_tag :quantity, detail.quantity, :size => 3, :class=> "order_details_quantity", :id => "#{detail.id}" %></td>
+              <td><%= format_is_need(detail.is_need_install) %></td>
+              <td><%= detail.sku.insatllation_cost_aft_tax %></td>
+              <td><%= format_is_need(detail.is_need_assemble) %></td>
+              <td><%= detail.sku.assembling_fee_aft_tax %></td>
+              <td><%= detail.sku.delivery_day %></td>
+              <td><%= detail.quantity*detail.sku.cost_aft_tax %></td>
+              <td><%= link_to '删除', admin_order_detail_path(detail), :confirm => '确定删除?', :method => :delete, :remote => true %></td>
+            </tr>
+          <% end %>
+          <script type="text/javascript">
+            $(".order_details_quantity").change(function() {
+              $.ajax({url: "/admin/order_details/"+this.id,
+                      type: "put",
+                      data: 'value=' + this.value + '&order_id=<%= @order.id %>',
+                      dataType: 'script'})
+            });
+          </script>
+        </tbody>
       </table>
+
+    <hr />
+      <div>
+        <%= search_form_for @search, :url => search_admin_skus_path, :remote => true, :html => {:method => :get} do |f| %>
+          <%= hidden_field_tag 'order_id', @order.id %>
+          商品名称:<%= f.text_field :name_cont %>
+          <%= submit_tag '查询' %>
+        <% end %>
+      </div>
+      <table class="grid">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>商品编号</th>
+            <th>商品名称</th>
+            <th>单位</th>
+            <th>单价</th>
+            <th>安装费用</th>
+            <th>组装费用</th>
+            <th>交货期</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="search_skus"></tbody>
+      </table>
+
+
     </div>
     <div id="order_tabs-3">
       <%= form_for([:admin,@order]) do |f| %>

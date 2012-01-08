@@ -78,6 +78,7 @@ Ebiz::Application.routes.draw do
      resources :skus do
        collection do
          get  :add
+         get  :search
        end
      end
      resources :sku_productships
@@ -101,6 +102,7 @@ Ebiz::Application.routes.draw do
          get  :all
        end
      end
+     resources :order_details
      resources :procedures
      resources :stations
      resources :station_procedureships
