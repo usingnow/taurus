@@ -162,20 +162,50 @@
     </div>
     <div id="order_tabs-3">
       <%= form_for([:admin,@order]) do |f| %>
-          *发票类型: <%= f.radio_button :invoice_type, '0',  :checked=>true %>普通
-          <%= f.radio_button :invoice_type, '1' %>增值税发票
-            <br />
-            *开户银行：<%= f.text_field :account_bank %>   <br />
-            *开户名称：<%= f.text_field :account_person_name %>      <br />
-            *注册电话：<%= f.text_field :account_phone %>     <br />
-            *银行帐号：<%= f.text_field :account_no %>    <br />
-            *增值税登记号：<%= f.text_field :added_value_tax_no %>   <br />
-            *注册地址：<%= f.text_field :account_reg_add %>   <br />
-            <br />
-            *发票抬头：<%= f.radio_button :is_invoice_head, '0',  :checked=>true %>个人
-                  <%= f.radio_button :is_invoice_head, '1' %> 单位
-            <br />
-*单位名称：<%= f.text_field :company_name %>
+        <div class="attributes">
+            <div class="split_content_left">
+              <p>
+                <%= label_tag "发票类型" %>
+                <%= f.radio_button :invoice_type, '0', :class => "radio", :checked => true %>普通
+                <%= f.radio_button :invoice_type, '1', :class => "radio" %>增值税发票
+              </p>
+              <div id="type_invoice"></div>
+              <p>
+                <%= label_tag "发票抬头" %>
+                <%= f.radio_button :is_invoice_head, '0', :class => "radio", :checked => true %>个人
+                <%= f.radio_button :is_invoice_head, '1', :class => "radio" %> 单位
+              </p>
+              <p id="title_company_name"></p>
+            </div>
+            <div class="clear"></div>
+          </div>
+
+          <script type="text/javascript">
+            $(".radio").click(function(){
+              var value = this.value;
+              var name = this.name;
+              if(name == "order[is_invoice_head]"){
+                if(value == "0"){
+                   $("#title_company_name").html("");
+                }else{
+                   $("#title_company_name").html('<%= label_tag "单位名称" %><%= f.text_field :company_name %>');
+                }
+              }else{
+                if(value == "0"){
+                  $("#type_invoice").html("");
+                }else{
+                  var str = '';
+                  str+= '<p><%= label_tag "开户银行" %><%= f.text_field :account_bank %></p>';
+                  str+= '<p><%= label_tag "开户名称" %><%= f.text_field :account_person_name %></p>';
+                  str+= '<p><%= label_tag "注册电话" %><%= f.text_field :account_phone %></p>';
+                  str+= '<p><%= label_tag "银行帐号" %><%= f.text_field :account_no %></p>';
+                  str+= '<p><%= label_tag "增值税登记号" %><%= f.text_field :added_value_tax_no %></p>';
+                  str+= '<p><%= label_tag "注册地址" %><%= f.text_field :account_reg_add %></p>';
+                  $("#type_invoice").html(str);
+                }
+              }
+            });
+          </script>
           <div class="actions">
             <%= f.submit '保存'%>
           </div>
@@ -183,13 +213,66 @@
     </div>
     <div id="order_tabs-4">
        <%= form_for([:admin,@order]) do |f| %>
-          收货人姓名：<%= f.text_field :name %> <br />
-          所属地区：	<%= f.text_field :district_no %> <br />
-           地址：	<%= f.text_field :address %>     <br />
-          固定电话：          <%= f.text_field :phone %>   <br />
-           手机：        <%= f.text_field :mobile %>    <br />
-          电子邮箱：    <%= f.text_field :email %>    <br />
-          邮编：        <%= f.text_field :zip %>
+         <div class="attributes">
+            <div class="split_content_left_long">
+              <p>
+                <%= label_tag "收货人姓名" %><sapn class="red">*</sapn>
+                <%= f.text_field :name %>
+              </p>
+              <p>
+                <%= label_tag "所属地区" %><sapn>&nbsp;</sapn>
+                <select class="required" title="请选择省份"
+                        onchange="jQuery.ajax({ type: 'get', //提交的类型
+                                                url: '/admin/cities/ajax',//提交地址
+                                                data: 'province_no='+this.value,//参数
+                                                success: function(msg){ //回调方法
+                                                  $('#cities').html(msg);
+                                                  $('#districts').html('<option value=>-请选择-</option>');
+                                                }});">
+                  <option value="">-请选择-</option>
+                  <% for province in Province.all %>
+                    <option value="<%= province.number %>"><%= province.name %></option>
+                  <% end %>
+                </select>
+                省份
+                <select id="cities" name="district[city_no]" class="required" title="请选择城市"
+                        onchange="jQuery.ajax({ type: 'get', //提交的类型
+                                                url: '/admin/districts/ajax',//提交地址
+                                                data: 'city_no='+this.value,//参数
+                                                success: function(msg){ //回调方法
+                                                  $('#districts').html(msg);
+                                                }});">
+                  <option value="">-请选择-</option>
+                </select>
+                城市
+                <select id="districts" name="order[district_no]" class="required" title="请选择区县">
+                  <option value="">-请选择-</option>
+                </select>
+                区县
+              </p>
+              <p>
+                <%= label_tag "地址" %><sapn class="red">*</sapn>
+                <%= f.text_field :address %>
+              </p>
+              <p>
+                <%= label_tag "固定电话" %><sapn>&nbsp;</sapn>
+                <%= f.text_field :phone %>
+              </p>
+              <p>
+                <%= label_tag "手机" %><sapn>&nbsp;</sapn>
+                <%= f.text_field :mobile %>
+              </p>
+              <p>
+                <%= label_tag "电子邮箱" %><sapn>&nbsp;</sapn>
+                <%= f.text_field :email %>
+              </p>
+              <p>
+                <%= label_tag "邮编" %><sapn>&nbsp;</sapn>
+                <%= f.text_field :zip %>
+              </p>
+            </div>
+            <div class="clear"></div>
+          </div>
           <div class="actions">
             <%= f.submit '保存'%>
           </div>

@@ -86,6 +86,11 @@ div.split_content_left{
   width: 49%;
 }
 
+div.split_content_left_long{
+  float: left;
+  width: 60%;
+}
+
 div.split_content_right{
   float: right;
   width: 49%;
