@@ -9,7 +9,8 @@
       </p>
       <p>
         <%= f.label '日期范围' %>
-        <%= f.date_select :created_at_gt,{:include_blank=>true} %> ~
+        <%= f.date_select :created_at_gt,{:include_blank=>true} %><br />
+        <%= f.label '~' %>
         <%= f.date_select :created_at_lt,{:include_blank=>true} %>
       </p>
       <p>

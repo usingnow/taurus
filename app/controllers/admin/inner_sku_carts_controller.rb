@@ -63,12 +63,9 @@ class Admin::InnerSkuCartsController < ApplicationController
   # DELETE /cart_skuships/1
   # DELETE /cart_skuships/1.xml
   def destroy
-    @cart_skuship = CartSkuship.find(params[:id])
-    @cart_skuship.destroy
+    @inner_sku_cart = InnerSkuCart.find(params[:id])
+    @inner_sku_cart.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(cart_skuships_url) }
-      format.xml  { head :ok }
-    end
+    @inner_sku_carts = InnerSkuCart.find_all_by_user_id(session[:user_id])
   end
 end

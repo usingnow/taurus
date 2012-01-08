@@ -22,6 +22,7 @@
       <th>组装费用</th>
       <th>交货期</th>
       <th>合计</th>
+      <th>操作</th>
     </tr>
   </thead>
   <tbody id="sku_carts">
@@ -37,6 +38,7 @@
         <td><%= cart.sku.assembling_fee_aft_tax %></td>
         <td><%= cart.sku.delivery_day %></td>
         <td><%= cart.quantity*cart.sku.cost_aft_tax %></td>
+        <td><%= link_to '删除', admin_inner_sku_cart_path(cart), :confirm => '确定删除?', :method => :delete, :remote => true %></td>
       </tr>
     <% end %>
   <script type="text/javascript">
