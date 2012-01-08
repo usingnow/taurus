@@ -1,21 +1,28 @@
 <h1>个人会员列表</h1>
 
-<table>
-  <tr>
-    <th><%= t 'attributes.person_extend.person_no' %></th>
-    <th><%= t 'attributes.user.login_no' %></th>
-    <th><%= t 'attributes.person_extend.name' %></th>
-    <th><%= t 'attributes.user.created_at' %></th>
-    <th><%= t 'attributes.person_extend.role_no' %></th>
-    <th><%= t 'attributes.user.status' %></th>
-    <th><%= t 'attributes.user.history_status' %></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="grid_button">
+  <%= link_to '新增个人会员', new_admin_person_extend_path %>
+</div>
 
-<% @person_extends.each do |person| %>
-  <tr>
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t 'attributes.person_extend.person_no' %></th>
+      <th><%= t 'attributes.user.login_no' %></th>
+      <th><%= t 'attributes.person_extend.name' %></th>
+      <th><%= t 'attributes.user.created_at' %></th>
+      <th><%= t 'attributes.person_extend.role_no' %></th>
+      <th><%= t 'attributes.user.status' %></th>
+      <th><%= t 'attributes.user.history_status' %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+<% @person_extends.each_with_index do |person,index| %>
+  <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+    <td><%= index+1 %></td>
     <td><%= person.person_no %></td>
     <td><%= person.user.login_no %></td>
     <td><%= person.user.person_extend.name %></td>
@@ -27,9 +34,11 @@
     <td></td>
     <td></td>
   </tr>
+  <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+    <td colspan="11" align="right">
+      重置随机密码   重置密码   收货地址(1条)   修改
+    </td>
+  </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New User', new_admin_person_extend_path %>

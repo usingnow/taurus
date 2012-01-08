@@ -1,19 +1,23 @@
 class Admin::PersonExtendsController < ApplicationController
   def index
     @person_extends = PersonExtend.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @person_extends }
-    end
   end
 
   def new
     @person_extend = PersonExtend.new
+  end
+
+  def create
+    @person_extend = PersonExtend.new(params[:person_extend])
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @person_extend }
+      if @person_extend.save
+        format.html { redirect_to(@person_extend, :notice => 'Person extend was successfully created.') }
+        format.xml  { render :xml => @person_extend, :status => :created, :location => @person_extend }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @person_extend.errors, :status => :unprocessable_entity }
+      end
     end
   end
 

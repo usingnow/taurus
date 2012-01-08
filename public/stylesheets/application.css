@@ -96,12 +96,8 @@ div.split_content_right{
   width: 49%;
 }
 
-div.attributes{
-
-}
-
-div.attributes input{
-  width: 30%;
+input{
+  width: 150px;
 }
 
 div.attributes label.long{

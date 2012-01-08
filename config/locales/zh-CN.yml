@@ -202,7 +202,7 @@ zh-CN:
     product_category: "素材商品分类"
     sku_category: "媒体商品分类"
     sku: "媒体商品"
-    person_extend: "单位会员扩展信息"
+    person_extend: "个人会员"
     user: "会员"
     sku_productship: "媒体商品组成"
     sku_image: "媒体商品相册"
@@ -547,6 +547,9 @@ zh-CN:
   name: "名称"
   address: "地址"
   phone: "电话"
+  login_no: "登录帐号"
+  password: "密码"
+  email: "邮箱"
 
   #will_paginate
   will_paginate:

@@ -1,7 +1,8 @@
 <%= form_for([:admin,@person_extend]) do |f| %>
   <% if @person_extend.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@person_extend.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= t('activerecord.errors.template.header', :count => @person_extend.errors.size,
+                                                       :model => t('models.person_extend'))  %></h2>
 
       <ul>
       <% @person_extend.errors.full_messages.each do |msg| %>
@@ -11,33 +12,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :login_no %><br />
-    <%= f.text_field :login_no %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.text_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.text_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :user_type %><br />
-    <%= f.text_field :user_type %>
-  </div>
-  <div class="field">
-    <%= f.label :question %><br />
-    <%= f.text_field :question %>
-  </div>
-  <div class="field">
-    <%= f.label :answer %><br />
-    <%= f.text_field :answer %>
-  </div>
-  <div class="field">
-    <%= f.label :last_login_time %><br />
-    <%= f.datetime_select :last_login_time %>
+  <div class="attributes">
+    <div class="split_content_left">
+      <p>
+        <%= label_tag t :login_no %>
+        <%= text_field :user, :login_no %><span class="red">*</span>
+      </p>
+      <p>
+        <%= label_tag t :password %>
+        <%= text_field :user, :password %><span class="red">*</span>
+      </p>
+      <p>
+        <%= label_tag t :email %>
+        <%= f.email_field :email %><span class="red">*</span>
+      </p>
+    </div>
+    <div class="clear"></div>
   </div>
   <div class="actions">
     <%= f.submit %>
