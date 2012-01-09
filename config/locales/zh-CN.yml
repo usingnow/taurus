@@ -195,7 +195,7 @@ zh-CN:
 
   models: &models
     administrator: "管理员"
-    admin_group: "管理员组"
+    group: "组"
     company_extend: "企业会员"
     product: "素材商品"
     supplier: "供应商"
@@ -234,10 +234,10 @@ zh-CN:
       admin_list: "管理员列表"
       group_info: "管理员组信息"
 
-    admin_group:
-      group_no: "管理员组编号"
-      group_name: "管理员组名称"
-      group_desc: "管理员组描述"
+    group:
+      number: "编号"
+      name: "名称"
+      desc: "描述"
 
     product:
       product_id: "素材商品编号"

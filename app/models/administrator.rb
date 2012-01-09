@@ -1,4 +1,6 @@
 class Administrator < ActiveRecord::Base
+  has_many :administrator_groupships
+  has_many :groups, :through => :administrator_groupships
   # Include default admin modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

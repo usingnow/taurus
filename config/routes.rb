@@ -73,6 +73,8 @@ Ebiz::Application.routes.draw do
    namespace :admin do
      resources :administrators
      resources :company_extends
+     resources :groups
+     resources :administrator_groupships
      resources :industries
      resources :products do
        collection do

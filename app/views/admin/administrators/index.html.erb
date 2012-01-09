@@ -15,8 +15,6 @@
       <th><%= t('attributes.administrator.last_sign_in_at') %></th>
       <th><%= t('attributes.administrator.status') %></th>
       <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -29,9 +27,17 @@
         <td><%= admin.email %></td>
         <td><%= admin.last_sign_in_at %></td>
         <td><%= format_user_status(admin.status) %></td>
-        <td></td>
         <td><%= link_to '修改', edit_admin_administrator_path(admin)  %></td>
-        <td></td>
+      </tr>
+      <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
+        <td colspan="6" align="left">
+          所属用户组：
+          <% admin.groups.each do |group|%>
+            【<%= group.name %>】
+          <% end  %>
+        </td>
+        <td><%= link_to '设置组', new_admin_administrator_groupship_path(:id => admin.id) %></td>
+        <td><%= link_to '重置密码' %></td>
       </tr>
     <% end %>
   </tbody>

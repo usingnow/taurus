@@ -1,0 +1,11 @@
+<%= simple_form_for([:admin,@administrator_groupship]) do |f| %>
+  <%= f.error_notification %>
+
+  <%= hidden_field_tag 'administrator_id', @administrator_groupship.administrator_id %>
+
+  <%=raw administrator_group(@administrator_groupships) %>
+
+    <div class="actions">
+    <%= f.button :submit, :value => "保存" %>
+  </div>
+<% end %>
