@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108033202) do
+ActiveRecord::Schema.define(:version => 20120109065158) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(:version => 20120108033202) do
     t.integer  "user_id"
     t.string   "company_no"
     t.string   "role_no"
-    t.integer  "industry_type_id"
+    t.integer  "industry_id"
     t.integer  "company_type_id"
     t.string   "district_no"
     t.integer  "company_scale_id"
@@ -143,6 +143,21 @@ ActiveRecord::Schema.define(:version => 20120108033202) do
     t.string   "zip"
     t.string   "created_by"
     t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "role_id"
+  end
+
+  create_table "company_scales", :force => true do |t|
+    t.string   "name"
+    t.integer  "sequence"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "company_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "sequence"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -203,6 +218,13 @@ ActiveRecord::Schema.define(:version => 20120108033202) do
     t.string   "number"
     t.string   "name"
     t.string   "desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "industries", :force => true do |t|
+    t.string   "name"
+    t.integer  "sequence"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -388,6 +410,7 @@ ActiveRecord::Schema.define(:version => 20120108033202) do
     t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "role_id"
   end
 
   create_table "pick_ups", :force => true do |t|
@@ -723,16 +746,32 @@ ActiveRecord::Schema.define(:version => 20120108033202) do
     t.datetime "updated_at"
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "login_no"
-    t.string   "password"
-    t.integer  "status"
-    t.integer  "user_type"
-    t.string   "question"
-    t.string   "answer"
-    t.datetime "last_login_time"
+  create_table "user_numbers", :force => true do |t|
+    t.integer  "person_no"
+    t.integer  "company_no"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "users", :force => true do |t|
+    t.string   "login_no"
+    t.integer  "status"
+    t.integer  "user_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "email",                                 :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                         :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

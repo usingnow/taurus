@@ -15,9 +15,6 @@
       <th><%= t 'attributes.person_extend.role_no' %></th>
       <th><%= t 'attributes.user.status' %></th>
       <th><%= t 'attributes.user.history_status' %></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 <% @person_extends.each_with_index do |person,index| %>
@@ -25,17 +22,14 @@
     <td><%= index+1 %></td>
     <td><%= person.person_no %></td>
     <td><%= person.user.login_no %></td>
-    <td><%= person.user.person_extend.name %></td>
-    <td><%= person.user.created_at %></td>
-    <td></td>
+    <td><%= person.name %></td>
+    <td><%= person.created_at %></td>
+    <td><%= person.role.name %></td>
     <td><%= format_user_status(person.user.status) %></td>
-    <td></td>
-    <td></td>
-    <td></td>
     <td></td>
   </tr>
   <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
-    <td colspan="11" align="right">
+    <td colspan="8" align="right">
       重置随机密码   重置密码   收货地址(1条)   修改
     </td>
   </tr>

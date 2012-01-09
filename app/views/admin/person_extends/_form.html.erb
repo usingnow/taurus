@@ -1,30 +1,74 @@
-<%= form_for([:admin,@person_extend]) do |f| %>
-  <% if @person_extend.errors.any? %>
+<%= form_for :user, :url => admin_person_extends_path do |f| %>
+  <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= t('activerecord.errors.template.header', :count => @person_extend.errors.size,
-                                                       :model => t('models.person_extend'))  %></h2>
+      <h2><%= t('activerecord.errors.template.header', :count => @user.errors.size+@person_extend.errors.size, :model => t('models.person_extend'))  %></h2>
 
       <ul>
-      <% @person_extend.errors.full_messages.each do |msg| %>
+      <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
+      <% end %>
+      <% if @person_extend.errors.any? %>
+        <% @person_extend.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       <% end %>
       </ul>
     </div>
   <% end %>
-
   <div class="attributes">
     <div class="split_content_left">
       <p>
         <%= label_tag t :login_no %>
-        <%= text_field :user, :login_no %><span class="red">*</span>
-      </p>
+        <%= f.text_field :login_no %><span class="red">*</span>
       <p>
         <%= label_tag t :password %>
-        <%= text_field :user, :password %><span class="red">*</span>
+        <%= f.password_field :password %><span class="red">*</span>
+      </p>
+      <p>
+        <%= label_tag t :status %>
+        <%= f.radio_button :status, '0', :class => "radio" %>
+        <%= t :lock %>
+        <%= f.radio_button :status, '1', :class => "radio", :checked => true %>
+        <%= t :active %>
+      </p>
+      <p>
+        <%= label_tag t 'attributes.user.role'%>
+        <%= select :person_extend, :role_id, Role.all.collect {|r| [ r.name, r.id ] } %><span class="red">*</span>
       </p>
       <p>
         <%= label_tag t :email %>
-        <%= f.email_field :email %><span class="red">*</span>
+        <%= email_field :person_extend, :email %><span class="red">*</span>
+      </p>
+      <p>
+        <%= label_tag t 'attributes.person_extend.name' %>
+        <%= text_field :person_extend, :name %><span class="red">*</span>
+      </p>
+      <p>
+        <%= label_tag t 'attributes.person_extend.sex' %>
+        <%= radio_button :person_extend, :sex, '0', :class => "radio" %>
+        女
+        <%= radio_button :person_extend, :sex, '1', :class => "radio", :checked => true %>
+        男
+      </p>
+      <p>
+        <%= label_tag t 'attributes.person_extend.birth' %>
+        <%= date_select :person_extend, :birth, {:include_blank => true} %>
+      </p>
+      <p>
+        <%= label_tag t 'attributes.person_extend.district_no' %>
+        <%= raw address nil,'person_extend' %><span class="red">*</span>
+      </p>
+      <p>
+        <%= label_tag '联系地址：' %>
+        <%= text_field :person_extend, :address %><span class="red">*</span>
+      </p>
+      <p>
+        <%= label_tag '联系电话：' %>
+        <%= phone_field :person_extend, :phone %><span class="red">*</span>
+      </p>
+      <p>
+        <%= label_tag '邮政编码：' %>
+        <%= text_field :person_extend, :post %>
       </p>
     </div>
     <div class="clear"></div>

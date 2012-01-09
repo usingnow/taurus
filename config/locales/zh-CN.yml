@@ -196,6 +196,7 @@ zh-CN:
   models: &models
     administrator: "管理员"
     admin_group: "管理员组"
+    company_extend: "企业会员"
     product: "素材商品"
     supplier: "供应商"
     brand: "品牌"
@@ -392,6 +393,13 @@ zh-CN:
       email: "邮箱"
       person_no: "会员编号"
       role_no: "角色"
+      sex: "性别"
+      birth: "出生日期"
+      district_no: "所属地区"
+      phone: "联系电话"
+      address: "联系地址"
+      post: "邮政编码"
+
 
       #扩展属性
       email_confirmation: "确认邮箱"
@@ -408,6 +416,11 @@ zh-CN:
       name: "联系人姓名"
       phone: "电话"
       mobile: "手机"
+      sex: "性别"
+      contact_dept: "联系人部门"
+      contact_post: "联系人职位"
+      fax: "传真"
+      zip: "邮编"
 
       #扩展属性
       email_confirmation: "确认邮箱"
@@ -418,6 +431,9 @@ zh-CN:
       created_at: "注册时间"
       status: "帐号状态"
       history_status: "历史状态"
+      role: "会员角色"
+      email: "邮箱"
+
 
       #扩展属性
       password_confirmation: "确认密码"
@@ -550,6 +566,14 @@ zh-CN:
   login_no: "登录帐号"
   password: "密码"
   email: "邮箱"
+  status: "状态"
+  active: "激活"
+  lock: "锁定"
+  industry: "行业类别"
+  role: "角色"
+  company_type: "公司性质"
+  company_scale: "公司规模"
+  district: "所属地区"
 
   #will_paginate
   will_paginate:

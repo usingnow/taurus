@@ -14,7 +14,7 @@
 <%= form_tag(condition_admin_orders_path) do%>
   <%= hidden_field_tag 'order_pay[condition_type]', '2' %>
   <div class="attributes">
-    <% if @order.instance.procedure.name == "银行转账"%>
+    <% if @order.instance.procedure.name == "银行转账（预付款）"%>
      支付状态：<%= select :order_pay, :status, "<option value='0'>未付款</option><option value='1'>已付款</option>".html_safe %> <br />
      汇出地： <%= select :order_pay, :province_no,Province.all.collect {|p| [ p.name, p.number ] }, { :selected => 310000 } %>  <br />
      汇款日期：<%= date_select :order_pay, :alipay_date  %>  <br />

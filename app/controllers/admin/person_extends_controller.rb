@@ -4,20 +4,23 @@ class Admin::PersonExtendsController < ApplicationController
   end
 
   def new
-    @person_extend = PersonExtend.new
+    @user = User.new
+    @user.build_person_extend
   end
 
   def create
-    @person_extend = PersonExtend.new(params[:person_extend])
+    @user = User.new params[:user]
+    @user.user_type = 1
+    @person_extend = PersonExtend.new params[:person_extend]
+    @user.email = @person_extend.email
+    @person_extend.user = @user
 
-    respond_to do |format|
-      if @person_extend.save
-        format.html { redirect_to(@person_extend, :notice => 'Person extend was successfully created.') }
-        format.xml  { render :xml => @person_extend, :status => :created, :location => @person_extend }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @person_extend.errors, :status => :unprocessable_entity }
-      end
+    unless [@person_extend, @user].map(&:valid?).include?(false)
+      @person_extend.person_no = current_person_no
+      @person_extend.save
+      redirect_to admin_person_extends_url
+    else
+      render :action => "new"
     end
   end
 
