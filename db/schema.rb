@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120110040800) do
+ActiveRecord::Schema.define(:version => 20120110101317) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -163,11 +163,9 @@ ActiveRecord::Schema.define(:version => 20120110040800) do
   end
 
   create_table "components", :force => true do |t|
-    t.integer  "system_id"
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "system_id"
+    t.string  "name"
+    t.string  "description"
   end
 
   create_table "conditions", :force => true do |t|
@@ -223,11 +221,10 @@ ActiveRecord::Schema.define(:version => 20120110040800) do
   end
 
   create_table "functions", :force => true do |t|
-    t.integer  "component_id"
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "component_id"
+    t.string  "name"
+    t.string  "description"
+    t.string  "url"
   end
 
   create_table "groups", :force => true do |t|
@@ -294,13 +291,11 @@ ActiveRecord::Schema.define(:version => 20120110040800) do
   end
 
   create_table "operatings", :force => true do |t|
-    t.integer  "function_id"
-    t.string   "name"
-    t.string   "description"
-    t.string   "action"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "subject_class"
+    t.integer "function_id"
+    t.string  "name"
+    t.string  "description"
+    t.string  "action"
+    t.string  "subject_class"
   end
 
   create_table "order_details", :force => true do |t|
@@ -421,10 +416,8 @@ ActiveRecord::Schema.define(:version => 20120110040800) do
   end
 
   create_table "permissions", :force => true do |t|
-    t.integer  "group_id"
-    t.integer  "operating_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "group_id"
+    t.integer "operating_id"
   end
 
   create_table "person_extends", :force => true do |t|
@@ -770,10 +763,8 @@ ActiveRecord::Schema.define(:version => 20120110040800) do
   end
 
   create_table "systems", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "name"
+    t.string "description"
   end
 
   create_table "tracks", :force => true do |t|

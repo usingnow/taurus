@@ -83,7 +83,7 @@ module ApplicationHelper
         end
 
         if flag == true
-          fun_str += "<li>#{fun.name}</li>"
+          fun_str += "<li>#{link_to fun.name, fun.url}</li>"
           com_flag = true
         end
       end

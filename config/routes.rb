@@ -73,6 +73,7 @@ Ebiz::Application.routes.draw do
      resources :company_scales
      resources :company_types
      resources :groups
+     resources :home
      resources :industries
      resources :permissions
      resources :products do
@@ -151,5 +152,5 @@ Ebiz::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   #match ':controller(/:action(/:id(.:format)))'
-  match '/admin', :to => 'admin/orders#index', :as => :admin
+  match '/admin', :to => 'admin/home#index', :as => :admin
 end
