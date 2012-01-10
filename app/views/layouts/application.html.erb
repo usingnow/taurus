@@ -40,77 +40,7 @@
 
   <div class="ui-layout-west">
     <div id="left_menu">
-      <ul>
-        <li>
-          <%=link_to '管理员维护',admin_administrators_path%>
-        </li>
-        <li>
-          <%= link_to '组维护', admin_groups_path%>
-        </li>
-        <li>
-          <%= link_to '素材商品分类维护', admin_product_categories_path%>
-        </li>
-        <li>
-          <%= link_to '素材商品', admin_products_path%>
-        </li>
-        <li>
-          <%= link_to '供应商', admin_suppliers_path%>
-        </li>
-        <li>
-          <%= link_to '品牌维护', admin_brands_path%>
-        </li>
-        <li>
-          <%= link_to '媒体商品分类维护', admin_sku_categories_path%>
-        </li>
-        <li>
-          <%= link_to '媒体商品维护', admin_skus_path%>
-        </li>
-        <li>
-          <%= link_to '订货公司维护', admin_ordering_companies_path%>
-        </li>
-        <li>
-          <%= link_to '采购单维护', admin_purchases_path%>
-        </li>
-        <li>
-          <%= link_to '会员角色维护', admin_roles_path%>
-        </li>
-        <li>
-          <%= link_to '个人会员维护', admin_person_extends_path%>
-        </li>
-        <li>
-          <%= link_to '企业会员维护', admin_company_extends_path%>
-        </li>
-        <li>
-          <%= link_to '升级单维护', admin_escs_path%>
-        </li>
-        <li>
-          <%= link_to '流程资料维护', admin_procedures_path%>
-        </li>
-        <li>
-          <%= link_to '站别资料维护', admin_stations_path%>
-        </li>
-        <li>
-          <%= link_to '流程规则维护', admin_station_procedureships_path%>
-        </li>
-        <li>
-          <%= link_to '在线订单', admin_orders_path%>
-        </li>
-        <li>
-          <%= link_to '查询订单', all_admin_orders_path %>
-        </li>
-        <li>
-          <%= link_to '入库单', admin_store_entries_path%>
-        </li>
-        <li>
-          <%= link_to '仓库维护', admin_stores_path %>
-        </li>
-        <li>
-          <%= link_to '库存查看', admin_product_storeships_path  %>
-        </li>
-        <li>
-          <%= link_to '图片', admin_pick_ups_path  %>
-        </li>
-      </ul>
+      <%= raw functions %>
     </div>
   </div>
 </body>

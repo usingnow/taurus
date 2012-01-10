@@ -1,10 +1,5 @@
 Ebiz::Application.routes.draw do
-  resources :company_scales
-
-  resources :company_types
-
   devise_for :users
-
   devise_for :administrators,
              :path =>"admin",
              :controllers => { :sessions => "admin/devise/sessions",
@@ -72,17 +67,20 @@ Ebiz::Application.routes.draw do
   # Sample resource route within a namespace:
    namespace :admin do
      resources :administrators
-     resources :company_extends
-     resources :groups
      resources :administrator_groupships
+     resources :brands
+     resources :company_extends
+     resources :company_scales
+     resources :company_types
+     resources :groups
      resources :industries
+     resources :permissions
      resources :products do
        collection do
          get  :search
        end
      end
      resources :suppliers
-     resources :brands
      resources :product_categories
      resources :sku_categories
      resources :skus do

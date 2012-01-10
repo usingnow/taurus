@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
 
 
   private
+    def current_ability
+      @current_ability ||= Ability.new(current_administrator)
+    end
+
     #获得购物车
     def current_cart
       Cart.find(session[:cart_id])

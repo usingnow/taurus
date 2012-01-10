@@ -1,7 +1,7 @@
 <h1>管理员列表</h1>
 
 <div class="grid_button">
-  <%= link_to '新建管理员', new_admin_administrator_path %>
+  <%= link_to '新建管理员', new_admin_administrator_path if can? :create, Administrator%>
 </div>
 
 <table class="grid">

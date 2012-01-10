@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120109065158) do
+ActiveRecord::Schema.define(:version => 20120110040800) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -162,6 +162,14 @@ ActiveRecord::Schema.define(:version => 20120109065158) do
     t.datetime "updated_at"
   end
 
+  create_table "components", :force => true do |t|
+    t.integer  "system_id"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "conditions", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -210,6 +218,14 @@ ActiveRecord::Schema.define(:version => 20120109065158) do
     t.string   "title"
     t.text     "description"
     t.integer  "created_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "functions", :force => true do |t|
+    t.integer  "component_id"
+    t.string   "name"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -275,6 +291,16 @@ ActiveRecord::Schema.define(:version => 20120109065158) do
     t.integer  "procedure_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "operatings", :force => true do |t|
+    t.integer  "function_id"
+    t.string   "name"
+    t.string   "description"
+    t.string   "action"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "subject_class"
   end
 
   create_table "order_details", :force => true do |t|
@@ -392,6 +418,13 @@ ActiveRecord::Schema.define(:version => 20120109065158) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "total_price",         :precision => 8, :scale => 2, :default => 0.0
+  end
+
+  create_table "permissions", :force => true do |t|
+    t.integer  "group_id"
+    t.integer  "operating_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "person_extends", :force => true do |t|
@@ -732,6 +765,13 @@ ActiveRecord::Schema.define(:version => 20120109065158) do
     t.integer  "active"
     t.string   "create_by"
     t.string   "update_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "systems", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

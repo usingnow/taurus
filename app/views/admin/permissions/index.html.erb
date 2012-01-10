@@ -1,0 +1,22 @@
+<h1>组列表</h1>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>名称</th>
+      <th>描述</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @groups.each_with_index do |group,index| %>
+    <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+      <td><%= index+1 %></td>
+      <td><%= group.name %></td>
+      <td><%= group.desc %></td>
+      <td><%= link_to '设置功能权限', new_admin_permission_path(:group_id => group) %></td>
+      <td>设置流程权限</td>
+    </tr>
+  <% end %>
+</table>

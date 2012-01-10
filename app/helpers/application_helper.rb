@@ -64,4 +64,34 @@ module ApplicationHelper
             </select>区县"
     str
   end
+
+  def functions
+    str = ""
+    Component.all.each do |com|
+      fun_str = "<ul>"
+      com_flag = false
+      com.functions.each do |fun|
+        flag = false
+        fun.operatings.each do |oper|
+          current_administrator.groups.each do |group|
+            group.permissions.each do |per|
+              if oper.id == per.operating_id && (per.operating.action == "manage" || per.operating.action == "read")
+                flag = true
+              end
+            end
+          end
+        end
+
+        if flag == true
+          fun_str += "<li>#{fun.name}</li>"
+          com_flag = true
+        end
+      end
+      fun_str += "</ul>"
+      if com_flag == true
+        str += "<h3>#{com.name}</h3>"+fun_str
+      end
+    end
+    str
+  end
 end

@@ -1,6 +1,8 @@
 #encoding:UTF-8
 class Admin::AdministratorsController < ApplicationController
+  before_filter :authenticate_administrator!
 
+  authorize_resource
   def index
     @administrators = Administrator.all
 

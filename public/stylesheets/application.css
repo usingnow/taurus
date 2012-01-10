@@ -107,13 +107,31 @@ div.attributes input.radio{
   width: 20px;
 }
 
-
-
 .clear{
   clear: both;
 }
 
-table
+input[type=checkbox]{
+  width: 20px;
+}
+
+fieldset{
+  border: 1px solid #E4E4E4;
+  margin: 0;
+}
+
+.permission div{
+  padding-left: 20px;
+}
+
+.permission label.floating {
+  font-weight: normal;
+  margin-left: 0px;
+  text-align: left;
+  width: 270px;
+  float: left;
+}
+
 
 
 
