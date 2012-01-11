@@ -1,4 +1,7 @@
 class Admin::ProceduresController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   # GET /procedures
   # GET /procedures.xml
   def index

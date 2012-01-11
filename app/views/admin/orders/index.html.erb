@@ -71,7 +71,7 @@
       订单概述：总共含<%= order.total_details %>种商品，
       合计<%= order.total_skus %>个商品，
       订单总金额<%= order.total_price %>元
-      &nbsp;&nbsp;<%=raw take_over_order(order.take_admin_id,order) %>
+      &nbsp;&nbsp;<%=raw take_over_order(order.take_admin_id,order)%>
     </td>
     <td colspan="1">
       <% order.next_action.each do |action| %>

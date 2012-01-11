@@ -1,4 +1,7 @@
 class Admin::InnerSkuCartsController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   # GET /cart_skuships
   # GET /cart_skuships.xml
   def index

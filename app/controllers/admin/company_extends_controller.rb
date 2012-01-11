@@ -1,4 +1,7 @@
 class Admin::CompanyExtendsController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   # GET /company_extends
   # GET /company_extends.xml
   def index

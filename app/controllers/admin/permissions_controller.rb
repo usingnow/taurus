@@ -1,4 +1,7 @@
 class Admin::PermissionsController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   def index
     @groups = Group.all
   end

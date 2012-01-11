@@ -1,4 +1,7 @@
 class Admin::StoresController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   # GET /stores
   # GET /stores.xml
   def index

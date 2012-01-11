@@ -1,4 +1,7 @@
 class Admin::PurchasesController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   # GET /purchases
   # GET /purchases.xml
   def index

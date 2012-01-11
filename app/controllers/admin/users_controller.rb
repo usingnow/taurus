@@ -1,4 +1,7 @@
 class Admin::UsersController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   def index
     @users = User.all
 

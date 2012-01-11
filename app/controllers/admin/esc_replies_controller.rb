@@ -1,5 +1,8 @@
 #encoding:UTF-8
 class Admin::EscRepliesController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   # GET /esc_replies
   # GET /esc_replies.xml
   def index

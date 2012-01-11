@@ -1,4 +1,7 @@
 class Admin::PickUpsController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
    # GET /pick_ups
   # GET /pick_ups.xml
   def index

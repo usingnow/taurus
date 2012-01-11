@@ -1,4 +1,7 @@
 class Admin::EscsController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   # GET /escs
   # GET /escs.xml
   def index

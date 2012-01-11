@@ -1,4 +1,7 @@
 class Admin::ProductCategoriesController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   # GET /product_categories
   # GET /product_categories.xml
   def index

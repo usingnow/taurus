@@ -1,8 +1,9 @@
 class Admin::StationProcedureshipsController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   # GET /station_procedureships
   # GET /station_procedureships.xml
-
-  authorize_resource
   def index
     if !params[:station_procedureship].nil?
       @procedure = current_procedure(params[:station_procedureship][:procedure_id])

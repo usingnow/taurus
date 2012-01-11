@@ -1,4 +1,7 @@
 class Admin::StationsController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   # GET /admin/stations
   # GET /admin/stations.xml
   def index

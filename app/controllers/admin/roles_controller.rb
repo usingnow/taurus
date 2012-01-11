@@ -1,4 +1,7 @@
 class Admin::RolesController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   # GET /roles
   # GET /roles.xml
   def index

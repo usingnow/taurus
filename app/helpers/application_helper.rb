@@ -75,7 +75,7 @@ module ApplicationHelper
         fun.operatings.each do |oper|
           current_administrator.groups.each do |group|
             group.permissions.each do |per|
-              if oper.id == per.operating_id && (per.operating.action == "manage" || per.operating.action == "read")
+              if oper.id == per.operating_id
                 flag = true
               end
             end

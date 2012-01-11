@@ -1,4 +1,7 @@
 class Admin::PersonExtendsController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   def index
     @person_extends = PersonExtend.all
   end

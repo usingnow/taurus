@@ -1,4 +1,7 @@
 class Admin::BrandsController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   # GET /brands
   # GET /brands.xml
   def index

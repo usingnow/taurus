@@ -1,4 +1,7 @@
 class Admin::SkusController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   # GET /skus
   # GET /skus.xml
   def index
