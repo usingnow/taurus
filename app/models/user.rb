@@ -16,4 +16,5 @@ class User < ActiveRecord::Base
   attr_accessor :password_confirmation, :email_confirmation
 
   validates_presence_of :login_no
+  validates_uniqueness_of :login_no
 end

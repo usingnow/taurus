@@ -89,6 +89,10 @@ input{
   width: 150px;
 }
 
+input[type=radio]{
+  width: 20px;
+}
+
 div.attributes label.long{
   font-weight: bold;
   float: left;
@@ -130,6 +134,11 @@ fieldset{
   text-align: left;
   width: 270px;
   float: left;
+}
+
+div.attributes label.collection_radio{
+  width: auto;
+  float: none;
 }
 
 

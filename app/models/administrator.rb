@@ -10,5 +10,6 @@ class Administrator < ActiveRecord::Base
   attr_accessible :email, :login_no, :password, :password_confirmation, :remember_me, :status, :name, :address, :phone,
                   :fax, :mobile, :zip
 
-  validates_presence_of :login_no
+  validates_presence_of :login_no, :password, :status, :name, :email
+  validates_uniqueness_of :login_no
 end
