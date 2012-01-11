@@ -4,12 +4,13 @@ class OrderPay < ActiveRecord::Base
   belongs_to :bank
   belongs_to :order
   attr_accessor :condition_type
-  attr_accessor :alipay_price_confirmation
+  attr_accessor :alipay_price_confirmation, :price_confirmation
 
   validates_numericality_of :alipay_price, :if => :paid
   validates_confirmation_of :alipay_price, :message => "与订单金额不符", :if => :paid
   validates_presence_of :buyer_alipay_no, :alipay_no, :if => :paid
   validates_numericality_of :price, :if => :input_pay_info
+  validates_confirmation_of :price, :message => "与订单金额不符", :if => :input_pay_info
 
 
   protected

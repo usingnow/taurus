@@ -16,7 +16,7 @@ class Admin::ProceduresController < ApplicationController
   # GET /procedures/1
   # GET /procedures/1.xml
   def show
-    @procedure = Procedure.find(params[:id])
+    @procedure = Procedure.unscoped.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +37,7 @@ class Admin::ProceduresController < ApplicationController
 
   # GET /procedures/1/edit
   def edit
-    @procedure = Procedure.find(params[:id])
+    @procedure = Procedure.unscoped.find(params[:id])
   end
 
   # POST /procedures
@@ -59,7 +59,7 @@ class Admin::ProceduresController < ApplicationController
   # PUT /procedures/1
   # PUT /procedures/1.xml
   def update
-    @procedure = Procedure.find(params[:id])
+    @procedure = Procedure.unscoped.find(params[:id])
 
     respond_to do |format|
       if @procedure.update_attributes(params[:procedure])
@@ -75,7 +75,7 @@ class Admin::ProceduresController < ApplicationController
   # DELETE /procedures/1
   # DELETE /procedures/1.xml
   def destroy
-    @procedure = Procedure.find(params[:id])
+    @procedure = Procedure.unscoped.find(params[:id])
     @procedure.destroy
 
     respond_to do |format|
