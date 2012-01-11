@@ -25,22 +25,22 @@
       <td>合计</td>
     </tr>
   </thead>
-    <% @order.order_details.each_with_index do |detail,index| %>
-      <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
-        <td><%= index+1 %></td>
-        <td><%= detail.sku.number %></td>
-        <td><%= detail.sku.name %></td>
-        <td><%= detail.sku.unit %></td>
-        <td><%= detail.unit_price %></td>
-        <td><%= detail.quantity %></td>
-        <td><%= format_is_need(detail.is_need_install) %></td>
-        <td><%= detail.install_cost %></td>
-        <td><%= format_is_need(detail.is_need_assemble) %></td>
-        <td><%= detail.assemble_cost %></td>
-        <td><%= detail.sku.delivery_day %></td>
-        <td><%= detail.unit_price*detail.quantity %></td>
-      </tr>
-    <% end %>
+  <% @order.order_details.each_with_index do |detail,index| %>
+    <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+      <td><%= index+1 %></td>
+      <td><%= detail.sku.number %></td>
+      <td><%= detail.sku.name %></td>
+      <td><%= detail.sku.unit %></td>
+      <td><%= detail.unit_price %></td>
+      <td><%= detail.quantity %></td>
+      <td><%= format_is_need(detail.is_need_install) %></td>
+      <td><%= detail.install_cost %></td>
+      <td><%= format_is_need(detail.is_need_assemble) %></td>
+      <td><%= detail.assemble_cost %></td>
+      <td><%= detail.sku.delivery_day %></td>
+      <td><%= detail.unit_price*detail.quantity %></td>
+    </tr>
+  <% end %>
 </table>
 <hr />
 
@@ -100,6 +100,9 @@
     <p>
       <%= label_tag '合计：' %>
       <%= @order.total_amount %> 元
+    </p>
+    <p id="print_link">
+      <%= link_to '订单打印', print_admin_orders_path(:order_id => @order),{:target => "blank"} %>
     </p>
   </div>
   <div class="clear"></div>

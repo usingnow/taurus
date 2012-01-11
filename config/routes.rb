@@ -94,21 +94,22 @@ Ebiz::Application.routes.draw do
      resources :sku_images
      resources :orders do
        collection do
-         get  :take_over
+         get  :all
          get  :cancel
-         get  :paid
-         post  :condition
-         get  :output
-         get  :sign_in
+         post :condition
          get  :input_pay_info
+         get  :output
+         get  :paid
          get  :pay_confirmation
-         get :user_sear
-         get  :step2
+         get  :print
+         get  :sign_in
          get  :sku_sear
+         get  :step2
          get  :step3
          get  :step4
          post :step5
-         get  :all
+         get  :take_over
+         get  :user_sear
        end
      end
      resources :order_details
