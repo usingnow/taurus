@@ -325,8 +325,7 @@ h1, h2, h3, ul{
 	width:208px;
 	height: 130px;
 	margin: 10px 0 0 0;
-	border: 1px solid #990000;
-	background:#0FF;
+	outline: 1px solid #dddddd;
 }
 #banner_2 {
 	position: relative;
@@ -352,8 +351,7 @@ h1, h2, h3, ul{
 	width:208px;
 	height: 130px;
 	margin: 80px 0 0 0;
-	border: 1px solid #990000;
-	background: #F69;
+	outline: 1px solid #dddddd;
 }
 #banner_5 {
 	position: relative;
