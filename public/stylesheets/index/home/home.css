@@ -2,10 +2,10 @@
 /* CSS Document */
 
 #wrapper {
-	width:980px;
+	width:1000px;
 	position:relative;
 	left:50%;
-	margin-left: -480px;
+	margin-left: -500px;
 }
 
 body,td,th {
@@ -67,10 +67,22 @@ h1, h2, h3, ul{
 	vertical-align:middle;
 	border-top: 1px solid #dddddd;
 }
+.bar_image_1000 {
+	width: 992px;
+	height: 26px;
+	background-image:url(/images/bar_1000_26.jpg);
+	padding: 0 0 0 8px;
+	color: #e60013;
+	font-size: 15px;
+	font-weight: normal;
+	line-height:26px;
+	vertical-align:middle;
+	border-top: 1px solid #dddddd;
+}
 .bar_image_810 {
 	width: 802px;
 	height: 26px;
-	background-image:url(images/bar_bg_810_26.png);
+	background-image:url(images/bar/bar_bg_810_26.png);
 	padding: 0 0 0 8px;
 	color: #ffffff;
 	font-size:14px;
@@ -152,7 +164,7 @@ h1, h2, h3, ul{
 	position: absolute;
 	top: 100px;
 	left: 0px;
-	width: 980px;
+	width: 1000px;
 	height: 32px;
 	margin: 2px 0 2px 0;
 	border-bottom: 3px solid #dddddd;
@@ -261,7 +273,7 @@ h1, h2, h3, ul{
 	top: 7px;
 	left: 360px;
 	height: 30px;
-	line-height::30px;
+	line-height:30px;
 	vertical-align:middle;
 }
 #welcome p {
@@ -282,13 +294,14 @@ h1, h2, h3, ul{
 	position:absolute;
 	top: 137px;
 	left: 0px;
-	width:980px;
+	width:1000px;
 	background-color: #ffffff;
 }
 #main_menu_wrapper {
 	position:relative;
 	float:left;
-	width: 160px;
+	width: 220px;
+	margin: 4px 0 0 0;
 }
 #slider_bar {
 	position: relative;
@@ -301,7 +314,7 @@ h1, h2, h3, ul{
 #login_bar {
 	position:relative;
 	float:right;
-	width: 250px;
+	width: 210px;
 	height: 270px;
 	margin: 4px 0 0 0;
 }
@@ -309,15 +322,16 @@ h1, h2, h3, ul{
 #banner_1 {
 	position: relative;
 	float:left;
-	width:248px;
+	width:208px;
 	height: 130px;
 	margin: 10px 0 0 0;
-	border: 1px solid #dddddd;
+	border: 1px solid #990000;
+	background:#0FF;
 }
 #banner_2 {
 	position: relative;
 	float: left;
-	width: 160px;
+	width: 220px;
 	height: 200px;
 	background:#33FF33;
 	clear: left;
@@ -335,15 +349,16 @@ h1, h2, h3, ul{
 #banner_4 {
 	position: relative;
 	float:right;
-	width:248px;
+	width:208px;
 	height: 130px;
 	margin: 80px 0 0 0;
-    border: 1px solid #dddddd;
+	border: 1px solid #990000;
+	background: #F69;
 }
 #banner_5 {
 	position: relative;
 	float:left;
-	width:978px;
+	width:998px;
 	height: 58px;
 	margin: 8px 0 0 0;
 	border: 1px solid #990000;
@@ -358,16 +373,16 @@ h1, h2, h3, ul{
 
 #main_menu {
 	padding:0px;
-	width:160px; height:240px;
+	width:220px; height:240px;
 	background:#ffffff;  /** Main virtical menu background **/
 	border: 1px solid #dddddd;
 }
 #main_menu li{
 	position:relative; float:left;
-	width:140px;
+	width:200px;
 	padding-left:0px; padding-top:4px;
 	display:block;
-	background:url(images/arrow.png) no-repeat 112px 0px;
+	background:url(images/arrow.png) no-repeat 172px 0px;
 }
 #main_menu li:hover {
 	z-index:6;
@@ -384,7 +399,7 @@ h1, h2, h3, ul{
 	border-left: 1px solid #ffffff;
 	border-right: 1px solid #ffffff;
 	background-color:#ffffff;
-	z-index:400;
+	z-index:1000;
 }
 #main_menu li:hover div a {
 	font-size:12px;color:#333333;
@@ -395,13 +410,13 @@ h1, h2, h3, ul{
 }
 
 #main_menu li:hover .cms_submenu {
-	left:138px;
+	left:198px;
 	top: -1px;
-	z-index: 3;
+	z-index: 1000;
 }
 
 .cms_submenu {
-	float:left;position:absolute;z-index:3;top: -1000px;
+	float:left;position:absolute;z-index:1000; top: -1000px;
 	text-align:left;
 	border:1px solid #333333;
 	width:570px;
@@ -445,7 +460,7 @@ h1, h2, h3, ul{
 	background:transparent;
 }
 .titlefont {
-	width: 162px;
+	width: 222px;
 	background: #dddddd; /** Change the menu title background here 160*32 **/
 	background-repeat: none;
 	background-position: bottom center;
@@ -455,8 +470,8 @@ h1, h2, h3, ul{
 	background-color: #dddddd;
 }
 #main_menu_wrapper h2 { /**Main Menu Bar Title **/
-	height: 32px;
-	line-height: 32px;
+	height: 28px;
+	line-height: 28px;
 	vertical-align:middle;
 	text-align:center;
 	font-family:黑体; font-weight:bold; color:#333333; font-size:14px;
@@ -465,13 +480,13 @@ h1, h2, h3, ul{
 
 /** Homepage Main Login bar - Start **/
 .box {
-	width: 249px;
+	width: 209px;
 	height:200px;
 	margin: 0;
 	outline: 1px solid #dddddd;
 }
 #login_bar .list {
-	width: 249px;
+	width: 209px;
 	height:28px;
 	float:left;
 	border-bottom: 1px solid #666666;
@@ -500,19 +515,23 @@ h1, h2, h3, ul{
 	background:#fff;
 }
 #login_bar .content {
-	width:209px;
+	width:193px;
 	height: 160px;
-	padding: 5px 20px 0 20px;
+	padding: 4px 8px 4px 8px;
 	float:left;
 	display:none;
 	background:#ffffff;
 	text-align: left;
 }
+#login_bar .content p input {
+	width: 142px;
+	height: 16px;
+}
 #login_bar .content p {
 	height: 28px;
 	line-height: 28px;
 	vertical-align: middle;
-	margin: 4px 0 4px 0;
+	margin: 0;
 }
 #login_bar .content p button {
 	line-height: 18px;
@@ -533,7 +552,7 @@ h1, h2, h3, ul{
 	clear: both;
 	float:right;
 	outline: 1px solid #333333;
-	margin: 4px 11px 0 0;
+	margin: 3px 2px 0 0;
 }
 /** Homepage Main Login bar - End **/
 
@@ -541,7 +560,7 @@ h1, h2, h3, ul{
 
 .sku_category {
 	position: absolute;
-	width: 980px;
+	width: 1000px;
 }
 #sku_category_1 { /** difine the different SKU category with num **/
 	top: 562px;
@@ -561,8 +580,7 @@ h1, h2, h3, ul{
 .sku_list_ul {
 	position: absolute;
 	top: 30px;
-	left: 170px;
-	left: 170px;
+	left: 230px;
 	width: 600px;
 }
 .sku_list_p {
@@ -570,7 +588,7 @@ h1, h2, h3, ul{
 }
 .sku_list_bar_short {
 	display:block;
-	width 200px;
+	width: 200px;
 	height: 26px;
 	line-height:26px;
 	vertical-align:middle;
@@ -582,7 +600,7 @@ h1, h2, h3, ul{
 	position: absolute;
 	top: 30px;
 	right: 0px;
-	width: 198px;
+	width: 168px;
 	height: 363px;
 	border: 1px solid #990000;
 }
@@ -629,7 +647,7 @@ h1, h2, h3, ul{
 	position:absolute;
 	top: 30px;
 	left: 0px;
-	width: 160px;
+	width: 220px;
 	height: 363px;
 	background:#CC6633;
 }
@@ -642,7 +660,7 @@ h1, h2, h3, ul{
     position: absolute;
     top: 1200px;
 	left: 0px;
-    width: 980px;
+    width: 1000px;
     height: 400px;
     background-color: #ffffff;
 	clear: both;
@@ -651,7 +669,7 @@ h1, h2, h3, ul{
 #brand-corperate {
     position: relative;
     float: left;
-    width: 978px;
+    width: 998px;
     height: 167px;
 	border: 1px solid #dddddd;
     background-color: #ffffff;
@@ -662,7 +680,7 @@ h1, h2, h3, ul{
     position: relative;
     float: left;
     margin: 0 0 0 0;
-	padding: 0;
+	padding: 0 14px 0 14px;
 }
 
 #brand-corperate ul li {
@@ -670,14 +688,16 @@ h1, h2, h3, ul{
     float: left;
     display: block;
     margin: 4px 2px 4px 2px;
+	background-color:#cecece;
+	border: 1px solid #333333;
 }
 #footer_contact_bar {
 	position: relative;
 	float: left;
-	width: 980px;
+	width: 1000px;
 	height: 26px;
 	margin: 2px 0 0 0;
-	background-image:url(/images/bar_bg_1_30.png);
+	background-image:url(images/bar/bar_bg_1_30.png);
 	line-height:26px;
 	vertical-align:middle;
 	text-align:center;
@@ -696,7 +716,7 @@ h1, h2, h3, ul{
 #corp-info {
     position: relative;
     float: left;
-    width: 980px;
+    width: 1000px;
     height: 140px;
 	margin: 4px 0 0 0;
     background-color: #ffffff;
@@ -728,7 +748,7 @@ h1, h2, h3, ul{
     position: relative;
     float: left;
     padding-left: 200px;
-	width: 780px;
+	width: 800px;
 }
 .footer_title li {
 	margin: 0 0 0 20px;
@@ -752,13 +772,13 @@ div#copyright {
     float: left;
     margin: 0 0 0 0;
     clear: both;
-    width: 980px;
+    width: 1000px;
     text-align: center;
 }
 
 /** Homepage Slider Style **/
 .container, .container img {
-    height: 250px;
+    height: 190px;
     width: 550px;
 }
 .container {
@@ -798,15 +818,14 @@ div#copyright {
 }
 /** Homepage Small Slider Style **/
 #panic_buying {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  border: medium none;
-  height: 174px;
-  width: 550px;
-  padding: 26px 0 0 0;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	padding: 26px 0 0 0;
+    border: medium none;
+    height: 174px;
+    width: 550px;
 }
-
 .smallslider {
     margin: 0;
     overflow: hidden;
@@ -835,44 +854,20 @@ div#copyright {
     padding: 0;
     vertical-align: top;
 }
-.smallslider h3 {
-    color: #CCCCCC;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 26px;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    text-indent: 2%;
-    width: 98%;
-    z-index: 102;
+.smallslider li.current-li {
 }
-.smallslider h3 a {
-    margin: 0;
-    padding: 0;
-    text-indent: 0;
-}
-.smallslider h3 a:link, .smallslider h3 a:visited {
-    color: #FFFFFF;
-    text-decoration: none;
-}
-.smallslider h3 a:hover {
-    color: #FF6600;
-    text-decoration: underline;
-}
-
 .smallslider-btns {
     position: absolute;
 	top: 4px;
 	right: 0;
 	width: 100px;
 	height: 26px;
-	z-index:500;
+	z-index:100;
 }
 .smallslider-btns span {
     background-color: #FFFFFF;
     border: 1px solid #DCDCDC;
-    color: #9F9F9F;
+    color: #e70013;
     cursor: pointer;
     float: left;
     font-size: 12px;
@@ -904,9 +899,14 @@ div#copyright {
     position: fixed;
     width: 200px;
 }
-.special_width_smallslider {
-	width: 392px;
+/** SKU Level 2 Homepage Starts here **/
+#sku_l2_banner {
+	width: 209px;
+	height: 200px;
+	background-color:#00CCCC;
 }
+
+
 
 .overflow_text{
   overflow:hidden;

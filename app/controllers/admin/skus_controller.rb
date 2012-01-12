@@ -1,7 +1,7 @@
 class Admin::SkusController < ApplicationController
   before_filter :authenticate_administrator!
   authorize_resource
-
+  autocomplete :brand, :chinese_name
   # GET /skus
   # GET /skus.xml
   def index

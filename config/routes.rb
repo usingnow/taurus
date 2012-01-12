@@ -88,6 +88,7 @@ Ebiz::Application.routes.draw do
      resources :skus do
        collection do
          get  :add
+         get  :autocomplete_brand_chinese_name
          get  :search
        end
      end

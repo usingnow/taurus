@@ -1,28 +1,18 @@
-<%= form_for([:admin,@sku]) do |f| %>
-  <% if @sku.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= t('activerecord.errors.template.header', :count => @sku.errors.size, :model => t('models.sku')) %></h2>
+<%= simple_form_for([:admin,@sku]) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% @sku.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <div class="attributes">
+    <div class="split_content_left">
+       <%= f.input :number %>
+       <%= f.input :brand_chinese_name, :url => autocomplete_brand_chinese_name_admin_skus_path, :as => :autocomplete %>
     </div>
-  <% end %>
+    <div class="split_content_right">
+       <%= f.input :name %>
+    </div>
+    <div class="clear"></div>
+  </div>
 
-  <div class="field">
-    <%= f.label :number %><span class="red">*</span><br />
-    <%= f.text_field :number %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><span class="red">*</span><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :brand_id %><span class="red">*</span><br />
-    <%= f.text_field :brand_id %>
-  </div>
+
   <div class="field">
     <%= f.label :sku_category_id %><span class="red">*</span><br />
     <%= f.text_field :sku_category_id %>

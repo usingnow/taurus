@@ -7,6 +7,7 @@
 <table class="grid">
   <thead>
     <tr>
+      <th>#</th>
       <th><%= t('attributes.sku.number') %></th>
       <th><%= t('attributes.sku.name') %></th>
       <th><%= t('attributes.sku.sku_category_id') %></th>
@@ -18,15 +19,15 @@
       <th></th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
 
 <% @skus.each_with_index do |sku,index| %>
   <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+    <td><%= index+1 %></td>
     <td><%= sku.number %></td>
-    <td><%= sku.name %></td>
+    <td align="left"><%= link_to sku.name, admin_sku_path(sku) %></td>
     <td><%= sku.sku_category_id %></td>
     <td><%= sku.unit %></td>
     <td><%= format_sku_type sku.sku_type %></td>
@@ -35,9 +36,7 @@
     <td><%= sku.updated_at %></td>
     <td><%= link_to '商品组成', 'sku_productships?sku_id='+sku.id.to_s %></td>
     <td><%= link_to '相册', 'sku_images?sku_id='+sku.id.to_s %></td>
-    <td><%= link_to 'Show', admin_sku_path(sku) %></td>
-    <td><%= link_to 'Edit', edit_admin_sku_path(sku) %></td>
-    <td><%= link_to 'Destroy', admin_sku_path(sku), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to '修改', edit_admin_sku_path(sku) %></td>
   </tr>
 <% end %>
 </table>

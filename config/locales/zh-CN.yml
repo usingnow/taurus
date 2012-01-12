@@ -342,7 +342,7 @@ zh-CN:
     sku:
       number: "编号"
       name: "名称"
-      brand_id: "品牌ID"
+      brand: "品牌"
       sku_category_id: "分类ID"
       unit: "单位"
       specification: "规格"
