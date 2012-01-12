@@ -2,12 +2,279 @@
 <html>
 <head>
   <title>Ebiz</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults,'jquery-ui-1.8.16.custom.min.js' %>
-  <%= javascript_include_tag 'jquery.smallslider' %>
+  <%= stylesheet_link_tag 'index/home/home.css','smallslider' %>
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag 'player' %>
   <%= csrf_meta_tag %>
+  <script type="text/javascript">
+    //Homepadge login_bar tabs
+    function s(id){
+        return typeof id === "string" ? document.getElementById(id) : id;
+    }
+    function ss(oParent, elem){
+        return (oParent || document).getElementsByTagName(elem);
+    }
+    function sss(oParent, sClass){
+        var aElem = ss(oParent, '*');
+        var aClass = [];
+        var i = 0;
+        for(i=0;i<aElem.length;i++)if(aElem[i].className == sClass)aClass.push(aElem[i]);
+        return aClass;
+    }
+    function addEvent(oElm, strEvent, fuc) {
+        window.addEventListener ? oElm.addEventListener(strEvent, fuc, false) : oElm.attachEvent('on' + strEvent, fuc);
+    };
+    function Tab(){
+        this.initialize.apply(this, arguments);
+    }
+    Object.extend = function(destination, source) {
+        for (var property in source) {
+            destination[property] = source[property];
+        }
+        return destination;
+    };
+    Tab.prototype = {
+        initialize : function(obj, dis, content, onEnd, eq){
+            this.obj = s(obj);
+            this.oList = sss(this.obj, 'list')[0];
+            this.aCont = sss(this.obj, content);
+            this.oUl = ss(this.oList, 'ul')[0];
+            this.aLi = this.oUl.children;
+            this.timer = null;
+            eq ? (this.aLi.length < eq  ? eq = 0 : eq) : eq = 0;
+            this.oEve(onEnd);
+            this.onEnd.method == 'mouseover' ? this.method = "mouseover" : this.method = "click";
+            this.onEnd.autoplay == 'stop' ? this.autoplay = "stop" : this.autoplay = "play";
+            this.aCont[eq].style.display = 'block';
+            this.aLi[eq].className = 'hove';
+            this.display(dis);
+            this.autoPlayTab(eq, dis);
+        },
+
+        oEve: function(onEnd){
+            this.onEnd = {
+                method: 'mouseover',
+                autoplay: 'stop'
+            };
+            Object.extend(this.onEnd, onEnd || {});
+        },
+
+
+        display : function(dis){
+            var _this = this;
+            var i = iNow = 0;
+            for(i=0;i<this.aLi.length;i++){
+                (function(){
+                    var j = i;
+                    addEvent(_this.aLi[j], _this.method,
+                    function() {
+                        _this.fnClick(j,dis);
+                        _this.autoPlayTab(j, dis);
+                    })
+                 })()
+            }
+        },
+
+
+        autoPlayTab : function(iNow, dis){
+            if(this.autoplay == 'play'){
+                var _this = this;
+                this.iNow = iNow;
+                this.obj.onmouseover = function(){
+                    clearInterval(_this.timer);
+                };
+                this.obj.onmouseout = function(){
+                    clearInterval(_this.timer);
+                    _this.timer = setInterval(playTab,5000);
+                };
+                clearInterval(_this.timer);
+                _this.timer = setInterval(playTab,5000);
+                function playTab(){
+                    if(_this.iNow == _this.aLi.length)_this.iNow = 0;
+                    _this.fnClick(_this.iNow, dis)
+                    _this.iNow++
+                }
+            }
+        },
+
+        fnClick : function(oBtn, dis){
+            var i = 0;
+            for(i=0;i<this.aLi.length;i++)this.aLi[i].className = '',this.aCont[i].style.display = 'none';
+            this.aLi[oBtn].className = dis;
+            this.aCont[oBtn].style.display = 'block';
+        }
+    };
+    window.onload = function(){
+        new Tab("box", 'hove', 'content', {
+            method : 'mouseover',
+            autoplay : 'play'
+        },0);
+    };
+  </script>
 </head>
 <body>
-     <%= yield %>
+  <div id="wrapper">
+    <div id="header">
+      <img id="logo" src="/images/logo-slogan-60-02.png" />
+      <div id="tool_bar">
+        <ul>
+          <li><a href="#">我的账户</a></li>
+          <li>|</li>
+          <li><a href="#">客服中心</a></li>
+          <li>|</li>
+          <li><a href="#">收藏本站</a></li>
+          <li>|</li>
+          <li><a href="#">订阅信息</a></li>
+          <li>|</li>
+          <li><a href="#">索取目录</a></li>
+        </ul>
+      </div>
+      <div id="welcome">
+        <p><a href="#" title="登陆">登陆</a> 或 <a href="#" title="注册">免费注册？享受会员服务</a></p>
+      </div>
+      <div id="cart">
+        <p style="width: 100px; line-height:28px; vertical-align:middle; margin: 0px; padding: 0 0 0 32px;">购物车：<strong>999</strong> 件</p>
+        <div style="position: absolute; top: 6px; right: 18px"><a href="#" style="color: #ffffff;">去结算</a></div>
+      </div>
+      <div id="share_bar">
+        <img id="sina" src="/images/sina.png" width="32" height="32">
+        <img id= "kaixin" src="/images/kaixin.png" width="32" height="32">
+      </div>
+      <div id="search_bar">
+        <form>
+          <input type="text" name="keywords" size="50" maxlength="80" value="商品……">
+          <button style="line-height: 16px" type="submit" name="submit-search">搜索</button>
+        </form>
+      </div>
+
+      <!-- 2012/01/10 after discussion with Lucy, Homepage new horizontal menu starts here -->
+      <div id="h_main_menu">
+        <ul class="h_ul">
+          <li class="h_li"><a href="#">壹美首页</a></li>
+          <li class="h_li"><a href="#">PC OA用品</a></li>
+          <li class="h_li"><a href="#">文具办公用品</a></li>
+          <li class="h_li"><a href="#">生活用品</a></li>
+          <li class="h_li"><a href="#">办公家具</a></li>
+          <li class="h_li"><a href="#">生活家具</a></li>
+          <li class="h_li"><a href="#">家居饰品</a></li>
+        </ul>
+      </div>
+
+    <!-- 2012/01/10 after discussion with Lucy, Homepage new horizontal menu ends here -->
+    </div>
+
+    <%= yield %>
+
+    <div id="footer">
+      <div id="brand-corperate">
+        <h2 class="bar_image_980">合作品牌</h2>
+        <ul>
+          <li><img src="/images/logo-slogan.png" width="115px" height="57px"></li>
+          <li><img src="/images/logo-slogan.png" width="115px" height="57px"></li>
+          <li><img src="/images/logo-slogan.png" width="115px" height="57px"></li>
+          <li><img src="/images/logo-slogan.png" width="115px" height="57px"></li>
+          <li><img src="/images/logo-slogan.png" width="115px" height="57px"></li>
+          <li><img src="/images/logo-slogan.png" width="115px" height="57px"></li>
+          <li><img src="/images/logo-slogan.png" width="115px" height="57px"></li>
+          <li><img src="/images/logo-slogan.png" width="115px" height="57px"></li>
+          <li><img src="/images/logo-slogan.png" width="115px" height="57px"></li>
+          <li><img src="/images/logo-slogan.png" width="115px" height="57px"></li>
+          <li><img src="/images/logo-slogan.png" width="115px" height="57px"></li>
+          <li><img src="/images/logo-slogan.png" width="115px" height="57px"></li>
+          <li><img src="/images/logo-slogan.png" width="115px" height="57px"></li>
+          <li><img src="/images/logo-slogan.png" width="115px" height="57px"></li>
+          <li><img src="/images/logo-slogan.png" width="115px" height="57px"></li>
+          <li><img src="/images/logo-slogan.png" width="115px" height="57px"></li>
+        </ul>
+      </div>
+      <div id="footer_contact_bar">
+        <ul class="h_ul">
+          <li class="h_li"><a href="#">联系我们</a></li>
+          <li class="h_li"><a href="#">集团介绍</a></li>
+          <li class="h_li"><a href="#">壹美网络科技</a></li>
+          <li class="h_li"><a href="#">网站联盟</a></li>
+        </ul>
+      </div>
+      <div id="corp-info">
+        <div>
+          <h3>公司介绍</h3>
+          <ul>
+            <li><a href="#" title="">我们是谁</a></li>
+            <li><a href="#" title="">集团伙伴</a></li>
+            <li><a href="#" title="">媒体报道</a></li>
+            <li><a href="#" title="">加入我们</a></li>
+            <li><a href="#" title="">申请成为供应商</a></li>
+          </ul>
+          <img src="/images/icon/icon-service.png" />
+        </div>
+        <div>
+          <h3>我的订单</h3>
+          <ul>
+            <li><a href="#" title="">注册会员</a></li>
+            <li><a href="#" title="">如何下单</a></li>
+            <li><a href="#" title="">查询订单</a></li>
+          </ul>
+          <img src="/images/icon/icon-insruction.png" />
+        </div>
+        <div>
+          <h3>关于配送</h3>
+          <ul>
+            <li><a href="#" title="">配送范围</a></li>
+            <li><a href="#" title="">收费标准</a></li>
+            <li><a href="#" title="">配送时间</a></li>
+          </ul>
+          <img src="/images/icon/icon-delivery.png" />
+        </div>
+        <div>
+          <h3>关于支付</h3>
+          <ul>
+            <li><a href="#" title="">支付方式</a></li>
+            <li><a href="#" title="">月结用户</a></li>
+            <li><a href="#" title="">购物券说明</a></li>
+          </ul>
+          <img src="/images/icon/icon-payment.png" />
+        </div>
+        <div>
+          <h3>服务说明</h3>
+          <ul>
+            <li><a href="#" title="">退换货原则</a></li>
+            <li><a href="#" title="">投诉与建议</a></li>
+            <li><a href="#" title="">客户使用条款</a></li>
+          </ul>
+          <img src="/images/icon/icon-heart.png" />
+        </div>
+        <div>
+          <h3>帮助中心</h3>
+          <ul>
+            <li><a href="#" title="">忘记密码</a></li>
+            <li><a href="#" title="">常见问题</a></li>
+            <li><a href="#" title="">联系客服</a></li>
+          </ul>
+        </div>
+      </div>
+      <ul class="h_ul clear footer_warranty">
+        <li class="h_li"><img src="/images/baozhang1.jpg" /></li>
+        <li class="h_li"><img src="/images/baozhang2.jpg" /></li>
+        <li class="h_li"><img src="/images/baozhang3.jpg" /></li>
+        <li class="h_li"><img src="/images/baozhang4.jpg" /></li>
+      </ul>
+      <ul class="bar h_ul clear footer_title">
+        <li class="h_li">宁波网商协会副会长单位</li>
+        <li class="h_li">|</li>
+        <li class="h_li">宁波市信息化试点单位</li>
+        <li class="h_li">|</li>
+        <li class="h_li">象山县政府指定采购单位</li>
+      </ul>
+      <div id="copyright">
+        <p>ICP备案编号：浙ICP备10210687号 <a href="#">营业执照</a></p>
+        <p>copyright&copy;壹美壹家网上商城2010-2012 宁波壹美壹家贸易有限公司版权所有</p>
+        <p>客服热线:400-630-5006 客服邮箱:cs@emehome.cn 技术支持:宁波壹美网络科技有限公司</p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
+
+
+
+

@@ -1,0 +1,50 @@
+<div style="position:absolute; width:560px; top:0px;">
+  <div class="container" id="idContainer" style="display:none">
+    <table id="idSlider" border="0" cellpadding="0" cellspacing="0"></table>
+  </div>
+  <div style="border:solid 1px #CDCCCC; position:relative; width:550px; height:272px; overflow:hidden" align="left">
+    <div class="container" id="idContainer2">
+      <table id="idSlider2" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><a href='' target="_blank"><img src="/assets/pick_ups/1/original_20120101_1.jpg" width="550" height="250"/></a></td>
+          <td><a href='' target="_blank"><img src="/assets/pick_ups/2/original_20120101_2.jpg" width="550" height="250"/></a></td>
+          <td><a href='' target="_blank"><img src="/assets/pick_ups/1/original_20120101_1.jpg" width="550" height="250"/></a></td>
+          <td><a href='' target="_blank"><img src="/assets/pick_ups/2/original_20120101_2.jpg" width="550" height="250"/></a></td>
+          <td><a href='' target="_blank"><img src="/assets/pick_ups/1/original_20120101_1.jpg" width="550" height="250"/></a></td>
+        </tr>
+      </table>
+    </div>
+    <div style="position:absolute; width:560px; top:-2px; left:-1px;">
+      <ul class="num" id="idNum"></ul>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    new SlideTrans("idContainer", "idSlider", 3).Run();
+    ///////////////////////////////////////////////////////////
+    var forEach = function(array, callback, thisObject){
+      if(array.forEach){
+              array.forEach(callback, thisObject);
+      }else{
+              for (var i = 0, len = array.length; i < len; i++) { callback.call(thisObject, array[i], i, array); }
+      }
+    };
+    var st = new SlideTrans("idContainer2", "idSlider2", 5, { Vertical: false });
+    var nums = [];
+    //²åÈëÊý×Ö
+      (nums[0] = $("idNum").appendChild(document.createElement("li"))).innerHTML = "康师傅方便面";
+     (nums[1] = $("idNum").appendChild(document.createElement("li"))).innerHTML = "雀巢经典咖啡";
+    (nums[2] = $("idNum").appendChild(document.createElement("li"))).innerHTML = "壹美壹家新店开张";
+    (nums[3] = $("idNum").appendChild(document.createElement("li"))).innerHTML = "壹美壹家环保袋";
+    (nums[4] = $("idNum").appendChild(document.createElement("li"))).innerHTML = "清洁系列大换购";
+    forEach(nums, function(o, i){
+            o.onmouseover = function(){ o.className = "on"; st.Auto = false; st.Run(i); }
+            o.onmouseout = function(){ o.className = ""; st.Auto = true; st.Run(); }
+    });
+    //ÉèÖÃ°ŽÅ¥ÑùÊœ
+    st.onStart = function(){
+            forEach(nums, function(o, i){ o.className = st.Index == i ? "on" : ""; })
+    };
+    st.Run();
+</script>

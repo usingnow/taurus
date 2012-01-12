@@ -1,0 +1,728 @@
+@charset "utf-8";
+/* CSS Document */
+
+#wrapper {
+	width:980px;
+	position:relative;
+	left:50%;
+	margin-left: -480px;
+}
+
+body,td,th {
+	font-family: "宋体", Tahoma, Verdana, Arial, sans-serif;
+	font-size: 12px;
+	color: #333333;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+a {
+	color: #333333;
+	text-decoration: none;
+}
+a:hover {
+	color: #FF0000;
+	text-decoration: none;
+}
+a:active{
+	color: #FF0000;
+	text-decoration: none;
+}
+input {
+	border: solid 1px #666;
+	padding: 3px 3px 3px 3px;
+}
+
+input:focus {
+	background: #dddddd;
+}
+
+h1, h2, h3, ul{
+	margin: 0;
+}
+
+.bar { /** Hompage Level 1 Long bar with h2, like 合作品牌 **/
+	display:block;
+	width: 976px;
+	height: 32px;
+	line-height:32px;
+	vertical-align:middle;
+	color: #333333;
+	background-color:#dddddd;
+	margin: 0 0 2px 0;
+	padding: 0 0 0 4px;
+}
+.bar_image_980 {
+	width: 972px;
+	height: 26px;
+	background-image:url('images/bar/bar_bg_980_26.png');
+	padding: 0 0 0 8px;
+	color: #e60013;
+	font-size: 15px;
+	font-weight: normal;
+	line-height:26px;
+	vertical-align:middle;
+	border-top: 1px solid #dddddd;
+}
+.bar_image_810 {
+	width: 802px;
+	height: 26px;
+	background-image:url('images/Narrow-category-810.png');
+	padding: 0 0 0 8px;
+	color: #ffffff;
+	font-size:14px;
+	line-height:26px;
+	vertical-align:middle;
+}
+
+/** Horizontal <ul> <li> style **/
+.h_ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.h_li {
+	float: left;
+}
+
+
+/** New Homepage Horizon Navigator - Starts here - 2012/01/10 - Jimmy Xu **/
+#h_main_menu {
+	position: absolute;
+	top: 60px;
+	left: 0px;
+	width: 980px;
+	height: 32px;
+	margin: 2px 0 2px 0;
+	border-bottom: 3px solid #dddddd;
+}
+#h_main_menu li {
+	width: 108px;
+	height: 32px;
+	background-image:url('images/headMenu/head_bg_107_33_gray.png');
+	margin: 0 1px 0 1px;
+	line-height: 32px;
+	vertical-align:middle;
+	text-align:center;
+	font-size: 14px;
+	color: #ff0000;
+}
+#h_main_menu li:hover {
+	background-image:url('images/headMenu/head_bg_107_33_red.png');
+}
+#h_main_menu li:hover a {
+	color: #ffffff;
+}
+
+
+/** New Homepage Horizon Navigator - Ends here - 2012/01/10 - Jimmy Xu **/
+
+/** Homepage Header Style - Start **/
+
+#tool_bar {
+	position: absolute;
+	top: 0;
+	right: 0px;
+    margin: 0;
+    width: 360px;
+    height: 30px;
+	line-height:30px;
+	vertical-align:middle;
+}
+
+#tool_bar ul {
+	float:right;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#tool_bar li {
+	float:left;
+	margin: 0 0 0 4px;
+}
+#cart {
+	position:absolute;
+	top: 64px;
+	right: 0px;
+	width:205px;
+	height:28px;
+	background-image:url('images/cart.png')
+}
+
+
+#share_bar {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#search_bar {
+	position:absolute;
+	top: 32px;
+	left: 280px;
+	width: 450px;
+	height: 30px;
+	clear:right;
+}
+
+#logo {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#sina {
+	position:absolute;
+	top: 30px;
+	right: 2px;
+	z-index: 100;
+}
+
+#kaixin {
+	position:absolute;
+	top: 30px;
+	right: 36px;
+	z-index: 100;
+}
+#welcome {
+	position: absolute;
+	top: 0;
+	left: 280px;
+	height: 30px;
+	line-height:30px;
+	vertical-align:middle;
+}
+#welcome p {
+	height: 30px;
+	margin: 6px;
+}
+#welcome p a {
+	color: blue;
+}
+#welcome p a:hover {
+	color: red;
+}
+
+/** Homepage Header Style - End **/
+
+/** Homepage Main Style - Start **/
+#main {
+	position:absolute;
+	top: 97px;
+	left: 0px;
+	width:980px;
+	background-color: #ffffff;
+}
+#main_menu_wrapper {
+	position:relative;
+	float:left;
+	width: 160px;
+}
+#slider_bar {
+	position: relative;
+	float: left;
+	width: 550px;
+	height: 270px;
+	background:#3399FF;
+	margin: 4px 10px 0 10px;
+}
+#login_bar {
+	position:relative;
+	float:right;
+	width: 250px;
+	height: 270px;
+	margin: 4px 0 0 0;
+}
+
+#banner_1 {
+	position: relative;
+	float:left;
+	width:248px;
+	height: 130px;
+	margin: 10px 0 0 0;
+	border: 1px solid #990000;
+	background:#0FF;
+}
+#banner_2 {
+	position: relative;
+	float: left;
+	width: 160px;
+	height: 200px;
+	background:#33FF33;
+	clear: left;
+	border: 1px solid #990000;
+	margin: 10px 0 0 0;
+}
+#banner_3 {
+	position: relative;
+	float: left;
+	width: 548px;
+	height: 200px;
+	background: #FF9;
+	border: 1px solid #990000;
+	margin: 10px 9px 0 8px;
+}
+#banner_4 {
+	position: relative;
+	float:right;
+	width:248px;
+	height: 130px;
+	margin: 80px 0 0 0;
+	border: 1px solid #990000;
+	background: #F69;
+}
+#banner_5 {
+	position: relative;
+	float:left;
+	width:978px;
+	height: 58px;
+	margin: 8px 0 0 0;
+	border: 1px solid #990000;
+	background: #6FF;
+}
+
+
+/** Homepage Main Menu Style - Start **/
+.clear {
+	clear:both;
+}
+
+#main_menu {
+	padding:0px;
+	width:160px; height:240px;
+	background:#ffffff;  /** Main virtical menu background **/
+	border: 1px solid #dddddd;
+}
+#main_menu li{
+	position:relative; float:left;
+	width:140px;
+	padding-left:0px; padding-top:4px;
+	display:block;
+	background:url('images/arrow.png') no-repeat 112px 0px;
+}
+#main_menu li:hover {
+	z-index:6;
+}
+#main_menu li a {
+	font-size:14px;color:#515151;display:block;
+	border: 1px solid #ffffff;
+	text-decoration:none;line-height:28px;text-align:center;
+}
+#main_menu li:hover a {
+	color:#000000;font-size:14px;display:block;
+	border-top: 1px solid #333333;
+	border-bottom: 1px solid #333333;
+	border-left: 1px solid #ffffff;
+	border-right: 1px solid #ffffff;
+	background-color:#ffffff;
+	z-index:400;
+} 
+#main_menu li:hover div a {
+	font-size:12px;color:#333333;
+	line-height:16px; border: 0px;
+}
+#main_menu li:hover div a:hover {
+	color:#dd0101;
+}
+
+#main_menu li:hover .cms_submenu {
+	left:138px;
+	top: -1px;
+	z-index: 3;
+}
+
+.cms_submenu {
+	float:left;position:absolute;z-index:3;top: -1000px;
+	text-align:left;
+	border:1px solid #333333;
+	width:570px;
+	background: #ffffff;
+}
+/** The content in the menu details **/
+.cmsmenuleft {
+	float:left;width:385px;
+	color:#ccc;
+	padding:5px;
+	border-right:1px #eee solid;
+	background: #ffffff;
+}
+.cmsmenuright {
+	float:right;
+	width:140px;
+	padding:8px;
+	background:#ffffff
+}
+
+.cmsmenuleft dt, .cmsmenuright dt {
+	color:#dd0101;margin:5px 0;
+	padding:3px 0 3px 10px;
+	text-align:left;
+}
+.cmsmenuleft dd i{
+	float:left;padding:0 8px;margin: 0;
+	white-space: nowrap;
+	border-right:1px solid #ccc;
+	font-style:normal;
+}
+.cmsmenuright dd {
+	margin: 0;
+}
+.cmsmenuright dd i {
+	font-style:normal;
+}
+
+.cmsmenuright dd i a{
+	font-style:normal;
+	background:transparent;
+}
+.titlefont {
+	width: 162px;
+	background: #dddddd; /** Change the menu title background here 160*32 **/
+	background-repeat: none;
+	background-position: bottom center;
+}
+.separator {
+	height:1px;
+	background-color: #dddddd;
+}
+#main_menu_wrapper h2 { /**Main Menu Bar Title **/
+	height: 32px;
+	line-height: 32px;
+	vertical-align:middle;
+	text-align:center;
+	font-family:'黑体'; font-weight:bold; color:#333333; font-size:14px;
+}
+/** Homepage Main Menu Style - End **/
+
+/** Homepage Main Login bar - Start **/
+.box {
+	width: 249px;
+	height:200px;
+	margin: 0;
+	outline: 1px solid #dddddd;
+}
+#login_bar .list {
+	width: 249px;
+	height:28px;
+	float:left;
+	border-bottom: 1px solid #666666;
+	background-image:url('images/bar/bar_bg_1_30.png');
+}
+#login_bar .list li {
+	width:74px;
+	height:25px;
+	margin: 2px 0 0 0;
+	float:left;
+	cursor:pointer;
+	color:#ff0000;
+	line-height:28px;
+	text-align:center;
+}
+#login_bar .list li.hove {
+	width:72px;
+	height:25px;
+	color:#333333;
+	margin: 2px 0 0 0;
+	line-height:28px;
+	border-top:1px solid #666666;
+	border-left:1px solid #666666;
+	border-right:1px solid #666666;
+	border-bottom:1px solid #ffffff;
+	background:#fff;
+}
+#login_bar .content {
+	width:210px;
+	height: 160px;
+	padding: 5px 20px 0 20px;
+	float:left;
+	display:none;
+	background:#ffffff;
+	text-align: left;
+}
+#login_bar .content p {
+	height: 28px;
+	line-height: 28px;
+	vertical-align: middle;
+	margin: 4px 0 4px 0;
+}
+#login_bar .content p button {
+	line-height: 18px;
+}
+#login_bar ul, #login_bar li {
+	margin:0 0 0 5px;
+	padding:0px;
+	float:left;
+	list-style-type:none;
+}
+#login_bar .content ul, #login_bar .content li {
+	margin:0;
+	padding:0px;
+	width: 200px;
+	text-align:left;
+}
+/** Homepage Main Login bar - End **/
+
+/** Homepage SKU_categary style - Start **/
+
+.sku_category {
+	position: absolute;
+	width: 980px;
+}
+#sku_category_1 { /** difine the different SKU category with num **/
+	top: 562px;
+	left: 0px;
+}
+.sku_list_li {
+	width: 140px;
+	height: 180px;
+	border: 1px solid #ffffff;
+	margin: 2px;
+	padding: 0 2px 0 2px;
+	text-align:center;
+}
+.sku_list_li:hover { /** Animated border style with SKU **/
+	border: 1px solid #ff0000;
+}
+.sku_list_ul {
+	position: absolute;
+	top: 30px;
+	left: 170px;
+	left: 170px;
+	width: 600px;
+}
+.sku_list_p {
+	margin: 2px 0 2px 0;
+}
+.sku_list_bar_short {
+	display:block;
+	width: 200px;
+	height: 26px;
+	line-height:26px;
+	vertical-align:middle;
+	text-align:center;
+	color: #ffffff;
+	background-color: #990000;
+}
+.sku_list_sort {
+	position: absolute;
+	top: 30px;
+	right: 0px;
+	width: 198px;
+	height: 363px;
+	border: 1px solid #990000;
+}
+.sku_list_sort_ul {
+	list-style: none;
+	padding: 4px;
+}
+.sku_list_sort_li {
+	position:relative;
+	float:left;
+	width: 100%;
+	height: 32px;
+	padding: 0;
+	margin: 2px 0 2px 0;
+}
+.sku_list_sort_li div {
+	position:absolute;
+	top: 8px;
+	left: 38px;
+	width: 152px;
+	height: 23px;
+	border-bottom: 1px dashed #990000;
+}
+.sku_list_sort_li div:hover {
+	position:absolute;
+	top: 8px;
+	left: 38px;
+	width: 152px;
+	height: 23px;
+	border-bottom: 1px solid #990000;
+}
+.category_recommend {
+	position:absolute;
+	top: 5px;
+	right: 8px;
+}
+.category_recommend li {
+	margin: 0 0 0 4px; 
+}
+.special_blue {
+	color: #005AA0;
+}
+.sku_list_left_col {
+	position:absolute;
+	top: 30px;
+	left: 0px;
+	width: 160px;
+	height: 363px;
+	background:#CC6633;
+}
+
+/** Homepage SKU_categary style - End **/
+
+/** Homepage footer style - Start **/
+
+#footer {
+    position: absolute;
+    top: 1200px;
+	left: 0px;
+    width: 980px;
+    height: 400px;
+    background-color: #ffffff;
+	clear: both;
+}
+
+#brand-corperate {
+    position: relative;
+    float: left;
+    width: 978px;
+    height: 167px;
+	border: 1px solid #dddddd;
+    background-color: #ffffff;
+	border-top: 0px;
+}
+
+#brand-corperate ul {
+    position: relative;
+    float: left;
+    margin: 0 0 0 0;
+	padding: 0;
+}
+
+#brand-corperate ul li {
+    position: relative;
+    float: left;
+    display: block;
+    margin: 4px 2px 4px 2px;
+	background-color:#cecece;
+	border: 1px solid #333333;
+}
+#footer_contact_bar {
+	position: relative;
+	float: left;
+	width: 980px;
+	height: 26px;
+	margin: 2px 0 0 0;
+	background-image:url('images/bar/bar_bg_1_30.png');
+	line-height:26px;
+	vertical-align:middle;
+	text-align:center;
+}
+#footer_contact_bar ul {
+	padding: 0 0 0 260px;
+}
+#footer_contact_bar li {
+	margin: 0 0 0 40px;
+	font-size:14px;
+	color: #e60013;
+}
+#footer_contact_bar li a {
+	color: #e60013;
+}
+#corp-info {
+    position: relative;
+    float: left;
+    width: 980px;
+    height: 120px;
+	margin: 4px 0 0 0;
+    background-color: #ffffff;
+}
+
+#corp-info div {
+    position: relative;
+    float: left;
+    margin: 0 0 0 22px;
+    padding-top: 0;
+    top: 0;
+    width: 135px;
+}
+
+#corp-info div h3 {
+    margin: 0 0 0 0;
+    font-family: "黑体";
+    line-height: 30px;
+    vertical-align: middle;
+    text-indent: 30px;
+    display: block;
+}
+.footer_title {
+    position: relative;
+    float: left;
+    padding-left: 200px;
+	width: 780px;
+}
+.footer_title li {
+	margin: 0 0 0 20px;
+	font-size:14px;
+}
+.footer_warranty {
+    position: relative;
+    float: left;
+    padding-left: 100px;
+}
+
+#corp-info img {
+	position: absolute;
+	top: 0;
+	left: -20px;
+}
+
+div#copyright {
+    position: relative;
+    float: left;
+    margin: 0 0 0 0;
+    clear: both;
+    width: 980px;
+    text-align: center;
+}
+
+
+
+
+/*sean*/
+.container, .container img{
+  width:550px;
+  height:250px;
+}
+.container{
+  border:0px solid #333;
+}
+.container img{
+  border:0;
+}
+
+.num{
+  position: absolute;
+  top: 252px;
+  left: 1px;
+  padding: 0;
+}
+
+.num li {
+  float: left;
+  list-style: none;
+  color: white;
+  text-align: center;
+  line-height: 22px;
+  width: 110px;
+  height: 26px;
+  font-family: Arial;
+  font-size: 12px;
+  cursor: pointer;
+  margin: 0px;
+  background-image: url("/images/lunxianBlack.jpg");
+}
+
+.num li.on{
+  line-height: 22px;
+  width: 110px;
+  height: 26px;
+  font-size: 12px;
+  border: 0;
+  background-image:url("/images/lunxianRed.jpg");
+  color:white;
+}

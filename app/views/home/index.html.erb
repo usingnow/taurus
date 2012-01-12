@@ -1,36 +1,230 @@
-<p id="notice"><%= notice %></p>
-<% @skus.each do |sku| %>
-  <div style="height: 50px">
-    <%= sku.name %>
-    <%= button_to '添加购物车', cart_skuships_path(:sku_id=>sku)%>
+
+<div id="main">
+  <div id="main_menu_wrapper">
+    <div class="titlefont"><h2>所有商品分类</h2></div>
+      <ul id="main_menu">
+        <li style=" height:35px;"><a href='#'>OA*PC用品</a>
+          <div class="cms_submenu">
+            <div class="cmsmenuleft">
+              <dl class="menu_recommend">
+                <dt>OA耗材</dt>
+                  <dd>
+                    <i><a href='#'>激光硒鼓</a></i>
+                    <i><a href='#'>激光硒鼓</a></i>
+                    <i><a href='#'>激光硒鼓</a></i>
+                    <i><a href='#'>激光硒鼓</a></i>
+                    <i><a href='#'>激光硒鼓</a></i>
+                  </dd>
+              </dl>
+            </div>
+            <div class="cmsmenuright">
+              <dl>
+                <dt>推荐品牌</dt>
+                <dd>
+                  <i><a href='#'>金太阳</a></i>
+                  <i><a href='#'>高峰</a></i>
+                  <i><a href='#'>UPM</a></i>
+                  <i><a href='#'>安妮</a></i>
+                  <i><a href='#'>格之格</a></i>
+                  <i><a href='#'>得力</a></i>
+                  <i><a href='#'>惠普</a></i>
+                </dd>
+                <dt>活动推荐</dt>
+                <dd>
+                  <i><a href='#'>[特卖] 蓝威尔价格更低、价值更高</a></i>
+                  <i><a href='#'>[低价] 低价复印纸热浪来袭</a></i>
+                </dd>
+              </dl>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </li>
+        <li style="padding: 0 0 0 8px;">
+          <div class="separator"></div>
+        </li>
+        <li style=" height:35px;"><a href='#'>文具办公用品</a></li>
+        <li style="padding: 0 0 0 8px;">
+          <div class="separator"></div>
+        </li>
+        <li style=" height:35px;"><a href='#'>生活用品</a></li>
+        <li style="padding: 0 0 0 8px;">
+          <div class="separator"></div>
+        </li>
+        <li style=" height:35px;"><a href='#'>办公家具</a></li>
+        <li style="padding: 0 0 0 8px;">
+          <div class="separator"></div>
+        </li>
+        <li style=" height:35px;"><a href='#'>生活家具</a></li>
+        <li style="padding: 0 0 0 8px;">
+          <div class="separator"></div>
+        </li>
+        <li style=" height:35px;"><a href='#'>家居饰品</a></li>
+      </ul>
+    </div>
+    <div id="slider_bar">
+      <%= render "slider_bar" %>
+    </div>
+    <div id="login_bar">
+      <div id="box" class="box">
+        <div class="list">
+          <ul>
+            <li>登陆</li>
+            <li>商场公告</li>
+          </ul>
+          <div class="content">
+            <form>
+              <p>
+                <label for="loginname">用户：</label>
+                <input name="loginname" id="loginname" type="text"/>
+              </p>
+              <p>
+                <label for="password">密码：</label>
+                <input name="password" id="password" type="text" />
+              </p>
+                <img src="/images/code.png" width="75px" height="20px" style="clear: both; float:right; outline: 1px solid #333333; margin: 4px 2px 0 0;"/>
+              <p>
+                <label for="captcha">验证码：</label>
+                <input name="captcha" id="captcha" maxlength="4" size="4"/>
+              </p>
+              <p>
+                <button type="submit">登陆</button>
+                <button type="reset">重置</button>
+                <a href="#">看不清？换一张</a>
+              </p>
+              <p style="margin: 4px 0 2px 0;">
+                <a href="#">新用户？立即注册</a> | <a href="#">忘记密码</a>
+              </p>
+            </form>
+          </div>
+          <div class="content">
+            <ul>
+              <li><a href="#">公告壹有多少字会换行呢？现在共有</a></li>
+              <li><a href="#">十六字会换行十六十六十六十六十六</a></li>
+              <li><a href="#">十六字会换行十六十六十六十六十六</a></li>
+              <li><a href="#">应该是左对齐</a></li>
+              <li><a href="#">五行后会超过边界</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="banner_1">
+        <p>248px*130px, this is #banner_1</p>
+      </div>
+    </div>
+    <div id="banner_2">
+      <p>160px*200px, thisi is #banner_2</p>
+    </div>
+    <div id="banner_3">
+      <p>548px*200px this is #banner_3</p>
+    </div>
+    <div id="banner_4">
+      <p>248px*130px, this is #banner_4</p>
+    </div>
+    <div id="banner_5">
+      <p>980px*60px without borders. 978*58 with border.</p>
+    </div>
+    <div id="sku_category_1" class="sku_category">
+      <h2 class="bar_image_980">OA PC产品</h2>
+      <div class="category_recommend"> <!-- SKU List's recommended products on the bar -->
+        <ul class="h_ul">
+          <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
+          <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
+          <li class="h_li"><a href="#">更多…</a></li>
+        </ul>
+      </div>
+      <div class="sku_list_left_col"> <!--SKU List's left column -->
+        <p>160px*363px without borders.</p>
+      </div>
+      <ul class="h_ul sku_list_ul">
+        <li class="h_li sku_list_li">
+          <img src="/images/logo-60.png" width=120px height=120px />
+          <p class="sku_list_p">商品名称可以有十个字</p>
+          <p class="sku_list_p">原价：&yen;99999.00</p>
+          <strong>现价：&yen;11111.11</strong>
+        </li>
+        <li class="h_li sku_list_li">
+          <img src="/images/logo-60.png" width=120px height=120px />
+          <p class="sku_list_p">十个字后会换</p>
+          <p class="sku_list_p">原价：&yen;99999.00</p>
+          <strong>现价：&yen;11111.11</strong>
+        </li>
+        <li class="h_li sku_list_li">
+          <img src="/images/logo-60.png" width=120px height=120px />
+          <p class="sku_list_p">商品名称可以有十个字</p>
+          <p class="sku_list_p">原价：&yen;99999.00</p>
+          <strong>现价：&yen;11111.11</strong>
+        </li>
+        <li class="h_li sku_list_li">
+          <img src="/images/logo-60.png" width=120px height=120px />
+          <p class="sku_list_p">商品名称可以有十个字</p>
+          <p class="sku_list_p">原价：&yen;99999.00</p>
+          <strong>现价：&yen;11111.11</strong>
+        </li>
+        <li class="h_li sku_list_li">
+          <img src="/images/logo-60.png" width=120px height=120px />
+          <p class="sku_list_p">商品名称可以有十个字</p>
+          <p class="sku_list_p">原价：&yen;99999.00</p>
+          <strong>现价：&yen;11111.11</strong>
+        </li>
+        <li class="h_li sku_list_li">
+          <img src="/images/logo-60.png" width=120px height=120px />
+          <p class="sku_list_p">商品名称可以有十个字</p>
+          <p class="sku_list_p">原价：&yen;99999.00</p>
+          <strong>现价：&yen;11111.11</strong>
+        </li>
+        <li class="h_li sku_list_li">
+          <img src="/images/logo-60.png" width=120px height=120px />
+          <p class="sku_list_p">商品名称可以有十个字</p>
+          <p class="sku_list_p">原价：&yen;99999.00</p>
+          <strong>现价：&yen;11111.11</strong>
+        </li>
+        <li class="h_li sku_list_li">
+          <img src="/images/logo-60.png" width=120px height=120px />
+          <p class="sku_list_p">商品名称可以有十个字</p>
+          <p class="sku_list_p">原价：&yen;99999.00</p>
+          <strong>现价：&yen;11111.11</strong>
+        </li>
+      </ul>
+      <div class="sku_list_sort">
+        <h3 class="sku_list_bar_short">本类产品热销排行</h3>
+        <ul class="sku_list_sort_ul">
+          <li class="sku_list_sort_li">
+            <img src="/images/sina.png" />
+            <div><a href="#">热销产品一</a></div>
+          </li>
+          <li class="sku_list_sort_li">
+            <img src="/images/sina.png" />
+            <div><a href="#">热销产品一</a></div>
+          </li>
+          <li class="sku_list_sort_li">
+            <img src="/images/sina.png" />
+            <div><a href="#">热销产品一</a></div>
+          </li>
+          <li class="sku_list_sort_li">
+            <img src="/images/sina.png" />
+            <div><a href="#">热销产品一</a></div>
+          </li>
+          <li class="sku_list_sort_li">
+            <img src="/images/sina.png" />
+            <div><a href="#">热销产品一</a></div>
+          </li>
+          <li class="sku_list_sort_li">
+            <img src="/images/sina.png" />
+            <div><a href="#">热销产品一</a></div>
+          </li>
+          <li class="sku_list_sort_li">
+            <img src="/images/sina.png" />
+            <div><a href="#">热销产品一</a></div>
+          </li>
+          <li class="sku_list_sort_li">
+            <img src="/images/sina.png" />
+            <div><a href="#">热销产品一</a></div>
+          </li>
+          <li class="sku_list_sort_li">
+            <img src="/images/sina.png" />
+            <div><a href="#">热销产品一</a></div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-<% end %>
-<%= link_to '购物车', cart_skuships_path  %> <br />
-<% if session[:user] != nil %>
-登录帐号：<%= session[:user].login_no %>
-<%= button_to '退出', sign_out_users_path, :method => :get %>
-<% else %>
-<%= button_to '登录', login_users_path, :method => :get %>
-<%= button_to '注册', registration_users_path, :method => :get  %>
-<% end %>
-
-
-
-
-
-
-<div id="flashbox" class="smallslider" style="width: 320px;height: 200px;">
-  <ul>
-     <% @pick_ups.each do |pick_up| %>
-        <li><a href="#"><%= image_tag pick_up.image.url, :alt => pick_up.name %></a></li>
-     <% end %>
-  </ul>
-</div>
-
-<script type="text/javascript">
-  $('#flashbox').smallslider();
-</script>
-
-
-
-
