@@ -760,3 +760,9 @@ div#copyright {
   height: 202px;
   border: none;
 }
+
+.overflow_text{
+  overflow:hidden;
+  white-space:nowrap;
+}
+
