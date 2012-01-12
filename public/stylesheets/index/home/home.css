@@ -183,6 +183,11 @@ h1, h2, h3, ul{
 #h_main_menu li:hover {
 	background-image:url(images/headMenu/head_bg_107_33_red.png);
 }
+
+#h_main_menu li a {
+  color: #e70013;
+}
+
 #h_main_menu li:hover a {
 	color: #ffffff;
 }
@@ -776,7 +781,7 @@ div#copyright {
 
 /** Homepage Slider Style **/
 .container, .container img {
-    height: 190px;
+    height: 250px;
     width: 550px;
 }
 .container {

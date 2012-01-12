@@ -68,7 +68,9 @@ Ebiz::Application.routes.draw do
    namespace :admin do
      resources :administrators
      resources :administrator_groupships
-     resources :brands
+     resources :brands do
+       get  :autocomplete_brand_chinese_name, :on => :collection
+     end
      resources :company_extends
      resources :company_scales
      resources :company_types
@@ -88,7 +90,6 @@ Ebiz::Application.routes.draw do
      resources :skus do
        collection do
          get  :add
-         get  :autocomplete_brand_chinese_name
          get  :search
        end
      end

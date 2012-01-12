@@ -1,6 +1,7 @@
 class Admin::BrandsController < ApplicationController
   before_filter :authenticate_administrator!
   authorize_resource
+  autocomplete :brand, :chinese_name
 
   # GET /brands
   # GET /brands.xml
