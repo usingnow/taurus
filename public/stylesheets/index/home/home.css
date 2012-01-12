@@ -312,8 +312,7 @@ h1, h2, h3, ul{
 	width:248px;
 	height: 130px;
 	margin: 10px 0 0 0;
-	border: 1px solid #990000;
-	background:#0FF;
+	border: 1px solid #dddddd;
 }
 #banner_2 {
 	position: relative;
@@ -339,8 +338,7 @@ h1, h2, h3, ul{
 	width:248px;
 	height: 130px;
 	margin: 80px 0 0 0;
-	border: 1px solid #990000;
-	background: #F69;
+    border: 1px solid #dddddd;
 }
 #banner_5 {
 	position: relative;
@@ -672,8 +670,6 @@ h1, h2, h3, ul{
     float: left;
     display: block;
     margin: 4px 2px 4px 2px;
-	background-color:#cecece;
-	border: 1px solid #333333;
 }
 #footer_contact_bar {
 	position: relative;
@@ -681,7 +677,7 @@ h1, h2, h3, ul{
 	width: 980px;
 	height: 26px;
 	margin: 2px 0 0 0;
-	background-image:url(../20120109/images/bar/bar_bg_1_30.png);
+	background-image:url(/images/bar_bg_1_30.png);
 	line-height:26px;
 	vertical-align:middle;
 	text-align:center;
