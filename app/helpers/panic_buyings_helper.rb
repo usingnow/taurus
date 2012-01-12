@@ -1,0 +1,2 @@
+module PanicBuyingsHelper
+end

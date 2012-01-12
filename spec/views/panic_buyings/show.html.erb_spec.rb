@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "pick_ups/show.html.erb" do
+describe "panic_buyings/show.html.erb" do
   before(:each) do
-    @pick_up = assign(:pick_up, stub_model(SliderBar,
+    @panic_buying = assign(:panic_buying, stub_model(PanicBuying,
       :name => "Name",
       :href => "Href"
     ))

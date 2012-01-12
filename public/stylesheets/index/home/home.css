@@ -89,10 +89,9 @@ h1, h2, h3, ul{
 }
 
 
-/** New Homepage Horizon Navigator - Starts here - 2012/01/10 - Jimmy Xu **/
 #h_main_menu {
 	position: absolute;
-	top: 60px;
+	top: 100px;
 	left: 0px;
 	width: 980px;
 	height: 32px;
@@ -124,8 +123,8 @@ h1, h2, h3, ul{
 
 #tool_bar {
 	position: absolute;
-	top: 0;
-	right: 0px;
+	top: 5px;
+	right: 80px;
     margin: 0;
     width: 360px;
     height: 30px;
@@ -145,11 +144,12 @@ h1, h2, h3, ul{
 }
 #cart {
 	position:absolute;
-	top: 64px;
+	top: 104px;
 	right: 0px;
 	width:205px;
 	height:28px;
-	background-image:url('images/cart.png')
+	background-image:url('images/cart.png');
+	z-index:400;
 }
 
 
@@ -161,8 +161,8 @@ h1, h2, h3, ul{
 
 #search_bar {
 	position:absolute;
-	top: 32px;
-	left: 280px;
+	top: 56px;
+	left: 360px;
 	width: 450px;
 	height: 30px;
 	clear:right;
@@ -171,28 +171,37 @@ h1, h2, h3, ul{
 #logo {
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: 40px;
 }
 
 #sina {
 	position:absolute;
-	top: 30px;
+	top: 2px;
 	right: 2px;
 	z-index: 100;
 }
 
 #kaixin {
 	position:absolute;
-	top: 30px;
+	top: 2px;
 	right: 36px;
 	z-index: 100;
 }
+#service_phone {
+	position: absolute;
+	top: 42px;
+	left: 750px;
+}
+#service_ol {
+	position: absolute;
+	top: 42px;
+	right: 2px;
+}
 #welcome {
 	position: absolute;
-	top: 0;
-	left: 280px;
+	top: 7px;
+	left: 360px;
 	height: 30px;
-	line-height:30px;
 	vertical-align:middle;
 }
 #welcome p {
@@ -211,7 +220,7 @@ h1, h2, h3, ul{
 /** Homepage Main Style - Start **/
 #main {
 	position:absolute;
-	top: 97px;
+	top: 137px;
 	left: 0px;
 	width:980px;
 	background-color: #ffffff;
@@ -319,7 +328,7 @@ h1, h2, h3, ul{
 	border-right: 1px solid #ffffff;
 	background-color:#ffffff;
 	z-index:400;
-} 
+}
 #main_menu li:hover div a {
 	font-size:12px;color:#333333;
 	line-height:16px; border: 0px;
@@ -434,7 +443,7 @@ h1, h2, h3, ul{
 	background:#fff;
 }
 #login_bar .content {
-	width:210px;
+	width:209px;
 	height: 160px;
 	padding: 5px 20px 0 20px;
 	float:left;
@@ -462,6 +471,12 @@ h1, h2, h3, ul{
 	padding:0px;
 	width: 200px;
 	text-align:left;
+}
+.content img {
+	clear: both;
+	float:right;
+	outline: 1px solid #333333;
+	margin: 4px 11px 0 0;
 }
 /** Homepage Main Login bar - End **/
 
@@ -548,7 +563,7 @@ h1, h2, h3, ul{
 	right: 8px;
 }
 .category_recommend li {
-	margin: 0 0 0 4px; 
+	margin: 0 0 0 4px;
 }
 .special_blue {
 	color: #005AA0;
@@ -627,7 +642,7 @@ h1, h2, h3, ul{
     position: relative;
     float: left;
     width: 980px;
-    height: 120px;
+    height: 140px;
 	margin: 4px 0 0 0;
     background-color: #ffffff;
 }
@@ -649,6 +664,11 @@ h1, h2, h3, ul{
     text-indent: 30px;
     display: block;
 }
+.corp_info_li_line_height {
+	height:20px;
+	line-height:20px;
+	vertical-align: middle;
+}
 .footer_title {
     position: relative;
     float: left;
@@ -663,6 +683,7 @@ h1, h2, h3, ul{
     position: relative;
     float: left;
     padding-left: 100px;
+	clear: both;
 }
 
 #corp-info img {
@@ -725,4 +746,17 @@ div#copyright {
   border: 0;
   background-image:url("/images/lunxianRed.jpg");
   color:white;
+}
+
+.smallslider {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+#panic_buying{
+  width: 550px;
+  height: 202px;
+  border: none;
 }

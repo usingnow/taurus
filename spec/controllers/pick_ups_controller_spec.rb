@@ -29,15 +29,15 @@ describe PickUpsController do
 
   describe "GET index" do
     it "assigns all pick_ups as @pick_ups" do
-      pick_up = PickUp.create! valid_attributes
+      pick_up = SliderBar.create! valid_attributes
       get :index
-      assigns(:pick_ups).should eq([pick_up])
+      assigns(:slider_bars).should eq([pick_up])
     end
   end
 
   describe "GET show" do
     it "assigns the requested pick_up as @pick_up" do
-      pick_up = PickUp.create! valid_attributes
+      pick_up = SliderBar.create! valid_attributes
       get :show, :id => pick_up.id
       assigns(:pick_up).should eq(pick_up)
     end
@@ -46,13 +46,13 @@ describe PickUpsController do
   describe "GET new" do
     it "assigns a new pick_up as @pick_up" do
       get :new
-      assigns(:pick_up).should be_a_new(PickUp)
+      assigns(:pick_up).should be_a_new(SliderBar)
     end
   end
 
   describe "GET edit" do
     it "assigns the requested pick_up as @pick_up" do
-      pick_up = PickUp.create! valid_attributes
+      pick_up = SliderBar.create! valid_attributes
       get :edit, :id => pick_up.id
       assigns(:pick_up).should eq(pick_up)
     end
@@ -63,32 +63,32 @@ describe PickUpsController do
       it "creates a new PickUp" do
         expect {
           post :create, :pick_up => valid_attributes
-        }.to change(PickUp, :count).by(1)
+        }.to change(SliderBar, :count).by(1)
       end
 
       it "assigns a newly created pick_up as @pick_up" do
         post :create, :pick_up => valid_attributes
-        assigns(:pick_up).should be_a(PickUp)
+        assigns(:pick_up).should be_a(SliderBar)
         assigns(:pick_up).should be_persisted
       end
 
       it "redirects to the created pick_up" do
         post :create, :pick_up => valid_attributes
-        response.should redirect_to(PickUp.last)
+        response.should redirect_to(SliderBar.last)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved pick_up as @pick_up" do
         # Trigger the behavior that occurs when invalid params are submitted
-        PickUp.any_instance.stub(:save).and_return(false)
+        SliderBar.any_instance.stub(:save).and_return(false)
         post :create, :pick_up => {}
-        assigns(:pick_up).should be_a_new(PickUp)
+        assigns(:pick_up).should be_a_new(SliderBar)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        PickUp.any_instance.stub(:save).and_return(false)
+        SliderBar.any_instance.stub(:save).and_return(false)
         post :create, :pick_up => {}
         response.should render_template("new")
       end
@@ -98,23 +98,23 @@ describe PickUpsController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested pick_up" do
-        pick_up = PickUp.create! valid_attributes
+        pick_up = SliderBar.create! valid_attributes
         # Assuming there are no other pick_ups in the database, this
         # specifies that the PickUp created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        PickUp.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
+        SliderBar.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
         put :update, :id => pick_up.id, :pick_up => {'these' => 'params'}
       end
 
       it "assigns the requested pick_up as @pick_up" do
-        pick_up = PickUp.create! valid_attributes
+        pick_up = SliderBar.create! valid_attributes
         put :update, :id => pick_up.id, :pick_up => valid_attributes
         assigns(:pick_up).should eq(pick_up)
       end
 
       it "redirects to the pick_up" do
-        pick_up = PickUp.create! valid_attributes
+        pick_up = SliderBar.create! valid_attributes
         put :update, :id => pick_up.id, :pick_up => valid_attributes
         response.should redirect_to(pick_up)
       end
@@ -122,17 +122,17 @@ describe PickUpsController do
 
     describe "with invalid params" do
       it "assigns the pick_up as @pick_up" do
-        pick_up = PickUp.create! valid_attributes
+        pick_up = SliderBar.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        PickUp.any_instance.stub(:save).and_return(false)
+        SliderBar.any_instance.stub(:save).and_return(false)
         put :update, :id => pick_up.id, :pick_up => {}
         assigns(:pick_up).should eq(pick_up)
       end
 
       it "re-renders the 'edit' template" do
-        pick_up = PickUp.create! valid_attributes
+        pick_up = SliderBar.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        PickUp.any_instance.stub(:save).and_return(false)
+        SliderBar.any_instance.stub(:save).and_return(false)
         put :update, :id => pick_up.id, :pick_up => {}
         response.should render_template("edit")
       end
@@ -141,14 +141,14 @@ describe PickUpsController do
 
   describe "DELETE destroy" do
     it "destroys the requested pick_up" do
-      pick_up = PickUp.create! valid_attributes
+      pick_up = SliderBar.create! valid_attributes
       expect {
         delete :destroy, :id => pick_up.id
-      }.to change(PickUp, :count).by(-1)
+      }.to change(SliderBar, :count).by(-1)
     end
 
     it "redirects to the pick_ups list" do
-      pick_up = PickUp.create! valid_attributes
+      pick_up = SliderBar.create! valid_attributes
       delete :destroy, :id => pick_up.id
       response.should redirect_to(pick_ups_url)
     end

@@ -1,10 +1,10 @@
-<%= form_for([:admin,@pick_up],:html => {:multipart=>true}) do |f| %>
-  <% if @pick_up.errors.any? %>
+<%= form_for([:admin,@slider_bar],:html => {:multipart=>true}) do |f| %>
+  <% if @slider_bar.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pick_up.errors.count, "error") %> prohibited this pick_up from being saved:</h2>
 
       <ul>
-      <% @pick_up.errors.full_messages.each do |msg| %>
+      <% @slider_bar.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

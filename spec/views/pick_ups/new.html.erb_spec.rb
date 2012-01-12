@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "pick_ups/new.html.erb" do
   before(:each) do
-    assign(:pick_up, stub_model(PickUp,
+    assign(:pick_up, stub_model(SliderBar,
       :name => "MyString",
       :href => "MyString"
     ).as_new_record)

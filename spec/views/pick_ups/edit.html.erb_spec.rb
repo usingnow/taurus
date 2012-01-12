@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "pick_ups/edit.html.erb" do
   before(:each) do
-    @pick_up = assign(:pick_up, stub_model(PickUp,
+    @pick_up = assign(:pick_up, stub_model(SliderBar,
       :name => "MyString",
       :href => "MyString"
     ))

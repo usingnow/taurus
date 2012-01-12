@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120110101317) do
+ActiveRecord::Schema.define(:version => 20120112060437) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -415,6 +415,15 @@ ActiveRecord::Schema.define(:version => 20120110101317) do
     t.decimal  "total_price",         :precision => 8, :scale => 2, :default => 0.0
   end
 
+  create_table "panic_buyings", :force => true do |t|
+    t.string   "name"
+    t.string   "href"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "permissions", :force => true do |t|
     t.integer "group_id"
     t.integer "operating_id"
@@ -437,17 +446,6 @@ ActiveRecord::Schema.define(:version => 20120110101317) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "role_id"
-  end
-
-  create_table "pick_ups", :force => true do |t|
-    t.string   "name"
-    t.string   "href"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
   end
 
   create_table "procedure_roleships", :force => true do |t|
@@ -686,6 +684,17 @@ ActiveRecord::Schema.define(:version => 20120110101317) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "id_n"
+  end
+
+  create_table "slider_bars", :force => true do |t|
+    t.string   "name"
+    t.string   "href"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "station_procedureships", :force => true do |t|
