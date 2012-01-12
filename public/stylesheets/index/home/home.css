@@ -58,7 +58,7 @@ h1, h2, h3, ul{
 .bar_image_980 {
 	width: 972px;
 	height: 26px;
-	background-image:url('images/bar/bar_bg_980_26.png');
+	background-image:url(images/bar/bar_bg_980_26.png);
 	padding: 0 0 0 8px;
 	color: #e60013;
 	font-size: 15px;
@@ -70,12 +70,24 @@ h1, h2, h3, ul{
 .bar_image_810 {
 	width: 802px;
 	height: 26px;
-	background-image:url('images/Narrow-category-810.png');
+	background-image:url(images/bar_bg_810_26.png);
 	padding: 0 0 0 8px;
 	color: #ffffff;
 	font-size:14px;
 	line-height:26px;
 	vertical-align:middle;
+}
+.bar_image_550 {
+	width: 542px;
+	height: 26px;
+	background-image:url(images/bar/bar_bg_550_26.png);
+	padding: 0 0 0 8px;
+	color: #e60013;
+	font-size: 15px;
+	font-weight: normal;
+	line-height: 26px;
+	vertical-align:middle;
+	border-top: 1px solid #dddddd;
 }
 
 /** Horizontal <ul> <li> style **/
@@ -88,7 +100,54 @@ h1, h2, h3, ul{
 	float: left;
 }
 
+/** Homepage Horizon Navigator - Start **/
+/** Remarked on 2012/01/10 after discussion with Lucy to change back the current style - Jimmy Xu
+#menu{
+	height:32px;
+	margin-top:8px;
+	background-color:#990000;
+}
+#menu ul{
+	margin:auto; width:980px; height:32px;
+	list-style-type:none; padding:0px; margin-top:0px; margin-bottom:0px;
+}
+.m_li{
+	float:left; width:114px; line-height:32px;  text-align:center; margin-right:-2px; margin-left:-2px;
+}
+.m_li a{
+	display:block; color:#FFFFFF; width:114px;
+}
+.m_line{
+	float:left; width:1px; height:32px;
+}
+.m_li_a{
+	float:left; width:114px; line-height:32px; text-align:center; padding-top:3px; font-weight:bold;
+	background-image:url(images/menu_bg2.jpg); position:relative; height:32px; margin-top:-3px; margin-right:-2px; margin-left:-2px;
+}
+.m_li_a a{
+	display:block; color:#FF0000; width:114px;
+}
 
+.smenu{
+	width:980px; margin:0px auto 0px auto; padding:0px; list-style-type:none; height:32px;
+}
+.s_li{
+	line-height:32px; width:auto; display:none; height:32px;
+}
+.s_li_a{
+	line-height:32px; width:auto; display:block; height:32px;
+}
+
+#menu_wrapper {
+	position: absolute;
+	top: 60px;
+	right: 0;
+}
+**/
+
+/** Homepage Horizon Navigator - End **/
+
+/** New Homepage Horizon Navigator - Starts here - 2012/01/10 - Jimmy Xu **/
 #h_main_menu {
 	position: absolute;
 	top: 100px;
@@ -101,7 +160,7 @@ h1, h2, h3, ul{
 #h_main_menu li {
 	width: 108px;
 	height: 32px;
-	background-image:url('images/headMenu/head_bg_107_33_gray.png');
+	background-image:url(images/headMenu/head_bg_107_33_gray.png);
 	margin: 0 1px 0 1px;
 	line-height: 32px;
 	vertical-align:middle;
@@ -110,7 +169,7 @@ h1, h2, h3, ul{
 	color: #ff0000;
 }
 #h_main_menu li:hover {
-	background-image:url('images/headMenu/head_bg_107_33_red.png');
+	background-image:url(images/headMenu/head_bg_107_33_red.png);
 }
 #h_main_menu li:hover a {
 	color: #ffffff;
@@ -148,7 +207,7 @@ h1, h2, h3, ul{
 	right: 0px;
 	width:205px;
 	height:28px;
-	background-image:url('images/cart.png');
+	background-image:url(images/cart.png);
 	z-index:400;
 }
 
@@ -202,6 +261,7 @@ h1, h2, h3, ul{
 	top: 7px;
 	left: 360px;
 	height: 30px;
+	line-height::30px;
 	vertical-align:middle;
 }
 #welcome p {
@@ -271,7 +331,6 @@ h1, h2, h3, ul{
 	width: 548px;
 	height: 200px;
 	background: #FF9;
-	border: 1px solid #990000;
 	margin: 10px 9px 0 8px;
 }
 #banner_4 {
@@ -310,7 +369,7 @@ h1, h2, h3, ul{
 	width:140px;
 	padding-left:0px; padding-top:4px;
 	display:block;
-	background:url('images/arrow.png') no-repeat 112px 0px;
+	background:url(images/arrow.png) no-repeat 112px 0px;
 }
 #main_menu li:hover {
 	z-index:6;
@@ -402,7 +461,7 @@ h1, h2, h3, ul{
 	line-height: 32px;
 	vertical-align:middle;
 	text-align:center;
-	font-family:'黑体'; font-weight:bold; color:#333333; font-size:14px;
+	font-family:黑体; font-weight:bold; color:#333333; font-size:14px;
 }
 /** Homepage Main Menu Style - End **/
 
@@ -418,7 +477,7 @@ h1, h2, h3, ul{
 	height:28px;
 	float:left;
 	border-bottom: 1px solid #666666;
-	background-image:url('images/bar/bar_bg_1_30.png');
+	background-image:url(images/bar/bar_bg_1_30.png);
 }
 #login_bar .list li {
 	width:74px;
@@ -513,7 +572,7 @@ h1, h2, h3, ul{
 }
 .sku_list_bar_short {
 	display:block;
-	width: 200px;
+	width 200px;
 	height: 26px;
 	line-height:26px;
 	vertical-align:middle;
@@ -622,7 +681,7 @@ h1, h2, h3, ul{
 	width: 980px;
 	height: 26px;
 	margin: 2px 0 0 0;
-	background-image:url('images/bar/bar_bg_1_30.png');
+	background-image:url(../20120109/images/bar/bar_bg_1_30.png);
 	line-height:26px;
 	vertical-align:middle;
 	text-align:center;
@@ -701,64 +760,156 @@ div#copyright {
     text-align: center;
 }
 
-
-
-
-/*sean*/
-.container, .container img{
-  width:550px;
-  height:250px;
+/** Homepage Slider Style **/
+.container, .container img {
+    height: 250px;
+    width: 550px;
 }
-.container{
-  border:0px solid #333;
+.container {
+    border: 0 solid #333333;
 }
-.container img{
-  border:0;
+.container img {
+    border: 0 none;
 }
-
-.num{
-  position: absolute;
-  top: 252px;
-  left: 1px;
-  padding: 0;
+.num {
+    left: 1px;
+    padding: 0;
+    position: absolute;
+    top: 252px;
 }
-
 .num li {
-  float: left;
-  list-style: none;
-  color: white;
-  text-align: center;
-  line-height: 22px;
-  width: 110px;
-  height: 26px;
-  font-family: Arial;
-  font-size: 12px;
-  cursor: pointer;
-  margin: 0px;
-  background-image: url("/images/lunxianBlack.jpg");
+    background: #dddddd;
+    color: #e60013;
+    cursor: pointer;
+    float: left;
+    font-family: Arial;
+    font-size: 12px;
+    height: 26px;
+    line-height: 22px;
+    list-style: none outside none;
+    margin: 0;
+    text-align: center;
+    width: 110px;
 }
-
-.num li.on{
-  line-height: 22px;
-  width: 110px;
-  height: 26px;
-  font-size: 12px;
-  border: 0;
-  background-image:url("/images/lunxianRed.jpg");
-  color:white;
+.num li.on {
+    background: #333;
+    border: 0 none;
+    color: white;
+    font-size: 12px;
+    height: 26px;
+    line-height: 22px;
+    width: 110px;
+}
+/** Homepage Small Slider Style **/
+#panic_buying {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border: medium none;
+  height: 174px;
+  width: 550px;
+  padding: 26px 0 0 0;
 }
 
 .smallslider {
-  position: relative;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+}
+.smallslider ul {
+    height: auto;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: auto;
+}
+.smallslider li {
+    margin: 0;
+    padding: 0;
+}
+.smallslider li a {
+    margin: 0;
+    padding: 0;
+}
+.smallslider li a img {
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+.smallslider h3 {
+    color: #CCCCCC;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 26px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    text-indent: 2%;
+    width: 98%;
+    z-index: 102;
+}
+.smallslider h3 a {
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
+}
+.smallslider h3 a:link, .smallslider h3 a:visited {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.smallslider h3 a:hover {
+    color: #FF6600;
+    text-decoration: underline;
 }
 
-#panic_buying{
-  width: 550px;
-  height: 202px;
-  border: none;
+.smallslider-btns {
+    position: absolute;
+	top: 4px;
+	right: 0;
+	width: 100px;
+	height: 26px;
+	z-index:500;
+}
+.smallslider-btns span {
+    background-color: #FFFFFF;
+    border: 1px solid #DCDCDC;
+    color: #9F9F9F;
+    cursor: pointer;
+    float: left;
+    font-size: 12px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    width: 16px;
+}
+.smallslider-btns span.current-btn {
+    background-color: #C00100;
+    border: 1px solid #A00100;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+.smallslider-lay {
+    background: none repeat scroll 0 0 black;
+    height: 26px;
+    position: absolute;
+    width: 100%;
+    z-index: 101;
+}
+#debug {
+    background: none repeat scroll 0 0 #CCCCCC;
+    border: 1px solid;
+    bottom: 20px;
+    height: 200px;
+    left: 10px;
+    position: fixed;
+    width: 200px;
+}
+.special_width_smallslider {
+	width: 392px;
 }
 
 .overflow_text{
