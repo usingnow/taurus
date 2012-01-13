@@ -215,6 +215,7 @@ zh-CN:
     esc: "升级单"
     ordering_company: "订货公司"
     panic_buying: "疯狂抢购"
+    purchase: "采购单"
 
 
   attributes: &attributes
@@ -534,6 +535,11 @@ zh-CN:
       name: "名称"
       href: "链接"
       image: "图片"
+
+    purchase:
+      ordering_company_id: "订货公司"
+      supplier_id: "供应商"
+      note: "备注"
 
   activerecord:
     models:

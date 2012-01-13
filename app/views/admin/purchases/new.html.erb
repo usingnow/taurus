@@ -3,7 +3,8 @@
 <%= form_for([:admin,@purchase]) do |f| %>
   <% if @purchase.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
+      <h2><%= t('activerecord.errors.template.header', :count => @purchase.errors.size,
+              :model => t('models.purchase'))  %></h2>
 
       <ul>
       <% @purchase.errors.full_messages.each do |msg| %>
@@ -50,7 +51,46 @@
         <th>操作</th>
       </tr>
     </thead>
-    <tbody id="product_carts"></tbody>
+    <tbody id="product_carts">
+      <% @purchase_product_carts.each_with_index do |product,index| %>
+        <tr class="<%= set_odd_even_class(index) %>">
+          <td><%= index+1 %></td>
+          <td><%= product.product.product_id %></td>
+          <td><%= product.product.name %></td>
+          <td><%= product.product.specification %></td>
+          <td><%= product.product.model %></td>
+          <td><%= product.product.unit %></td>
+          <td><input type="text" size="3"  value="<%= product.quantity %>" onchange="update_cart('<%= product.id %>',this.value,1)"/></td>
+          <% if product.cart_type == 0 %>
+            <td><input type="text" size="5"  value="<%= product.unit_price_aft_tax %>" onchange="update_cart('<%= product.id %>',this.value,3)"/></td>
+            <td><input type="text" size="5"  value="<%= product.total_amount %>" onchange="update_cart('<%= product.id %>',this.value,4)"/></td>
+          <% end  %>
+          <td><input type='text' value="<%= product.delivery_date %>" class="delivery_date"  onchange="update_cart('<%= product.id %>',this.value,2)"/></td>
+          <td><a href="#" onclick="destroy_cart('<%= product.id %>','<%= product.cart_type %>')">删除</a></td>
+        </tr>
+      <% end %>
+
+      <script type="text/javascript">
+        $(".delivery_date").datepicker({ dateFormat: 'yy-mm-dd' });
+
+        function update_cart(id,value,type){
+          jQuery.ajax({ type: 'put', //提交的类型
+                        url: '/admin/store_entry_product_carts/'+id,//提交地址
+                        data: 'value='+value+'&type='+type,//参数  type:{1:数量,2:日期,3:单价,4:总计}
+                        success: function(msg){ //回调方法
+                        }});
+        }
+
+        function destroy_cart(id,cart_type){
+          jQuery.ajax({ type: 'delete', //提交的类型
+                        url: '/admin/store_entry_product_carts/'+id,//提交地址
+                        data: 'cart_type='+cart_type,//参数
+                        success: function(msg){ //回调方法
+                          $('#product_carts').html(msg);
+                        }});
+        }
+      </script>
+    </tbody>
   </table>
 
   <div class="button">
@@ -60,6 +100,7 @@
   </div>
 <% end %>
 
+<hr />
 
 <%= form_tag search_admin_products_path, :method => :get, :remote => true  do %>
   <div class="attributes">

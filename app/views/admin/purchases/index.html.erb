@@ -14,6 +14,7 @@
       <th>创建时间</th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 <% @purchases.each_with_index do |purchase,index| %>
@@ -21,8 +22,9 @@
     <td><%= purchase.number %></td>
     <td><%= purchase.ordering_company.name %></td>
     <td><%= purchase.supplier.name %></td>
-    <td><%= purchase.status %></td>
+    <td><%= format_purchase_status purchase.status %></td>
     <td><%= purchase.created_at %></td>
+    <td><%= next_purchase_status(purchase) %></td>
     <td><%= link_to '商品', admin_product_purchaseships_path(:purchase_id=>purchase) %></td>
     <td><%= link_to '修改', edit_admin_purchase_path(purchase) %></td>
   </tr>

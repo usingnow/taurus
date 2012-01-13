@@ -87,7 +87,7 @@ class Admin::ProductsController < ApplicationController
 
   def search
      @query = Product.search(params[:q])
-     @products = @query.result(:distinct => true)
+     @products = @query.result.paginate(:page => params[:page], :per_page => 20)
      @cart_type = params[:cart_type]  # 判断是采购单还是入库单
 
      respond_to do |format|

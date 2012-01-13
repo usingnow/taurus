@@ -1,3 +1,4 @@
+#encoding:UTF-8
 class Admin::PurchasesController < ApplicationController
   before_filter :authenticate_administrator!
   authorize_resource
@@ -28,11 +29,7 @@ class Admin::PurchasesController < ApplicationController
   # GET /purchases/new.xml
   def new
     @purchase = Purchase.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @purchase }
-    end
+    @purchase_product_carts = StoreEntryProductCart.find_all_by_admin_id_and_cart_type(current_administrator.id,0)
   end
 
   # GET /purchases/1/edit
@@ -43,42 +40,45 @@ class Admin::PurchasesController < ApplicationController
   # POST /purchases
   # POST /purchases.xml
   def create
-    @purchase = Purchase.new(params[:purchase])
-    @purchase.status = 1
-    @purchase.number = current_serial_number('EME')
-
     admin_id = current_administrator.id
 
-    store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id_and_cart_type(admin_id,0)
+    #取出将要添加的商品
+    store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id_and_cart_type(admin_id,0) #0：采购单，1：入库单 类型区分，
 
-    respond_to do |format|
-      if @purchase.save
+    if store_entry_product_carts.empty?
+      @purchase = Purchase.new
+      @purchase.errors.add("商品","至少一件")
+      render "new"
+      return
+    end
 
-        line_items = []
+    @purchase = Purchase.new(params[:purchase])
+    @purchase.status = 0
+    @purchase.number = current_serial_number('EME')
 
-        store_entry_product_carts.each do |cart|
-          line_items << {:purchase_id => @purchase.id,
-                         :product_id => cart.product_id,
-                         :quantity => cart.quantity,
-                         :unit_price_aft_tax => cart.unit_price_aft_tax,
-                         :total_amount => cart.total_amount,
-                         :delivery_date => cart.delivery_date}
-        end
+    if @purchase.save
 
-        if ProductPurchaseship.create(line_items)
-          destroy_sepc_by_admin_id(admin_id) #删除
-        end
-        format.html { redirect_to(admin_purchases_url, :notice => 'Purchase was successfully created.') }
-        format.xml  { render :xml => @purchase, :status => :created, :location => @purchase }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @purchase.errors, :status => :unprocessable_entity }
+      line_items = []
+
+      store_entry_product_carts.each do |cart|
+        line_items << {:purchase_id => @purchase.id,
+                       :product_id => cart.product_id,
+                       :quantity => cart.quantity,
+                       :unit_price_aft_tax => cart.unit_price_aft_tax,
+                       :total_amount => cart.total_amount,
+                       :delivery_date => cart.delivery_date}
       end
+
+      if ProductPurchaseship.create(line_items)
+        destroy_sepc_by_admin_id(admin_id) #删除
+      end
+      redirect_to(admin_purchases_url)
+    else
+      render :action => "new"
     end
   end
 
-  # PUT /purchases/1
-  # PUT /purchases/1.xml
+
   def update
     @purchase = Purchase.find(params[:id])
 
@@ -93,8 +93,7 @@ class Admin::PurchasesController < ApplicationController
     end
   end
 
-  # DELETE /purchases/1
-  # DELETE /purchases/1.xml
+
   def destroy
     @purchase = Purchase.find(params[:id])
     @purchase.destroy
@@ -103,5 +102,11 @@ class Admin::PurchasesController < ApplicationController
       format.html { redirect_to(admin_purchases_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def next
+    @purchase = Purchase.find(params[:id])
+    @purchase.update_attributes(:status => params[:status])
+    redirect_to admin_procedures_url
   end
 end
