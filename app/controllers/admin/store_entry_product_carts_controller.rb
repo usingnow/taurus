@@ -1,6 +1,5 @@
 class Admin::StoreEntryProductCartsController < ApplicationController
   before_filter :authenticate_administrator!
-  authorize_resource
 
   def create
     product_id = params[:product_id]

@@ -1,6 +1,5 @@
 class Admin::ProductsController < ApplicationController
   before_filter :authenticate_administrator!
-  authorize_resource
 
   # GET /products
   # GET /products.xml

@@ -1,6 +1,5 @@
 class Admin::ProcedureRoleshipsController < ApplicationController
   before_filter :authenticate_administrator!
-  authorize_resource
 
   # GET /procedure_roleships
   # GET /procedure_roleships.xml

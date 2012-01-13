@@ -1,6 +1,5 @@
 class Admin::SuppliersController < ApplicationController
   before_filter :authenticate_administrator!
-  authorize_resource
 
   # GET /suppliers
   # GET /suppliers.xml

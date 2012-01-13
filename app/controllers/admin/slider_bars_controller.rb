@@ -1,6 +1,5 @@
 class Admin::SliderBarsController < ApplicationController
   before_filter :authenticate_administrator!
-  authorize_resource
 
   def index
     @slider_bars = SliderBar.all

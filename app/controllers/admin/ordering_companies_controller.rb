@@ -1,6 +1,5 @@
 class Admin::OrderingCompaniesController < ApplicationController
   before_filter :authenticate_administrator!
-  authorize_resource
 
   # GET /ordering_companies
   # GET /ordering_companies.xml

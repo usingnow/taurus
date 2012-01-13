@@ -1,6 +1,5 @@
 class Admin::ProductStoreEntryshipsController < ApplicationController
   before_filter :authenticate_administrator!
-  authorize_resource
 
   # GET /product_store_entryships
   # GET /product_store_entryships.xml

@@ -1,6 +1,5 @@
 class Admin::SkuCategoriesController < ApplicationController
   before_filter :authenticate_administrator!
-  authorize_resource
 
   # GET /sku_categories
   # GET /sku_categories.xml

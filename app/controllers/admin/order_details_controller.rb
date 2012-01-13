@@ -1,6 +1,5 @@
 class Admin::OrderDetailsController < ApplicationController
   before_filter :authenticate_administrator!
-  authorize_resource
 
   def create
     sku_id = params[:sku_id]

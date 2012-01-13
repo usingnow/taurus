@@ -1,6 +1,5 @@
 class Admin::SkuImagesController < ApplicationController
   before_filter :authenticate_administrator!
-  authorize_resource
 
   # GET /sku_images
   # GET /sku_images.xml
