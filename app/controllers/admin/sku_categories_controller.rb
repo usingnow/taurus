@@ -1,8 +1,8 @@
 class Admin::SkuCategoriesController < ApplicationController
   before_filter :authenticate_administrator!
 
-  # GET /sku_categories
-  # GET /sku_categories.xml
+  autocomplete :sku_category, :name
+
   def index
     @search = SkuCategory.search(params[:p])
     @search.sorts = "updated_at desc"

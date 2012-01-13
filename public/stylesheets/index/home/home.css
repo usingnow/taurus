@@ -79,16 +79,18 @@ h1, h2, h3, ul{
 	vertical-align:middle;
 	border-top: 1px solid #dddddd;
 }
-.bar_image_810 {
-	width: 802px;
-	height: 26px;
-	background-image:url(images/bar/bar_bg_810_26.png);
-	padding: 0 0 0 8px;
-	color: #ffffff;
-	font-size:14px;
-	line-height:26px;
-	vertical-align:middle;
+.bar_image_220 {
+  width: 212px;
+  height: 26px;
+  background-image:url(/images/bar_bg_220_26.png);
+  padding: 0 0 0 8px;
+  color: #e70013;
+  font-size:14px;
+  font-weight:normal;
+  line-height:26px;
+  vertical-align:middle;
 }
+
 .bar_image_550 {
 	width: 542px;
 	height: 26px;
@@ -337,9 +339,8 @@ h1, h2, h3, ul{
 	float: left;
 	width: 220px;
 	height: 200px;
-	background:#33FF33;
 	clear: left;
-	border: 1px solid #990000;
+	border: 1px solid #dddddd;
 	margin: 10px 0 0 0;
 }
 #banner_3 {
@@ -907,6 +908,38 @@ div#copyright {
 	width: 209px;
 	height: 200px;
 	background-color:#00CCCC;
+}
+
+.recent_visited_ul {
+  list-style: none;
+  padding: 4px 8px 4px 8px;
+}
+
+.recent_visited_li {
+  position:relative;
+  float:left;
+  width: 100%;
+  height: 50px;
+  padding: 0;
+  margin: 2px 0 2px 0;
+}
+
+.recent_visited_li div {
+  position:absolute;
+  top: 8px;
+  left: 38px;
+  width: 152px;
+  height: 30px;
+  border-bottom: 1px dashed #dddddd;
+}
+
+.recent_visited_li div:hover {
+  position:absolute;
+  top: 8px;
+  left: 38px;
+  width: 152px;
+  height: 30px;
+  border-bottom: 1px solid #dddddd;
 }
 
 

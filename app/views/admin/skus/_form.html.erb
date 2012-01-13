@@ -3,113 +3,50 @@
 
   <div class="attributes">
     <div class="split_content_left">
-       <%= f.input :number %>
-       <%= f.input :brand_id, :url => autocomplete_brand_chinese_name_admin_brands_path, :as => :autocomplete %>
+      <%= f.input :number %>
+      <%= f.input :brand_name do %>
+        <%= f.autocomplete_field :brand_name, autocomplete_brand_chinese_name_admin_brands_path, :id_element => '#sku_brand_id'  %>
+      <% end %>
+      <%= f.input :brand_id, :as => :hidden  %>
+      <%= f.input :unit %>
+      <%= f.input :color %>
+      <%= f.input :delivery_day %>
+      <%= f.input :sku_type do %>
+        <%= f.collection_radio :sku_type, [[1, '在库品'] ,[2, '直送品'] ,[3,'非在库'] ,[4,'未定'] ,[5,'劳务费用']] ,
+                               :first, :second, :checked => 1 %>
+      <% end %>
+      <%= f.input :can_on_be_half, :collection => [['false', '否'], ['true', '是']],
+                  :label_method => :last, :value_method => :first, :checked => 'false', :as => :radio %>
+      <%= f.input :classifcation do %>
+       <%= f.select :classifcation,"<option value='1'>单品</option><option value='2'>大包装</option><option value='3'>大大包装</option><option value='4'>组合品</option>" %>
+      <% end %>
+      <%= f.input :cost_bef_tax %>
     </div>
     <div class="split_content_right">
-       <%= f.input :name %>
+      <%= f.input :name %>
+      <%= f.input :sku_category_name do %>
+        <%= f.autocomplete_field :sku_category_name, autocomplete_sku_category_name_admin_sku_categories_path, :id_element => '#sku_sku_category_id'  %>
+      <% end %>
+      <%= f.input :sku_category_id, :as => :hidden %>
+      <%= f.input :specification %>
+      <%= f.input :size %>
+      <%= f.input :delivery_description, :input_html => {:rows => 1, :cols => 25} %>
+      <%= f.input :model %>
+      <%= f.input :can_return do
+        f.collection_radio :can_return, [['false', '否'], ['true', '是']],
+                           :first, :second, :checked => 'false'
+      end %>
+      <%= f.input :cost_aft_tax %>
     </div>
     <div class="clear"></div>
   </div>
-
-
-  <div class="field">
-    <%= f.label :sku_category_id %><span class="red">*</span><br />
-    <%= f.text_field :sku_category_id %>
-  </div>
-  <div class="field">
-    <%= f.label :unit %><span class="red">*</span><br />
-    <%= f.text_field :unit %>
-  </div>
-  <div class="field">
-    <%= f.label :specification %><span class="red">*</span><br />
-    <%= f.text_field :specification %>
-  </div>
-  <div class="field">
-    <%= f.label :delivery_day %><span class="red">*</span><br />
-    <%= f.text_field :delivery_day %>
-  </div>
-   <div class="field">
-    <%= f.label :delivery_description %><br />
-    <%= f.text_area :delivery_description %>
-  </div>
-  <div class="field">
-    <%= f.label :sku_type %><br />
-    <%= f.radio_button :sku_type,'1', :checked => true %>
-    <%= f.label '在库品' %>
-    <%= f.radio_button :sku_type,'2' %>
-    <%= f.label '直送品' %>
-    <%= f.radio_button :sku_type,'3' %>
-    <%= f.label '非在库' %>
-    <%= f.radio_button :sku_type,'4' %>
-    <%= f.label '未定' %>
-    <%= f.radio_button :sku_type,'5' %>
-    <%= f.label '劳务费用' %>
-  </div>
-  <div class="field">
-    <%= f.label :model %><br />
-    <%= f.text_field :model %>
-  </div>
-  <div class="field">
-    <%= f.label :size %><br />
-    <%= f.text_field :size %>
-  </div>
-  <div class="field">
-    <%= f.label :can_return %><br />
-    <%= f.radio_button :can_return,'false', :checked => true %>
-    <%= f.label '否' %>
-    <%= f.radio_button :can_return,'true' %>
-    <%= f.label '是' %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
+  <div class="attributes">
+    <%= f.input :introduction, :input_html => {:rows => 2, :cols => 105} %>
+    <%= f.input :advertisement, :input_html => {:rows => 2, :cols => 105}  %>
     <%= f.cktext_area :description, :toolbar=>'Full', :width=>'800px', :height=>'200px' %>
   </div>
-  <div class="field">
-    <%= f.label :color %><br />
-    <%= f.text_field :color %>
-  </div>
-  <div class="field">
-    <%= f.label :can_on_be_half %><br />
-    <%= f.radio_button :can_on_be_half,'false', :checked => true %>
-    <%= f.label '否' %>
-    <%= f.radio_button :can_on_be_half,'true' %>
-    <%= f.label '是' %>
-  </div>
-  <div class="field">
-    <%= f.label :classifcation %><br />
-    <%= f.select :classifcation,"<option value='1'>单品</option><option value='2'>大包装</option><option value='3'>大大包装</option><option value='4'>组合品</option>" %>
-  </div>
-  <div class="field">
-    <%= f.label :introduction %><br />
-    <%= f.text_area :introduction %>
-  </div>
-  <div class="field">
-    <%= f.label :advertisement %><br />
-    <%= f.text_area :advertisement %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.radio_button :status,'1' %>
-    <%= f.label '已确认' %>
-    <%= f.radio_button :status,'2', :checked => true %>
-    <%= f.label '暂停销售' %>
-  </div>
-  <div class="field">
-    <%= f.label :sales_status %><br />
-    <%= f.radio_button :sales_status,'0' %>
-    <%= f.label '已上架' %>
-    <%= f.radio_button :sales_status,'1', :checked => true %>
-    <%= f.label '未上架' %>
-  </div>
-  <div class="field">
-    <%= f.label :cost_bef_tax %><br />
-    <%= f.text_field :cost_bef_tax %>
-  </div>
-  <div class="field">
-    <%= f.label :cost_aft_tax %><br />
-    <%= f.text_field :cost_aft_tax %>
-  </div>
+
+
   <div class="field">
     <%= f.label :market_price %><br />
     <%= f.text_field :market_price %>

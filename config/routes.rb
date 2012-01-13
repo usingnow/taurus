@@ -86,7 +86,9 @@ Ebiz::Application.routes.draw do
      end
      resources :suppliers
      resources :product_categories
-     resources :sku_categories
+     resources :sku_categories do
+        get  :autocomplete_sku_category_name, :on => :collection
+     end
      resources :skus do
        collection do
          get  :add
