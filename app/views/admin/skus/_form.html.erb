@@ -21,7 +21,10 @@
        <%= f.select :classifcation,"<option value='1'>单品</option><option value='2'>大包装</option><option value='3'>大大包装</option><option value='4'>组合品</option>" %>
       <% end %>
       <%= f.input :cost_bef_tax %>
+      <%= f.input :assembling_fee_bef_tax %>
+      <%= f.input :installation_cost_bef_tax %>
     </div>
+
     <div class="split_content_right">
       <%= f.input :name %>
       <%= f.input :sku_category_name do %>
@@ -37,36 +40,20 @@
                            :first, :second, :checked => 'false'
       end %>
       <%= f.input :cost_aft_tax %>
+      <%= f.input :market_price %>
+      <%= f.input :assembling_fee_aft_tax %>
+      <%= f.input :insatllation_cost_aft_tax %>
     </div>
+
     <div class="clear"></div>
   </div>
+
   <div class="attributes">
     <%= f.input :introduction, :input_html => {:rows => 2, :cols => 105} %>
     <%= f.input :advertisement, :input_html => {:rows => 2, :cols => 105}  %>
     <%= f.cktext_area :description, :toolbar=>'Full', :width=>'800px', :height=>'200px' %>
   </div>
 
-
-  <div class="field">
-    <%= f.label :market_price %><br />
-    <%= f.text_field :market_price %>
-  </div>
-  <div class="field">
-    <%= f.label :assembling_fee_bef_tax %><br />
-    <%= f.text_field :assembling_fee_bef_tax %>
-  </div>
-  <div class="field">
-    <%= f.label :assembling_fee_aft_tax %><br />
-    <%= f.text_field :assembling_fee_aft_tax %>
-  </div>
-  <div class="field">
-    <%= f.label :installation_cost_bef_tax %><br />
-    <%= f.text_field :installation_cost_bef_tax %>
-  </div>
-  <div class="field">
-    <%= f.label :insatllation_cost_aft_tax %><br />
-    <%= f.text_field :insatllation_cost_aft_tax %>
-  </div>
   <div class="actions">
     <% if @sku.id == nil %>
       <%= f.submit '下一步' %>
