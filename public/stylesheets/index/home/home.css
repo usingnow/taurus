@@ -420,11 +420,14 @@ h1, h2, h3, ul{
 }
 
 .cms_submenu {
-	float:left;position:absolute;z-index:1000; top: -1000px;
-	text-align:left;
-	border:1px solid #333333;
-	width:570px;
-	background: #ffffff;
+    float:left;
+    position:absolute;
+    z-index:1000;
+    top: -1000px;
+    text-align:left;
+    border:1px solid #333333;
+    width:570px;
+    background: #ffffff;
 }
 /** The content in the menu details **/
 .cmsmenuleft {
@@ -866,7 +869,7 @@ div#copyright {
 	right: 0;
 	width: 100px;
 	height: 26px;
-	z-index:100;
+	z-index:1;
 }
 .smallslider-btns span {
     background-color: #FFFFFF;
