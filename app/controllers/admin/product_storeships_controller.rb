@@ -1,15 +1,9 @@
 class Admin::ProductStoreshipsController < ApplicationController
   before_filter :authenticate_administrator!
 
-  # GET /product_storeships
-  # GET /product_storeships.xml
   def index
-    @product_storeships = ProductStoreship.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @product_storeships }
-    end
+    @search = ProductStoreship.search(params[:q])
+    @product_storeships = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /product_storeships/1

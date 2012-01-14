@@ -1,22 +1,50 @@
-<h1>Listing product_storeships</h1>
+<h1>库存查看</h1>
 
-<table>
-  <tr>
-    <th>仓库</th>
-    <th>产品</th>
-    <th>库存数量</th>
-    <th>缺货数量</th>
-  </tr>
+<div class="attributes">
+  <%= search_form_for [:admin,@search] do |f| %>
+    <div class="split_content_left">
+      <p>
+        <%= f.label '仓库' %>
+        <%= f.select :store_id_eq, Store.all.collect{ |s| [s.name,s.id]} %>
+      </p>
+    </div>
+    <div class="split_content_right">
+      <p>
+        <%= f.label '商品名称' %>
+        <%= f.text_field :product_name_cont %>
+      </p>
+      <p>
+        <label>&nbsp;</label>
+        <%= f.submit '查询'%>
+      </p>
+    </div>
+    <div class="clear"></div>
+  <% end %>
+</div>
 
-<% @product_storeships.each do |product_storeship| %>
-  <tr>
-    <td><%= product_storeship.store.name %></td>
-    <td><%= product_storeship.product.name %></td>
-    <td><%= product_storeship.quantity %></td>
-    <td><%= product_storeship.stockout %></td>
-  </tr>
-<% end %>
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>仓库</th>
+      <th>产品</th>
+      <th>库存数量</th>
+      <th>缺货数量</th>
+      <th>销售预留数量</th>
+    </tr>
+  </thead>
+  <% @product_storeships.each_with_index do |product_storeship,index| %>
+    <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+      <td><%= index+1 %></td>
+      <td><%= product_storeship.store.name %></td>
+      <td><%= product_storeship.product.name %></td>
+      <td><%= product_storeship.quantity %></td>
+      <td><%= product_storeship.stockout %></td>
+      <td><%= product_storeship.sales_reserved %></td>
+    </tr>
+  <% end %>
 </table>
 
-<br />
+<%= will_paginate @product_storeships %>
+
 
