@@ -662,7 +662,7 @@ h1, h2, h3, ul{
 }
 .sku_list_bar_short {
 	display:block;
-	width: 200px;
+	width: 208px;
 	height: 26px;
 	line-height:26px;
 	vertical-align:middle;
@@ -731,7 +731,7 @@ h1, h2, h3, ul{
 .sku_list_sort_hot {
 	width:100%;
 	font-size: 12px;
-	line-height:26px;
+	line-height:25px;
 	vertical-align:middle;
 }
 .sku_list_sort_hot .has_children{
