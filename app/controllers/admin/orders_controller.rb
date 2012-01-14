@@ -189,6 +189,16 @@ class Admin::OrdersController < ApplicationController
       return
     end
 
+    if !params[:order].nil?
+      if !params[:order][:store_id].nil?
+        if !is_have_store(@order,params[:store])
+          @order.errors.add("选择的仓库","无此货物")
+          render "output"
+          return
+        end
+      end
+    end
+
     #保存支付宝支付信息
     if !params[:order_pay].nil?
       hash = {"order_id" => @order.id, "alipay_price_confirmation" => @order.total_amount}.merge(params[:order_pay] || {})

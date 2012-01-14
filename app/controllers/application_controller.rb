@@ -226,4 +226,18 @@ class ApplicationController < ActionController::Base
       end
       "U"+ number
     end
+
+    def is_have_store(order,store_id)
+    flag = true
+    order.order_details.each do |detail|
+      detail.sku.products.each do |product|
+        product_storeship =  ProductStoreship.find_by_product_id_and_store_id(product.id,store_id)
+        if product_storeship.nil?
+          flag = false
+          break
+        end
+      end
+    end
+    flag
+  end
 end

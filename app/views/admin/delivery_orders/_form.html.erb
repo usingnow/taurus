@@ -4,8 +4,12 @@
 
   <div class="attributes">
     <div class="split_content_left">
-      <%= f.input :store_id do %>
-        <%= f.select :store_id, Store.all.collect{ |s| [s.name,s.id]} %>
+      <% if @delivery_order.store_id.nil?  %>
+        <%= f.input :store_id do %>
+          <%= f.select :store_id, Store.all.collect{ |s| [s.name,s.id]} %>
+        <% end %>
+      <% else %>
+        <%= f.input :store_id, :as => :hidden %>
       <% end %>
     </div>
     <div class="clear"></div>
