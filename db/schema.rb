@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120112060437) do
+ActiveRecord::Schema.define(:version => 20120113160656) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -501,10 +501,11 @@ ActiveRecord::Schema.define(:version => 20120112060437) do
   create_table "product_storeships", :force => true do |t|
     t.integer  "store_id"
     t.integer  "product_id"
-    t.integer  "quantity"
-    t.integer  "stockout"
+    t.integer  "quantity",       :default => 0
+    t.integer  "stockout",       :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sales_reserved", :default => 0
   end
 
   create_table "products", :force => true do |t|

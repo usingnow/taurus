@@ -70,7 +70,7 @@ class Admin::PurchasesController < ApplicationController
       end
 
       if ProductPurchaseship.create(line_items)
-        destroy_sepc_by_admin_id(admin_id) #删除
+        destroy_sepc_by_admin_id(admin_id,0) #删除
       end
       redirect_to(admin_purchases_url)
     else
@@ -107,6 +107,13 @@ class Admin::PurchasesController < ApplicationController
   def next
     @purchase = Purchase.find(params[:id])
     @purchase.update_attributes(:status => params[:status])
-    redirect_to admin_procedures_url
+    redirect_to admin_purchases_url
+  end
+
+  #待入库采购单
+  def be_store
+    @search = Purchase.search("status_eq" => "1")
+    @search.sorts = "updated_at desc"
+    @purchases = @search.result.paginate(:page => params[:page], :per_page => "20")
   end
 end

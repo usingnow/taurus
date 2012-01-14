@@ -139,7 +139,10 @@ Ebiz::Application.routes.draw do
      end
      resources :product_purchaseships
      resources :purchases do
-         put  :next, :on => :collection
+       collection do
+         put  :next
+         get  :be_store
+       end
      end
      resources :ordering_companies
      resources :product_storeships

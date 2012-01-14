@@ -1,33 +1,30 @@
-<h1>Listing store_entries</h1>
+<h1>入库单列表</h1>
 
-<table>
-  <tr>
-    <th>Number</th>
-    <th>Purchase</th>
-    <th>Ordering company</th>
-    <th>Supplier</th>
-    <th>Store</th>
-    <th>Note</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="grid_button">
+   <%= link_to '采购单入库', be_store_admin_purchases_path %>
+   <%= link_to '新增入库单', new_admin_store_entry_path %>
+</div>
 
-<% @store_entries.each do |store_entry| %>
-  <tr>
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>编号</th>
+      <th>采购单编号</th>
+      <th>订货公司</th>
+      <th>供应商</th>
+      <th>仓库</th>
+    </tr>
+  </thead>
+<% @store_entries.each_with_index do |store_entry,index| %>
+  <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+    <td><%= index+1 %></td>
     <td><%= store_entry.number %></td>
-    <td><%= store_entry.purchase_id %></td>
-    <td><%= store_entry.ordering_company_id %></td>
-    <td><%= store_entry.supplier_id %></td>
-    <td><%= store_entry.store_id %></td>
-    <td><%= store_entry.note %></td>
-    <td><%= link_to 'Show', admin_store_entry_path(store_entry) %></td>
-    <td><%= link_to 'Edit', edit_admin_store_entry_path(store_entry) %></td>
-    <td><%= link_to 'Destroy', admin_store_entry_path(store_entry), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= store_entry.purchase.number if !store_entry.purchase.nil? %></td>
+    <td><%= store_entry.ordering_company.name %></td>
+    <td><%= store_entry.supplier.name %></td>
+    <td><%= store_entry.store.name %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Store entry', new_admin_store_entry_path %>

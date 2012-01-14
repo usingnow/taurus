@@ -92,8 +92,8 @@ class ApplicationController < ActionController::Base
     end
 
     #删除 入库单商品购物车 的 此用户 所有商品
-    def destroy_sepc_by_admin_id(admin_id)
-      StoreEntryProductCart.destroy_all(:admin_id => admin_id)
+    def destroy_sepc_by_admin_id(admin_id,type)
+      StoreEntryProductCart.destroy_all(:admin_id => admin_id,:cart_type => type)
     end
 
     #更新库存
