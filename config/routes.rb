@@ -153,6 +153,12 @@ Ebiz::Application.routes.draw do
      resources :slider_bars
      resources :banks
      resources :inner_sku_carts
+     resources :prod_del_ordships
+     resources :delivery_orders do
+       collection do
+         get  :from_order
+       end
+     end
    end
 
   # You can have the root of your site routed with "root"

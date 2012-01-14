@@ -11,7 +11,9 @@
       <td><input type="text" size="5"  value="<%= product.unit_price_aft_tax %>" onchange="update_cart('<%= product.id %>',this.value,3)"/></td>
       <td><input type="text" size="5"  value="<%= product.total_amount %>" onchange="update_cart('<%= product.id %>',this.value,4)"/></td>
     <% end  %>
+    <% if product.cart_type != 2 %>
     <td><input type='text' value="<%= product.delivery_date %>" class="delivery_date"  onchange="update_cart('<%= product.id %>',this.value,2)"/></td>
+    <% end %>
     <td><a href="#" onclick="destroy_cart('<%= product.id %>','<%= product.cart_type %>')">删除</a></td>
   </tr>
 <% end %>

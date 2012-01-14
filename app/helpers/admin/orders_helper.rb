@@ -73,4 +73,19 @@ module Admin::OrdersHelper
       "单位"
     end
   end
+
+  def is_store(detail,store_id)
+    result = ""
+    detail.sku.products.each do |prod|
+      prod.product_storeships.each do |prod_store|
+        if prod_store.store_id == store_id
+          if prod_store.quantity < 1
+            result = "无库存"
+          end
+        else
+
+        end
+      end
+    end
+  end
 end

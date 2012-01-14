@@ -1,0 +1,34 @@
+<h1>可出库订单列表</h1>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t 'attributes.order.number' %></th>
+      <th><%= t 'attributes.order.user_id' %></th>
+      <th><%= t 'attributes.order.instance_id' %></th>
+      <th><%= t 'attributes.order.station_id' %></th>
+      <th><%= t 'attributes.order.make_by' %></th>
+      <th><%= t 'attributes.order.sku_type' %></th>
+      <th><%= t :created_at %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+<% @orders.each_with_index do |order,index| %>
+  <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
+    <td><%= index+1 %></td>
+    <td><%= order.number %></td>
+    <td><%= get_user_name(order.user) %></td>
+    <td><%= order.instance.procedure.name %></td>
+    <td><%= order.instance.station.name %></td>
+    <td><%= fetch_make_by order %></td>
+    <td><%= format_sku_type(order.order_details[0].sku.sku_type) %></td>
+    <td><%= order.created_at %></td>
+    <td><%= link_to '出库', new_admin_delivery_order_path(:order_id => order) %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @orders %>
+

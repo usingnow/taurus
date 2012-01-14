@@ -1,0 +1,27 @@
+<h1>出库单列表</h1>
+
+<div class="grid_button">
+  <%= link_to '销售订单出库', from_order_admin_delivery_orders_path %>
+  <%= link_to '新增出库单', new_admin_delivery_order_path %>
+</div>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>订单编号</th>
+      <th>仓库</th>
+      <th>操作人</th>
+    </tr>
+  </thead>
+
+<% @delivery_orders.each_with_index do |delivery_order,index| %>
+  <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+    <td><%= index+1 %></td>
+    <td><%= delivery_order.order_id %></td>
+    <td><%= delivery_order.store_id %></td>
+    <td><%= delivery_order.administrator_id %></td>
+  </tr>
+<% end %>
+</table>
+

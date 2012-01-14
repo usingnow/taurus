@@ -2,10 +2,8 @@
 /* CSS Document */
 
 #wrapper {
-	width:1000px;
-	position:relative;
-	left:50%;
-	margin-left: -500px;
+  width:1000px;
+  margin: 0 auto;
 }
 
 body,td,th {
@@ -58,7 +56,7 @@ h1, h2, h3, ul{
 .bar_image_980 {
 	width: 972px;
 	height: 26px;
-	background-image:url(images/bar/bar_bg_980_26.png);
+	background-image:url(/images/bar/bar_bg_980_26.png);
 	padding: 0 0 0 8px;
 	color: #e60013;
 	font-size: 15px;
@@ -70,7 +68,7 @@ h1, h2, h3, ul{
 .bar_image_1000 {
 	width: 992px;
 	height: 26px;
-	background-image:url(/images/bar_1000_26.jpg);
+	background-image:url(/images/bar/bar_1000_26.jpg);
 	padding: 0 0 0 8px;
 	color: #e60013;
 	font-size: 15px;
@@ -80,21 +78,20 @@ h1, h2, h3, ul{
 	border-top: 1px solid #dddddd;
 }
 .bar_image_220 {
-  width: 212px;
-  height: 26px;
-  background-image:url(/images/bar_bg_220_26.png);
-  padding: 0 0 0 8px;
-  color: #e70013;
-  font-size:14px;
-  font-weight:normal;
-  line-height:26px;
-  vertical-align:middle;
+	width: 212px;
+	height: 26px;
+	background-image:url(/images/bar_bg_220_26.png);
+	padding: 0 0 0 8px;
+	color: #e70013;
+	font-size:14px;
+	font-weight:normal;
+	line-height:26px;
+	vertical-align:middle;
 }
-
 .bar_image_550 {
 	width: 542px;
 	height: 26px;
-	background-image:url(images/bar/bar_bg_550_26.png);
+	background-image:url(/images/bar/bar_bg_550_26.png);
 	padding: 0 0 0 8px;
 	color: #e60013;
 	font-size: 15px;
@@ -102,6 +99,19 @@ h1, h2, h3, ul{
 	line-height: 26px;
 	vertical-align:middle;
 	border-top: 1px solid #dddddd;
+}
+
+/** Homepage Basic position class **/
+.width_220 {
+	width: 220px;
+	border: 1px solid #dddddd;
+}
+.width_766 {
+	width: 766px;
+	border: 1px solid #dddddd;
+}
+.padding_4 {
+	padding: 4px;
 }
 
 /** Horizontal <ul> <li> style **/
@@ -174,7 +184,7 @@ h1, h2, h3, ul{
 #h_main_menu li {
 	width: 108px;
 	height: 32px;
-	background-image:url(images/headMenu/head_bg_107_33_gray.png);
+	background-image:url(/images/headMenu/head_bg_107_33_gray.png);
 	margin: 0 1px 0 1px;
 	line-height: 32px;
 	vertical-align:middle;
@@ -182,14 +192,12 @@ h1, h2, h3, ul{
 	font-size: 14px;
 	color: #ff0000;
 }
+#h_main_menu li li a {
+	color: #e70013;
+}
 #h_main_menu li:hover {
-	background-image:url(images/headMenu/head_bg_107_33_red.png);
+	background-image:url(/images/headMenu/head_bg_107_33_red.png);
 }
-
-#h_main_menu li a {
-  color: #e70013;
-}
-
 #h_main_menu li:hover a {
 	color: #ffffff;
 }
@@ -198,7 +206,13 @@ h1, h2, h3, ul{
 /** New Homepage Horizon Navigator - Ends here - 2012/01/10 - Jimmy Xu **/
 
 /** Homepage Header Style - Start **/
-
+#header {
+	width: 1000px;
+	height: 137px;
+	position:relative;
+	float:left;
+	margin: 0 0 4px 0;
+}
 #tool_bar {
 	position: absolute;
 	top: 5px;
@@ -226,7 +240,7 @@ h1, h2, h3, ul{
 	right: 0px;
 	width:205px;
 	height:28px;
-	background-image:url(images/cart.png);
+	background-image:url(/images/cart.png);
 	z-index:400;
 }
 
@@ -239,12 +253,37 @@ h1, h2, h3, ul{
 
 #search_bar {
 	position:absolute;
-	top: 56px;
+	top: 50px;
 	left: 360px;
-	width: 450px;
-	height: 30px;
+	width: 378px;
+	height: 26px;
 	clear:right;
+	background-image:url(/images/search410_30_bg.png);
+	padding: 2px 0 2px 32px
 }
+#searc_bar form {
+	height: 26px;
+}
+#search_bar input {
+	width: 300px;
+	height: 20px;
+	border: none;
+}
+#search_bar input:hover {
+	background:none;
+}
+#search_bar a {
+	padding: 0 10px 0 15px;
+	font-weight:bold;
+	font-size:14px;
+	color: #dddddd;
+}
+#search_bar a:hover {
+	font-weight:bold;
+	font-size:14px;
+	color: #ffffff;
+}
+
 
 #logo {
 	position: absolute;
@@ -267,12 +306,12 @@ h1, h2, h3, ul{
 }
 #service_phone {
 	position: absolute;
-	top: 42px;
-	left: 750px;
+	top: 52px;
+	left: 780px;
 }
 #service_ol {
 	position: absolute;
-	top: 42px;
+	top: 52px;
 	right: 2px;
 }
 #welcome {
@@ -298,9 +337,8 @@ h1, h2, h3, ul{
 
 /** Homepage Main Style - Start **/
 #main {
-	position:absolute;
-	top: 137px;
-	left: 0px;
+	position:relative;
+	float:left;
 	width:1000px;
 	background-color: #ffffff;
 }
@@ -331,7 +369,7 @@ h1, h2, h3, ul{
 	float:left;
 	width:208px;
 	height: 130px;
-	margin: 10px 0 0 0;
+	margin: 10px 0 0 1px;
 	outline: 1px solid #dddddd;
 }
 #banner_2 {
@@ -353,22 +391,33 @@ h1, h2, h3, ul{
 }
 #banner_4 {
 	position: relative;
-	float:right;
+	float:left;
 	width:208px;
 	height: 130px;
-	margin: 80px 0 0 0;
+	margin: 80px 0 0 4px;
 	outline: 1px solid #dddddd;
 }
 #banner_5 {
 	position: relative;
 	float:left;
-	width:998px;
-	height: 58px;
+	width:1000px;
+	height: 60px;
 	margin: 8px 0 0 0;
-	border: 1px solid #990000;
-	background: #6FF;
 }
-
+#banner_6 {
+	position: relative;
+	float:left;
+	width:1000px;
+	height: 60px;
+	margin: 8px 0 0 0;
+}
+#banner_7 {
+	position: relative;
+	float:left;
+	width:1000px;
+	height: 60px;
+	margin: 8px 0 0 0;
+}
 
 /** Homepage Main Menu Style - Start **/
 .clear {
@@ -386,7 +435,7 @@ h1, h2, h3, ul{
 	width:200px;
 	padding-left:0px; padding-top:4px;
 	display:block;
-	background:url(images/arrow.png) no-repeat 172px 0px;
+	background:url(/images/arrow.png) no-repeat 172px 0px;
 }
 #main_menu li:hover {
 	z-index:6;
@@ -396,13 +445,22 @@ h1, h2, h3, ul{
 	border: 1px solid #ffffff;
 	text-decoration:none;line-height:28px;text-align:center;
 }
-#main_menu li:hover a {
+#main_menu li:hover .cms_submenu .cmsmenuleft .menu_recommend dt a {
+	color: #e70013;
+	text-align: left;
+}
+#main_menu li:hover .cms_submenu .cmsmenuleft .menu_recommend dt a:hover {
+	color: #e70013;
+	text-align: left;
+	text-decoration:underline;
+}
+#main_menu li:hover > a {
 	color:#000000;font-size:14px;display:block;
 	border-top: 1px solid #333333;
 	border-bottom: 1px solid #333333;
 	border-left: 1px solid #ffffff;
 	border-right: 1px solid #ffffff;
-	background-color:#ffffff;
+	background-color:#fff9e6;
 	z-index:1000;
 }
 #main_menu li:hover div a {
@@ -420,14 +478,11 @@ h1, h2, h3, ul{
 }
 
 .cms_submenu {
-    float:left;
-    position:absolute;
-    z-index:1000;
-    top: -1000px;
-    text-align:left;
-    border:1px solid #333333;
-    width:570px;
-    background: #ffffff;
+	float:left;position:absolute;z-index:1000; top: -1000px;
+	text-align:left;
+	border:1px solid #333333;
+	width:570px;
+	background: #fff9e6; /** changed 2012/01/13 **/
 }
 /** The content in the menu details **/
 .cmsmenuleft {
@@ -441,8 +496,7 @@ h1, h2, h3, ul{
 	float:right;
 	width:140px;
 	padding:8px;
-	background:#ffffff
-}
+} /** Removed the line 2012/01/13**/
 
 .cmsmenuleft dt, .cmsmenuright dt {
 	color:#dd0101;margin:5px 0;
@@ -452,8 +506,10 @@ h1, h2, h3, ul{
 .cmsmenuleft dd i{
 	float:left;padding:0 8px;margin: 0;
 	white-space: nowrap;
-	border-right:1px solid #ccc;
+	border-right:1px solid #ccc; /** Change 2012/01/13 **/
 	font-style:normal;
+	line-height: 24px;
+	vertical-align:middle;
 }
 .cmsmenuright dd {
 	margin: 0;
@@ -461,15 +517,9 @@ h1, h2, h3, ul{
 .cmsmenuright dd i {
 	font-style:normal;
 }
-
-.cmsmenuright dd i a{
-	font-style:normal;
-	background:transparent;
-}
 .titlefont {
 	width: 222px;
 	background: #dddddd; /** Change the menu title background here 160*32 **/
-	background-repeat: none;
 	background-position: bottom center;
 }
 .separator {
@@ -481,17 +531,12 @@ h1, h2, h3, ul{
 	line-height: 28px;
 	vertical-align:middle;
 	text-align:center;
-	font-family:黑体; font-weight:bold; color:#333333; font-size:14px;
+	font-family:"黑体"; font-weight:bold; color:#333333; font-size:14px;
 }
 /** Homepage Main Menu Style - End **/
 
-/** Homepage Main Login bar - Start **/
-.box {
-	width: 209px;
-	height:200px;
-	margin: 0;
-	outline: 1px solid #dddddd;
-}
+/** Homepage Main Login bar - Start
+
 #login_bar .list {
 	width: 209px;
 	height:28px;
@@ -500,7 +545,7 @@ h1, h2, h3, ul{
 	background-image:url(images/bar/bar_bg_1_30.png);
 }
 #login_bar .list li {
-	width:74px;
+	width:99px;
 	height:25px;
 	margin: 2px 0 0 0;
 	float:left;
@@ -510,7 +555,7 @@ h1, h2, h3, ul{
 	text-align:center;
 }
 #login_bar .list li.hove {
-	width:72px;
+	width:97px;
 	height:25px;
 	color:#333333;
 	margin: 2px 0 0 0;
@@ -521,17 +566,26 @@ h1, h2, h3, ul{
 	border-bottom:1px solid #ffffff;
 	background:#fff;
 }
+
+
+/** Homepage Main Login bar - End **/
+.box {
+	width: 208px;
+	height:200px;
+	margin: 0;
+	padding: 0px;
+	border-color: #dddddd;
+}
 #login_bar .content {
-	width:193px;
+	width:191px;
 	height: 160px;
 	padding: 4px 8px 4px 8px;
 	float:left;
-	display:none;
 	background:#ffffff;
 	text-align: left;
 }
 #login_bar .content p input {
-	width: 142px;
+	width: 138px;
 	height: 16px;
 }
 #login_bar .content p {
@@ -543,17 +597,29 @@ h1, h2, h3, ul{
 #login_bar .content p button {
 	line-height: 18px;
 }
-#login_bar ul, #login_bar li {
-	margin:0 0 0 5px;
+#login_bar ul {
+	height: 26px;
+	margin:0px;
+	padding:0 1px 0 5px;
+	border: 0px;
+	background-image:url(/images/bar/bar_bg_1_30.png);
+	list-style-type:none;
+}
+#login_bar li {
+	width: 96px;
+	height: 24px;
 	padding:0px;
 	float:left;
-	list-style-type:none;
+	text-align:center;
+	line-height: 24px;
+	vertical-align:middle;
 }
 #login_bar .content ul, #login_bar .content li {
 	margin:0;
 	padding:0px;
 	width: 200px;
 	text-align:left;
+	background-image:none;
 }
 .content img {
 	clear: both;
@@ -561,34 +627,31 @@ h1, h2, h3, ul{
 	outline: 1px solid #333333;
 	margin: 3px 2px 0 0;
 }
-/** Homepage Main Login bar - End **/
 
 /** Homepage SKU_categary style - Start **/
 
 .sku_category {
-	position: absolute;
+	position: relative;
+	float: left;
 	width: 1000px;
-}
-#sku_category_1 { /** difine the different SKU category with num **/
-	top: 562px;
-	left: 0px;
+	margin: 10px 0 0 0;
 }
 .sku_list_li {
-	width: 140px;
+	width: 131px;
 	height: 180px;
 	border: 1px solid #ffffff;
 	margin: 2px;
-	padding: 0 2px 0 2px;
+	padding: 0px;
 	text-align:center;
 }
 .sku_list_li:hover { /** Animated border style with SKU **/
 	border: 1px solid #ff0000;
 }
 .sku_list_ul {
-	position: absolute;
-	top: 30px;
-	left: 230px;
-	width: 600px;
+	position: relative;
+	float: left;
+	width: 550px;
+	margin: 4px 10px 0 10px;
 }
 .sku_list_p {
 	margin: 2px 0 2px 0;
@@ -600,16 +663,17 @@ h1, h2, h3, ul{
 	line-height:26px;
 	vertical-align:middle;
 	text-align:center;
-	color: #ffffff;
-	background-color: #990000;
+	font-weight:normal;
+	color: #e70013;;
+	background-image:url(/images/bar/bar_bg_1_30.png);
 }
 .sku_list_sort {
-	position: absolute;
-	top: 30px;
-	right: 0px;
-	width: 168px;
-	height: 363px;
-	border: 1px solid #990000;
+	position: relative;
+	float: right;
+	width: 208px;
+	height: 367px;
+	border: 1px solid #dddddd;
+	margin: 4px 0 0 0;
 }
 .sku_list_sort_ul {
 	list-style: none;
@@ -651,24 +715,60 @@ h1, h2, h3, ul{
 	color: #005AA0;
 }
 .sku_list_left_col {
-	position:absolute;
-	top: 30px;
-	left: 0px;
+	position:relative;
+	float: left;
 	width: 220px;
-	height: 363px;
+	height: 369px;
 	background:#CC6633;
+	margin: 4px 0 0 0;
 }
+
+
+.sku_list_sort_hot {
+	width:100%;
+	font-size: 12px;
+	line-height:26px;
+	vertical-align:middle;
+}
+.sku_list_sort_hot .has_children{
+	background : #ffffff;
+	color :#333333;
+	cursor:pointer;
+	border-bottom: 1px dashed #e70013;
+}
+.sku_list_sort_hot .highlight{
+	color : #e70013;
+	border-bottom: 1px solid #e70013;
+	background : #fff9e6;
+}
+.sku_list_sort_hot div{
+	padding:0;
+}
+.sku_list_sort_hot .has_children span {
+	padding: 0 0 0 8px;
+}
+.sku_list_sort_hot div a{
+	display : none;
+	float:left;
+	width: 100%;
+	margin: 2px 0 0 0;
+    text-align:center;
+}
+.sku_list_sort_hot_bottom_line {
+	border-bottom: 1px solid #e70013;
+}
+
 
 /** Homepage SKU_categary style - End **/
 
 /** Homepage footer style - Start **/
 
 #footer {
-    position: absolute;
-    top: 1200px;
-	left: 0px;
+    position: relative;
+	float:left;
     width: 1000px;
     height: 400px;
+	margin: 10px 0 0 0;
     background-color: #ffffff;
 	clear: both;
 }
@@ -702,7 +802,7 @@ h1, h2, h3, ul{
 	width: 1000px;
 	height: 26px;
 	margin: 2px 0 0 0;
-	background-image:url(images/bar/bar_bg_1_30.png);
+	background-image:url(/images/bar/bar_bg_1_30.png);
 	line-height:26px;
 	vertical-align:middle;
 	text-align:center;
@@ -859,8 +959,6 @@ div#copyright {
     padding: 0;
     vertical-align: top;
 }
-.smallslider li.current-li {
-}
 .smallslider-btns {
     position: absolute;
 	top: 4px;
@@ -904,6 +1002,38 @@ div#copyright {
     position: fixed;
     width: 200px;
 }
+/** Recent visited bar **/
+.recent_visited_ul {
+	list-style: none;
+	padding: 4px 8px 4px 8px;
+}
+.recent_visited_li {
+	position:relative;
+	float:left;
+	width: 100%;
+	height: 50px;
+	padding: 0;
+	margin: 2px 0 2px 0;
+}
+.recent_visited_li div {
+	position:absolute;
+	top: 0px; /**Changed 2012/01/13**/
+	left: 38px;
+	width: 152px;
+	height: 30px;
+	border-bottom: 1px dashed #dddddd;
+}
+.recent_visited_li div:hover {
+	position:absolute;
+	top: 0px; /**Changed 2012/01/13**/
+	left: 38px;
+	width: 152px;
+	height: 30px;
+	border-bottom: 1px solid #dddddd;
+}
+
+
+
 /** SKU Level 2 Homepage Starts here **/
 #sku_l2_banner {
 	width: 209px;
@@ -911,38 +1041,65 @@ div#copyright {
 	background-color:#00CCCC;
 }
 
-.recent_visited_ul {
-  list-style: none;
-  padding: 4px 8px 4px 8px;
+/**Help page style -- Starts -- 2012/01/14 **/
+.cs {
+	position: relative;
+	float: left;
+	margin: 4px 0 0 0;
 }
-
-.recent_visited_li {
-  position:relative;
-  float:left;
-  width: 100%;
-  height: 50px;
-  padding: 0;
-  margin: 2px 0 2px 0;
+.cs p {
+	padding: 0 4px 0 4px;
 }
-
-.recent_visited_li div {
-  position:absolute;
-  top: 8px;
-  left: 38px;
-  width: 152px;
-  height: 30px;
-  border-bottom: 1px dashed #dddddd;
+.help_center {
+	position: relative;
+	float: left;
+	clear: left;
+	margin: 10px 0 0 0;
 }
-
-.recent_visited_li div:hover {
-  position:absolute;
-  top: 8px;
-  left: 38px;
-  width: 152px;
-  height: 30px;
-  border-bottom: 1px solid #dddddd;
+.help_content {
+	position: relative;
+	float: right;
+	line-height: 20px;
+	vertical-align:middle;
+	margin: 4px 0 4px 0;
 }
-
+.help_content p {
+	padding: 0 4px 0 4px;
+	text-indent: 24px;
+}
+.help_h2 {
+	display:block;
+	background-image:url(images/bar/bar_bg_1_30.png);
+	height: 26px;
+	line-height: 26px;
+	vertical-align: middle;
+	color: #e70013;
+	font-weight: normal;
+	padding: 0 0 0 4px;
+}
+.help_content h3 {
+	display: block;
+	background:#dddddd;
+	height:26px;
+	line-height:26px;
+	vertical-align:middle;
+	padding : 0 0 0 4px;
+}
+.help_center dt {
+	display: block;
+	background:#fff9e6;
+	height:26px;
+	line-height:26px;
+	vertical-align:middle;
+	padding : 0 0 0 4px;
+}
+.help_center dd {
+	padding: 4px 4px 0 24px;
+	margin: 0;
+	line-height:20px;
+	vertical-align:middle;
+}
+/**Help page style -- Starts -- 2012/01/14 **/
 
 
 .overflow_text{

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Delivery order:</b>
+  <%= @prod_del_ordship.delivery_order_id %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @prod_del_ordship.product_id %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @prod_del_ordship.quantity %>
+</p>
+
+
+<%= link_to 'Edit', edit_prod_del_ordship_path(@prod_del_ordship) %> |
+<%= link_to 'Back', prod_del_ordships_path %>

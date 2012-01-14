@@ -1,0 +1,27 @@
+<h1>Listing prod_del_ordships</h1>
+
+<table>
+  <tr>
+    <th>Delivery order</th>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @prod_del_ordships.each do |prod_del_ordship| %>
+  <tr>
+    <td><%= prod_del_ordship.delivery_order_id %></td>
+    <td><%= prod_del_ordship.product_id %></td>
+    <td><%= prod_del_ordship.quantity %></td>
+    <td><%= link_to 'Show', prod_del_ordship %></td>
+    <td><%= link_to 'Edit', edit_prod_del_ordship_path(prod_del_ordship) %></td>
+    <td><%= link_to 'Destroy', prod_del_ordship, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Prod del ordship', new_prod_del_ordship_path %>

@@ -2,13 +2,31 @@
 <html>
 <head>
   <title>Ebiz</title>
-  <%= stylesheet_link_tag 'index/home/home.css' %>
+  <%= stylesheet_link_tag 'index/home/home.css', 'smoothness/jquery-ui-1.8.16.custom-jimmy' %>
   <%= javascript_include_tag :defaults %>
-  <%= javascript_include_tag 'jquery.smallslider','player' %>
+  <%= javascript_include_tag 'jquery-ui-1.8.16.custom.min','jquery.smallslider','player' %>
   <%= csrf_meta_tag %>
   <script type="text/javascript">
     jQuery(document).ready(function(){
       <%= yield(:ready) %>
+      jQuery("#tabs").tabs({
+        event: 'mouseover'
+      });
+
+	  //Homepage Sort List
+      for (i=0; i < 6; i++) {
+        jQuery("#sku_sort_"+i).addClass("highlight")//为当前元素增加highlight类
+        .children("a").show().end()//将子节点的a元素显示出来并重新定位到上次操作的元素
+        .siblings().removeClass("highlight")//获取元素的兄弟元素，并去掉他们的highlight类
+        .children("a").hide();//将兄弟元素下的a元素隐藏
+      }
+
+      jQuery(".has_children").mouseover(function(){
+        jQuery(this).addClass("highlight")//为当前元素增加highlight类
+          .children("a").show().end()//将子节点的a元素显示出来并重新定位到上次操作的元素
+          .siblings().removeClass("highlight")//获取元素的兄弟元素，并去掉他们的highlight类
+          .children("a").hide();//将兄弟元素下的a元素隐藏
+      });
     });
   </script>
   <script type="text/javascript">
@@ -149,8 +167,8 @@
       <img id="service_ol" src="/images/ServiceOL_77_26.png" />
       <div id="search_bar">
         <form>
-          <input type="text" name="keywords" size="30" maxlength="80" value="商品……">
-          <button style="line-height: 16px" type="submit" name="submit-search">搜索</button>
+          <input type="text" name="keywords" size="30" maxlength="50" value="商品……">
+          <a href="#" style="clear: left;">搜索</a>
         </form>
       </div>
 

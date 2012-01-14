@@ -11,18 +11,20 @@
 <table class="grid">
   <thead>
     <tr>
-      <td>#</td>
-      <td>商品编号</td>
-      <td>商品名称</td>
-      <td>单位</td>
-      <td>单价</td>
-      <td>数量</td>
-      <td>安装</td>
-      <td>安装费用</td>
-      <td>组装</td>
-      <td>组装费用</td>
-      <td>交货期</td>
-      <td>合计</td>
+      <th>#</th>
+      <th>商品编号</th>
+      <th>商品名称</th>
+      <th>单位</th>
+      <th>单价</th>
+      <th>数量</th>
+      <th>安装</th>
+      <th>安装费用</th>
+      <th>组装</th>
+      <th>组装费用</th>
+      <th>交货期</th>
+      <th>合计</th>
+      <th>宁波仓库</th>
+      <th>象山仓库</th>
     </tr>
   </thead>
   <% @order.order_details.each_with_index do |detail,index| %>
@@ -39,6 +41,8 @@
       <td><%= detail.assemble_cost %></td>
       <td><%= detail.sku.delivery_day %></td>
       <td><%= detail.unit_price*detail.quantity %></td>
+      <td><%= is_store(detail,1) %></td>
+      <td><%= is_store(detail,2) %></td>
     </tr>
   <% end %>
 </table>

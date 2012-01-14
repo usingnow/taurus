@@ -207,7 +207,15 @@ class Admin::OrdersController < ApplicationController
     @station_procedureship = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(@instance.procedure_id,
                                                                                                        @instance.station_id,
                                                                                                        session[:condition_id])
-     #保存过站记录
+
+    #执行业务函数
+    if !@station_procedureship.business_function_id.nil?
+      if @station_procedureship.business_function.function == "delivery"
+        @order.update_attributes(:is_delivery => 1)
+      end
+    end
+
+    #保存过站记录
     hash = [{:instance_id => @instance.id, :station_id => @instance.station_id,
              :condition_id => session[:condition_id], :next_station_id => @station_procedureship.next_station_id,
              :created_by => current_administrator.name}]

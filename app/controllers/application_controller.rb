@@ -110,6 +110,43 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def subtract_store_quantity(line_items,delivery_order)
+      line_items.each do |item|
+        @product_storeship = ProductStoreship.find_by_product_id_and_store_id(item.product_id,delivery_order.store_id)
+        if delivery_order.order_id.nil?
+          if item.quantity < @product_storeship.quantity
+          @product_storeship.update_attributes(:quantity => @product_storeship.quantity-item.quantity,
+                                               :stockout => 0)
+          else
+            @product_storeship.update_attributes(:quantity => 0,
+                                                 :stockout => item.quantity-@product_storeship.quantity+@product_storeship.stockout)
+          end
+        else
+          if item.quantity < @product_storeship.sales_reserved
+            if item.quantity < @product_storeship.quantity
+              @product_storeship.update_attributes(:quantity => @product_storeship.quantity-item.quantity,
+                                                   :stockout => 0,
+                                                   :sales_reserved => @product_storeship.sales_reserved-item.quantity)
+            else
+              @product_storeship.update_attributes(:quantity => 0,
+                                                   :stockout => item.quantity-@product_storeship.quantity+@product_storeship.stockout,
+                                                   :sales_reserved => @product_storeship.sales_reserved-item.quantity)
+            end
+          else
+            if item.quantity < @product_storeship.quantity
+              @product_storeship.update_attributes(:quantity => @product_storeship.quantity-item.quantity,
+                                                   :stockout => 0,
+                                                   :sales_reserved => 0)
+            else
+              @product_storeship.update_attributes(:quantity => 0,
+                                                   :stockout => item.quantity-@product_storeship.quantity+@product_storeship.stockout,
+                                                   :sales_reserved => 0)
+            end
+          end
+        end
+      end
+    end
+
     #获得订单实例
     def current_instance(procedure_id,next_station_id)
       Instance.create(:procedure_id=>procedure_id,:station_id=>next_station_id)

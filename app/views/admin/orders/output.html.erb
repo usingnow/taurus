@@ -2,6 +2,12 @@
 
 <%= form_tag(condition_admin_orders_path) do%>
   <div class="attributes">
+    <p>
+      <%= label_tag '仓库' %>
+      <%= select :order, :store_id, Store.all.collect{ |s| [s.name,s.id]} %>
+    </p>
+  </div>
+  <div class="attributes">
     <%= text_area_tag 'order[inner_note]', nil, :cols=>105, :rows=>5 %>
   </div>
   <%= submit_tag '确定拣货出库' %>

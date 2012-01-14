@@ -1,0 +1,98 @@
+<%= simple_form_for([:admin,@delivery_order]) do |f| %>
+  <%= f.input :order_id, :as => :hidden %>
+  <%= f.error_notification %>
+
+  <div class="attributes">
+    <div class="split_content_left">
+      <%= f.input :store_id do %>
+        <%= f.select :store_id, Store.all.collect{ |s| [s.name,s.id]} %>
+      <% end %>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <hr />
+
+  <table class="grid">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>商品编码</th>
+        <th>商品名称</th>
+        <th>规格</th>
+        <th>型号</th>
+        <th>单位</th>
+        <th>数量</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="product_carts">
+      <% @store_entry_product_carts.each_with_index do |product,index| %>
+        <tr class="<%= set_odd_even_class(index) %>">
+          <td><%= index+1 %></td>
+          <td><%= product.product.product_id %></td>
+          <td><%= product.product.name %></td>
+          <td><%= product.product.specification %></td>
+          <td><%= product.product.model %></td>
+          <td><%= product.product.unit %></td>
+          <td><input type="text" size="3"  value="<%= product.quantity %>" onchange="update_cart('<%= product.id %>',this.value,1)"/></td>
+          <td><a href="#" onclick="destroy_cart('<%= product.id %>','<%= product.cart_type %>')">删除</a></td>
+        </tr>
+      <% end %>
+
+      <script type="text/javascript">
+
+        function update_cart(id,value,type){
+          jQuery.ajax({ type: 'put', //提交的类型
+                        url: '/admin/store_entry_product_carts/'+id,//提交地址
+                        data: 'value='+value+'&type='+type,//参数  type:{1:数量,2:日期,3:单价,4:总计}
+                        success: function(msg){ //回调方法
+                        }});
+        }
+
+        function destroy_cart(id,cart_type){
+          jQuery.ajax({ type: 'delete', //提交的类型
+                        url: '/admin/store_entry_product_carts/'+id,//提交地址
+                        data: 'cart_type='+cart_type,//参数
+                        success: function(msg){ //回调方法
+                          $('#product_carts').html(msg);
+                        }});
+        }
+      </script>
+    </tbody>
+  </table>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<hr />
+<%= form_tag search_admin_products_path, :method => :get, :remote => true  do %>
+  <%= hidden_field_tag 'cart_type', '2'%>
+  <div class="attributes">
+    <div class="split_content_left">
+      <p>
+        <%= label_tag '商品名称' %>
+        <%= text_field_tag 'q[name_cont]' %>
+        <%= submit_tag '查询' %>
+      </p>
+    </div>
+    <div class="clear"></div>
+  </div>
+<% end %>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>商品编码</th>
+      <th>商品名称</th>
+      <th>规格</th>
+      <th>型号</th>
+      <th>单位</th>
+      <th>添加</th>
+    </tr>
+  </thead>
+  <tbody id="search_product"></tbody>
+</table>
