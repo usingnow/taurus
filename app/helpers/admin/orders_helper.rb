@@ -81,11 +81,14 @@ module Admin::OrdersHelper
         if prod_store.store_id == store_id
           if prod_store.quantity < 1
             result = "无库存"
+          else
+            result = "有库存"
           end
         else
-
+          result = "无货物"
         end
       end
     end
+    result
   end
 end

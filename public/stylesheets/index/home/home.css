@@ -261,13 +261,17 @@ h1, h2, h3, ul{
 	background-image:url(/images/search410_30_bg.png);
 	padding: 2px 0 2px 32px
 }
+
 #searc_bar form {
 	height: 26px;
 }
+
 #search_bar input {
 	width: 300px;
 	height: 20px;
 	border: none;
+    line-height: 20px;
+    vertical-align: middle;
 }
 #search_bar input:hover {
 	background:none;
