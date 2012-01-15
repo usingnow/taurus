@@ -384,4 +384,15 @@ class Admin::OrdersController < ApplicationController
     session[:order_id] = @order.id
     session[:condition_id] = params[:condition_id]
   end
+
+  #打印送货单
+  def print_delivery_note
+    @search = Order.search(params[:q])
+    @orders = @search.result.paginate(:page => params[:page], :per_page => 20)
+  end
+
+  def show_delivery_note
+    @order = Order.find(params[:order_id])
+    render :layout => false
+  end
 end

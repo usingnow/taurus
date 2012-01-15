@@ -57,10 +57,12 @@
     </p>
     <p>
       <%= label_tag '所属地区：' %>
-      <%= @order.district.city.province.name %>&nbsp;
-      <%= @order.district.city.name %>&nbsp;
-      <%= @order.district.name %>
-    </p>
+      <% if !@order.district.nil? %>
+        <%= @order.district.city.province.name %>&nbsp;
+        <%= @order.district.city.name %>&nbsp;
+        <%= @order.district.name %>
+      <% end %>
+    </p><br />
     <p>
       <%= label_tag '收货地址：' %>
       <%= @order.address %>

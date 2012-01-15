@@ -107,6 +107,9 @@ Ebiz::Application.routes.draw do
          get  :paid
          get  :pay_confirmation
          get  :print
+         get  :print_delivery_note
+         get  :relieve_retention
+         get  :show_delivery_note
          get  :sign_in
          get  :sku_sear
          get  :step2
@@ -115,7 +118,6 @@ Ebiz::Application.routes.draw do
          post :step5
          get  :take_over
          get  :user_sear
-         get  :relieve_retention
        end
      end
      resources :order_details

@@ -8,6 +8,7 @@ class Order < ActiveRecord::Base
   has_many :order_take_logs
   has_many :skus, :through => :order_details
   belongs_to :district, :class_name => "District", :foreign_key => "district_no"
+  has_many :order_print_logs
 
   attr_accessor :condition_type
 
@@ -49,6 +50,11 @@ class Order < ActiveRecord::Base
   #合计
   def total_amount
     total_sku_amount+total_install_cost+total_assemble_cost
+  end
+
+  #统计打印次数
+  def print_frequency
+    order_print_logs.count
   end
 
   validates_presence_of :inner_note, :if => :cancel
