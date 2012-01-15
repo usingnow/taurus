@@ -33,18 +33,18 @@ class Admin::DeliveryOrdersController < ApplicationController
       order_details = OrderDetail.find_all_by_order_id(order_id)
       @delivery_order.order_id = order_id
       @delivery_order.store_id = order_details[0].order.store_id
-      StoreEntryProductCart.destroy_all(:admin_id => admin_id, :cart_type => 3)
+      StoreEntryProductCart.destroy_all(:admin_id => admin_id, :cart_type => 2)
       line_items = []
       order_details.each do |detail|
         detail.sku.products.each do |product|
           line_items << {:product_id => product.id, :quantity => detail.quantity,
-                      :admin_id => admin_id, :cart_type => 3}
+                      :admin_id => admin_id, :cart_type => 2}
         end
       end
       StoreEntryProductCart.create(line_items)
     end
 
-    @store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id_and_cart_type(admin_id,3)
+    @store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id_and_cart_type(admin_id,2)
 
   end
 
