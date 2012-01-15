@@ -16,8 +16,8 @@ module Admin::SkusHelper
 
   def format_sku_status(value)
     if value == 1
-      "已确认"
-    else
+      "开始销售"
+    elsif value == 2
       "暂停销售"
     end
   end
@@ -25,7 +25,7 @@ module Admin::SkusHelper
   def format_sku_sales_status(value)
     if value == 0
       "未上架"
-    else
+    elsif value == 1
       "已上架"
     end
   end

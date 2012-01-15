@@ -30,6 +30,8 @@ module Admin::OrdersHelper
       url = input_pay_info_admin_orders_url(:id=>order,:condition_id=>action.condition.id)
     elsif action.condition.action == "pay_confirmation"
       url = pay_confirmation_admin_orders_url(:id=>order,:condition_id=>action.condition.id)
+    elsif action.condition.action == "relieve_retention"
+      url = relieve_retention_admin_orders_url(:id=>order,:condition_id=>action.condition.id)
     end
 
     "<a href='#{url}'>#{action.condition.display_name}</a>"

@@ -199,42 +199,44 @@ class Admin::OrdersController < ApplicationController
       end
     end
 
-    #保存支付宝支付信息
-    if !params[:order_pay].nil?
-      hash = {"order_id" => @order.id, "alipay_price_confirmation" => @order.total_amount}.merge(params[:order_pay] || {})
-      @order_pay = save_order_pay(hash)
-      if @order_pay.errors.size > 0
-        if params[:order_pay][:condition_type] == "1"
-          render "paid"
-        elsif params[:order_pay][:condition_type] == "2"
-          render "input_pay_info"
+    Order.transaction do
+      #保存支付宝支付信息
+      if !params[:order_pay].nil?
+        hash = {"order_id" => @order.id, "alipay_price_confirmation" => @order.total_amount}.merge(params[:order_pay] || {})
+        @order_pay = save_order_pay(hash)
+        if @order_pay.errors.size > 0
+          if params[:order_pay][:condition_type] == "1"
+            render "paid"
+          elsif params[:order_pay][:condition_type] == "2"
+            render "input_pay_info"
+          end
+          return
         end
-        return
       end
-    end
 
-    @instance = Instance.find(@order.instance_id)
-    @station_procedureship = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(@instance.procedure_id,
-                                                                                                       @instance.station_id,
-                                                                                                       session[:condition_id])
+      @instance = Instance.find(@order.instance_id)
+      @station_procedureship = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(@instance.procedure_id,
+                                                                                                         @instance.station_id,
+                                                                                                         session[:condition_id])
 
-    #执行业务函数
-    if !@station_procedureship.business_function_id.nil?
-      if @station_procedureship.business_function.function == "delivery"
-        @order.update_attributes(:is_delivery => 1)
+      #执行业务函数
+      if !@station_procedureship.business_function_id.nil?
+        if @station_procedureship.business_function.function == "delivery"
+          @order.update_attributes(:is_delivery => 1)
+        end
       end
-    end
 
-    #保存过站记录
-    hash = [{:instance_id => @instance.id, :station_id => @instance.station_id,
-             :condition_id => session[:condition_id], :next_station_id => @station_procedureship.next_station_id,
-             :created_by => current_administrator.name}]
-    save_station_track(hash)
+      #保存过站记录
+      hash = [{:instance_id => @instance.id, :station_id => @instance.station_id,
+               :condition_id => session[:condition_id], :next_station_id => @station_procedureship.next_station_id,
+               :created_by => current_administrator.name}]
+      save_station_track(hash)
 
-    if @instance.update_attributes(:station_id=>@station_procedureship.next_station_id)
-       session[:order_id] = nil
-       session[:condition_id] = nil
-       redirect_to(admin_orders_url)
+      if @instance.update_attributes(:station_id=>@station_procedureship.next_station_id)
+         session[:order_id] = nil
+         session[:condition_id] = nil
+         redirect_to(admin_orders_url)
+      end
     end
   end
 
@@ -375,5 +377,11 @@ class Admin::OrdersController < ApplicationController
   def print
     @order = Order.find(params[:order_id])
     render :layout => false
+  end
+
+  def relieve_retention
+    @order = Order.find(params[:id])
+    session[:order_id] = @order.id
+    session[:condition_id] = params[:condition_id]
   end
 end

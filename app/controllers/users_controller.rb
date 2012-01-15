@@ -3,6 +3,16 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
+    Bank.transaction do
+      b = Bank.new(:number => '001231')
+      b.save!
+
+      r = Role.new(:address => "asdfsafd", :asdfssfd =>"asdfasdf")
+      r.save!
+    end
+    rescue Exception => e
+      ActiveRecord::Rollback
+      puts e
   end
 
   # GET /users/1

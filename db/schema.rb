@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120114071005) do
+ActiveRecord::Schema.define(:version => 20120115094227) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -399,7 +399,7 @@ ActiveRecord::Schema.define(:version => 20120114071005) do
     t.integer  "updated_admin_id"
     t.text     "customer_note"
     t.text     "inner_note"
-    t.string   "reserve_reason"
+    t.text     "reserve_reason"
     t.decimal  "other_cost",          :precision => 8, :scale => 2, :default => 0.0
     t.integer  "is_affect_details"
     t.string   "district_no"
@@ -661,6 +661,7 @@ ActiveRecord::Schema.define(:version => 20120114071005) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "media_id"
   end
 
   create_table "sku_productships", :force => true do |t|
@@ -675,6 +676,8 @@ ActiveRecord::Schema.define(:version => 20120114071005) do
     t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "media_id"
+    t.string   "Material_id"
   end
 
   create_table "skus", :force => true do |t|
@@ -698,8 +701,8 @@ ActiveRecord::Schema.define(:version => 20120114071005) do
     t.integer  "integral"
     t.text     "introduction"
     t.text     "advertisement"
-    t.integer  "status"
-    t.integer  "sales_status"
+    t.integer  "status",                                                  :default => 2
+    t.integer  "sales_status",                                            :default => 0
     t.decimal  "cost_bef_tax",              :precision => 8, :scale => 2
     t.decimal  "cost_aft_tax",              :precision => 8, :scale => 2
     t.decimal  "market_price",              :precision => 8, :scale => 2

@@ -115,6 +115,7 @@ Ebiz::Application.routes.draw do
          post :step5
          get  :take_over
          get  :user_sear
+         get  :relieve_retention
        end
      end
      resources :order_details
