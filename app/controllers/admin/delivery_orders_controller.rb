@@ -59,9 +59,9 @@ class Admin::DeliveryOrdersController < ApplicationController
     admin_id = current_administrator.id
 
     #取出将要添加的商品
-    store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id_and_cart_type(admin_id,2) #0：采购单，1：入库单 类型区分，
+    @store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id_and_cart_type(admin_id,2) #0：采购单，1：入库单 类型区分，
 
-    if store_entry_product_carts.empty?
+    if @store_entry_product_carts.empty?
       @delivery_order = DeliveryOrder.new
       @delivery_order.errors.add("商品","至少一件")
       render "new"
@@ -76,7 +76,7 @@ class Admin::DeliveryOrdersController < ApplicationController
 
       line_items = []
 
-      store_entry_product_carts.each do |cart|
+      @store_entry_product_carts.each do |cart|
         line_items << {:delivery_order_id => @delivery_order.id,
                        :product_id => cart.product_id,
                        :quantity => cart.quantity}
@@ -84,13 +84,12 @@ class Admin::DeliveryOrdersController < ApplicationController
 
       if ProdDelOrdship.create(line_items)
         if destroy_sepc_by_admin_id(admin_id,2) #删除出库单商品购物车
-          subtract_store_quantity(store_entry_product_carts,@delivery_order)
+          subtract_store_quantity(@store_entry_product_carts,@delivery_order)
         end
       end
 
       redirect_to(admin_delivery_orders_url)
     else
-      @store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id_and_cart_type(admin_id,2)
       render :action => "new"
     end
   end
