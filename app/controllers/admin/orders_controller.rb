@@ -191,7 +191,7 @@ class Admin::OrdersController < ApplicationController
 
     if !params[:order].nil?
       if !params[:order][:store_id].nil?
-        if !is_have_store(@order,params[:store])
+        if !is_have_store(@order,params[:order][:store_id])
           @order.errors.add("选择的仓库","无此货物")
           render "output"
           return
