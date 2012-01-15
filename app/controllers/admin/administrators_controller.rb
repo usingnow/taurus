@@ -4,11 +4,8 @@ class Admin::AdministratorsController < ApplicationController
   authorize_resource
 
   def index
-    @administrators = Administrator.all
-
-    respond_to do |format|
-      format.html
-    end
+    @search = Administrator.search(params[:q])
+    @administrators = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /admins/1
