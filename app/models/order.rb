@@ -7,6 +7,8 @@ class Order < ActiveRecord::Base
   has_one :order_pay
   has_many :order_take_logs
   has_many :skus, :through => :order_details
+  belongs_to :district, :class_name => "District", :foreign_key => "district_no"
+
   attr_accessor :condition_type
 
 

@@ -57,7 +57,9 @@
     </p>
     <p>
       <%= label_tag '所属地区：' %>
-      <%= @order.district_no %>
+      <%= @order.district.city.province.name %>&nbsp;
+      <%= @order.district.city.name %>&nbsp;
+      <%= @order.district.name %>
     </p>
     <p>
       <%= label_tag '收货地址：' %>
