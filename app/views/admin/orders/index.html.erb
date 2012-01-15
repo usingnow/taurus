@@ -60,7 +60,7 @@
     <td><%= link_to order.number, admin_order_path(order) %></td>
     <td><%= get_user_name(order.user) %></td>
     <td><%= order.instance.procedure.name %></td>
-    <td><%= order.total_price %></td>
+    <td><%= order.total_amount %></td>
     <td><%= order.instance.station.name %></td>
     <td><%= fetch_make_by order %></td>
     <td><%= format_sku_type(order.order_details[0].sku.sku_type) %></td>
