@@ -5,12 +5,9 @@ class Admin::CompanyExtendsController < ApplicationController
   # GET /company_extends
   # GET /company_extends.xml
   def index
-    @company_extends = CompanyExtend.all
+    @search = CompanyExtend.search(params[:q])
+    @company_extends = @search.result.paginate(:page => params[:page], :per_page => 20)
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @company_extends }
-    end
   end
 
   # GET /company_extends/1

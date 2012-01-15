@@ -3,7 +3,10 @@ class Admin::PersonExtendsController < ApplicationController
   authorize_resource
 
   def index
-    @person_extends = PersonExtend.all
+
+    @search = PersonExtend.search(params[:q])
+    @person_extends = @search.result.paginate(:page => params[:page], :per_page => 20)
+
   end
 
   def new
