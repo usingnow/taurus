@@ -49,22 +49,16 @@ class Admin::ProcedureRoleshipsController < ApplicationController
     procedure_ids = params[:procedure_id]
 
     ProcedureRoleship.destroy_all(:role_id=>params[:role_id])
-    procedure_ids.each do |procedure_id|
-      @procedure_roleship = ProcedureRoleship.new
-      @procedure_roleship.procedure_id = procedure_id
-      @procedure_roleship.role_id = params[:role_id]
-      @procedure_roleship.save
-    end
 
-    respond_to do |format|
-      if @procedure_roleship
-        format.html { redirect_to(admin_roles_url, :notice => 'Procedure roleship was successfully created.') }
-        format.xml  { render :xml => @procedure_roleship, :status => :created, :location => @procedure_roleship }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @procedure_roleship.errors, :status => :unprocessable_entity }
+    if !procedure_ids.nil?
+      procedure_ids.each do |procedure_id|
+        @procedure_roleship = ProcedureRoleship.new
+        @procedure_roleship.procedure_id = procedure_id
+        @procedure_roleship.role_id = params[:role_id]
+        @procedure_roleship.save
       end
     end
+    redirect_to(admin_roles_url)
   end
 
   # PUT /procedure_roleships/1

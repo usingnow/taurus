@@ -5,7 +5,11 @@ module Admin::OrdersHelper
     if admin_id.nil?
       "<a href='#{take_over_admin_orders_url(:id=>order,:type => 1)}'>【我来接管】</a>"
     else
-      "<a href='#{take_over_admin_orders_url(:id=>order,:type => 0)}'>【取消接管】</a>"
+      if admin_id == current_administrator.id
+         "<a href='#{take_over_admin_orders_url(:id=>order,:type => 0)}'>【取消接管】</a>"
+      else
+         "【接管人:#{order.administrator.name}】"
+      end
     end
   end
 
