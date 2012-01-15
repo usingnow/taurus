@@ -68,7 +68,7 @@ class Admin::DeliveryOrdersController < ApplicationController
       return
     end
 
-    @delivery_order = DeliveryOrder.new(params[:store_entry])
+    @delivery_order = DeliveryOrder.new(params[:delivery_order])
     @delivery_order.number = current_serial_number("DO")
     @delivery_order.administrator_id = admin_id
 
@@ -90,6 +90,7 @@ class Admin::DeliveryOrdersController < ApplicationController
 
       redirect_to(admin_delivery_orders_url)
     else
+      @store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id_and_cart_type(admin_id,2)
       render :action => "new"
     end
   end
