@@ -4,7 +4,7 @@ class Admin::SkusController < ApplicationController
   # GET /skus
   # GET /skus.xml
   def index
-    @search = Sku.search(params[:p])
+    @search = Sku.search(params[:q])
     @search.sorts = "updated_at desc"
     @skus = @search.result.paginate(:page => params[:page], :per_page => 20)
 

@@ -1,5 +1,31 @@
 <h1>企业会员列表</h1>
 
+<div class="attributes">
+  <%= search_form_for [:admin,@search] do |f| %>
+    <div class="split_content_left">
+      <p>
+        <%= f.label '编号' %>
+        <%= f.text_field :company_no_cont %>
+      </p>
+      <p>
+        <%= f.label '企业名称' %>
+        <%= f.text_field :company_name_cont %>
+      </p>
+    </div>
+    <div class="split_content_right">
+      <p>
+        <%= f.label '帐号' %>
+        <%= f.text_field :user_login_no_cont %>
+      </p>
+      <p>
+        <label>&nbsp;</label>
+        <%= f.submit '查询'%>
+      </p>
+    </div>
+    <div class="clear"></div>
+  <% end %>
+</div>
+
 <div class="grid_button">
   <%= link_to '新增企业会员', new_admin_company_extend_path %>
 </div>
@@ -23,7 +49,7 @@
     <td><%= company_extend.company_no %></td>
     <td><%= company_extend.user.login_no %></td>
     <td><%= company_extend.company_name %></td>
-    <td><%= company_extend.created_by %></td>
+    <td><%= company_extend.created_at %></td>
     <td><%= company_extend.role.name %></td>
     <td><%= format_user_status company_extend.user.status %></td>
     <td></td>

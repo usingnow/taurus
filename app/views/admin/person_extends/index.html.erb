@@ -1,5 +1,31 @@
 <h1>个人会员列表</h1>
 
+<div class="attributes">
+  <%= search_form_for [:admin,@search] do |f| %>
+    <div class="split_content_left">
+      <p>
+        <%= f.label '编号' %>
+        <%= f.text_field :person_no_cont %>
+      </p>
+      <p>
+        <%= f.label '姓名' %>
+        <%= f.text_field :name_cont %>
+      </p>
+    </div>
+    <div class="split_content_right">
+      <p>
+        <%= f.label '帐号' %>
+        <%= f.text_field :user_login_no_cont %>
+      </p>
+      <p>
+        <label>&nbsp;</label>
+        <%= f.submit '查询'%>
+      </p>
+    </div>
+    <div class="clear"></div>
+  <% end %>
+</div>
+
 <div class="grid_button">
   <%= link_to '新增个人会员', new_admin_person_extend_path %>
 </div>
