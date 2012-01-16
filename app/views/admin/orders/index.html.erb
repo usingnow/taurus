@@ -29,6 +29,10 @@
         <%= f.text_field :total_price_lt %>
       </p>
       <p>
+        <%= f.label '订单状态' %>
+        <%= f.select :instance_station_id_eq, Station.all.collect{ |s| [s.name ,s.id]} ,{:include_blank => true } %>
+      </p>
+      <p>
         <label>&nbsp;</label>
         <%= f.submit '查询'%>
       </p>
@@ -61,7 +65,7 @@
     <td><%= get_user_name(order.user) %></td>
     <td><%= order.instance.procedure.name %></td>
     <td><%= order.total_amount %></td>
-    <td><%= order.instance.station.name %></td>
+    <td  title="<%= order.reserve_reason %>"><%= order.instance.station.name %></td>
     <td><%= fetch_make_by order %></td>
     <td><%= format_sku_type(order.order_details[0].sku.sku_type) %></td>
     <td><%= order.created_at %></td>

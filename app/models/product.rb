@@ -4,10 +4,20 @@ class Product < ActiveRecord::Base
   has_many :product_storeships
   attr_accessor :brand_name, :product_category_name, :supplier_name
 
+  def nb_is_inventory
+    product_storeship = product_storeships.where(:store_id => 1).first
+    if product_storeship.quantity < 1
+      false
+    else
+      true
+    end
+  end
+
   validates :product_id, :name, :brand_id, :product_category_id, :unit, :specification, :delivery_days,
             :supplier_id, :brand_name, :product_category_name, :supplier_name, :presence => true
 
   validate :brand_exists?, :category_exists?, :supplier_exists?
+
 
   protected
 
