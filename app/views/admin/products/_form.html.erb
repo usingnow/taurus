@@ -1,187 +1,78 @@
-<%= form_for([:admin,@product]) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%=I18n.t('activerecord.errors.template.header', :count => @product.errors.size, :model => I18n.t('models.product'))%></h2>
+<%= simple_form_for([:admin,@product]) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <div class="attributes">
+    <div class="split_content_left">
+       <%= f.input :product_id %>
+       <%= f.input :brand_name do %>
+         <%= f.autocomplete_field :brand_name, autocomplete_brand_chinese_name_admin_brands_path, :id_element => '#product_brand_id'  %>
+       <% end %>
+       <%= f.input :brand_id, :as => :hidden  %>
+       <%= f.input :unit %>
+       <%= f.input :delivery_days %>
+       <%= f.input :cost_bef_tax %>
+       <%= f.input :model %>
+       <%= f.input :color %>
+       <%= f.input :barcode %>
+       <%= f.input :manufacturer %>
+       <%= f.input :shelf_life %>
+       <%= f.input :wanrranty %>
+       <%= f.input :origin %>
+       <%= f.input :is_green do
+        f.collection_radio :is_green, [['false', '否'], ['true', '是']],
+                           :first, :second, :checked => 'false' end%>
+       <%= f.input :assembling_fee_bef_tax %>
+       <%= f.input :is_maintanable do
+        f.collection_radio :is_maintanable, [['false', '否'], ['true', '是']],
+                           :first, :second, :checked => 'false' end%>
+       <%= f.input :maintenance_cost_aft_tax %>
+       <%= f.input :installation_cost_bef_tax %>
     </div>
-  <% end %>
-  
-  <div class="field">
-    <%= f.label :product_id %><span class="red">*</span><br />
-    <%= f.text_field :product_id %>
+    <div class="split_content_right">
+       <%= f.input :name %>
+       <%= f.input :product_category_name do %>
+         <%= f.autocomplete_field :product_category_name, autocomplete_product_category_name_admin_product_categories_path, :id_element => '#product_category_id'  %>
+       <% end %>
+       <%= f.input :specification %>
+       <%= f.input :delivery_descprition %>
+       <%= f.input :cost_aft_tax %>
+       <%= f.input :size %>
+       <%= f.input :can_on_behalf do
+        f.collection_radio :can_on_behalf, [['false', '否'], ['true', '是']],
+                           :first, :second, :checked => 'false'
+       end %>
+       <%= f.input :supplier_name do %>
+         <%= f.autocomplete_field :supplier_name, autocomplete_supplier_name_admin_suppliers_path, :id_element => '#product_supplier_id'  %>
+       <% end %>
+       <%= f.input :supplier_id, :as => :hidden %>
+       <%= f.input :have_shelf_life do
+         f.collection_radio :have_shelf_life, [['1', '无保质期'], ['2', '按生产日期'],['3','按失效日期']],
+                            :first, :second, :checked => '1' end%>
+       <%= f.input :have_wanrranty do
+          f.collection_radio :have_wanrranty, [['false','否'],['true','是']],
+                             :first, :second, :checked => 'false' end %>
+       <%= f.input :wanrranty_description, :input_html => {:rows => 1, :cols => 25} %>
+       <%= f.input :appendant %>
+       <%= f.input :is_assembling_required do
+        f.collection_radio :is_assembling_required, [['false', '否'], ['true', '是']],
+                           :first, :second, :checked => 'false' end%>
+       <%= f.input :assembling_fee_aft_tax %>
+       <%= f.input :maintenance_cost_bef_tax %>
+       <%= f.input :is_installation_required do
+        f.collection_radio :is_installation_required, [['false', '否'], ['true', '是']],
+                           :first, :second, :checked => 'false' end%>
+       <%= f.input :insatllation_cost_aft_tax %>
+    </div>
+    <div class="clear"></div>
   </div>
-  <div class="field">
-    <%= f.label :name %><span class="red">*</span><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :brand_id %><span class="red">*</span><br />
-    <%= f.text_field :brand_id %>
-  </div>
-  <div class="field">
-    <%= f.label :product_category_id %><span class="red">*</span><br />
-    <%= f.text_field :product_category_id %>
-  </div>
-  <div class="field">
-    <%= f.label :unit %><span class="red">*</span><br />
-    <%= f.text_field :unit %>
-  </div>
-  <div class="field">
-    <%= f.label '仓库' %><span class="red">*</span><br />
+
+  <div class="attributes">
+    <%= f.label '仓库' %><span class="red">*</span>
     <%=raw product_stores(@product)  %>
-  </div>
-  <div class="field">
-    <%= f.label :specification %><span class="red">*</span><br />
-    <%= f.text_field :specification %>
-  </div>
-  <div class="field">
-    <%= f.label :delivery_days %><span class="red">*</span><br />
-    <%= f.text_field :delivery_days, :columns => 2 %>
-  </div>
-  <div class="field">
-    <%= f.label :delivery_descprition %><br />
-    <%= f.text_area :delivery_descprition, :rows => 6 %>
-  </div>
 
-  <div class="field">
-    <%= f.label :cost_bef_tax %><br />
-    <%= f.text_field :cost_bef_tax %>
-  </div>
-  <div class="field">
-    <%= f.label :cost_aft_tax %><br />
-    <%= f.text_field :cost_aft_tax %>
-  </div>
-
-
-
-  <div class="field">
-    <%= f.label :model %><br />
-    <%= f.text_field :model %>
-  </div>
-  <div class="field">
-    <%= f.label :size %><br />
-    <%= f.text_field :size %>
-  </div>
-
-  <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description, :rows => 6 %>
-  </div>
-  <div class="field">
-    <%= f.label :color %><br />
-    <%= f.text_field :color %>
-  </div>
-  <div class="field">
-    <%= f.label :can_on_behalf %><br />
-    <%= f.radio_button :can_on_behalf, '1', :checked => true %>
-    <%= f.label "否" %>
-    <%= f.radio_button :can_on_behalf, '2' %>
-    <%= f.label "是" %>
-  </div>
-  <div class="field">
-    <%= f.label :barcode %><br />
-    <%= f.text_field :barcode %>
-  </div>
-  <div class="field">
-    <%= f.label :supplier_id %><span class="red">*</span><br />
-    <%= f.text_field :supplier_id %>
-  </div>
-  <div class="field">
-    <%= f.label :manufacturer %><br />
-    <%= f.text_field :manufacturer %>
-  </div>
-  <div class="field">
-    <%= f.label :have_shelf_life %><br />
-    <%= f.radio_button :have_shelf_life, '1', :checked => true %>
-    <%= f.label "无保质期" %>
-    <%= f.radio_button :have_shelf_life, '2' %>
-    <%= f.label "按生产日期" %>
-    <%= f.radio_button :have_shelf_life, '3' %>
-    <%= f.label "按失效日期" %>
-  </div>
-  <div class="field">
-    <%= f.label :shelf_life %><br />
-    <%= f.text_field :shelf_life %>
-  </div>
-  <div class="field">
-    <%= f.label :have_wanrranty %><br />
-    <%= f.radio_button :have_wanrranty, '1', :checked => true %>
-    <%= f.label "否" %>
-    <%= f.radio_button :have_wanrranty, '2' %>
-    <%= f.label "是" %>
-  </div>
-  <div class="field">
-    <%= f.label :wanrranty %><br />
-    <%= f.text_field :wanrranty %>
-  </div>
-  <div class="field">
-    <%= f.label :wanrranty_description %><br />
-    <%= f.text_field :wanrranty_description, :row => 6 %>
-  </div>
-  <div class="field">
-    <%= f.label :origin %><br />
-    <%= f.text_field :origin %>
-  </div>
-  <div class="field">
-    <%= f.label :appendant %><br />
-    <%= f.text_field :appendant %>
-  </div>
-  <div class="field">
-    <%= f.label :is_green %><br />
-    <%= f.radio_button :is_green, '1', :checked => true %>
-    <%= f.label "否" %>
-    <%= f.radio_button :is_green, '2' %>
-    <%= f.label "是" %>
-  </div>
-  <div class="field">
-    <%= f.label :is_assembling_required %><br />
-    <%= f.radio_button :is_assembling_required, '1', :checked => true %>
-    <%= f.label "否" %>
-    <%= f.radio_button :is_assembling_required, '2' %>
-    <%= f.label "是" %>
-  </div>
-  <div class="field">
-    <%= f.label :assembling_fee_bef_tax %><br />
-    <%= f.text_field :assembling_fee_bef_tax %>
-  </div>
-  <div class="field">
-    <%= f.label :assembling_fee_aft_tax %><br />
-    <%= f.text_field :assembling_fee_aft_tax %>
-  </div>
-  <div class="field">
-    <%= f.label :is_maintanable %><br />
-    <%= f.radio_button :is_maintanable, '1', :checked => true %>
-    <%= f.label "否" %>
-    <%= f.radio_button :is_maintanable, '2' %>
-    <%= f.label "是" %>
-  </div>
-  <div class="field">
-    <%= f.label :maintenance_cost_bef_tax %><br />
-    <%= f.text_field :maintenance_cost_bef_tax %>
-  </div>
-  <div class="field">
-    <%= f.label :maintenance_cost_aft_tax %><br />
-    <%= f.text_field :maintenance_cost_aft_tax %>
-  </div>
-  <div class="field">
-    <%= f.label :is_installation_required %><br />
-    <%= f.radio_button :is_installation_required, '1', :checked => true %>
-    <%= f.label "否" %>
-    <%= f.radio_button :is_installation_required, '2' %>
-    <%= f.label "是" %>
-  </div>
-  <div class="field">
-    <%= f.label :installation_cost_bef_tax %><br />
-    <%= f.text_field :installation_cost_bef_tax %>
-  </div>
-  <div class="field">
-    <%= f.label :insatllation_cost_aft_tax %><br />
-    <%= f.text_field :insatllation_cost_aft_tax %>
+
+    <%= f.cktext_area :description, :toolbar=>'Full', :width=>'800px', :height=>'200px' %>
   </div>
 
   <div class="actions">

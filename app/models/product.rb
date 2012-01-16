@@ -2,8 +2,10 @@
 class Product < ActiveRecord::Base
   belongs_to :brand
   has_many :product_storeships
+  attr_accessor :brand_name, :product_category_name, :supplier_name
 
-  validates :product_id, :name, :brand_id, :product_category_id, :unit, :specification, :delivery_days, :supplier_id, :presence => true
+  validates :product_id, :name, :brand_id, :product_category_id, :unit, :specification, :delivery_days,
+            :supplier_id, :brand_name, :product_category_name, :supplier_name, :presence => true
 
   validate :brand_exists?, :category_exists?, :supplier_exists?
 

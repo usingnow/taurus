@@ -84,10 +84,14 @@ Ebiz::Application.routes.draw do
          get  :search
        end
      end
-     resources :suppliers
-     resources :product_categories
+     resources :suppliers do
+       get  :autocomplete_supplier_name, :on => :collection
+     end
+     resources :product_categories do
+       get :autocomplete_product_category_name, :on => :collection
+     end
      resources :sku_categories do
-        get  :autocomplete_sku_category_name, :on => :collection
+       get  :autocomplete_sku_category_name, :on => :collection
      end
      resources :skus do
        collection do
@@ -121,6 +125,7 @@ Ebiz::Application.routes.draw do
        end
      end
      resources :order_details
+     resources :order_pays
      resources :procedures
      resources :stations
      resources :station_procedureships

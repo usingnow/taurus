@@ -248,7 +248,10 @@ zh-CN:
       cost_bef_tax: "税前成本"
       cost_aft_tax: "税后成本"
       brand_id: "品牌ID"
+      brand_name: "品牌名称"
+      supplier_name: "供应商名称"
       product_category_id: "素材商品分类id"
+      product_category_name: "素材分类名称"
       unit:  "库存单位"
       specification: "素材商品规格"
       delivery_days: "供应商交货日数"
@@ -271,7 +274,7 @@ zh-CN:
       wanrranty_description: "保修期描述"
       origin: "原产地"
       appendant: "附属品"
-      is_green: "是否绿色环保产品"
+      is_green: "绿色环保产品"
 
       #素材商品组装、安装、维修费用信息
       is_assembling_required: "是否需要组装"
@@ -544,6 +547,8 @@ zh-CN:
 
     delivery_order:
       store_id: "仓库"
+
+
 
   activerecord:
     models:

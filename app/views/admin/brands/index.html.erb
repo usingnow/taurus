@@ -1,5 +1,23 @@
 <h1>品牌列表</h1>
 
+<div class="attributes">
+  <%= search_form_for [:admin,@search] do |f| %>
+    <div class="split_content_left">
+      <p>
+        <%= f.label '品牌中文名称' %>
+        <%= f.text_field :chinese_name_cont %>
+      </p>
+    </div>
+    <div class="split_content_right">
+      <p>
+        <label>&nbsp;</label>
+        <%= f.submit '查询'%>
+      </p>
+    </div>
+    <div class="clear"></div>
+  <% end %>
+</div>
+
 <div class="grid_button">
   <%= link_to '新建品牌', new_admin_brand_path %>
 </div>

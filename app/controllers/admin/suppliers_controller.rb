@@ -1,10 +1,10 @@
 class Admin::SuppliersController < ApplicationController
   before_filter :authenticate_administrator!
 
-  # GET /suppliers
-  # GET /suppliers.xml
+  autocomplete :supplier, :name
+
   def index
-    @search = Supplier.search(params[:p])
+    @search = Supplier.search(params[:q])
     @suppliers = @search.result.paginate(:page => params[:page], :per_page => 20)
 
     respond_to do |format|

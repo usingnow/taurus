@@ -1,8 +1,8 @@
 class Admin::ProductCategoriesController < ApplicationController
   before_filter :authenticate_administrator!
 
-  # GET /product_categories
-  # GET /product_categories.xml
+  autocomplete :product_category, :name
+
   def index
     @search = ProductCategory.search(params[:p])
     @product_categories = @search.result.paginate(:page => params[:page], :per_page => 20)

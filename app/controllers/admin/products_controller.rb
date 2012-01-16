@@ -4,7 +4,7 @@ class Admin::ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
   def index
-    @search = Product.search(params[:p])
+    @search = Product.search(params[:q])
     @search.sorts = "updated_at desc"
     @products = @search.result.paginate(:page => params[:page], :per_page => 20)
 
