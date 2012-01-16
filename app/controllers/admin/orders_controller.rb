@@ -200,25 +200,26 @@ class Admin::OrdersController < ApplicationController
   def condition
     @order = Order.find(session[:order_id])
 
-    if !@order.update_attributes(params[:order])
-      render "cancel"
-      return
-    end
+    Order.transaction do
+      if !@order.update_attributes(params[:order])
+        render "cancel"
+        return
+      end
 
-    if !params[:order].nil?
-      if !params[:order][:store_id].nil?
-        if !is_have_store(@order,params[:order][:store_id])
-          @order.errors.add("选择的仓库","无此货物")
-          render "output"
-          return
+      if !params[:order].nil?
+        if !params[:order][:store_id].nil?
+          if !is_have_store(@order,params[:order][:store_id])
+            @order.errors.add("选择的仓库","无此货物")
+            render "output"
+            return
+          end
         end
       end
-    end
 
-    Order.transaction do
+
       #保存支付宝支付信息
       if !params[:order_pay].nil?
-        hash = {"order_id" => @order.id, "alipay_price_confirmation" => @order.total_amount}.merge(params[:order_pay] || {})
+        hash = {"order_id" => @order.id, "alipay_price_confirmation" => @order.total_amount, "price_confirmation" => @order.total_amount}.merge(params[:order_pay] || {})
         @order_pay = save_order_pay(hash)
         if @order_pay.errors.size > 0
           if params[:order_pay][:condition_type] == "1"
@@ -356,7 +357,7 @@ class Admin::OrdersController < ApplicationController
       render "step2"
       return
     end
-    @procedures = Procedure.all
+    @procedures = Procedure.find_all_by_active(true)
   end
 
   #所有字段订单搜索

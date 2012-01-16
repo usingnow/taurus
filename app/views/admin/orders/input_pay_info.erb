@@ -22,8 +22,7 @@
          <%= date_select :order_pay, :alipay_date  %>
        </p>
        <p>
-         <%= label_tag '支付金额：' %>
-         <%= text_field :order_pay, :price%><span class="red">*</span>
+         <%= f.input :price %>
        </p>
      </div>
     <% end %>
