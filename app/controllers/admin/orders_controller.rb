@@ -52,10 +52,6 @@ class Admin::OrdersController < ApplicationController
     inner_order_payment = InnerOrderPayment.find_by_user_id(session[:user_id])
     station_procedureship = StationProcedureship.find_by_procedure_id_and_sequence(inner_order_payment.procedure_id,1)
 
-    #获得 此流程 首战 的下一站 的下一站
-    condition = Condition.find_by_action("false")
-    station = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(inner_order_payment.procedure_id,station_procedureship.next_station_id,condition.id)
-
 
     #判断 订单是否保留
     retention_flag = 0
@@ -82,6 +78,10 @@ class Admin::OrdersController < ApplicationController
        condition = Condition.find_by_action("true")
        #获得保留单的下一站
        station = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(inner_order_payment.procedure_id,station_procedureship.next_station_id,condition.id)
+    else
+      #获得 此流程 首战 的下一站 的下一站
+      condition = Condition.find_by_action("false")
+      station = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(inner_order_payment.procedure_id,station_procedureship.next_station_id,condition.id)
     end
 
 
@@ -236,6 +236,12 @@ class Admin::OrdersController < ApplicationController
                                                                                                          @instance.station_id,
                                                                                                          session[:condition_id])
 
+      #保存过站记录
+      hash = [{:instance_id => @instance.id, :station_id => @instance.station_id,
+               :condition_id => session[:condition_id], :next_station_id => @station_procedureship.next_station_id,
+               :created_by => current_administrator.name}]
+      save_station_track(hash)
+
       #执行业务函数
       if !@station_procedureship.business_function_id.nil?
         if @station_procedureship.business_function.function == "delivery"
@@ -243,11 +249,39 @@ class Admin::OrdersController < ApplicationController
         end
       end
 
-      #保存过站记录
-      hash = [{:instance_id => @instance.id, :station_id => @instance.station_id,
-               :condition_id => session[:condition_id], :next_station_id => @station_procedureship.next_station_id,
+      if @station_procedureship.next_station_id == 4
+        retention_flag = 0
+        reserve_reason = nil
+        @order.order_details.each do |detail|
+          if detail.sku.sku_type == 2
+            retention_flag = 1
+            reserve_reason = "非在库品"
+            break
+          end
+        end
+
+        if retention_flag == 0
+          @order.order_details.each do |detail|
+            if detail.sku.nb_is_inventory == false
+              retention_flag = 2
+              reserve_reason = "[#{detail.sku.name}库存不足]"
+              break
+            end
+          end
+        end
+
+        if retention_flag != 0
+         condition = Condition.find_by_action("true")
+         #获得保留单的下一站
+         station = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(@instance.procedure_id,4,condition.id)
+         #保存过站记录
+        hash = [{:instance_id => @instance.id, :station_id => 4,
+               :condition_id => condition.id, :next_station_id => station.next_station_id,
                :created_by => current_administrator.name}]
-      save_station_track(hash)
+        save_station_track(hash)
+        @station_procedureship.next_station_id = station.next_station_id
+        end
+      end
 
       if @instance.update_attributes(:station_id=>@station_procedureship.next_station_id)
          session[:order_id] = nil

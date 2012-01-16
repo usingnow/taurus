@@ -36,6 +36,7 @@ Ebiz::Application.routes.draw do
   resources :company_extends
   resources :person_extends
   resources :codes
+  resources :alipay
 
 
   # Sample resource route with options:
