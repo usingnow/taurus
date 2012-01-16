@@ -1,7 +1,7 @@
 #encoding:UTF-8
 class Admin::DeliveryOrdersController < ApplicationController
-  # GET /delivery_orders
-  # GET /delivery_orders.xml
+  before_filter :authenticate_administrator!
+
   def index
     @delivery_orders = DeliveryOrder.all
 
@@ -68,29 +68,33 @@ class Admin::DeliveryOrdersController < ApplicationController
       return
     end
 
-    @delivery_order = DeliveryOrder.new(params[:delivery_order])
-    @delivery_order.number = current_serial_number("DO")
-    @delivery_order.administrator_id = admin_id
+    DeliveryOrder.transaction do
+      @delivery_order = DeliveryOrder.new(params[:delivery_order])
+      @delivery_order.number = current_serial_number("DO")
+      @delivery_order.administrator_id = admin_id
 
-    if @delivery_order.save
+      if @delivery_order.save
 
-      line_items = []
+        line_items = []
 
-      @store_entry_product_carts.each do |cart|
-        line_items << {:delivery_order_id => @delivery_order.id,
-                       :product_id => cart.product_id,
-                       :quantity => cart.quantity}
-      end
-
-      if ProdDelOrdship.create(line_items)
-        if destroy_sepc_by_admin_id(admin_id,2) #删除出库单商品购物车
-          subtract_store_quantity(@store_entry_product_carts,@delivery_order)
+        @store_entry_product_carts.each do |cart|
+          line_items << {:delivery_order_id => @delivery_order.id,
+                         :product_id => cart.product_id,
+                         :quantity => cart.quantity}
         end
-      end
 
-      redirect_to(admin_delivery_orders_url)
-    else
-      render :action => "new"
+        if ProdDelOrdship.create(line_items)
+          if destroy_sepc_by_admin_id(admin_id,2) #删除出库单商品购物车
+            subtract_store_quantity(@store_entry_product_carts,@delivery_order)
+            @order = Order.find(@delivery_order.order_id)
+            @order.update_attributes(:is_delivery => 0)
+          end
+        end
+
+        redirect_to(admin_delivery_orders_url)
+      else
+        render :action => "new"
+      end
     end
   end
 

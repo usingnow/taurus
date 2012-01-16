@@ -280,6 +280,7 @@ class Admin::OrdersController < ApplicationController
                :created_by => current_administrator.name}]
         save_station_track(hash)
         @station_procedureship.next_station_id = station.next_station_id
+        @order.update_attributes(:reserve_reason => reserve_reason)
         end
       end
 
