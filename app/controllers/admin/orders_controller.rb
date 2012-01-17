@@ -249,7 +249,7 @@ class Admin::OrdersController < ApplicationController
         end
       end
 
-
+      station_id = @station_procedureship.next_station_id
       if @station_procedureship.next_station_id == 4
         retention_flag = 0
         reserve_reason = nil
@@ -271,21 +271,27 @@ class Admin::OrdersController < ApplicationController
           end
         end
 
+
         if retention_flag != 0
-         condition = Condition.find_by_action("true")
-         #获得保留单的下一站
-         station = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(@instance.procedure_id,4,condition.id)
-         #保存过站记录
-        hash = [{:instance_id => @instance.id, :station_id => 4,
-               :condition_id => condition.id, :next_station_id => station.next_station_id,
-               :created_by => current_administrator.name}]
-        save_station_track(hash)
-        @station_procedureship.next_station_id = station.next_station_id
-        @order.update_attributes(:reserve_reason => reserve_reason)
+          condition = Condition.find_by_action("true")
+          #获得保留单的下一站
+          station = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(@instance.procedure_id,4,condition.id)
+          #保存过站记录
+          hash = [{:instance_id => @instance.id, :station_id => 4,
+                 :condition_id => condition.id, :next_station_id => station.next_station_id,
+                 :created_by => current_administrator.name}]
+          save_station_track(hash)
+          station_id = station.next_station_id
+          @order.update_attributes(:reserve_reason => reserve_reason)
+        else
+          condition = Condition.find_by_action("false")
+          #获得保留单的下一站
+          station = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(@instance.procedure_id,4,condition.id)
+          station_id = station.next_station_id
         end
       end
 
-      if @instance.update_attributes(:station_id=>@station_procedureship.next_station_id)
+      if @instance.update_attributes(:station_id=>station_id)
          session[:order_id] = nil
          session[:condition_id] = nil
          redirect_to(admin_orders_url)
