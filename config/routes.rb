@@ -1,5 +1,8 @@
 Ebiz::Application.routes.draw do
-  devise_for :users
+  devise_for :users,
+             :controllers => { :sessions => "user/sessions",
+                               :registrations => "user/registrations"}
+
   devise_for :administrators,
              :path =>"admin",
              :controllers => { :sessions => "admin/devise/sessions",
@@ -36,7 +39,12 @@ Ebiz::Application.routes.draw do
   resources :company_extends
   resources :person_extends
   resources :codes
-  resources :alipay
+  resources :alipay do
+    collection do
+      get :notify
+      get :done
+    end
+  end
 
 
   # Sample resource route with options:

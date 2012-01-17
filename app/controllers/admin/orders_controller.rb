@@ -249,6 +249,7 @@ class Admin::OrdersController < ApplicationController
         end
       end
 
+
       if @station_procedureship.next_station_id == 4
         retention_flag = 0
         reserve_reason = nil

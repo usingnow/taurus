@@ -3,17 +3,7 @@ class OrdersController < ApplicationController
   layout "home"
   #结算页面
   def new
-    respond_to do |format|
-      if session[:user] != nil
-        @cart_skuships = CartSkuship.find_all_by_cart_id(session[:cart_id])
-
-        @order = Order.new
-        format.html
-        format.xml  { render :xml => @order }
-      else
-        format.html{ redirect_to(cart_skuships_url, :notice => '请登录') }
-      end
-    end
+    render :layout => false
   end
 
   def create

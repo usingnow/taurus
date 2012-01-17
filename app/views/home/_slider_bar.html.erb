@@ -7,7 +7,7 @@
       <table id="idSlider2" border="0" cellpadding="0" cellspacing="0">
         <tr>
           <% @slider_bars.each do |bar| %>
-            <td><a href='<%= bar.href %>' target="_blank"><img src="<%= bar.image.url %>" width="550" height="250"/></a></td>
+            <td style="padding:0"><a href='<%= bar.href %>' target="_blank"><img src="<%= bar.image.url %>" width="550" height="250"/></a></td>
           <% end %>
         </tr>
       </table>

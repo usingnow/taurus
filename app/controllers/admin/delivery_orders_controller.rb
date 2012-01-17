@@ -86,8 +86,10 @@ class Admin::DeliveryOrdersController < ApplicationController
         if ProdDelOrdship.create(line_items)
           if destroy_sepc_by_admin_id(admin_id,2) #删除出库单商品购物车
             subtract_store_quantity(@store_entry_product_carts,@delivery_order)
-            @order = Order.find(@delivery_order.order_id)
-            @order.update_attributes(:is_delivery => 0)
+            if !@delivery_order.order_id.nil?
+              @order = Order.find(@delivery_order.order_id)
+              @order.update_attributes(:is_delivery => 0)
+            end
           end
         end
 

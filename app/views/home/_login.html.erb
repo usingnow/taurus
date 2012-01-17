@@ -1,0 +1,50 @@
+<div id="tabs" class="box">
+  <ul>
+    <li><a href="#tabs-1">登陆</a></li>
+    <li><a href="#tabs-2">商场公告</a></li>
+  </ul>
+
+  <div id="tabs-1" class="content">
+    <%= form_tag("/users/sign_in") do %>
+      <p>
+        <label for="loginname">用户：</label>
+        <%= text_field :user, :login_no %>
+      </p>
+      <p>
+        <label for="password">密码：</label>
+        <%= password_field :user, :password %>
+      </p>
+        <%= image_tag codes_path, :width => "60px", :height => "20px"%>
+      <p>
+        <label for="captcha">验证码：</label>
+        <input name="image_code" id="captcha" maxlength="4" size="4" style="width: 40px; height: 16px;"/>
+      </p>
+      <p style="text-align:center">
+        <button type="submit" class="login_button">登陆</button>
+        <button type="reset" class="login_button">重置</button>
+      </p>
+      <p style="text-align:center">
+        <a href="#">立即注册</a> | <a href="#">忘记密码</a> | <a href="#">换验证码</a>
+      </p>
+    <% end %>
+  </div>
+
+  <div id="tabs-2" class="content">
+    <ul>
+      <li><a href="#">公告壹有多少字会换行呢？现共</a></li>
+      <li><a href="#">十四字会换行十六十六十六十六</a></li>
+      <li><a href="#">十四字会换行十六十六十六十六</a></li>
+      <li><a href="#">应该是左对齐</a></li>
+      <li><a href="#">六行后会超过边界</a></li>
+      <li><a href="#">六行后会超过边界</a></li>
+    </ul>
+  </div>
+</div>
+
+<div id="banner_1">
+  <img src="images/xszk_208_130.png" />
+</div>
+
+<% content_for :ready do  %>
+ jQuery( "#tabs" ).tabs({ event: 'mouseover' });
+<% end %>
