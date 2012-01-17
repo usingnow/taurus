@@ -6,6 +6,8 @@ class HomeController < ActionController::Base
     @recommendation = Sku.recommendation
     @oa_pc_skus = Sku.oa_pc_skus
     @oa_pc_hots = Sku.oa_pc_hots
+    @office_skus = Sku.office_skus
+    @office_hots = Sku.office_hots
   end
 
 

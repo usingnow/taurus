@@ -94,4 +94,8 @@ module ApplicationHelper
     end
     str
   end
+
+  def sub_str(str,length)
+    str[0,length]
+  end
 end

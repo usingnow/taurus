@@ -82,43 +82,14 @@
   <div class="sku_list_sort">
     <h3 class="sku_list_bar_short">本类产品热销排行</h3>
     <div class="sku_list_sort_hot">
-
-      <div id="sku_sort_0" class="has_children">
-          <span>第1章-认识jQuery</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第2章-jQuery选择器</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第3章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第4章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第5章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第3章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
+      <% @oa_pc_hots.each_with_index do |hot,index| %>
+        <div id="sku_sort_<%= index if index == 0 %>" class="has_children">
+          <span><%= sub_str hot.name, 16  %></span>
+          <a><img src="<%= hot.main_img %>" width="120px" height="120px"/></a>
+          <a class="overflow_text"><%= hot.name %></a>
+          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -138,94 +109,26 @@
     <img src="images/category/2-2.jpg" />
   </div>
   <ul class="h_ul sku_list_ul">
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">十个字后会换</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
+    <% @office_skus.each do |sku| %>
+      <li class="h_li sku_list_li">
+        <img src="<%= sku.main_img %>" width=120px height=120px />
+        <p class="sku_list_p overflow_text"><%= sku.name %></p>
+        <p class="sku_list_p">原价：&yen;99999.00</p>
+        <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
+      </li>
+    <% end %>
   </ul>
   <div class="sku_list_sort">
     <h3 class="sku_list_bar_short">本类产品热销排行</h3>
     <div class="sku_list_sort_hot">
-      <div id="sku_sort_1" class="has_children">
-          <span>第1章-认识jQuery</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第2章-jQuery选择器</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第3章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第4章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第5章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第3章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
+      <% @office_hots.each_with_index do |hot,index| %>
+        <div id="sku_sort_<%= index+1 if index == 0 %>" class="has_children">
+          <span><%= sub_str hot.name, 16  %></span>
+          <a><img src="<%= hot.main_img %>" width="120px" height="120px"/></a>
+          <a class="overflow_text"><%= hot.name %></a>
+          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
