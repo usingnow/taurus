@@ -13,6 +13,10 @@ class Sku < ActiveRecord::Base
                             and status = 1 and sales_status = 1")
   scope :office_hots, limit(6).order("total_sale desc").where("sku_category_id in(select id from sku_categories where root_id = 2265)
                                      and status = 1 and sales_status = 1")
+  scope :daily_skus, limit(8).where("sku_category_id in(select id from sku_categories where root_id = 2837)
+                            and status = 1 and sales_status = 1")
+  scope :daily_hots, limit(6).order("total_sale desc").where("sku_category_id in(select id from sku_categories where root_id = 2837)
+                                     and status = 1 and sales_status = 1")
 
   attr_accessor :brand_name, :sku_category_name
   validates :number, :name, :brand_id, :brand_name, :sku_category_id, :sku_category_name, :unit, :specification,
