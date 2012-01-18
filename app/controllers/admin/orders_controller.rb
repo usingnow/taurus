@@ -106,7 +106,7 @@ class Admin::OrdersController < ApplicationController
 
       @order = Order.new
       @order.number = current_number   #获得订单编号
-      @order.batch = @order.number
+      @order.batch = @order.number[0,8]+"-"+@order.number[9,13]
       @order.instance_id = instance.id
       @order.user_id = session[:user_id]
       @order.created_admin_id = current_administrator.id
