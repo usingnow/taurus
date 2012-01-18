@@ -220,35 +220,8 @@
                 <%= f.text_field :name %>
               </p>
               <p>
-                <%= label_tag "所属地区" %><sapn>&nbsp;</sapn>
-                <select class="required" title="请选择省份"
-                        onchange="jQuery.ajax({ type: 'get', //提交的类型
-                                                url: '/admin/cities/ajax',//提交地址
-                                                data: 'province_no='+this.value,//参数
-                                                success: function(msg){ //回调方法
-                                                  $('#cities').html(msg);
-                                                  $('#districts').html('<option value=>-请选择-</option>');
-                                                }});">
-                  <option value="">-请选择-</option>
-                  <% for province in Province.all %>
-                    <option value="<%= province.number %>"><%= province.name %></option>
-                  <% end %>
-                </select>
-                省份
-                <select id="cities" name="district[city_no]" class="required" title="请选择城市"
-                        onchange="jQuery.ajax({ type: 'get', //提交的类型
-                                                url: '/admin/districts/ajax',//提交地址
-                                                data: 'city_no='+this.value,//参数
-                                                success: function(msg){ //回调方法
-                                                  $('#districts').html(msg);
-                                                }});">
-                  <option value="">-请选择-</option>
-                </select>
-                城市
-                <select id="districts" name="order[district_no]" class="required" title="请选择区县">
-                  <option value="">-请选择-</option>
-                </select>
-                区县
+                <%= label_tag "收货地址" %><sapn class="red">*</sapn>
+                <%=raw address @order.district, "order" %>
               </p>
               <p>
                 <%= label_tag "地址" %><sapn class="red">*</sapn>

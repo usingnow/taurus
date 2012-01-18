@@ -39,29 +39,40 @@ module ApplicationHelper
     Province.all(:order=>'number').collect{|item|[item.name,item.number]}.insert(0,["请选择..",nil])
   end
 
-  def address(district_no,model)
-    str = "#{select :province, :province_id,Province.all.collect{ |p| [p.name,p.number] },{:include_blank => "-请选择-"},
-                    {:onchange=>"jQuery.ajax({ type: 'get',
-                                     url:'/admin/cities/ajax',
-                                     data: 'province_no='+this.value,
-                                     success: function(msg){
-                                      $('#cities').html(msg);
-                                      $('#districts').html('<option value=>-请选择-</option>');
-                                     }});"} }省份
+  def address(district,model)
+    province_no = ''
+    city_no     = ''
+    district_no = ''
+    cities      = []
+    districts   = []
 
-            <select id=\"cities\" name=\"district[city_no]\" class=\"required\" title=\"请选择城市\"
-            onchange=\"jQuery.ajax({ type:'get',
+    if !district.nil?
+      province    = district.city.province
+      province_no = province.number
+      cities      = province.cities.collect{ |c| [c.name, c.number]}
+      city_no     = district.city.number
+      districts   = district.city.districts.collect{ |d| [d.name, d.number]}
+      district_no = district.number
+    end
+
+    str = "#{select :province, :number, Province.all.collect{ |p| [p.name,p.number] },{:include_blank => "-请选择-",
+                    :selected => province_no},
+                    {:onchange=>"jQuery.ajax({ type: 'get',
+                                               url:'/admin/cities/ajax',
+                                               data: 'province_no='+this.value,
+                                               success: function(msg){
+                                                $('#cities').html(msg);
+                                                $('#districts').html('<option value=>-请选择-</option>');
+                                               }});"} }省份
+            #{select :city, :number, cities,{:include_blank => "-请选择-", :selected => city_no},
+                     { :onchange => "jQuery.ajax({ type:'get',
                                      url: '/admin/districts/ajax',
                                      data: 'city_no='+this.value,
                                      success: function(msg){
                                      $('#districts').html(msg);
-                                     }});\">
-              <option>-请选择-</option>
-            </select>城市
-            <select id=\"districts\" name=\"#{model}[district_no]\"
-                    class=\"required\" title=\"请选择区县\">
-              <option value=\"\">-请选择-</option>
-            </select>区县"
+                                     }});"} }城市
+
+            #{select model.to_sym, :district_no, districts, {:include_blank => "-请选择-", :selected => district_no} }区县"
     str
   end
 
