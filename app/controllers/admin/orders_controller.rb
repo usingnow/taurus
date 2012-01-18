@@ -433,11 +433,6 @@ class Admin::OrdersController < ApplicationController
     @inner_sku_carts = InnerSkuCart.find_all_by_user_id(session[:user_id])
   end
 
-  def print
-    @order = Order.find(params[:order_id])
-    render :layout => false
-  end
-
   def relieve_retention
     @order = Order.find(params[:id])
     session[:order_id] = @order.id

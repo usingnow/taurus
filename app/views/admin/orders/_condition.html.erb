@@ -110,7 +110,8 @@
       <%= @order.total_amount %> 元
     </p>
     <p id="print_link">
-      <%= link_to '订单打印', print_admin_orders_path(:order_id => @order),{:target => "blank"} %>
+      <%= link_to '订单打印', order_order_print_path(@order),{:target => "blank"} %>
+      【<%= link_to "已打印#{@order.print_frequency}次", order_order_prints_path(:order_id => @order) %>】
     </p>
   </div>
   <div class="clear"></div>

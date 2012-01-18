@@ -74,6 +74,10 @@ Ebiz::Application.routes.draw do
   #   end
 
   # Sample resource route within a namespace:
+   namespace :order do
+     resources :order_prints
+   end
+
    namespace :admin do
      resources :administrators
      resources :administrator_groupships
@@ -119,7 +123,6 @@ Ebiz::Application.routes.draw do
          get  :output
          get  :paid
          get  :pay_confirmation
-         get  :print
          get  :print_delivery_note
          get  :relieve_retention
          get  :show_delivery_note

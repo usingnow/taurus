@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120115094227) do
+ActiveRecord::Schema.define(:version => 20120118112813) do
+
+  create_table "Material", :id => false, :force => true do |t|
+    t.string  "Number"
+    t.string  "WarehouseValue"
+    t.string  "WarehousePosition"
+    t.integer "product_id"
+  end
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -352,9 +359,7 @@ ActiveRecord::Schema.define(:version => 20120115094227) do
 
   create_table "order_print_logs", :force => true do |t|
     t.integer  "order_id"
-    t.integer  "print_type"
-    t.string   "created_by"
-    t.integer  "admin_id"
+    t.integer  "administrator_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
