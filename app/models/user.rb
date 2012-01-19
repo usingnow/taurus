@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :login_no, :password, :password_confirmation, :remember_me, :status, :user_type
 
-  attr_accessor :password_confirmation, :email_confirmation
+  attr_accessor :password_confirmation, :email_confirmation, :index
 
   validates_presence_of :login_no
   validates_uniqueness_of :login_no

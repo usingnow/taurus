@@ -331,76 +331,9 @@ class Admin::OrdersController < ApplicationController
     session[:condition_id] = params[:condition_id]
   end
 
-  #内部 新建订单 用户搜索
-  def user_sear
-    session[:user_id] = nil
-    type = params[:type]
-    user_no = params[:user_no]
-    login_no = params[:login_no]
 
-    if type == "0"
-      if user_no.slice(0,1) == "U"
-        company_extend = CompanyExtend.find_by_company_no(user_no)
-        @user = User.find(company_extend.user_id) unless company_extend.nil?
-      elsif user_no.slice(0,1) == "P"
-        person_extend = PersonExtend.find_by_person_no(user_no)
-        @user = User.find(person_extend.user_id) unless person_extend.nil?
-      end
 
-      if @user.nil?
-        @user = User.new
-        @user.errors.add("会员编号", "不存在")
-      else
-        session[:user_id] = @user.id
-      end
-    else
-      @user = User.find_by_login_no(login_no)
-      if @user.nil?
-        @user = User.new
-        @user.errors.add("会员用户名", "不存在")
-      else
-        session[:user_id] = @user.id
-      end
 
-    end
-
-    @date = Time.now.strftime("%Y-%m-%d")
-
-    render "new"
-  end
-
-  def step2
-    if session[:user_id].nil?
-      @date = Time.now.strftime("%Y-%m-%d")
-      @user = User.new
-      @user.errors.add("会员", "不能为空")
-      render "new"
-    else
-      @inner_sku_carts = InnerSkuCart.find_all_by_user_id(session[:user_id])
-      @search = Sku.search(params[:q])
-      @inner_sku_cart = InnerSkuCart.new
-    end
-  end
-
-  #内部 新建订单 第二部 搜索商品
-  def sku_sear
-    @search = Sku.search(params[:q])
-    @search.sorts = 'updated_at desc'
-    @skus = @search.result.paginate(:page => params[:page],:per_page => 20)
-  end
-
-  def step3
-    inner_sku_carts = InnerSkuCart.find_all_by_user_id(session[:user_id])
-    if inner_sku_carts.empty?
-      @inner_sku_cart = InnerSkuCart.new
-      @inner_sku_cart.errors.add("商品","至少一件")
-      @inner_sku_carts = inner_sku_carts
-      @search = Sku.search(params[:q])
-      render "step2"
-      return
-    end
-    @procedures = Procedure.find_all_by_active(true)
-  end
 
   #所有字段订单搜索
   def all
@@ -409,29 +342,6 @@ class Admin::OrdersController < ApplicationController
     @orders = @search.result.paginate(:page => params[:page],:per_page => 15)
   end
 
-  def step4
-    @inner_order_payment = InnerOrderPayment.find_by_user_id(session[:user_id])
-    if @inner_order_payment.nil?
-      @inner_order_payment = InnerOrderPayment.new(params[:inner_order_payment])
-      @inner_order_payment.user_id = session[:user_id]
-      @inner_order_payment.save
-    else
-      @inner_order_payment.update_attributes(params[:inner_order_payment])
-    end
-  end
-
-  def step5
-    @inner_order_address = InnerOrderAddress.find_by_user_id(session[:user_id])
-    if @inner_order_address.nil?
-      @inner_order_address = InnerOrderAddress.new(params[:inner_order_address])
-      @inner_order_address.user_id = session[:user_id]
-      @inner_order_address.save
-    else
-      @inner_order_address.update_attributes(params[:inner_order_address])
-    end
-
-    @inner_sku_carts = InnerSkuCart.find_all_by_user_id(session[:user_id])
-  end
 
   def relieve_retention
     @order = Order.find(params[:id])

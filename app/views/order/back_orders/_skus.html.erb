@@ -1,0 +1,54 @@
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>商品编号</th>
+      <th>商品名称</th>
+      <th>单位</th>
+      <th>单价</th>
+      <th>数量</th>
+      <th>安装费用</th>
+      <th>组装费用</th>
+      <th>合计</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody id="back_order_skus">
+  </tbody>
+</table>
+
+<hr />
+<div>
+  <%= search_form_for @search, :url => order_back_order_skus_path, :remote => true, :html => {:method => :get} do |f| %>
+    商品名称:<%= f.text_field :name_cont %>
+    <%= submit_tag '查询' %>
+  <% end %>
+</div>
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>商品编号</th>
+      <th>商品名称</th>
+      <th>单位</th>
+      <th>单价</th>
+      <th>安装费用</th>
+      <th>组装费用</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody id="search_skus"></tbody>
+</table>
+
+
+
+<%= simple_form_for @user, :url => preview_order_back_orders_path  do |f| %>
+  <%= hidden_field_tag 'back_order_sku_user_id' %>
+<%= render "payment" %>
+
+<%= render "address" %>
+
+ <div class="actions">
+   <%= f.button :submit, :value => "预览" %>
+ </div>
+<% end %>

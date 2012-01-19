@@ -1,9 +1,8 @@
-<%= form_tag(step4_admin_orders_path, :method => :get) do %>
   <div class="attributes">
     <div class="split_content_left">
       <p>
         <%= label_tag "支付方式" %>
-        <%= select(:inner_order_payment, :procedure_id, options_from_collection_for_select(@procedures, "id", "display_name")) %>
+        <%= select(:inner_order_payment, :procedure_id,[], {:include_blank => "-请选择-" }) %>
       </p>
       <p>
         <%= label_tag "发票类型" %>
@@ -20,8 +19,6 @@
     </div>
     <div class="clear"></div>
   </div>
-  <%= submit_tag '下一步' %>
-<% end %>
 
 <script type="text/javascript">
   $(".radio").click(function(){

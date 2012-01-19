@@ -75,8 +75,17 @@ Ebiz::Application.routes.draw do
 
   # Sample resource route within a namespace:
    namespace :order do
+     resources :back_orders do
+       collection do
+         get  :user
+         post :preview
+       end
+     end
+     resources :back_order_skus
      resources :order_prints
    end
+
+
 
    namespace :admin do
      resources :administrators
@@ -127,13 +136,7 @@ Ebiz::Application.routes.draw do
          get  :relieve_retention
          get  :show_delivery_note
          get  :sign_in
-         get  :sku_sear
-         get  :step2
-         get  :step3
-         get  :step4
-         post :step5
          get  :take_over
-         get  :user_sear
        end
      end
      resources :order_details

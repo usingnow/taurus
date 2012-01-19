@@ -1,0 +1,25 @@
+str = "<% @skus.each_with_index do |sku,index| %>"+
+        "<tr class='<%= set_odd_even_class(index) %>' group='<%= index %>'>"+
+          "<td><%= index+1 %></td>"+
+          "<td><%= sku.number %></td>"+
+          "<td><%= sku.name %></td>"+
+          "<td><%= sku.unit %></td>"+
+          "<td><%= sku.cost_aft_tax %></td>"+
+          "<td><%= sku.insatllation_cost_aft_tax %></td>"+
+          "<td><%= sku.assembling_fee_aft_tax %></td>"+
+          '<td><%= link_to "添加", order_back_order_skus_path(:sku_id => sku), :method => :post, :remote => true, :class => "add_sku_to_back_order_skus" %></td>'+
+        "</tr>"+
+       "<% end %>";
+
+jQuery("#search_skus").html(str);
+
+
+jQuery(".add_sku_to_back_order_skus").click(function(){
+  jQuery(this).attr("href",jQuery(this).attr("href")+"&user_id="+jQuery('#back_order_sku_user_id').val());
+});
+
+jQuery("[group]").hover(function(){
+  jQuery("[group='"+jQuery(this).attr('group')+"']").addClass("highlight");
+},function(){
+  jQuery("[group='"+jQuery(this).attr('group')+"']").removeClass("highlight");
+});

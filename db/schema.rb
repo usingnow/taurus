@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120118112813) do
+ActiveRecord::Schema.define(:version => 20120119082050) do
 
   create_table "Material", :id => false, :force => true do |t|
     t.string  "Number"
@@ -51,6 +51,14 @@ ActiveRecord::Schema.define(:version => 20120118112813) do
 
   add_index "administrators", ["email"], :name => "index_administrators_on_email", :unique => true
   add_index "administrators", ["reset_password_token"], :name => "index_administrators_on_reset_password_token", :unique => true
+
+  create_table "back_order_skus", :force => true do |t|
+    t.integer  "sku_id"
+    t.integer  "quantity",   :default => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
 
   create_table "banks", :force => true do |t|
     t.string   "number"
@@ -282,18 +290,6 @@ ActiveRecord::Schema.define(:version => 20120118112813) do
     t.string   "account_reg_add"
     t.integer  "is_invoice_head"
     t.string   "company_name"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "inner_sku_carts", :force => true do |t|
-    t.integer  "sku_id"
-    t.integer  "quantity",                                        :default => 1
-    t.decimal  "install_price",    :precision => 10, :scale => 0, :default => 0
-    t.decimal  "assembling_price", :precision => 10, :scale => 0, :default => 0
-    t.date     "delivery_date"
-    t.decimal  "total_amount",     :precision => 10, :scale => 0, :default => 0
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
