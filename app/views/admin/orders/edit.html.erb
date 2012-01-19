@@ -212,7 +212,7 @@
       <% end %>
     </div>
     <div id="order_tabs-4">
-       <%= form_for([:admin,@order]) do |f| %>
+       <%= simple_form_for([:admin,@order]) do |f| %>
          <div class="attributes">
             <div class="split_content_left_long">
               <p>
@@ -232,8 +232,7 @@
                 <%= f.text_field :phone %>
               </p>
               <p>
-                <%= label_tag "手机" %><sapn>&nbsp;</sapn>
-                <%= f.text_field :mobile %>
+                <%= f.input :mobile %>
               </p>
               <p>
                 <%= label_tag "电子邮箱" %><sapn>&nbsp;</sapn>

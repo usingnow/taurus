@@ -57,6 +57,8 @@ class Order < ActiveRecord::Base
     order_print_logs.count
   end
 
+  validates_presence_of :mobile
+
   validates_presence_of :inner_note, :if => :cancel
   protected
     def cancel
