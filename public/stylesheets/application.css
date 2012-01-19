@@ -10,8 +10,13 @@ abbr[title=required]{
   width: 100%;
 }
 
-.info_table_title{
-  width: 120px;
+.info_table th{
+  vertical-align: top;
+  text-align: left;
+}
+
+.info_table td{
+  vertical-align: top;
 }
 
 table.grid{
@@ -143,6 +148,10 @@ div.attributes label.collection_radio{
 
 #print_link{
   padding-left: 60px;
+}
+
+div.middle_button{
+  text-align: center;
 }
 
 

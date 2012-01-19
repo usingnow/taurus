@@ -81,6 +81,7 @@ Ebiz::Application.routes.draw do
          post :preview
        end
      end
+     resources :back_order_news
      resources :back_order_skus
      resources :order_prints
    end

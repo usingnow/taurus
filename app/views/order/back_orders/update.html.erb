@@ -1,0 +1,106 @@
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>商品编号</th>
+      <th>商品名称</th>
+      <th>单位</th>
+      <th>单价</th>
+      <th>数量</th>
+      <th>安装费用</th>
+      <th>组装费用</th>
+      <th>合计</th>
+    </tr>
+  </thead>
+  <tbody id="back_order_skus">
+    <% @back_order_skus.each_with_index do |cart,index| %>
+      <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>" id="back_order_sku<%= cart.id %>">
+        <td><%= index+1 %></td>
+        <td><%= cart.sku.number %></td>
+        <td><%= cart.sku.name %></td>
+        <td><%= cart.sku.unit %></td>
+        <td><%= cart.sku.cost_aft_tax %></td>
+        <td><%= cart.quantity %></td>
+        <td><%= cart.sku.insatllation_cost_aft_tax %></td>
+        <td><%= cart.sku.assembling_fee_aft_tax %></td>
+        <td><%= cart.subtotal %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td colspan="10" align="right" id="total_amount">
+        总计:<%= number_to_currency @back_order_skus.to_a.sum{ |sku| sku.subtotal }, :unit => "￥" %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<div class="attributes">
+  <div class="split_content_left">
+    <p>
+      <%= label_tag "支付方式：" %>
+      <%= @inner_order_payment.procedure.display_name %>
+    </p>
+    <p>
+      <%= label_tag "发票类型：" %>
+      <% if @inner_order_payment.invoice_type == 0 %>
+        普通
+      <% else %>
+        增值税发票
+      <% end %>
+    </p>
+    <p>
+      <%= label_tag "发票抬头：" %>
+      <% if @inner_order_payment.is_invoice_head == 0 %>
+        个人
+      <% else %>
+        单位
+      <% end %>
+    </p>
+  </div>
+  <div class="split_content_right">
+      <p>
+        <%= label_tag "收货人姓名：" %>
+        <%= @inner_order_address.name %>
+      </p>
+      <p>
+        <%= label_tag "所属地区：" %>
+        <%= @inner_order_address.district.city.province.name %>&nbsp;
+        <%= @inner_order_address.district.city.name %>&nbsp;
+        <%= @inner_order_address.district.name %>
+      </p>
+      <p>
+        <%= label_tag "地址：" %>
+        <%= @inner_order_address.address %>
+      </p>
+      <p>
+        <%= label_tag "固定电话：" %>
+        <%= @inner_order_address.phone %><br />
+      </p>
+      <p>
+        <%= label_tag "手机：" %>
+        <%= @inner_order_address.mobile %><br />
+      </p>
+      <p>
+        <%= label_tag "电子邮箱：" %>
+        <%= @inner_order_address.email %><br />
+      </p>
+      <p>
+        <%= label_tag "邮编：" %>
+        <%= @inner_order_address.address %><br />
+      </p>
+    </div>
+  <div class="clear"></div>
+</div>
+
+<div class="middle_button">
+  <%= form_tag order_back_orders_path do %>
+    <%= hidden_field_tag 'user_id', @user.id %>
+    <input type="button" value="上一步" onclick="history.back()"/>
+    <input type="submit" value="提交" />
+  <% end %>
+</div>
+
+
+

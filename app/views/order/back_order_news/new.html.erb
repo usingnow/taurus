@@ -13,8 +13,7 @@
       <th>操作</th>
     </tr>
   </thead>
-  <tbody id="back_order_skus">
-  </tbody>
+  <tbody id="back_order_skus"></tbody>
 </table>
 
 <hr />
@@ -42,13 +41,22 @@
 
 
 
-<%= simple_form_for @user, :url => preview_order_back_orders_path  do |f| %>
-  <%= hidden_field_tag 'back_order_sku_user_id' %>
+<%= simple_form_for @user, :url => preview_order_back_orders_path, :html => {:id => "back_order_new"}  do |f| %>
+  <%= hidden_field_tag 'user_id', @user.id  %>
 <%= render "payment" %>
 
 <%= render "address" %>
 
- <div class="actions">
+ <div class="middle_button">
    <%= f.button :submit, :value => "预览" %>
  </div>
+<% end %>
+
+<% content_for :ready do %>
+  jQuery("#back_order_new").bind("submit",function(){
+    if(!jQuery("#back_order_skus").html()){
+      alert("请添加商品！");
+      return false;
+    }
+  });
 <% end %>

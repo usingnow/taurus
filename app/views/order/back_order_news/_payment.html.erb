@@ -2,7 +2,9 @@
     <div class="split_content_left">
       <p>
         <%= label_tag "支付方式" %>
-        <%= select(:inner_order_payment, :procedure_id,[], {:include_blank => "-请选择-" }) %>
+        <%= select(:inner_order_payment, :procedure_id,
+                   options_from_collection_for_select(@procedures, "id", "display_name"),
+                   {:include_blank => "-请选择-" },:required => "required") %>
       </p>
       <p>
         <%= label_tag "发票类型" %>
@@ -28,7 +30,7 @@
       if(value == "0"){
          $("#title_company_name").html("");
       }else{
-         $("#title_company_name").html('<%= label_tag "单位名称" %><%= text_field :inner_order_payment, :company_name %>');
+         $("#title_company_name").html('<%= label_tag "单位名称" %><%= text_field :inner_order_payment, :company_name, :required => "required" %>');
       }
     }else{
       if(value == "0"){

@@ -15,11 +15,12 @@ if(error != ""){
             '<td><%= cart.subtotal %></td>'+
             '<td><%= link_to "删除", order_back_order_sku_path(cart), :confirm => "确定删除?", :method => :delete, :remote => true %></td>'+
           '</tr>'+
-        '<% end %>';
+        '<% end %>'+
+        '<tr><td colspan="10" align="right" id="total_amount">总计:<%= number_to_currency @back_order_skus.to_a.sum{ |sku| sku.subtotal }, :unit => "￥" %></td></tr>';
   jQuery("#back_order_skus").html(str);
 
   jQuery(".back_order_sku_quantity").change(function() {
-    jQuery.ajax({url: "/order/back_order_sku/"+this.id,
+    jQuery.ajax({url: "/order/back_order_skus/"+this.id,
                 type: "put",
                 data: 'value=' + this.value
                 })

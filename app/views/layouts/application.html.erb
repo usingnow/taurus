@@ -9,7 +9,7 @@
   <%= javascript_include_tag :ckeditor %>
   <%= csrf_meta_tag %>
   <script type="text/javascript">
-  $(document).ready(function () {
+    $(document).ready(function () {
       $('body').layout({
           north__closable:false,
           north__resizable:false
@@ -20,7 +20,7 @@
       },function(){
         $("[group='"+$(this).attr('group')+"']").removeClass("highlight");
       });
-
+      <%= yield(:ready) %> //动态加载js
   });
   </script>
 

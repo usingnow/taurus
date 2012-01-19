@@ -1,7 +1,7 @@
 var str = '';
 var user_id = "<%= @user.id if !@user.nil? %>";
 if(user_id == ""){
-  str = "<%= @user.errors.full_messages[0] %>";
+  alert("<%= @user.errors.full_messages[0] %>");
 }else{
   str = '<div class="split_content_left">'+
         '<p><%= label_tag '下单日期：'%><%= @date %></p>'+
@@ -14,10 +14,13 @@ if(user_id == ""){
         '<p><%= label_tag '邮编：' %><%= get_user_zip(@user) %></p>'+
       '</div>'+
       '<div class="clear"></div>';
-  jQuery("#back_order_sku_user_id").val("<%= @user.id %>");
+  jQuery("#user_info").html(str);
+  var form = '<%= form_tag new_order_back_order_news_path, :method => :get do  %>'+
+              '<%= hidden_field_tag 'user_id', @user.id %>'+
+              '<%= submit_tag '下一步' %>'+
+              '<% end %>';
+  jQuery("#next_step").html(form)
 }
 
-
-jQuery("#user_info").html(str);
 
 

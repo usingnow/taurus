@@ -1,8 +1,8 @@
   <div class="attributes">
-    <div class="split_content_left">
+    <div class="split_content_left_long">
       <p>
         <%= label_tag "收货人姓名" %><sapn class="red">*</sapn>
-        <%= text_field :inner_order_address, :name %>
+        <%= text_field :inner_order_address, :name, :required => "required" %>
       </p>
       <p>
         <%= label_tag "所属地区" %><sapn class="red">*</sapn>
@@ -10,7 +10,7 @@
       </p>
       <p>
         <%= label_tag "地址" %><sapn class="red">*</sapn>
-        <%= text_field :inner_order_address, :address %>
+        <%= text_field :inner_order_address, :address, :required => "required" %>
       </p>
       <p>
         <%= label_tag "固定电话" %><sapn>&nbsp;</sapn>
@@ -18,7 +18,7 @@
       </p>
       <p>
         <%= label_tag "手机" %><sapn class="red">*</sapn>
-        <%= text_field :inner_order_address, :mobile %>
+        <%= text_field :inner_order_address, :mobile, :required => "required" %>
       </p>
       <p>
         <%= label_tag "电子邮箱" %><sapn>&nbsp;</sapn>
