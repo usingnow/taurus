@@ -46,14 +46,16 @@ module ApplicationHelper
     cities      = []
     districts   = []
 
-    if !district.nil?
-      province    = district.city.province
-      province_no = province.number
-      cities      = province.cities.collect{ |c| [c.name, c.number]}
-      city_no     = district.city.number
-      districts   = district.city.districts.collect{ |d| [d.name, d.number]}
-      district_no = district.number
+    if district.nil?
+      district = District.ningbo.first
     end
+
+    province    = district.city.province
+    province_no = province.number
+    cities      = province.cities.collect{ |c| [c.name, c.number]}
+    city_no     = district.city.number
+    districts   = district.city.districts.collect{ |d| [d.name, d.number]}
+    district_no = district.number
 
     str = "#{select :province, :number, Province.all.collect{ |p| [p.name,p.number] },{:include_blank => "-请选择-",
                     :selected => province_no},
