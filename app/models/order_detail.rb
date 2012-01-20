@@ -49,4 +49,8 @@ class OrderDetail < ActiveRecord::Base
     "无库存"
     end
   end
+
+  def subtotal
+    unit_price*quantity+install_cost+assemble_cost
+  end
 end
