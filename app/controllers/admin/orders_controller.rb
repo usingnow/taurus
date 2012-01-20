@@ -49,14 +49,80 @@ class Admin::OrdersController < ApplicationController
   # PUT /orders/1
   # PUT /orders/1.xml
   def update
-    @order = Order.find(params[:id])
+    @order = Order.find(session[:order_id])
 
-    @search = Sku.search(params[:q])
-    respond_to do |format|
-      if @order.update_attributes(params[:order])
-        format.html { redirect_to(edit_admin_order_url(@order,:condition_id => session[:condition_id])) }
-      else
-        format.html { render :action => "edit" }
+    Order.transaction do
+      if !@order.update_attributes(params[:order])
+        @search = Sku.search(params[:q])
+        render "edit"
+        return
+      end
+
+
+      @instance = Instance.find(@order.instance_id)
+      @station_procedureship = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(@instance.procedure_id,
+                                                                                                         @instance.station_id,
+                                                                                                         session[:condition_id])
+
+      #保存过站记录
+      hash = [{:instance_id => @instance.id, :station_id => @instance.station_id,
+               :condition_id => session[:condition_id], :next_station_id => @station_procedureship.next_station_id,
+               :created_by => current_administrator.name}]
+      save_station_track(hash)
+
+      #执行业务函数
+      if !@station_procedureship.business_function_id.nil?
+        if @station_procedureship.business_function.function == "delivery"
+          @order.update_attributes(:is_delivery => 1)
+        end
+      end
+
+      station_id = @station_procedureship.next_station_id
+      if @station_procedureship.next_station_id == 4
+        retention_flag = 0
+        reserve_reason = nil
+        @order.order_details.each do |detail|
+          if detail.sku.sku_type == 2
+            retention_flag = 1
+            reserve_reason = "非在库品"
+            break
+          end
+        end
+
+        if retention_flag == 0
+          @order.order_details.each do |detail|
+            if detail.sku.nb_is_inventory == false
+              retention_flag = 2
+              reserve_reason = "[#{detail.sku.name}库存不足]"
+              break
+            end
+          end
+        end
+
+
+        if retention_flag != 0
+          condition = Condition.find_by_action("true")
+          #获得保留单的下一站
+          station = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(@instance.procedure_id,4,condition.id)
+          #保存过站记录
+          hash = [{:instance_id => @instance.id, :station_id => 4,
+                 :condition_id => condition.id, :next_station_id => station.next_station_id,
+                 :created_by => current_administrator.name}]
+          save_station_track(hash)
+          station_id = station.next_station_id
+          @order.update_attributes(:reserve_reason => reserve_reason)
+        else
+          condition = Condition.find_by_action("false")
+          #获得保留单的下一站
+          station = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(@instance.procedure_id,4,condition.id)
+          station_id = station.next_station_id
+        end
+      end
+
+      if @instance.update_attributes(:station_id=>station_id)
+         session[:order_id] = nil
+         session[:condition_id] = nil
+         redirect_to(admin_orders_url)
       end
     end
   end

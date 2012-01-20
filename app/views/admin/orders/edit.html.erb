@@ -151,7 +151,7 @@
       <%= button_to '完成修改并且过站', condition_admin_orders_path %>
     </div>
     <div id="order_tabs-3">
-      <%= form_for([:admin,@order]) do |f| %>
+      <%= form_for @order, :url => condition_admin_orders_path  do |f| %>
         <div class="attributes">
             <div class="split_content_left">
               <p>
@@ -197,12 +197,12 @@
             });
           </script>
           <div class="actions">
-            <%= button_to '完成修改并且过站', condition_admin_orders_path %>
+            <%= f.submit '完成修改并且过站' %>
           </div>
       <% end %>
     </div>
     <div id="order_tabs-4">
-       <%= simple_form_for([:admin,@order]) do |f| %>
+       <%= simple_form_for @order, :url => condition_admin_orders_path do |f| %>
          <div class="attributes">
             <div class="split_content_left_long">
               <p>
@@ -234,7 +234,7 @@
             <div class="clear"></div>
           </div>
           <div class="actions">
-            <%= button_to '完成修改并且过站', condition_admin_orders_path %>
+            <%= f.button :submit, :value => '完成修改并且过站' %>
           </div>
        <% end %>
     </div>

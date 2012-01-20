@@ -103,7 +103,7 @@
 
 <% content_for :ready do %>
   jQuery("#back_order_new").bind("submit",function(){
-    if(!jQuery("#back_order_skus").html()){
+    if(jQuery("#back_order_skus").children().length == 1){
       alert("请添加商品！");
       return false;
     }
