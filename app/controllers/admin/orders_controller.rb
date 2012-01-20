@@ -7,7 +7,9 @@ class Admin::OrdersController < ApplicationController
   def index
     q = {"instance_station_station_type_in" => ['0','3','4']}.merge(params[:q] || {})
     @search = Order.search(q)
-    @search.sorts = "created_at desc"
+    sort = params[:sort] ||= "desc"
+
+    @search.sorts = "created_at #{sort}"
     @orders = @search.result.paginate(:page => params[:page],:per_page => 15)
 
     respond_to do |format|

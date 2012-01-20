@@ -9,9 +9,9 @@
       </p>
       <p>
         <%= f.label '日期范围' %>
-        <%= f.date_select :created_at_gt,{:include_blank=>true} %><br />
+        <%= f.date_select :created_at_gt,{:include_blank=>true} %>升序<%= radio_button_tag :sort, "asc" %><br />
         <%= f.label '~' %>
-        <%= f.date_select :created_at_lt,{:include_blank=>true} %>
+        <%= f.date_select :created_at_lt,{:include_blank=>true} %>降序<%= radio_button_tag :sort, "desc", true %>
       </p>
       <p>
         <%= f.label '用户名' %>
