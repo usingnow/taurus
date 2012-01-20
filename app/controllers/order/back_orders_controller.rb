@@ -98,7 +98,7 @@ class Order::BackOrdersController < ApplicationController
     Order.transaction do
 
       #获得收货地址
-      inner_order_address = InnerOrderAddress.find_by_user_id(session[:user_id])
+      inner_order_address = InnerOrderAddress.find_by_user_id(params[:user_id])
 
       #获得实例
       instance = current_instance(inner_order_payment.procedure_id,station.next_station_id)

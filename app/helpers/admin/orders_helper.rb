@@ -67,8 +67,10 @@ module Admin::OrdersHelper
   def format_invoice_type(value)
     if value == 0
       "普通"
+    elsif value == 1
+      "增值税发票"
     else
-       "增值税发票"
+      "不需要"
     end
   end
 
