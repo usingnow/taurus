@@ -20,11 +20,13 @@ module Admin::UsersHelper
   def get_user_name(*args)
     user = args[0]
 
-    if !user.user_type.nil?
-      if user.user_type == 1
-        user.person_extend.name
-      else
-        user.company_extend.company_name
+    if !user.nil?
+      if !user.user_type.nil?
+        if user.user_type == 1
+          user.person_extend.name
+        else
+          user.company_extend.company_name
+        end
       end
     end
   end
