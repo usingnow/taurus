@@ -1,3 +1,4 @@
+#encoding:UTF-8
 class Order < ActiveRecord::Base
   has_many :order_details, :dependent => :destroy
   belongs_to :instance, :dependent => :destroy
@@ -57,6 +58,9 @@ class Order < ActiveRecord::Base
     order_print_logs.count
   end
 
+  validates_format_of :mobile,
+                      :with => /((\d{3}\-))?13[0-9]\d{8}|15[89]\d{8}/,
+                      :message => "格式不正确"
   validates_presence_of :mobile
 
   validates_presence_of :inner_note, :if => :cancel

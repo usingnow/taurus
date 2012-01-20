@@ -46,8 +46,10 @@
       <%= label_tag "发票类型：" %>
       <% if @inner_order_payment.invoice_type == 0 %>
         普通
-      <% else %>
+      <% elsif @inner_order_payment.invoice_type == 1 %>
         增值税发票
+      <% else %>
+        不需要
       <% end %>
     </p>
     <p>

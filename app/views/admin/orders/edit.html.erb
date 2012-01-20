@@ -231,9 +231,7 @@
                 <%= label_tag "固定电话" %><sapn>&nbsp;</sapn>
                 <%= f.text_field :phone %>
               </p>
-              <p>
                 <%= f.input :mobile %>
-              </p>
               <p>
                 <%= label_tag "电子邮箱" %><sapn>&nbsp;</sapn>
                 <%= f.text_field :email %>
@@ -246,7 +244,7 @@
             <div class="clear"></div>
           </div>
           <div class="actions">
-            <%= f.submit '保存'%>
+            <%= f.button :submit, :value => '保存'%>
           </div>
        <% end %>
     </div>
