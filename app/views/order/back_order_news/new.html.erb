@@ -13,7 +13,23 @@
       <th>操作</th>
     </tr>
   </thead>
-  <tbody id="back_order_skus"></tbody>
+  <tbody id="back_order_skus">
+    <% @back_order_skus.each_with_index do |cart,index| %>
+      <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>" id="back_order_sku<%= cart.id %>">
+        <td><%= index+1 %></td>
+        <td><%= cart.sku.number %></td>
+        <td><%= cart.sku.name %></td>
+        <td><%= cart.sku.unit %></td>
+        <td><%= cart.sku.cost_aft_tax %></td>
+        <td><%= text_field_tag :quantity, cart.quantity, :size => 3, :class=> "back_order_sku_quantity", :id => "#{cart.id}" %></td>
+        <td><%= cart.sku.insatllation_cost_aft_tax %></td>
+        <td><%= cart.sku.assembling_fee_aft_tax %></td>
+        <td><%= cart.subtotal %></td>
+        <td><%= link_to "删除", order_back_order_sku_path(cart), :confirm => "确定删除?", :method => :delete, :remote => true %></td>
+      </tr>
+    <% end %>
+    <tr><td colspan="10" align="right" id="total_amount">总计:<%= number_to_currency @back_order_skus.to_a.sum{ |sku| sku.subtotal }, :unit => "￥" %></td></tr>
+  </tbody>
 </table>
 
 <hr />
@@ -41,11 +57,44 @@
 
 
 
-<%= simple_form_for @user, :url => preview_order_back_orders_path, :html => {:id => "back_order_new"}  do |f| %>
+<%= simple_form_for @inner_order_address, :url => "/order/back_order_news/preview", :html => {:id => "back_order_new"}  do |f| %>
   <%= hidden_field_tag 'user_id', @user.id  %>
+  <%= f.error_notification %>
 <%= render "payment" %>
 
-<%= render "address" %>
+<div class="attributes">
+  <div class="split_content_left_long">
+    <p>
+      <%= label_tag "收货人姓名" %><sapn class="red">*</sapn>
+      <%= text_field :inner_order_address, :name, :required => "required" %>
+    </p>
+    <p>
+      <%= label_tag "所属地区" %><sapn class="red">*</sapn>
+      <%=raw address  nil, "inner_order_address" %>
+    </p>
+    <p>
+      <%= label_tag "地址" %><sapn class="red">*</sapn>
+      <%= text_field :inner_order_address, :address, :required => "required" %>
+      请详细到路名、小区、门牌号码
+    </p>
+    <p>
+      <%= label_tag "固定电话" %><sapn>&nbsp;</sapn>
+      <%= text_field :inner_order_address, :phone %>
+    </p>
+    <p>
+      <%= f.input :mobile, :required => "required" %>
+    </p>
+    <p>
+      <%= label_tag "电子邮箱" %><sapn>&nbsp;</sapn>
+      <%= text_field :inner_order_address, :email %>
+    </p>
+    <p>
+      <%= label_tag "邮编" %><sapn>&nbsp;</sapn>
+      <%= text_field :inner_order_address, :zip %>
+    </p>
+  </div>
+  <div class="clear"></div>
+</div>
 
  <div class="middle_button">
    <%= f.button :submit, :value => "预览" %>

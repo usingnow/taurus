@@ -54,7 +54,7 @@ class Admin::OrdersController < ApplicationController
     @search = Sku.search(params[:q])
     respond_to do |format|
       if @order.update_attributes(params[:order])
-        format.html { redirect_to(edit_admin_order_url(@order,:condition_id => session[:condition_id]), :notice => 'Order was successfully updated.') }
+        format.html { redirect_to(edit_admin_order_url(@order,:condition_id => session[:condition_id])) }
       else
         format.html { render :action => "edit" }
       end

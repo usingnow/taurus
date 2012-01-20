@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120120075950) do
+ActiveRecord::Schema.define(:version => 20120119154015) do
 
   create_table "Material", :id => false, :force => true do |t|
     t.string  "Number"
@@ -422,6 +422,7 @@ ActiveRecord::Schema.define(:version => 20120120075950) do
     t.datetime "updated_at"
     t.boolean  "is_delivery",                                       :default => false
     t.integer  "store_id"
+    t.decimal  "total_price",         :precision => 8, :scale => 2, :default => 0.0
   end
 
   create_table "panic_buyings", :force => true do |t|

@@ -78,13 +78,16 @@ Ebiz::Application.routes.draw do
      resources :back_orders do
        collection do
          get  :user
-         post :preview
        end
        member do
          put  :internal_note
        end
      end
-     resources :back_order_news
+     resources :back_order_news do
+       collection do
+         post :preview
+       end
+     end
      resources :back_order_skus
      resources :order_prints
    end

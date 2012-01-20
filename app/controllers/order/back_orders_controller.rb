@@ -28,31 +28,6 @@ class Order::BackOrdersController < ApplicationController
     @date = Time.now.strftime("%Y-%m-%d")
   end
 
-  def update
-    @user = User.find params[:user_id]
-
-    @inner_order_payment = InnerOrderPayment.find_by_user_id(@user.id)
-    if @inner_order_payment.nil?
-      @inner_order_payment = InnerOrderPayment.new(params[:inner_order_payment])
-      @inner_order_payment.user_id = @user.id
-      @inner_order_payment.save
-    else
-      @inner_order_payment.update_attributes(params[:inner_order_payment])
-    end
-
-    @inner_order_address = InnerOrderAddress.find_by_user_id(@user.id)
-    if @inner_order_address.nil?
-      @inner_order_address = InnerOrderAddress.new(params[:inner_order_address])
-      @inner_order_address.user_id = @user.id
-      @inner_order_address.save
-    else
-      @inner_order_address.update_attributes(params[:inner_order_address])
-    end
-
-    @back_order_skus = BackOrderSku.find_all_by_user_id(@user.id)
-    @inner_order_payment = InnerOrderPayment.find_by_user_id(@user.id)
-    @inner_order_address = InnerOrderAddress.find_by_user_id(@user.id)
-  end
 
   def create
     #获得选择的商品

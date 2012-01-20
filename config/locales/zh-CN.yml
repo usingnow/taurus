@@ -549,6 +549,9 @@ zh-CN:
     delivery_order:
       store_id: "仓库"
 
+    inner_order_address:
+      mobile: "手机"
+
 
 
   activerecord:
