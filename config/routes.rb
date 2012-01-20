@@ -80,6 +80,9 @@ Ebiz::Application.routes.draw do
          get  :user
          post :preview
        end
+       member do
+         put  :internal_note
+       end
      end
      resources :back_order_news
      resources :back_order_skus

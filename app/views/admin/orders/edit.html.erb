@@ -12,19 +12,7 @@
         <li><a href="#order_tabs-4">收货地址</a></li>
 	</ul>
 	<div id="order_tabs-1">
-      <%= form_for([:admin,@order]) do |f| %>
-        <% if @order.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
-            <ul>
-              <% @order.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-           </div>
-        <% end %>
-
+      <%= form_for @order, :url => internal_note_order_back_order_path do |f| %>
         <table class="info_table">
           <tr>
             <td class="info_table_title"><%= f.label :instance_id %>:</td>
@@ -36,7 +24,7 @@
             <td class="info_table_title"><%= f.label :number %>:</td>
             <td><%= @order.number %></td>
             <td class="info_table_title"><%= f.label :batch %>:</td>
-            <td><%= f.label @order.batch %></td>
+            <td><%= @order.batch %></td>
           </tr>
           <tr>
             <td class="info_table_title"><%= f.label :total_price %>:</td>
@@ -80,9 +68,9 @@
           </tr>
         </table>
 
-          <div class="actions">
-            <%= f.submit '保存'%>
-          </div>
+        <div class="actions">
+          <%= f.submit '保存'%>
+        </div>
       <% end %>
 	</div>
     <div id="order_tabs-2">
@@ -158,8 +146,9 @@
         </thead>
         <tbody id="search_skus"></tbody>
       </table>
+      <hr />
 
-
+      <%= button_to '完成修改并且过站', condition_admin_orders_path %>
     </div>
     <div id="order_tabs-3">
       <%= form_for([:admin,@order]) do |f| %>
@@ -208,7 +197,7 @@
             });
           </script>
           <div class="actions">
-            <%= f.submit '保存'%>
+            <%= button_to '完成修改并且过站', condition_admin_orders_path %>
           </div>
       <% end %>
     </div>
@@ -245,7 +234,7 @@
             <div class="clear"></div>
           </div>
           <div class="actions">
-            <%= f.button :submit, :value => '保存'%>
+            <%= button_to '完成修改并且过站', condition_admin_orders_path %>
           </div>
        <% end %>
     </div>
@@ -254,4 +243,3 @@
 
 
 
-<%= button_to '完成修改并且过站', condition_admin_orders_path %>

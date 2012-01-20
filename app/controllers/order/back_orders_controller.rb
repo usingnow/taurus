@@ -150,4 +150,12 @@ class Order::BackOrdersController < ApplicationController
     redirect_to(admin_orders_url)
   end
 
+  def internal_note
+    @order = Order.find(params[:id])
+
+    @order.update_attribute("inner_note",params[:order][:inner_note])
+
+    redirect_to edit_admin_order_url(@order,:condition_id => session[:condition_id])
+  end
+
 end

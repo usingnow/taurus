@@ -51,13 +51,12 @@ class Admin::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
 
+    @search = Sku.search(params[:q])
     respond_to do |format|
       if @order.update_attributes(params[:order])
         format.html { redirect_to(edit_admin_order_url(@order,:condition_id => session[:condition_id]), :notice => 'Order was successfully updated.') }
-        format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @order.errors, :status => :unprocessable_entity }
       end
     end
   end
