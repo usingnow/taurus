@@ -33,7 +33,7 @@
       </p>
       <p>
         <%= label_tag t 'attributes.user.role'%>
-        <%= select :person_extend, :role_id, Role.all.collect {|r| [ r.name, r.id ] } %><span class="red">*</span>
+        <%= f.select :role_id, Role.all.collect {|r| [ r.name, r.id ] } %><span class="red">*</span>
       </p>
       <p>
         <%= label_tag t :email %>

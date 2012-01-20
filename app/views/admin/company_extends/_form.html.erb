@@ -42,7 +42,7 @@
       </p>
       <p>
         <%= label_tag t :role %>
-        <%= select :company_extend, :role_id, Role.all.collect{ |r| [r.name, r.id] } %><span class="red">*</span>
+        <%= f.select :role_id, Role.all.collect{ |r| [r.name, r.id] } %><span class="red">*</span>
       </p>
       <p>
         <%= label_tag t 'attributes.company_extend.company_name' %>
