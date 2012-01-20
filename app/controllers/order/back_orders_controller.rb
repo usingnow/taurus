@@ -93,7 +93,7 @@ class Order::BackOrdersController < ApplicationController
       @order.number = current_number   #获得订单编号
       @order.batch = @order.number[0,8]+"-"+@order.number[9,13]
       @order.instance_id = instance.id
-      @order.user_id = session[:user_id]
+      @order.user_id = params[:user_id]
       @order.created_admin_id = current_administrator.id
       @order.updated_admin_id = current_administrator.id
       @order.district_no = inner_order_address.district_no
@@ -115,7 +115,7 @@ class Order::BackOrdersController < ApplicationController
       @order.reserve_reason = reserve_reason
 
       @order.save
-      create_order_details(back_order_skus)
+      create_order_details(back_order_skus,@order.id)
 
       BackOrderSku.delete_all(:user_id => params[:user_id])
 

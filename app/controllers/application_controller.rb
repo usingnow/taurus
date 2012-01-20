@@ -152,10 +152,10 @@ class ApplicationController < ActionController::Base
     end
 
     #批量添加订单详情
-    def create_order_details(inner_sku_carts)
+    def create_order_details(inner_sku_carts,order_id)
       line_items = []
       inner_sku_carts.each do |cart|
-        line_items << {:order_id => @order.id, :sku_id => cart.sku_id, :unit_price => cart.sku.cost_aft_tax,
+        line_items << {:order_id => order_id, :sku_id => cart.sku_id, :unit_price => cart.sku.cost_aft_tax,
                        :quantity => cart.quantity}
       end
       OrderDetail.create(line_items)
