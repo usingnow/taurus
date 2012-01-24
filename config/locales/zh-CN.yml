@@ -548,6 +548,7 @@ zh-CN:
 
     delivery_order:
       store_id: "仓库"
+      line_type: "出库方式"
 
     inner_order_address:
       mobile: "手机"

@@ -51,7 +51,7 @@ class Store::SalesOrderDeliveriesController < ApplicationController
             subtract_store_quantity(delivery_order_carts,@delivery_order)
             if !@delivery_order.order_id.nil?
               @order = Order.find(@delivery_order.order_id)
-              @order.update_attributes(:is_delivery => 0)
+              @order.update_attribute("is_delivery",0)
             end
           end
         end

@@ -3,5 +3,5 @@ class DeliveryOrder < ActiveRecord::Base
   belongs_to :administrator
   belongs_to :order
 
-  validates_presence_of :store_id, :administrator_id
+  validates_presence_of :store_id, :administrator_id, :name, :line_type
 end
