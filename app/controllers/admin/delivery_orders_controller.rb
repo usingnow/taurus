@@ -3,12 +3,9 @@ class Admin::DeliveryOrdersController < ApplicationController
   before_filter :authenticate_administrator!
 
   def index
-    @delivery_orders = DeliveryOrder.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @delivery_orders }
-    end
+    @search = DeliveryOrder.search(params[:q])
+    @search.sorts = "created_at desc"
+    @delivery_orders = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /delivery_orders/1
@@ -48,13 +45,11 @@ class Admin::DeliveryOrdersController < ApplicationController
 
   end
 
-  # GET /delivery_orders/1/edit
   def edit
     @delivery_order = DeliveryOrder.find(params[:id])
   end
 
-  # POST /delivery_orders
-  # POST /delivery_orders.xml
+
   def create
     admin_id = current_administrator.id
 
@@ -128,8 +123,4 @@ class Admin::DeliveryOrdersController < ApplicationController
     end
   end
 
-  def from_order
-    @search = Order.search("is_delivery_eq" => "1")
-    @orders = @search.result.paginate(:page => params[:page], :per_page => 20)
-  end
 end

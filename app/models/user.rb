@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_one :person_extend
   has_one :company_extend
   belongs_to :role
+  belongs_to :store
   accepts_nested_attributes_for :person_extend
   accepts_nested_attributes_for :company_extend
 

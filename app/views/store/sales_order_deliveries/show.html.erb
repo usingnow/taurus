@@ -1,0 +1,51 @@
+<%= simple_form_for([:admin,@delivery_order]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="attributes">
+    <div class="split_content_left">
+      <%= f.input :order_id, :as => :hidden %>
+      <%= label_tag '订单编号：' %>
+      <%= @delivery_order.order.number %>
+    </div>
+    <div class="split_content_right">
+      <%= f.input :store_id, :as => :hidden %>
+      <%= label_tag '仓库：' %>
+      <%= @delivery_order.order.user.store.name %>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <hr />
+
+  <table class="grid">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>商品编码</th>
+        <th>商品名称</th>
+        <th>规格</th>
+        <th>型号</th>
+        <th>单位</th>
+        <th>数量</th>
+      </tr>
+    </thead>
+    <tbody id="product_carts">
+      <% @delivery_order_carts.each_with_index do |cart,index| %>
+        <tr class="<%= set_odd_even_class(index) %>">
+          <td><%= index+1 %></td>
+          <td><%= cart.product.product_id %></td>
+          <td align="left"><%= cart.product.name %></td>
+          <td><%= cart.product.specification %></td>
+          <td><%= cart.product.model %></td>
+          <td><%= cart.product.unit %></td>
+          <td><%= cart.quantity %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+

@@ -74,23 +74,27 @@ Ebiz::Application.routes.draw do
   #   end
 
   # Sample resource route within a namespace:
-   namespace :order do
-     resources :back_orders do
-       collection do
-         get  :user
-       end
-       member do
-         put  :internal_note
-       end
-     end
-     resources :back_order_news do
-       collection do
-         post :preview
-       end
-     end
-     resources :back_order_skus
-     resources :order_prints
-   end
+  namespace :store do
+    resources :sales_order_deliveries
+  end
+
+  namespace :order do
+    resources :back_orders do
+      collection do
+        get  :user
+      end
+      member do
+        put  :internal_note
+      end
+    end
+    resources :back_order_news do
+      collection do
+        post :preview
+      end
+    end
+    resources :back_order_skus
+    resources :order_prints
+  end
 
 
 
@@ -184,11 +188,7 @@ Ebiz::Application.routes.draw do
      resources :banks
      resources :inner_sku_carts
      resources :prod_del_ordships
-     resources :delivery_orders do
-       collection do
-         get  :from_order
-       end
-     end
+     resources :delivery_orders
    end
 
   # You can have the root of your site routed with "root"
