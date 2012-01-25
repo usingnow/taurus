@@ -104,15 +104,10 @@
 
 <%= form_tag search_admin_products_path, :method => :get, :remote => true  do %>
   <div class="attributes">
-    <div class="split_content_left">
-      <p>
-        <%= label_tag '商品名称' %>
-        <%= text_field_tag 'q[name_cont]' %>
-        <%= hidden_field_tag 'cart_type', '0'%>
-        <%= submit_tag '查询' %>
-      </p>
-    </div>
-    <div class="clear"></div>
+      商品编号:<%= text_field_tag 'q[product_id_eq]' %>
+      商品名称:<%= text_field_tag 'q[name_cont]' %>
+      <%= hidden_field_tag 'cart_type', '0'%>
+      <%= submit_tag '查询' %>
   </div>
 <% end %>
 

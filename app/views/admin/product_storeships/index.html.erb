@@ -7,6 +7,10 @@
         <%= f.label '仓库' %>
         <%= f.select :store_id_eq, Store.all.collect{ |s| [s.name,s.id]} %>
       </p>
+      <p>
+        <%= f.label '商品编号' %>
+        <%= f.text_field :product_product_id_cont %>
+      </p>
     </div>
     <div class="split_content_right">
       <p>

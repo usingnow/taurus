@@ -35,6 +35,7 @@
 <hr />
 <div>
   <%= search_form_for @search, :url => order_back_order_skus_path, :remote => true, :html => {:method => :get} do |f| %>
+    商品编号:<%= f.text_field :number_eq %>
     商品名称:<%= f.text_field :name_cont %>
     <%= submit_tag '查询' %>
   <% end %>
