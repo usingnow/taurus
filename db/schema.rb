@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120124114103) do
+ActiveRecord::Schema.define(:version => 20120125051731) do
 
   create_table "Material", :id => false, :force => true do |t|
     t.string  "Number"

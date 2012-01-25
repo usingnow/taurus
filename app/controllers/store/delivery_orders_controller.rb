@@ -1,5 +1,5 @@
 #encoding:UTF-8
-class Admin::DeliveryOrdersController < ApplicationController
+class Store::DeliveryOrdersController < ApplicationController
   before_filter :authenticate_administrator!
 
   def index
@@ -88,7 +88,7 @@ class Admin::DeliveryOrdersController < ApplicationController
           end
         end
 
-        redirect_to(admin_delivery_orders_url)
+        redirect_to(store_delivery_orders_url)
       else
         render :action => "new"
       end

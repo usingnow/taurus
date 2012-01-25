@@ -58,6 +58,6 @@ class Store::SalesOrderDeliveriesController < ApplicationController
       end
     end
 
-    redirect_to(admin_delivery_orders_url)
+    redirect_to(store_delivery_orders_url)
   end
 end
