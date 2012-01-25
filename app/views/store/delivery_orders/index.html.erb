@@ -1,5 +1,30 @@
 <h1>出库单列表</h1>
 
+<div class="attributes">
+  <%= search_form_for [:store,@search] do |f| %>
+    <div class="split_content_left">
+      <p>
+        <%= f.label '出库类型' %>
+        <%= f.collection_select :order_id_null, [['false', '全部'], ['true', '订单出库'] ,['true', '其他']] ,
+                                :first, :second, :checked => 'false' %>
+      </p>
+      <p>
+        <%= f.label '出库日期' %>
+        <%= f.text_field :created_at_gt %>
+        ~
+        <%= f.text_field :created_at_lt %>
+      </p>
+    </div>
+    <div class="split_content_right">
+      <p>
+        <label>&nbsp;</label>
+        <%= f.submit '查询'%>
+      </p>
+    </div>
+    <div class="clear"></div>
+  <% end %>
+</div>
+
 <div class="grid_button">
   <%= link_to '销售订单出库', store_sales_order_deliveries_path %>
   <%= link_to '新增出库单', new_store_delivery_order_path %>
@@ -12,6 +37,8 @@
       <th>订单编号</th>
       <th>仓库</th>
       <th>操作人</th>
+      <th>出库方式</th>
+      <th>出库时间</th>
     </tr>
   </thead>
 
@@ -21,9 +48,26 @@
     <td><%= delivery_order.number %></td>
     <td><%= delivery_order.store.name %></td>
     <td><%= delivery_order.administrator.name %></td>
+    <td><%= format_delivery_type delivery_order.order_id %></td>
+    <td><%= delivery_order.created_at %></td>
   </tr>
 <% end %>
 </table>
 
 <%= will_paginate @delivery_orders %>
+
+
+<% content_for :ready do %>
+  jQuery('#q_order_id_null').change(function(){
+    var text = jQuery(this).find("option:selected").text();
+    if(text == '订单出库'){
+      jQuery(this).attr('name','q[order_id_not_null]');
+    }else{
+      jQuery(this).attr('name','q[order_id_null]');
+    }
+  });
+
+  jQuery('#q_created_at_gt').datepicker({dateFormat: "yy-mm-dd"});
+  jQuery('#q_created_at_lt').datepicker({dateFormat: "yy-mm-dd"});
+<% end %>
 

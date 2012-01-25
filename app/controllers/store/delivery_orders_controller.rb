@@ -8,8 +8,6 @@ class Store::DeliveryOrdersController < ApplicationController
     @delivery_orders = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
 
-  # GET /delivery_orders/1
-  # GET /delivery_orders/1.xml
   def show
     @delivery_order = DeliveryOrder.find(params[:id])
 
