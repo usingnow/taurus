@@ -1,8 +1,8 @@
-str = "<% @skus.each_with_index do |sku,index| %>"+
+var str = "<% @skus.each_with_index do |sku,index| %>"+
         "<tr class='<%= set_odd_even_class(index) %>' group='<%= index %>'>"+
           "<td><%= index+1 %></td>"+
           "<td><%= sku.number %></td>"+
-          "<td><%= sku.name %></td>"+
+          "<td>"+'<%= sku.name %>'.replace(/\r\n/g,'<br>')+"</td>"+
           "<td><%= sku.unit %></td>"+
           "<td><%= sku.cost_aft_tax %></td>"+
           "<td><%= sku.insatllation_cost_aft_tax %></td>"+
