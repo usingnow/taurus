@@ -6,7 +6,7 @@ if(error != ""){
           '<tr class="<%= set_odd_even_class(index) %>" group="<%= index %>" id="back_order_sku<%= cart.id %>">'+
             '<td><%= index+1 %></td>'+
             '<td><%= cart.sku.number %></td>'+
-            '<td><%= cart.sku.name %></td>'+
+            '<td><%= cart.sku.name.gsub("\n", "") %></td>'+
             '<td><%= cart.sku.unit %></td>'+
             '<td><%= cart.sku.cost_aft_tax %></td>'+
             '<td><%= text_field_tag :quantity, cart.quantity, :size => 3, :class=> "back_order_sku_quantity", :id => "#{cart.id}" %></td>'+

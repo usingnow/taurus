@@ -2,7 +2,7 @@ var str = '<% @order_details.each_with_index do |detail,index| %>'+
             '<tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">'+
               '<td><%= index+1 %></td>'+
               '<td><%= detail.sku.number %></td>'+
-              '<td><%= detail.sku.name %></td>'+
+              '<td><%= detail.sku.name.gsub("\n", "") %></td>'+
               '<td><%= detail.sku.unit %></td>'+
               '<td><%= detail.sku.cost_aft_tax %></td>'+
               '<td><%= text_field_tag :quantity, detail.quantity, :size => 3, :class=> "order_details_quantity", :id => "#{detail.id}" %></td>'+
