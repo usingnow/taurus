@@ -128,7 +128,10 @@ Ebiz::Application.routes.draw do
        end
      end
      resources :sku_categories do
-       get  :autocomplete_sku_category_name, :on => :collection
+       collection do
+         get  :autocomplete_sku_category_name
+         get  :check
+       end
      end
      resources :skus do
        collection do

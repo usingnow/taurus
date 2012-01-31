@@ -1,7 +1,7 @@
 class Admin::SkuCategoriesController < ApplicationController
   before_filter :authenticate_administrator!
 
-  autocomplete :sku_category, :name
+  autocomplete :sku_category, :name, :extra_data => [:number]
 
   def index
     @search = SkuCategory.search(params[:p])
@@ -78,6 +78,16 @@ class Admin::SkuCategoriesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(admin_sku_categories_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def check
+    sku_category = SkuCategory.find_by_number(params[:number])
+
+    if sku_category.nil?
+      render :json => "failure".to_json
+    else
+      render :json => sku_category.to_json
     end
   end
 end

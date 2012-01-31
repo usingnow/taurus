@@ -35,6 +35,9 @@ class Admin::SkusController < ApplicationController
   # GET /skus/1/edit
   def edit
     @sku = Sku.find(params[:id])
+    @sku.brand_name = @sku.brand.chinese_name
+    @sku.sku_category_name = @sku.sku_category.name
+    @sku.sku_category_number = @sku.sku_category.number
   end
 
   # POST /skus
