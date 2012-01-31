@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
 
-  attr_accessible :email, :login_no, :password, :password_confirmation, :remember_me, :status, :user_type
+  attr_accessible :email, :login_no, :password, :password_confirmation, :remember_me, :status, :user_type, :role_id, :store_id
 
   attr_accessor :password_confirmation, :email_confirmation, :index
 

@@ -32,7 +32,6 @@
       <th><%= t('attributes.brand.updated_at') %></th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -45,7 +44,6 @@
     <td><%= brand.updated_at %></td>
     <td><%= link_to 'Show', admin_brand_path(brand) %></td>
     <td><%= link_to 'Edit', edit_admin_brand_path(brand) %></td>
-    <td><%= link_to 'Destroy', admin_brand_path(brand), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

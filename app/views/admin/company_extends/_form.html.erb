@@ -45,6 +45,10 @@
         <%= f.select :role_id, Role.all.collect{ |r| [r.name, r.id] } %><span class="red">*</span>
       </p>
       <p>
+        <label>仓库</label>
+        <%= f.select :store_id, Store.all.collect {|s| [ s.name, s.id ] } %><span class="red">*</span>
+      </p>
+      <p>
         <%= label_tag t 'attributes.company_extend.company_name' %>
         <%= text_field :company_extend, :company_name %><span class="red">*</span>
       </p>

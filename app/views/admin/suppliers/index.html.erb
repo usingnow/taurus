@@ -32,7 +32,6 @@
       <th><%= t('attributes.supplier.updated_at') %></th>
       <th></th>
       <th></th>
-      <th></th>
    </tr>
   </thead>
 <% @suppliers.each_with_index do |supplier,index| %>
@@ -44,7 +43,6 @@
     <td><%= supplier.updated_at %></td>
     <td><%= link_to 'Show', admin_supplier_path(supplier) %></td>
     <td><%= link_to 'Edit', edit_admin_supplier_path(supplier) %></td>
-    <td><%= link_to 'Destroy', admin_supplier_path(supplier), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
