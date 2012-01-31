@@ -6,6 +6,7 @@ class Admin::SkuProductshipsController < ApplicationController
   def index
     if params[:sku_id] != nil
       sku_id = params[:sku_id]
+      session[:sku_id] = sku_id
     else
       sku_id = session[:sku_id]
     end
@@ -48,44 +49,37 @@ class Admin::SkuProductshipsController < ApplicationController
   # POST /sku_productships
   # POST /sku_productships.xml
   def create
-    @sku_productship = SkuProductship.new(params[:sku_productship])
-    @sku_productship.sku_id = session[:sku_id]
+    sku_productship = SkuProductship.new(:product_id => params[:product_id])
+    sku_productship.sku_id = session[:sku_id]
 
-    respond_to do |format|
-      if @sku_productship.save
-        format.html { redirect_to(admin_sku_productships_url) }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @sku_productship.errors, :status => :unprocessable_entity }
-      end
-    end
+    sku_productship.save
+    @sku_productships = SkuProductship.find_all_by_sku_id session[:sku_id]
+
+    render :partial => "line_items"
   end
 
-  # PUT /sku_productships/1
-  # PUT /sku_productships/1.xml
   def update
-    @sku_productship = SkuProductship.find(params[:id])
+    sku_productship = SkuProductship.find(params[:id])
 
-    respond_to do |format|
-      if @sku_productship.update_attributes(params[:sku_productship])
-        format.html { redirect_to(@sku_productship, :notice => 'Sku productship was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @sku_productship.errors, :status => :unprocessable_entity }
-      end
-    end
+    sku_productship.update_attributes(params[:sku_productship])
+
+    @sku_productships = SkuProductship.find_all_by_sku_id session[:sku_id]
+
+    render :partial => "line_items"
   end
 
-  # DELETE /sku_productships/1
-  # DELETE /sku_productships/1.xml
-  def destroy
-    @sku_productship = SkuProductship.find(params[:id])
-    @sku_productship.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(admin_sku_productships_url) }
-      format.xml  { head :ok }
-    end
+  def destroy
+    sku_productship = SkuProductship.find(params[:id])
+    sku_productship.destroy
+
+    @sku_productships = SkuProductship.find_all_by_sku_id session[:sku_id]
+
+    render :partial => "line_items"
+  end
+
+  def search_products
+    @query = Product.search(params[:q])
+    @products = @query.result.paginate(:page => params[:page], :per_page => 20)
   end
 end

@@ -139,7 +139,11 @@ Ebiz::Application.routes.draw do
          get  :search
        end
      end
-     resources :sku_productships
+     resources :sku_productships do
+       collection do
+         get  :search_products
+       end
+     end
      resources :sku_images
      resources :orders do
        collection do
