@@ -1,4 +1,4 @@
-var str = '<% @order_details.each_with_index do |detail,index| %>'+
+var str = '<% @order.order_details.each_with_index do |detail,index| %>'+
             '<tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">'+
               '<td><%= index+1 %></td>'+
               '<td><%= detail.sku.number %></td>'+
@@ -15,13 +15,18 @@ var str = '<% @order_details.each_with_index do |detail,index| %>'+
               '<td><%= link_to '删除', admin_order_detail_path(detail), :confirm => '确定删除?', :method => :delete, :remote => true %></td>'+
             '</tr>'+
           '<% end %>'+
-          '<tr><td colspan="13" align="right">合计:<%= number_to_currency @order_details.to_a.sum{ |detail| detail.subtotal }, :unit => "￥" %></td></tr>';
+          '<tr><td colspan="13" align="right">'+
+            '运费：<%= number_to_currency @order.carriage_cost, :unit => "￥" %>,'+
+            '安装费合计：<%= number_to_currency @order.total_install_cost, :unit => "￥" %>,'+
+            '组装费合计：<%= number_to_currency @order.total_assemble_cost, :unit => "￥" %>,'+
+            '总计:<%= number_to_currency @order.total_amount, :unit => "￥" %>'+
+          '</td></tr>';
 
 $("#order_details").html(str);
 
 $(".order_details_quantity").change(function() {
   $.ajax({url: "/admin/order_details/"+this.id,
           type: "put",
-          data: 'value=' + this.value + '&order_id=<%= @order_details[0].order_id %>',
+          data: 'value=' + this.value + '&order_id=<%= @order.id %>',
           dataType: 'script'})
 });

@@ -15,7 +15,7 @@ class Admin::OrderDetailsController < ApplicationController
     end
     @order_detail.save
 
-    @order_details = OrderDetail.find_all_by_order_id(order_id)
+    @order = Order.find(order_id)
   end
 
   def update
@@ -23,13 +23,14 @@ class Admin::OrderDetailsController < ApplicationController
 
     @order_detail = OrderDetail.find(params[:id])
     @order_detail.update_attributes(:quantity => value)
-    @order_details = OrderDetail.find_all_by_order_id(params[:order_id])
+
+    @order = Order.find(@order_detail.order_id)
   end
 
   def destroy
     @order_detail = OrderDetail.find(params[:id])
     @order_detail.destroy
 
-    @order_details = OrderDetail.find_all_by_order_id(@order_detail.order_id)
+    @order = Order.find(@order_detail.order_id)
   end
 end

@@ -86,6 +86,8 @@ Ebiz::Application.routes.draw do
       end
       member do
         put  :internal_note
+        put  :carriage_adjustment
+        put  :other_cost
       end
     end
     resources :back_order_news do

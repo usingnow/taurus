@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120125051731) do
+ActiveRecord::Schema.define(:version => 20120131124217) do
+
+  create_table "Material", :id => false, :force => true do |t|
+    t.string  "Number"
+    t.string  "WarehouseValue"
+    t.string  "WarehousePosition"
+    t.integer "product_id"
+  end
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -428,6 +435,7 @@ ActiveRecord::Schema.define(:version => 20120125051731) do
     t.datetime "updated_at"
     t.boolean  "is_delivery",                                       :default => false
     t.decimal  "total_price",         :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "carriage_adjustment", :precision => 8, :scale => 2, :default => 0.0
   end
 
   create_table "panic_buyings", :force => true do |t|
@@ -570,7 +578,6 @@ ActiveRecord::Schema.define(:version => 20120125051731) do
     t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "id_n"
   end
 
   create_table "provinces", :force => true do |t|
@@ -592,6 +599,19 @@ ActiveRecord::Schema.define(:version => 20120125051731) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "rails_admin_histories", :force => true do |t|
+    t.text     "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "rec_adds", :force => true do |t|
     t.integer  "user_id"

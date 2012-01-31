@@ -110,7 +110,14 @@
               <td><%= link_to '删除', admin_order_detail_path(detail), :confirm => '确定删除?', :method => :delete, :remote => true %></td>
             </tr>
           <% end %>
-          <tr><td colspan="13" align="right">合计:<%= number_to_currency @order.total_amount, :unit => "￥" %></td></tr>
+          <tr>
+            <td colspan="13" align="right">
+              运费：<%= number_to_currency @order.carriage_cost, :unit => "￥" %>,
+              安装费合计：<%= number_to_currency @order.total_install_cost, :unit => "￥" %>,
+              组装费合计：<%= number_to_currency @order.total_assemble_cost, :unit => "￥" %>,
+              总计:<%= number_to_currency @order.total_amount, :unit => "￥" %>
+            </td>
+          </tr>
           <script type="text/javascript">
             $(".order_details_quantity").change(function() {
               $.ajax({url: "/admin/order_details/"+this.id,
@@ -122,7 +129,42 @@
         </tbody>
       </table>
 
-    <hr />
+      <div class="grid_button">
+        <% if can? :carriage_adjustment, Order %>
+         调整后运费<input type="number" value="<%= @order.carriage_adjustment %>" id="carriage_adjustment" />
+         <input type="button" value="修改运费" id="carriage_adjustment_update" />
+        <% end %>
+        <% if can? :other_cost, Order %>
+         其他费用<input type="number" value="<%= @order.other_cost %>" id="other_cost" />
+         <input type="button" value="修改其他费用" id="other_cost_update" />
+        <% end %>
+        <% content_for :ready do %>
+          jQuery('#carriage_adjustment_update').click(function(){
+            jQuery.ajax({
+              url: "/order/back_orders/<%= @order.id %>/carriage_adjustment",
+              type: "put",
+              data: {"order[carriage_adjustment]": jQuery('#carriage_adjustment').val()},
+              success:function(result){
+                jQuery('#order_details').html(result);
+              }
+            });
+          });
+
+          jQuery('#other_cost_update').click(function(){
+            jQuery.ajax({
+              url: "/order/back_orders/<%= @order.id %>/other_cost",
+              type: "put",
+              data: {"order[other_cost]": jQuery('#other_cost').val()},
+              success:function(result){
+                jQuery('#order_details').html(result);
+              }
+            });
+          });
+        <% end %>
+      </div>
+
+      <hr />
+
       <div>
         <%= search_form_for @search, :url => search_admin_skus_path, :remote => true, :html => {:method => :get} do |f| %>
           <%= hidden_field_tag 'order_id', @order.id %>

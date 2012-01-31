@@ -126,13 +126,12 @@ class Order::BackOrdersController < ApplicationController
           @order.carriage_cost = 20
         end
       end
+      @order.carriage_adjustment = @order.carriage_cost
 
       @order.save
       create_order_details(back_order_skus,@order.id)
 
       BackOrderSku.delete_all(:user_id => params[:user_id])
-
-
     end
 
     redirect_to(admin_orders_url)
@@ -144,6 +143,20 @@ class Order::BackOrdersController < ApplicationController
     @order.update_attribute("inner_note",params[:order][:inner_note])
 
     redirect_to edit_admin_order_url(@order,:condition_id => session[:condition_id])
+  end
+
+  def carriage_adjustment
+    @order = Order.find(params[:id])
+    @order.update_attributes(params[:order])
+
+    render :partial => "update_cost"
+  end
+
+  def other_cost
+    @order = Order.find(params[:id])
+    @order.update_attributes(params[:order])
+
+    render :partial => "update_cost"
   end
 
 end

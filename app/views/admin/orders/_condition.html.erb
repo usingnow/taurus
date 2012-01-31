@@ -102,8 +102,12 @@
       <%= @order.other_cost %> 元
     </p>
     <p>
-      <%= label_tag '运费：' %>
+      <%= label_tag '标准运费：' %>
       <%= @order.carriage_cost %> 元
+    </p>
+    <p>
+      <%= label_tag '调整后运费：' %>
+      <%= @order.carriage_adjustment %> 元
     </p>
     <p>
       <%= label_tag '合计：' %>
