@@ -2,7 +2,9 @@
 class Product < ActiveRecord::Base
   belongs_to :brand
   has_many :product_storeships
-  attr_accessor :brand_name, :product_category_name, :supplier_name
+  belongs_to :supplier
+  belongs_to :product_category
+  attr_accessor :brand_name, :product_category_name, :product_category_number, :supplier_name
 
   def nb_is_inventory
     product_storeship = product_storeships.where(:store_id => 1).first

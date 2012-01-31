@@ -122,7 +122,10 @@ Ebiz::Application.routes.draw do
        get  :autocomplete_supplier_name, :on => :collection
      end
      resources :product_categories do
-       get :autocomplete_product_category_name, :on => :collection
+       collection do
+         get  :autocomplete_product_category_name
+         get  :check
+       end
      end
      resources :sku_categories do
        get  :autocomplete_sku_category_name, :on => :collection

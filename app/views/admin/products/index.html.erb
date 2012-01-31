@@ -38,8 +38,6 @@
       <th><%= t('attributes.product.manufacturer') %></th>
       <th><%= t('attributes.product.updated_at') %></th>
       <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -53,9 +51,7 @@
     <td><%= product.model %></td>
     <td><%= product.manufacturer %></td>
     <td><%= product.updated_at %></td>
-    <td><%= link_to 'Show', admin_product_path(product) %></td>
-    <td><%= link_to 'Edit', edit_admin_product_path(product) %></td>
-    <td><%= link_to 'Destroy', admin_product_path(product), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to '修改', edit_admin_product_path(product) %></td>
   </tr>
 <% end %>
 </table>

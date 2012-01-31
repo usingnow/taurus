@@ -39,6 +39,10 @@ class Admin::ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
+    @product.brand_name = @product.brand.chinese_name
+    @product.supplier_name = @product.supplier.name
+    @product.product_category_name = @product.product_category.name
+    @product.product_category_number = @product.product_category.number
   end
 
   # POST /products

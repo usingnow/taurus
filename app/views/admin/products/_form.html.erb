@@ -31,8 +31,31 @@
     <div class="split_content_right">
        <%= f.input :name %>
        <%= f.input :product_category_name do %>
-         <%= f.autocomplete_field :product_category_name, autocomplete_product_category_name_admin_product_categories_path, :id_element => '#product_category_id'  %>
+         <%= f.autocomplete_field :product_category_name, autocomplete_product_category_name_admin_product_categories_path, :update_elements => {:id => '#product_product_category_id', :number => '#product_product_category_number'}  %>
+         <span style="font-weight: bold;">编号</span>
+         <%= f.text_field :product_category_number %>
+         <input type="button" id="check_product_category_number" value="验证" style="width: 60px;" />
        <% end %>
+       <% content_for :ready do %>
+          jQuery("#check_product_category_number").click(function(){
+            jQuery.ajax({
+                       type: "get",
+                       url: "/admin/product_categories/check",
+                       data: { number: jQuery("#product_product_category_number").val() },
+                       dataType: "json",
+                       success: function(result) {
+                         if(result == "failure"){
+                           alert("编号不存在!");
+                         }else{
+                           jQuery("#product_product_category_id").val(result.product_category.id);
+                           jQuery("#product_product_category_number").val(result.product_category.number);
+                           jQuery("#product_product_category_name").val(result.product_category.name);
+                         }
+                       },
+                   });
+          });
+       <% end %>
+       <%= f.input :product_category_id, :as => :hidden %>
        <%= f.input :specification %>
        <%= f.input :delivery_descprition %>
        <%= f.input :cost_aft_tax %>
