@@ -25,6 +25,14 @@ class Admin::SkusController < ApplicationController
   # GET /skus/new.xml
   def new
     @sku = Sku.new
+    @sku.cost_aft_tax = 0.00
+    @sku.cost_bef_tax = 0.00
+    @sku.assembling_fee_aft_tax = 0.00
+    @sku.assembling_fee_bef_tax = 0.00
+    @sku.insatllation_cost_aft_tax = 0.00
+    @sku.installation_cost_bef_tax = 0.00
+    @sku.market_price = 0.00
+
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,6 +52,8 @@ class Admin::SkusController < ApplicationController
   # POST /skus.xml
   def create
     @sku = Sku.new(params[:sku])
+    @sku.total_sale = 0
+    @sku.create_by = current_administrator.name
 
     respond_to do |format|
       if @sku.save
