@@ -159,11 +159,10 @@
             };
         });
     </script>
-
-     <% if @order.order_details.size-6 < 0 %>
+     <% if @order.order_details.size <= 6 %>
        <% page = 0 %>
      <% else %>
-       <% page = @order.order_details.size-6/10 %>
+       <% page = (@order.order_details.size-6)/10+1 %>
      <% end %>
      <% k = 0 %>
     <table width="690">
@@ -264,8 +263,8 @@
                         </tr>
                       <% end %>
                     <% end %>
-                    <% if i < 6  %>
-                        <% (6-i).times.each do %>
+                    <% if i < 5  %>
+                        <% (5-i).times.each do %>
                           <tr>
                             <td class="innerTd">
                                 &nbsp;
@@ -523,8 +522,8 @@
                       </tr>
                     <% i = 0 %>
                     <% @order.order_details.each_with_index do |detail,index| %>
-                      <% if k < page*10+6 && k > (page-1)*10+6  %>
-                        <% i = index %>
+                      <% if index < page*10+6 && index > (page-1)*10+6  %>
+                        <% i = i+1 %>
                           <tr>
                             <td class="innerTd">
                                 <%= index+1 %>
@@ -547,8 +546,8 @@
                           </tr>
                       <% end %>
                     <% end %>
-                    <% if i < 9  %>
-                        <% (9-i).times.each do %>
+                    <% if i < 10  %>
+                        <% (10-i).times.each do %>
                           <tr>
                             <td class="innerTd">
                                 &nbsp;
@@ -648,9 +647,10 @@
         <tr>
             <td style="padding-top: 5px">
                 <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                    <tbody><tr>
+                    <tbody>
+                      <tr>
                         <td align="left">
-                            您对我们的物流服务：&nbsp;满意&nbsp;<span style="font-size: x-large">□</span>&nbsp;&nbsp;&nbsp;&nbsp;一般&nbsp;<span style="font-size: x-large">□</span>&nbsp;&nbsp;&nbsp;&nbsp;不满意&nbsp;<span style="font-size: x-large">□</span>
+                          &nbsp;
                         </td>
                         <td width="80" class="padRight" style="font-size: large;">
                             客户签字:
@@ -665,68 +665,27 @@
                 </tbody></table>
             </td>
         </tr>
-        <!--签署栏-->
-        <tr>
-            <td style="padding-top: 5px">
-                <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                    <tbody><tr>
-                        <td class="padRight" width="80">
-                            仓库确认：
-                        </td>
-                        <td style="border-width: 1px; border-color: #000000; border-style: none none solid none">
-                            &nbsp;
-                        </td>
-                        <td width="10">
-                            &nbsp;
-                        </td>
-                        <td class="padRight" width="80">
-                            物流司机：
-                        </td>
-                        <td style="border-width: 1px; border-color: #000000; border-style: none none solid none">
-                            &nbsp;
-                        </td>
-                        <td width="10">
-                            &nbsp;
-                        </td>
-                        <td class="padRight" width="80">
-                            出发时间：
-                        </td>
-                        <td style="border-width: 1px; border-color: #000000; border-style: none none solid none">
-                            &nbsp;
-                        </td>
-                        <td width="10">
-                            &nbsp;
-                        </td>
-                        <td class="padRight" width="80">
-                            到达时间：
-                        </td>
-                        <td style="border-width: 1px; border-color: #000000; border-style: none none solid none">
-                            &nbsp;
-                        </td>
-                    </tr>
-                </tbody></table>
-            </td>
-        </tr>
-
         <!--底部信息-->
         <tr>
             <td style="padding-top: 5px">
                 <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                    <tbody><tr>
-                        <td style="font-size: 12pt; font-weight: bold">
-                            www.emehome.cn
-                        </td>
-                        <td>
-                            客服热线：400-630-5006
-                        </td>
-                        <td>
-                            宁波壹美壹家贸易有限公司
-                        </td>
-                        <td>
-                            页码：1/1
-                        </td>
+                  <tbody>
+                    <tr>
+                      <td style="font-size: 12pt; font-weight: bold">
+                          www.emehome.cn
+                      </td>
+                      <td>
+                          客服热线：400-630-5006
+                      </td>
+                      <td>
+                          宁波壹美壹家贸易有限公司
+                      </td>
+                      <td>
+                          页码：1/<%= page+1 %>
+                      </td>
                     </tr>
-                </tbody></table>
+                  </tbody>
+                </table>
             </td>
         </tr>
       </tbody>
