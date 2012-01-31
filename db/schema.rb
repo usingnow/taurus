@@ -12,13 +12,6 @@
 
 ActiveRecord::Schema.define(:version => 20120125051731) do
 
-  create_table "Material", :id => false, :force => true do |t|
-    t.string  "Number"
-    t.string  "WarehouseValue"
-    t.string  "WarehousePosition"
-    t.integer "product_id"
-  end
-
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
     t.integer  "group_id"

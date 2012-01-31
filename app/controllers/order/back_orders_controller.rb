@@ -113,6 +113,19 @@ class Order::BackOrdersController < ApplicationController
       @order.is_invoice_head = inner_order_payment.is_invoice_head
       @order.company_name = inner_order_payment.company_name
       @order.reserve_reason = reserve_reason
+      if inner_order_address.district.city_no == 330200
+        if back_order_skus.to_a.sum{ |sku| sku.subtotal } > 50
+          @order.carriage_cost = 0
+        else
+          @order.carriage_cost = 5
+        end
+      else
+        if back_order_skus.to_a.sum{ |sku| sku.subtotal } > 200
+          @order.carriage_cost = 0
+        else
+          @order.carriage_cost = 20
+        end
+      end
 
       @order.save
       create_order_details(back_order_skus,@order.id)

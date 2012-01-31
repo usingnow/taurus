@@ -50,7 +50,7 @@ class Order < ActiveRecord::Base
 
   #合计
   def total_amount
-    total_sku_amount+total_install_cost+total_assemble_cost+other_cost
+    total_sku_amount+total_install_cost+total_assemble_cost+other_cost+carriage_cost
   end
 
   #统计打印次数
