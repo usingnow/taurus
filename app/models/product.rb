@@ -18,6 +18,8 @@ class Product < ActiveRecord::Base
   validates :product_id, :name, :brand_id, :product_category_id, :unit, :specification, :delivery_days,
             :supplier_id, :brand_name, :product_category_name, :supplier_name, :presence => true
 
+  validates_uniqueness_of :product_id
+
   validate :brand_exists?, :category_exists?, :supplier_exists?
 
 
