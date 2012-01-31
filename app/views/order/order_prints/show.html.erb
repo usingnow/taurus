@@ -356,7 +356,7 @@
     </table>
 
 
-    <% page.times.each do %>
+    <% page.times.each do |p|%>
       <table width="690">
         <tr>
             <td align="center">
@@ -545,7 +545,7 @@
                             宁波壹美壹家贸易有限公司
                         </td>
                         <td>
-                            页码：1/<%= page+1 %>
+                            页码：<%= p+2 %>/<%= page+1 %>
                         </td>
                     </tr>
                 </table>
