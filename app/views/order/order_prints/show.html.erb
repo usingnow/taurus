@@ -153,6 +153,12 @@
 <body style="text-align: center;">
     <form name="aspnetForm" method="post"  id="aspnetForm">
     <div id='divContent'>
+
+    <% if @order.order_details.size <= 10 %>
+     <% page = 0 %>
+    <% else %>
+     <% page = @order.order_details.size/10 %>
+    <% end %>
     <table width="690">
         <tr>
             <td align="center">
@@ -239,8 +245,10 @@
                             小计
                         </td>
                     </tr>
+                    <% i = 0 %>
                     <% @order.order_details.each_with_index do |detail,index| %>
-                      <% i = index %>
+                      <% if index < 10 %>
+                      <% i = i+1 %>
                       <tr>
                           <td class="innerTd">
                               <%= index+1 %>
@@ -276,6 +284,7 @@
                               <%= detail.unit_price*detail.quantity %>
                           </td>
                       </tr>
+                    <% end %>
                     <% end %>
                       <% if i < 9  %>
                         <% (9-i).times.each do %>
@@ -338,7 +347,7 @@
                             宁波壹美壹家贸易有限公司
                         </td>
                         <td>
-                            页码：1/1
+                            页码：1/<%= page+1 %>
                         </td>
                     </tr>
                 </table>
@@ -346,6 +355,204 @@
         </tr>
     </table>
 
+
+    <% page.times.each do %>
+      <table width="690">
+        <tr>
+            <td align="center">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td width="210" style="font-size: 11pt">
+                            <img src='/images/printLogo.gif' width="60"
+                                height="54" />轻松办公&nbsp;&nbsp;&nbsp;&nbsp;快乐生活
+                        </td>
+                        <td style="font-size: 20pt; padding-left: 30px;" align="left">
+                            壹美壹家购物订单
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-size: 8pt" align="left">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td>
+                            订单号码：<%= @order.number %>
+                        </td>
+                        <td>
+                            订单批次：<%= @order.batch %>
+                        </td>
+                        <td>
+                            下单时间：<%= @order.created_at %>
+                        </td>
+                        <td>
+                            制单人：  <%= get_make_by @order %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            订单类型：<%= format_sku_type(@order.order_details[0].sku.sku_type) %>
+                        </td>
+                        <td>
+                            订单状态：<%= @order.instance.station.name %>
+                        </td>
+                        <td colspan="2">
+                            客&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;户：<%= get_user_name(@order.user)  %>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <!--订单明细开始-->
+        <tr>
+            <td>
+                <table width="100%" cellpadding="0" cellspacing="0" style="border: 1px solid #000000;">
+                    <tr>
+                        <td class="innerTd">
+                            #
+                        </td>
+                        <td class="innerTd">
+                            商品编号
+                        </td>
+                        <td class="innerTd">
+                            商品名称
+                        </td>
+                        <td class="innerTd">
+                            素材编号
+                        </td>
+                        <td class="innerTd">
+                            单位
+                        </td>
+                        <td class="innerTd">
+                            型号
+                        </td>
+                        <td class="innerTd">
+                            单价
+                        </td>
+                        <td class="innerTd">
+                            数量
+                        </td>
+                        <td class="innerTd">
+                            安装费
+                        </td>
+                        <td class="innerTd">
+                            组装费
+                        </td>
+                        <td class="rightTd">
+                            小计
+                        </td>
+                    </tr>
+                    <% i = 0 %>
+                    <% @order.order_details.each_with_index do |detail,index| %>
+                      <% if index+1 < (page+1)*10 && index+1 > page*10  %>
+                      <% i = i+1 %>
+                      <tr>
+                          <td class="innerTd">
+                              <%= index+1 %>
+                          </td>
+                          <td class="innerTd">
+                              <%= detail.sku.number %>
+                          </td>
+                          <td class="innerTd">
+                              <%= detail.sku.name %>
+                          </td>
+                          <td class="innerTd">
+                              <%= detail.sku.products[0].product_id %>
+                          </td>
+                          <td class="innerTd">
+                              <%= detail.sku.unit %>
+                          </td>
+                          <td class="innerTd">
+                              <%= detail.sku.model %>
+                          </td>
+                          <td class="innerTd">
+                              <%= detail.unit_price %>
+                          </td>
+                          <td class="innerTd">
+                              <%= detail.quantity %>
+                          </td>
+                          <td class="innerTd">
+                              <%= detail.install_cost %>
+                          </td>
+                          <td class="innerTd">
+                              <%= detail.assemble_cost %>
+                          </td>
+                          <td class="rightTd">
+                              <%= detail.unit_price*detail.quantity %>
+                          </td>
+                      </tr>
+                     <% end %>
+                    <% end %>
+                      <% if i < 9  %>
+                        <% (9-i).times.each do %>
+                          <tr>
+                            <td class="innerTd">
+                                &nbsp;
+                            </td>
+                            <td class="innerTd">
+                                &nbsp;
+                            </td>
+                            <td class="innerTd">
+                                &nbsp;
+                            </td>
+                            <td class="innerTd">
+                                &nbsp;
+                            </td>
+                            <td class="innerTd">
+                                &nbsp;
+                            </td>
+                            <td class="innerTd">
+                                &nbsp;
+                            </td>
+                            <td class="innerTd">
+                                &nbsp;
+                            </td>
+                            <td class="innerTd">
+                                &nbsp;
+                            </td>
+                            <td class="innerTd">
+                                &nbsp;
+                            </td>
+                            <td class="innerTd">
+                                &nbsp;
+                            </td>
+                            <td class="rightTd">
+                                &nbsp;
+                            </td>
+                          </tr>
+                        <% end %>
+                      <% end %>
+                    <tr>
+                        <td colspan="11" align="right" style="border-style: none none none none; border-width: 1px; border-color: #000000;padding-right:10px">
+                           其他费用：<%= @order.other_cost %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;运费：<%= @order.carriage_cost %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;合计金额：<%= @order.total_amount %>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td style="font-size: 12pt; font-weight: bold">
+                            www.emehome.cn
+                        </td>
+                        <td>
+                            客服热线：400-630-5006
+                        </td>
+                        <td>
+                            宁波壹美壹家贸易有限公司
+                        </td>
+                        <td>
+                            页码：1/<%= page+1 %>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+     </table>
+    <% end %>
     </div>
     <div id="printDiv" class="NoPrint" style="position: absolute; z-index: 9999;">
         <a href="#" onclick="doPrint();return false;" style="text-decoration: none;" title='打印该页'>
