@@ -1,16 +1,16 @@
 Ebiz::Application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   mount Ckeditor::Engine => '/ckeditor'
 
-  devise_for :users,
-             :controllers => { :sessions => "user/sessions",
-                               :registrations => "user/registrations"}
-
   devise_for :administrators,
-             :path =>"admin",
+             :path => "back",
              :controllers => { :sessions => "admin/devise/sessions",
                                :registrations => "admin/devise/registrations"  }
 
-  #mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  devise_for :users,
+             :path => "users",
+             :controllers => { :sessions => "user/sessions",
+                               :registrations => "user/registrations"}
 
   # The priority is based upon orders of creation:
   # first created -> highest priority.
@@ -216,5 +216,5 @@ Ebiz::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   #match ':controller(/:action(/:id(.:format)))'
-  match '/admin', :to => 'admin/home#index', :as => :admin
+  #match '/admin', :to => 'admin/home#index', :as => :admin
 end

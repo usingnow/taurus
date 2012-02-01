@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120131124217) do
+ActiveRecord::Schema.define(:version => 20120201094443) do
 
   create_table "Material", :id => false, :force => true do |t|
     t.string  "Number"
@@ -176,9 +177,11 @@ ActiveRecord::Schema.define(:version => 20120131124217) do
   end
 
   create_table "components", :force => true do |t|
-    t.integer "system_id"
-    t.string  "name"
-    t.string  "description"
+    t.integer  "system_id"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "updated_at"
+    t.datetime "created_at"
   end
 
   create_table "conditions", :force => true do |t|
@@ -256,10 +259,12 @@ ActiveRecord::Schema.define(:version => 20120131124217) do
   end
 
   create_table "functions", :force => true do |t|
-    t.integer "component_id"
-    t.string  "name"
-    t.string  "description"
-    t.string  "url"
+    t.integer  "component_id"
+    t.string   "name"
+    t.string   "description"
+    t.string   "url"
+    t.datetime "updated_at"
+    t.datetime "created_at"
   end
 
   create_table "groups", :force => true do |t|
@@ -314,11 +319,13 @@ ActiveRecord::Schema.define(:version => 20120131124217) do
   end
 
   create_table "operatings", :force => true do |t|
-    t.integer "function_id"
-    t.string  "name"
-    t.string  "description"
-    t.string  "action"
-    t.string  "subject_class"
+    t.integer  "function_id"
+    t.string   "name"
+    t.string   "description"
+    t.string   "action"
+    t.string   "subject_class"
+    t.datetime "updated_at"
+    t.datetime "created_at"
   end
 
   create_table "order_details", :force => true do |t|
@@ -445,11 +452,15 @@ ActiveRecord::Schema.define(:version => 20120131124217) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.datetime "updated_at"
+    t.datetime "created_at"
   end
 
   create_table "permissions", :force => true do |t|
-    t.integer "group_id"
-    t.integer "operating_id"
+    t.integer  "group_id"
+    t.integer  "operating_id"
+    t.datetime "updated_at"
+    t.datetime "created_at"
   end
 
   create_table "person_extends", :force => true do |t|
@@ -816,8 +827,10 @@ ActiveRecord::Schema.define(:version => 20120131124217) do
   end
 
   create_table "systems", :force => true do |t|
-    t.string "name"
-    t.string "description"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "updated_at"
+    t.datetime "created_at"
   end
 
   create_table "tracks", :force => true do |t|
