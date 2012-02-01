@@ -7,8 +7,8 @@ class Admin::OrdersController < ApplicationController
     q = {"instance_station_station_type_in" => ['0','3','4']}.merge(params[:q] || {})
     if !params[:sku_name].nil?
       if !params[:sku_name].blank?
-        order_ids = Order.find_by_sql("select order_id from order_details where sku_id in(select id from skus where name = '#l')")
-        q = {"id_in" => [0]}.merge(q || {})
+        order_ids = OrderDetail.find_by_sql("select order_id from order_details where sku_id in(select id from skus where name like '%#{params[:sku_name]}%')").map(&:order_id)
+        q = {"id_in" => order_ids}.merge(q || {})
       end
     end
     @search = Order.search(q)
