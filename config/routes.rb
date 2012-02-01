@@ -1,4 +1,6 @@
 Ebiz::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
   devise_for :users,
              :controllers => { :sessions => "user/sessions",
                                :registrations => "user/registrations"}
@@ -7,6 +9,9 @@ Ebiz::Application.routes.draw do
              :path =>"admin",
              :controllers => { :sessions => "admin/devise/sessions",
                                :registrations => "admin/devise/registrations"  }
+
+  #mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   # The priority is based upon orders of creation:
   # first created -> highest priority.
 
