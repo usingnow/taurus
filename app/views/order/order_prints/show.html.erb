@@ -447,7 +447,7 @@
                     </tr>
                     <% i = 0 %>
                     <% @order.order_details.each_with_index do |detail,index| %>
-                      <% if index+1 < (page+1)*10 && index+1 > page*10  %>
+                      <% if index < (p+2)*10 && index+1 > (p+1)*10  %>
                       <% i = i+1 %>
                       <tr>
                           <td class="innerTd">
