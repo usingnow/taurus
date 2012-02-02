@@ -18,7 +18,7 @@ module Admin::SkusHelper
     if object.order_details.empty?
       ""
     else
-      object.order_details[0].sku.sku_type
+      format_sku_type object.order_details[0].sku.sku_type
     end
   end
 

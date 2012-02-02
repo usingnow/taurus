@@ -194,7 +194,7 @@
                     </tr>
                     <tr>
                         <td>
-                            订单类型：<%= format_sku_type(@order.order_details[0].sku.sku_type) %>
+                            订单类型：<%= get_sku_type @order %>
                         </td>
                         <td>
                             订单状态：<%= @order.instance.station.name %>

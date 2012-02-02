@@ -16,8 +16,8 @@ class Store::SalesOrderDeliveriesController < ApplicationController
     DeliveryOrderCart.destroy_all(:administrator_id => admin_id)
     line_items = []
     order_details.each do |detail|
-      detail.sku.products.each do |product|
-        line_items << { :product_id => product.id, :quantity => detail.quantity,
+      detail.sku.sku_productships.each do |ship|
+        line_items << { :product_id => ship.product_id, :quantity => detail.quantity*ship.package_num,
                     :administrator_id => admin_id }
       end
     end

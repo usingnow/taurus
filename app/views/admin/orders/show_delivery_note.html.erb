@@ -198,7 +198,7 @@
                     </tr>
                     <tr>
                         <td>
-                            订单类型：<%= format_sku_type(@order.order_details[0].sku.sku_type) %>
+                            订单类型：<%= get_sku_type @order %>
                         </td>
                         <td>
                             客&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;户：<%= get_user_name(@order.user)  %>
