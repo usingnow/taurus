@@ -22,22 +22,6 @@ class Store::DeliveryOrdersController < ApplicationController
   def new
     @delivery_order = DeliveryOrder.new
     admin_id = current_administrator.id
-    order_id = params[:order_id]
-
-    if order_id != nil
-      order_details = OrderDetail.find_all_by_order_id(order_id)
-      @delivery_order.order_id = order_id
-      @delivery_order.store_id = order_details[0].order.store_id
-      StoreEntryProductCart.destroy_all(:admin_id => admin_id, :cart_type => 2)
-      line_items = []
-      order_details.each do |detail|
-        detail.sku.products.each do |product|
-          line_items << {:product_id => product.id, :quantity => detail.quantity,
-                      :admin_id => admin_id, :cart_type => 2}
-        end
-      end
-      StoreEntryProductCart.create(line_items)
-    end
 
     @store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id_and_cart_type(admin_id,2)
 
@@ -59,6 +43,14 @@ class Store::DeliveryOrdersController < ApplicationController
       @delivery_order.errors.add("商品","至少一件")
       render "new"
       return
+    else
+      @store_entry_product_carts.each do |cart|
+        product_storeship = ProductStoreship.find_by_store_id_and_product_id(params[:delivery_order][:store_id],cart.product_id)
+        if cart.quantity > product_storeship.quantity
+          redirect_to new_store_delivery_order_path, :notice => "库存不足,无法出库."
+          return
+        end
+      end
     end
 
     DeliveryOrder.transaction do

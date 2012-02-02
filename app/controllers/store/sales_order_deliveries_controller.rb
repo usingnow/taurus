@@ -1,3 +1,4 @@
+#encoding:UTF-8
 class Store::SalesOrderDeliveriesController < ApplicationController
   def index
     @search = Order.search("is_delivery_eq" => "1")
@@ -30,6 +31,21 @@ class Store::SalesOrderDeliveriesController < ApplicationController
     admin_id = current_administrator.id
 
     delivery_order_carts = DeliveryOrderCart.find_all_by_administrator_id(admin_id)
+
+    if delivery_order_carts.empty?
+      @delivery_order = DeliveryOrder.new
+      @delivery_order.errors.add("商品","至少一件")
+      render "show"
+      return
+    else
+      delivery_order_carts.each do |cart|
+        product_storeship = ProductStoreship.find_by_store_id_and_product_id(params[:delivery_order][:store_id],cart.product_id)
+        if cart.quantity > product_storeship.quantity
+          redirect_to store_sales_order_delivery_path(params[:delivery_order][:order_id]), :notice => "库存不足,无法出库."
+          return
+        end
+      end
+    end
 
     DeliveryOrder.transaction do
       @delivery_order = DeliveryOrder.new(params[:delivery_order])
