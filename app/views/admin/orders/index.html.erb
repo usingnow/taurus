@@ -67,7 +67,7 @@
     <td><%= order.total_amount %></td>
     <td title="<%= order.reserve_reason %>"><%= order.instance.station.name %></td>
     <td><%= fetch_make_by order %></td>
-    <td><%= format_sku_type(order.order_details[0].sku.sku_type) %></td>
+    <td><%= get_sku_type(order) %></td>
     <td><%= order.created_at %></td>
   </tr>
   <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">

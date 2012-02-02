@@ -14,6 +14,14 @@ module Admin::SkusHelper
     end
   end
 
+  def get_sku_type(object)
+    if object.order_details.empty?
+      ""
+    else
+      object.order_details[0].sku.sku_type
+    end
+  end
+
   def format_sku_status(value)
     if value == 1
       "开始销售"

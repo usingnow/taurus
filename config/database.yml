@@ -12,7 +12,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: ebiz_development
+  database: ebiz_production
   pool: 5
   username: root
   password: root

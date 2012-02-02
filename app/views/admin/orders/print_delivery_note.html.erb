@@ -49,7 +49,7 @@
     <td><%= get_user_name(order.user) %></td>
     <td><%= order.instance.procedure.name %></td>
     <td><%= order.instance.station.name %></td>
-    <td><%= format_sku_type(order.order_details[0].sku.sku_type) %></td>
+    <td><%= get_sku_type(order) %></td>
     <td><%= order.created_at %></td>
     <td><%= order.print_frequency %></td>
   </tr>

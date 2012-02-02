@@ -2,7 +2,7 @@
   <tr>
     <td>订单号码:</td><td class="red"><%= @order.number %></td>
     <td>订单批次:</td><td class="red"><%= @order.batch %></td>
-    <td>订单类型:</td><td class="red"><%= format_sku_type(@order.order_details[0].sku.sku_type) %></td>
+    <td>订单类型:</td><td class="red"><%= get_sku_type(@order) %></td>
     <td>订单状态:</td><td class="red"><%= @order.instance.station.name %></td>
     <td>客户:</td><td class="red"><%= get_user_name(@order.user)  %></td>
   </tr>
