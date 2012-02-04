@@ -7,6 +7,4 @@ class PersonExtend < ActiveRecord::Base
 
   validates_presence_of :name, :address ,:phone
   validates_presence_of :district_no ,:message => "请选择"
-  validates :email,:email => true
-
 end

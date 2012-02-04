@@ -3,10 +3,11 @@
 <head>
   <title>Ebiz</title>
   <%= stylesheet_link_tag 'application','scaffold','jquery-laylout','smoothness/jquery-ui-1.8.16.custom'%>
-  <%= javascript_include_tag :defaults,'jquery-ui-1.8.16.custom.min.js' %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag 'jquery-ui-1.8.16.custom.min.js' %>
   <%= javascript_include_tag 'jquery.layout-latest.js','jqgrid/i18n/grid.locale-cn.js','jqgrid/jquery.jqGrid.min.js' %>
   <%= javascript_include_tag "autocomplete-rails.js" %>
-  <%= javascript_include_tag :ckeditor %>
+  <%= javascript_include_tag "ckeditor/ckeditor" %>
   <%= csrf_meta_tag %>
   <script type="text/javascript">
     $(document).ready(function () {
@@ -21,7 +22,7 @@
         $("[group='"+$(this).attr('group')+"']").removeClass("highlight");
       });
       <%= yield(:ready) %> //动态加载js
-  });
+    });
   </script>
 
 </head>

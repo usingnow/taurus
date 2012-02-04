@@ -112,4 +112,10 @@ module ApplicationHelper
   def sub_str(str,length)
     str[0,length]
   end
+
+  private
+
+    def format_value(value,hash)
+      hash[value] ||= "无"
+    end
 end
