@@ -35,4 +35,5 @@ group :test do
   gem "rspec"
   gem "rspec-rails"
   gem 'factory_girl_rails','1.4.0' #测试夹具
+  gem 'spork', '~> 0.9.0.rc' #测试加速
 end

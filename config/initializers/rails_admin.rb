@@ -36,7 +36,7 @@ RailsAdmin.config do |config|
   # config.excluded_models = [Administrator, AdministratorGroupship, BackOrderSku, Bank, Brand, BusinessFunction, Cart, CartSkuship, City, Ckeditor::Asset, Ckeditor::AttachmentFile, Ckeditor::Picture, CompanyExtend, CompanyScale, CompanyType, Component, Condition, DeliveryOrder, DeliveryOrderCart, District, Esc, EscCategory, EscReply, Function, Group, Industry, InnerOrderAddress, InnerOrderPayment, Instance, Operating, Order, OrderDetail, OrderNumber, OrderPay, OrderPrintLog, OrderTakeLog, OrderTrack, OrderingCompany, PanicBuying, Permission, PersonExtend, Procedure, ProcedureRoleship, ProdDelOrdship, Product, ProductCategory, ProductPurchaseship, ProductStoreEntryship, ProductStoreship, Province, Purchase, RecAdd, Role, SerialNumber, Sku, SkuCategory, SkuImage, SkuProductship, SliderBar, Station, StationProcedureship, Store, StoreEntry, StoreEntryProductCart, Supplier, System, Track, User, UserNumber]
 
   # Add models here if you want to go 'whitelist mode':
-  # config.included_models = [Administrator, AdministratorGroupship, BackOrderSku, Bank, Brand, BusinessFunction, Cart, CartSkuship, City, Ckeditor::Asset, Ckeditor::AttachmentFile, Ckeditor::Picture, CompanyExtend, CompanyScale, CompanyType, Component, Condition, DeliveryOrder, DeliveryOrderCart, District, Esc, EscCategory, EscReply, Function, Group, Industry, InnerOrderAddress, InnerOrderPayment, Instance, Operating, Order, OrderDetail, OrderNumber, OrderPay, OrderPrintLog, OrderTakeLog, OrderTrack, OrderingCompany, PanicBuying, Permission, PersonExtend, Procedure, ProcedureRoleship, ProdDelOrdship, Product, ProductCategory, ProductPurchaseship, ProductStoreEntryship, ProductStoreship, Province, Purchase, RecAdd, Role, SerialNumber, Sku, SkuCategory, SkuImage, SkuProductship, SliderBar, Station, StationProcedureship, Store, StoreEntry, StoreEntryProductCart, Supplier, System, Track, User, UserNumber]
+  config.included_models = [Supplier,Brand,ProductCategory,Product,SkuCategory,Sku]
 
   # Application wide tried label methods for models' instances
   # config.label_methods << :description # Default is [:name, :title]
@@ -1190,7 +1190,7 @@ RailsAdmin.config do |config|
   #   create do; end
   #   update do; end
   # end
-  # config.model Sku do
+  config.model Sku do
   #   # Found associations:
   #     configure :brand, :belongs_to_association 
   #     configure :sku_category, :belongs_to_association 
@@ -1232,13 +1232,40 @@ RailsAdmin.config do |config|
   #     configure :total_sale, :integer 
   #     configure :created_at, :datetime 
   #     configure :updated_at, :datetime   #   # Sections:
-  #   list do; end
+    list do
+      field :number
+      field :name
+      field :sku_category
+      field :unit
+      field :sku_type do
+        formatted_value do
+          bindings[:view].format_sku_type value
+        end
+      end
+      field :status do
+        formatted_value do
+          bindings[:view].format_sku_status value
+        end
+      end
+      field :sales_status do
+        formatted_value do
+          bindings[:view].format_sku_sales_status value
+        end
+      end
+      field :updated_at
+    end
   #   export do; end
   #   show do; end
   #   edit do; end
-  #   create do; end
+    create do
+      field :number
+      field :name
+      field :brand
+    end
   #   update do; end
-  # end
+  end
+
+
   # config.model SkuCategory do
   #   # Found associations:
   #     configure :children, :belongs_to_association   #   # Found columns:
@@ -1439,7 +1466,7 @@ RailsAdmin.config do |config|
   #   create do; end
   #   update do; end
   # end
-  # config.model Supplier do
+  config.model Supplier do
   #   # Found associations:
   #   # Found columns:
   #     configure :id, :integer 
@@ -1455,13 +1482,28 @@ RailsAdmin.config do |config|
   #     configure :update_by, :string 
   #     configure :created_at, :datetime 
   #     configure :updated_at, :datetime   #   # Sections:
-  #   list do; end
+    list do
+      field :name
+      field :input_person
+      field :updated_at
+    end
   #   export do; end
   #   show do; end
   #   edit do; end
-  #   create do; end
+    create do
+      field :name
+      field :input_person
+      field :contact_name
+      field :contact_way
+      field :terms_of_exchange
+      field :delivery
+      field :level
+      field :active do
+        partial :radio_input
+      end
+    end
   #   update do; end
-  # end
+  end
   # config.model System do
   #   # Found associations:
   #     configure :components, :has_many_association   #   # Found columns:
