@@ -32,7 +32,7 @@
 <body>
 <div id="wrapper">
     <div id="header">
-      <img id="logo" src="images/logo.GIF" />
+      <%= image_tag "logo.GIF", :id => "logo" %>
       <div id="tool_bar">
         <ul>
           <li><a href="#">我的账户</a></li>
@@ -54,11 +54,11 @@
         <div style="position: absolute; top: 6px; right: 18px"><a href="#" style="color: #ffffff;">去结算</a></div>
       </div>
       <div id="share_bar">
-        <img id="sina" src="images/sina.png" width="32" height="32">
-        <img id= "kaixin" src="images/kaixin.png" width="32" height="32">
+        <%= image_tag "sina.png", :id => "sina", :width => "32", :height => "32"%>
+        <%= image_tag "kaixin.png", :id => "kaixin", :width => "32", :height => "32"%>
       </div>
-      <img id="service_phone" src="images/headpic/headpic/headPhone_144_26.png" /> <!-- 修改了img 2012/01/12 -->
-      <img id="service_ol" src="images/headpic/headpic/ServiceOL_77_26.png" /> <!-- 修改了img 2012/01/12 -->
+      <%= image_tag "headpic/headpic/headPhone_144_26.png", :id => "service_phone" %>
+      <%= image_tag "headpic/headpic/ServiceOL_77_26.png", :id => "service_ol" %>
       <div id="search_bar">
         <form>
           <input type="text" name="keywords" size="30" maxlength="50" value="商品……">
@@ -67,7 +67,7 @@
       </div>
       <div id="search_hot">
         <ul class="h_ul">
-          <li class="h_li "><a href="#">复印纸</a></li>
+          <li class="h_li"><a href="#">复印纸</a></li>
           <li class="h_li"><a href="#">中性笔</a></li>
           <li class="h_li"><a href="#">卷纸</a></li>
         </ul>
@@ -92,22 +92,22 @@
       <div id="brand-corperate">
         <h2 class="bar_image_1000">合作品牌</h2>
         <ul>
-          <li><img src="/app/assets/images/brand/brand_img_110_57_1.png" width="115px" height="57px"></li>
-          <li><img src="/app/assets/images/brand/brand_img_110_57_2.png" width="115px" height="57px"></li>
-          <li><img src="/app/assets/images/brand/brand_img_110_57_3.png" width="115px" height="57px"></li>
-          <li><img src="/app/assets/images/brand/brand_img_110_57_4.png" width="115px" height="57px"></li>
-          <li><img src="/app/assets/images/brand/brand_img_110_57_5.png" width="115px" height="57px"></li>
-          <li><img src="/app/assets/images/brand/brand_img_110_57_6.png" width="115px" height="57px"></li>
-          <li><img src="/app/assets/images/brand/brand_img_110_57_7.png" width="115px" height="57px"></li>
-          <li><img src="/app/assets/images/brand/brand_img_110_57_8.png" width="115px" height="57px"></li>
-          <li><img src="/app/assets/images/brand/brand_img_110_57_9.png" width="115px" height="57px"></li>
-          <li><img src="/app/assets/images/brand/brand_img_110_57_10.png" width="115px" height="57px"></li>
-          <li><img src="/app/assets/images/brand/brand_img_110_57_11.png" width="115px" height="57px"></li>
-          <li><img src="/app/assets/images/brand/brand_img_110_57_12.png" width="115px" height="57px"></li>
-          <li><img src="/app/assets/images/brand/brand_img_110_57_13.png" width="115px" height="57px"></li>
-          <li><img src="/app/assets/images/brand/brand_img_110_57_14.png" width="115px" height="57px"></li>
-          <li><img src="/app/assets/images/brand/brand_img_110_57_15.png" width="115px" height="57px"></li>
-          <li><img src="/app/assets/images/brand/brand_img_110_57_16.png" width="115px" height="57px"></li>
+          <li><%= image_tag "brand/brand_img_110_57_1.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "brand/brand_img_110_57_2.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "brand/brand_img_110_57_3.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "brand/brand_img_110_57_4.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "brand/brand_img_110_57_5.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "brand/brand_img_110_57_6.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "brand/brand_img_110_57_7.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "brand/brand_img_110_57_8.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "brand/brand_img_110_57_9.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "brand/brand_img_110_57_10.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "brand/brand_img_110_57_11.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "brand/brand_img_110_57_12.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "brand/brand_img_110_57_13.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "brand/brand_img_110_57_14.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "brand/brand_img_110_57_15.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "brand/brand_img_110_57_16.png", :width => "115px", :height => "57px" %></li>
         </ul>
       </div>
       <div id="footer_contact_bar">
@@ -128,7 +128,7 @@
             <li><a href="#" title="">加入我们</a></li>
             <li><a href="#" title="">申请成为供应商</a></li>
           </ul>
-          <img src="images/logo_corp_info_1.png" />
+          <%= image_tag "logo_corp_info_1.png" %>
         </div>
         <div>
           <h3>我的订单</h3>
@@ -137,7 +137,7 @@
             <li><a href="#" title="">如何下单</a></li>
             <li><a href="#" title="">查询订单</a></li>
           </ul>
-          <img src="images/logo_corp_info_2.png" />
+          <%= image_tag "logo_corp_info_2.png" %>
         </div>
         <div>
           <h3>关于配送</h3>
@@ -146,7 +146,7 @@
             <li><a href="#" title="">收费标准</a></li>
             <li><a href="#" title="">配送时间</a></li>
           </ul>
-          <img src="images/logo_corp_info_3.png" />
+          <%= image_tag "logo_corp_info_3.png" %>
         </div>
         <div>
           <h3>关于支付</h3>
@@ -155,7 +155,7 @@
             <li><a href="#" title="">月结用户</a></li>
             <li><a href="#" title="">购物券说明</a></li>
           </ul>
-          <img src="images/logo_corp_info_4.png" />
+          <%= image_tag "logo_corp_info_4.png" %>
         </div>
         <div>
           <h3>服务说明</h3>
@@ -164,7 +164,7 @@
             <li><a href="#" title="">投诉与建议</a></li>
             <li><a href="#" title="">客户使用条款</a></li>
           </ul>
-          <img src="images/logo_corp_info_5.png" />
+          <%= image_tag "logo_corp_info_5.png" %>
         </div>
         <div>
           <h3>帮助中心</h3>
@@ -173,14 +173,14 @@
             <li><a href="#" title="">常见问题</a></li>
             <li><a href="#" title="">联系客服</a></li>
           </ul>
-          <img src="images/logo_corp_info_6.png" />
+          <%= image_tag "logo_corp_info_6.png" %>
         </div>
       </div>
       <ul class="h_ul clear footer_warranty">
-        <li class="h_li"><img src="images/baozhang1.jpg" /></li>
-        <li class="h_li"><img src="images/baozhang2.jpg" /></li>
-        <li class="h_li"><img src="images/baozhang3.jpg" /></li>
-        <li class="h_li"><img src="images/baozhang4.jpg" /></li>
+        <li class="h_li"><%= image_tag "baozhang1.jpg" %></li>
+        <li class="h_li"><%= image_tag "baozhang2.jpg" %></li>
+        <li class="h_li"><%= image_tag "baozhang3.jpg" %></li>
+        <li class="h_li"><%= image_tag "baozhang4.jpg" %></li>
       </ul>
       <ul class="h_ul clear footer_title">
         <li class="h_li">|</li>
@@ -198,12 +198,12 @@
       </div>
       <div id="link_certificates">
         <ul class="h_ul">
-          <li class="h_li"><img src="images/wang_luo_gong_shang.gif" /></li>
-          <li class="h_li"><img src="images/alipay.gif" /></li>
-          <li class="h_li"><img src='images/kxwz.gif' /></li>
-          <li class="h_li"><img src="images/wljc.gif" /></li>
-          <li class="h_li"><img src="images/xs.gif" /></li>
-          <li class="h_li"><img src="images/yltysh.jpg" /></li>
+          <li class="h_li"><%= image_tag "wang_luo_gong_shang.gif" %></li>
+          <li class="h_li"><%= image_tag "alipay.gif" %></li>
+          <li class="h_li"><%= image_tag "kxwz.gif" %></li>
+          <li class="h_li"><%= image_tag "wljc.gif" %></li>
+          <li class="h_li"><%= image_tag "xs.gif" %></li>
+          <li class="h_li"><%= image_tag "yltysh.jpg" %></li>
         </ul>
       </div>
     </div>

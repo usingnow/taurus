@@ -14,21 +14,21 @@
   <h2 class="bar_image_220 bar_center">您浏览过的商品</h2>  <!--2012/01/15 - Jimmy -->
   <ul class="recent_visited_ul">
     <li class="recent_visited_li">
-      <img src="images/kaixin.png" width="40px" height="40px" />
+      <%= image_tag "kaixin.png", :width => "40px", :height => "40px;" %>
       <div>
         <i style="font-style:normal"><a href="#">canon 佳能原装 BCI-</a></i>
         <i style="font-style:normal">&yen;99999.99</i>
       </div>
     </li>
     <li class="recent_visited_li">
-      <img src="images/kaixin.png"  width="40px" height="40px"/>
+      <%= image_tag "kaixin.png", :width => "40px", :height => "40px;" %>
       <div>
         <i style="font-style:normal"><a href="#">canon 佳能原装 BCI-</a></i>
         <i style="font-style:normal">&yen;99999.99</i>
       </div>
     </li>
     <li class="recent_visited_li">
-      <img src="images/kaixin.png"  width="40px" height="40px"/>
+      <%= image_tag "kaixin.png", :width => "40px", :height => "40px;" %>
       <div>
         <i style="font-style:normal"><a href="#">canon 佳能原装 BCI-</a></i>
         <i style="font-style:normal">&yen;99999.99</i>
@@ -41,7 +41,7 @@
   <ul class="h_ul sku_list_ul margin_0">
     <% @recommendation.each do |recommend| %>
       <li class="h_li sku_list_li height_auto">
-        <img src="<%= recommend.main_img %>" width=120px height=120px />
+        <%= image_tag recommend.main_img, :width => "120px", :height => "120px" %>
         <p class="sku_list_p overflow_text"><%= recommend.name %></p>
         <p class="sku_list_p">原价：&yen;99999.00</p>
         <strong>现价：&yen;<%= recommend.cost_aft_tax %></strong>
@@ -50,15 +50,15 @@
   </ul>
 </div>
 <div id="banner_4">
-  <img src="images/zmbj_208_130.png" />
+  <%= image_tag "zmbj_208_130.png" %>
 </div>
 <div id="banner_5">
-  <img src="images/category/bar1_1000_60.png" />
+  <%= image_tag "category/bar1_1000_60.png" %>
 </div>
 <!-- 1st SKU List Starts -->
 <div class="sku_category">
   <h2 class="bar_image_1000">OA PC产品</h2>
-  <img src="images/bar_icon/icon_23_23_1.png" width="23px" height="23px" />
+  <%= image_tag "bar_icon/icon_23_23_1.png", :width => "23px", :height => "23px" %>
   <div class="category_recommend"> <!-- SKU List's recommended products on the bar -->
     <ul class="h_ul">
       <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
@@ -67,12 +67,12 @@
     </ul>
   </div>
   <div class="sku_list_left_col"> <!--SKU List's left column -->
-    <img src="images/category/1-1.jpg" />
+    <%= image_tag "category/1-1.jpg" %>
   </div>
   <ul class="h_ul sku_list_ul">
     <% @oa_pc_skus.each do |sku| %>
       <li class="h_li sku_list_li">
-        <img src="<%= sku.main_img %>" width=120px height=120px />
+        <%= image_tag sku.main_img, :width => "120px", :height => "120px" %>
         <p class="sku_list_p overflow_text"><%= sku.name %></p>
         <p class="sku_list_p">原价：&yen;99999.00</p>
         <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
@@ -85,7 +85,7 @@
       <% @oa_pc_hots.each_with_index do |hot,index| %>
         <div id="sku_sort_<%= index if index == 0 %>" class="has_children">
           <span><%= sub_str hot.name, 16  %></span>
-          <a><img src="<%= hot.main_img %>" width="120px" height="120px"/></a>
+          <a><%= image_tag hot.main_img, :width => "120px", :height => "120px" %></a>
           <a class="overflow_text"><%= hot.name %></a>
           <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
         </div>
@@ -97,7 +97,7 @@
 <!-- 2nd SKU List Starts -->
 <div class="sku_category">
   <h2 class="bar_image_1000">文具办公用品</h2>
-  <img src="images/bar_icon/icon_23_23_2.png" width="23px" height="23px" />
+  <%= image_tag "bar_icon/icon_23_23_2.png", :width => "23px", :height => "23px" %>
   <div class="category_recommend"> <!-- SKU List's recommended products on the bar -->
     <ul class="h_ul">
       <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
@@ -106,12 +106,12 @@
     </ul>
   </div>
   <div class="sku_list_left_col"> <!--SKU List's left column -->
-    <img src="images/category/2-2.jpg" />
+    <%= image_tag "category/2-2.jpg" %>
   </div>
   <ul class="h_ul sku_list_ul">
     <% @office_skus.each do |sku| %>
       <li class="h_li sku_list_li">
-        <img src="<%= sku.main_img %>" width=120px height=120px />
+        <%= image_tag sku.main_img, :width => "120px", :height => "120px" %>
         <p class="sku_list_p overflow_text"><%= sku.name %></p>
         <p class="sku_list_p">原价：&yen;99999.00</p>
         <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
@@ -124,7 +124,7 @@
       <% @office_hots.each_with_index do |hot,index| %>
         <div id="sku_sort_<%= index+1 if index == 0 %>" class="has_children">
           <span><%= sub_str hot.name, 16  %></span>
-          <a><img src="<%= hot.main_img %>" width="120px" height="120px"/></a>
+          <a><%= image_tag hot.main_img, :width => "120px", :height => "120px" %></a>
           <a class="overflow_text"><%= hot.name %></a>
           <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
         </div>
@@ -134,12 +134,12 @@
 </div>
 <!-- 2nd SKU List Ends -->
 <div id="banner_6">
-  <img src="images/category/bar2_1000_60.png" />
+  <%= image_tag "category/bar2_1000_60.png" %>
 </div>
 <!-- 3rd SKU List Starts -->
 <div class="sku_category">
   <h2 class="bar_image_1000">生活用品</h2>
-  <img src="images/bar_icon/icon_23_23_3.png" width="23px" height="23px" />
+  <%= image_tag "bar_icon/icon_23_23_3.png", :width => "23px", :height => "23px" %>
   <div class="category_recommend"> <!-- SKU List's recommended products on the bar -->
     <ul class="h_ul">
       <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
@@ -148,12 +148,12 @@
     </ul>
   </div>
   <div class="sku_list_left_col"> <!--SKU List's left column -->
-    <img src="images/category/3-3.jpg" />
+    <%= image_tag "category/3-3.jpg" %>
   </div>
   <ul class="h_ul sku_list_ul">
     <% @daily_skus.each do |sku| %>
       <li class="h_li sku_list_li">
-        <img src="<%= sku.main_img %>" width=120px height=120px />
+        <%= image_tag "sku.main_img", :width => "120px", :height => "120px" %>
         <p class="sku_list_p overflow_text"><%= sku.name %></p>
         <p class="sku_list_p">原价：&yen;99999.00</p>
         <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
@@ -166,7 +166,7 @@
       <% @daily_hots.each_with_index do |hot,index| %>
         <div id="sku_sort_<%= index+2 if index == 0 %>" class="has_children">
           <span><%= sub_str hot.name, 16  %></span>
-          <a><img src="<%= hot.main_img %>" width="120px" height="120px"/></a>
+          <a><%= image_tag hot.main_img, :width => "120px", :height => "120px" %></a>
           <a class="overflow_text"><%= hot.name %></a>
           <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
         </div>
@@ -178,7 +178,7 @@
 <!-- 4th SKU List Starts -->
 <div class="sku_category">
   <h2 class="bar_image_1000">办公家具</h2>
-  <img src="images/bar_icon/icon_23_23_4.png" width="23px" height="23px" />
+  <%= image_tag "bar_icon/icon_23_23_4.png", :width => "23px", :height => "23px" %>
   <div class="category_recommend"> <!-- SKU List's recommended products on the bar -->
     <ul class="h_ul">
       <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
@@ -187,53 +187,53 @@
     </ul>
   </div>
   <div class="sku_list_left_col"> <!--SKU List's left column -->
-    <img src="images/category/4-4.jpg" />
+    <%= image_tag "category/4-4.jpg" %>
   </div>
   <ul class="h_ul sku_list_ul">
     <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
+      <%= image_tag "logo-60.png", :width => "120px", :height => "120px" %>
       <p class="sku_list_p">商品名称可以有十个字</p>
       <p class="sku_list_p">原价：&yen;99999.00</p>
       <strong>现价：&yen;11111.11</strong>
     </li>
     <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
+      <%= image_tag "logo-60.png", :width => "120px", :height => "120px" %>
       <p class="sku_list_p">十个字后会换</p>
       <p class="sku_list_p">原价：&yen;99999.00</p>
       <strong>现价：&yen;11111.11</strong>
     </li>
     <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
+      <%= image_tag "logo-60.png", :width => "120px", :height => "120px" %>
       <p class="sku_list_p">商品名称可以有十个字</p>
       <p class="sku_list_p">原价：&yen;99999.00</p>
       <strong>现价：&yen;11111.11</strong>
     </li>
     <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
+      <%= image_tag "logo-60.png", :width => "120px", :height => "120px" %>
       <p class="sku_list_p">商品名称可以有十个字</p>
       <p class="sku_list_p">原价：&yen;99999.00</p>
       <strong>现价：&yen;11111.11</strong>
     </li>
     <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
+      <%= image_tag "logo-60.png", :width => "120px", :height => "120px" %>
       <p class="sku_list_p">商品名称可以有十个字</p>
       <p class="sku_list_p">原价：&yen;99999.00</p>
       <strong>现价：&yen;11111.11</strong>
     </li>
     <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
+      <%= image_tag "logo-60.png", :width => "120px", :height => "120px" %>
       <p class="sku_list_p">商品名称可以有十个字</p>
       <p class="sku_list_p">原价：&yen;99999.00</p>
       <strong>现价：&yen;11111.11</strong>
     </li>
     <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
+      <%= image_tag "logo-60.png", :width => "120px", :height => "120px" %>
       <p class="sku_list_p">商品名称可以有十个字</p>
       <p class="sku_list_p">原价：&yen;99999.00</p>
       <strong>现价：&yen;11111.11</strong>
     </li>
     <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
+      <%= image_tag "logo-60.png", :width => "120px", :height => "120px" %>
       <p class="sku_list_p">商品名称可以有十个字</p>
       <p class="sku_list_p">原价：&yen;99999.00</p>
       <strong>现价：&yen;11111.11</strong>
