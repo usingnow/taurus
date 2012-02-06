@@ -1,4 +1,6 @@
 Ebiz::Application.routes.draw do
+  get "sku_details/show"
+
   #mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   mount Ckeditor::Engine => '/ckeditor'
 
@@ -207,6 +209,10 @@ Ebiz::Application.routes.draw do
      resources :inner_sku_carts
      resources :prod_del_ordships
    end
+
+  namespace :commodity do
+    resources :sku_details
+  end
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
