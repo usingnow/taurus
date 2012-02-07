@@ -1,2 +1,70 @@
-<h1>Commodity::SkuDetails#show</h1>
-<p>Find me in app/views/commodity/sku_details/show.html.erb</p>
+<div id="sku_details_wrapper">
+  <p class="sku_details_nav">您的位置：
+    <a href="#">首页</a> >>
+    <a href="#">一级媒体分类</a> >>
+    <a href="#">二级媒体分类</a> >>
+    <a href="#">三级媒体分类</a> >>
+    <a href="#">四级媒体分类</a> >>
+    媒体商品名称
+  </p>
+  <div id="sku_details_picture">
+    <%= image_tag "rails.png", :width => "400px", :height => "400px" %>
+    <div id="controller_pane">
+      <div id="controller_handler_left">
+        <%= image_tag "sku_details/left.png" %>
+      </div>
+      <div id="controller_handler_right">
+        <%= image_tag "sku_details/right.png" %>
+      </div>
+      <div id="controller_handler_center">
+        <ul class="h_ul">
+          <li class="h_li h_padding_5"><%= image_tag "rails.png", :width => "50px", :height => "50px" %></li>
+          <li class="h_li h_padding_5"><%= image_tag "rails.png", :width => "50px", :height => "50px" %></li>
+          <li class="h_li h_padding_5"><%= image_tag "rails.png", :width => "50px", :height => "50px" %></li>
+          <li class="h_li h_padding_5"><%= image_tag "rails.png", :width => "50px", :height => "50px" %></li>
+          <li class="h_li h_padding_5"><%= image_tag "rails.png", :width => "50px", :height => "50px" %></li>
+          <li class="h_li h_padding_5"><%= image_tag "rails.png", :width => "50px", :height => "50px" %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="sku_basic_info">
+    <h1>媒体商品名称</h1>
+    <p class="p_1">商品编号：</p>
+    <p class="p_2">800001</p>
+    <p class="p_3">商品型号：</p>
+    <p class="p_4">800001</p>
+    <p class="p_1">商品价格：</p>
+    <p class="p_2"><strong>&yen;999999.99</strong></p>
+    <p class="p_3">优惠价格：</p>
+    <p class="p_4"><strong>&yen;999999.99</strong></p>
+    <p class="p_1">为您节省：</p>
+    <p><strong>&yen;999999.99（享受6.6折）</strong></p>
+    <p class="p_1 clear">库存：</p>
+    <p>有</p>
+    <p>（如果缺货，请咨询<em>400-630-5606</em>）</p>
+    <p class="p_1 clear">商品信息：</p>
+    <p>*****（已有999999人评价）</p>
+    <!-- Start with cart in the SKU_Details page -->
+    <div id="sku_details_cart">
+      <form>
+        <label>我要买：</label>
+        <button>-</button>
+        <input type="text" />
+        <button>+</button>
+        <div></div>
+        <button class="add_to_cart">添加到购物车</button>
+        <button class="add_to_favorite"><%= image_tag "sku_details/add_to_favourite.png"%></button>
+      </form>
+    </div>
+  </div>
+  <div id="sku_information" class="sku_long">
+    <h3>商品介绍</h3>
+  </div>
+  <div id="sku_browser_history" class="sku_long">
+    <h3>浏览过的商品</h3>
+  </div>
+  <div id="sku_comments" class="sku_long">
+    <h3>商品评论</h3>
+  </div>
+</div>
