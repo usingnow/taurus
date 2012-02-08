@@ -1,0 +1,2 @@
+module Commodity::SkuDetailsHelper
+end
