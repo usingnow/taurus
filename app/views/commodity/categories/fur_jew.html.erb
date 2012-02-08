@@ -1,0 +1,258 @@
+<div id="main">
+  <div id="main_menu_wrapper">
+    <%= render "home/category" %>
+  </div>
+
+  <div id="slider_bar">
+    <%= render "content/slider_bars/slider_bar" %>
+  </div>
+
+  <div id="level_2_banner_wrapper">
+    <div id="level_2_banner">
+    <!-- Insert the Banner for level 2 pages here -->
+      <%= image_tag "level2_bar_oapc.jpg" %>
+    </div>
+
+    <div id="banner_1">
+      <%= image_tag "xszk_208_130.png" %>
+    </div>
+  </div>
+
+  <div id="banner_2">
+    <h2 class="bar_image_220 bar_center">您浏览过的商品</h2>  <!--2012/01/15 - Jimmy -->
+
+    <ul class="recent_visited_ul">
+      <li class="recent_visited_li">
+        <%= image_tag "kaixin.png", :width => "40px", :height => "40px" %>
+        <div>
+          <i style="font-style:normal"><a href="#">canon 佳能原装 BCI-</a></i>
+          <i style="font-style:normal">&yen;99999.99</i>
+        </div>
+      </li>
+
+      <li class="recent_visited_li">
+        <%= image_tag "kaixin.png", :width => "40px", :height => "40px" %>
+        <div>
+          <i style="font-style:normal"><a href="#">canon 佳能原装 BCI-</a></i>
+          <i style="font-style:normal">&yen;99999.99</i>
+        </div>
+      </li>
+
+      <li class="recent_visited_li">
+        <%= image_tag "kaixin.png", :width => "40px", :height => "40px" %>
+        <div>
+          <i style="font-style:normal"><a href="#">canon 佳能原装 BCI-</a></i>
+          <i style="font-style:normal">&yen;99999.99</i>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div id="banner_3">
+    <h2 class="bar_image_550">新品推荐</h2>
+    <ul class="h_ul sku_list_ul margin_0">
+      <% @recommendation.each do |recommend| %>
+        <li class="h_li sku_list_li height_auto">
+          <%= image_tag recommend.main_img, :width => "120px", :height => "120px" %>
+          <p class="sku_list_p overflow_text"><%= recommend.name %></p>
+          <p class="sku_list_p">原价：&yen;99999.00</p>
+          <strong>现价：&yen;<%= recommend.cost_aft_tax %></strong>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div id="banner_4">
+    <%= image_tag "zmbj_208_130.png" %>
+  </div>
+
+  <div id="banner_5">
+    <%= image_tag "category/bar1_1000_60.png" %>
+  </div>
+
+  <!-- 1st SKU List Starts -->
+  <div class="sku_category">
+    <h2 class="bar_image_1000 bar_indent_8">床上用品</h2>
+
+    <div class="category_recommend"> <!-- SKU List's recommended products on the bar -->
+      <ul class="h_ul">
+        <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
+        <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
+        <li class="h_li"><a href="#">更多…</a></li>
+      </ul>
+    </div>
+
+    <div class="sku_list_left_col"> <!--SKU List's left column -->
+      <%= image_tag "category/1-1.jpg" %>
+    </div>
+
+    <ul class="h_ul sku_list_ul">
+      <% @bedclothes_skus.each do |sku| %>
+        <li class="h_li sku_list_li">
+          <%= image_tag sku.main_img, :width => "120px", :height => "120px" %>
+          <p class="sku_list_p overflow_text"><%= sku.name %></p>
+          <p class="sku_list_p">原价：&yen;99999.00</p>
+          <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="sku_list_sort">
+      <h3 class="sku_list_bar_short">本类产品热销排行</h3>
+      <div class="sku_list_sort_hot">
+        <% @bedclothes_hots.each_with_index do |hot,index| %>
+           <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
+            <span><%= sub_str hot.name, 16  %></span>
+            <a><%= image_tag hot.main_img, :width => "120px", :height => "120px" %></a>
+            <a class="overflow_text"><%= hot.name %></a>
+            <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!-- 1st SKU List Ends -->
+
+  <!-- 2nd SKU List Starts -->
+  <div class="sku_category">
+    <h2 class="bar_image_1000 bar_indent_8">纺织饰品</h2>
+
+    <div class="category_recommend"> <!-- SKU List's recommended products on the bar -->
+      <ul class="h_ul">
+        <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
+        <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
+        <li class="h_li"><a href="#">更多…</a></li>
+      </ul>
+    </div>
+
+    <div class="sku_list_left_col"> <!--SKU List's left column -->
+      <%= image_tag "category/2-2.jpg" %>
+    </div>
+
+    <ul class="h_ul sku_list_ul">
+      <% @textile_jewelry_skus.each do |sku| %>
+        <li class="h_li sku_list_li">
+          <%= image_tag sku.main_img, :width => "120px", :height => "120px" %>
+          <p class="sku_list_p overflow_text"><%= sku.name %></p>
+          <p class="sku_list_p">原价：&yen;99999.00</p>
+          <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="sku_list_sort">
+      <h3 class="sku_list_bar_short">本类产品热销排行</h3>
+
+      <div class="sku_list_sort_hot">
+        <% @textile_jewelry_hots.each_with_index do |hot,index| %>
+          <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
+            <span><%= sub_str hot.name, 16  %></span>
+            <a><%= image_tag hot.main_img, :width => "120px", :height => "120px" %></a>
+            <a class="overflow_text"><%= hot.name %></a>
+            <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- 2nd SKU List Ends -->
+
+  <div id="banner_6">
+    <%= image_tag "category/bar2_1000_60.png" %>
+  </div>
+
+  <!-- 3rd SKU List Starts -->
+  <div class="sku_category">
+    <h2 class="bar_image_1000 bar_indent_8">杂货饰品</h2>
+
+    <div class="category_recommend"> <!-- SKU List's recommended products on the bar -->
+      <ul class="h_ul">
+        <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
+        <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
+        <li class="h_li"><a href="#">更多…</a></li>
+      </ul>
+    </div>
+
+    <div class="sku_list_left_col"> <!--SKU List's left column -->
+      <%= image_tag "category/3-3.jpg" %>
+    </div>
+
+    <ul class="h_ul sku_list_ul">
+      <% @groceries_jewelry_skus.each do |sku| %>
+        <li class="h_li sku_list_li">
+          <%= image_tag sku.main_img, :width => "120px", :height => "120px" %>
+          <p class="sku_list_p overflow_text"><%= sku.name %></p>
+          <p class="sku_list_p">原价：&yen;99999.00</p>
+          <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="sku_list_sort">
+      <h3 class="sku_list_bar_short">本类产品热销排行</h3>
+
+      <div class="sku_list_sort_hot">
+        <% @groceries_jewelry_hots.each_with_index do |hot,index| %>
+          <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
+            <span><%= sub_str hot.name, 16  %></span>
+            <a><%= image_tag hot.main_img, :width => "120px", :height => "120px" %></a>
+            <a class="overflow_text"><%= hot.name %></a>
+            <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- 3rd SKU List Ends -->
+
+  <!-- 4th SKU List Starts -->
+  <div class="sku_category">
+    <h2 class="bar_image_1000 bar_indent_8">卫浴用品</h2>
+
+    <div class="category_recommend"> <!-- SKU List's recommended products on the bar -->
+      <ul class="h_ul">
+        <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
+        <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
+        <li class="h_li"><a href="#">更多…</a></li>
+      </ul>
+    </div>
+
+    <div class="sku_list_left_col"> <!--SKU List's left column -->
+      <%= image_tag "category/4-4.jpg" %>
+    </div>
+
+    <ul class="h_ul sku_list_ul">
+      <% @bathroom_articles_skus.each do |sku| %>
+        <li class="h_li sku_list_li">
+          <%= image_tag sku.main_img, :width => "120px", :height => "120px" %>
+          <p class="sku_list_p overflow_text"><%= sku.name %></p>
+          <p class="sku_list_p">原价：&yen;99999.00</p>
+          <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="sku_list_sort">
+      <h3 class="sku_list_bar_short">本类产品热销排行</h3>
+
+      <div class="sku_list_sort_hot">
+        <% @bathroom_articles_hots.each_with_index do |hot,index| %>
+          <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
+            <span><%= sub_str hot.name, 16  %></span>
+            <a><%= image_tag hot.main_img, :width => "120px", :height => "120px" %></a>
+            <a class="overflow_text"><%= hot.name %></a>
+            <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- 4th SKU List Ends -->
+
+</div>

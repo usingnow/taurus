@@ -3,34 +3,20 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <title>Untitled Document</title>
+    <title>壹美壹家</title>
     <%= stylesheet_link_tag 'index/home/home','smoothness/jquery-ui-1.8.16.custom-jimmy' %>
     <%= javascript_include_tag 'jquery','jquery-ui-1.8.16.custom.min','player' %>
+    <%= javascript_include_tag params[:controller] %>
 	<script>
 	  //Homepage Sort List
 	  jQuery(document).ready(function(){
         <%= yield(:ready) %> //动态加载js
-
-        for (i=0; i < 6; i++) {
-          jQuery("#sku_sort_"+i).addClass("highlight")//为当前元素增加highlight类
-            .children("a").show().end()//将子节点的a元素显示出来并重新定位到上次操作的元素
-            .siblings().removeClass("highlight")//获取元素的兄弟元素，并去掉他们的highlight类
-            .children("a").hide();//将兄弟元素下的a元素隐藏
-        }
-
-		jQuery(".has_children").click(function(){
-		  jQuery(this).addClass("highlight")//为当前元素增加highlight类
-			.children("a").show().end()//将子节点的a元素显示出来并重新定位到上次操作的元素
-			.siblings().removeClass("highlight")//获取元素的兄弟元素，并去掉他们的highlight类
-			.children("a").hide();//将兄弟元素下的a元素隐藏
-		});
-
 	  });
     </script>
 </head>
 
 <body>
-<div id="wrapper">
+  <div id="wrapper">
     <div id="header">
       <%= image_tag "logo.GIF", :id => "logo" %>
       <div id="tool_bar">
@@ -74,13 +60,13 @@
       </div>
       <div id="h_main_menu">
         <ul class="h_ul">
-          <li class="h_li"><a href="#">首页</a></li>
-          <li class="h_li"><a href="#">PC OA用品</a></li>
-          <li class="h_li"><a href="#">文具办公用品</a></li>
-          <li class="h_li"><a href="#">生活用品</a></li>
-          <li class="h_li"><a href="#">办公家具</a></li>
-          <li class="h_li"><a href="#">生活家具</a></li>
-          <li class="h_li"><a href="#">家居饰品</a></li>
+          <li class="h_li"><a href="/">首页</a></li>
+          <li class="h_li"><%= link_to "OA PC用品", oa_pc_commodity_categories_path %></li>
+          <li class="h_li"><%= link_to "文具办公用品", office_commodity_categories_path %></li>
+          <li class="h_li"><%= link_to "生活用品", daily_commodity_categories_path %></li>
+          <li class="h_li"><%= link_to "办公家具", off_fur_commodity_categories_path %></li>
+          <li class="h_li"><%= link_to "生活家具", liv_fur_commodity_categories_path %></li>
+          <li class="h_li"><%= link_to "家居饰品", fur_jew_commodity_categories_path %></li>
         </ul>
       </div>
       <!-- 2012/01/10 after discussion with Lucy, Homepage new horizontal menu ends here -->

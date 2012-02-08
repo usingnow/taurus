@@ -79,6 +79,19 @@ Ebiz::Application.routes.draw do
   #   end
 
   # Sample resource route within a namespace:
+  namespace :commodity do
+    resources :categories do
+      collection do
+        get :oa_pc
+        get :office
+        get :daily
+        get :off_fur
+        get :liv_fur
+        get :fur_jew
+      end
+    end
+  end
+
   namespace :store do
     resources :delivery_orders
     resources :sales_order_deliveries
