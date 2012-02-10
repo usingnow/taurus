@@ -1,8 +1,7 @@
 Ebiz::Application.routes.draw do
-  get "sku_details/show"
+  mount Ckeditor::Engine => '/ckeditor'
 
   #mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-  mount Ckeditor::Engine => '/ckeditor'
 
   devise_for :administrators,
              :path => "back",
@@ -177,7 +176,6 @@ Ebiz::Application.routes.draw do
     resources :product_store_entryships
     resources :store_entries
     resources :store_entry_product_carts
-    resources :slider_bars
     resources :banks
     resources :inner_sku_carts
     resources :prod_del_ordships
@@ -199,8 +197,9 @@ Ebiz::Application.routes.draw do
   end
 
   namespace :content do
-    resources :images
     resources :announcements
+    resources :images
+    resources :slider_bars
   end
 
   namespace :store do

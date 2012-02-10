@@ -195,30 +195,29 @@ zh-CN:
 
   models: &models
     administrator: "管理员"
-    group: "组"
-    company_extend: "企业会员"
-    product: "素材商品"
-    supplier: "供应商"
     brand: "品牌"
-    product_category: "素材商品分类"
-    sku_category: "媒体商品分类"
-    sku: "媒体商品"
+    company_extend: "企业会员"
+    delivery_order: "出库单"
+    esc: "升级单"
+    group: "组"
+    image: "图片"
+    order: "订单"
+    ordering_company: "订货公司"
     person_extend: "个人会员"
-    user: "会员"
+    panic_buying: "疯狂抢购"
+    procedure: "流程"
+    product: "素材商品"
+    product_category: "素材商品分类"
+    purchase: "采购单"
+    role: "角色"
+    sku: "媒体商品"
+    sku_category: "媒体商品分类"
     sku_productship: "媒体商品组成"
     sku_image: "媒体商品相册"
-    procedure: "流程"
     station: "站别"
     station_procedureship: "流程规则"
-    order: "订单"
-    role: "角色"
-    esc: "升级单"
-    ordering_company: "订货公司"
-    panic_buying: "疯狂抢购"
-    purchase: "采购单"
-    delivery_order: "出库单"
-    image: "图片"
-
+    supplier: "供应商"
+    user: "会员"
 
   attributes: &attributes
     administrator:
@@ -237,6 +236,56 @@ zh-CN:
       #以下是扩展属性
       admin_list: "管理员列表"
       group_info: "管理员组信息"
+
+    brand:
+      chinese_name: "中文名称"
+      english_name: "英文名称"
+      pinyin: "拼音"
+      web_address: "网址"
+      image: "图片"
+      active: "状态"
+      create_by: "创建者"
+      update_by: "更新者"
+      updated_at: "更新时间"
+      company_name: "公司名称"
+      company_introduction: "公司简介"
+
+    company_extend:
+      company_name: "公司名称"
+      industry_type_id: "行业类别"
+      email: "邮箱"
+      district_no: "公司所属地"
+      address: "公司详细地址"
+      company_type_id: "公司性质"
+      company_scale_id: "公司规模"
+      web_address: "公司网址"
+      name: "联系人姓名"
+      phone: "电话"
+      mobile: "手机"
+      sex: "性别"
+      contact_dept: "联系人部门"
+      contact_post: "联系人职位"
+      fax: "传真"
+      zip: "邮编"
+
+      #扩展属性
+      email_confirmation: "确认邮箱"
+
+    delivery_order:
+      store_id: "仓库"
+      line_type: "出库方式"
+
+    esc:
+      number: "编号"
+      esc_category_id: "类型"
+      user_id: "会员登录名"
+      status: "状态"
+      order_id: "订单编号"
+      not_registration_user_info: "非注册会员信息"
+      user_other_info: "会员其他信息"
+      title: "标题"
+      description: "详细内容"
+
 
     group:
       number: "编号"
@@ -309,19 +358,6 @@ zh-CN:
       create_by: "创建者"
       update_by: "更新者"
       updated_at: "更新时间"
-
-    brand:
-      chinese_name: "中文名称"
-      english_name: "英文名称"
-      pinyin: "拼音"
-      web_address: "网址"
-      image: "图片"
-      active: "状态"
-      create_by: "创建者"
-      update_by: "更新者"
-      updated_at: "更新时间"
-      company_name: "公司名称"
-      company_introduction: "公司简介"
 
     product_category:
       parent_id: "父ID"
@@ -413,26 +449,7 @@ zh-CN:
       #扩展属性
       email_confirmation: "确认邮箱"
 
-    company_extend:
-      company_name: "公司名称"
-      industry_type_id: "行业类别"
-      email: "邮箱"
-      district_no: "公司所属地"
-      address: "公司详细地址"
-      company_type_id: "公司性质"
-      company_scale_id: "公司规模"
-      web_address: "公司网址"
-      name: "联系人姓名"
-      phone: "电话"
-      mobile: "手机"
-      sex: "性别"
-      contact_dept: "联系人部门"
-      contact_post: "联系人职位"
-      fax: "传真"
-      zip: "邮编"
 
-      #扩展属性
-      email_confirmation: "确认邮箱"
 
     user:
       login_no: "用户名"
@@ -507,16 +524,7 @@ zh-CN:
       is_reserve: "是否保留"
       set_procedure_permission: "设置流程权限"
 
-    esc:
-      number: "编号"
-      esc_category_id: "类型"
-      user_id: "会员登录名"
-      status: "状态"
-      order_id: "订单编号"
-      not_registration_user_info: "非注册会员信息"
-      user_other_info: "会员其他信息"
-      title: "标题"
-      description: "详细内容"
+
 
     ordering_company:
       name: "名称"
@@ -547,9 +555,7 @@ zh-CN:
       supplier_id: "供应商"
       note: "备注"
 
-    delivery_order:
-      store_id: "仓库"
-      line_type: "出库方式"
+
 
     inner_order_address:
       mobile: "手机"
@@ -557,6 +563,9 @@ zh-CN:
     image:
       location: "位置"
       image: "图片"
+
+    slider_bar:
+
 
 
 
@@ -580,6 +589,7 @@ zh-CN:
       create: "新增%{model}"
       update: "更新%{model}"
       submit: "储存%{model}"
+
 
 
   ckeditor:
@@ -613,8 +623,30 @@ zh-CN:
   company_scale: "公司规模"
   district: "所属地区"
 
+
   #will_paginate
   will_paginate:
     previous_label: "上一页"
     next_label: "下一页"
     page_gap: "&hellip;"
+
+
+  admin:
+    misc:
+      remove: "删除"
+      add_new: "新增"
+    actions:
+      index:
+        title: "%{model}列表"
+      show:
+        title: "%{model} '%{object_label}'明细"
+        menu: "显示"
+      new:
+        title: "新建 %{model_label}"
+        menu: "新建模型"
+      edit:
+        title: "编辑%{model_label} '%{object_label}'"
+        menu: "编辑"
+      delete:
+        title: "删除%{model_label} '%{object_label}'"
+        menu: "删除"

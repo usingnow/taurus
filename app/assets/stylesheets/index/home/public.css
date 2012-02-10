@@ -521,7 +521,7 @@ input {
 	height: 38px;
 	padding-left:0px; padding-top:0px;
 	display:block;
-	background:url('images/menu-arrow.png) no-repeat 172px 0px;
+	background:url('images/menu-arrow.png') no-repeat 172px 0px;
 	text-align:left;
 }
 #main_menu li a {

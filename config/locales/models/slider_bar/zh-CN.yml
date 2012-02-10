@@ -1,0 +1,8 @@
+zh-CN:
+  activerecord:
+    models:
+      slider_bar: "前台滑动广告"
+    attributes:
+      slider_bar:
+        name: "名称"
+        href: "链接网址"
