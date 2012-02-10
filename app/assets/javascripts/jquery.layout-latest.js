@@ -316,7 +316,7 @@ $.fn.layout = function (opts) {
 		,	resizable:				true		// when open, pane can be resized 
 		,	slidable:				true		// when closed, pane can 'slide open' over other panes - closes on mouse-out
 		,	initClosed:				false		// true = init pane as 'closed'
-		,	initHidden: 			false 		// true = init pane as 'hidden' - no resizer-bar/spacing
+		,	initHidden: 			false 		// true = init pane as 'hidden' - no resizer-titlebar/spacing
 		//	SELECTORS
 		//,	paneSelector:			""			// MUST be pane-specific - jQuery selector for pane
 		,	contentSelector:		".ui-layout-content" // INNER div/element to auto-size so only it scrolls, not the entire pane!
@@ -334,7 +334,7 @@ $.fn.layout = function (opts) {
 		,	spacing_open:			6			// space between pane and adjacent panes - when pane is 'open'
 		,	spacing_closed:			6			// ditto - when pane is 'closed'
 		,	togglerLength_open:		50			// Length = WIDTH of toggler button on north/south sides - HEIGHT on east/west sides
-		,	togglerLength_closed: 	50			// 100% OR -1 means 'full height/width of resizer bar' - 0 means 'hidden'
+		,	togglerLength_closed: 	50			// 100% OR -1 means 'full height/width of resizer titlebar' - 0 means 'hidden'
 		,	togglerAlign_open:		"center"	// top/left, bottom/right, center, OR...
 		,	togglerAlign_closed:	"center"	// 1 => nn = offset from top/left, -1 => -nn == offset from bottom/right
 		,	togglerTip_open:		lang.Close	// Toggler tool-tip (title)
@@ -346,7 +346,7 @@ $.fn.layout = function (opts) {
 		,	autoResize:				true		// IF size is 'auto' or a percentage, then recalc 'pixel size' whenever the layout resizes
 		,	autoReopen:				true		// IF a pane was auto-closed due to noRoom, reopen it when there is room? False = leave it closed
 		,	resizerDragOpacity:		1			// option for ui.draggable
-		//,	resizerCursor:			""			// MUST be pane-specific - cursor when over resizer-bar
+		//,	resizerCursor:			""			// MUST be pane-specific - cursor when over resizer-titlebar
 		,	maskIframesOnResize:	true		// true = all iframes OR = iframe-selector(s) - adds masking-div during resizing/dragging
 		,	resizeNestedLayout:		true		// true = trigger nested.resizeAll() when a 'pane' of this layout is the 'container' for another
 		,	resizeWhileDragging:	false		// true = LIVE Resizing as resizer is dragged
@@ -354,8 +354,8 @@ $.fn.layout = function (opts) {
 		//	TIPS & MESSAGES - also see lang object
 		,	noRoomToOpenTip:		lang.noRoomToOpenTip
 		,	resizerTip:				lang.Resize	// Resizer tool-tip (title)
-		,	sliderTip:				lang.Slide	// resizer-bar triggers 'sliding' when pane is closed
-		,	sliderCursor:			"pointer"	// cursor when resizer-bar will trigger 'sliding'
+		,	sliderTip:				lang.Slide	// resizer-titlebar triggers 'sliding' when pane is closed
+		,	sliderCursor:			"pointer"	// cursor when resizer-titlebar will trigger 'sliding'
 		,	slideTrigger_open:		"click"		// click, dblclick, mouseenter
 		,	slideTrigger_close:		"mouseleave"// click, mouseleave
 		,	slideDelay_open:		300			// applies only for mouseenter event - 0 = instant open
@@ -500,7 +500,7 @@ $.fn.layout = function (opts) {
 		,	iframe_mask:	2		// overlay div used to mask pane(s) during resizing
 		,	pane_sliding:	100		// applied to *BOTH* the pane and its resizer when a pane is 'slid open'
 		,	pane_animate:	1000	// applied to the pane when being animated - not applied to the resizer
-		,	resizer_drag:	10000	// applied to the CLONED resizer-bar when being 'dragged'
+		,	resizer_drag:	10000	// applied to the CLONED resizer-titlebar when being 'dragged'
 		}
 	,	resizers: {
 			cssReq: {
@@ -1129,7 +1129,7 @@ $.fn.layout = function (opts) {
 ,	addHover	= function (evt, el) {
 		var $E = $(el || this);
 		if (evt && $E.data("layoutRole") == "toggler")
-			evt.stopPropagation(); // prevent triggering 'slide' on Resizer-bar
+			evt.stopPropagation(); // prevent triggering 'slide' on Resizer-titlebar
 		$E.addClass( getHoverClasses($E) );
 	}
 ,	removeHover	= function (evt, el) {
@@ -1947,10 +1947,10 @@ $.fn.layout = function (opts) {
 				$P 		= $Ps[pane]
 			,	$R		= $Rs[pane]
 			,	base	= o.resizerClass
-			//	'drag' classes are applied to the ORIGINAL resizer-bar while dragging is in process
+			//	'drag' classes are applied to the ORIGINAL resizer-titlebar while dragging is in process
 			,	resizerClass		= base+"-drag"				// resizer-drag
 			,	resizerPaneClass	= base+"-"+pane+"-drag"		// resizer-north-drag
-			//	'helper' class is applied to the CLONED resizer-bar while it is being dragged
+			//	'helper' class is applied to the CLONED resizer-titlebar while it is being dragged
 			,	helperClass			= base+"-dragging"			// resizer-dragging
 			,	helperPaneClass		= base+"-"+pane+"-dragging" // resizer-north-dragging
 			,	helperLimitClass	= base+"-dragging-limit"	// resizer-drag
@@ -2031,10 +2031,10 @@ $.fn.layout = function (opts) {
 						ui.helper
 							.addClass( helperClass +" "+ helperPaneClass ) // add helper classes
 							.css({ right: "auto", bottom: "auto" })	// fix dir="rtl" issue
-							.children().css("visibility","hidden")	// hide toggler inside dragged resizer-bar
+							.children().css("visibility","hidden")	// hide toggler inside dragged resizer-titlebar
 						;
 						helperClassesSet = true;
-						// draggable bug!? RE-SET zIndex to prevent E/W resize-bar showing through N/S pane!
+						// draggable bug!? RE-SET zIndex to prevent E/W resize-titlebar showing through N/S pane!
 						if (s.isSliding) $Ps[pane].css("zIndex", _c.zIndex.pane_sliding);
 					}
 					// CONTAIN RESIZER-BAR TO RESIZING LIMITS
@@ -2249,7 +2249,7 @@ $.fn.layout = function (opts) {
 		s.isSliding = false; // just in case
 
 		// now hide the elements
-		if ($R) $R.hide(); // hide resizer-bar
+		if ($R) $R.hide(); // hide resizer-titlebar
 		if (!state.initialized || s.isClosed) {
 			s.isClosed = true; // to trigger open-animation on show()
 			s.isHidden  = true;
@@ -2395,7 +2395,7 @@ $.fn.layout = function (opts) {
 		else // resize panes adjacent to this one
 			sizeMidPanes(_c[pane].dir == "horz" ? "all" : "center", false); // false = NOT skipCallback
 
-		// if this pane has a resizer bar, move it NOW - before animation
+		// if this pane has a resizer titlebar, move it NOW - before animation
 		setAsClosed(pane);
 
 		// CLOSE THE PANE
@@ -2924,7 +2924,7 @@ $.fn.layout = function (opts) {
 			else if (s.size < s.minSize) // pane is too small - enlarge it
 				sizePane(pane, s.minSize, skipCallback, force);
 			else if ($R && $P.is(":visible")) {
-				// make sure resizer-bar is positioned correctly
+				// make sure resizer-titlebar is positioned correctly
 				// handles situation where nested layout was 'hidden' when initialized
 				var
 					side = c.side.toLowerCase()
@@ -3058,7 +3058,7 @@ debugData( test, pane );
 		s.size = size;
 		$.extend(s, elDims($P));
 
-		// reposition the resizer-bar
+		// reposition the resizer-titlebar
 		if ($R && $P.is(":visible")) $R.css( side, size + sC[inset] );
 
 		sizeContent(pane);

@@ -1418,7 +1418,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 		},
 
 		/**
-		 * Moving scroll bar to the current selection's start position.
+		 * Moving scroll titlebar to the current selection's start position.
 		 */
 		scrollIntoView : function()
 		{

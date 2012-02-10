@@ -3,37 +3,23 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <title>Untitled Document</title>
-    <%= stylesheet_link_tag 'index/home/home','smoothness/jquery-ui-1.8.16.custom-jimmy' %>
+    <title>壹美壹家</title>
+    <%= stylesheet_link_tag 'index/home/public.css', 'smoothness/jquery-ui-1.8.16.custom-jimmy.css', 'public' %>
     <%= stylesheet_link_tag params[:controller] %>
-    <%= javascript_include_tag 'jquery','jquery-ui-1.8.16.custom.min','player' %>
+    <%= javascript_include_tag 'jquery','jquery-ui-1.8.16.custom.min.js','player.js' %>
+    <%= javascript_include_tag params[:controller] %>
 	<script>
 	  //Homepage Sort List
 	  jQuery(document).ready(function(){
         <%= yield(:ready) %> //动态加载js
-
-        for (i=0; i < 6; i++) {
-          jQuery("#sku_sort_"+i).addClass("highlight")//为当前元素增加highlight类
-            .children("a").show().end()//将子节点的a元素显示出来并重新定位到上次操作的元素
-            .siblings().removeClass("highlight")//获取元素的兄弟元素，并去掉他们的highlight类
-            .children("a").hide();//将兄弟元素下的a元素隐藏
-        }
-
-		jQuery(".has_children").click(function(){
-		  jQuery(this).addClass("highlight")//为当前元素增加highlight类
-			.children("a").show().end()//将子节点的a元素显示出来并重新定位到上次操作的元素
-			.siblings().removeClass("highlight")//获取元素的兄弟元素，并去掉他们的highlight类
-			.children("a").hide();//将兄弟元素下的a元素隐藏
-		});
-
 	  });
     </script>
 </head>
 
 <body>
-<div id="wrapper">
+  <div id="wrapper">
     <div id="header">
-      <%= image_tag "logo.GIF", :id => "logo" %>
+      <%= image_tag "/assets/templates/header/logo.GIF", :id => "logo" %>
       <div id="tool_bar">
         <ul>
           <li><a href="#">我的账户</a></li>
@@ -55,11 +41,11 @@
         <div style="position: absolute; top: 6px; right: 18px"><a href="#" style="color: #ffffff;">去结算</a></div>
       </div>
       <div id="share_bar">
-        <%= image_tag "sina.png", :id => "sina", :width => "32", :height => "32"%>
-        <%= image_tag "kaixin.png", :id => "kaixin", :width => "32", :height => "32"%>
+        <%= image_tag "/assets/templates/header/sina.png", :id => "sina", :width => "32", :height => "32"%>
+        <%= image_tag "/assets/templates/header/kaixin.png", :id => "kaixin", :width => "32", :height => "32"%>
       </div>
-      <%= image_tag "headpic/headpic/headPhone_144_26.png", :id => "service_phone" %>
-      <%= image_tag "headpic/headpic/ServiceOL_77_26.png", :id => "service_ol" %>
+      <%= image_tag "/assets/templates/header/headPhone_144_26.png", :id => "service_phone" %>
+      <%= image_tag "/assets/templates/header/ServiceOL_77_26.png", :id => "service_ol" %>
       <div id="search_bar">
         <form>
           <input type="text" name="keywords" size="30" maxlength="50" value="商品……">
@@ -75,13 +61,13 @@
       </div>
       <div id="h_main_menu">
         <ul class="h_ul">
-          <li class="h_li"><a href="#">首页</a></li>
-          <li class="h_li"><a href="#">PC OA用品</a></li>
-          <li class="h_li"><a href="#">文具办公用品</a></li>
-          <li class="h_li"><a href="#">生活用品</a></li>
-          <li class="h_li"><a href="#">办公家具</a></li>
-          <li class="h_li"><a href="#">生活家具</a></li>
-          <li class="h_li"><a href="#">家居饰品</a></li>
+          <li class="h_li"><a href="/">首页</a></li>
+          <li class="h_li"><%= link_to "OA PC用品", oa_pc_commodity_categories_path %></li>
+          <li class="h_li"><%= link_to "文具办公用品", office_commodity_categories_path %></li>
+          <li class="h_li"><%= link_to "生活用品", daily_commodity_categories_path %></li>
+          <li class="h_li"><%= link_to "办公家具", off_fur_commodity_categories_path %></li>
+          <li class="h_li"><%= link_to "生活家具", liv_fur_commodity_categories_path %></li>
+          <li class="h_li"><%= link_to "家居饰品", fur_jew_commodity_categories_path %></li>
         </ul>
       </div>
       <!-- 2012/01/10 after discussion with Lucy, Homepage new horizontal menu ends here -->
@@ -93,22 +79,22 @@
       <div id="brand-corperate">
         <h2 class="bar_image_1000">合作品牌</h2>
         <ul>
-          <li><%= image_tag "brand/brand_img_110_57_1.png", :width => "115px", :height => "57px" %></li>
-          <li><%= image_tag "brand/brand_img_110_57_2.png", :width => "115px", :height => "57px" %></li>
-          <li><%= image_tag "brand/brand_img_110_57_3.png", :width => "115px", :height => "57px" %></li>
-          <li><%= image_tag "brand/brand_img_110_57_4.png", :width => "115px", :height => "57px" %></li>
-          <li><%= image_tag "brand/brand_img_110_57_5.png", :width => "115px", :height => "57px" %></li>
-          <li><%= image_tag "brand/brand_img_110_57_6.png", :width => "115px", :height => "57px" %></li>
-          <li><%= image_tag "brand/brand_img_110_57_7.png", :width => "115px", :height => "57px" %></li>
-          <li><%= image_tag "brand/brand_img_110_57_8.png", :width => "115px", :height => "57px" %></li>
-          <li><%= image_tag "brand/brand_img_110_57_9.png", :width => "115px", :height => "57px" %></li>
-          <li><%= image_tag "brand/brand_img_110_57_10.png", :width => "115px", :height => "57px" %></li>
-          <li><%= image_tag "brand/brand_img_110_57_11.png", :width => "115px", :height => "57px" %></li>
-          <li><%= image_tag "brand/brand_img_110_57_12.png", :width => "115px", :height => "57px" %></li>
-          <li><%= image_tag "brand/brand_img_110_57_13.png", :width => "115px", :height => "57px" %></li>
-          <li><%= image_tag "brand/brand_img_110_57_14.png", :width => "115px", :height => "57px" %></li>
-          <li><%= image_tag "brand/brand_img_110_57_15.png", :width => "115px", :height => "57px" %></li>
-          <li><%= image_tag "brand/brand_img_110_57_16.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "/assets/templates/footer/brand/brand_img_110_57_1.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "/assets/templates/footer/brand/brand_img_110_57_2.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "/assets/templates/footer/brand/brand_img_110_57_3.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "/assets/templates/footer/brand/brand_img_110_57_4.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "/assets/templates/footer/brand/brand_img_110_57_5.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "/assets/templates/footer/brand/brand_img_110_57_6.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "/assets/templates/footer/brand/brand_img_110_57_7.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "/assets/templates/footer/brand/brand_img_110_57_8.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "/assets/templates/footer/brand/brand_img_110_57_9.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "/assets/templates/footer/brand/brand_img_110_57_10.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "/assets/templates/footer/brand/brand_img_110_57_11.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "/assets/templates/footer/brand/brand_img_110_57_12.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "/assets/templates/footer/brand/brand_img_110_57_13.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "/assets/templates/footer/brand/brand_img_110_57_14.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "/assets/templates/footer/brand/brand_img_110_57_15.png", :width => "115px", :height => "57px" %></li>
+          <li><%= image_tag "/assets/templates/footer/brand/brand_img_110_57_16.png", :width => "115px", :height => "57px" %></li>
         </ul>
       </div>
       <div id="footer_contact_bar">
@@ -129,7 +115,7 @@
             <li><a href="#" title="">加入我们</a></li>
             <li><a href="#" title="">申请成为供应商</a></li>
           </ul>
-          <%= image_tag "logo_corp_info_1.png" %>
+          <%= image_tag "/assets/templates/footer/logo_corp_info_1.png" %>
         </div>
         <div>
           <h3>我的订单</h3>
@@ -138,7 +124,7 @@
             <li><a href="#" title="">如何下单</a></li>
             <li><a href="#" title="">查询订单</a></li>
           </ul>
-          <%= image_tag "logo_corp_info_2.png" %>
+          <%= image_tag "/assets/templates/footer/logo_corp_info_2.png" %>
         </div>
         <div>
           <h3>关于配送</h3>
@@ -147,7 +133,7 @@
             <li><a href="#" title="">收费标准</a></li>
             <li><a href="#" title="">配送时间</a></li>
           </ul>
-          <%= image_tag "logo_corp_info_3.png" %>
+          <%= image_tag "/assets/templates/footer/logo_corp_info_3.png" %>
         </div>
         <div>
           <h3>关于支付</h3>
@@ -156,7 +142,7 @@
             <li><a href="#" title="">月结用户</a></li>
             <li><a href="#" title="">购物券说明</a></li>
           </ul>
-          <%= image_tag "logo_corp_info_4.png" %>
+          <%= image_tag "/assets/templates/footer/logo_corp_info_4.png" %>
         </div>
         <div>
           <h3>服务说明</h3>
@@ -165,7 +151,7 @@
             <li><a href="#" title="">投诉与建议</a></li>
             <li><a href="#" title="">客户使用条款</a></li>
           </ul>
-          <%= image_tag "logo_corp_info_5.png" %>
+          <%= image_tag "/assets/templates/footer/logo_corp_info_5.png" %>
         </div>
         <div>
           <h3>帮助中心</h3>
@@ -174,14 +160,14 @@
             <li><a href="#" title="">常见问题</a></li>
             <li><a href="#" title="">联系客服</a></li>
           </ul>
-          <%= image_tag "logo_corp_info_6.png" %>
+          <%= image_tag "/assets/templates/footer/logo_corp_info_6.png" %>
         </div>
       </div>
       <ul class="h_ul clear footer_warranty">
-        <li class="h_li"><%= image_tag "baozhang1.jpg" %></li>
-        <li class="h_li"><%= image_tag "baozhang2.jpg" %></li>
-        <li class="h_li"><%= image_tag "baozhang3.jpg" %></li>
-        <li class="h_li"><%= image_tag "baozhang4.jpg" %></li>
+        <li class="h_li"><%= image_tag "/assets/templates/footer/baozhang1.jpg" %></li>
+        <li class="h_li"><%= image_tag "/assets/templates/footer/baozhang2.jpg" %></li>
+        <li class="h_li"><%= image_tag "/assets/templates/footer/baozhang3.jpg" %></li>
+        <li class="h_li"><%= image_tag "/assets/templates/footer/baozhang4.jpg" %></li>
       </ul>
       <ul class="h_ul clear footer_title">
         <li class="h_li">|</li>
@@ -199,12 +185,12 @@
       </div>
       <div id="link_certificates">
         <ul class="h_ul">
-          <li class="h_li"><%= image_tag "wang_luo_gong_shang.gif" %></li>
-          <li class="h_li"><%= image_tag "alipay.gif" %></li>
-          <li class="h_li"><%= image_tag "kxwz.gif" %></li>
-          <li class="h_li"><%= image_tag "wljc.gif" %></li>
-          <li class="h_li"><%= image_tag "xs.gif" %></li>
-          <li class="h_li"><%= image_tag "yltysh.jpg" %></li>
+          <li class="h_li"><%= image_tag "/assets/templates/footer/wang_luo_gong_shang.gif" %></li>
+          <li class="h_li"><%= image_tag "/assets/templates/footer/alipay.gif" %></li>
+          <li class="h_li"><%= image_tag "/assets/templates/footer/kxwz.gif" %></li>
+          <li class="h_li"><%= image_tag "/assets/templates/footer/wljc.gif" %></li>
+          <li class="h_li"><%= image_tag "/assets/templates/footer/xs.gif" %></li>
+          <li class="h_li"><%= image_tag "/assets/templates/footer/yltysh.jpg" %></li>
         </ul>
       </div>
     </div>

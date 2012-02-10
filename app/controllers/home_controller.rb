@@ -10,6 +10,17 @@ class HomeController < ApplicationController
     @office_hots = Sku.office_hots
     @daily_skus = Sku.daily_skus
     @daily_hots = Sku.daily_hots
+    @off_fur_skus = Sku.off_fur_skus
+    @off_fur_hots = Sku.off_fur_hots
+    @liv_fur_skus = Sku.liv_fur_skus
+    @liv_fur_hots = Sku.liv_fur_hots
+    @fur_jew_skus = Sku.fur_jew_skus
+    @fur_jew_hots = Sku.fur_jew_hots
+
+    @images = {}
+    Image.all.each do |image|
+      @images.store(image.location, image.image.url)
+    end
 
   end
 

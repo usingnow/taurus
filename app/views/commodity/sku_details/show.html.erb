@@ -1,14 +1,11 @@
 <div id="sku_details_wrapper">
   <p class="sku_details_nav">您的位置：
-    <a href="#">首页</a> >>
-    <a href="#">一级媒体分类</a> >>
-    <a href="#">二级媒体分类</a> >>
-    <a href="#">三级媒体分类</a> >>
-    <a href="#">四级媒体分类</a> >>
-    媒体商品名称
+    <a href="/">首页</a> >>
+    <%=raw current_category_site @sku %>
+    <%= @sku.name %>
   </p>
   <div id="sku_details_picture">
-    <%= image_tag "rails.png", :width => "400px", :height => "400px" %>
+    <%= image_tag @sku.main_img, :width => "400px", :height => "400px" %>
     <div id="controller_pane">
       <div id="controller_handler_left">
         <%= image_tag "sku_details/left.png" %>
@@ -29,17 +26,17 @@
     </div>
   </div>
   <div id="sku_basic_info">
-    <h1>媒体商品名称</h1>
+    <h1><%= @sku.name %></h1>
     <p class="p_1">商品编号：</p>
-    <p class="p_2">800001</p>
+    <p class="p_2"><%= @sku.number %></p>
     <p class="p_3">商品型号：</p>
-    <p class="p_4">800001</p>
+    <p class="p_4"><%= @sku.model %>&nbsp;</p>
     <p class="p_1">商品价格：</p>
-    <p class="p_2"><strong>&yen;999999.99</strong></p>
+    <p class="p_2"><strong><%= number_to_currency @sku.cost_aft_tax, :unit => "￥" %></strong></p>
     <p class="p_3">优惠价格：</p>
-    <p class="p_4"><strong>&yen;999999.99</strong></p>
+    <p class="p_4"><strong><%= number_to_currency @sku.cost_aft_tax, :unit => "￥" %></strong></p>
     <p class="p_1">为您节省：</p>
-    <p><strong>&yen;999999.99（享受6.6折）</strong></p>
+    <p><strong>￥0（享受10折）</strong></p>
     <p class="p_1 clear">库存：</p>
     <p>有</p>
     <p>（如果缺货，请咨询<em>400-630-5606</em>）</p>
@@ -60,6 +57,7 @@
   </div>
   <div id="sku_information" class="sku_long">
     <h3>商品介绍</h3>
+    <%=raw @sku.description %>
   </div>
   <div id="sku_browser_history" class="sku_long">
     <h3>浏览过的商品</h3>

@@ -180,7 +180,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 							// Add event handler for resizing.
 							mainWindow.on( 'resize', resizeHandler );
 
-							// Save the scroll bar position.
+							// Save the scroll titlebar position.
 							outerScroll = mainWindow.getScrollPosition();
 
 							// Save and reset the styles for the entire node tree.

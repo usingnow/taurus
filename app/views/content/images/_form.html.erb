@@ -1,0 +1,18 @@
+<%= simple_form_for([:content,@image]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="attributes">
+    <div class="split_content_left">
+      <%= f.input :location %>
+      <%= f.input :image %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+
+

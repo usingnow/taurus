@@ -165,7 +165,7 @@ CKEDITOR.lang['sr-latn'] =
 		popupToolbar	: 'Toolbar',
 		popupMenuBar	: 'Kontekstni meni',
 		popupFullScreen	: 'Prikaz preko celog ekrana (IE)',
-		popupScrollBars	: 'Scroll bar',
+		popupScrollBars	: 'Scroll titlebar',
 		popupDependent	: 'Zavisno (Netscape)',
 		popupLeft		: 'Od leve ivice ekrana (px)',
 		popupTop		: 'Od vrha ekrana (px)',

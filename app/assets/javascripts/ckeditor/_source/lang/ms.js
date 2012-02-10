@@ -165,7 +165,7 @@ CKEDITOR.lang['ms'] =
 		popupToolbar	: 'Toolbar',
 		popupMenuBar	: 'Bar Menu',
 		popupFullScreen	: 'Skrin Penuh (IE)',
-		popupScrollBars	: 'Bar-bar skrol',
+		popupScrollBars	: 'Bar-titlebar skrol',
 		popupDependent	: 'Bergantungan (Netscape)',
 		popupLeft		: 'Posisi Kiri',
 		popupTop		: 'Posisi Atas',

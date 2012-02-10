@@ -1,3 +1,9 @@
+/*
+ *= require jquery-laylout
+ *= require scaffold
+ *= require smoothness/jquery-ui-1.8.16.custom.css
+*/
+
 .red{
   color: red;
 }
@@ -153,7 +159,6 @@ div.attributes label.collection_radio{
 div.middle_button{
   text-align: center;
 }
-
 
 
 

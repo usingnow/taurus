@@ -1,0 +1,133 @@
+//General Style for the frontie interface
+
+#wrapper {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;}
+body {
+  font-family: "宋体", Tahoma, Verdana, Arial, sans-serif;
+	font-size: 12px;
+  color: #333333;}
+
+//Search bar style in the header.
+#search_bar {
+	position:absolute;
+	top: 50px;
+	left: 360px;
+	width: 251px;
+	height: 24px;
+	clear:right;
+	background-image:url('/assets/templates/header/search283_26_bg.png');
+	barcgournd-repeat: none;
+	padding: 1px 0 1px 32px;
+  form {
+	  height: 26px;}
+	input {
+	width: 175px;
+	height: 20px;
+	padding: 2px 0px 2px 0px;
+	border: none;
+  font-size: 14px;
+	line-height: 24px;
+	vertical-align: middle;}
+  input:focus {
+    background:none;
+    padding: 2px 0px 2px 0px;}
+  a {
+	padding: 0 10px 0 22px;
+	font-weight:bold;
+  line-height: 24px;
+  vertical-align: middle;
+	font-size:14px;
+	color: #ffffff;}
+  a:hover {
+    font-weight:bold;
+    font-size:14px;}}
+#search_hot {
+	position:absolute;
+	top: 50px;
+	left: 650px;
+	width: 228px;
+	height: 26px;
+	line-height:26px;
+	vertical-align:middle;
+	clear:right;
+  li {
+    margin: 0 0 0 6px;
+    a:hover{
+      text-decoration:underline;}}}
+
+//Cart style in the header.
+#cart {
+	position:absolute;
+	top: 104px;
+	right: 0px;
+	width:205px;
+	height:28px;
+	background-image:url('/assets/templates/header/cart.png');
+	z-index:400;}
+//Horizontal navigater style
+#h_main_menu {
+	position: absolute;
+	top: 100px;
+	left: 0px;
+	width: 1000px;
+	height: 32px;
+	margin: 2px 0 2px 0;
+	border-bottom: 3px solid #dddddd;
+  li {
+    width: 108px;
+    height: 32px;
+    background-image:url('/assets/templates/header/head_bg_107_33_gray.png');
+    margin: 0 1px 0 1px;
+    line-height: 32px;
+    vertical-align:middle;
+    text-align:center;
+    font-size: 14px;
+    font-weight:bold;
+    color: #ff0000;
+    a {
+	    color: #e73221;}}
+	li:hover {
+    background-image:url('/assets/templates/header/head_bg_107_33_red.png');
+    a {
+    color: #ffffff;}}}
+
+//The styles of titles (bar) for frontie interface
+.bar_image_1000 {
+	width: 965px;
+	height: 26px;
+	background-image:url('/assets/templates/titlebar/bar_1000_26.jpg');
+	padding: 0 0 0 35px;
+	color: #e73221;
+	font-size: 15px;
+	font-weight: bold;
+	line-height:26px;
+	vertical-align:middle;
+	border-top: 1px solid #dddddd;}
+.bar_image_550 {
+	width: 542px;
+	height: 26px;
+	background-image:url('/assets/templates/titlebar/bar_bg_550_26.png');
+	padding: 0 0 0 8px;
+	color: #e73221;
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 26px;
+	vertical-align:middle;
+	border-top: 1px solid #dddddd;}
+.bar_image_220 {
+	width: 212px;
+	height: 26px;
+	background-image:url('/assets/templates/titlebar/bar_bg_220_26.png');
+	padding: 0 0 0 8px;
+	color: #e73221;
+	font-size:14px;
+	font-weight:bold;
+	line-height:26px;
+	vertical-align:middle;}
+//The icon in the homepage's title bar.
+.sku_category h2 + img{
+	position: absolute;
+	top: 2px;
+	left: 2px;}

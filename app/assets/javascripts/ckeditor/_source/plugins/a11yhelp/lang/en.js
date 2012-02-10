@@ -58,7 +58,7 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'en',
 							{
 								name : 'Editor Element Path Bar',
 								legend :
-									'Press ${elementsPathFocus} to navigate to the elements path bar. ' +
+									'Press ${elementsPathFocus} to navigate to the elements path titlebar. ' +
 									'Move to next element button with TAB or RIGHT ARROW. ' +
 									'Move to previous button with  SHIFT+TAB or LEFT ARROW. ' +
 									'Press SPACE or ENTER to select the element in editor.'

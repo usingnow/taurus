@@ -404,7 +404,7 @@ CKEDITOR.DIALOG_RESIZE_BOTH = 3;
 			}
 			else if ( keystroke == CKEDITOR.ALT + 121 && !me._.tabBarMode && me.getPageCount() > 1 )
 			{
-				// Alt-F10 puts focus into the current tab item in the tab bar.
+				// Alt-F10 puts focus into the current tab item in the tab titlebar.
 				me._.tabBarMode = true;
 				me._.tabs[ me._.currentTabId ][ 0 ].focus();
 				processed = 1;

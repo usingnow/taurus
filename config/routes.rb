@@ -1,9 +1,4 @@
 Ebiz::Application.routes.draw do
-  get "front_orders/show"
-
-  get "cart_skuships/index"
-
-  get "sku_details/show"
 
   #mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   mount Ckeditor::Engine => '/ckeditor'
@@ -85,6 +80,128 @@ Ebiz::Application.routes.draw do
   #   end
 
   # Sample resource route within a namespace:
+  namespace :admin do
+    resources :administrators
+    resources :administrator_groupships
+    resources :brands do
+      get  :autocomplete_brand_chinese_name, :on => :collection
+    end
+    resources :company_extends
+    resources :company_scales
+    resources :company_types
+    resources :groups
+    resources :home
+    resources :industries
+    resources :panic_buyings
+    resources :permissions
+    resources :products do
+      collection do
+        get  :search
+      end
+    end
+    resources :suppliers do
+      get  :autocomplete_supplier_name, :on => :collection
+    end
+    resources :product_categories do
+      collection do
+        get  :autocomplete_product_category_name
+        get  :check
+      end
+    end
+    resources :sku_categories do
+      collection do
+        get  :autocomplete_sku_category_name
+        get  :check
+      end
+    end
+    resources :skus do
+      collection do
+        get  :add
+        get  :search
+      end
+    end
+    resources :sku_productships do
+      collection do
+        get  :search_products
+      end
+    end
+    resources :sku_images
+    resources :orders do
+      collection do
+        get  :all
+        get  :cancel
+        post :condition
+        get  :input_pay_info
+        get  :output
+        get  :paid
+        get  :pay_confirmation
+        get  :print_delivery_note
+        get  :relieve_retention
+        get  :show_delivery_note
+        get  :sign_in
+        get  :take_over
+      end
+    end
+    resources :order_details
+    resources :order_pays
+    resources :procedures
+    resources :stations
+    resources :station_procedureships
+    resources :users
+    resources :person_extends
+    resources :roles
+    resources :procedure_roleships
+    resources :esc_replies
+    resources :escs
+    resources :cities do
+      collection do
+        get  :ajax
+      end
+    end
+    resources :districts do
+      collection do
+        get  :ajax
+      end
+    end
+    resources :product_purchaseships
+    resources :purchases do
+      collection do
+        put  :next
+        get  :be_store
+      end
+    end
+    resources :ordering_companies
+    resources :product_storeships
+    resources :stores
+    resources :product_store_entryships
+    resources :store_entries
+    resources :store_entry_product_carts
+    resources :slider_bars
+    resources :banks
+    resources :inner_sku_carts
+    resources :prod_del_ordships
+  end
+
+
+  namespace :commodity do
+    resources :categories do
+      collection do
+        get :oa_pc
+        get :office
+        get :daily
+        get :off_fur
+        get :liv_fur
+        get :fur_jew
+      end
+    end
+    resources :sku_details
+  end
+
+  namespace :content do
+    resources :images
+    resources :announcements
+  end
+
   namespace :store do
     resources :delivery_orders
     resources :sales_order_deliveries
@@ -218,17 +335,10 @@ Ebiz::Application.routes.draw do
     resources :sku_details
   end
 
-  namespace :cart do
-    resources :cart_skuships
-  end
-
   namespace :order do
-    #订单前台页面
     resources :front_orders do
       collection do
         post :review
-
-
       end
     end
   end

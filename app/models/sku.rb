@@ -24,6 +24,29 @@ class Sku < ActiveRecord::Base
                             and status = 1 and sales_status = 1")
   scope :daily_hots, limit(6).order("total_sale desc").where("sku_category_id in(select id from sku_categories where root_id = 2837)
                                      and status = 1 and sales_status = 1")
+  scope :off_fur_skus, limit(8).where("sku_category_id in(select id from sku_categories where root_id = 3121)
+                            and status = 1 and sales_status = 1")
+  scope :off_fur_hots, limit(6).order("total_sale desc").where("sku_category_id in(select id from sku_categories where root_id = 3121)
+                                     and status = 1 and sales_status = 1")
+  scope :liv_fur_skus, limit(8).where("sku_category_id in(select id from sku_categories where root_id = 3360)
+                            and status = 1 and sales_status = 1")
+  scope :liv_fur_hots, limit(6).order("total_sale desc").where("sku_category_id in(select id from sku_categories where root_id = 3360)
+                                     and status = 1 and sales_status = 1")
+  scope :fur_jew_skus, limit(8).where("sku_category_id in(select id from sku_categories where root_id = 3429)
+                            and status = 1 and sales_status = 1")
+  scope :fur_jew_hots, limit(6).order("total_sale desc").where("sku_category_id in(select id from sku_categories where root_id = 3429)
+                                     and status = 1 and sales_status = 1")
+
+
+  def self.category_skus(number)
+    limit(8).where("sku_category_id in (select id from sku_categories where number like '#{number}%')
+      and status = 1")
+  end
+
+  def self.category_hots(number)
+    limit(6).order("total_sale desc").where("sku_category_id in(select id from sku_categories
+      where number like '#{number}%') and status = 1")
+  end
 
   def nb_is_inventory
     flag = true

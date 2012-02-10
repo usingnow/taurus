@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120201094443) do
+ActiveRecord::Schema.define(:version => 20120210025355) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(:version => 20120201094443) do
 
   add_index "administrators", ["email"], :name => "index_administrators_on_email", :unique => true
   add_index "administrators", ["reset_password_token"], :name => "index_administrators_on_reset_password_token", :unique => true
+
+  create_table "announcements", :force => true do |t|
+    t.string   "title"
+    t.string   "internal_title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "back_order_skus", :force => true do |t|
     t.integer  "sku_id"
@@ -264,6 +272,17 @@ ActiveRecord::Schema.define(:version => 20120201094443) do
     t.string   "number"
     t.string   "name"
     t.string   "desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", :force => true do |t|
+    t.integer  "page"
+    t.integer  "location"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -217,6 +217,7 @@ zh-CN:
     panic_buying: "疯狂抢购"
     purchase: "采购单"
     delivery_order: "出库单"
+    image: "图片"
 
 
   attributes: &attributes
@@ -552,6 +553,10 @@ zh-CN:
 
     inner_order_address:
       mobile: "手机"
+
+    image:
+      location: "位置"
+      image: "图片"
 
 
 

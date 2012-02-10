@@ -41,8 +41,8 @@
   <ul class="h_ul sku_list_ul margin_0">
     <% @recommendation.each do |recommend| %>
       <li class="h_li sku_list_li height_auto">
-        <%= image_tag recommend.main_img, :width => "120px", :height => "120px" %>
-        <p class="sku_list_p overflow_text"><%= recommend.name %></p>
+        <%= link_to (image_tag recommend.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(recommend.id) %>
+        <p class="sku_list_p overflow_text"><%= link_to recommend.name, commodity_sku_detail_path(recommend.id) %></p>
         <p class="sku_list_p">原价：&yen;99999.00</p>
         <strong>现价：&yen;<%= recommend.cost_aft_tax %></strong>
       </li>
@@ -58,7 +58,7 @@
 <!-- 1st SKU List Starts -->
 <div class="sku_category">
   <h2 class="bar_image_1000">OA PC产品</h2>
-  <%= image_tag "bar_icon/icon_23_23_1.png", :width => "23px", :height => "23px" %>
+  <%= image_tag "/assets/templates/titlebar/bar_icon/icon_23_23_1.png", :width => "23px", :height => "23px" %>
   <div class="category_recommend"> <!-- SKU List's recommended products on the bar -->
     <ul class="h_ul">
       <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
@@ -72,8 +72,8 @@
   <ul class="h_ul sku_list_ul">
     <% @oa_pc_skus.each do |sku| %>
       <li class="h_li sku_list_li">
-        <%= image_tag sku.main_img, :width => "120px", :height => "120px" %>
-        <p class="sku_list_p overflow_text"><%= sku.name %></p>
+        <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
+        <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
         <p class="sku_list_p">原价：&yen;99999.00</p>
         <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
       </li>
@@ -83,10 +83,10 @@
     <h3 class="sku_list_bar_short">本类产品热销排行</h3>
     <div class="sku_list_sort_hot">
       <% @oa_pc_hots.each_with_index do |hot,index| %>
-        <div id="sku_sort_<%= index if index == 0 %>" class="has_children">
+        <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
           <span><%= sub_str hot.name, 16  %></span>
-          <a><%= image_tag hot.main_img, :width => "120px", :height => "120px" %></a>
-          <a class="overflow_text"><%= hot.name %></a>
+          <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
+          <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
           <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
         </div>
       <% end %>
@@ -94,10 +94,11 @@
   </div>
 </div>
 <!-- 1st SKU List Ends -->
+
 <!-- 2nd SKU List Starts -->
 <div class="sku_category">
   <h2 class="bar_image_1000">文具办公用品</h2>
-  <%= image_tag "bar_icon/icon_23_23_2.png", :width => "23px", :height => "23px" %>
+  <%= image_tag "/assets/templates/titlebar/bar_icon/icon_23_23_2.png", :width => "23px", :height => "23px" %>
   <div class="category_recommend"> <!-- SKU List's recommended products on the bar -->
     <ul class="h_ul">
       <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
@@ -111,8 +112,8 @@
   <ul class="h_ul sku_list_ul">
     <% @office_skus.each do |sku| %>
       <li class="h_li sku_list_li">
-        <%= image_tag sku.main_img, :width => "120px", :height => "120px" %>
-        <p class="sku_list_p overflow_text"><%= sku.name %></p>
+        <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
+        <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
         <p class="sku_list_p">原价：&yen;99999.00</p>
         <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
       </li>
@@ -122,10 +123,10 @@
     <h3 class="sku_list_bar_short">本类产品热销排行</h3>
     <div class="sku_list_sort_hot">
       <% @office_hots.each_with_index do |hot,index| %>
-        <div id="sku_sort_<%= index+1 if index == 0 %>" class="has_children">
+        <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
           <span><%= sub_str hot.name, 16  %></span>
-          <a><%= image_tag hot.main_img, :width => "120px", :height => "120px" %></a>
-          <a class="overflow_text"><%= hot.name %></a>
+          <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
+          <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
           <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
         </div>
       <% end %>
@@ -139,7 +140,7 @@
 <!-- 3rd SKU List Starts -->
 <div class="sku_category">
   <h2 class="bar_image_1000">生活用品</h2>
-  <%= image_tag "bar_icon/icon_23_23_3.png", :width => "23px", :height => "23px" %>
+  <%= image_tag "/assets/templates/titlebar/bar_icon/icon_23_23_3.png", :width => "23px", :height => "23px" %>
   <div class="category_recommend"> <!-- SKU List's recommended products on the bar -->
     <ul class="h_ul">
       <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
@@ -153,8 +154,8 @@
   <ul class="h_ul sku_list_ul">
     <% @daily_skus.each do |sku| %>
       <li class="h_li sku_list_li">
-        <%= image_tag "sku.main_img", :width => "120px", :height => "120px" %>
-        <p class="sku_list_p overflow_text"><%= sku.name %></p>
+        <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
+        <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
         <p class="sku_list_p">原价：&yen;99999.00</p>
         <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
       </li>
@@ -164,10 +165,10 @@
     <h3 class="sku_list_bar_short">本类产品热销排行</h3>
     <div class="sku_list_sort_hot">
       <% @daily_hots.each_with_index do |hot,index| %>
-        <div id="sku_sort_<%= index+2 if index == 0 %>" class="has_children">
+        <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
           <span><%= sub_str hot.name, 16  %></span>
-          <a><%= image_tag hot.main_img, :width => "120px", :height => "120px" %></a>
-          <a class="overflow_text"><%= hot.name %></a>
+          <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
+          <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
           <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
         </div>
       <% end %>
@@ -175,10 +176,11 @@
   </div>
 </div>
 <!-- 3rd SKU List Ends -->
+
 <!-- 4th SKU List Starts -->
 <div class="sku_category">
   <h2 class="bar_image_1000">办公家具</h2>
-  <%= image_tag "bar_icon/icon_23_23_4.png", :width => "23px", :height => "23px" %>
+  <%= image_tag "/assets/templates/titlebar/bar_icon/icon_23_23_4.png", :width => "23px", :height => "23px" %>
   <div class="category_recommend"> <!-- SKU List's recommended products on the bar -->
     <ul class="h_ul">
       <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
@@ -190,105 +192,37 @@
     <%= image_tag "category/4-4.jpg" %>
   </div>
   <ul class="h_ul sku_list_ul">
-    <li class="h_li sku_list_li">
-      <%= image_tag "logo-60.png", :width => "120px", :height => "120px" %>
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <%= image_tag "logo-60.png", :width => "120px", :height => "120px" %>
-      <p class="sku_list_p">十个字后会换</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <%= image_tag "logo-60.png", :width => "120px", :height => "120px" %>
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <%= image_tag "logo-60.png", :width => "120px", :height => "120px" %>
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <%= image_tag "logo-60.png", :width => "120px", :height => "120px" %>
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <%= image_tag "logo-60.png", :width => "120px", :height => "120px" %>
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <%= image_tag "logo-60.png", :width => "120px", :height => "120px" %>
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <%= image_tag "logo-60.png", :width => "120px", :height => "120px" %>
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
+    <% @off_fur_skus.each do |sku| %>
+      <li class="h_li sku_list_li">
+        <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
+        <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
+        <p class="sku_list_p">原价：&yen;99999.00</p>
+        <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
+      </li>
+    <% end %>
   </ul>
   <div class="sku_list_sort">
     <h3 class="sku_list_bar_short">本类产品热销排行</h3>
     <div class="sku_list_sort_hot">
-      <div id="sku_sort_3" class="has_children">
-          <span>第1章-认识jQuery</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第2章-jQuery选择器</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第3章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第4章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第5章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第3章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
+      <% @off_fur_hots.each_with_index do |hot,index| %>
+        <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
+          <span><%= sub_str hot.name, 16  %></span>
+          <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
+          <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
+          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
 <!-- 4th SKU List Ends -->
 <div id="banner_7">
-  <img src="images/category/bar3_1000_60.png" />
+  <%= image_tag "category/bar3_1000_60.png" %>
 </div>
 <!-- 5th SKU List Starts -->
 <div class="sku_category">
   <h2 class="bar_image_1000">生活家具</h2>
-  <img src="images/bar_icon/icon_23_23_5.png" width="23px" height="23px" />
+  <%= image_tag "/assets/templates/titlebar/bar_icon/icon_23_23_5.png", :width => "23px", :height => "23px" %>
   <div class="category_recommend"> <!-- SKU List's recommended products on the bar -->
     <ul class="h_ul">
       <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
@@ -297,97 +231,29 @@
     </ul>
   </div>
   <div class="sku_list_left_col"> <!--SKU List's left column -->
-    <img src="images/category/5-5.jpg" />
+    <%= image_tag "category/5-5.jpg" %>
   </div>
   <ul class="h_ul sku_list_ul">
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">十个字后会换</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
+    <% @liv_fur_skus.each do |sku| %>
+      <li class="h_li sku_list_li">
+        <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
+        <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
+        <p class="sku_list_p">原价：&yen;99999.00</p>
+        <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
+      </li>
+    <% end %>
   </ul>
   <div class="sku_list_sort">
     <h3 class="sku_list_bar_short">本类产品热销排行</h3>
     <div class="sku_list_sort_hot">
-      <div id="sku_sort_4" class="has_children">
-          <span>第1章-认识jQuery</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第2章-jQuery选择器</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第3章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第4章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第5章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第3章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
+      <% @liv_fur_hots.each_with_index do |hot,index| %>
+        <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
+          <span><%= sub_str hot.name, 16  %></span>
+          <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
+          <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
+          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -395,7 +261,7 @@
 <!-- 6th SKU List Starts -->
 <div class="sku_category">
   <h2 class="bar_image_1000">家具饰品</h2>
-  <img src="images/bar_icon/icon_23_23_6.png" width="23px" height="23px" />
+  <%= image_tag "/assets/templates/titlebar/bar_icon/icon_23_23_6.png", :width => "23px", :height => "23px" %>
   <div class="category_recommend"> <!-- SKU List's recommended products on the bar -->
     <ul class="h_ul">
       <li class="h_li"><a href="#" class="special_blue">标题栏推荐</a></li>
@@ -404,97 +270,29 @@
     </ul>
   </div>
   <div class="sku_list_left_col"> <!--SKU List's left column -->
-    <img src="images/category/6-6.jpg" />
+    <%= image_tag "category/6-6.jpg" %>
   </div>
   <ul class="h_ul sku_list_ul">
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">十个字后会换</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
-    <li class="h_li sku_list_li">
-      <img src="images/logo-60.png" width=120px height=120px />
-      <p class="sku_list_p">商品名称可以有十个字</p>
-      <p class="sku_list_p">原价：&yen;99999.00</p>
-      <strong>现价：&yen;11111.11</strong>
-    </li>
+    <% @fur_jew_skus.each do |sku| %>
+      <li class="h_li sku_list_li">
+        <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
+        <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
+        <p class="sku_list_p">原价：&yen;99999.00</p>
+        <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
+      </li>
+    <% end %>
   </ul>
   <div class="sku_list_sort">
     <h3 class="sku_list_bar_short">本类产品热销排行</h3>
     <div class="sku_list_sort_hot">
-      <div id="sku_sort_5" class="has_children">
-          <span>第1章-认识jQuery</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第2章-jQuery选择器</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第3章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第4章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第5章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
-      <div class="has_children">
-          <span>第3章-jQuery中的DOM操作</span>
-          <a><img src="images/media.jpg" /></a>
-          <a>商品名称</a>
-          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;99999.99</strong></a>
-      </div>
+      <% @fur_jew_hots.each_with_index do |hot,index| %>
+        <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
+          <span><%= sub_str hot.name, 16  %></span>
+          <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
+          <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
+          <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
