@@ -25,4 +25,15 @@ describe Commodity::SkusHelper do
       helper.format_sku_sales_status(1).should == "已上架"
     end
   end
+
+  describe "get_sku_type" do
+    it "结果不为nil" do
+      order = Order.all.first
+      helper.get_sku_type(order).should_not be_nil
+    end
+
+    it "结果为‘无’" do
+      helper.get_sku_type(nil).should == "无"
+    end
+  end
 end

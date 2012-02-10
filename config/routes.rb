@@ -198,6 +198,11 @@ Ebiz::Application.routes.draw do
     resources :sku_details
   end
 
+  namespace :content do
+    resources :images
+    resources :announcements
+  end
+
   namespace :store do
     resources :delivery_orders
     resources :sales_order_deliveries

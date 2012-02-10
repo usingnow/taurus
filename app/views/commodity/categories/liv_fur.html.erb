@@ -53,8 +53,8 @@
     <ul class="h_ul sku_list_ul margin_0">
       <% @recommendation.each do |recommend| %>
         <li class="h_li sku_list_li height_auto">
-          <%= image_tag recommend.main_img, :width => "120px", :height => "120px" %>
-          <p class="sku_list_p overflow_text"><%= recommend.name %></p>
+          <%= link_to (image_tag recommend.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(recommend.id) %>
+          <p class="sku_list_p overflow_text"><%= link_to recommend.name, commodity_sku_detail_path(recommend.id) %></p>
           <p class="sku_list_p">原价：&yen;99999.00</p>
           <strong>现价：&yen;<%= recommend.cost_aft_tax %></strong>
         </li>
@@ -89,8 +89,8 @@
     <ul class="h_ul sku_list_ul">
       <% @liv_room_fur_skus.each do |sku| %>
         <li class="h_li sku_list_li">
-          <%= image_tag sku.main_img, :width => "120px", :height => "120px" %>
-          <p class="sku_list_p overflow_text"><%= sku.name %></p>
+          <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
+          <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
           <p class="sku_list_p">原价：&yen;99999.00</p>
           <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
         </li>
@@ -103,8 +103,8 @@
         <% @liv_room_fur_hots.each_with_index do |hot,index| %>
            <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
             <span><%= sub_str hot.name, 16  %></span>
-            <a><%= image_tag hot.main_img, :width => "120px", :height => "120px" %></a>
-            <a class="overflow_text"><%= hot.name %></a>
+            <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
+            <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
             <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
           </div>
         <% end %>
@@ -132,8 +132,8 @@
     <ul class="h_ul sku_list_ul">
       <% @din_room_fur_skus.each do |sku| %>
         <li class="h_li sku_list_li">
-          <%= image_tag sku.main_img, :width => "120px", :height => "120px" %>
-          <p class="sku_list_p overflow_text"><%= sku.name %></p>
+          <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
+          <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
           <p class="sku_list_p">原价：&yen;99999.00</p>
           <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
         </li>
@@ -147,8 +147,8 @@
         <% @din_room_fur_hots.each_with_index do |hot,index| %>
           <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
             <span><%= sub_str hot.name, 16  %></span>
-            <a><%= image_tag hot.main_img, :width => "120px", :height => "120px" %></a>
-            <a class="overflow_text"><%= hot.name %></a>
+            <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
+            <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
             <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
           </div>
         <% end %>
@@ -182,8 +182,8 @@
     <ul class="h_ul sku_list_ul">
       <% @bedroom_furniture_skus.each do |sku| %>
         <li class="h_li sku_list_li">
-          <%= image_tag sku.main_img, :width => "120px", :height => "120px" %>
-          <p class="sku_list_p overflow_text"><%= sku.name %></p>
+          <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
+          <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
           <p class="sku_list_p">原价：&yen;99999.00</p>
           <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
         </li>
@@ -197,8 +197,8 @@
         <% @bedroom_furniture_hots.each_with_index do |hot,index| %>
           <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
             <span><%= sub_str hot.name, 16  %></span>
-            <a><%= image_tag hot.main_img, :width => "120px", :height => "120px" %></a>
-            <a class="overflow_text"><%= hot.name %></a>
+            <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
+            <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
             <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
           </div>
         <% end %>
@@ -228,8 +228,8 @@
     <ul class="h_ul sku_list_ul">
       <% @children_furniture_skus.each do |sku| %>
         <li class="h_li sku_list_li">
-          <%= image_tag sku.main_img, :width => "120px", :height => "120px" %>
-          <p class="sku_list_p overflow_text"><%= sku.name %></p>
+          <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
+          <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
           <p class="sku_list_p">原价：&yen;99999.00</p>
           <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
         </li>
@@ -243,8 +243,8 @@
         <% @children_furniture_hots.each_with_index do |hot,index| %>
           <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
             <span><%= sub_str hot.name, 16  %></span>
-            <a><%= image_tag hot.main_img, :width => "120px", :height => "120px" %></a>
-            <a class="overflow_text"><%= hot.name %></a>
+            <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
+            <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
             <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
           </div>
         <% end %>
@@ -278,8 +278,8 @@
     <ul class="h_ul sku_list_ul">
       <% @library_furniture_skus.each do |sku| %>
         <li class="h_li sku_list_li">
-          <%= image_tag sku.main_img, :width => "120px", :height => "120px" %>
-          <p class="sku_list_p overflow_text"><%= sku.name %></p>
+          <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
+          <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
           <p class="sku_list_p">原价：&yen;99999.00</p>
           <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
         </li>
@@ -292,8 +292,8 @@
         <% @library_furniture_hots.each_with_index do |hot,index| %>
           <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
             <span><%= sub_str hot.name, 16  %></span>
-            <a><%= image_tag hot.main_img, :width => "120px", :height => "120px" %></a>
-            <a class="overflow_text"><%= hot.name %></a>
+            <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
+            <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
             <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
           </div>
         <% end %>
@@ -323,8 +323,8 @@
     <ul class="h_ul sku_list_ul">
       <% @storage_supplies_skus.each do |sku| %>
         <li class="h_li sku_list_li">
-          <%= image_tag sku.main_img, :width => "120px", :height => "120px" %>
-          <p class="sku_list_p overflow_text"><%= sku.name %></p>
+          <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
+          <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
           <p class="sku_list_p">原价：&yen;99999.00</p>
           <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
         </li>
@@ -338,8 +338,8 @@
         <% @storage_supplies_hots.each_with_index do |hot,index| %>
           <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
             <span><%= sub_str hot.name, 16  %></span>
-            <a><%= image_tag hot.main_img, :width => "120px", :height => "120px" %></a>
-            <a class="overflow_text"><%= hot.name %></a>
+            <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
+            <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
             <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
           </div>
         <% end %>
