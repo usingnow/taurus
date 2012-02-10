@@ -1,0 +1,20 @@
+// Place all the styles related to the cart_skuships controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.order_buttun {
+	background-image:url(/assets/cart_skuships/chartbutton01.png);
+	width: 102px;
+	height: 33px;
+	line-height: 28px;
+	vertical-align: middle;
+	font-size: 16px;
+	font-weight: bold;
+	color: #ffffff;
+	border: 0px;}
+button:hover {
+  background-image:url(/assets/cart_skuships/chartbutton02.png);}
+table {
+  .check {
+  width: 20px;}}
+

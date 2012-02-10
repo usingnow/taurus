@@ -1,13 +1,13 @@
-<h2 class="bar_image_1000 bar_indent_8">已挑选商品</h2>
-<div id="cart_proc" class="cart_proc_background_1">
+<h2 class="bar_image_1000 bar_indent_8">确认订单</h2>
+<div id="cart_proc" class="cart_proc_background_2">
   <ul class="h_ul">
-    <li class="h_li white">我的购物车</li>
-    <li class="h_li">确认订单</li>
+    <li class="h_li">我的购物车</li>
+    <li class="h_li white">确认订单</li>
     <li class="h_li">订单完成</li>
   </ul>
 </div>
 <table class="margin_top_65">
-  <caption>我的购物车<a href="#" style="float:right">[清空购物车]</a></caption>
+  <caption>所购商品清单预览</caption>
   <thead>
     <tr>
       <th>商品编号</th>
@@ -28,10 +28,10 @@
       <td>800001</td>
       <td>商品名称应该要宽一些</td>
       <td>&yen;99999.99</td>
-      <td><input type="text" value="99999" /></td>
-      <td><input type="checkbox" class="check"/></td>
+      <td>99999</td>
+      <td><input type="checkbox" readonly="true" /></td>
       <td>&yen;99999.99</td>
-      <td><input type="checkbox" class="check"/></td>
+      <td><input type="checkbox" /></td>
       <td>&yen;99999.99</td>
       <td>&yen;99999.99</td>
       <td>&yen;999999.99</td>
@@ -45,9 +45,9 @@
       <td>商品名称应该要宽一些</td>
       <td>&yen;99999.99</td>
       <td>99999</td>
-      <td><input type="checkbox" class="check"/></td>
+      <td><input type="checkbox" /></td>
       <td>&yen;99999.99</td>
-      <td><input type="checkbox" class="check"/></td>
+      <td><input type="checkbox" /></td>
       <td>&yen;99999.99</td>
       <td>&yen;99999.99</td>
       <td>&yen;999999.99</td>
@@ -61,9 +61,9 @@
       <td>商品名称应该要宽一些</td>
       <td>&yen;99999.99</td>
       <td>99999</td>
-      <td><input type="checkbox" class="check"/></td>
+      <td><input type="checkbox" /></td>
       <td>&yen;99999.99</td>
-      <td><input type="checkbox" class="check"/></td>
+      <td><input type="checkbox" /></td>
       <td>&yen;99999.99</td>
       <td>&yen;99999.99</td>
       <td>&yen;999999.99</td>
@@ -77,9 +77,9 @@
       <td>商品名称应该要宽一些</td>
       <td>&yen;99999.99</td>
       <td>99999</td>
-      <td><input type="checkbox" class="check"/></td>
+      <td><input type="checkbox" /></td>
       <td>&yen;99999.99</td>
-      <td><input type="checkbox" class="check"/></td>
+      <td><input type="checkbox" /></td>
       <td>&yen;99999.99</td>
       <td>&yen;99999.99</td>
       <td>&yen;999999.99</td>
@@ -93,9 +93,9 @@
       <td>商品名称应该要宽一些</td>
       <td>&yen;99999.99</td>
       <td>99999</td>
-      <td><input type="checkbox" class="check"/></td>
+      <td><input type="checkbox" /></td>
       <td>&yen;99999.99</td>
-      <td><input type="checkbox" class="check"/></td>
+      <td><input type="checkbox" /></td>
       <td>&yen;99999.99</td>
       <td>&yen;99999.99</td>
       <td>&yen;999999.99</td>
@@ -110,14 +110,30 @@
       <td colspan="11">商品总价：<i>9999999.99</i>元 + 安装费：<i>9999.99</i>元 + 组装费：<i>999.99</i>元 + 其他费用：<i>999.99</i>元</td>
     </tr>
     <tr>
-      <td colspan="11"><strong>选购商品价格总计</strong>（不包含运费）：<strong><i>99999999.99</i></strong>元</td>
+      <td colspan="11"><strong>总计</strong>（不包含运费）：<strong><i>99999999.99</i></strong>元</td>
     </tr>
   </tfoot>
 </table>
-<br class="clear" />
-<form style="text-align:center">
-  <button type="submit" class="order_buttun">继续购物</button>
-  <button type="submit" class="order_buttun">前往结算</button>
-</form>
-
-
+<div id="order_info_review">
+  <h2>订单信息预览</h2>
+  <p>收件人姓名：某某某某某某</p>
+  <p>所属区域：某某某省某某某市某某某县</p>
+  <p>送货地址：某某路某某某楼某某室</p>
+  <p>固定电话:</p>
+  <p>移动电话:</p>
+  <p>电子邮件:</p>
+  <p>邮政编码:</p>
+  <br />
+  <p>支付方式:</p>
+  <br />
+  <p>发票类型:</p>
+  <p>开票抬头:</p>
+  <br />
+  <p>订单备注:</p>
+  <div id="delivery_fee">
+    <p>根据您订单金额和所属区域，本次购物的运费为：<strong style="color: #e73221;">&yen;20.00元</strong></p>
+  </div>
+  <form>
+    <button type="submit" class="order_buttun">提交订单</button>
+  </form>
+</div>

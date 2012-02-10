@@ -1,0 +1,54 @@
+// Place all the styles related to the order/front_orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.order_buttun {
+	background-image:url(/assets/cart_skuships/chartbutton01.png);
+	width: 102px;
+	height: 33px;
+	line-height: 28px;
+	vertical-align: middle;
+	font-size: 16px;
+	font-weight: bold;
+	color: #ffffff;
+	border: 0px;}
+button:hover {
+  background-image:url(/assets/cart_skuships/chartbutton02.png);}
+table {
+  .check {
+  width: 20px;}}
+#order_info form fieldset p label {
+	float: left;
+	width: 80px;
+	height: 23px;
+	line-height:23px;
+	vertical-align:middle;
+	text-align: right;
+	margin: 0 10px 0 10px;
+}
+fieldset h2 {
+	color: #e73221;
+	margin: 8px 0 8px 4px;
+}
+textarea {
+width: 550px;
+height: 50px;
+}
+.remark {
+font-style: normal;
+font-size: 12px;
+font-weight: normal;
+color: #E73221;
+}
+legend {
+font-weight: bold;
+font-size: 14px;
+}
+fieldset {
+  border: 1px solid #999999;
+  padding: 4px;
+  margin: 10px 0 0 0;}
+.short_height_td {
+  height: 20px;
+  line-height: 20px;
+  virtical-align: middle;
+  text-align: center;}

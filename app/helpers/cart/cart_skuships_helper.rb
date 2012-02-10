@@ -1,2 +1,2 @@
-module CartSkushipsHelper
+module Cart::CartSkushipsHelper
 end

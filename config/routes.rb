@@ -1,4 +1,8 @@
 Ebiz::Application.routes.draw do
+  get "front_orders/show"
+
+  get "cart_skuships/index"
+
   get "sku_details/show"
 
   #mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
@@ -212,6 +216,21 @@ Ebiz::Application.routes.draw do
 
   namespace :commodity do
     resources :sku_details
+  end
+
+  namespace :cart do
+    resources :cart_skuships
+  end
+
+  namespace :order do
+    #订单前台页面
+    resources :front_orders do
+      collection do
+        post :review
+
+
+      end
+    end
   end
 
   # You can have the root of your site routed with "root"

@@ -1,5 +1,5 @@
 #encoding:UTF-8
-class CartSkushipsController < ApplicationController
+class Cart::CartSkushipsController < ApplicationController
   layout "home"
   # GET /cart_skuships
   # GET /cart_skuships.xml
