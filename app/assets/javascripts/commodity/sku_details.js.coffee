@@ -1,3 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+jQuery ->
+  jQuery("#add_to_cart").click ->
+    jQuery.ajax '/cart/cart_skuships',
+      type: 'POST'
+      data: 'sku_id='+jQuery("#sku_id").val()+'&quantity='+jQuery("#sku_quantity").val()
+      dataType: 'json'
+      error: (jqXHR, textStatus, errorThrown) ->
+        jQuery('body').append "AJAX Error: #{textStatus}"
+      success: (data, textStatus, jqXHR) ->
+        jQuery('#total_items').html(data);

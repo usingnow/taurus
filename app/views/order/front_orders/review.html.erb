@@ -20,90 +20,23 @@
       <th>组装费用</th>
       <th>其他费用</th>
       <th>小计</th>
-      <th>操作</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>800001</td>
-      <td>商品名称应该要宽一些</td>
-      <td>&yen;99999.99</td>
-      <td>99999</td>
-      <td><input type="checkbox" readonly="true" /></td>
-      <td>&yen;99999.99</td>
-      <td><input type="checkbox" /></td>
-      <td>&yen;99999.99</td>
-      <td>&yen;99999.99</td>
-      <td>&yen;999999.99</td>
-      <td>
-        <a href="#">删除</a>
-        <a href="#">收藏</a>
-      </td>
-    </tr>
-    <tr class="even">
-      <td>800001</td>
-      <td>商品名称应该要宽一些</td>
-      <td>&yen;99999.99</td>
-      <td>99999</td>
-      <td><input type="checkbox" /></td>
-      <td>&yen;99999.99</td>
-      <td><input type="checkbox" /></td>
-      <td>&yen;99999.99</td>
-      <td>&yen;99999.99</td>
-      <td>&yen;999999.99</td>
-      <td>
-        <a href="#">删除</a>
-        <a href="#">收藏</a>
-      </td>
-    </tr>
-    <tr>
-      <td>800001</td>
-      <td>商品名称应该要宽一些</td>
-      <td>&yen;99999.99</td>
-      <td>99999</td>
-      <td><input type="checkbox" /></td>
-      <td>&yen;99999.99</td>
-      <td><input type="checkbox" /></td>
-      <td>&yen;99999.99</td>
-      <td>&yen;99999.99</td>
-      <td>&yen;999999.99</td>
-      <td>
-        <a href="#">删除</a>
-        <a href="#">收藏</a>
-      </td>
-    </tr>
-    <tr class="even">
-      <td>800001</td>
-      <td>商品名称应该要宽一些</td>
-      <td>&yen;99999.99</td>
-      <td>99999</td>
-      <td><input type="checkbox" /></td>
-      <td>&yen;99999.99</td>
-      <td><input type="checkbox" /></td>
-      <td>&yen;99999.99</td>
-      <td>&yen;99999.99</td>
-      <td>&yen;999999.99</td>
-      <td>
-        <a href="#">删除</a>
-        <a href="#">收藏</a>
-      </td>
-    </tr>
-    <tr>
-      <td>800001</td>
-      <td>商品名称应该要宽一些</td>
-      <td>&yen;99999.99</td>
-      <td>99999</td>
-      <td><input type="checkbox" /></td>
-      <td>&yen;99999.99</td>
-      <td><input type="checkbox" /></td>
-      <td>&yen;99999.99</td>
-      <td>&yen;99999.99</td>
-      <td>&yen;999999.99</td>
-      <td>
-        <a href="#">删除</a>
-        <a href="#">收藏</a>
-      </td>
-    </tr>
+    <% @cart.cart_skuships.each_with_index do |cart_sku,index| %>
+      <tr class="<%= set_odd_even_class index+1 %>">
+        <td><%= cart_sku.sku.number %></td>
+        <td><%= cart_sku.sku.name %></td>
+        <td><%= number_to_currency cart_sku.sku.cost_aft_tax, :unit => "￥" %></td>
+        <td><%= cart_sku.quantity %></td>
+        <td></td>
+        <td><%= number_to_currency cart_sku.sku.insatllation_cost_aft_tax, :unit => "￥" %></td>
+        <td></td>
+        <td><%= number_to_currency cart_sku.sku.assembling_fee_aft_tax, :unit => "￥" %></td>
+        <td>&yen;0.00</td>
+        <td><%= cart_sku.total_amount %></td>
+      </tr>
+    <% end %>
   </tbody>
   <tfoot>
     <tr>
@@ -116,24 +49,35 @@
 </table>
 <div id="order_info_review">
   <h2>订单信息预览</h2>
-  <p>收件人姓名：某某某某某某</p>
-  <p>所属区域：某某某省某某某市某某某县</p>
-  <p>送货地址：某某路某某某楼某某室</p>
-  <p>固定电话:</p>
-  <p>移动电话:</p>
-  <p>电子邮件:</p>
-  <p>邮政编码:</p>
+  <p>收件人姓名:<%= @temp_address.name %></p>
+  <p>所属区域: <%= @temp_address.district.city.province.name %>&nbsp;
+              <%= @temp_address.district.city.name %>&nbsp;
+              <%= @temp_address.district.name %>
+  </p>
+  <p>送货地址: <%= @temp_address.address %></p>
+  <p>固定电话: <%= @temp_address.phone %></p>
+  <p>移动电话: <%= @temp_address.mobile %></p>
+  <p>电子邮件: <%= @temp_address.email %></p>
+  <p>邮政编码: <%= @temp_address.zip %></p>
   <br />
-  <p>支付方式:</p>
+  <p>支付方式: <%= @temp_payment.procedure.display_name %></p>
   <br />
-  <p>发票类型:</p>
+  <p>发票类型:
+    <% if @temp_payment.invoice_type == 0 %>
+      普通
+    <% elsif @temp_payment.invoice_type == 1 %>
+      增值税发票
+    <% else %>
+      不需要
+    <% end %>
+  </p>
   <p>开票抬头:</p>
   <br />
   <p>订单备注:</p>
   <div id="delivery_fee">
-    <p>根据您订单金额和所属区域，本次购物的运费为：<strong style="color: #e73221;">&yen;20.00元</strong></p>
+    <p>根据您订单金额和所属区域，本次购物的运费为：<strong style="color: #e73221;"><%= number_to_currency @carriage_cost, :unit => "￥" %></strong></p>
   </div>
-  <form>
+  <form action="/order/front_orders" method="post">
     <button type="submit" class="order_buttun">提交订单</button>
   </form>
 </div>

@@ -1,13 +1,7 @@
 #encoding:UTF-8
 class ApplicationController < ActionController::Base
-  #  before_filter :dev_rails_admin #解决热加载
 
   private
-    #def dev_rails_admin
-      #return unless Rails.env.development? && request.path =~ /^\/admin\//
-      #RailsAdmin::Config.reset
-      #load 'config/initializers/rails_admin.rb'
-    #end
 
     def current_ability
       @current_ability ||= Ability.new(current_administrator)

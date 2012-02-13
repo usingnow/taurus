@@ -1,8 +1,6 @@
 Ebiz::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
-  #mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-
   devise_for :administrators,
              :path => "back",
              :controllers => { :sessions => "admin/devise/sessions",
@@ -26,7 +24,6 @@ Ebiz::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :home
-  resources :cart_skuships
   resources :carts
   resources :orders
   resources :order_details
@@ -182,6 +179,10 @@ Ebiz::Application.routes.draw do
   end
 
 
+  namespace :cart do
+    resources :cart_skuships
+  end
+
   namespace :commodity do
     resources :categories do
       collection do
@@ -225,13 +226,6 @@ Ebiz::Application.routes.draw do
     end
     resources :back_order_skus
     resources :order_prints
-  end
-
-  namespace :commodity do
-    resources :sku_details
-  end
-
-  namespace :order do
     resources :front_orders do
       collection do
         post :review

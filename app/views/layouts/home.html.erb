@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag params[:controller] %>
     <%= javascript_include_tag 'jquery','jquery-ui-1.8.16.custom.min.js','player.js' %>
     <%= javascript_include_tag params[:controller] %>
+    <%= csrf_meta_tag %>
 	<script>
 	  //Homepage Sort List
 	  jQuery(document).ready(function(){
@@ -37,8 +38,14 @@
         <p><a href="#" title="登陆">登陆</a> 或 <a href="#" title="注册">免费注册，享受会员服务</a></p>
       </div>
       <div id="cart">
-        <p style="width: 100px; line-height:28px; vertical-align:middle; margin: 0px; padding: 0 0 0 32px;">购物车：<strong>999</strong> 件</p>
-        <div style="position: absolute; top: 6px; right: 18px"><a href="#" style="color: #ffffff;">去结算</a></div>
+        <p style="width: 100px; line-height:28px; vertical-align:middle; margin: 0px; padding: 0 0 0 32px;">
+          购物车：
+          <strong id="total_items">0</strong>
+          件
+        </p>
+        <div style="position: absolute; top: 6px; right: 18px">
+          <a href="<%= cart_cart_skuships_path %>" style="color: #ffffff;">去结算</a>
+        </div>
       </div>
       <div id="share_bar">
         <%= image_tag "/assets/templates/header/sina.png", :id => "sina", :width => "32", :height => "32"%>

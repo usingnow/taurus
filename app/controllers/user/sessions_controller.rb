@@ -22,11 +22,4 @@ class User::SessionsController < Devise::SessionsController
       super
     end
 
-    def after_sign_out_path_for(resource)
-      "/users/sign_in"
-    end
-
-    def after_sign_in_path_for(resource)
-      "/"
-    end
 end

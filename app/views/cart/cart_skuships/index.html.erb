@@ -24,86 +24,24 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>800001</td>
-      <td>商品名称应该要宽一些</td>
-      <td>&yen;99999.99</td>
-      <td><input type="text" value="99999" /></td>
-      <td><input type="checkbox" class="check"/></td>
-      <td>&yen;99999.99</td>
-      <td><input type="checkbox" class="check"/></td>
-      <td>&yen;99999.99</td>
-      <td>&yen;99999.99</td>
-      <td>&yen;999999.99</td>
-      <td>
-        <a href="#">删除</a>
-        <a href="#">收藏</a>
-      </td>
-    </tr>
-    <tr class="even">
-      <td>800001</td>
-      <td>商品名称应该要宽一些</td>
-      <td>&yen;99999.99</td>
-      <td>99999</td>
-      <td><input type="checkbox" class="check"/></td>
-      <td>&yen;99999.99</td>
-      <td><input type="checkbox" class="check"/></td>
-      <td>&yen;99999.99</td>
-      <td>&yen;99999.99</td>
-      <td>&yen;999999.99</td>
-      <td>
-        <a href="#">删除</a>
-        <a href="#">收藏</a>
-      </td>
-    </tr>
-    <tr>
-      <td>800001</td>
-      <td>商品名称应该要宽一些</td>
-      <td>&yen;99999.99</td>
-      <td>99999</td>
-      <td><input type="checkbox" class="check"/></td>
-      <td>&yen;99999.99</td>
-      <td><input type="checkbox" class="check"/></td>
-      <td>&yen;99999.99</td>
-      <td>&yen;99999.99</td>
-      <td>&yen;999999.99</td>
-      <td>
-        <a href="#">删除</a>
-        <a href="#">收藏</a>
-      </td>
-    </tr>
-    <tr class="even">
-      <td>800001</td>
-      <td>商品名称应该要宽一些</td>
-      <td>&yen;99999.99</td>
-      <td>99999</td>
-      <td><input type="checkbox" class="check"/></td>
-      <td>&yen;99999.99</td>
-      <td><input type="checkbox" class="check"/></td>
-      <td>&yen;99999.99</td>
-      <td>&yen;99999.99</td>
-      <td>&yen;999999.99</td>
-      <td>
-        <a href="#">删除</a>
-        <a href="#">收藏</a>
-      </td>
-    </tr>
-    <tr>
-      <td>800001</td>
-      <td>商品名称应该要宽一些</td>
-      <td>&yen;99999.99</td>
-      <td>99999</td>
-      <td><input type="checkbox" class="check"/></td>
-      <td>&yen;99999.99</td>
-      <td><input type="checkbox" class="check"/></td>
-      <td>&yen;99999.99</td>
-      <td>&yen;99999.99</td>
-      <td>&yen;999999.99</td>
-      <td>
-        <a href="#">删除</a>
-        <a href="#">收藏</a>
-      </td>
-    </tr>
+    <% @cart.cart_skuships.each_with_index do |cart_sku,index| %>
+      <tr class="<%= set_odd_even_class index+1 %>">
+        <td><%= cart_sku.sku.number %></td>
+        <td><%= cart_sku.sku.name %></td>
+        <td><%= number_to_currency cart_sku.sku.cost_aft_tax, :unit => "￥" %></td>
+        <td><%= text_field_tag :quantity, cart_sku.quantity %></td>
+        <td><input type="checkbox" class="check"/></td>
+        <td><%= number_to_currency cart_sku.sku.insatllation_cost_aft_tax, :unit => "￥" %></td>
+        <td><input type="checkbox" class="check"/></td>
+        <td><%= number_to_currency cart_sku.sku.assembling_fee_aft_tax, :unit => "￥" %></td>
+        <td>&yen;0.00</td>
+        <td><%= cart_sku.total_amount %></td>
+        <td>
+          <a href="#">删除</a>
+          <a href="#">收藏</a>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
   <tfoot>
     <tr>
@@ -115,9 +53,9 @@
   </tfoot>
 </table>
 <br class="clear" />
-<form style="text-align:center">
-  <button type="submit" class="order_buttun">继续购物</button>
-  <button type="submit" class="order_buttun">前往结算</button>
-</form>
+<div style="text-align:center">
+  <button class="order_buttun" id="continue_shopping">继续购物</button>
+  <button class="order_buttun" id="go_settlement">前往结算</button>
+</div>
 
 
