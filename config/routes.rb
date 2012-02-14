@@ -180,7 +180,11 @@ Ebiz::Application.routes.draw do
 
 
   namespace :cart do
-    resources :cart_skuships
+    resources :cart_skuships do
+      collection do
+        get :current_skus
+      end
+    end
   end
 
   namespace :commodity do
@@ -195,6 +199,7 @@ Ebiz::Application.routes.draw do
       end
     end
     resources :sku_details
+    resources :sku_displays
   end
 
   namespace :content do
@@ -235,7 +240,7 @@ Ebiz::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index', :as => 'home'
+  root :to => 'home#index'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

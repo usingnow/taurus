@@ -25,17 +25,17 @@
   </thead>
   <tbody>
     <% @cart.cart_skuships.each_with_index do |cart_sku,index| %>
-      <tr class="<%= set_odd_even_class index+1 %>">
+      <tr class="<%= set_odd_even_class (index+1) %>" id="<%= cart_sku.id %>">
         <td><%= cart_sku.sku.number %></td>
         <td><%= cart_sku.sku.name %></td>
         <td><%= number_to_currency cart_sku.sku.cost_aft_tax, :unit => "￥" %></td>
-        <td><%= text_field_tag :quantity, cart_sku.quantity %></td>
-        <td><input type="checkbox" class="check"/></td>
-        <td><%= number_to_currency cart_sku.sku.insatllation_cost_aft_tax, :unit => "￥" %></td>
+        <td><%= text_field_tag :quantity, cart_sku.quantity, :class => "cart_sku_quantity" %></td>
+        <td><%= check_box_tag :is_need_install, 1, cart_sku.is_need_install, :class => "cart_sku_is_need_install" %></td>
+        <td><%= number_to_currency cart_sku.sku.installation_cost_aft_tax, :unit => "￥" %></td>
         <td><input type="checkbox" class="check"/></td>
         <td><%= number_to_currency cart_sku.sku.assembling_fee_aft_tax, :unit => "￥" %></td>
         <td>&yen;0.00</td>
-        <td><%= cart_sku.total_amount %></td>
+        <td id="subtotal<%= cart_sku.id %>"><%= number_to_currency cart_sku.total_amount, :unit => "￥" %></td>
         <td>
           <a href="#">删除</a>
           <a href="#">收藏</a>
@@ -45,10 +45,28 @@
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="11">商品总价：<i>9999999.99</i>元 + 安装费：<i>9999.99</i>元 + 组装费：<i>999.99</i>元 + 其他费用：<i>999.99</i>元</td>
+      <td colspan="11">
+        商品总价：
+        <i id="total_sku_amount">
+          <%= number_to_currency @cart.total_sku_amount, :unit => "￥" %>
+        </i>
+        元 + 安装费：
+        <i id="total_installation_amount">
+          <%= number_to_currency @cart.total_installation_amount, :unit => "￥" %>
+        </i>
+        元 + 组装费：
+        <i><%= number_to_currency @cart.total_assembling_amount, :unit => "￥" %></i>
+        元 + 其他费用：
+        <i>0.00</i>元
+      </td>
     </tr>
     <tr>
-      <td colspan="11"><strong>选购商品价格总计</strong>（不包含运费）：<strong><i>99999999.99</i></strong>元</td>
+      <td colspan="11">
+        <strong>选购商品价格总计</strong>
+        （不包含运费）：
+        <strong><i id="total_amount"><%= number_to_currency @cart.total_amount, :unit => "￥" %></i></strong>
+        元
+      </td>
     </tr>
   </tfoot>
 </table>

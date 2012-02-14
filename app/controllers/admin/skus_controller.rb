@@ -29,7 +29,7 @@ class Admin::SkusController < ApplicationController
     @sku.cost_bef_tax = 0.00
     @sku.assembling_fee_aft_tax = 0.00
     @sku.assembling_fee_bef_tax = 0.00
-    @sku.insatllation_cost_aft_tax = 0.00
+    @sku.installation_cost_aft_tax = 0.00
     @sku.installation_cost_bef_tax = 0.00
     @sku.market_price = 0.00
 

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sku:</b>
+  <%= @sku_display.sku_id %>
+</p>
+
+<p>
+  <b>Sequence:</b>
+  <%= @sku_display.sequence %>
+</p>
+
+<p>
+  <b>Page:</b>
+  <%= @sku_display.page %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @sku_display.location %>
+</p>
+
+
+<%= link_to 'Edit', edit_sku_display_path(@sku_display) %> |
+<%= link_to 'Back', sku_displays_path %>

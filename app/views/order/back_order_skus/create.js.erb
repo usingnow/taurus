@@ -10,7 +10,7 @@ if(error != ""){
             '<td><%= cart.sku.unit %></td>'+
             '<td><%= cart.sku.cost_aft_tax %></td>'+
             '<td><%= text_field_tag :quantity, cart.quantity, :size => 3, :class=> "back_order_sku_quantity", :id => "#{cart.id}" %></td>'+
-            '<td><%= cart.sku.insatllation_cost_aft_tax %></td>'+
+            '<td><%= cart.sku.installation_cost_aft_tax %></td>'+
             '<td><%= cart.sku.assembling_fee_aft_tax %></td>'+
             '<td><%= cart.subtotal %></td>'+
             '<td><%= link_to "删除", order_back_order_sku_path(cart), :confirm => "确定删除?", :method => :delete, :remote => true %></td>'+
