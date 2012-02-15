@@ -1,0 +1,10 @@
+zh-CN:
+  activerecord:
+    models:
+      sku_display: "商品显示"
+    attributes:
+      sku_display:
+        sku_number: "媒体商品编号"
+        sequence: "顺序"
+        page: "页面"
+        location: "位置"

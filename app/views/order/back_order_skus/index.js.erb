@@ -5,7 +5,7 @@ var str = "<% @skus.each_with_index do |sku,index| %>"+
           "<td><%= sku.name.gsub("\n", "") %></td>"+
           "<td><%= sku.unit %></td>"+
           "<td><%= sku.cost_aft_tax %></td>"+
-          "<td><%= sku.insatllation_cost_aft_tax %></td>"+
+          "<td><%= sku.installation_cost_aft_tax %></td>"+
           "<td><%= sku.assembling_fee_aft_tax %></td>"+
           '<td><%= link_to "添加", order_back_order_skus_path(:sku_id => sku), :method => :post, :remote => true, :class => "add_sku_to_back_order_skus" %></td>'+
         "</tr>"+

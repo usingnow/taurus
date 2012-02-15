@@ -7,7 +7,7 @@ var str = '<% @order.order_details.each_with_index do |detail,index| %>'+
               '<td><%= detail.sku.cost_aft_tax %></td>'+
               '<td><%= text_field_tag :quantity, detail.quantity, :size => 3, :class=> "order_details_quantity", :id => "#{detail.id}" %></td>'+
               '<td><%= format_is_need(detail.is_need_install) %></td>'+
-              '<td><%= detail.sku.insatllation_cost_aft_tax %></td>'+
+              '<td><%= detail.sku.installation_cost_aft_tax %></td>'+
               '<td><%= format_is_need(detail.is_need_assemble) %></td>'+
               '<td><%= detail.sku.assembling_fee_aft_tax %></td>'+
               '<td><%= detail.sku.delivery_day %></td>'+

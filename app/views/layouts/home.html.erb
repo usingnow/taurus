@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag 'index/home/public.css', 'smoothness/jquery-ui-1.8.16.custom-jimmy.css', 'public' %>
     <%= stylesheet_link_tag params[:controller] %>
     <%= javascript_include_tag 'jquery','jquery-ui-1.8.16.custom.min.js','player.js' %>
+    <%= javascript_include_tag 'layouts/home' %>
     <%= javascript_include_tag params[:controller] %>
     <%= csrf_meta_tag %>
 	<script>
@@ -35,7 +36,7 @@
         </ul>
       </div>
       <div id="welcome">
-        <p><a href="#" title="登陆">登陆</a> 或 <a href="#" title="注册">免费注册，享受会员服务</a></p>
+        <p><%= link_to "登录", '/users/sign_in', :title => "登录" %> 或 <a href="#" title="注册">免费注册，享受会员服务</a></p>
       </div>
       <div id="cart">
         <p style="width: 100px; line-height:28px; vertical-align:middle; margin: 0px; padding: 0 0 0 32px;">

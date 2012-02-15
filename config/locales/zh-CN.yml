@@ -413,7 +413,7 @@ zh-CN:
       assembling_fee_bef_tax: "税前组装费"
       assembling_fee_aft_tax: "税后组装费"
       installation_cost_bef_tax: "税前安装费"
-      insatllation_cost_aft_tax: "税后安装费"
+      installation_cost_aft_tax: "税后安装费"
       create_by: "创建者"
       update_by: "更新者"
       updated_at: "更新时间"
@@ -643,7 +643,7 @@ zh-CN:
         menu: "显示"
       new:
         title: "新建 %{model_label}"
-        menu: "新建模型"
+        menu: "新建"
       edit:
         title: "编辑%{model_label} '%{object_label}'"
         menu: "编辑"
