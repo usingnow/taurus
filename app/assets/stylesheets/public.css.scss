@@ -1,13 +1,115 @@
 //General Style for the frontie interface
 
+//Define the commonly used variables.
+$text_red: #E73221;
+
+h1, h2, h3, ul{
+	margin: 0px;}
+
 #wrapper {
 	width: 1000px;
 	margin-left: auto;
 	margin-right: auto;}
 body {
+  margin: 0px;
   font-family: "宋体", Tahoma, Verdana, Arial, sans-serif;
 	font-size: 12px;
   color: #333333;}
+a {
+	color: #333333;
+	text-decoration: none;}
+a:hover {
+	color: #FF0000;
+	text-decoration: none;}
+a:active{
+	color: #FF0000;
+	text-decoration: none;}
+.notification_area {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px;
+  border: 1px solid $text_red;
+  background-color: lighten($text_red, 40%);}
+div {
+  position: relative;}
+
+// Table General Style
+table, thead, tfoot, tbody, tr, th, td {
+	border-collapse: collapse;
+	border: 1px solid #999999;
+	padding: 4px 10px;
+	text-align: center;
+	font-size: 14px;}
+table {
+	width:100%;}
+th {
+	line-height: 26px;
+	vertical-align:middle;
+	background:url('/assets/templates/titlebar/bar_bg_1_35.png');}
+thead {
+  tr:hover {
+    color: #333333;}}
+caption {
+	text-align:left;
+	padding: 4px 0 4px 40px;}
+.even {
+	background: #dddddd;}
+tr:hover {
+	background: $text_red;
+	color: #ffffff;
+	a {
+    color: #ffffff;
+    text-decoration:underline;}
+	a:hover {
+	  text-decoration:none;}}
+tr {
+	td {
+    input {
+      width: 40px;
+      text-align: center;}}}
+tfoot {
+  tr:hover {
+	  background-color:transparent;
+	  td {
+	    color:#333333;}}
+  td {
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    font-size: 16px;
+    text-align: right;}
+  tr {
+    td {
+      i {
+        font-style: normal;
+        color: $text_red;}}}}
+
+//Cart process style
+table {
+  .check {
+  width: 20px;}}
+#cart_proc {
+	position: absolute;
+	top: 32px;
+	left: 260px;
+	width: 486px;
+	height: 52px;
+  li {
+    font-size: 14px;
+    margin: 28px 45px 0 45px;
+    line-height: 20px;
+    vertical-align:middle;}}
+.cart_proc_background_1 {
+	background-image:url('/assets/shopcart/buychart_step_01.png');}
+.cart_proc_background_2 {
+	background-image:url('/assets/shopcart/buychart_step_02.png');}
+.cart_proc_background_3 {
+	background-image:url('/assets/shopcart/buychart_step_03.png');}
+.margin_top_65 {
+	margin-top: 65px;}
+.white {
+	color: #ffffff;}
 
 //Search bar style in the header.
 #search_bar {
@@ -87,7 +189,7 @@ body {
     font-weight:bold;
     color: #ff0000;
     a {
-	    color: #e73221;}}
+	    color: $text_red;}}
 	li:hover {
     background-image:url('/assets/templates/header/head_bg_107_33_red.png');
     a {
@@ -99,7 +201,7 @@ body {
 	height: 26px;
 	background-image:url('/assets/templates/titlebar/bar_1000_26.jpg');
 	padding: 0 0 0 35px;
-	color: #e73221;
+	color: $text_red;
 	font-size: 15px;
 	font-weight: bold;
 	line-height:26px;
@@ -110,7 +212,7 @@ body {
 	height: 26px;
 	background-image:url('/assets/templates/titlebar/bar_bg_550_26.png');
 	padding: 0 0 0 8px;
-	color: #e73221;
+	color: $text_red;
 	font-size: 15px;
 	font-weight: bold;
 	line-height: 26px;
@@ -121,13 +223,13 @@ body {
 	height: 26px;
 	background-image:url('/assets/templates/titlebar/bar_bg_220_26.png');
 	padding: 0 0 0 8px;
-	color: #e73221;
+	color: $text_red;
 	font-size:14px;
 	font-weight:bold;
 	line-height:26px;
 	vertical-align:middle;}
 //The icon in the homepage's title bar.
-.sku_category h2 + img{
+.sku_category h2 + img {
 	position: absolute;
 	top: 2px;
 	left: 2px;}

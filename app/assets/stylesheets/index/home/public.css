@@ -1,38 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
 
-#wrapper {
-	width: 1000px;
-	margin-left: auto;
-	margin-right: auto;
-}
 
-body,td,th {
-	font-family: "宋体", Tahoma, Verdana, Arial, sans-serif;
-	font-size: 12px;
-	color: #333333;
-}
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-}
-a {
-	color: #333333;
-	text-decoration: none;
-}
-a:hover {
-	color: #FF0000;
-	text-decoration: none;
-}
-a:active{
-	color: #FF0000;
-	text-decoration: none;
-}
-h1, h2, h3, ul{
-	margin: 0;
-}
+
 
 .bar { /** Hompage Level 1 Long bar with h2, like 合作品牌 **/
 	display:block;
@@ -50,62 +20,7 @@ h1, h2, h3, ul{
 .bar_center {
 	text-align:center;
 }
-/** Table General Style **/
-table, thead, tfoot, tbody, tr, th, td {
-	border-collapse: collapse;
-	border: 1px solid #999999;
-	padding: 4px 10px;
-	text-align: center;
-	font-size: 14px;
-}
-table {
-	width:100%;
-}
-th {
-	line-height: 26px;
-	vertical-align:middle;
-	background:url('images/bar/bar_bg_1_35.png');
-}
-caption {
-	text-align:left;
-	padding: 4px 0 4px 40px;
-}
-.even {
-	background: #dddddd;
-}
-tr:hover {
-	background: #E73227;
-}
-tr:hover a {
-	color: #ffffff;
-	text-decoration:underline;
-}
-tr:hover a:hover {
-	text-decoration:none;
-}
-tr:hover td {
-	color: #ffffff;
-}
-tfoot tr:hover {
-	background-color:transparent;
-}
-tfoot tr:hover td {
-	color:inherit;
-}
-td input {
-	width: 40px;
-}
-tfoot td {
-	height: 40px;
-	line-height: 40px;
-	vertical-align: middle;
-	font-size: 16px;
-	text-align: right;
-}
-tfoot tr td i {
-	font-style: normal;
-	color: #E73221;
-}
+
 /** Form General Style **/
 input, select {
 	border: solid 1px #666;
@@ -1165,46 +1080,11 @@ div#copyright {
 /**Help page style -- Ends -- 2012/01/14 **/
 
 /** Cart page style -- Starts -- 2012/01/16 **/
-#cart_proc {
-	position: absolute;
-	top: 32px;
-	left: 260px;
-	width: 486px;
-	height: 52px;
-}
-.cart_proc_background_1 {
-	background-image:url('images/shopcart/buychart_step_01.png');
-}
-.cart_proc_background_2 {
-	background-image:url('images/shopcart/buychart_step_02.png');
-}
-.cart_proc_background_3 {
-	background-image:url('images/shopcart/buychart_step_03.png');
-}
-.margin_top_65 {
-	margin-top: 65px;
-}
-#cart_proc li {
-	font-size: 14px;
-	margin: 28px 45px 0 45px;
-	line-height: 20px;
-	vertical-align:middle;
-}
-.white {
-	color: #ffffff;
-}
+
 /** Cart page style -- Ends -- 2012/01/16 **/
 
 /** Order page style -- Starts -- 2012/01/16 **/
-#order_info form fieldset p label {
-	float: left;
-	width: 75px;
-	height: 23px;
-	line-height:23px;
-	vertical-align:middle;
-	text-align: right;
-	margin: 0 10px 0 10px;
-}
+
 
 
 /** Order page style -- Ends -- 2012/01/16 **/

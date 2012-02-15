@@ -59,9 +59,9 @@
   <p>移动电话: <%= @temp_address.mobile %></p>
   <p>电子邮件: <%= @temp_address.email %></p>
   <p>邮政编码: <%= @temp_address.zip %></p>
-  <br />
+  <hr />
   <p>支付方式: <%= @temp_payment.procedure.display_name %></p>
-  <br />
+  <hr />
   <p>发票类型:
     <% if @temp_payment.invoice_type == 0 %>
       普通
@@ -72,10 +72,10 @@
     <% end %>
   </p>
   <p>开票抬头:</p>
-  <br />
+  <hr />
   <p>订单备注:</p>
   <div id="delivery_fee">
-    <p>根据您订单金额和所属区域，本次购物的运费为：<strong style="color: #e73221;"><%= number_to_currency @carriage_cost, :unit => "￥" %></strong></p>
+    <p>根据您订单金额和所属区域，本次购物的运费为：<strong><%= number_to_currency @carriage_cost, :unit => "￥" %></strong></p>
   </div>
   <form action="/order/front_orders" method="post">
     <button type="submit" class="order_buttun">提交订单</button>
