@@ -24,9 +24,12 @@ jQuery ->
       data: 'quantity='+jQuery(this).val()
       dataType: 'json'
       success: (data, textStatus, jqXHR) ->
-        jQuery('#total_sku_amount').html(Number(data.total_sku_amount).toCurrency())
-        jQuery('#total_amount').html(Number(data.total_amount).toCurrency())
-        jQuery('#subtotal'+id).html(Number(data.subtotal).toCurrency())
+        if data == "failure"
+          alert '出错啦！'
+        else
+          jQuery('#total_sku_amount').html(Number(data.total_sku_amount).toCurrency())
+          jQuery('#total_amount').html(Number(data.total_amount).toCurrency())
+          jQuery('#subtotal'+id).html(Number(data.subtotal).toCurrency())
 
   jQuery('.cart_sku_is_need_install').change ->
     if jQuery(this).attr('checked') == "checked"
@@ -41,7 +44,29 @@ jQuery ->
       data: 'is_need_install=' + is_need_install
       dataType: 'json'
       success: (data, textStatus, jqXHR) ->
-        jQuery('#total_installation_amount').html(Number(data.total_installation_amount).toCurrency())
-        jQuery('#total_amount').html(Number(data.total_amount).toCurrency())
-        jQuery('#subtotal'+id).html(Number(data.subtotal).toCurrency())
+        if data == "failure"
+          alert '出错啦！'
+        else
+          jQuery('#total_installation_amount').html(Number(data.total_installation_amount).toCurrency())
+          jQuery('#total_amount').html(Number(data.total_amount).toCurrency())
+          jQuery('#subtotal'+id).html(Number(data.subtotal).toCurrency())
 
+  jQuery('.cart_sku_is_need_assemble').change ->
+    if jQuery(this).attr('checked') == "checked"
+      is_need_assemble = 1
+    else
+      is_need_assemble = 0
+
+    id = jQuery(this).parent().parent().attr('id')
+
+    jQuery.ajax '/cart/cart_skuships/' + id,
+      type: 'PUT'
+      data: 'is_need_assemble=' + is_need_assemble
+      dataType: 'json'
+      success: (data, textStatus, jqXHR) ->
+        if data == "failure"
+          alert '出错啦！'
+        else
+          jQuery('#total_assembling_amount').html(Number(data.total_assembling_amount).toCurrency())
+          jQuery('#total_amount').html(Number(data.total_amount).toCurrency())
+          jQuery('#subtotal'+id).html(Number(data.subtotal).toCurrency())

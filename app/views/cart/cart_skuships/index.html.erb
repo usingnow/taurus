@@ -7,7 +7,11 @@
   </ul>
 </div>
 <table class="margin_top_65">
-  <caption>我的购物车<a href="#" style="float:right">[清空购物车]</a></caption>
+  <caption>
+    我的购物车
+    <%= link_to "[清空购物车]", empty_cart_cart_skuships_path, :style => "float:right",
+                :confirm => "确认清空购物车？", :method => :delete %>
+  </caption>
   <thead>
     <tr>
       <th>商品编号</th>
@@ -24,7 +28,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @cart.cart_skuships.each_with_index do |cart_sku,index| %>
+    <% @cart_skuships.each_with_index do |cart_sku,index| %>
       <tr class="<%= set_odd_even_class (index+1) %>" id="<%= cart_sku.id %>">
         <td><%= cart_sku.sku.number %></td>
         <td><%= cart_sku.sku.name %></td>
@@ -32,18 +36,23 @@
         <td><%= text_field_tag :quantity, cart_sku.quantity, :class => "cart_sku_quantity" %></td>
         <td><%= check_box_tag :is_need_install, 1, cart_sku.is_need_install, :class => "cart_sku_is_need_install" %></td>
         <td><%= number_to_currency cart_sku.sku.installation_cost_aft_tax, :unit => "￥" %></td>
-        <td><input type="checkbox" class="check"/></td>
+        <td><%= check_box_tag :is_need_assemble, 1, cart_sku.is_need_assemble, :class => "cart_sku_is_need_assemble" %></td>
         <td><%= number_to_currency cart_sku.sku.assembling_fee_aft_tax, :unit => "￥" %></td>
-        <td>&yen;0.00</td>
+        <td>非法字段</td>
         <td id="subtotal<%= cart_sku.id %>"><%= number_to_currency cart_sku.total_amount, :unit => "￥" %></td>
         <td>
-          <a href="#">删除</a>
+          <%= link_to t('admin.actions.delete.menu'), cart_cart_skuship_path(cart_sku), :confirm => t('admin.actions.delete.confirm'), :method => :delete %>
           <a href="#">收藏</a>
         </td>
       </tr>
     <% end %>
   </tbody>
   <tfoot>
+    <tr>
+      <td colspan="11" class="short_height_td">
+        <%= will_paginate @cart_skuships %>
+      </td>
+    </tr>
     <tr>
       <td colspan="11">
         商品总价：
@@ -55,9 +64,11 @@
           <%= number_to_currency @cart.total_installation_amount, :unit => "￥" %>
         </i>
         元 + 组装费：
-        <i><%= number_to_currency @cart.total_assembling_amount, :unit => "￥" %></i>
+        <i id="total_assembling_amount">
+          <%= number_to_currency @cart.total_assembling_amount, :unit => "￥" %>
+        </i>
         元 + 其他费用：
-        <i>0.00</i>元
+        <i>非法字段</i>元
       </td>
     </tr>
     <tr>
@@ -75,5 +86,11 @@
   <button class="order_buttun" id="continue_shopping">继续购物</button>
   <button class="order_buttun" id="go_settlement">前往结算</button>
 </div>
+
+ <% if !alert.nil?
+      content_for :ready do %>
+        alert('<%= alert %>');
+   <% end
+    end %>
 
 

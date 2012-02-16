@@ -650,3 +650,5 @@ zh-CN:
       delete:
         title: "删除%{model_label} '%{object_label}'"
         menu: "删除"
+        confirm: "确定删除？"
+

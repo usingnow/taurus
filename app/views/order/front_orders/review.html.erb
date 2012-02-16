@@ -23,61 +23,107 @@
     </tr>
   </thead>
   <tbody>
-    <% @cart.cart_skuships.each_with_index do |cart_sku,index| %>
+    <% @cart_skuships.each_with_index do |cart_sku,index| %>
       <tr class="<%= set_odd_even_class index+1 %>">
         <td><%= cart_sku.sku.number %></td>
         <td><%= cart_sku.sku.name %></td>
         <td><%= number_to_currency cart_sku.sku.cost_aft_tax, :unit => "￥" %></td>
         <td><%= cart_sku.quantity %></td>
-        <td></td>
+        <td><%= format_boolean cart_sku.is_need_install %></td>
         <td><%= number_to_currency cart_sku.sku.installation_cost_aft_tax, :unit => "￥" %></td>
-        <td></td>
+        <td><%= format_boolean cart_sku.is_need_assemble %></td>
         <td><%= number_to_currency cart_sku.sku.assembling_fee_aft_tax, :unit => "￥" %></td>
-        <td>&yen;0.00</td>
+        <td>非法字段</td>
         <td><%= cart_sku.total_amount %></td>
       </tr>
     <% end %>
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="11">商品总价：<i>9999999.99</i>元 + 安装费：<i>9999.99</i>元 + 组装费：<i>999.99</i>元 + 其他费用：<i>999.99</i>元</td>
+      <td colspan="11" class="short_height_td">
+        <%= will_paginate @cart_skuships %>
+      </td>
     </tr>
     <tr>
-      <td colspan="11"><strong>总计</strong>（不包含运费）：<strong><i>99999999.99</i></strong>元</td>
+      <td colspan="11">
+        商品总价：
+        <i id="total_sku_amount">
+          <%= number_to_currency @cart.total_sku_amount, :unit => "￥" %>
+        </i>
+        元 + 安装费：
+        <i id="total_installation_amount">
+          <%= number_to_currency @cart.total_installation_amount, :unit => "￥" %>
+        </i>
+        元 + 组装费：
+        <i id="total_assembling_amount">
+          <%= number_to_currency @cart.total_assembling_amount, :unit => "￥" %>
+        </i>
+        元 + 其他费用：
+        <i>非法字段</i>元
+      </td>
+    </tr>
+    <tr>
+      <td colspan="11">
+        <strong>选购商品价格总计</strong>
+        （不包含运费）：
+        <strong><i id="total_amount"><%= number_to_currency @cart.total_amount, :unit => "￥" %></i></strong>
+        元
+      </td>
     </tr>
   </tfoot>
 </table>
 <div id="order_info_review">
   <h2>订单信息预览</h2>
-  <p>收件人姓名:<%= @temp_address.name %></p>
-  <p>所属区域: <%= @temp_address.district.city.province.name %>&nbsp;
-              <%= @temp_address.district.city.name %>&nbsp;
-              <%= @temp_address.district.name %>
+  <p>收件人姓名:<%= @consignee_info.name %></p>
+  <p>所属区域: <%= @consignee_info.district.city.province.name %>&nbsp;
+              <%= @consignee_info.district.city.name %>&nbsp;
+              <%= @consignee_info.district.name %>
   </p>
-  <p>送货地址: <%= @temp_address.address %></p>
-  <p>固定电话: <%= @temp_address.phone %></p>
-  <p>移动电话: <%= @temp_address.mobile %></p>
-  <p>电子邮件: <%= @temp_address.email %></p>
-  <p>邮政编码: <%= @temp_address.zip %></p>
+  <p>送货地址: <%= @consignee_info.address %></p>
+  <p>固定电话: <%= @consignee_info.phone %></p>
+  <p>移动电话: <%= @consignee_info.mobile %></p>
+  <p>电子邮件: <%= @consignee_info.email %></p>
+  <p>邮政编码: <%= @consignee_info.zip %></p>
   <br />
   <p>支付方式: <%= @temp_payment.procedure.display_name %></p>
   <br />
-  <p>发票类型:
-    <% if @temp_payment.invoice_type == 0 %>
-      普通
-    <% elsif @temp_payment.invoice_type == 1 %>
-      增值税发票
+  <% if @temp_payment.invoice_type == 0 %>
+    <p>发票类型:普通</p>
+    <br />
+    <% if @temp_payment.is_invoice_head == 0 %>
+      <p>开票抬头:个人</p>
     <% else %>
-      不需要
+      <p>开票抬头:单位</p>
+      <p>单位名称:<%= @temp_payment.company_name %></p>
     <% end %>
-  </p>
-  <p>开票抬头:</p>
+  <% elsif @temp_payment.invoice_type == 1 %>
+    <p>发票类型:增值税发票</p>
+    <br />
+    <% if @temp_payment.is_invoice_head == 0 %>
+      <p>开票抬头:个人</p>
+    <% else %>
+      <p>开票抬头:单位</p>
+      <p>单位名称:<%= @temp_payment.company_name %></p>
+    <% end %>
+    <br />
+    <p>开户银行:<%= @temp_payment.account_bank %></p>
+    <p>开户名称:<%= @temp_payment.account_person_name %></p>
+    <p>注册电话:<%= @temp_payment.account_phone %></p>
+    <p>银行帐号:<%= @temp_payment.account_no %></p>
+    <p>增值税登记号:<%= @temp_payment.added_value_tax_no %></p>
+    <p>注册地址:<%= @temp_payment.account_reg_add %></p>
+  <% else %>
+    <p>发票类型:不需要</p>
+  <% end %>
   <br />
-  <p>订单备注:</p>
+  <p>
+    订单备注:<%= @order_remark %>
+  </p>
   <div id="delivery_fee">
     <p>根据您订单金额和所属区域，本次购物的运费为：<strong style="color: #e73221;"><%= number_to_currency @carriage_cost, :unit => "￥" %></strong></p>
   </div>
   <form action="/order/front_orders" method="post">
+    <%= hidden_field_tag :customer_note, @order_remark %>
     <button type="submit" class="order_buttun">提交订单</button>
   </form>
 </div>

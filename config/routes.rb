@@ -183,6 +183,7 @@ Ebiz::Application.routes.draw do
     resources :cart_skuships do
       collection do
         get :current_skus
+        delete :empty
       end
     end
   end
@@ -237,6 +238,12 @@ Ebiz::Application.routes.draw do
       end
     end
   end
+
+  namespace :user do
+    resources :consignee_infos
+    resources :user_addresses
+  end
+
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.

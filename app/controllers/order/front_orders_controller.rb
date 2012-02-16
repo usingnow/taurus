@@ -5,7 +5,15 @@ class Order::FrontOrdersController < ApplicationController
 
   def index
     @cart = current_cart
-    @procedures = Procedure.user_procedures(current_user.id)
+    if @cart.total_items > 0
+      user_id = current_user.id
+      @cart_skuships = CartSkuship.where(:cart_id => @cart.id).paginate(:page => params[:page], :per_page => 10)
+      @procedures = Procedure.user_procedures(user_id)
+      @consignee_info = ConsigneeInfo.find_by_user_id(user_id)
+      @user_addresses = UserAddress.find_all_by_user_id(user_id)
+    else
+      redirect_to cart_cart_skuships_url, :alert => "请添加商品！"
+    end
   end
 
   def show
@@ -17,10 +25,8 @@ class Order::FrontOrdersController < ApplicationController
 
     @temp_payment = InnerOrderPayment.new(params[:temp_payment])
     @temp_payment.user_id = @user.id
-    @temp_address = InnerOrderAddress.new(params[:temp_address])
-    @temp_address.user_id = @user.id
 
-    unless [@temp_payment, @temp_address].map(&:valid?).include?(false)
+    unless [@temp_payment].map(&:valid?).include?(false)
       temp_payment = InnerOrderPayment.find_by_user_id(@user.id)
       if temp_payment.nil?
         @temp_payment.save
@@ -28,17 +34,10 @@ class Order::FrontOrdersController < ApplicationController
         temp_payment.update_attributes(params[:temp_payment])
       end
 
-      temp_address = InnerOrderAddress.find_by_user_id(@user.id)
-      if temp_address.nil?
-        @temp_address.save
-      else
-        temp_address.update_attributes(params[:temp_address])
-      end
-
       @cart = current_cart
       @temp_payment = InnerOrderPayment.find_by_user_id(@user.id)
-      @temp_address = InnerOrderAddress.find_by_user_id(@user.id)
-      if @temp_address.district.city_no == 330200
+      @consignee_info = ConsigneeInfo.find_by_user_id(@user.id)
+      if @consignee_info.district.city_no == 330200
         if @cart.cart_skuships.to_a.sum{ |cart_sku| cart_sku.total_amount } > 50
           @carriage_cost = 0
         else
@@ -51,9 +50,12 @@ class Order::FrontOrdersController < ApplicationController
           @carriage_cost = 20
         end
       end
+      @cart_skuships = CartSkuship.where(:cart_id => @cart.id).paginate(:page => params[:page], :per_page => 10)
+      @order_remark = params[:order_remark]
     else
       @cart = current_cart
       @procedures = Procedure.user_procedures @user.id
+      @cart_skuships = CartSkuship.where(:cart_id => @cart.id).paginate(:page => params[:page], :per_page => 10)
       render :action => "index"
     end
   end
@@ -140,6 +142,7 @@ class Order::FrontOrdersController < ApplicationController
       @order.is_invoice_head = temp_payment.is_invoice_head
       @order.company_name = temp_payment.company_name
       @order.reserve_reason = reserve_reason
+      @order.customer_note = params[:customer_note]
       if temp_address.district.city_no == 330200
         if cart_skuships.to_a.sum{ |cart_sku| cart_sku.total_amount } > 50
           @order.carriage_cost = 0
