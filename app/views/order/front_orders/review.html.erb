@@ -84,28 +84,29 @@
   <p>移动电话: <%= @consignee_info.mobile %></p>
   <p>电子邮件: <%= @consignee_info.email %></p>
   <p>邮政编码: <%= @consignee_info.zip %></p>
-  <br />
+  <hr />
   <p>支付方式: <%= @temp_payment.procedure.display_name %></p>
-  <br />
+  <hr />
   <% if @temp_payment.invoice_type == 0 %>
     <p>发票类型:普通</p>
-    <br />
+    <hr />
     <% if @temp_payment.is_invoice_head == 0 %>
       <p>开票抬头:个人</p>
     <% else %>
       <p>开票抬头:单位</p>
       <p>单位名称:<%= @temp_payment.company_name %></p>
     <% end %>
+
   <% elsif @temp_payment.invoice_type == 1 %>
     <p>发票类型:增值税发票</p>
-    <br />
+    <hr />
     <% if @temp_payment.is_invoice_head == 0 %>
       <p>开票抬头:个人</p>
     <% else %>
       <p>开票抬头:单位</p>
       <p>单位名称:<%= @temp_payment.company_name %></p>
     <% end %>
-    <br />
+    <hr />
     <p>开户银行:<%= @temp_payment.account_bank %></p>
     <p>开户名称:<%= @temp_payment.account_person_name %></p>
     <p>注册电话:<%= @temp_payment.account_phone %></p>
@@ -115,12 +116,13 @@
   <% else %>
     <p>发票类型:不需要</p>
   <% end %>
-  <br />
+  <hr />
   <p>
     订单备注:<%= @order_remark %>
   </p>
+
   <div id="delivery_fee">
-    <p>根据您订单金额和所属区域，本次购物的运费为：<strong style="color: #e73221;"><%= number_to_currency @carriage_cost, :unit => "￥" %></strong></p>
+    <p>根据您订单金额和所属区域，本次购物的运费为：<strong><%= number_to_currency @carriage_cost, :unit => "￥" %></strong></p>
   </div>
   <form action="/order/front_orders" method="post">
     <%= hidden_field_tag :customer_note, @order_remark %>

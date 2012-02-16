@@ -1,6 +1,7 @@
 // Place all the styles related to the cart_skuships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "public";
 
 .order_buttun {
 	background-image:url(/assets/cart_skuships/chartbutton01.png);
@@ -21,6 +22,6 @@ table {
 height: 20px;
 line-height: 20px;
 virtical-align: middle;
-text-align: center;
-}
+text-align: center;}
+
 

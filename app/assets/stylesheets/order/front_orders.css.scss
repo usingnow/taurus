@@ -1,6 +1,8 @@
 // Place all the styles related to the order/front_orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "public";
+
 .order_buttun {
 	background-image:url(/assets/cart_skuships/chartbutton01.png);
 	width: 102px;
@@ -12,50 +14,105 @@
 	color: #ffffff;
 	border: 0px;}
 button:hover {
-  background-image:url(/assets/cart_skuships/chartbutton02.png);}
+  background-image:url(/assets/cart_skuships/chartbutton02.png);
+  cursor: pointer;}
 table {
   .check {
   width: 20px;}}
-#order_info form fieldset p label {
-	float: left;
-	width: 80px;
-	height: 23px;
-	line-height:23px;
-	vertical-align:middle;
-	text-align: right;
-	margin: 0 10px 0 10px;
-}
+#order_info {
+  label {
+    float: left;
+    width: 80px;
+    height: 23px;
+    line-height:23px;
+    vertical-align:middle;
+    text-align: right;
+    margin: 0 10px 0 10px;}}
 fieldset h2 {
-	color: #e73221;
+	color: $text_red;
 	margin: 8px 0 8px 4px;
 }
 textarea {
 width: 550px;
-height: 50px;
-}
+height: 50px;}
 .remark {
 font-style: normal;
 font-size: 12px;
 font-weight: normal;
-color: #E73221;
-}
+color: $text_red;}
 legend {
 font-weight: bold;
-font-size: 14px;
-}
+font-size: 14px;}
 fieldset {
   border: 1px solid #999999;
   padding: 4px;
   margin: 10px 0 0 0;}
-.short_height_td {
+.short_height_td {  //This style is for the pagination in the tfoot.
   height: 20px;
   line-height: 20px;
   virtical-align: middle;
   text-align: center;}
+
 .error_info{
   background: #FFECEC;
   border: #F34956 solid 1px;
   color: #C00;
   margin: 0 0 5px 3px;
-  padding: 2px;
+  padding: 2px;}
+
+//Order Review Page Style.
+#order_info_review {
+  position: relative;
+  margin: 4px 0 0 0;
+  padding: 4px;
+  font-size: 14px;
+  border: 1px solid #999999;}
+#delivery_fee {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px;
+  font-size: 16px;
+  border: 1px solid $text_red;
+  background-color: lighten($text_red, 40%);
+  strong {
+    color: $text_red;}}
+
+//Order Complete Page Style.
+#order_complete_note {
+	border: 1px solid #999999;
+	width: 990px;
+	margin: 10px 0 0 0;
+	padding: 4px;
+  li {
+    line-height: 32px;
+    vertical-align: middle;
+    font-size: 14px;
+    list-style: square;}}
+#payment_note {
+	border: 1px solid #999999;
+	width: 990px;
+	margin: 10px 0 0 0;
+	padding: 4px;
+  p {
+    margin: 0px;
+    font-size: 14px;
+    text-align: center;}
+  li {
+    line-height: 32px;
+    vertical-align: middle;
+    font-size: 14px;
+    list-style: square;
+    i {
+	    font-style: normal;}}}
+
+#order_info_review {
+	position: relative;
+	float: left;
+	border: 1px solid #dddddd;
+	width: 990px;
+	margin: 10px 0 0 0;
+	padding: 4px;
+	font-size: 14px;
 }
+
