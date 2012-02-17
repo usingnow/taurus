@@ -1,0 +1,41 @@
+<%= render "user/user_addresses/user_addresses" %>
+
+<p>
+  <label for="receiver"><em class="remark">*</em>收件人姓名：</label>
+  <input name="consignee_info[name]" id="receiver" type="text" value="<%= @consignee_info.name %>"/>
+  <span id="receiver_error"></span>
+</p>
+<p>
+  <label for="location_province"><em class="remark">*</em>所属区域：</label>
+  <%= raw address(@consignee_info.district,"consignee_info") %>
+  <span id="consignee_info_district_no_error"></span>
+</p>
+<p>
+  <label for="address"><em class="remark">*</em>送货地址：</label>
+  <input name="consignee_info[address]" id="address" type="text" class="input_width_220" value="<%= @consignee_info.address %>"/>
+  <span id="address_error"></span>
+</p>
+<p>
+  <label for="area_num"><em class="remark">*</em>固定电话：</label>
+  <input name="consignee_info[phone]" id="phone" type="text" value="<%= @consignee_info.phone %>"/>
+  <em class="remark">如：010-12345678，固话与手机至少填写一项</em>
+  <span id="phone_error"></span>
+</p>
+<p>
+  <label for="cellphone"><em class="remark">*</em>移动电话：</label>
+  <input name="consignee_info[mobile]" id="cellphone" type="text" value="<%= @consignee_info.mobile %>"/>
+  <em class="remark">填写手机号便于接收发货通知短信及送货前确认</em>
+  <span id="cellphone_error"></span>
+</p>
+<p>
+  <label for="email">电子邮件：</label>
+  <input name="consignee_info[email]" id="email" type="text" value="<%= @consignee_info.email %>"/>
+  <em class="remark">用来接收订单提醒邮件，便于您及时了解订单状态</em>
+</p>
+<p>
+  <label for="post">邮政编码：</label>
+  <input name="consignee_info[zip]" id="post" type="text" value="<%= @consignee_info.zip %>"/>
+  <em class="remark">有助于快速确定送货地址</em>
+</p>
+<a id="add_user_address">[添加到常用地址簿]</a>
+<button type="button" id="save_consignee">保存收货人信息</button>

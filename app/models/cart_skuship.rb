@@ -13,4 +13,19 @@ class CartSkuship < ActiveRecord::Base
     end
     amount
   end
+
+  #直送品运费
+  def ds_carriage_cost(district_no)
+    carriage_cost = 0
+    if district_no == 330200
+      unless total_amount > 50
+        carriage_cost = 5
+      end
+    else
+      unless total_amount > 200
+        carriage_cost = 20
+      end
+    end
+    carriage_cost
+  end
 end

@@ -6,6 +6,14 @@ class Product < ActiveRecord::Base
   belongs_to :product_category
   attr_accessor :brand_name, :product_category_name, :product_category_number, :supplier_name
 
+  validates :product_id, :name, :brand_id, :product_category_id, :unit, :specification, :delivery_days,
+            :supplier_id, :brand_name, :product_category_name, :supplier_name, :presence => true
+
+  validates_uniqueness_of :product_id
+
+  validate :brand_exists?, :category_exists?, :supplier_exists?
+
+
   def nb_is_inventory
     product_storeship = product_storeships.where(:store_id => 1).first
     if product_storeship.quantity < 1
@@ -15,13 +23,14 @@ class Product < ActiveRecord::Base
     end
   end
 
-  validates :product_id, :name, :brand_id, :product_category_id, :unit, :specification, :delivery_days,
-            :supplier_id, :brand_name, :product_category_name, :supplier_name, :presence => true
-
-  validates_uniqueness_of :product_id
-
-  validate :brand_exists?, :category_exists?, :supplier_exists?
-
+  def inventory?(quantity,store_id)
+    product_storeship = product_storeships.where(:store_id => store_id).first
+    if product_storeship.quantity < quantity
+      false
+    else
+      true
+    end
+  end
 
   protected
 

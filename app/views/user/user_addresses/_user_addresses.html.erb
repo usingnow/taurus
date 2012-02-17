@@ -1,0 +1,16 @@
+<div id="user_address">
+  <% if @user_addresses.any? %>
+    <h3>常用地址</h3>
+    <table>
+      <% @user_addresses.each do |user_address| %>
+        <tr id="<%= user_address.id %>">
+          <td><%= radio_button_tag :user_address, user_address.id %></td>
+          <td><%= user_address.name %></td>
+          <td><%= user_address.district.address %>&nbsp;<%= user_address.address %></td>
+          <td><a id="delete_user_address">删除</a></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>
+

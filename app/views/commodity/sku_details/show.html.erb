@@ -54,9 +54,9 @@
     <div id="sku_details_cart">
         <%= hidden_field_tag :sku_id, @sku.id %>
         <label>我要买：</label>
-        <button id="minus">-</button>
+        <button id="minus" type="button">-</button>
         <%= text_field_tag :quantity, 1, :id => "sku_quantity" %>
-        <button id="plus">+</button>
+        <button id="plus" type="button">+</button>
         <div></div>
         <input type="button" class="add_to_cart" id="add_to_cart" value="添加到购物车"/>
         <button class="add_to_favorite"><%= image_tag "sku_details/add_to_favourite.png"%></button>

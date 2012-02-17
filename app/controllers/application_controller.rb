@@ -240,6 +240,4 @@ class ApplicationController < ActionController::Base
       flag
     end
 
-
-
 end

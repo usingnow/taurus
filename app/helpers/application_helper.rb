@@ -63,15 +63,15 @@ module ApplicationHelper
                                                url:'/admin/cities/ajax',
                                                data: 'province_no='+this.value,
                                                success: function(msg){
-                                                $('#city_number').html(msg);
-                                                $('##{model}_district_no').html('<option value=>-请选择-</option>');
+                                                 jQuery('#city_number').html(msg);
+                                                 jQuery('##{model}_district_no').html('<option value=>-请选择-</option>');
                                                }});", :required => "required"} }省份
             #{select :city, :number, cities,{:include_blank => "-请选择-", :selected => city_no},
                      { :onchange => "jQuery.ajax({ type:'get',
                                      url: '/admin/districts/ajax',
                                      data: 'city_no='+this.value,
                                      success: function(msg){
-                                     $('##{model}_district_no').html(msg);
+                                      jQuery('##{model}_district_no').html(msg);
                                      }});", :required => "required"} }城市
 
             #{select model.to_sym, :district_no, districts, {:include_blank => "-请选择-", :selected => district_no},

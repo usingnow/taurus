@@ -1,0 +1,28 @@
+<p>
+  <label for="receiver">收件人姓名：</label>
+  <span id="receiver_span"><%= @consignee_info.name %></span>
+</p>
+<p>
+  <label for="location_province">所属区域：</label>
+  <%= @consignee_info.district.address if !@consignee_info.district.nil?%>
+</p>
+<p>
+  <label for="address">送货地址：</label>
+  <%= @consignee_info.address %>
+</p>
+<p>
+  <label for="area_num">固定电话：</label>
+  <%= @consignee_info.phone %><br />
+</p>
+<p>
+  <label for="cellphone">移动电话：</label>
+  <%= @consignee_info.mobile %><br />
+</p>
+<p>
+  <label for="email">电子邮件：</label>
+  <%= @consignee_info.email %><br />
+</p>
+<p>
+  <label for="post">邮政编码：</label>
+  <%= @consignee_info.zip %><br />
+</p>

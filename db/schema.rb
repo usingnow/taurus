@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120214061147) do
+ActiveRecord::Schema.define(:version => 20120216024555) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -57,9 +57,9 @@ ActiveRecord::Schema.define(:version => 20120214061147) do
   create_table "back_order_skus", :force => true do |t|
     t.integer  "sku_id"
     t.integer  "quantity",   :default => 1
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "banks", :force => true do |t|
@@ -194,6 +194,21 @@ ActiveRecord::Schema.define(:version => 20120214061147) do
     t.string   "action"
     t.string   "display_name"
   end
+
+  create_table "consignee_infos", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "district_no"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "mobile"
+    t.string   "email"
+    t.string   "zip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "consignee_infos", ["user_id"], :name => "index_consignee_infos_on_user_id", :unique => true
 
   create_table "delivery_order_carts", :force => true do |t|
     t.integer  "product_id"
@@ -431,7 +446,7 @@ ActiveRecord::Schema.define(:version => 20120214061147) do
     t.integer  "updated_admin_id"
     t.text     "customer_note"
     t.text     "inner_note"
-    t.text     "reserve_reason"
+    t.string   "reserve_reason"
     t.decimal  "other_cost",          :precision => 8, :scale => 2, :default => 0.0
     t.integer  "is_affect_details"
     t.string   "district_no"
@@ -453,8 +468,8 @@ ActiveRecord::Schema.define(:version => 20120214061147) do
     t.string   "company_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_delivery",                                       :default => false
     t.decimal  "total_price",         :precision => 8, :scale => 2, :default => 0.0
+    t.boolean  "is_delivery",                                       :default => false
     t.decimal  "carriage_adjustment", :precision => 8, :scale => 2, :default => 0.0
   end
 
@@ -626,19 +641,6 @@ ActiveRecord::Schema.define(:version => 20120214061147) do
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
-  create_table "rec_adds", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "district_no"
-    t.string   "name"
-    t.string   "address"
-    t.string   "zip"
-    t.string   "phone"
-    t.string   "mobile"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "roles", :force => true do |t|
     t.string   "number"
     t.string   "name"
@@ -696,7 +698,6 @@ ActiveRecord::Schema.define(:version => 20120214061147) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "media_id"
   end
 
   create_table "sku_productships", :force => true do |t|
@@ -711,8 +712,6 @@ ActiveRecord::Schema.define(:version => 20120214061147) do
     t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "media_id"
-    t.string   "Material_id"
   end
 
   create_table "skus", :force => true do |t|
@@ -854,6 +853,21 @@ ActiveRecord::Schema.define(:version => 20120214061147) do
     t.datetime "updated_at"
   end
 
+  create_table "user_addresses", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "district_no"
+    t.string   "name"
+    t.string   "address"
+    t.string   "zip"
+    t.string   "phone"
+    t.string   "mobile"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_addresses", ["user_id"], :name => "index_user_addresses_on_user_id", :unique => true
+
   create_table "user_numbers", :force => true do |t|
     t.integer  "person_no"
     t.integer  "company_no"
@@ -863,9 +877,10 @@ ActiveRecord::Schema.define(:version => 20120214061147) do
 
   create_table "users", :force => true do |t|
     t.string   "login_no"
-    t.integer  "role_id"
     t.integer  "status"
     t.integer  "user_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"
@@ -876,8 +891,7 @@ ActiveRecord::Schema.define(:version => 20120214061147) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "role_id"
     t.integer  "store_id"
   end
 

@@ -6,12 +6,10 @@
     <title>壹美壹家</title>
     <%= stylesheet_link_tag 'index/home/public.css', 'smoothness/jquery-ui-1.8.16.custom-jimmy.css', 'public' %>
     <%= stylesheet_link_tag params[:controller] %>
-    <%= javascript_include_tag 'jquery','jquery-ui-1.8.16.custom.min.js','player.js' %>
     <%= javascript_include_tag 'layouts/home' %>
     <%= javascript_include_tag params[:controller] %>
     <%= csrf_meta_tag %>
 	<script>
-	  //Homepage Sort List
 	  jQuery(document).ready(function(){
         <%= yield(:ready) %> //动态加载js
 	  });
