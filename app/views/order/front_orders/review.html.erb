@@ -1,4 +1,4 @@
-<h2 class="bar_image_1000 bar_indent_8">确认订单</h2>
+<h2 class="bar_image_1000 bar_indent_8">预览订单</h2>
 <div id="cart_proc" class="cart_proc_background_2">
   <ul class="h_ul">
     <li class="h_li">我的购物车</li>
@@ -6,37 +6,61 @@
     <li class="h_li">订单完成</li>
   </ul>
 </div>
-<table class="margin_top_65">
+<table class="margin_top_65 order_split_details">
   <caption>所购商品清单预览</caption>
   <thead>
     <tr>
-      <th>商品编号</th>
-      <th>商品名称</th>
-      <th>单价</th>
-      <th>数量</th>
-      <th>安装</th>
-      <th>安装费用</th>
-      <th>组装</th>
-      <th>组装费用</th>
-      <th>其他费用</th>
-      <th>小计</th>
+      <th>拆分订单号</th>
+      <th>收货人</th>
+      <th>支付方式</th>
+      <th>订单金额</th>
+      <th>运费金额</th>
     </tr>
   </thead>
   <tbody>
-    <% @cart.cart_skuships.each_with_index do |cart_sku,index| %>
-      <tr class="<%= set_odd_even_class index+1 %>">
-        <td><%= cart_sku.sku.number %></td>
-        <td><%= cart_sku.sku.name %></td>
-        <td><%= number_to_currency cart_sku.sku.cost_aft_tax, :unit => "￥" %></td>
-        <td><%= cart_sku.quantity %></td>
-        <td></td>
-        <td><%= number_to_currency cart_sku.sku.installation_cost_aft_tax, :unit => "￥" %></td>
-        <td></td>
-        <td><%= number_to_currency cart_sku.sku.assembling_fee_aft_tax, :unit => "￥" %></td>
-        <td>&yen;0.00</td>
-        <td><%= cart_sku.total_amount %></td>
-      </tr>
-    <% end %>
+    <tr>
+      <td>子订单一</td>
+      <td>收货人名字</td>
+      <td>货到付款</td>
+      <td>&yen;99999999.99</td>
+      <td>&yen;20.00</td>
+    </tr>
+    <tr>
+      <td colspan="5">
+        <table class="order_sku_details">
+          <thead>
+            <tr>
+              <th>商品编号</th>
+              <th>商品名称</th>
+              <th>单价</th>
+              <th>数量</th>
+              <th>安装</th>
+              <th>安装费用</th>
+              <th>组装</th>
+              <th>组装费用</th>
+              <th>其他费用</th>
+              <th>小计</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @cart.cart_skuships.each_with_index do |cart_sku,index| %>
+            <tr class="<%= set_odd_even_class index+1 %>">
+              <td><%= cart_sku.sku.number %></td>
+              <td><%= cart_sku.sku.name %></td>
+              <td><%= number_to_currency cart_sku.sku.cost_aft_tax, :unit => "￥" %></td>
+              <td><%= cart_sku.quantity %></td>
+              <td></td>
+              <td><%= number_to_currency cart_sku.sku.installation_cost_aft_tax, :unit => "￥" %></td>
+              <td></td>
+              <td><%= number_to_currency cart_sku.sku.assembling_fee_aft_tax, :unit => "￥" %></td>
+              <td>&yen;0.00</td>
+              <td><%= cart_sku.total_amount %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </td>
+    </tr>
   </tbody>
   <tfoot>
     <tr>
@@ -74,8 +98,8 @@
   <p>开票抬头:</p>
   <hr />
   <p>订单备注:</p>
-  <div id="delivery_fee">
-    <p>根据您订单金额和所属区域，本次购物的运费为：<strong><%= number_to_currency @carriage_cost, :unit => "￥" %></strong></p>
+  <div id="delivery_fee" class="notification_area">
+    <p>根据您订单金额和所属区域，本次购物的总运费为：<strong><%= number_to_currency @carriage_cost, :unit => "￥" %></strong></p>
   </div>
   <form action="/order/front_orders" method="post">
     <button type="submit" class="order_buttun">提交订单</button>

@@ -53,7 +53,7 @@
   p {
     position: relative;
     float: left;
-    margin: 15px 0 15px 5px;
+    margin: 10px 0 10px 5px;
     font-size: 16px;}
   .p_1 {
     width: 80px;}
@@ -72,7 +72,7 @@
   float: left;
   clear: both;
   border: 1px solid #E73221;
-  margin: 15px;
+  margin: 15px 15px 15px 5px;
   padding: 5px;
   background-color: lighten(#E73221, 45%);
   div {
@@ -90,8 +90,23 @@
     font-size: 16px;
     color: #ffffff;
     text-align: right;
+    cursor: pointer;
     background-color: transparent;
-    background-image:url(/assets/sku_details/add_to_chart.png);}}
+    background-image: url(/assets/sku_details/add_to_chart.png);}}
+#sku_details_promotion {
+  position: relative;
+  float: left;
+  border: 1px solid #E73221;
+  margin: 0 0 0 5px;
+  padding: 2px;
+  background-color: lighten(#E73221, 45%);
+  ul {
+    margin: 0px;
+    padding: 0px 4px;}
+  li {
+    line-height: 26px;
+    vertical-align: middle;
+    list-style: none;}}
 .add_to_favorite {
   position: relative;
   float: right;

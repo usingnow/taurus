@@ -2,7 +2,9 @@
 
 //Define the commonly used variables.
 $text_red: #E73221;
+$bg_red: #ED2E2A;
 
+//Basic style for all pages.
 h1, h2, h3, ul{
 	margin: 0px;}
 
@@ -31,59 +33,40 @@ a:active{
   padding: 4px;
   border: 1px solid $text_red;
   background-color: lighten($text_red, 40%);}
+.clear {
+	clear: both;}
 div {
   position: relative;}
-
-// Table General Style
-table, thead, tfoot, tbody, tr, th, td {
-	border-collapse: collapse;
-	border: 1px solid #999999;
-	padding: 4px 10px;
-	text-align: center;
-	font-size: 14px;}
-table {
-	width:100%;}
-th {
-	line-height: 26px;
-	vertical-align:middle;
-	background:url('/assets/templates/titlebar/bar_bg_1_35.png');}
-thead {
-  tr:hover {
-    color: #333333;}}
-caption {
-	text-align:left;
-	padding: 4px 0 4px 40px;}
-.even {
+input, select {
+	border: solid 1px #dddddd;
+	padding: 3px 3px 3px 3px;}
+input:focus {
 	background: #dddddd;}
-tr:hover {
-	background: $text_red;
-	color: #ffffff;
-	a {
-    color: #ffffff;
-    text-decoration:underline;}
-	a:hover {
-	  text-decoration:none;}}
-tr {
-	td {
-    input {
-      width: 40px;
-      text-align: center;}}}
-tfoot {
-  tr:hover {
-	  background-color:transparent;
-	  td {
-	    color:#333333;}}
-  td {
-    height: 40px;
-    line-height: 40px;
-    vertical-align: middle;
-    font-size: 16px;
-    text-align: right;}
-  tr {
-    td {
-      i {
-        font-style: normal;
-        color: $text_red;}}}}
+.element_clear_right {
+	clear: right;}
+.element_float_left {
+	float: left;}
+.input_width_35 {
+	width: 35px;}
+.input_width_220 {
+	width: 220px;}
+input {
+	width: 120px;}
+.width_220 {
+	width: 220px;
+	border: 1px solid #dddddd;}
+.width_766 {
+	width: 766px;
+	border: 1px solid #dddddd;}
+.padding_4 {
+	padding: 4px;}
+// Horizontal <ul> <li> style.
+.h_ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;}
+.h_li {
+	float: left;}
 
 //Cart process style
 table {
@@ -110,6 +93,76 @@ table {
 	margin-top: 65px;}
 .white {
 	color: #ffffff;}
+
+//General Style in Header.
+#header {
+	width: 1000px;
+	height: 137px;
+	position:relative;
+	float:left;
+	margin: 0 0 4px 0;}
+//Toolbar style in Header.
+#tool_bar {
+	position: absolute;
+	top: 5px;
+	right: 100px;
+  margin: 0px;
+  width: 360px;
+  height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+  ul {
+    float:right;
+    margin: 0;
+    padding: 0;
+    list-style: none;}
+  li {
+    float:left;
+    margin: 0 0 0 4px;}}
+//Sharebar style in Header.
+#share_bar {
+	position: absolute;
+	top: 0;
+	right: 0;
+  #sina {
+    position:absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 100;}
+  #kaixin {
+	position:absolute;
+	top: 2px;
+	right: 48px;
+	z-index: 100;}}
+//Logo style in Header.
+#logo {
+	position: absolute;
+	top: 0;
+	left: 40px;}
+//Servie information style in Header.
+#service_phone {
+	position: absolute;
+	top: 52px;
+	left: 780px;}
+#service_ol {
+	position: absolute;
+	top: 52px;
+	right: 2px;}
+//Welcome wording in Header.
+#welcome {
+	position: absolute;
+	top: 7px;
+	left: 360px;
+	height: 30px;
+	line-height:30px;
+	vertical-align:middle;
+  p {
+    height: 30px;
+    margin: 0px;
+    a {
+	    color: blue;}
+    a:hover {
+	    color: red;}}}
 
 //Search bar style in the header.
 #search_bar {
@@ -233,3 +286,238 @@ table {
 	position: absolute;
 	top: 2px;
 	left: 2px;}
+//Main content position.
+#main {
+	position: relative;
+	float: left;
+	width: 1000px;
+	background-color: #ffffff;}
+
+// Homepage and level 2 pages SKU_categary style.
+.sku_category {
+	position: relative;
+	float: left;
+	width: 1000px;
+	margin: 10px 0 0 0;}
+
+.sku_list_li {
+	width: 131px;
+	height: 180px;
+	border: 1px solid #FFFFFF;
+	margin: 2px;
+	padding: 0px;
+	text-align:center;}
+.sku_list_li:hover {
+	border: 1px solid $text_red;}
+.sku_list_ul {
+	position: relative;
+	float: left;
+	width: 550px;
+	margin: 4px 10px 0 10px;}
+.sku_list_p {
+	margin: 2px 0 2px 0;}
+.sku_list_bar_short {
+	display: block;
+	width: 208px;
+	height: 26px;
+	line-height: 26px;
+	vertical-align: middle;
+	text-align: center;
+	font-weight: normal;
+	color: $text_red;;
+	background-image:url('/assets/templates/titlebar/bar_bg_1_30.png');}
+.sku_list_sort {
+	position: relative;
+	float: right;
+	width: 208px;
+	height: 367px;
+	border: 1px solid #dddddd;
+	margin: 4px 0 0 0;}
+.sku_list_sort_ul {
+	list-style: none;
+	padding: 4px;}
+.sku_list_sort_li {
+	position:relative;
+	float:left;
+	width: 100%;
+	height: 32px;
+	padding: 0;
+	margin: 2px 0 2px 0;
+  div {
+    position:absolute;
+    top: 8px;
+    left: 38px;
+    width: 152px;
+    height: 23px;
+    border-bottom: 1px dashed #990000;}
+  div:hover {
+	position:absolute;
+	top: 8px;
+	left: 38px;
+	width: 152px;
+	height: 23px;
+	border-bottom: 1px solid #990000;}}
+.category_recommend {
+	position:absolute;
+	top: 5px;
+	right: 8px;
+  li {
+    margin: 0 0 0 4px;}}
+.special_blue {
+	color: #005AA0;}
+.sku_list_left_col {
+	position:relative;
+	float: left;
+	width: 220px;
+	height: 369px;
+	background:#CC6633;
+	margin: 4px 0 0 0;}
+
+
+.sku_list_sort_hot {
+	width:100%;
+	font-size: 12px;
+	line-height:25px;
+	vertical-align:middle;
+  .has_children{
+    background : #ffffff;
+    color :#333333;
+    cursor:pointer;
+    border-bottom: 1px dashed #dddddd;}
+  .highlight{
+	color : $text_red;
+	border-bottom: 1px solid #ffffff;}
+  div{
+    padding:0;
+    a{
+      display : none;
+      float:left;
+      width: 100%;
+      margin: 2px 0 0 0;
+      text-align:center;}
+    span:hover {
+      color: #E73227;
+      text-decoration:underline;}}
+  .has_children {
+    span {
+	    padding: 0 0 0 8px;}}}
+
+.sku_list_sort_hot_bottom_line {
+	border-bottom: 1px dashed #dddddd;}
+
+//Footer Style in Homepage
+
+#footer {
+  position: relative;
+	float:left;
+  width: 1000px;
+  height: 400px;
+  margin: 10px 0 0 0;
+  background-color: #ffffff;
+	clear: both;}
+//合作品牌
+#brand-corperate {
+  position: relative;
+  float: left;
+  width: 998px;
+  height: 167px;
+  background-color: #ffffff;
+	border-top: 0px;
+  h2 {
+    width: 992px;
+    padding: 0 0 0 8px;}
+  ul {
+    position: relative;
+    float: left;
+    margin: 0 0 0 0;
+	  padding: 0 14px 0 14px;
+	  li {
+    position: relative;
+    float: left;
+    display: block;
+    margin: 4px 2px 4px 2px;}}}
+//联系方式
+#footer_contact_bar {
+	position: relative;
+	float: left;
+	width: 1000px;
+	height: 26px;
+	margin: 15px 0 0 0;
+	background-image: url('/assets/templates/titlebar/bar_bg_1_30.png');
+	line-height: 26px;
+	vertical-align: middle;
+	text-align: center;
+  ul {
+    padding: 0 0 0 260px;}
+  li {
+	margin: 0 0 0 40px;
+	font-size:14px;
+	color: $text_red;
+  a {
+	  color: $text_red;}
+  a:hover {
+    text-decoration: underline;}}}
+
+#corp-info {
+  position: relative;
+  float: left;
+  width: 1000px;
+  height: 140px;
+	margin: 10px 0 0 0;
+	padding: 0 0 0 20px;
+  background-color: #ffffff;
+  div {
+    position: relative;
+    float: left;
+    margin: 0 0 0 30px;
+    padding-top: 0;
+    top: 0;
+    width: 135px;
+    h3 {
+    margin: 0 0 0 0;
+    font-family: "黑体";
+    line-height: 30px;
+    vertical-align: middle;
+    text-indent: 30px;
+    display: block;}}
+  img {
+    position: absolute;
+    top: 0;
+    left: -20px;}}
+
+.corp_info_li_line_height {
+	height:20px;
+	line-height:20px;
+	vertical-align: middle;}
+.footer_title {
+  position: relative;
+  float: left;
+  padding-left: 200px;
+	width: 800px;}
+.footer_title li {
+	margin: 0 0 0 20px;
+	font-size:14px;
+	font-weight:bold;}
+.footer_warranty {
+  position: relative;
+  float: left;
+  padding-left: 20px;
+	clear: both;
+  li {
+    margin: 0 0 0 40px;}}
+
+div#copyright {
+    position: relative;
+    float: left;
+    margin: 0 0 0 0;
+    clear: both;
+    width: 1000px;
+    text-align: center;}
+#link_certificates {
+	position:relative;
+	float:left;
+  ul {
+    width: 1000px;
+    padding: 0 0 0 170px;}
+  li {
+	margin: 0 0 0 10px;}}
