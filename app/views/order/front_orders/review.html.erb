@@ -40,11 +40,6 @@
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="11" class="short_height_td">
-        <%= will_paginate @cart_skuships %>
-      </td>
-    </tr>
-    <tr>
       <td colspan="11">
         商品总价：
         <i id="total_sku_amount">
@@ -66,12 +61,45 @@
       <td colspan="11">
         <strong>选购商品价格总计</strong>
         （不包含运费）：
-        <strong><i id="total_amount"><%= number_to_currency @cart.total_amount, :unit => "￥" %></i></strong>
+        <strong><i><%= number_to_currency @cart.total_amount, :unit => "￥" %></i></strong>
         元
       </td>
     </tr>
   </tfoot>
 </table>
+<% @direct_sendings.each do |direct_sending| %>
+  <table class="margin_top_65">
+    <caption>直送商品清单预览</caption>
+    <thead>
+      <tr>
+        <th>商品编号</th>
+        <th>商品名称</th>
+        <th>单价</th>
+        <th>数量</th>
+        <th>安装</th>
+        <th>安装费用</th>
+        <th>组装</th>
+        <th>组装费用</th>
+        <th>其他费用</th>
+        <th>合计</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <td><%= direct_sending.sku.number %></td>
+        <td><%= direct_sending.sku.name %></td>
+        <td><%= number_to_currency direct_sending.sku.cost_aft_tax, :unit => "￥" %></td>
+        <td><%= direct_sending.quantity %></td>
+        <td><%= format_boolean direct_sending.is_need_install %></td>
+        <td><%= number_to_currency direct_sending.sku.installation_cost_aft_tax, :unit => "￥" %></td>
+        <td><%= format_boolean direct_sending.is_need_assemble %></td>
+        <td><%= number_to_currency direct_sending.sku.assembling_fee_aft_tax, :unit => "￥" %></td>
+        <td>非法字段</td>
+        <td><%= direct_sending.total_amount %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
 <div id="order_info_review">
   <h2>订单信息预览</h2>
   <p>收件人姓名:<%= @consignee_info.name %></p>

@@ -50,7 +50,8 @@ class Order::FrontOrdersController < ApplicationController
           @carriage_cost = 20
         end
       end
-      @cart_skuships = CartSkuship.where(:cart_id => @cart.id).paginate(:page => params[:page], :per_page => 10)
+      @cart_skuships = CartSkuship.where("cart_id = #{@cart.id} and sku_id in(select id from skus where sku_type != 2)")
+      @direct_sendings = CartSkuship.where("cart_id = #{@cart.id} and sku_id in(select id from skus where sku_type = 2)")
       @order_remark = params[:order_remark]
     else
       @cart = current_cart

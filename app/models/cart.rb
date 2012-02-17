@@ -17,17 +17,19 @@ class Cart < ActiveRecord::Base
   end
 
   def total_sku_amount
-    cart_skuships.to_a.sum { |cart_sku| cart_sku.quantity * cart_sku.sku.cost_aft_tax }
+    cart_skuships.where("sku_id in (select id from skus where sku_type !=2)").to_a.sum do |cart_sku|
+      cart_sku.quantity * cart_sku.sku.cost_aft_tax
+    end
   end
 
   def total_installation_amount
-    cart_skuships.where("is_need_install = 1").to_a.sum do |cart_sku|
+    cart_skuships.where("is_need_install = 1 and sku_id in (select id from skus where sku_type !=2)").to_a.sum do |cart_sku|
       cart_sku.sku.installation_cost_aft_tax
     end
   end
 
   def total_assembling_amount
-    cart_skuships.where("is_need_assemble = 1").to_a.sum do |cart_sku|
+    cart_skuships.where("is_need_assemble = 1 and sku_id in (select id from skus where sku_type !=2)").to_a.sum do |cart_sku|
       cart_sku.sku.assembling_fee_aft_tax
     end
   end
