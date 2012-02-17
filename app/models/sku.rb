@@ -43,4 +43,14 @@ class Sku < ActiveRecord::Base
     end
   end
 
+  def inventory?(quantity,store_id)
+    flag = true
+    sku_productships.each do |sku_product|
+      unless sku_product.product.inventory?(quantity * sku_product.package_num,store_id)
+        flag = false
+        break
+      end
+    end
+    flag
+  end
 end

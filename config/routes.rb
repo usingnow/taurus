@@ -235,6 +235,7 @@ Ebiz::Application.routes.draw do
     resources :front_orders do
       collection do
         post :review
+        get  :success
       end
     end
   end
