@@ -46,7 +46,12 @@ font-size: 14px;}
 fieldset {
   border: 1px solid #999999;
   padding: 4px;
-  margin: 10px 0 0 0;}
+  margin: 10px 0 0 0;
+  p {
+    weight: normal;
+    + input:hover {
+    background-image:url(/assets/cart_skuships/chartbutton02.png);
+    cursor: pointer;}}}
 .short_height_td {  //This style is for the pagination in the tfoot.
   height: 20px;
   line-height: 20px;
@@ -68,13 +73,7 @@ fieldset {
   font-size: 14px;
   border: 1px solid #999999;}
 #delivery_fee {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 4px;
   font-size: 16px;
-  border: 1px solid $text_red;
-  background-color: lighten($text_red, 40%);
   strong {
     color: $text_red;}}
 
@@ -109,10 +108,91 @@ fieldset {
 #order_info_review {
 	position: relative;
 	float: left;
-	border: 1px solid #dddddd;
+	border: 1px solid #999999;
 	width: 990px;
 	margin: 10px 0 0 0;
 	padding: 4px;
-	font-size: 14px;
-}
+	font-size: 14px;}
+
+.order_split_details {
+  width: 100%;
+  th {
+    line-height: 26px;
+    vertical-align:middle;
+    background:url('/assets/templates/titlebar/bar_bg_1_35.png');}
+  caption {
+    text-align:left;
+    font-size: 16px;
+    padding: 4px 0 4px 40px;}
+  tfoot {
+    tr:hover {
+      background-color:transparent;
+      td {
+        color:#333333;}}
+    td {
+      height: 40px;
+      line-height: 40px;
+      vertical-align: middle;
+      font-size: 16px;
+      text-align: right;}
+    tr {
+      td {
+        i {
+          font-style: normal;
+          color: $text_red;}}}}}
+
+.order_sku_details {
+  width: 100%;
+  th {
+    line-height: 26px;
+    vertical-align:middle;
+    background:url('/assets/templates/titlebar/bar_bg_1_35.png');}
+  caption {
+    text-align:left;
+    font-size: 16px;
+    padding: 4px 0 4px 40px;}
+  thead {
+    tr:hover {
+      color: #333333;}}
+  .even {
+    background: #dddddd;}
+  tr:hover {
+    background: $text_red;
+    color: #ffffff;
+    a {
+      color: #ffffff;
+      text-decoration:underline;}
+    a:hover {
+      text-decoration:none;}}
+  tr {
+    td {
+      input {
+        width: 40px;
+        text-align: center;}}}
+  tfoot {
+    tr:hover {
+      background-color:transparent;
+      td {
+        color:#333333;}}
+    td {
+      height: 40px;
+      line-height: 40px;
+      vertical-align: middle;
+      font-size: 16px;
+      text-align: right;}
+    tr {
+      td {
+        i {
+          font-style: normal;
+          color: $text_red;}}}}}
+
+// Table General Style
+table, thead, tfoot, tbody, tr, th, td {
+	border-collapse: collapse;
+	border: 1px solid #999999;
+	padding: 4px 10px;
+	text-align: center;
+	font-size: 14px;}
+
+
 

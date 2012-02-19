@@ -1,0 +1,286 @@
+@import "public";
+
+//Main Menu style
+#main_menu_wrapper {
+	position:relative;
+	float:left;
+	width: 220px;
+	margin: 4px 0 0 0;
+}
+#main_menu {
+	padding: 2px 0 0 0;
+	width: 220px;
+	height: 233px;
+	background: #ffffff;  /** Main virtical menu background **/
+	border: 1px solid #dddddd;
+	border-top: 0px;
+}
+#main_menu li{
+	position:relative; float:left;
+	width:220px;
+	height: 38px;
+	padding-left:0px; padding-top:0px;
+	display:block;
+	background: url('/assets/home/menu-arrow.png') no-repeat 172px 0px;
+	text-align: left;
+}
+#main_menu li a {
+	font-size:15px;
+	display:block;
+	text-decoration:none;
+	line-height:38px;
+	vertical-align: middle;
+	text-align:left;
+	text-indent: 38px;
+}
+#main_menu li:hover .cms_submenu .cmsmenuleft .menu_recommend dt a {
+	color: #e73221;
+	text-align: left;
+	text-indent: 0px;
+}
+#main_menu li:hover .cms_submenu .cmsmenuleft .menu_recommend dt a:hover {
+	color: #e73221;
+	text-align: left;
+	text-decoration:underline;
+}
+#main_menu li:hover > a {
+	color:#ffffff;
+	font-size:15px;
+	display:block;
+	background-color: $bg_red;
+	z-index:1000;
+}
+#main_menu div a {
+	font-size:12px;
+	color: #333333;
+	line-height:16px;
+	border: 0px;
+	text-indent: 0px;
+}
+#main_menu li:hover div a:hover {
+	color:#dd0101;
+}
+
+.cms_submenu {
+	text-align:left;
+	border:1px solid #E73227;
+	width:557px;
+}
+/** The content in the menu details **/
+.cmsmenuleft {
+	float:left;
+  width:385px;
+  min-height: 400px;
+	color:#ccc;
+	padding:5px;
+	border-right:1px #eee solid;
+	background: #ffffff;
+}
+.cmsmenuright {
+	float:right;
+	width:140px;
+	padding:8px;
+}
+
+.cmsmenuleft dt {
+	color: #dd0101;
+	margin: 5px 0;
+	padding: 3px 0 3px 10px;
+	text-align: left;
+}
+.cmsmenuright dt {
+	color: #ffffff;
+	margin: 5px 0;
+	padding: 3px 0 3px 10px;
+	font-size: 14px;
+	text-align: left;
+}
+.cmsmenuleft dd i{
+	float:left;padding:0 8px;margin: 0;
+	white-space: nowrap;
+	border-right:1px solid #ccc;
+	font-style:normal;
+	line-height: 24px;
+	vertical-align:middle;
+}
+.cmsmenuright dd {
+	margin: 0;
+}
+.cmsmenuright dd i {
+	font-style:normal;}
+#main_menu .cmsmenuright dd i a {
+	color: #ffffff;
+	font-size:14px;
+}
+#main_menu .cmsmenuright dd i a:hover {
+	color: #ffffff;
+	text-decoration: underline;
+}
+#main_menu_wrapper h2 {
+	width: 222px; /**Main Menu Bar Title **/
+	height: 35px;
+	line-height: 35px;
+	vertical-align:middle;
+	text-align:center;
+	font-weight:bold;
+	color:#E73227;
+	font-size:14px;
+	background-image:url('/assets/templates/titlebar/bar_bg_1_35.png');
+}
+.display {
+	position:absolute;
+	left: 220px;
+	display:block;
+	margin: 0;
+	padding: 0;
+	background: #ed2e2a;
+	z-index: 1000;
+}
+.display_m1 {
+	top: 0px;
+}
+.display_m2 {
+	top: -38px;
+}
+.display_m3 {
+	top: -76px;
+}
+.display_m4 {
+	top: -114px;
+}
+.display_m5 {
+	top: -152px;
+}
+.display_m6 {
+	top: -190px;
+}
+.non_display {
+	display: none;
+}
+
+//Login bar style
+.box {
+	width: 208px;
+	height:200px;
+	margin: 0;
+	padding: 0px;
+	border-color: #dddddd;}
+#login_bar {
+	position:relative;
+	float:right;
+	width: 210px;
+	height: 270px;
+	margin: 4px 0 0 0;
+  ul {
+    height: 26px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    background-image: url('/assets/templates/titlebar/bar_bg_1_30.png');
+    list-style-type: none;}
+  li {
+    width: 104px;
+    height: 26px;
+    padding:0px;
+    float:left;
+    text-align:center;
+    line-height: 26px;
+    vertical-align:middle;}
+  .content {
+    width:191px;
+    height: 160px;
+    padding: 4px 8px 4px 8px;
+    float:left;
+    background:#ffffff;
+    text-align: left;
+    ul, li {
+      margin:0;
+      padding:0px;
+      width: 200px;
+      text-align:left;
+      background-image:none;}
+    img {
+      clear: both;
+      float:right;
+      outline: 1px solid #333333;
+      margin: 7px 2px 0 0;}
+    p {
+      height: 34px;
+      line-height: 34px;
+      vertical-align: middle;
+      margin: 0;
+      input {
+        width: 138px;
+        height: 16px;}
+      button {
+        width: 70px;
+        height: 30px;
+        color: #ffffff;
+        font-size: 15px;
+        line-height: 26px;
+        vertical-align: middle;
+        border: 0px;
+        margin: 0px;
+        background-image:url('/assets/home/login01.png');}
+      button:hover {
+        cursor:pointer;
+        background-image:url('/assets/home/login02.png');}
+      button:focus {
+        cursor:pointer;
+        background-image:url('/assets/home/login02.png');}}}}
+//Side Bar style in Home/main
+#slider_bar {
+	position: relative;
+	float: left;
+	width: 550px;
+	height: 270px;
+	background: #3399FF;
+	margin: 4px 10px 0 10px;}
+
+//Banner position in home page.
+#banner_1 {
+	position: relative;
+	float:left;
+	width:208px;
+	height: 130px;
+	margin: 10px 0 0 1px;
+	outline: 1px solid #dddddd;}
+#banner_2 {
+	position: relative;
+	float: left;
+	width: 220px;
+	height: 200px;
+	clear: left;
+	border: 1px solid #dddddd;
+	margin: 10px 0 0 0;}
+#banner_3 {
+	position: relative;
+	float: left;
+	width: 548px;
+	height: 200px;
+	margin: 10px 9px 0 8px;}
+#banner_4 {
+	position: relative;
+	float:left;
+	width:208px;
+	height: 130px;
+	margin: 80px 0 0 4px;
+	outline: 1px solid #dddddd;}
+#banner_5 {
+	position: relative;
+	float:left;
+	width:1000px;
+	height: 60px;
+	margin: 8px 0 0 0;}
+#banner_6 {
+	position: relative;
+	float:left;
+	width:1000px;
+	height: 60px;
+	margin: 8px 0 0 0;}
+#banner_7 {
+	position: relative;
+	float:left;
+	width:1000px;
+	height: 60px;
+	margin: 8px 0 0 0;}
