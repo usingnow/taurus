@@ -1,6 +1,5 @@
-// Place all the styles related to the commodity/sku_details controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+//= require plugin/jquery.jqzoom
+//= require plugin/jquery.jcarousel
 
 .sku_details_nav {
   margin: 4px 0 10px 0;
@@ -16,10 +15,11 @@
   width: 400px;
   height: 456px;}
 #controller_pane {
-  position: relative;
+  position: absolute;
   width: 400px;
   height: 50px;
-  padding: 3px 0 3px 0;}
+  padding: 3px 0 3px 0;
+  top: 401px;}
 #controller_handler_left {
   position: absolute;
   left: 8px;
@@ -36,8 +36,7 @@
     margin: 2px 0 3px 0;}}
 #controller_handler_center {
   position: absolute;
-  left: 20px;
-  width: 360px;
+  width: 400px;
   height: 50px;
   li {
     padding: 0 5px 0 5px;}}

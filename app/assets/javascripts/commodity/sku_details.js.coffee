@@ -1,3 +1,6 @@
+#= require plugin/jquery.jqzoom-core-pack
+#= require plugin/jquery.jcarousel.min
+
 jQuery ->
   jQuery("#add_to_cart").click ->
     jQuery.ajax '/cart/cart_skuships',
@@ -14,3 +17,13 @@ jQuery ->
 
   jQuery('#plus').click ->
     jQuery('#sku_quantity').val( Number(jQuery('#sku_quantity').val()) + 1 )
+
+
+  jQuery('.jqzoom').jqzoom ->
+    zoomType: 'standard',
+    lens:true,
+    preloadImages: false,
+    alwaysOn:false
+
+  jQuery('#sku_carousel').jcarousel ->
+    	wrap: 'circular'
