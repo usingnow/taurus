@@ -1,0 +1,9 @@
+zh-CN:
+  activerecord:
+    models:
+      image: "图片"
+    attributes:
+      image:
+        page: "页面"
+        location: "位置"
+        image: "图片"

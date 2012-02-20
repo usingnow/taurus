@@ -71,6 +71,7 @@ class Order::FrontOrdersController < ApplicationController
     #获得 此流程 的首站
     station_procedureship = StationProcedureship.find_by_procedure_id_and_sequence(temp_payment.procedure_id,1)
 
+    session[:order_ids] = []
     Order.transaction do
       flag = false
 
@@ -117,6 +118,7 @@ class Order::FrontOrdersController < ApplicationController
         order.batch = order.number[0,8]+"-"+order.number[9,13]
 
         if order.save
+          session[:order_ids] << order.id
           line_items = []
 
           cart.not_direct_sends.each do |nds|
@@ -138,6 +140,7 @@ class Order::FrontOrdersController < ApplicationController
         station_procedureship_reserve = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(
              temp_payment.procedure_id,station_procedureship.next_station_id,condition.id)
 
+        batch = nil
         cart.direct_sends.each do |ds|
           #获得实例
           instance = Instance.create(:procedure_id => temp_payment.procedure_id,
@@ -153,7 +156,6 @@ class Order::FrontOrdersController < ApplicationController
                    :created_by => "前台客户"}]
           save_station_track(hash)
 
-
           order = Order.new(:number => current_number, :instance_id => instance.id, :user_id => user.id,
             :district_no => consignee_info.district_no, :name => consignee_info.name,:address => consignee_info.address,
             :zip => consignee_info.zip, :phone => consignee_info.phone, :mobile => consignee_info.mobile,
@@ -165,9 +167,16 @@ class Order::FrontOrdersController < ApplicationController
             :reserve_reason => "直送品保留", :customer_note => params[:customer_note],
             :carriage_cost => ds.ds_carriage_cost(consignee_info.district_no),
             :carriage_adjustment => ds.ds_carriage_cost(consignee_info.district_no))
-          order.batch = order.number[0,8]+"-"+order.number[9,13]
+          if batch.nil?
+            order.batch = order.number[0,8]+"-"+order.number[9,13]
+            batch = order.batch
+          else
+            order.batch = batch
+          end
 
           if order.save
+            session[:order_ids] << order.id
+
             if OrderDetail.create(:order_id => order.id, :sku_id => ds.sku_id, :unit_price => ds.sku.cost_aft_tax,
                              :quantity => ds.quantity)
               flag = true
@@ -181,8 +190,8 @@ class Order::FrontOrdersController < ApplicationController
       end
 
       if flag
-      Cart.destroy(session[:cart_id])
-      session[:cart_id] = nil
+        Cart.destroy(session[:cart_id])
+        session[:cart_id] = nil
         redirect_to(success_order_front_orders_url)
       else
         redirect_to(home_url)
@@ -191,7 +200,7 @@ class Order::FrontOrdersController < ApplicationController
   end
 
   def success
-
+    @orders = Order.where("id in(#{session[:order_ids].join(",")})")
   end
 
 end

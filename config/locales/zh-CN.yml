@@ -200,7 +200,6 @@ zh-CN:
     delivery_order: "出库单"
     esc: "升级单"
     group: "组"
-    image: "图片"
     order: "订单"
     ordering_company: "订货公司"
     person_extend: "个人会员"
@@ -545,10 +544,6 @@ zh-CN:
       bank_id: "汇入银行"
       note: "汇款备注"
 
-    panic_buying:
-      name: "名称"
-      href: "链接"
-      image: "图片"
 
     purchase:
       ordering_company_id: "订货公司"
@@ -560,11 +555,6 @@ zh-CN:
     inner_order_address:
       mobile: "手机"
 
-    image:
-      location: "位置"
-      image: "图片"
-
-    slider_bar:
 
 
 
