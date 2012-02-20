@@ -7,7 +7,7 @@ class Order::FrontOrdersController < ApplicationController
     @cart = current_cart
     if @cart.total_items > 0
       user_id = current_user.id
-      @cart_skuships = CartSkuship.where(:cart_id => @cart.id).paginate(:page => params[:page], :per_page => 10)
+      @cart_skuships = CartSkuship.where(:cart_id => @cart.id)
       @procedures = Procedure.user_procedures(user_id)
       @consignee_info = ConsigneeInfo.find_by_user_id(user_id)
       @user_addresses = UserAddress.find_all_by_user_id(user_id)
@@ -50,7 +50,7 @@ class Order::FrontOrdersController < ApplicationController
           @carriage_cost = 20
         end
       end
-      @cart_skuships = CartSkuship.where("cart_id = #{@cart.id} and sku_id in(select id from skus where sku_type != 2)")
+      @not_direct_sendings = CartSkuship.where("cart_id = #{@cart.id} and sku_id in(select id from skus where sku_type != 2)")
       @direct_sendings = CartSkuship.where("cart_id = #{@cart.id} and sku_id in(select id from skus where sku_type = 2)")
       @order_remark = params[:order_remark]
     else

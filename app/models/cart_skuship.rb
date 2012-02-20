@@ -17,7 +17,8 @@ class CartSkuship < ActiveRecord::Base
   #直送品运费
   def ds_carriage_cost(district_no)
     carriage_cost = 0
-    if district_no == 330200
+    city_no = District.find_by_number(district_no).city_no
+    if city_no == 330200
       unless total_amount > 50
         carriage_cost = 5
       end
