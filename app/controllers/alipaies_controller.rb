@@ -1,5 +1,5 @@
 #encoding:UTF-8
-class AlipayController < ApplicationController
+class AlipaiesController < ApplicationController
   def index
     @order = Order.find_by_number(params[:number])
     parameters = {

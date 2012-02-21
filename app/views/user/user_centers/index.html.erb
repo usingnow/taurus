@@ -1,0 +1,30 @@
+<table>
+  <thead>
+    <tr>
+      <th><%= t 'activerecord.attributes.order.number' %></th>
+      <th><%= t 'activerecord.attributes.order.created_at' %></th>
+      <th><%= t 'activerecord.attributes.order.name' %></th>
+      <th><%= t 'activerecord.attributes.order.procedure' %></th>
+      <th><%= t 'activerecord.attributes.order.station' %></th>
+      <th><%= t 'operating' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.number %></td>
+        <td><%= order.created_at %></td>
+        <td><%= order.name %></td>
+        <td><%= order.instance.procedure.display_name %></td>
+        <td><%= order.instance.station.display_name %></td>
+        <td>
+          <strong>
+            <%= link_to "立即付款", alipaies_path(:number => order.number), :target => "blank" %>
+          </strong>
+          <a href="#">修改</a>
+          <a href="#">取消</a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

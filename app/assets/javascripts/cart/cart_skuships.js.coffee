@@ -12,7 +12,7 @@ Number.prototype.toCurrency = ->
 
 jQuery ->
   jQuery('#go_settlement').click ->
-    window.location.href = "/order/front_orders"
+    window.location.href = "/order/front_orders/new"
 
   jQuery('#continue_shopping').click ->
     window.location.href = "/"

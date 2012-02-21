@@ -1,0 +1,25 @@
+zh-CN:
+  activerecord:
+    models:
+      order: "订单"
+    attributes:
+      order:
+        number: "订单编号"
+        batch: "订单批次"
+        name: "收货人"
+        contact_name: "联系人"
+        address: "收货地址"
+        procedure: "支付方式"
+        phone: "固定电话"
+        zip: "邮编"
+        mobile: "手机"
+        email: "邮箱"
+        user: "客户名"
+        instance: "支付流程"
+        total_price: "订单金额"
+        station: "订单状态"
+        make_by: "制单人"
+        sku_type: "商品类型"
+        user_login_no: "会员用户名"
+        created_at: "下单日期"
+        inner_note: "订单备注"

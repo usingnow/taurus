@@ -4,6 +4,10 @@ class Order::FrontOrdersController < ApplicationController
   before_filter :authenticate_user!
 
   def index
+    @orders = current_user.orders
+  end
+
+  def new
     @cart = current_cart
     if @cart.total_items > 0
       user_id = current_user.id
@@ -56,8 +60,8 @@ class Order::FrontOrdersController < ApplicationController
     else
       @cart = current_cart
       @procedures = Procedure.user_procedures @user.id
-      @cart_skuships = CartSkuship.where(:cart_id => @cart.id).paginate(:page => params[:page], :per_page => 10)
-      render :action => "index"
+      @cart_skuships = CartSkuship.where(:cart_id => @cart.id)
+      render :action => "new"
     end
   end
 
