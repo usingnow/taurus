@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120220022156) do
+ActiveRecord::Schema.define(:version => 20120221071439) do
 
   create_table "admin_groups", :force => true do |t|
     t.string   "group_no"
@@ -734,6 +734,16 @@ ActiveRecord::Schema.define(:version => 20120220022156) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "media_id"
+  end
+
+  create_table "sku_on_shelves", :force => true do |t|
+    t.integer  "sku_id"
+    t.datetime "on_shelf_time"
+    t.datetime "off_shelf_time"
+    t.string   "off_shelf_description"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sku_productships", :force => true do |t|

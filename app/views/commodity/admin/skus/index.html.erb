@@ -1,7 +1,7 @@
 <h1>媒体商品列表</h1>
 
 <div class="attributes">
-  <%= search_form_for [:admin,@search] do |f| %>
+  <%= search_form_for [:commodity_admin,@search] do |f| %>
     <div class="split_content_left">
       <p>
         <%= f.label '编号' %>
@@ -22,8 +22,9 @@
   <% end %>
 </div>
 
+
 <div class="grid_button">
-  <%= link_to '新建媒体商品', new_admin_sku_path %>
+  <%= link_to '新建媒体商品', new_commodity_admin_sku_path %>
 </div>
 
 <table class="grid">
@@ -49,16 +50,16 @@
   <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
     <td><%= index+1 %></td>
     <td><%= sku.number %></td>
-    <td align="left"><%= link_to sku.name, admin_sku_path(sku) %></td>
+    <td align="left"><%= link_to sku.name, commodity_admin_sku_path(sku) %></td>
     <td><%= sku.sku_category_id %></td>
     <td><%= sku.unit %></td>
     <td><%= format_sku_type sku.sku_type %></td>
     <td><%= format_sku_status sku.status %></td>
-    <td><%= format_sku_sales_status sku.sales_status %></td>
+    <td><%= link_to format_sku_shelf_status(sku.shelf_status), commodity_admin_sku_sku_on_shelves_path(sku) %></td>
     <td><%= sku.updated_at %></td>
-    <td><%= link_to '商品组成', 'sku_productships?sku_id='+sku.id.to_s %></td>
-    <td><%= link_to '相册', 'sku_images?sku_id='+sku.id.to_s %></td>
-    <td><%= link_to '修改', edit_admin_sku_path(sku) %></td>
+    <td><%= link_to '商品组成', '/admin/sku_productships?sku_id='+sku.id.to_s %></td>
+    <td><%= link_to '相册', '/admin/sku_images?sku_id='+sku.id.to_s %></td>
+    <td><%= link_to '修改', edit_commodity_admin_sku_path(sku) %></td>
   </tr>
 <% end %>
 </table>

@@ -1,13 +1,12 @@
-class Admin::SkusController < ApplicationController
+class Commodity::Admin::SkusController < ApplicationController
   before_filter :authenticate_administrator!
   authorize_resource
-  # GET /skus
-  # GET /skus.xml
+
+
   def index
     @search = Sku.search(params[:q])
     @search.sorts = "updated_at desc"
     @skus = @search.result.paginate(:page => params[:page], :per_page => 20)
-
   end
 
   # GET /skus/1
@@ -89,7 +88,7 @@ class Admin::SkusController < ApplicationController
     @sku.destroy
 
     respond_to do |format|
-      format.html { redirect_to(admin_skus_url) }
+      format.html { redirect_to(commodity_admin_skus_url) }
       format.xml  { head :ok }
     end
   end
@@ -113,7 +112,7 @@ class Admin::SkusController < ApplicationController
     end
 
     respond_to do |format|
-       format.html { redirect_to(admin_skus_url) }
+       format.html { redirect_to(commodity_admin_skus_url) }
     end
   end
 

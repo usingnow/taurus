@@ -1,7 +1,7 @@
 #encoding:UTF-8
 require 'spec_helper'
 
-describe Commodity::SkusHelper do
+describe Commodity::Admin::SkusHelper do
   describe "#format_sku_type" do
     it "返回对应结果" do
       helper.format_sku_type(1).should == "在库品"
@@ -19,10 +19,10 @@ describe Commodity::SkusHelper do
     end
   end
 
-  describe "#format_sku_sales_status" do
+  describe "#format_sku_shelf_status" do
     it "返回对应结果" do
-      helper.format_sku_sales_status(0).should == "未上架"
-      helper.format_sku_sales_status(1).should == "已上架"
+      helper.format_sku_shelf_status(false).should == "未上架"
+      helper.format_sku_shelf_status(true).should == "已上架"
     end
   end
 
