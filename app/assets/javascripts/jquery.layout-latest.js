@@ -433,7 +433,7 @@ $.fn.layout = function (opts) {
 		//	Cookie Options
 		,	domain:					""
 		,	path:					""
-		,	expires:				""			// 'days' to keep cookie - leave blank for 'session cookie'
+		,	expires:				""			// 'days' to keep cookie - leave blank for 'sessions cookie'
 		,	secure:					false
 		//	List of options to save in the cookie - must be pane-specific
 		,	keys:					"north.size,south.size,east.size,west.size,"+

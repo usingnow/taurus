@@ -13,14 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20120221071439) do
 
-  create_table "admin_groups", :force => true do |t|
-    t.string   "group_no"
-    t.string   "group_name"
-    t.string   "group_desc"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
     t.integer  "group_id"
@@ -53,33 +45,6 @@ ActiveRecord::Schema.define(:version => 20120221071439) do
 
   add_index "administrators", ["email"], :name => "index_administrators_on_email", :unique => true
   add_index "administrators", ["reset_password_token"], :name => "index_administrators_on_reset_password_token", :unique => true
-
-  create_table "admins", :force => true do |t|
-    t.string   "login_no"
-    t.string   "password"
-    t.integer  "status"
-    t.string   "question"
-    t.string   "answer"
-    t.datetime "last_login_time"
-    t.string   "email"
-    t.integer  "sex"
-    t.string   "name"
-    t.string   "address"
-    t.string   "phone"
-    t.string   "fax"
-    t.string   "mobile"
-    t.string   "post"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "admins_admin_groups", :id => false, :force => true do |t|
-    t.integer "admin_id"
-    t.integer "admin_group_id"
-  end
-
-  add_index "admins_admin_groups", ["admin_group_id"], :name => "index_admins_admin_groups_on_admin_group_id"
-  add_index "admins_admin_groups", ["admin_id", "admin_group_id"], :name => "index_admins_admin_groups_on_admin_id_and_admin_group_id", :unique => true
 
   create_table "announcements", :force => true do |t|
     t.string   "title"

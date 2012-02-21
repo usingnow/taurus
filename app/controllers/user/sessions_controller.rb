@@ -1,5 +1,5 @@
 class User::SessionsController < Devise::SessionsController
-  layout "devise"
+  layout "home"
 
   def new
     super

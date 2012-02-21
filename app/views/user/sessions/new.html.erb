@@ -1,11 +1,41 @@
-<h2>壹美壹家</h2>
+<div id="login_wrapper">
+  <h2 class="bar_background_1_30">用户登陆</h2>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :login_no %><br />
-  <%= f.text_field :login_no %></div>
+  <div id="login_window_left_up">
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <p class="p_label row_1">
+      <%= f.label :login_no %>：
+    </p>
+    <p class="p_input row_1">
+      <%= f.text_field :login_no %>
+    </p>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+    <p class="p_label row_2">
+      <%= f.label :password %>：
+    </p>
+    <p class="p_input row_2">
+      <%= f.password_field :password %>
+    </p>
 
-  <div><%= f.submit "登录" %></div>
-<% end %>
+    <p class="p_label row_3">
+      验证码：
+    </p>
+    <p class="p_input row_3">
+      picture here.
+    </p>
+
+    <p class="p_button row_4"><%= f.submit "登录" %></p>
+    <a href="#" class="row_5">忘记密码？</a>
+  <% end %>
+  </div>
+  <div id="login_window_right">
+    <p>使用壹美壹家网上商店请先注册，祝您购物愉快！<br />
+    如果注册中有任何问题请致电<br /><br />
+    <strong>400-630-5006</strong></p>
+    <button type="button" class="person">个人用户注册</button>
+    <button type="button" class="enterprise">企业用户注册</button>
+  </div>
+  <div id="login_window_left_down">
+    <strong>确认需要放那些东西？</strong>
+  </div>
+</div>
