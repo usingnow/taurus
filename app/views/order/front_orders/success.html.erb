@@ -29,7 +29,9 @@
         <td><%= number_to_currency order.total_amount, :unit => "￥" %></td>
         <td><%= order.instance.station.display_name %></td>
         <td>
-          <strong><a href="#">立即付款</a></strong>
+          <strong>
+            <%= link_to "立即付款", alipaies_path(:number => order.number), :target => "blank" %>
+          </strong>
           <a href="#">修改</a>
           <a href="#">取消</a>
         </td>

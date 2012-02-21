@@ -28,27 +28,32 @@ table {
     vertical-align:middle;
     text-align: right;
     margin: 0 10px 0 10px;}}
-fieldset h2 {
-	color: $text_red;
-	margin: 8px 0 8px 4px;
-}
+fieldset {
+  h2 {
+    color: $text_red;
+    margin: 8px 0 8px 4px;}
+  a {
+      font-size: 12px;
+      cursor: pointer;}
+  br {
+    + button:hover {
+      background-image: none;}}}
 textarea {
-width: 550px;
-height: 50px;}
+  width: 550px;
+  height: 50px;}
 .remark {
-font-style: normal;
-font-size: 12px;
-font-weight: normal;
-color: $text_red;}
+  font-style: normal;
+  font-size: 12px;
+  font-weight: normal;
+  color: $text_red;}
 legend {
-font-weight: bold;
-font-size: 14px;}
+  font-weight: bold;
+  font-size: 14px;}
 fieldset {
   border: 1px solid #999999;
   padding: 4px;
   margin: 10px 0 0 0;
   p {
-    weight: normal;
     + input:hover {
     background-image:url(/assets/cart_skuships/chartbutton02.png);
     cursor: pointer;}}}
@@ -185,6 +190,23 @@ fieldset {
         i {
           font-style: normal;
           color: $text_red;}}}}}
+
+#type_invoice {
+  label {
+    width: 100px;}}
+#user_address {
+  td {
+    font-size: 12px;}
+  input {
+    width: 20px;}}
+#consignee_form {
+  p {
+    line-height: 23px;
+    vertical-align: middle;}}
+//#title_company_name {
+//  position: absolute;
+//  top: 427px;
+//  left: 230px}
 
 // Table General Style
 table, thead, tfoot, tbody, tr, th, td {

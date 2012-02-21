@@ -42,7 +42,7 @@ Ebiz::Application.routes.draw do
   resources :company_extends
   resources :person_extends
   resources :codes
-  resources :alipay do
+  resources :alipaies do
     collection do
       get :notify
       get :done

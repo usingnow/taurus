@@ -18,7 +18,7 @@
           <label for="password">密码：</label>
           <%= f.password_field :password %>
         </p>
-          <%= image_tag codes_path, :width => "60px", :height => "20px"%>
+          <%= image_tag codes_path, :width => "60px", :height => "20px", :id => "ver_code"%>
         <p>
           <label for="captcha">验证码：</label>
           <input name="image_code" id="captcha" maxlength="4" size="4" style="width: 40px; height: 16px;"/>
@@ -28,7 +28,7 @@
           <button type="reset" class="login_button">重置</button>
         </p>
         <p style="text-align:center">
-          <a href="#">立即注册</a> | <a href="#">忘记密码</a> | <a href="#">换验证码</a>
+          <a href="#">立即注册</a> | <a href="#">忘记密码</a> | <a href="#" id="change_ver_code">换验证码</a>
         </p>
       <% end %>
     <% end %>
