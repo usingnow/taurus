@@ -18,7 +18,11 @@
   float: left;
   width: 50%;
   height: 190px;
-  border-bottom: 1px dotted #dddddd;}
+  border-bottom: 1px dotted #dddddd;
+  a {
+    position: absolute;
+    left: 280px;
+    color: $text_red;}}
 #login_window_left_down {
   float: left;
   width: 50%;
@@ -87,4 +91,6 @@
   top: 90px}
 .row_4 {
   top: 130px}
+.row_5 {
+  top: 155px}
 
