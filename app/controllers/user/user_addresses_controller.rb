@@ -1,6 +1,13 @@
 class User::UserAddressesController < ApplicationController
   before_filter :authenticate_user!
 
+  def edit
+    user_id = current_user.id
+    @consignee_info = UserAddress.find(params[:id])
+    @user_addresses = UserAddress.find_all_by_user_id(user_id)
+    render :partial => "user/consignee_infos/consignee_modify"
+  end
+
   def create
     user_id = current_user.id
     user_addresses = UserAddress.find_all_by_user_id_and_name_and_district_no_and_address(

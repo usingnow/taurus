@@ -77,6 +77,12 @@ jQuery ->
         jQuery('#user_address').html(data)
 
 
+  jQuery(".chose_consignee").live 'click', (event) ->
+    jQuery.ajax '/user/user_addresses/'+jQuery(this).val()+'/edit',
+      type: 'GET'
+      success: (data) ->
+        jQuery("#consignee_form").html(data)
+
 
   jQuery(".radio").click ->
       value = @value
@@ -124,6 +130,7 @@ jQuery ->
       else
         jQuery("#invoice_head").html("")
         jQuery("#type_invoice").html("")
+        jQuery("#title_company_name").html("")
 
 
 

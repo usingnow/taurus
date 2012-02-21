@@ -18,7 +18,7 @@ class HomeController < ApplicationController
     @fur_jew_hots = Sku.category_hots '06'
 
     @images = {}
-    Image.all.each do |image|
+    Image.find_all_by_page(0).each do |image|
       @images.store(image.location, image.image.url)
     end
 

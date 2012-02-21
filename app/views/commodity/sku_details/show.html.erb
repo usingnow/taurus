@@ -5,22 +5,20 @@
     <%= @sku.name %>
   </p>
   <div id="sku_details_picture">
-    <%= image_tag @sku.main_img, :width => "400px", :height => "400px" %>
+    <a href="<%= @sku.main_img %>" class="jqzoom" rel='gal1' title="<%= @sku.name %>">
+      <%= image_tag @sku.main_img, :width => "400px", :height => "400px", :title => "#{@sku.name}" %>
+    </a>
     <div id="controller_pane">
-      <div id="controller_handler_left">
-        <%= image_tag "sku_details/left.png" %>
-      </div>
-      <div id="controller_handler_right">
-        <%= image_tag "sku_details/right.png" %>
-      </div>
       <div id="controller_handler_center">
-        <ul class="h_ul">
-          <li class="h_li h_padding_5"><%= image_tag "rails.png", :width => "50px", :height => "50px" %></li>
-          <li class="h_li h_padding_5"><%= image_tag "rails.png", :width => "50px", :height => "50px" %></li>
-          <li class="h_li h_padding_5"><%= image_tag "rails.png", :width => "50px", :height => "50px" %></li>
-          <li class="h_li h_padding_5"><%= image_tag "rails.png", :width => "50px", :height => "50px" %></li>
-          <li class="h_li h_padding_5"><%= image_tag "rails.png", :width => "50px", :height => "50px" %></li>
-          <li class="h_li h_padding_5"><%= image_tag "rails.png", :width => "50px", :height => "50px" %></li>
+        <ul id="sku_carousel" class="h_ul jcarousel-skin-tango">
+          <% @sku.sku_images.each_with_index do |sku_image,index| %>
+            <li class="h_li h_padding_5">
+              <a <% if index == 0 %> class="zoomThumbActive" <% end %> href='javascript:void(0);'
+                 rel="{gallery: 'gal1', smallimage: '<%= sku_image.image.url %>',largeimage: '<%= sku_image.image.url %>'}">
+                <%= image_tag sku_image.image.url, :width => "50px", :height => "50px" %>
+              </a>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
