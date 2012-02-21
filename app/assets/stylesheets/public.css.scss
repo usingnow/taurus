@@ -281,6 +281,12 @@ table {
 	font-weight:bold;
 	line-height:26px;
 	vertical-align:middle;}
+.bar_background_1_30 {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  vertical-align: middle;
+  background-image:url('/assets/templates/titlebar/bar_bg_1_30.png');}
 //The icon in the homepage's title bar.
 .sku_category h2 + img {
 	position: absolute;
