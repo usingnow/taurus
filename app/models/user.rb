@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_one :consignee_info
   belongs_to :role
   belongs_to :store
+  has_many :orders
   accepts_nested_attributes_for :person_extend
   accepts_nested_attributes_for :company_extend
 

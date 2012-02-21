@@ -200,7 +200,6 @@ zh-CN:
     delivery_order: "出库单"
     esc: "升级单"
     group: "组"
-    order: "订单"
     ordering_company: "订货公司"
     person_extend: "个人会员"
     panic_buying: "疯狂抢购"
@@ -495,26 +494,6 @@ zh-CN:
       sub_sequence: "子次序"
       active: "启用该规则"
 
-    order:
-      number: "订单号码"
-      batch: "订单批次"
-      name: "收货人姓名"
-      contact_name: "联系人姓名"
-      address: "收货地址"
-      procedure_id: "支付方式"
-      phone: "固定电话"
-      zip: "邮编"
-      mobile: "手机"
-      email: "邮箱"
-      user_id: "客户名"
-      instance_id: "支付流程"
-      total_price: "订单金额"
-      station_id: "订单状态"
-      make_by: "制单人"
-      sku_type: "商品类型"
-      user_login_no: "会员用户名"
-      created_at: "下单日期"
-      inner_note: "订单备注"
 
     role:
       number: "角色代码"
@@ -612,7 +591,7 @@ zh-CN:
   company_type: "公司性质"
   company_scale: "公司规模"
   district: "所属地区"
-
+  operating: "操作"
 
   #will_paginate
   will_paginate:
