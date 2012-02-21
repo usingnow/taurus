@@ -6,7 +6,7 @@
     <li class="h_li">订单完成</li>
   </ul>
 </div>
-<table class="margin_top_65">
+<table class="margin_top_65 order_sku_details">
   <caption>
     我的购物车
     <%= link_to "[清空购物车]", empty_cart_cart_skuships_path, :style => "float:right",
@@ -34,9 +34,9 @@
         <td><%= cart_sku.sku.name %></td>
         <td><%= number_to_currency cart_sku.sku.cost_aft_tax, :unit => "￥" %></td>
         <td><%= text_field_tag :quantity, cart_sku.quantity, :class => "cart_sku_quantity" %></td>
-        <td><%= check_box_tag :is_need_install, 1, cart_sku.is_need_install, :class => "cart_sku_is_need_install" %></td>
+        <td><%= check_box_tag :is_need_install, 1, cart_sku.is_need_install, :class => "cart_sku_is_need_install check" %></td>
         <td><%= number_to_currency cart_sku.sku.installation_cost_aft_tax, :unit => "￥" %></td>
-        <td><%= check_box_tag :is_need_assemble, 1, cart_sku.is_need_assemble, :class => "cart_sku_is_need_assemble" %></td>
+        <td><%= check_box_tag :is_need_assemble, 1, cart_sku.is_need_assemble, :class => "cart_sku_is_need_assemble check" %></td>
         <td><%= number_to_currency cart_sku.sku.assembling_fee_aft_tax, :unit => "￥" %></td>
         <td>非法字段</td>
         <td id="subtotal<%= cart_sku.id %>"><%= number_to_currency cart_sku.total_amount, :unit => "￥" %></td>

@@ -42,8 +42,8 @@ jQuery ->
             '<p><label for="address">送货地址：</label>'+data.address+'</p>'+
             '<p><label for="area_num">固定电话：</label>'+data.phone+'</p>'+
             '<p><label for="cellphone">移动电话：</label>'+data.mobile+'</p>'+
-            '<p><label for="email">电子邮件：</label>'+data.email+'</p>'+
-            '<p><label for="post">邮政编码：</label>'+data.zip+'</p>')
+            '<p><label for="email">电子邮件：</label>'+data.email+'<br /></p>'+
+            '<p><label for="post">邮政编码：</label>'+data.zip+'<br /></p>')
           jQuery('#consignee_modify').attr("class","modify").html("[修改]")
 
 

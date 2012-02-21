@@ -57,9 +57,9 @@ ActiveRecord::Schema.define(:version => 20120216024555) do
   create_table "back_order_skus", :force => true do |t|
     t.integer  "sku_id"
     t.integer  "quantity",   :default => 1
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "banks", :force => true do |t|
@@ -446,7 +446,7 @@ ActiveRecord::Schema.define(:version => 20120216024555) do
     t.integer  "updated_admin_id"
     t.text     "customer_note"
     t.text     "inner_note"
-    t.string   "reserve_reason"
+    t.text     "reserve_reason"
     t.decimal  "other_cost",          :precision => 8, :scale => 2, :default => 0.0
     t.integer  "is_affect_details"
     t.string   "district_no"
@@ -468,8 +468,8 @@ ActiveRecord::Schema.define(:version => 20120216024555) do
     t.string   "company_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "total_price",         :precision => 8, :scale => 2, :default => 0.0
     t.boolean  "is_delivery",                                       :default => false
+    t.decimal  "total_price",         :precision => 8, :scale => 2, :default => 0.0
     t.decimal  "carriage_adjustment", :precision => 8, :scale => 2, :default => 0.0
   end
 
@@ -698,6 +698,7 @@ ActiveRecord::Schema.define(:version => 20120216024555) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "media_id"
   end
 
   create_table "sku_productships", :force => true do |t|
@@ -712,6 +713,8 @@ ActiveRecord::Schema.define(:version => 20120216024555) do
     t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "media_id"
+    t.string   "Material_id"
   end
 
   create_table "skus", :force => true do |t|
@@ -877,10 +880,9 @@ ActiveRecord::Schema.define(:version => 20120216024555) do
 
   create_table "users", :force => true do |t|
     t.string   "login_no"
+    t.integer  "role_id"
     t.integer  "status"
     t.integer  "user_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"
@@ -891,7 +893,8 @@ ActiveRecord::Schema.define(:version => 20120216024555) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "store_id"
   end
 

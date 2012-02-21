@@ -6,7 +6,7 @@
     <li class="h_li">订单完成</li>
   </ul>
 </div>
-<table class="margin_top_65">
+<table class="margin_top_65 order_sku_details">
   <caption>所购商品清单</caption>
   <thead>
     <tr>
@@ -117,6 +117,8 @@
             <em class="remark">有助于快速确定送货地址</em>
           </p>
           <a id="add_user_address">[添加到常用地址簿]</a>
+          <br />
+          <br />
           <button type="button" id="save_consignee">保存收货人信息</button>
         </form>
       <% else %>
@@ -164,11 +166,7 @@
       <h2>发票信息</h2>
       <p>
         <label for="invoice-type"><em class="remark">*</em>发票类型：</label>
-<<<<<<< HEAD
         <input name="temp_payment[invoice_type]" type="radio" value="2" class="input_width_35 radio" checked="checked"/>不需要发票
-=======
-        <input name="temp_payment[invoice_type]" type="radio" value="2" class="input_width_35 radio" checked="checked"/>不需要
->>>>>>> 9d12d2b16f05b5a2b95817dd1d74db5cf1f63370
         <input name="temp_payment[invoice_type]" type="radio" value="0" class="input_width_35 radio" />普通发票
         <input name="temp_payment[invoice_type]" type="radio" value="1" class="input_width_35 radio" />增值税发票
       </p>

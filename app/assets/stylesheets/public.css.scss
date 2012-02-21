@@ -380,7 +380,6 @@ table {
 	line-height:25px;
 	vertical-align:middle;
   .has_children{
-    background : #ffffff;
     color :#333333;
     cursor:pointer;
     border-bottom: 1px dashed #dddddd;}
@@ -521,3 +520,34 @@ div#copyright {
     padding: 0 0 0 170px;}
   li {
 	margin: 0 0 0 10px;}}
+
+// Recent visited bar style with a 3 rows list
+// listed in the homepage.
+.recent_visited_ul {
+	list-style: none;
+	padding: 4px 8px 4px 8px;}
+.recent_visited_li {
+	position:relative;
+	float:left;
+	width: 100%;
+	height: 50px;
+	padding: 0;
+	margin: 2px 0 2px 0;
+  div {
+    position:absolute;
+    top: 0px; /**Changed 2012/01/13**/
+    left: 45px;
+    width: 152px;
+    height: 40px;
+    border-bottom: 1px dashed #dddddd;
+    i {
+    height: 20px;
+    line-height: 20px;
+    vertical-align:middle;}}
+  div:hover {
+    position:absolute;
+    top: 0px; /**Changed 2012/01/13**/
+    left: 45px;
+    width: 152px;
+    height: 40px;
+    border-bottom: 1px solid #dddddd;}}
