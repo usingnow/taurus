@@ -6,6 +6,7 @@ class Sku < ActiveRecord::Base
   has_many :products, :through => :sku_productships
   belongs_to :sku_category
   has_many :sku_on_shelves
+  has_many :sku_browsing_histories
 
   attr_accessor :brand_name, :sku_category_name, :sku_category_number
 
@@ -64,5 +65,16 @@ class Sku < ActiveRecord::Base
       end
     end
     flag
+  end
+
+
+  def add_browsing_history(user_id)
+    sku_browsing_history = sku_browsing_histories.find_by_user_id(user_id)
+    if sku_browsing_history
+      sku_browsing_history.quantity += 1
+    else
+      sku_browsing_history = sku_browsing_histories.build(:user_id => user_id)
+    end
+    sku_browsing_history
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221071439) do
+ActiveRecord::Schema.define(:version => 20120222074900) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -654,6 +654,14 @@ ActiveRecord::Schema.define(:version => 20120221071439) do
     t.string   "name"
     t.string   "date"
     t.integer  "sequence"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sku_browsing_histories", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "sku_id"
+    t.integer  "quantity",   :default => 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
