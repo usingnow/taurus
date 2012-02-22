@@ -1,0 +1,16 @@
+<h1>
+  <%= t 'admin.actions.new.title', :model => t('activerecord.models.sku_on_shelf') %>
+</h1>
+
+<%= simple_form_for([:commodity_admin, @sku, @sku_on_shelf]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="attributes">
+    <%= f.input :on_shelf_time %>
+    <%= f.input :off_shelf_time %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

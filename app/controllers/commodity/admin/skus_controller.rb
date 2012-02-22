@@ -33,10 +33,7 @@ class Commodity::Admin::SkusController < ApplicationController
     @sku.market_price = 0.00
 
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @sku }
-    end
+
   end
 
   # GET /skus/1/edit
@@ -72,11 +69,9 @@ class Commodity::Admin::SkusController < ApplicationController
 
     respond_to do |format|
       if @sku.update_attributes(params[:sku])
-        format.html { redirect_to([:admin,@sku], :notice => 'Sku was successfully updated.') }
-        format.xml  { head :ok }
+        format.html { redirect_to(commodity_admin_skus_url) }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @sku.errors, :status => :unprocessable_entity }
       end
     end
   end

@@ -1,0 +1,10 @@
+zh-CN:
+  activerecord:
+    models:
+      sku_on_shelf: "媒体商品上下架时间"
+    attributes:
+      sku_on_shelf:
+        on_shelf_time: "上架时间"
+        off_shelf_time: "下架时间"
+        off_shelf_description: "下架原因"
+        status: "状态"
