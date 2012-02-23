@@ -248,7 +248,12 @@ Ebiz::Application.routes.draw do
   namespace :user do
     resources :consignee_infos
     resources :user_addresses
-    resources :user_centers
+    resources :user_centers do
+      collection do
+        get :detailed_p_user_info
+        get :detailed_e_user_info
+      end
+    end
   end
 
 

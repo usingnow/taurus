@@ -27,6 +27,24 @@
   position: relative;
   float: right;
   width: 770px;
+  p {
+    line-height: 14px;
+    vertical-align: middle;
+    font-size: 14px;
+    margin: 8px 0 0 0;}
+  .title {
+    padding: 0 0 0 4px;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    color: #E73221;}
+  h2 {
+    background-image: url('/assets/templates/titlebar/bar_bg_1_30.png');}
+  h3 {
+    line-height: 18px;
+    vertical-align: middle;
+    margin: 20px 0 0 0;
+    border-bottom: 1px dashed #DDDDDD;}
   caption {
     padding-left: 4px;}
   #uc_welcome {
@@ -54,3 +72,8 @@
   line-height: 28px;
   vertical-align: middle;
   border: 1px solid #DDDDDD;}
+
+.p_t {
+  width: 100px;
+  float: left;
+  text-align: right;}
