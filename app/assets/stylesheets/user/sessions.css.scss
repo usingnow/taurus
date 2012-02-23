@@ -100,3 +100,26 @@
   color: #C00;
   margin: 0 0 5px 3px;
   padding: 2px;}
+#login_success_wrapper {
+  padding: 60px 140px;
+  border: 1px solid #dddddd;
+  img {
+    float: left;
+    clear: right;}
+  h1 {
+    margin-left: 60px;
+    line-height: 50px;
+    vertical-align: bottom;}
+  p {
+    line-height: 18px;
+    vertical-align: middle;
+    font-size: 14px;
+    clear: both;
+    a {
+      color: blue;}}
+  em {
+    font-size: 14px;
+    color: #E73221;
+    clear: both;}
+  .indent {
+    text-indent: 28px;}}
