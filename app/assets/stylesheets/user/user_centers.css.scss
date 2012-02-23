@@ -91,3 +91,19 @@
     background-image: url("/assets/templates/titlebar/bar_bg_1_30.png");}
   td.content{
     text-align: left;}}
+
+.failed {
+  position: relative;
+  float: top;
+  padding: 2px;
+  border: 1px solid #E73221;
+  color: #E73221;
+  background-color: lighten(#E73221, 45%);}
+
+.successful {
+  position: relative;
+  float: top;
+  padding: 2px;
+  border: 1px solid green;
+  color: green;
+  background-color: lighten(green, 65%);}
