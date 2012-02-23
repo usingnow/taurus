@@ -32,6 +32,7 @@ class User::UserCentersController < ApplicationController
   end
 
   def order_query
+    @orders = current_user.orders
 
   end
 

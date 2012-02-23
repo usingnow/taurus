@@ -1,0 +1,82 @@
+<p class="nav">您的位置：首页 >> 我的壹美壹家 >> 订单查询</p>
+<div id="uc_menu_wrapper">
+  <%= render "menu" %>
+</div>
+
+<div id="uc_content_wrapper">
+  <h2 class="title">订单查询</h2>
+
+  <div id="conditions">
+    <p>
+      <label for="order_id">订单编号：</label>
+      <input id="order_id" type=text size=30>
+    </p>
+    <p>
+      <label for="order_status">订单状态：</label>
+      <select id="order_status">
+        <option>请选择订单状态</option>
+        <option>完成</option>
+        <option>主动取消</option>
+      </select>
+    </p>
+    <p>
+      <label for="order_payment_method">付款方式：</label>
+      <select id="order_payment_method">
+        <option>请选择付款方式</option>
+        <option>在线支付</option>
+        <option>货到付款</option>
+      </select>
+    </p>
+    <p>
+      <label for="order_date">订单日期：</label>
+      <input id="order_date_from" type=text size=30>
+      ~
+      <input id="order_date_to" type=text size=30>
+    </p>
+    <p class="clear">
+      快速查询：
+      <a href="#">最近一个月</a>
+      <a href="#">最近三个月</a>
+      <a href="#">最近六个月</a>
+    </p>
+  </div>
+
+  <table id="uc_order_query">
+    <caption>订单查询明细列表</caption>
+    <thead>
+      <tr>
+        <th>订单编号</th>
+        <th>下单时间</th>
+        <th>收货人</th>
+        <th>支付方式</th>
+        <th>订单金额</th>
+        <th>订单状态</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr class="<%= cycle('odd','even') %>">
+          <td><%= order.number %></td>
+          <td><%= order.created_at %></td>
+          <td><%= order.name %></td>
+          <td><%= order.instance.procedure.display_name %></td>
+          <td><%= number_to_currency order.total_amount, :unit => "￥" %></td>
+          <td><%= order.instance.station.display_name %></td>
+          <td>
+            <strong>
+              <%= link_to "立即付款", alipaies_path(:number => order.number), :target => "blank" %>
+            </strong>
+            <a href="#">修改</a>
+            <a href="#">取消</a>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="7">上一页 ... 下一页</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

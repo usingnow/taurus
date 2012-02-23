@@ -210,6 +210,7 @@ Ebiz::Application.routes.draw do
         get :reset_pwd
         get :my_points
         get :my_favorites
+        get :order_query
       end
     end
   end
