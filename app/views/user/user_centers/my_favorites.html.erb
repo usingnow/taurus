@@ -1,0 +1,87 @@
+<p class="nav">您的位置：首页 >> 我的壹美壹家 >> 我的关注</p>
+<div id="uc_menu_wrapper">
+  <%= render "menu" %>
+</div>
+
+<div id="uc_content_wrapper">
+  <h2 class="title">我关注的商品</h2>
+  <!--
+  <div class="uc_fav_tag">
+    <h3>我的分类</h3>
+    <input id="new_favorite_tag" />
+    <button>新增</button>
+    <ul>
+      <li>默认分类</li>
+      <li>分类一</li>
+      <li>分类二</li>
+    </ul>
+  </div>
+  -->
+  <div id="uc_fav_content">
+    <div>
+      <h3>按分类查找</h3>
+      <a href="#">全部（999）</a>
+      <a href="#">CPU（999）</a>
+      <a href="#">游戏设备（999）</a>
+    </div>
+
+    <table id="uc_fav">
+      <thead>
+        <tr>
+          <th>
+            选中
+          </th>
+          <th>商品图片</th>
+          <th>商品名称</th>
+          <th>单价</th>
+          <th>库存</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input id="select_0" type="checkbox" class="check"/>
+          </td>
+          <td>
+            <%= image_tag "rails.png", :width => "50px", :height => "50px" %>
+          </td>
+          <td>某某某某某某某某某商品名称</td>
+          <td>&yen;999999.99</td>
+          <td>有货</td>
+          <td>
+            <a href="#">加入购物车</a><br />
+            <a href="#">取消关注</a>
+          </td>
+        </tr>
+        <tr class="even">
+          <td>
+            <input id="select_1" type="checkbox" class="check"/>
+          </td>
+          <td>
+            <%= image_tag "rails.png", :width => "50px", :height => "50px" %>
+          </td>
+          <td>某某某某某某某某某商品名称</td>
+          <td>&yen;999999.99</td>
+          <td>有货</td>
+          <td>
+            <a href="#">加入购物车</a><br />
+            <a href="#">取消关注</a>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2">
+            全选<input id="select_all" type="checkbox" class="check"/>
+            <button>加入购物车</button>
+            <button>取消关注</button>
+          </td>
+          <td colspan="5">上一页 ... 下一页</td>
+        </tr>
+      </tfoot>
+    </table>
+
+
+  </div>
+</div>

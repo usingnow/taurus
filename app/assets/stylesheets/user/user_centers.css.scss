@@ -27,6 +27,8 @@
   position: relative;
   float: right;
   width: 770px;
+  .small_font {
+    font-size: 12px;}
   p {
     line-height: 14px;
     vertical-align: middle;
@@ -79,3 +81,55 @@
   width: 100px;
   float: left;
   text-align: right;}
+
+#uc_comments {
+  margin: 4px 0 0 0;
+  width: 100%;
+  .even {
+    background-color: lighten(#E73221, 45%);}
+  thead {
+    background-image: url("/assets/templates/titlebar/bar_bg_1_30.png");}
+  td.content{
+    text-align: left;}}
+#uc_points, #uc_fav, #uc_order_query {
+  @extend #uc_comments;
+  caption {
+    text-align: left;}}
+.total_points {
+  margin: 8px 0 0 0;
+  padding: 4px;
+  font-size: 16px;
+  border: 1px solid #999999;
+  backgournd-color: #dddddd;}
+
+.failed {
+  position: relative;
+  float: top;
+  padding: 2px;
+  border: 1px solid #E73221;
+  color: #E73221;
+  background-color: lighten(#E73221, 45%);}
+
+.successful {
+  position: relative;
+  float: top;
+  padding: 2px;
+  border: 1px solid green;
+  color: green;
+  background-color: lighten(green, 65%);}
+
+#conditions {
+  height: 100px;
+  margin-top: 8px;
+  padding: 4px;
+  border: 1px solid #E73221;
+  background-color: lighten(#E73221, 47%);
+  p {
+    display: block;
+    position: relative;
+    padding: 0 0 0 4px;
+    float: left;
+    line-height: 26px;
+    vertical-align: middle;
+    a {
+      padding-left: 4px;}}}
