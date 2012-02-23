@@ -18,7 +18,6 @@ class Admin::PersonExtendsController < ApplicationController
     @user = User.new params[:user]
     @user.user_type = 1
     @person_extend = PersonExtend.new params[:person_extend]
-    @user.email = @person_extend.email
     @person_extend.user = @user
 
     unless [@person_extend, @user].map(&:valid?).include?(false)
