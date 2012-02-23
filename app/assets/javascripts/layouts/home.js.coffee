@@ -11,3 +11,7 @@ jQuery ->
       jQuery('body').append "AJAX Error: #{textStatus}"
     success: (data, textStatus, jqXHR) ->
       jQuery('#total_items').html(data)
+
+  jQuery("#sku_search").click ->
+    jQuery("#sku_search_form").submit()
+    false

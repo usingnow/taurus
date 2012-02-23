@@ -15,6 +15,7 @@ class Sku < ActiveRecord::Base
   validates_uniqueness_of :number
 
   scope :recommendation, where("number in('801800','801810','805457','805488')")
+  scope :on_shelves, where("status = 1  and id in(select sku_id from sku_on_shelves where status = 1)")
 
   def self.category_skus(number)
     limit(8).where("sku_category_id in(select id from sku_categories where number like '#{number}%')

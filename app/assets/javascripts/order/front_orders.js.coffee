@@ -1,3 +1,5 @@
+#= require core/validation
+
 jQuery ->
   jQuery("#save_consignee").live 'click', (event) ->
     flag = true
@@ -27,6 +29,17 @@ jQuery ->
     else
       jQuery("#phone_error").removeClass("error_info").html("")
       jQuery("#cellphone_error").removeClass("error_info").html("")
+
+      if jQuery('#phone').val() != ""
+        unless Validates.phone(jQuery('#phone').val())
+          jQuery("#phone_error").addClass("error_info").html("固话格式不正确！")
+          flag = false
+
+      if jQuery('#cellphone').val() != ""
+        unless Validates.mobilePhone(jQuery('#cellphone').val())
+          jQuery("#cellphone_error").addClass("error_info").html("手机格式不正确！")
+          flag = false
+
 
     if flag
       jQuery.ajax '/user/consignee_infos',

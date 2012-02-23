@@ -53,10 +53,10 @@
       <%= image_tag "/assets/templates/header/headPhone_144_26.png", :id => "service_phone" %>
       <%= image_tag "/assets/templates/header/ServiceOL_77_26.png", :id => "service_ol" %>
       <div id="search_bar">
-        <form>
-          <input type="text" name="keywords" size="30" maxlength="50" value="商品……">
-          <a href="#" style="clear: left;">搜索</a>
-        </form>
+        <%= form_tag commodity_index_skus_path, :method => :get, :id => "sku_search_form"  do%>
+          <%= text_field_tag :keywords, "商品……", :size => "30", :maxlength => "50" %>
+          <%= link_to "搜索", "#", :style => "clear:left;", :id => "sku_search" %>
+        <% end %>
       </div>
       <div id="search_hot">
         <ul class="h_ul">
