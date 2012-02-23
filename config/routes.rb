@@ -9,7 +9,9 @@ Ebiz::Application.routes.draw do
   devise_for :users,
              :path => "users",
              :controllers => { :sessions => "user/sessions",
-                               :registrations => "user/registrations"}
+                               :registrations => "user/registrations"} do
+    get "users/personal_sign_up" => "user/registrations#personal"
+  end
 
   # The priority is based upon orders of creation:
   # first created -> highest priority.
