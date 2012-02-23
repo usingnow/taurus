@@ -205,6 +205,7 @@ Ebiz::Application.routes.draw do
         get :detailed_p_user_info
         get :detailed_e_user_info
         get :mail_sales
+        get :user_addresses
       end
     end
   end
