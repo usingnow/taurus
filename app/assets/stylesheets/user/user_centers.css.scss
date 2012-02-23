@@ -1,0 +1,56 @@
+@import "order/front_orders";
+
+#uc_menu_wrapper {
+  position: relative;
+  float: left;
+  width: 218px;
+  border: 1px solid #dddddd;
+  .menu_title {
+    padding: 0 0 0 4px;
+    width: 214px;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    color: #E73221;}
+  h2 {
+    background-image: url('/assets/templates/titlebar/bar_bg_1_30.png');}
+  h3 {
+    @extend .menu_title;
+    background-color: lighten(#E73221, 47%);
+    color: #E73221;}
+  li {
+    padding: 2px 0px;
+    font-size: 14px;
+    line-height: 20px;
+    vertical-align: middle;}}
+#uc_content_wrapper {
+  position: relative;
+  float: right;
+  width: 770px;
+  caption {
+    padding-left: 4px;}
+  #uc_welcome {
+    width: 760px;
+    height: 40px;
+    padding: 4px;
+    border: 1px solid #E73221;
+    background-color: lighten(#E73221, 45%);
+    p {
+      margin: 0px;
+      line-height: 40px;
+      vertical-align: center;
+      position: relative;
+      font-size: 14px;}
+    .p_l {
+      float: left;
+      color: #E73221;}
+    .p_r {
+      float: right;}}}
+.nav {
+  margin: 4px 0 10px 0;
+  padding: 0 4px 0 4px;
+  width: 990px;
+  height: 28px;
+  line-height: 28px;
+  vertical-align: middle;
+  border: 1px solid #DDDDDD;}
