@@ -91,7 +91,7 @@
     background-image: url("/assets/templates/titlebar/bar_bg_1_30.png");}
   td.content{
     text-align: left;}}
-#uc_points {
+#uc_points, #uc_fav {
   @extend #uc_comments;
   caption {
     text-align: left;}}
