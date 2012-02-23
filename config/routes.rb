@@ -13,37 +13,10 @@ Ebiz::Application.routes.draw do
     get "users/personal_sign_up" => "user/registrations#personal"
   end
 
-  # The priority is based upon orders of creation:
-  # first created -> highest priority.
 
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :home
-  resources :carts
-  resources :orders
-  resources :order_details
-  resources :users do
-    collection do
-      get  :registration
-      get  :person_reg
-      get  :company_reg
-      get  :login
-      get  :sign_out
-      post :person_enroll
-      post :company_enroll
-      post :sign_in
-    end
-  end
-  resources :company_extends
-  resources :person_extends
   resources :codes
+
   resources :alipaies do
     collection do
       get :notify
@@ -52,33 +25,7 @@ Ebiz::Application.routes.draw do
   end
 
 
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
 
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
   namespace :admin do
     resources :administrators
     resources :administrator_groupships
@@ -194,6 +141,11 @@ Ebiz::Application.routes.draw do
         end
       end
     end
+
+    namespace :index do
+      resources :skus
+    end
+
     resources :categories do
       collection do
         get :oa_pc
@@ -257,13 +209,7 @@ Ebiz::Application.routes.draw do
   end
 
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
   root :to => 'home#index'
-  # See how all your routes lay out with "rake routes"
 
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  #match ':controller(/:action(/:id(.:format)))'
   match '/admin', :to => 'admin/home#index', :as => :admin
 end

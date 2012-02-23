@@ -1,0 +1,5 @@
+<ul>
+  <% @skus.each do |sku| %>
+    <li><%= image_tag sku.main_img, :width => "180px", :height => "180px" %></li>
+  <% end %>
+</ul>
