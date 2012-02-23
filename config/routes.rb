@@ -207,6 +207,7 @@ Ebiz::Application.routes.draw do
         get :mail_sales
         get :user_addresses
         get :comments
+        get :reset_pwd
       end
     end
   end
