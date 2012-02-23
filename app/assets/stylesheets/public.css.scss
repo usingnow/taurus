@@ -35,6 +35,11 @@ a:active{
   background-color: lighten($text_red, 40%);}
 .clear {
 	clear: both;}
+.overflow_text{
+  overflow:hidden;
+  white-space:nowrap;}
+.bar_center {
+	text-align:center;}
 div {
   position: relative;}
 input, select {
@@ -557,3 +562,61 @@ div#copyright {
     width: 152px;
     height: 40px;
     border-bottom: 1px solid #dddddd;}}
+//New SKU style shared by Homepage and Level2 pages.
+.margin_0 {
+	margin: 0;}
+.height_auto {
+	height: auto;}
+#banner_3 li:hover {
+	border: 1px solid #FFFFFF;
+	cursor:pointer;}
+//Styles for Static Page, like helps pages in the footer.
+/**Help page style -- Starts -- 2012/01/14 **/
+.cs {
+	position: relative;
+	float: left;
+	margin: 4px 0 0 0;
+  p {
+	  padding: 0 4px 0 4px;}}
+.help_center {
+	position: relative;
+	float: left;
+	clear: left;
+	margin: 10px 0 0 0;
+  dt {
+    display: block;
+    background:#fff9e6;
+    height:26px;
+    line-height:26px;
+    vertical-align:middle;
+    padding : 0 0 0 4px;}
+  dd {
+	padding: 4px 4px 0 24px;
+	margin: 0;
+	line-height:20px;
+	vertical-align:middle;}}
+.help_content {
+	position: relative;
+	float: right;
+	line-height: 20px;
+	vertical-align:middle;
+	margin: 4px 0 4px 0;
+  p {
+    padding: 0 4px 0 4px;
+    text-indent: 24px;}
+  h3 {
+	display: block;
+	height:26px;
+	line-height:26px;
+	vertical-align:middle;
+	padding : 0 0 0 4px;}}
+.help_h2 {
+	display:block;
+	background-image:url('/assets/templates/titlebar/bar_bg_1_30.png');
+	height: 26px;
+	line-height: 26px;
+	vertical-align: middle;
+	color: $text_red;
+	font-weight: normal;
+	padding: 0 0 0 4px;}
+
