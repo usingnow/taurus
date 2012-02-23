@@ -208,6 +208,7 @@ Ebiz::Application.routes.draw do
         get :user_addresses
         get :comments
         get :reset_pwd
+        get :my_points
       end
     end
   end
