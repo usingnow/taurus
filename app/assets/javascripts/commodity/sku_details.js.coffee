@@ -13,11 +13,21 @@ jQuery ->
         jQuery('#total_items').html(data)
 
   jQuery('#minus').click ->
-    jQuery('#sku_quantity').val( jQuery('#sku_quantity').val() - 1 )
+    if jQuery("#sku_quantity").val() > 1
+      jQuery('#sku_quantity').val( jQuery('#sku_quantity').val() - 1 )
+    else
+      jQuery('#sku_quantity').val(1)
 
   jQuery('#plus').click ->
     jQuery('#sku_quantity').val( Number(jQuery('#sku_quantity').val()) + 1 )
 
+
+  jQuery("#sku_quantity").change ->
+    if @value.search("^-?\\d+$") != 0
+      jQuery('#sku_quantity').val(1)
+    else
+      if @value < 1
+        jQuery('#sku_quantity').val(1)
 
   jQuery('.jqzoom').jqzoom ->
     zoomType: 'standard',

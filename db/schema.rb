@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120220022156) do
+ActiveRecord::Schema.define(:version => 20120222074900) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -658,6 +658,14 @@ ActiveRecord::Schema.define(:version => 20120220022156) do
     t.datetime "updated_at"
   end
 
+  create_table "sku_browsing_histories", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "sku_id"
+    t.integer  "quantity",   :default => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sku_categories", :force => true do |t|
     t.integer  "root_id"
     t.integer  "parent_id"
@@ -699,6 +707,16 @@ ActiveRecord::Schema.define(:version => 20120220022156) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "media_id"
+  end
+
+  create_table "sku_on_shelves", :force => true do |t|
+    t.integer  "sku_id"
+    t.datetime "on_shelf_time"
+    t.datetime "off_shelf_time"
+    t.string   "off_shelf_description"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sku_productships", :force => true do |t|

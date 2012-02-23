@@ -111,12 +111,6 @@ Ebiz::Application.routes.draw do
         get  :check
       end
     end
-    resources :skus do
-      collection do
-        get  :add
-        get  :search
-      end
-    end
     resources :sku_productships do
       collection do
         get  :search_products
@@ -189,6 +183,15 @@ Ebiz::Application.routes.draw do
   end
 
   namespace :commodity do
+    namespace :admin do
+      resources :skus do
+        resources :sku_on_shelves
+        collection do
+          get  :add
+          get  :search
+        end
+      end
+    end
     resources :categories do
       collection do
         get :oa_pc

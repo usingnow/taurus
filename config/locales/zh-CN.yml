@@ -611,7 +611,7 @@ zh-CN:
         title: "%{model} '%{object_label}'明细"
         menu: "显示"
       new:
-        title: "新建 %{model_label}"
+        title: "新建 %{model}"
         menu: "新建"
       edit:
         title: "编辑%{model_label} '%{object_label}'"

@@ -166,7 +166,7 @@
       <hr />
 
       <div>
-        <%= search_form_for @search, :url => search_admin_skus_path, :remote => true, :html => {:method => :get} do |f| %>
+        <%= search_form_for @search, :url => search_commodity_admin_skus_path, :remote => true, :html => {:method => :get} do |f| %>
           <%= hidden_field_tag 'order_id', @order.id %>
           商品编号:<%= f.text_field :number_eq %>
           商品名称:<%= f.text_field :name_cont %>

@@ -17,6 +17,14 @@ class HomeController < ApplicationController
     @fur_jew_skus = Sku.category_skus '06'
     @fur_jew_hots = Sku.category_hots '06'
 
+    if current_user.nil?
+      @sku_browsing_histories = Hash.new
+    else
+      @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
+        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+    end
+
+
     @images = {}
     Image.find_all_by_page(0).each do |image|
       @images.store(image.location, image.image.url)

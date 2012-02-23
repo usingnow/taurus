@@ -18,6 +18,12 @@ jQuery ->
     window.location.href = "/"
 
   jQuery(".cart_sku_quantity").change ->
+    if @value.search("^-?\\d+$") != 0
+      jQuery(this).val(1)
+    else
+      if @value < 1
+        jQuery(this).val(1)
+
     id = jQuery(this).parent().parent().attr('id')
     jQuery.ajax '/cart/cart_skuships/' + id,
       type: 'PUT'

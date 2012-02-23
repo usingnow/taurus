@@ -1,6 +1,6 @@
 #encoding:UTF-8
 require 'spec_helper'
 
-describe Sku do
+describe SkuOnShelf do
 
 end

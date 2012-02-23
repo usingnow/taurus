@@ -29,4 +29,8 @@ class CartSkuship < ActiveRecord::Base
     end
     carriage_cost
   end
+
+
+  validates_presence_of :sku_id, :cart_id
+  validates_numericality_of :quantity, :only_integer => true, :greater_than => 0
 end
