@@ -19,23 +19,23 @@ class User::UserCentersController < ApplicationController
 
   end
 
-  def mycomments
+  def comments
 
   end
 
-  def myfavorites
+  def my_favorites
 
   end
 
-  def mypoints
+  def my_points
 
   end
 
-  def orderquery
+  def order_query
 
   end
 
-  def skuquery
+  def sku_query
 
   end
 

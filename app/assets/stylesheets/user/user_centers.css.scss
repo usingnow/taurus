@@ -81,3 +81,13 @@
   width: 100px;
   float: left;
   text-align: right;}
+
+#uc_comments {
+  margin: 4px 0 0 0;
+  width: 100%;
+  .even {
+    background-color: lighten(#E73221, 40%);}
+  thead {
+    background-image: url("/assets/templates/titlebar/bar_bg_1_30.png");}
+  td.content{
+    text-align: left;}}
