@@ -71,16 +71,4 @@ class Admin::RolesController < ApplicationController
       end
     end
   end
-
-  # DELETE /roles/1
-  # DELETE /roles/1.xml
-  def destroy
-    @role = Role.find(params[:id])
-    @role.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(admin_roles_url) }
-      format.xml  { head :ok }
-    end
-  end
 end

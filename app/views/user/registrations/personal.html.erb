@@ -1,213 +1,70 @@
-<h2 class="bar_background_1_30">企业用户注册</h2>
+<h2 class="bar_background_1_30">个人用户注册</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => users_personal_sign_up_path) do |f| %>
   <%= devise_error_messages! %>
   <p>
     <label for="user_login_no">登陆账号：</label>
-    <input id="user_login_no" name="user[login_no]" size="30" type="text" />
+    <%= f.text_field :login_no %>
     <span class="red">*</span>
   </p>
+
   <p>
     <label for="password">输入密码：</label>
-    <input id="password" name="user[password]" size="30" type="text" />
+    <%= f.password_field :password %>
     <span class="red">*</span>
   </p>
+
   <p>
     <label for="confirm_pwd">确认密码：</label>
-    <input id="confirm_pwd" name="user[password]" size="30" type="text" />
+    <%= f.password_field :password_confirmation %>
     <span class="red">*</span>
   </p>
+
   <hr />
-  <p>
-    <label for="company_extend_name">真实姓名：</label>
-    <input id="company_extend_name" name="company_extend[name]" size="30" type="text" />
-    <span class="red">*</span>
-    <span class="red">请使用真实姓名以确保及时收到所购商品</span>
-  </p>
-  <p>
-    <label for="__">称呼：</label>
-    <input class="check" id="company_extend_sex_0" name="company_extend[sex]" type="radio" value="0" />
-    女士
-    <input checked="checked" class="check" id="company_extend_sex_1" name="company_extend[sex]" type="radio" value="1" />
-    先生
-  </p>
-  <p>
-    <label for="person_extend_birth_1i">出生日期:</label>
-    <select id="person_extend_birth_1i" name="person_extend[birth(1i)]">
-      <option value=""></option>
-      <option value="2007">2007</option>
-      <option value="2008">2008</option>
-      <option value="2009">2009</option>
-      <option value="2010">2010</option>
-      <option value="2011">2011</option>
-      <option value="2012">2012</option>
-      <option value="2013">2013</option>
-      <option value="2014">2014</option>
-      <option value="2015">2015</option>
-      <option value="2016">2016</option>
-      <option value="2017">2017</option>
-    </select>
-    <select id="person_extend_birth_2i" name="person_extend[birth(2i)]">
-      <option value=""></option>
-      <option value="1">一月</option>
-      <option value="2">二月</option>
-      <option value="3">三月</option>
-      <option value="4">四月</option>
-      <option value="5">五月</option>
-      <option value="6">六月</option>
-      <option value="7">七月</option>
-      <option value="8">八月</option>
-      <option value="9">九月</option>
-      <option value="10">十月</option>
-      <option value="11">十一月</option>
-      <option value="12">十二月</option>
-    </select>
-    <select id="person_extend_birth_3i" name="person_extend[birth(3i)]">
-      <option value=""></option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-      <option value="13">13</option>
-      <option value="14">14</option>
-      <option value="15">15</option>
-      <option value="16">16</option>
-      <option value="17">17</option>
-      <option value="18">18</option>
-      <option value="19">19</option>
-      <option value="20">20</option>
-      <option value="21">21</option>
-      <option value="22">22</option>
-      <option value="23">23</option>
-      <option value="24">24</option>
-      <option value="25">25</option>
-      <option value="26">26</option>
-      <option value="27">27</option>
-      <option value="28">28</option>
-      <option value="29">29</option>
-      <option value="30">30</option>
-      <option value="31">31</option>
-    </select>
-  </p>
-  <p>
-    <label for="____">所属地区：</label>
-    <select id="province_number" name="province[number]" onchange="jQuery.ajax({ type: 'get',
-                                               url:'/admin/cities/ajax',
-                                               data: 'province_no='+this.value,
-                                               success: function(msg){
-                                                 jQuery('#city_number').html(msg);
-                                                 jQuery('#company_extend_district_no').html('&lt;option value=&gt;-请选择-&lt;/option&gt;');
-                                               }});" required="required">
-      <option value="">-请选择-</option>
-      <option value="110000">北京市</option>
-      <option value="120000">天津市</option>
-      <option value="130000">河北省</option>
-      <option value="140000">山西省</option>
-      <option value="150000">内蒙古自治区</option>
-      <option value="210000">辽宁省</option>
-      <option value="220000">吉林省</option>
-      <option value="230000">黑龙江省</option>
-      <option value="310000">上海市</option>
-      <option value="320000">江苏省</option>
-      <option value="330000" selected="selected">浙江省</option>
-      <option value="340000">安徽省</option>
-      <option value="350000">福建省</option>
-      <option value="360000">江西省</option>
-      <option value="370000">山东省</option>
-      <option value="410000">河南省</option>
-      <option value="420000">湖北省</option>
-      <option value="430000">湖南省</option>
-      <option value="440000">广东省</option>
-      <option value="450000">广西壮族自治区</option>
-      <option value="460000">海南省</option>
-      <option value="500000">重庆市</option>
-      <option value="510000">四川省</option>
-      <option value="520000">贵州省</option>
-      <option value="530000">云南省</option>
-      <option value="540000">西藏自治区</option>
-      <option value="610000">陕西省</option>
-      <option value="620000">甘肃省</option>
-      <option value="630000">青海省</option>
-      <option value="640000">宁夏回族自治区</option>
-      <option value="650000">新疆维吾尔自治区</option>
-      <option value="710000">台湾省</option>
-      <option value="810000">香港特别行政区</option>
-      <option value="820000">澳门特别行政区</option>
-    </select>
-    省份
-    <select id="city_number" name="city[number]" onchange="jQuery.ajax({ type:'get',
-                                     url: '/admin/districts/ajax',
-                                     data: 'city_no='+this.value,
-                                     success: function(msg){
-                                      jQuery('#company_extend_district_no').html(msg);
-                                     }});" required="required">
-      <option value="">-请选择-</option>
-      <option value="330100">杭州市</option>
-      <option value="330200" selected="selected">宁波市</option>
-      <option value="330300">温州市</option>
-      <option value="330400">嘉兴市</option>
-      <option value="330500">湖州市</option>
-      <option value="330600">绍兴市</option>
-      <option value="330700">金华市</option>
-      <option value="330800">衢州市</option>
-      <option value="330900">舟山市</option>
-      <option value="331000">台州市</option>
-      <option value="331100">丽水市</option>
-    </select>
-    城市
-    <select id="company_extend_district_no" name="company_extend[district_no]" required="required">
-      <option value="">-请选择-</option>
-      <option value="330201" selected="selected">市辖区</option>
-      <option value="330203">海曙区</option>
-      <option value="330204">江东区</option>
-      <option value="330205">江北区</option>
-      <option value="330206">北仑区</option>
-      <option value="330211">镇海区</option>
-      <option value="330212">鄞州区</option>
-      <option value="330225">象山县</option>
-      <option value="330226">宁海县</option>
-      <option value="330281">余姚市</option>
-      <option value="330282">慈溪市</option>
-      <option value="330283">奉化市</option>
-    </select>
-    区县
-    <span class="red">*</span>
-  </p>
-  <p>
-    <label for="company_extend_address">详细地址：</label>
-    <input id="company_extend_address" name="company_extend[address]" size="30" type="text"  class="address"/>
-    <span class="red">*</span>
-  </p>
-  <p>
-    <label for="company_extend_zip">邮政编码：</label>
-    <input id="company_extend_zip" name="company_extend[zip]" size="30" type="text" />
-  </p>
-  <p>
-    <label for="company_extend_phone">固定电话：</label>
-    <input id="company_extend_phone" name="company_extend[phone]" size="30" type="text" />
-    <span class="red">*</span>
-    <span class="red">如：010-12345678，固话与手机至少填写一项</span>
-  </p>
-  <p>
-    <label for="company_extend_mobile">移动电话：</label>
-    <input id="company_extend_mobile" name="company_extend[mobile]" size="30" type="text" />
-    <span class="red">*</span>
-    <span class="red">填写手机号便于接收发货通知短信及送货前确认</span>
-  </p>
-  <p>
-    <label for="company_extend_email">电子邮箱：</label>
-    <input id="company_extend_email" name="company_extend[email]" size="30" type="text" />
-    <span class="red">*</span>
-    <span class="red">用来接收订单提醒邮件，便于您及时了解订单状态</span>
-  </p>
+
+  <%= f.fields_for :person_extend do |person_extend| %>
+    <p>
+      <label for="person_extend_name">真实姓名：</label>
+      <%= person_extend.text_field :name %>
+      <span class="red">*</span>
+      <span class="red">请使用真实姓名以确保及时收到所购商品</span>
+    </p>
+
+    <p>
+      <label for="person_extend_birth_1i">出生日期:</label>
+      <%= person_extend.date_select :birth, :start_year => 1930, :include_blank => true %>
+    </p>
+
+    <p>
+      <label for="____">所属地区：</label>
+      <%=raw address nil, "user[person_extend_attributes]" %>
+      <span class="red">*</span>
+    </p>
+
+    <p>
+      <label for="person_extend_address">详细地址：</label>
+      <%= person_extend.text_field :address, :class => "address" %>
+      <span class="red">*</span>
+    </p>
+
+    <p>
+      <label for="person_extend_zip">邮政编码：</label>
+      <%= person_extend.text_field :post %>
+    </p>
+
+    <p>
+      <label for="person_extend_phone">联系电话：</label>
+      <%= person_extend.text_field :phone %>
+      <span class="red">*</span>
+    </p>
+
+    <p>
+      <label for="person_extend_email">电子邮箱：</label>
+      <%= person_extend.text_field :email %>
+      <span class="red">*</span>
+      <span class="red">用来接收订单提醒邮件，便于您及时了解订单状态</span>
+    </p>
+  <% end %>
 
   <p><%= f.submit "现在注册", :class => "button"%></p>
 <% end %>

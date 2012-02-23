@@ -28,3 +28,10 @@ jQuery ->
 
     if flag
       jQuery("#user_new").submit()
+
+
+  jQuery("#person_sign_up").click ->
+    window.location.href = "/users/personal_sign_up"
+
+  jQuery("#enterprise_sign_up").click ->
+    window.location.href = "/users/sign_up"
