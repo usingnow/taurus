@@ -39,7 +39,6 @@ class Admin::CompanyExtendsController < ApplicationController
     @user = User.new params[:user]
     @user.user_type = 2
     @company_extend = CompanyExtend.new(params[:company_extend])
-    @user.email = @company_extend.email
     @company_extend.user = @user
 
     unless [@company_extend, @user].map(&:valid?).include?(false)
