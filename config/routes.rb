@@ -12,6 +12,7 @@ Ebiz::Application.routes.draw do
                                :registrations => "user/registrations"} do
     get "users/personal_sign_up" => "user/registrations#personal"
     post "users/personal_sign_up" => "user/registrations#create_personal"
+    get "users/login_success" => "user/sessions#login_success"
   end
 
 

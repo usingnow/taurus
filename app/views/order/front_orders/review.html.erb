@@ -258,6 +258,7 @@
     <p>根据您订单金额和所属区域，本次购物的运费为：<strong><%= number_to_currency @carriage_cost, :unit => "￥" %></strong></p>
   </div>
   <form action="/order/front_orders" method="post">
+    <button type="button" class="order_buttun">返回上页</button>
     <%= hidden_field_tag :customer_note, @order_remark %>
     <button type="submit" class="order_buttun">提交订单</button>
   </form>
