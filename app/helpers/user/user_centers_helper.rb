@@ -1,0 +1,3 @@
+module User::UserCentersHelper
+
+end
