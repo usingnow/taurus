@@ -4,6 +4,7 @@
     <%=raw current_category_site @sku %>
     <%= @sku.name %>
   </p>
+  <h1><%= @sku.name %></h1>
   <div id="sku_details_picture">
     <a href="<%= @sku.main_img %>" class="jqzoom" rel='gal1' title="<%= @sku.name %>">
       <%= image_tag @sku.main_img, :width => "400px", :height => "400px", :title => "#{@sku.name}" %>
@@ -24,7 +25,6 @@
     </div>
   </div>
   <div id="sku_basic_info">
-    <h1><%= @sku.name %></h1>
     <p class="p_1">商品编号：</p>
     <p class="p_2"><%= @sku.number %></p>
     <p class="p_3">商品型号：</p>

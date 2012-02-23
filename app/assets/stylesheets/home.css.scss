@@ -227,7 +227,15 @@
         background-image:url('/assets/home/login02.png');}
       button:focus {
         cursor:pointer;
-        background-image:url('/assets/home/login02.png');}}}}
+        background-image:url('/assets/home/login02.png');}}
+    p.after_login {
+      font-size: 14px;
+      height: 24px;
+      line-height: 24px;
+      vertical-align: middle;
+      text-align: center;}
+    p.red {
+      color: $text_red;}}}
 //Side Bar style in Home/main
 #slider_bar {
 	position: relative;

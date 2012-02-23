@@ -6,8 +6,17 @@
 
   <div id="tabs-1" class="content">
     <% if user_signed_in? %>
-       登录用户:<%= current_user.login_no %>
-      <%= link_to "退出", destroy_user_session_path, :method => :delete %>
+      <p class="after_login"><%= current_user.login_no %></p>
+      <p class="after_login red">登陆成功</p>
+      <p class="after_login">欢迎光临壹美壹家商城！</p>
+      <p class="after_login">如您在购物时遇到任何问题</p>
+      <p class="after_login">欢迎拨打热线</p>
+      <p class="after_login red">400-630-5006</p>
+      <p class="after_login">
+        <%= link_to "我的壹美壹家", user_user_centers_path %>
+        <%= link_to "我的关注", my_favorites_user_user_centers_path %>
+        <%= link_to "退出", destroy_user_session_path, :method => :delete %>
+      </p>
     <% else %>
       <%= form_for("user", :url => user_session_path) do |f| %>
         <p>
