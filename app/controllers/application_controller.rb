@@ -179,51 +179,17 @@ class ApplicationController < ActionController::Base
     end
 
     def current_person_no
-      @numbers = UserNumber.all
-      if @numbers.empty?
-        @number = UserNumber.new(:person_no => 1, :company_no => 1)
-        @number.save
-      else
-        @number = UserNumber.find(1)
-        @number.update_attributes(:person_no => @number.person_no + 1)
-      end
-      number = @number.person_no.to_s
-      if number.length == 1
-        number = '00000'+number
-      elsif number.length == 2
-        number = '0000'+number
-      elsif number.length == 3
-        number = '000'+number
-      elsif number.length == 4
-        number = '00'+number
-      elsif number.length == 5
-        number = '0'+number
-      end
-      "P"+ number
+      number = UserNumber.last
+      number.person_no += 1
+      number.save
+      "P" + number.person_no.to_s.rjust(6,"0")
     end
 
     def current_company_no
-      @numbers = UserNumber.all
-      if @numbers.empty?
-        @number = UserNumber.new(:person_no => 1, :company_no => 1)
-        @number.save
-      else
-        @number = UserNumber.find(1)
-        @number.update_attributes(:company_no => @number.company_no + 1)
-      end
-      number = @number.company_no.to_s
-      if number.length == 1
-        number = '00000'+number
-      elsif number.length == 2
-        number = '0000'+number
-      elsif number.length == 3
-        number = '000'+number
-      elsif number.length == 4
-        number = '00'+number
-      elsif number.length == 5
-        number = '0'+number
-      end
-      "U"+ number
+      number = UserNumber.last
+      number.company_no += 1
+      number.save
+      "U" + number.company_no.to_s.rjust(6,"0")
     end
 
     def is_have_store(order,store_id)

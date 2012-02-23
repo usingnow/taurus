@@ -11,6 +11,7 @@ Ebiz::Application.routes.draw do
              :controllers => { :sessions => "user/sessions",
                                :registrations => "user/registrations"} do
     get "users/personal_sign_up" => "user/registrations#personal"
+    post "users/personal_sign_up" => "user/registrations#create_personal"
   end
 
 

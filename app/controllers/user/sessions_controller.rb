@@ -7,7 +7,6 @@ class User::SessionsController < Devise::SessionsController
   end
 
 
-  # POST /resource/sign_in
   def create
     if session[:code] == params[:code]
       super
