@@ -1,6 +1,14 @@
 //= require plugin/jquery.jqzoom
 //= require plugin/jquery.jcarousel
 
+#sku_details_wrapper{
+  h1 {
+    padding: 0px 4px 4px 4px;
+    margin-bottom: 6px;
+    border-bottom: 1px dashed #dddddd;
+    line-height: 28px;
+    vertical-align: middle;
+    text-align: center;}}
 .sku_details_nav {
   margin: 4px 0 10px 0;
   padding: 0 4px 0 4px;
@@ -47,12 +55,10 @@
   height: 456px;
   border: 1px solid #dddddd;
   padding: 5px;
-  h1 {
-    margin: 0 0 15px 0;}
   p {
     position: relative;
     float: left;
-    margin: 10px 0 10px 5px;
+    margin: 14px 0 14px 5px;
     font-size: 16px;}
   .p_1 {
     width: 80px;}
