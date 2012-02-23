@@ -17,92 +17,85 @@
     <input id="confirm_pwd" name="user[password]" size="30" type="text" />
     <span class="red">*</span>
   </p>
+  <hr />
   <p>
-    <label for="company_extend_company_name">公司名称：</label>
-    <input id="company_extend_company_name" name="company_extend[company_name]" size="30" type="text" />
+    <label for="company_extend_name">真实姓名：</label>
+    <input id="company_extend_name" name="company_extend[name]" size="30" type="text" />
     <span class="red">*</span>
+    <span class="red">请使用真实姓名以确保及时收到所购商品</span>
   </p>
   <p>
-    <label for="company_extend_industry_id">行业类别：</label>
-    <select id="company_extend_industry_id" name="company_extend[industry_id]"><option value="1">计算机软件</option>
-      <option value="2">计算机硬件</option>
-      <option value="3">计算机服务(系统、数据服务、维修)</option>
-      <option value="4">通信/电信/网络设备</option>
-      <option value="5">通信/电信运营、增值服务</option>
-      <option value="6">互联网/电子商务</option>
-      <option value="7">网络游戏</option>
-      <option value="8">电子技术/半导体/集成电路</option>
-      <option value="9">仪器仪表/工业自动化</option>
-      <option value="10">会计/审计</option>
-      <option value="11">金融/投资/证券</option>
-      <option value="12">银行</option>
-      <option value="13">保险</option>
-      <option value="14">贸易/进出口</option>
-      <option value="15">批发/零售</option>
-      <option value="16">快速消费品(食品、饮料、化妆品)</option>
-      <option value="17">服装/纺织/皮革</option>
-      <option value="18">家电/家电/工艺品/玩具</option>
-      <option value="19">办公用品及设备</option>
-      <option value="20">机械/设备/重工</option>
-      <option value="21">汽车及零配件</option>
-      <option value="22">制药/生物工程</option>
-      <option value="23">医疗/护理/保健/卫生</option>
-      <option value="24">医疗设备/器械</option>
-      <option value="25">广告</option>
-      <option value="26">公关/市场推销/展会</option>
-      <option value="27">影视/媒体/艺术</option>
-      <option value="28">文字媒体/出版</option>
-      <option value="29">印刷/包装</option>
-      <option value="30">房地产开发</option>
-      <option value="31">建筑与工程</option>
-      <option value="32">家居/室内/装潢</option>
-      <option value="33">物业管理/商业中心</option>
-      <option value="34">中介服务</option>
-      <option value="35">专业服务(咨询、人力资源)</option>
-      <option value="36">检测、认证</option>
-      <option value="37">法律</option>
-      <option value="38">教育培训</option>
-      <option value="39">学术/科研</option>
-      <option value="40">餐饮业</option>
-      <option value="41">酒店/旅游</option>
-      <option value="42">娱乐/休闲/体育</option>
-      <option value="43">美容/保健</option>
-      <option value="44">生活服务</option>
-      <option value="45">交通/运输/物流</option>
-      <option value="46">航天/航空</option>
-      <option value="47">石油/化工/矿产</option>
-      <option value="48">采掘业/冶炼</option>
-      <option value="49">电力/水利</option>
-      <option value="50">原材料和加工</option>
-      <option value="51">政府</option>
-      <option value="52">非盈利机构</option>
-      <option value="53">环保</option>
-      <option value="54">农业/渔业/林业</option>
-      <option value="55">多元化业务集团</option>
-      <option value="56">其他行业</option>
+    <label for="__">称呼：</label>
+    <input class="check" id="company_extend_sex_0" name="company_extend[sex]" type="radio" value="0" />
+    女士
+    <input checked="checked" class="check" id="company_extend_sex_1" name="company_extend[sex]" type="radio" value="1" />
+    先生
+  </p>
+  <p>
+    <label for="person_extend_birth_1i">出生日期:</label>
+    <select id="person_extend_birth_1i" name="person_extend[birth(1i)]">
+      <option value=""></option>
+      <option value="2007">2007</option>
+      <option value="2008">2008</option>
+      <option value="2009">2009</option>
+      <option value="2010">2010</option>
+      <option value="2011">2011</option>
+      <option value="2012">2012</option>
+      <option value="2013">2013</option>
+      <option value="2014">2014</option>
+      <option value="2015">2015</option>
+      <option value="2016">2016</option>
+      <option value="2017">2017</option>
     </select>
-    <span class="red">*</span>
-  </p>
-  <p>
-    <label for="company_extend_company_type_id">公司性质：</label>
-      <select id="company_extend_company_type_id" name="company_extend[company_type_id]"><option value="1">国有企业</option>
-        <option value="2">民营企业</option>
-        <option value="3">三资企业</option>
-        <option value="4">私营企业</option>
-        <option value="5">事业单位</option>
-        <option value="6">社会团体</option>
-        <option value="7">国家机关</option>
-      </select>
-    <span class="red">*</span>
-  </p>
-  <p>
-   <label for="company_extend_company_scale_id">公司规模：</label>
-   <select id="company_extend_company_scale_id" name="company_extend[company_scale_id]"><option value="">-请选择-</option>
-    <option value="1">1~10人</option>
-    <option value="2">10~50人</option>
-    <option value="3">50~200人</option>
-    <option value="4">1000人以上</option>
-   </select>
+    <select id="person_extend_birth_2i" name="person_extend[birth(2i)]">
+      <option value=""></option>
+      <option value="1">一月</option>
+      <option value="2">二月</option>
+      <option value="3">三月</option>
+      <option value="4">四月</option>
+      <option value="5">五月</option>
+      <option value="6">六月</option>
+      <option value="7">七月</option>
+      <option value="8">八月</option>
+      <option value="9">九月</option>
+      <option value="10">十月</option>
+      <option value="11">十一月</option>
+      <option value="12">十二月</option>
+    </select>
+    <select id="person_extend_birth_3i" name="person_extend[birth(3i)]">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
+      <option value="21">21</option>
+      <option value="22">22</option>
+      <option value="23">23</option>
+      <option value="24">24</option>
+      <option value="25">25</option>
+      <option value="26">26</option>
+      <option value="27">27</option>
+      <option value="28">28</option>
+      <option value="29">29</option>
+      <option value="30">30</option>
+      <option value="31">31</option>
+    </select>
   </p>
   <p>
     <label for="____">所属地区：</label>
@@ -188,27 +181,6 @@
     区县
     <span class="red">*</span>
   </p>
-  <hr />
-  <p>
-    <label for="company_extend_name">联系人姓名：</label>
-    <input id="company_extend_name" name="company_extend[name]" size="30" type="text" />
-    <span class="red">*</span>
-  </p>
-  <p>
-    <label for="__">称呼：</label>
-    <input class="check" id="company_extend_sex_0" name="company_extend[sex]" type="radio" value="0" />
-    女士
-    <input checked="checked" class="check" id="company_extend_sex_1" name="company_extend[sex]" type="radio" value="1" />
-    先生
-  </p>
-  <p>
-    <label for="company_extend_contact_dept">联系人部门：</label>
-    <input id="company_extend_contact_dept" name="company_extend[contact_dept]" size="30" type="text" />
-  </p>
-  <p>
-    <label for="company_extend_contact_post">联系人职位：</label>
-    <input id="company_extend_contact_post" name="company_extend[contact_post]" size="30" type="text" />
-  </p>
   <p>
     <label for="company_extend_address">详细地址：</label>
     <input id="company_extend_address" name="company_extend[address]" size="30" type="text"  class="address"/>
@@ -218,17 +190,6 @@
     <label for="company_extend_zip">邮政编码：</label>
     <input id="company_extend_zip" name="company_extend[zip]" size="30" type="text" />
   </p>
-  <p>
-    <label for="company_extend_email">电子邮箱：</label>
-    <input id="company_extend_email" name="company_extend[email]" size="30" type="text" />
-    <span class="red">*</span>
-    <span class="red">用来接收订单提醒邮件，便于您及时了解订单状态</span>
-  </p>
-  <p>
-    <label for="company_extend_web_address">公司网址：</label>
-    <input id="company_extend_web_address" name="company_extend[web_address]" size="30" type="text" />
-  </p>
-
   <p>
     <label for="company_extend_phone">固定电话：</label>
     <input id="company_extend_phone" name="company_extend[phone]" size="30" type="text" />
@@ -242,8 +203,10 @@
     <span class="red">填写手机号便于接收发货通知短信及送货前确认</span>
   </p>
   <p>
-    <label for="company_extend_fax">传真号码：</label>
-    <input id="company_extend_fax" name="company_extend[fax]" size="30" type="text" />
+    <label for="company_extend_email">电子邮箱：</label>
+    <input id="company_extend_email" name="company_extend[email]" size="30" type="text" />
+    <span class="red">*</span>
+    <span class="red">用来接收订单提醒邮件，便于您及时了解订单状态</span>
   </p>
 
   <p><%= f.submit "现在注册", :class => "button"%></p>

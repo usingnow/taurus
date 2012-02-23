@@ -1,5 +1,5 @@
 class User::RegistrationsController < Devise::RegistrationsController
-  layout "devise"
+  layout "home"
 
   def new
     super
