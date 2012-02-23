@@ -1,3 +1,4 @@
+#encoding:UTF-8
 class User::SessionsController < Devise::SessionsController
   layout "home"
 
@@ -8,7 +9,11 @@ class User::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    super
+    if session[:code] == params[:code]
+      super
+    else
+      redirect_to new_user_session_url, :alert => "验证码错误"
+    end
   end
 
   # DELETE /resource/sign_out
