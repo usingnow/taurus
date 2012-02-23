@@ -215,7 +215,6 @@ zh-CN:
     station: "站别"
     station_procedureship: "流程规则"
     supplier: "供应商"
-    user: "会员"
 
   attributes: &attributes
     administrator:
@@ -448,20 +447,6 @@ zh-CN:
       email_confirmation: "确认邮箱"
 
 
-
-    user:
-      login_no: "用户名"
-      password: "密码"
-      created_at: "注册时间"
-      status: "帐号状态"
-      history_status: "历史状态"
-      role: "会员角色"
-      email: "邮箱"
-      index: "会员编号或帐号"
-
-
-      #扩展属性
-      password_confirmation: "确认密码"
 
     procedure:
       id: "流程ID"
