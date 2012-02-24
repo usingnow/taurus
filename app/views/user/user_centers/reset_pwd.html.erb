@@ -17,20 +17,22 @@
   -->
 
   <!--在这里插入Notification 结束-->
+  <%= form_tag update_pwd_user_user_centers_path, :method => :put do |f| %>
+    <p>
+      <label for="old_password">当前密码：</label>
+      <%= password_field_tag :current_password %>
+    </p>
+    <p>
+      <label for="new_password">新设密码：</label>
+      <%= password_field_tag :password %>
+    </p>
+    <p>
+      <label for="confirm_new_password">确认新设密码：</label>
+      <%= password_field_tag :password_confirmation %>
+    </p>
 
-  <p>
-    <label for="old_password">当前密码：</label>
-    <input id="old_password" type="password" />
-  </p>
-  <p>
-    <label for="new_password">新设密码：</label>
-    <input id="new_password" type="password" />
-  </p>
-  <p>
-    <label for="confirm_new_password">确认新设密码：</label>
-    <input id="confirm_new_password" type="password" />
-  </p>
+    <button type="submit">修改密码</button>
+    <button type="button">取消</button>
 
-  <button>修改密码</button>
-  <button>取消</button>
+  <% end %>
 </div>
