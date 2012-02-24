@@ -7,38 +7,36 @@
   <h2 class="title">订单查询</h2>
 
   <div id="conditions">
-    <p>
-      <label for="order_id">订单编号：</label>
-      <input id="order_id" type=text size=30>
-    </p>
+    <%= search_form_for @search, :url => order_query_user_user_centers_path do |f| %>
+      <p>
+        <label for="order_id">订单编号：</label>
+        <%= f.text_field :number_eq %>
+      </p>
     <p>
       <label for="order_status">订单状态：</label>
-      <select id="order_status">
-        <option>请选择订单状态</option>
-        <option>完成</option>
-        <option>主动取消</option>
-      </select>
+      <%= f.select :instance_station_id_eq, Station.user_stations.collect{ |s| [s.display_name ,s.id]} ,{:include_blank => true } %>
     </p>
     <p>
       <label for="order_payment_method">付款方式：</label>
-      <select id="order_payment_method">
-        <option>请选择付款方式</option>
-        <option>在线支付</option>
-        <option>货到付款</option>
-      </select>
+      <%= f.select :instance_procedure_id_eq, options_from_collection_for_select(current_user.role.procedures, "id", "display_name") ,{:include_blank => true } %>
     </p>
     <p>
       <label for="order_date">订单日期：</label>
-      <input id="order_date_from" type=text size=30>
+      <%= f.date_select :created_at_gt,{:include_blank=>true} %>
       ~
-      <input id="order_date_to" type=text size=30>
+      <%= f.date_select :created_at_lt,{:include_blank=>true} %>
     </p>
     <p class="clear">
       快速查询：
-      <a href="#">最近一个月</a>
-      <a href="#">最近三个月</a>
-      <a href="#">最近六个月</a>
+      <%= link_to "最近一个月", "#", :id => "last_one_month" %>
+      <%= link_to "最近三个月", "", :id => "last_three_month" %>
+      <%= link_to "最近六个月", "", :id => "last_six_month" %>
     </p>
+    <p>
+      <%= f.submit "查询" %>
+    </p>
+  <% end %>
+
   </div>
 
   <table id="uc_order_query">
@@ -64,9 +62,11 @@
           <td><%= number_to_currency order.total_amount, :unit => "￥" %></td>
           <td><%= order.instance.station.display_name %></td>
           <td>
-            <strong>
-              <%= link_to "立即付款", alipaies_path(:number => order.number), :target => "blank" %>
-            </strong>
+            <% if order.instance.procedure.id == 1 %>
+              <strong>
+                <%= link_to "立即付款", alipaies_path(:number => order.number), :target => "blank" %>
+              </strong>
+            <% end %>
             <a href="#">修改</a>
             <a href="#">取消</a>
           </td>
@@ -75,7 +75,7 @@
     </tbody>
     <tfoot>
       <tr>
-        <td colspan="7">上一页 ... 下一页</td>
+        <td colspan="7"><%= will_paginate @orders %></td>
       </tr>
     </tfoot>
   </table>

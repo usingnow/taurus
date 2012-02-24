@@ -4,7 +4,7 @@ class User::UserCentersController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @orders = current_user.orders
+    @orders = current_user.orders.order("created_at desc").paginate(:page => params[:page], :per_page => 10)
   end
 
   def detailed_p_user_info
@@ -32,8 +32,9 @@ class User::UserCentersController < ApplicationController
   end
 
   def order_query
-    @orders = current_user.orders
-
+    @search = current_user.orders.search(params[:q])
+    @search.sorts = "created_at desc"
+    @orders = @search.result.paginate(:page => params[:page],:per_page => 10)
   end
 
   def sku_query
@@ -45,6 +46,6 @@ class User::UserCentersController < ApplicationController
   end
 
   def user_addresses
-
+    @user_addresses = current_user.user_addresses.paginate(:page => params[:page], :per_page => 10)
   end
 end
