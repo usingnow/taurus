@@ -7,8 +7,7 @@ class User < ActiveRecord::Base
   has_many :orders, :dependent => :destroy
   accepts_nested_attributes_for :person_extend
   accepts_nested_attributes_for :company_extend
-  before_save :default_values
-
+  before_validation :default_values
 
 
   devise :database_authenticatable, :registerable,
@@ -22,6 +21,7 @@ class User < ActiveRecord::Base
   attr_accessor :password_confirmation, :email_confirmation, :index
 
   validates_presence_of :login_no
+  validates_numericality_of :role_id, :status, :store_id, :only_integer => true
   validates_uniqueness_of :login_no
 
 

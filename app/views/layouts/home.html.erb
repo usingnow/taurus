@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
   <title>壹美壹家</title>
-  <%= stylesheet_link_tag 'index/home/public.css', 'smoothness/jquery-ui-1.8.16.custom-jimmy.css', 'public' %>
+  <%= stylesheet_link_tag 'smoothness/jquery-ui-1.8.16.custom-jimmy.css', 'public' %>
   <%= stylesheet_link_tag params[:controller] %>
   <%= javascript_include_tag 'layouts/home' %>
   <%= javascript_include_tag params[:controller] %>
@@ -34,7 +34,11 @@
         </ul>
       </div>
       <div id="welcome">
-        <p><%= link_to "登录", new_user_session_path, :title => "登录" %> 或 <a href="#" title="注册">免费注册，享受会员服务</a></p>
+        <p>
+          <%= link_to "登录", new_user_session_path, :title => "登录" %>
+          或
+          <%= link_to "免费注册，享受会员服务", new_user_session_path, :title => "注册" %>
+        </p>
       </div>
       <div id="cart">
         <p style="width: 100px; line-height:28px; vertical-align:middle; margin: 0px; padding: 0 0 0 32px;">

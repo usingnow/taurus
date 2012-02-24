@@ -6,18 +6,21 @@
     <label for="user_login_no">登陆账号：</label>
     <%= f.text_field :login_no %>
     <span class="red">*</span>
+    <span id="user_login_noTip"></span>
   </p>
 
   <p>
     <label for="password">输入密码：</label>
     <%= f.password_field :password %>
     <span class="red">*</span>
+    <span id="user_passwordTip"></span>
   </p>
 
   <p>
     <label for="confirm_pwd">确认密码：</label>
     <%= f.password_field :password_confirmation %>
     <span class="red">*</span>
+    <span id="user_password_confirmationTip"></span>
   </p>
 
   <hr />
