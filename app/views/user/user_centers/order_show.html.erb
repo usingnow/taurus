@@ -20,7 +20,6 @@
       <th>安装费用</th>
       <th>组装</th>
       <th>组装费用</th>
-      <th>其他费用</th>
       <th>小计</th>
     </tr>
   </thead>
@@ -35,7 +34,6 @@
         <td><%= number_to_currency order_detail.sku.installation_cost_aft_tax, :unit => "￥" %></td>
         <td><%= format_boolean order_detail.is_need_assemble %></td>
         <td><%= number_to_currency order_detail.sku.assembling_fee_aft_tax, :unit => "￥" %></td>
-        <td>非法字段</td>
         <td><%= number_to_currency order_detail.subtotal, :unit => "￥" %></td>
       </tr>
     <% end %>
