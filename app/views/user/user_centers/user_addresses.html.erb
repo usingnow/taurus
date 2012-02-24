@@ -20,16 +20,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td class="small_font">某某某</td>
-        <td class="small_font">某某某某某某 某某某某某 某某某某某</td>
-        <td class="small_font">某某某</td>
-        <td class="small_font">某某某</td>
-        <td class="small_font">某某某</td>
-        <td class="small_font">某某某</td>
-        <td class="small_font">某某某</td>
-        <td class="small_font">修改 删除</td>
-      </tr>
+      <% @user_addresses.each do |user_address| %>
+        <tr>
+          <td class="small_font"><%= user_address.name %></td>
+          <td class="small_font"><%= user_address.district.address %></td>
+          <td class="small_font"><%= user_address.address %></td>
+          <td class="small_font"><%= user_address.zip %></td>
+          <td class="small_font"><%= user_address.phone %></td>
+          <td class="small_font"><%= user_address.mobile %></td>
+          <td class="small_font"><%= user_address.email %></td>
+          <td class="small_font">修改 删除</td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 </div>

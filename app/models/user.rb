@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   belongs_to :role
   belongs_to :store
   has_many :orders, :dependent => :destroy
+  has_many :user_addresses, :dependent => :destroy
+  has_one :consignee_info, :dependent => :destroy
   accepts_nested_attributes_for :person_extend
   accepts_nested_attributes_for :company_extend
   before_validation :default_values

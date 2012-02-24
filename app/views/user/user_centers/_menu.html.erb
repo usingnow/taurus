@@ -3,14 +3,20 @@
 <h3>订单中心</h3>
 <ul>
   <li><%= link_to "订单查询", order_query_user_user_centers_path %></li>
-  <li>购买商品查询</li>
-  <li>我的评论</li>
+  <!-- <li>购买商品查询</li>
+  <li>我的评论</li> -->
 </ul>
 
 <h3>账户信息</h3>
 <ul>
-  <li>用户资料</li>
-  <li>收货地址</li>
+  <li>
+    <% if current_user.user_type == 1 %>
+      <%= link_to "用户资料", detailed_p_user_info_user_user_centers_path %>
+    <% else %>
+      <%= link_to "用户资料", detailed_e_user_info_user_user_centers_path %>
+    <% end %>
+  </li>
+  <li><%= link_to "收货地址", user_addresses_user_user_centers_path %></li>
   <li>修改密码</li>
   <li>我的积分</li>
   <li>免费索取目录</li>

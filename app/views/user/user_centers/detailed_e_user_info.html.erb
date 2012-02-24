@@ -7,41 +7,41 @@
   <h2 class="title">用户资料</h2>
   <h3>基本信息</h3>
   <p class="p_t">用户名：</p>
-  <p>fentick</p>
+  <p><%= current_user.login_no %></p>
   <p class="p_t">企业名称：</p>
-  <p>某某公司</p>
+  <p><%= current_user.company_extend.company_name %></p>
   <p class="p_t">所属行业：</p>
-  <p>计算机硬件</p>
+  <p><%= current_user.company_extend.industry.name %></p>
   <p class="p_t">公司性质：</p>
-  <p>民营企业</p>
+  <p><%= current_user.company_extend.company_type.name %></p>
   <p class="p_t">公司规模：</p>
-  <p>1000人以上</p>
+  <p><%= get_company_scale_name current_user.company_extend %></p>
   <h3>联系方式</h3>
   <p class="p_t">联系人姓名：</p>
-  <p>某某某</p>
+  <p><%= current_user.company_extend.name %></p>
   <p class="p_t">称呼：</p>
-  <p>女士</p>
+  <p><%= format_value current_user.company_extend.sex, { 1 => "先生", 2 => "女士"} %></p>
   <p class="p_t">联系人部门：</p>
-  <p>某某部</p>
+  <p><%= current_user.company_extend.contact_post %></p>
   <p class="p_t">联系人职位：</p>
-  <p>科长</p>
+  <p><%= current_user.company_extend.contact_dept %></p>
   <p class="p_t">固定电话：</p>
-  <p>021 1234 5678</p>
+  <p><%= current_user.company_extend.phone %></p>
   <p class="p_t">移动电话：</p>
-  <p>+86 138 1234 5678</p>
+  <p><%= current_user.company_extend.mobile %></p>
   <p class="p_t">传真号码：</p>
-  <p>021 1234 5678</p>
+  <p><%= current_user.company_extend.fax %></p>
   <p class="p_t">电子邮箱：</p>
-  <p>uuu@usingnow.com</p>
+  <p><%= current_user.company_extend.email %></p>
   <p class="p_t">公司网址：</p>
-  <p>www.usingnow.com</p>
+  <p><%= current_user.company_extend.web_address %></p>
 
   <p class="p_t">默认区域：</p>
-  <p>浙江省 宁波市 江北区</p>
+  <p><%= current_user.company_extend.district.address %></p>
   <p class="p_t">默认地址：</p>
-  <p>某某市某某区某某路某某号</p>
+  <p><%= current_user.company_extend.address %></p>
   <p class="p_t">默认邮编：</p>
-  <p>100000</p>
+  <p><%= current_user.company_extend.zip %></p>
 
   <button>修改个人信息</button>
 </div>

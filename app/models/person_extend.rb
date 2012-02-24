@@ -2,6 +2,7 @@
 class PersonExtend < ActiveRecord::Base
   belongs_to :user
   belongs_to :role
+  belongs_to :district, :class_name => "District", :foreign_key => "district_no"
   before_save :default_values
 
   attr_accessor :email_confirmation
