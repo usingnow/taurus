@@ -41,9 +41,6 @@ class User::UserCentersController < ApplicationController
 
   end
 
-  def reset_pwd
-
-  end
 
   def user_addresses
     @user_addresses = current_user.user_addresses.paginate(:page => params[:page], :per_page => 10)

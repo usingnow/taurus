@@ -209,7 +209,6 @@ Ebiz::Application.routes.draw do
         get :mail_sales
         get :user_addresses
         get :comments
-        get :reset_pwd
         get :my_points
         get :my_favorites
         get :order_query

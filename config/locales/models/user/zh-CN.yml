@@ -12,4 +12,5 @@ zh-CN:
         history_status: "历史状态"
         role: "会员角色"
         email: "邮箱"
+        current_password: "当前密码"
 
