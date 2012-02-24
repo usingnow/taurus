@@ -24,7 +24,6 @@ class User < ActiveRecord::Base
   validates_numericality_of :role_id, :status, :store_id, :only_integer => true
   validates_uniqueness_of :login_no
 
-
   private
     def default_values
       self.role_id = 2 unless self.role_id

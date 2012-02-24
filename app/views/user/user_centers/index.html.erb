@@ -31,9 +31,11 @@
           <td><%= number_to_currency order.total_amount, :unit => "￥" %></td>
           <td><%= order.instance.station.display_name %></td>
           <td>
-            <strong>
-              <%= link_to "立即付款", alipaies_path(:number => order.number), :target => "blank" %>
-            </strong>
+            <% if order.instance.procedure.id == 1 %>
+              <strong>
+                <%= link_to "立即付款", alipaies_path(:number => order.number), :target => "blank" %>
+              </strong>
+            <% end %>
             <a href="#">修改</a>
             <a href="#">取消</a>
           </td>
@@ -42,7 +44,7 @@
     </tbody>
     <tfoot>
       <tr>
-        <td colspan="7">上一页 ... 下一页</td>
+        <td colspan="7"><%= will_paginate @orders %></td>
       </tr>
     </tfoot>
   </table>
