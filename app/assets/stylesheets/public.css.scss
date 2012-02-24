@@ -22,7 +22,8 @@ a {
 	text-decoration: none;}
 a:hover {
 	color: #FF0000;
-	text-decoration: none;}
+	text-decoration: none;
+  cursor: pointer;}
 a:active{
 	color: #FF0000;
 	text-decoration: none;}
@@ -317,7 +318,9 @@ table {
 	border: 1px solid #FFFFFF;
 	margin: 2px;
 	padding: 0px;
-	text-align:center;}
+	text-align:center;
+  > a {
+    color: #FFFFFF;}}
 .sku_list_li:hover {
 	border: 1px solid $text_red;}
 .sku_list_ul {
@@ -393,7 +396,10 @@ table {
   .has_children{
     color :#333333;
     cursor:pointer;
-    border-bottom: 1px dashed #dddddd;}
+    border-bottom: 1px dashed #dddddd;
+    span {
+      + a {
+        color: #FFFFFF;}}}
   .highlight{
 	color : $text_red;
 	border-bottom: 1px solid #ffffff;}
