@@ -48,4 +48,14 @@ class User::UserCentersController < ApplicationController
   def user_addresses
     @user_addresses = current_user.user_addresses.paginate(:page => params[:page], :per_page => 10)
   end
+
+  def order_show
+    @order = current_user.orders.find params[:id]
+    @consignee_info = current_user.consignee_info
+
+  end
+
+  def order_edit
+
+  end
 end

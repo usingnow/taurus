@@ -1,0 +1,104 @@
+<p class="nav">您的位置：首页 >> 我的壹美壹家 >> 订单详情</p>
+
+<div id="order_brief">
+  <p>订单号：20001111-000</p>
+  <p>状态：主动取消</p>
+</div>
+
+<table class="order_sku_details">
+  <caption>
+    商品明细：<em>在库品</em>
+    订单状态：<em>主动取消</em>
+  </caption>
+  <thead>
+    <tr>
+      <th>商品编号</th>
+      <th>商品名称</th>
+      <th>单价</th>
+      <th>数量</th>
+      <th>安装</th>
+      <th>安装费用</th>
+      <th>组装</th>
+      <th>组装费用</th>
+      <th>其他费用</th>
+      <th>小计</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.order_details.each do |order_detail| %>
+      <tr>
+        <td><%= order_detail.sku.number %></td>
+        <td><%= order_detail.sku.name %></td>
+        <td><%= order_detail.sku.cost_aft_tax %></td>
+        <td><%= order_detail.quantity %></td>
+        <td><%= format_boolean order_detail.is_need_install %></td>
+        <td><%= number_to_currency order_detail.sku.installation_cost_aft_tax, :unit => "￥" %></td>
+        <td><%= format_boolean order_detail.is_need_assemble %></td>
+        <td><%= number_to_currency order_detail.sku.assembling_fee_aft_tax, :unit => "￥" %></td>
+        <td>非法字段</td>
+        <td><%= number_to_currency order_detail.subtotal, :unit => "￥" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="11">商品总价：<i><%=  %></i>元 + 安装费：<i>9999.99</i>元 + 组装费：<i>999.99</i>元 + 其他费用：<i>999.99</i>元</td>
+    </tr>
+    <tr>
+      <td colspan="11">+ 运费：<i>99.99</i>元</td>
+    </tr>
+    <tr>
+      <td colspan="11"><strong>应支付金额：</strong><strong><i>99999999.99</i></strong>元</td>
+    </tr>
+  </tfoot>
+</table>
+
+<div id="order_info_review">
+  <h2>订单其他信息预览</h2>
+  <p>收件人姓名：<%= @consignee_info.name %></p>
+  <p>所属区域： <%= @consignee_info.district.city.province.name %>&nbsp;
+              <%= @consignee_info.district.city.name %>&nbsp;
+              <%= @consignee_info.district.name %>
+  </p>
+  <p>送货地址： <%= @consignee_info.address %></p>
+  <p>固定电话： <%= @consignee_info.phone %></p>
+  <p>移动电话： <%= @consignee_info.mobile %></p>
+  <p>电子邮件： <%= @consignee_info.email %></p>
+  <p>邮政编码： <%= @consignee_info.zip %></p>
+  <hr />
+  <p>支付方式： <%= @order.instance.procedure.display_name %></p>
+  <hr />
+  <% if @order.invoice_type == 0 %>
+    <p>发票类型：普通</p>
+    <hr />
+    <% if @order.is_invoice_head == 0 %>
+      <p>开票抬头：个人</p>
+    <% else %>
+      <p>开票抬头：单位</p>
+      <p>单位名称：<%= @order.company_name %></p>
+    <% end %>
+
+  <% elsif @order.invoice_type == 1 %>
+    <p>发票类型：增值税发票</p>
+    <hr />
+    <% if @order.is_invoice_head == 0 %>
+      <p>开票抬头：个人</p>
+    <% else %>
+      <p>开票抬头：单位</p>
+      <p>单位名称：<%= @order.company_name %></p>
+    <% end %>
+    <hr />
+    <p>开户银行：<%= @order.account_bank %></p>
+    <p>开户名称：<%= @order.account_person_name %></p>
+    <p>注册电话：<%= @order.account_phone %></p>
+    <p>银行帐号：<%= @order.account_no %></p>
+    <p>增值税登记号：<%= @order.added_value_tax_no %></p>
+    <p>注册地址：<%= @order.account_reg_add %></p>
+  <% else %>
+    <p>发票类型：不需要</p>
+  <% end %>
+  <hr />
+  <p>
+    订单备注：<%= @order.inner_note %>
+  </p>
+</div>

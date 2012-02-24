@@ -55,7 +55,7 @@
     <tbody>
       <% @orders.each do |order| %>
         <tr class="<%= cycle('odd','even') %>">
-          <td><%= order.number %></td>
+          <td><%= link_to order.number, order_show_user_user_center_path(order) %></td>
           <td><%= order.created_at %></td>
           <td><%= order.name %></td>
           <td><%= order.instance.procedure.display_name %></td>

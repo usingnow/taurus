@@ -213,6 +213,10 @@ Ebiz::Application.routes.draw do
         get :my_points
         get :my_favorites
         get :order_query
+        get :order_edit
+      end
+      member do
+        get :order_show
       end
     end
   end
