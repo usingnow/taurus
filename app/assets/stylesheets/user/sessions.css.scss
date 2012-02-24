@@ -2,7 +2,7 @@
 
 #login_wrapper {
   width: 892px;
-  height: 300px;
+  height: 270px;
   padding: 0px;
   margin: 50px;
   border: 1px solid #dddddd;}
@@ -17,12 +17,16 @@
 #login_window_left_up {
   float: left;
   width: 50%;
-  height: 190px;
-  border-bottom: 1px dotted #dddddd;
+  height: 240px;
+  padding-top: 50px;
+  //border-bottom: 1px dotted #dddddd;
   a {
     position: absolute;
     left: 280px;
-    color: $text_red;}}
+    color: $text_red;}
+  p {
+    line-height: 25px;
+    vertical-align: middle;}}
 #login_window_left_down {
   float: left;
   width: 50%;
@@ -84,15 +88,22 @@
     color: #FFFFFF;
     background-image: url('/assets/templates/login_112_31.png');}}
 .row_1 {
-  top: 10px}
+  top: 30px;}
 .row_2 {
-  top: 50px}
+  top: 70px;}
 .row_3 {
-  top: 90px}
+  top: 110px;
+  #change_ver_code {
+    position: absolute;
+    top: 0px;
+    left: 130px;
+    display: block;
+    width: 50px;
+    height: 14px;}}
 .row_4 {
-  top: 130px}
+  top: 150px;}
 .row_5 {
-  top: 155px}
+  top: 175px;}
 
 .error_info{
   background: #FFECEC;
@@ -123,3 +134,11 @@
     clear: both;}
   .indent {
     text-indent: 28px;}}
+.notification_area_not_yet_login {
+  @extend .notification_area;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #FF6600;
+  border: 1px solid #FF9900;
+  background-color: lighten(#FF9900, 40%);}
