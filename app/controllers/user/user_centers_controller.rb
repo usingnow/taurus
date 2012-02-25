@@ -67,4 +67,14 @@ class User::UserCentersController < ApplicationController
   def order_edit
 
   end
+
+  def edit_p_user_info
+    @user_info = current_user
+    @person_extend = @user_info.build_person_extend
+  end
+
+  def edit_e_user_info
+    @user_info = current_user
+    @company_extend = @user_info.build_company_extend
+  end
 end
