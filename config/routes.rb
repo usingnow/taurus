@@ -213,9 +213,12 @@ Ebiz::Application.routes.draw do
         get :my_favorites
         get :order_query
         get :order_edit
+        get :new_user_address
       end
       member do
         get :order_show
+        get :edit_user_address
+        delete :del_user_address
       end
     end
   end

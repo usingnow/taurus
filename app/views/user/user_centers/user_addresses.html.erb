@@ -7,6 +7,7 @@
   <h2 class="title">收货地址</h2>
 
   <table class="order_sku_details">
+    <caption class="right"><a href="#">【新增常用地址】</a></caption>
     <thead>
       <tr>
         <th>收货人</th>
@@ -29,7 +30,10 @@
           <td class="small_font"><%= user_address.phone %></td>
           <td class="small_font"><%= user_address.mobile %></td>
           <td class="small_font"><%= user_address.email %></td>
-          <td class="small_font">修改 删除</td>
+          <td class="small_font">
+            <%= link_to "修改", edit_user_address_user_user_center_path(user_address)  %>
+            <%= link_to "删除", del_user_address_user_user_center_path(user_address) %>
+          </td>
         </tr>
       <% end %>
     </tbody>

@@ -1,0 +1,54 @@
+<p class="nav">您的位置：首页 >> 我的壹美壹家 >> 收货地址 >> 修改地址</p>
+<div id="uc_menu_wrapper">
+  <%= render "menu" %>
+</div>
+
+<div id="uc_content_wrapper">
+  <h2 class="title">修改收货地址</h2>
+  <%= form_for [:user, @user_address] do |f|%>
+  <p>
+    <label for="receiver">收件人姓名：</label>
+    <%= f.text_field :name %>
+    <em class="remark">*</em>
+    <span id="receiver_error"></span>
+  </p>
+  <p>
+    <label for="location_province">所属区域：</label>
+    <%= raw address(@user_address.district,"user_address") %>
+    <em class="remark">*</em>
+    <span id="consignee_info_district_no_error"></span>
+  </p>
+  <p>
+    <label for="address">送货地址：</label>
+    <%= f.text_field :address, :class => "input_width_220" %>
+    <em class="remark">*</em>
+    <span id="address_error"></span>
+  </p>
+  <p>
+    <label for="area_num">固定电话：</label>
+    <%= f.text_field :phone %>
+    <em class="remark">*</em>
+    <em class="remark">如：010-12345678-110，固话与手机至少填写一项</em>
+    <span id="phone_error"></span>
+  </p>
+  <p>
+    <label for="cellphone">移动电话：</label>
+    <%= f.text_field :mobile %>
+    <em class="remark">*</em>
+    <em class="remark">填写手机号便于接收发货通知短信及送货前确认</em>
+    <span id="cellphone_error"></span>
+  </p>
+  <p>
+    <label for="email">电子邮件：</label>
+    <%= f.text_field :email %>
+    <em class="remark">用来接收订单提醒邮件，便于您及时了解订单状态</em>
+  </p>
+  <p>
+    <label for="post">邮政编码：</label>
+    <%= f.text_field :zip %>
+    <em class="remark">有助于快速确定送货地址</em>
+  </p>
+  <%= f.submit "保存常用地址" %>
+  <% end %>
+
+</div>
