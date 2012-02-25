@@ -2,8 +2,12 @@ class Commodity::Index::SkusController < ApplicationController
   layout "home"
 
   def index
-    @skus = Sku.on_shelves.where("name like ?", "%#{params[:keywords]}%").paginate(:page => params[:page], :per_page => 20)
+    @search = Sku.on_shelves.search(params[:q])
+    if @search.sorts.empty?
+      @search.sorts = "total_sale desc"
+    end
+    @skus = @search.result.paginate(:page => params[:page], :per_page => 20)
     @categories = SkuCategory.where("parent_id is null")
-    @keywords = params[:keywords]
+    @keywords = params[:q][:name_cont]
   end
 end
