@@ -1,7 +1,7 @@
 <div id="sku_details_wrapper">
   <p class="sku_details_nav">您的位置：
     <a href="/">首页</a> >>
-    <%=raw current_category_site @sku %>
+    <%=raw current_category_site %>
     <%= @sku.name %>
   </p>
   <h1><%= @sku.name %></h1>
@@ -36,7 +36,7 @@
     <p class="p_1">为您节省：</p>
     <p><strong>￥0</strong></p>
     <p class="p_1 clear">库存：</p>
-    <p>有</p>
+    <p><%= get_inventory %></p>
     <p>（如果缺货，请咨询<em>400-630-5606</em>）</p>
     <p class="p_1 clear">商品信息：</p>
     <p><%= @sku.introduction %>（已有999999人评价）</p>
@@ -69,6 +69,7 @@
   </div>
   <div id="sku_browser_history" class="sku_long">
     <h3>浏览过的商品</h3>
+
   </div>
   <div id="sku_comments" class="sku_long">
     <h3>商品评论</h3>
