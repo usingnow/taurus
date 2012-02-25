@@ -1,38 +1,14 @@
-<p class="nav">全部结果 >> “某某搜索关键字”</p>
+<p class="nav">全部结果 >> “<%= @keywords %>”</p>
 
 <div id="index_left">
   <h2>分类筛选</h2>
   <h3><a href="#">全部搜索类目</a></h3>
-  <h4>一级分类之一（99999）</h4>
-  <ul>
-    <li>二级分类（99999）</li>
-    <li>二级分类（99999）</li>
-    <li>二级分类（99999）</li>
-    <li>二级分类（99999）</li>
-    <li>二级分类（99999）</li>
-  </ul>
-  <h4>一级分类之二（99999）</h4>
-  <ul>
-    <li>二级分类（99999）</li>
-    <li>二级分类（99999）</li>
-    <li>二级分类（99999）</li>
-    <li>二级分类（99999）</li>
-    <li>二级分类（99999）</li>
-  </ul>
-  <h4>一级分类之三（99999）</h4>
-  <ul>
-    <li>二级分类（99999）</li>
-    <li>二级分类（99999）</li>
-    <li>二级分类（99999）</li>
-    <li>二级分类（99999）</li>
-    <li>二级分类（99999）</li>
-  </ul>
-
+  <%=raw sku_search_categories @categories, @keywords %>
 </div>
 
 <div id="index_right">
   <div id="index_controller">
-    <p class="index_overall_result">“某某搜索关键字”的搜索结果<strong>（99999）</strong></p>
+    <p class="index_overall_result">“<%= @keywords %>”的搜索结果<strong>（<%= @skus.total_entries %>）</strong></p>
     <div id="index_conditions_up">
       <p class="float_left height_20 bottom_border">排序：</p>
       <ul class="h_ul float_left bottom_border">
@@ -49,7 +25,7 @@
           <a href="#">上架时间</a>
         </li>
       </ul>
-      <p class="float_right height_20 bottom_border">上页 ... 下页</p>
+      <%= will_paginate @skus %>
     </div>
     <div id="index_conditions_down">
       <p class="clear_both float_left height_25_margin_right_40 margin_top_10">
@@ -65,110 +41,6 @@
     </div>
   </div>
   <div id="index_result">
-    <!--
-    <ul class="h_ul sku_list_ul">
-      <li class="h_li sku_list_li">
-        <a href="/commodity/sku_details/2956"><img alt="801381-7045" height="120px" src="/paperclip_assets/sku_images/801381-7045.png?1326619688" width="120px"></a>
-        <p class="sku_list_p overflow_text"><a href="/commodity/sku_details/2956">乐美 中性笔 0.5mm 3031A  蓝 实惠装1盒（10支）</a></p>
-        <p class="sku_list_p">原价：¥99999.00</p>
-        <strong>现价：¥17.0</strong>
-        <br />
-        <button>加入购物车</button>
-        <button>加关注</button>
-      </li>
-      <li class="h_li sku_list_li">
-        <a href="/commodity/sku_details/2957"><img alt="802330-4734" height="120px" src="/paperclip_assets/sku_images/802330-4734.png?1326619688" width="120px"></a>
-        <p class="sku_list_p overflow_text"><a href="/commodity/sku_details/2957">得力 白板笔  4.5mm 6811实惠装 黑</a></p>
-        <p class="sku_list_p">原价：¥99999.00</p>
-        <strong>现价：¥16.0</strong>
-      </li>
-      <li class="h_li sku_list_li">
-        <a href="/commodity/sku_details/2958"><img alt="801129-5328" height="120px" src="/paperclip_assets/sku_images/801129-5328.png?1326619688" width="120px"></a>
-        <p class="sku_list_p overflow_text"><a href="/commodity/sku_details/2958">得力 快干印台 9864 红</a></p>
-        <p class="sku_list_p">原价：¥99999.00</p>
-        <strong>现价：¥9.5</strong>
-      </li>
-      <li class="h_li sku_list_li">
-        <a href="/commodity/sku_details/2963"><img alt="801123-5319" height="120px" src="/paperclip_assets/sku_images/801123-5319.png?1326619688" width="120px"></a>
-        <p class="sku_list_p overflow_text"><a href="/commodity/sku_details/2963">壹美壹家 索引标签 107 红</a></p>
-        <p class="sku_list_p">原价：¥99999.00</p>
-        <strong>现价：¥1.8</strong>
-      </li>
-      <li class="h_li sku_list_li">
-        <a href="/commodity/sku_details/2977"><img alt="801807-8062" height="120px" src="/paperclip_assets/sku_images/801807-8062.png?1326619688" width="120px"></a>
-        <p class="sku_list_p overflow_text"><a href="/commodity/sku_details/2977">得力 五层文件柜（无锁）9775 混色</a></p>
-        <p class="sku_list_p">原价：¥99999.00</p>
-        <strong>现价：¥84.0</strong>
-      </li>
-      <li class="h_li sku_list_li">
-        <a href="/commodity/sku_details/2986"><img alt="801353-6952" height="120px" src="/paperclip_assets/sku_images/801353-6952.png?1326619688" width="120px"></a>
-        <p class="sku_list_p overflow_text"><a href="/commodity/sku_details/2986">金得利 标准型文件夹 单强力夹 A4 AF1013 黑</a></p>
-        <p class="sku_list_p">原价：¥99999.00</p>
-        <strong>现价：¥6.5</strong>
-      </li>
-      <li class="h_li sku_list_li">
-        <a href="/commodity/sku_details/2987"><img alt="801087-5258" height="120px" src="/paperclip_assets/sku_images/801087-5258.png?1326619688" width="120px"></a>
-        <p class="sku_list_p overflow_text"><a href="/commodity/sku_details/2987">APP 亚龙软面笔记本 A5 48页 M011  混色 封面随机</a></p>
-        <p class="sku_list_p">原价：¥99999.00</p>
-        <strong>现价：¥1.7</strong>
-      </li>
-      <li class="h_li sku_list_li">
-        <a href="/commodity/sku_details/2990"><img alt="801665-7726" height="120px" src="/paperclip_assets/sku_images/801665-7726.png?1326619688" width="120px"></a>
-        <p class="sku_list_p overflow_text"><a href="/commodity/sku_details/2990">得力 财务专用 翻转印 7528</a></p>
-        <p class="sku_list_p">原价：¥99999.00</p>
-        <strong>现价：¥9.0</strong>
-      </li>
-      <li class="h_li sku_list_li">
-        <a href="/commodity/sku_details/2956"><img alt="801381-7045" height="120px" src="/paperclip_assets/sku_images/801381-7045.png?1326619688" width="120px"></a>
-        <p class="sku_list_p overflow_text"><a href="/commodity/sku_details/2956">乐美 中性笔 0.5mm 3031A  蓝 实惠装1盒（10支）</a></p>
-        <p class="sku_list_p">原价：¥99999.00</p>
-        <strong>现价：¥17.0</strong>
-      </li>
-      <li class="h_li sku_list_li">
-        <a href="/commodity/sku_details/2957"><img alt="802330-4734" height="120px" src="/paperclip_assets/sku_images/802330-4734.png?1326619688" width="120px"></a>
-        <p class="sku_list_p overflow_text"><a href="/commodity/sku_details/2957">得力 白板笔  4.5mm 6811实惠装 黑</a></p>
-        <p class="sku_list_p">原价：¥99999.00</p>
-        <strong>现价：¥16.0</strong>
-      </li>
-      <li class="h_li sku_list_li">
-        <a href="/commodity/sku_details/2958"><img alt="801129-5328" height="120px" src="/paperclip_assets/sku_images/801129-5328.png?1326619688" width="120px"></a>
-        <p class="sku_list_p overflow_text"><a href="/commodity/sku_details/2958">得力 快干印台 9864 红</a></p>
-        <p class="sku_list_p">原价：¥99999.00</p>
-        <strong>现价：¥9.5</strong>
-      </li>
-      <li class="h_li sku_list_li">
-        <a href="/commodity/sku_details/2963"><img alt="801123-5319" height="120px" src="/paperclip_assets/sku_images/801123-5319.png?1326619688" width="120px"></a>
-        <p class="sku_list_p overflow_text"><a href="/commodity/sku_details/2963">壹美壹家 索引标签 107 红</a></p>
-        <p class="sku_list_p">原价：¥99999.00</p>
-        <strong>现价：¥1.8</strong>
-      </li>
-      <li class="h_li sku_list_li">
-        <a href="/commodity/sku_details/2977"><img alt="801807-8062" height="120px" src="/paperclip_assets/sku_images/801807-8062.png?1326619688" width="120px"></a>
-        <p class="sku_list_p overflow_text"><a href="/commodity/sku_details/2977">得力 五层文件柜（无锁）9775 混色</a></p>
-        <p class="sku_list_p">原价：¥99999.00</p>
-        <strong>现价：¥84.0</strong>
-      </li>
-      <li class="h_li sku_list_li">
-        <a href="/commodity/sku_details/2986"><img alt="801353-6952" height="120px" src="/paperclip_assets/sku_images/801353-6952.png?1326619688" width="120px"></a>
-        <p class="sku_list_p overflow_text"><a href="/commodity/sku_details/2986">金得利 标准型文件夹 单强力夹 A4 AF1013 黑</a></p>
-        <p class="sku_list_p">原价：¥99999.00</p>
-        <strong>现价：¥6.5</strong>
-      </li>
-      <li class="h_li sku_list_li">
-        <a href="/commodity/sku_details/2987"><img alt="801087-5258" height="120px" src="/paperclip_assets/sku_images/801087-5258.png?1326619688" width="120px"></a>
-        <p class="sku_list_p overflow_text"><a href="/commodity/sku_details/2987">APP 亚龙软面笔记本 A5 48页 M011  混色 封面随机</a></p>
-        <p class="sku_list_p">原价：¥99999.00</p>
-        <strong>现价：¥1.7</strong>
-      </li>
-      <li class="h_li sku_list_li">
-        <a href="/commodity/sku_details/2990"><img alt="801665-7726" height="120px" src="/paperclip_assets/sku_images/801665-7726.png?1326619688" width="120px"></a>
-        <p class="sku_list_p overflow_text"><a href="/commodity/sku_details/2990">得力 财务专用 翻转印 7528</a></p>
-        <p class="sku_list_p">原价：¥99999.00</p>
-        <strong>现价：¥9.0</strong>
-      </li>
-    </ul>
-    -->
-
     <ul  class="h_ul sku_list_ul">
       <% @skus.each do |sku| %>
         <li class="h_li sku_list_li">
@@ -182,7 +54,7 @@
         </li>
       <% end %>
     </ul>
-    <p class="float_right height_20 bottom_border">上页 ... 下页</p>
+    <%= will_paginate @skus %>
   </div>
 </div>
 
