@@ -3,7 +3,9 @@
 
   <div id="login_window_left_up">
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-    <div class="notification_area_not_yet_login"><%= alert %></div>
+    <% unless alert.nil? %>
+      <div class="notification_area_not_yet_login"><%= alert %></div>
+    <% end %>
     <p class="p_label row_1">
       <%= f.label t 'activerecord.attributes.user.login_no' %>：
     </p>
