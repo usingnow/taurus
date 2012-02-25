@@ -40,13 +40,13 @@
     <p>（如果缺货，请咨询<em>400-630-5606</em>）</p>
     <p class="p_1 clear">商品信息：</p>
     <p><%= @sku.introduction %>（已有999999人评价）</p>
-    <p class="p_1 clear">活动信息：</p>
-    <ul id="sku_details_promotion">
-      <li>促销项目描述九个字一促销项目描述九个字二促销项目描述九个字三促销项目描述九个字四</li>
-      <li>促销项目描述九个字一促销项目描述九个字二促销项目描述九个字三促销项目描述九个字四</li>
-      <li>促销项目描述九个字一促销项目描述九个字二促销项目描述九个字三促销项目描述九个字四</li>
-      <li>促销项目描述九个字一促销项目描述九个字二促销项目描述九个字三促销项目描述九个字四</li>
-    </ul>
+        <!--<p class="p_1 clear">活动信息：</p>
+        <ul id="sku_details_promotion">
+          <li>促销项目描述九个字一促销项目描述九个字二促销项目描述九个字三促销项目描述九个字四</li>
+          <li>促销项目描述九个字一促销项目描述九个字二促销项目描述九个字三促销项目描述九个字四</li>
+          <li>促销项目描述九个字一促销项目描述九个字二促销项目描述九个字三促销项目描述九个字四</li>
+          <li>促销项目描述九个字一促销项目描述九个字二促销项目描述九个字三促销项目描述九个字四</li>
+        </ul>-->
     <!-- Start with cart in the SKU_Details page -->
     <div id="sku_details_cart">
         <%= hidden_field_tag :sku_id, @sku.id %>
@@ -59,8 +59,7 @@
         <button class="add_to_favorite"><%= image_tag "sku_details/add_to_favourite.png"%></button>
     </div>
     <!--添加购物车成功信息 开始-->
-    <div class="successful">
-      您选择的商品已经成功添加！
+    <div id="add_successful">
     </div>
     <!--添加购物车成功信息 结束-->
   </div>
