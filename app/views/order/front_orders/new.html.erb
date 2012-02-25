@@ -51,8 +51,7 @@
         <i id="total_assembling_amount">
           <%= number_to_currency @cart.total_assembling_amount, :unit => "￥" %>
         </i>
-        元 + 其他费用：
-        <i>非法字段</i>元
+        元
       </td>
     </tr>
     <tr>
@@ -149,28 +148,29 @@
       <% end %>
 
       <form action="/order/front_orders/review" method="post" id="preview_form">
-      <h2>支付方式</h2>
-      <p>
-        <label for="payment_method"><em class="remark">*</em>支付方式：</label>
-        <%= select(:temp_payment, :procedure_id,
-                   options_from_collection_for_select(@procedures, "id", "display_name"),
-                   {},:required => "required") %>
-      </p>
-      <h2>发票信息</h2>
-      <p>
-        <label for="invoice-type"><em class="remark">*</em>发票类型：</label>
-        <input name="temp_payment[invoice_type]" type="radio" value="2" class="input_width_35 radio" checked="checked"/>不需要发票
-        <input name="temp_payment[invoice_type]" type="radio" value="0" class="input_width_35 radio" />普通发票
-        <input name="temp_payment[invoice_type]" type="radio" value="1" class="input_width_35 radio" />增值税发票
-      </p>
-      <p id="invoice_head"></p>
-      <p id="title_company_name"></p>
-      <div id="type_invoice"></div>
-      <h2>订单备注<em class="remark">（如果您对订单配送或者支付有任何要求，请务必注；使用壹美壹家抵用券客户请提前注明。）</em></h2>
-      <p>
-        <textarea name="order_remark" id="order_remark" rows="3"></textarea>
-      </p>
-      <button class="order_buttun" type="button" id="preview_order">预览订单</button><span id="preview_order_error"></span>
-       </form>
+        <h2>支付方式</h2>
+        <p>
+          <label for="payment_method"><em class="remark">*</em>支付方式：</label>
+          <%= select(:temp_payment, :procedure_id,
+                     options_from_collection_for_select(@procedures, "id", "display_name"),
+                     {},:required => "required") %>
+        </p>
+        <h2>发票信息</h2>
+        <p>
+          <label for="invoice-type"><em class="remark">*</em>发票类型：</label>
+          <input name="temp_payment[invoice_type]" type="radio" value="2" class="input_width_35 radio" checked="checked"/>不需要发票
+          <input name="temp_payment[invoice_type]" type="radio" value="0" class="input_width_35 radio" />普通发票
+          <input name="temp_payment[invoice_type]" type="radio" value="1" class="input_width_35 radio" />增值税发票
+        </p>
+        <p id="invoice_head"></p>
+        <p id="title_company_name"></p>
+        <div id="type_invoice"></div>
+        <h2>订单备注<em class="remark">（如果您对订单配送或者支付有任何要求，请务必注；使用壹美壹家抵用券客户请提前注明。）</em></h2>
+        <p>
+          <textarea name="order_remark" id="order_remark" rows="3"></textarea>
+        </p>
+        <button class="order_button" type="button" id="back_to_cart">返回上页</button>
+        <button class="order_button" type="button" id="preview_order">预览订单</button><span id="preview_order_error"></span>
+      </form>
     </fieldset>
 </div>

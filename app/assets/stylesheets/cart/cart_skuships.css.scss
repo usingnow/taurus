@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "public";
 
-.order_buttun {
+.order_button {
 	background-image:url(/assets/cart_skuships/chartbutton01.png);
 	width: 102px;
 	height: 33px;
@@ -13,8 +13,9 @@
 	font-weight: bold;
 	color: #ffffff;
 	border: 0px;}
-button:hover {
-  background-image:url(/assets/cart_skuships/chartbutton02.png);}
+button.order_button:hover {
+  background-image:url(/assets/cart_skuships/chartbutton02.png);
+  cursor: pointer;}
 .short_height_td {
   height: 20px;
   line-height: 20px;

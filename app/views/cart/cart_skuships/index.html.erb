@@ -65,8 +65,7 @@
         <i id="total_assembling_amount">
           <%= number_to_currency @cart.total_assembling_amount, :unit => "￥" %>
         </i>
-        元 + 其他费用：
-        <i>非法字段</i>元
+        元
       </td>
     </tr>
     <tr>
@@ -81,8 +80,8 @@
 </table>
 <br class="clear" />
 <div style="text-align:center">
-  <button class="order_buttun" id="continue_shopping">继续购物</button>
-  <button class="order_buttun" id="go_settlement">前往结算</button>
+  <button class="order_button" id="continue_shopping">继续购物</button>
+  <button class="order_button" id="go_settlement">前往结算</button>
 </div>
 
 <% if !alert.nil?
