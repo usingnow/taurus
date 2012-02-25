@@ -33,7 +33,7 @@ class AlipaiesController < ApplicationController
     # 返回success或fail。如果返回fail，支付宝会每隔一段时间就自动调用notify_url通信接口
 
   def notify
-    render :text => 'success'
+    render :text => '成功'
   end
 
   def done
@@ -41,23 +41,27 @@ class AlipaiesController < ApplicationController
     # 支付宝即时到帐接口只有一种交易状态，就是“交易成功”，更新一下
     status = params[:trade_status]
     if status == "TRADE_SUCCESS"
-      order.order_pay.update_attributes(:status => 2)
-      #order.update_attributes(params[:trade_status])
-      render :text => 'Payment successful'
+      @order_pay = order.build_order_pay(:procedure_id => order.instance.procedure_id, :buyer_alipay_no => params[:buyer_id],
+                     :alipay_date => params[:notify_time], :alipay_no => params[:trade_no], :alipay_price => params[:total_fee],
+                     :province_no => order.district.city.province_no, :status => 2)
+      @order_pay.save
+
+      station_procedureship = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(
+                                order.instance.procedure_id, order.instance.station_id, 30)
+
+
+      #保存过站记录
+      hash = [{:instance_id => order.instance.id, :station_id => order.instance.station_id,
+               :condition_id => 30, :next_station_id => station_procedureship.next_station_id,
+               :created_by => "前台客户"}]
+      save_station_track(hash)
+
+      order.instance.update_attributes(:station_id => station_procedureship.next_station_id)
+
+      redirect_to user_user_centers_path
     else
-      render :text => "error"
+      render :text => "支付失败"
     end
   end
-
-  protected
-    def verify_sign
-      params.delete("sign_type")
-      sign = params.delete("sign")
-      values = {}
-      params.keys.sort.each do |k|
-        values[k] = params[k]
-      end
-      sign.downcase == Digest::MD5.hexdigest(CGI.unescape(values.to_query) + "tyyq0r9bmoerl5e89k3v4megsufqkujm")
-    end
 
 end
