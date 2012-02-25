@@ -1,5 +1,14 @@
 class Commodity::CategoriesController < ApplicationController
   layout "home"
+
+  def show
+    @search = SkuCategory.find(params[:id]).skus.search(params[:q])
+    if @search.sorts.empty?
+      @search.sorts = "total_sale desc"
+    end
+    @skus = @search.result.paginate(:page => params[:page], :per_page => 20)
+  end
+
   def oa_pc
     @slider_bars = SliderBar.limit(5).all
     @categories = SkuCategory.find_all_by_is_show_in_navigation_and_is_show_in_column_and_active_and_parent_id(

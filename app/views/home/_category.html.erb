@@ -5,19 +5,22 @@
 <ul id="main_menu">
   <% @categories.each_with_index do |category,index| %>
     <li id="m<%= index+1 %>" class="left_sub_menu">
-    <a href='#'><%= category.name %></a>
+    <%= link_to category.name, "#" %>
       <!-- Homepage - main_menu - number 1 -->
       <div id="main_menu_sub_m<%= index+1 %>" class="cms_submenu non_display">
         <div class="cmsmenuleft">
           <dl class="menu_recommend">
             <% category.children.index_display.each do |child| %>
-              <dt><a href="#"><%= child.name %></a></dt>
-              <dd>
-                <% child.children.index_display.each do |son| %>
-                  <i><a href=''><%= son.name %></a></i>
-                <% end %>
-              </dd>
-              <div class="clear"></div>
+              <% sons = child.children.index_display %>
+              <% unless sons.empty? %>
+                <dt><%= link_to child.name, commodity_category_path(child) %></dt>
+                <dd>
+                  <% sons.each do |son| %>
+                    <i><%= link_to son.name, commodity_category_path(son) %></i>
+                  <% end %>
+                </dd>
+                <div class="clear"></div>
+              <% end %>
             <% end %>
           </dl>
         </div>
