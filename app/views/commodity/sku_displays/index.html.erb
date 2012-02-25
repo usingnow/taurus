@@ -25,8 +25,8 @@
       <td><%= index+1 %></td>
       <td><%= sku_display.sku.number %></td>
       <td><%= sku_display.sequence %></td>
-      <td><%= sku_display.page %></td>
-      <td><%= sku_display.location %></td>
+      <td><%= get_sku_display_page sku_display.page %></td>
+      <td><%= get_sku_display_location sku_display.page, sku_display.location %></td>
       <td><%= link_to t('admin.actions.show.menu'), commodity_sku_display_path(sku_display) %></td>
       <td><%= link_to t('admin.actions.edit.menu'), edit_commodity_sku_display_path(sku_display) %></td>
       <td><%= link_to t('admin.actions.delete.menu'), commodity_sku_display_path(sku_display), confirm: '是否确认?', method: :delete %></td>

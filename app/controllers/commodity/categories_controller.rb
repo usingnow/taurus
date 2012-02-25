@@ -19,6 +19,14 @@ class Commodity::CategoriesController < ApplicationController
     @oa_ele_of_con_hots = Sku.category_hots '0116'
     @oa_machine_skus = Sku.category_skus '0117'
     @oa_machine_hots = Sku.category_hots '0117'
+
+    if current_user.nil?
+      @sku_browsing_histories = Hash.new
+    else
+      @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
+        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+    end
+
   end
 
   def office
@@ -38,6 +46,14 @@ class Commodity::CategoriesController < ApplicationController
     @off_oper_sup_hots = Sku.category_hots '0225'
     @other_skus = Sku.category_skus '0229'
     @other_hots = Sku.category_hots '0229'
+
+    if current_user.nil?
+      @sku_browsing_histories = Hash.new
+    else
+      @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
+        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+    end
+
   end
 
   def daily
@@ -65,6 +81,13 @@ class Commodity::CategoriesController < ApplicationController
     @other_office_daily_hots = Sku.category_hots '0339'
     @appliances_skus = Sku.category_skus '0340'
     @appliances_hots = Sku.category_hots '0340'
+
+    if current_user.nil?
+      @sku_browsing_histories = Hash.new
+    else
+      @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
+        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+    end
   end
 
   def off_fur
@@ -82,6 +105,13 @@ class Commodity::CategoriesController < ApplicationController
     @appliances_hots = Sku.category_hots '0444'
     @other_skus = Sku.category_skus '0449'
     @other_hots = Sku.category_hots '0449'
+
+    if current_user.nil?
+      @sku_browsing_histories = Hash.new
+    else
+      @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
+        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+    end
   end
 
   def liv_fur
@@ -101,6 +131,13 @@ class Commodity::CategoriesController < ApplicationController
     @library_furniture_hots = Sku.category_hots '0555'
     @storage_supplies_skus = Sku.category_skus '0556'
     @storage_supplies_hots = Sku.category_hots '0556'
+
+    if current_user.nil?
+      @sku_browsing_histories = Hash.new
+    else
+      @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
+        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+    end
   end
 
   def fur_jew
@@ -116,5 +153,13 @@ class Commodity::CategoriesController < ApplicationController
     @groceries_jewelry_hots = Sku.category_hots '0663'
     @bathroom_articles_skus = Sku.category_skus '0665'
     @bathroom_articles_hots = Sku.category_hots '0665'
+
+
+    if current_user.nil?
+      @sku_browsing_histories = Hash.new
+    else
+      @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
+        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+    end
   end
 end
