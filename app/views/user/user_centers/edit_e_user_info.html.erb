@@ -1,0 +1,20 @@
+<p class="nav">您的位置：首页 >> 我的壹美壹家 >> 修改用户信息</p>
+<div id="uc_menu_wrapper">
+  <%= render "menu" %>
+</div>
+
+<div id="uc_content_wrapper">
+  <h2 class="title">修改用户信息</h2>
+
+  <%= form_for @user_info, :url => "" do |f| %>
+    <%= f.fields_for :company_extend do |company_extend| %>
+    <p>
+      <label for="company_extend_name">联系人姓名：</label>
+      <%= company_extend.text_field :name %>
+      <span class="red">*</span>
+      <span class="red">请使用真实姓名以确保及时收到所购商品</span>
+    </p>
+    <% end %>
+  <% end %>
+
+</div>

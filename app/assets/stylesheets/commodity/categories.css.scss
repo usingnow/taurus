@@ -28,7 +28,7 @@
   vertical-align: middle;
   border: 1px solid #DDDDDD;}
 
-#index_left {
+#index_cat_left {
   float: left;
   width: 218px;
   padding: 0px;
@@ -45,16 +45,18 @@
   h3 {
     width: 210px;
     padding: 4px;
-    text-align: right;
-    border-bottom: 1px dashed #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
     background-color: lighten(#DDDDDD, 10%);}
   h4 {
-    width: 202px;
+    width: 194  px;
     padding: 4px 8px;
-    margin-bottom: 4px;
-    border-bottom: 1px dashed #E73221;
+    margin: 4px;
     color: #E73221;
-    background-color: lighten(#E73221, 45%);}}
+    background-color: lighten(#E73221, 45%);}
+  .indent_20 {
+    text-indent: 20px}
+  .indent_40 {
+    text-indent: 40px;}}
 
 #index_right {
   float: right;
