@@ -11,6 +11,8 @@ jQuery ->
         jQuery('body').append "AJAX Error: #{textStatus}"
       success: (data, textStatus, jqXHR) ->
         jQuery('#total_items').html(data)
+        jQuery('#add_successful').attr("class","successful").html("您选择的商品已经成功添加！")
+
 
   jQuery('#minus').click ->
     if jQuery("#sku_quantity").val() > 1

@@ -2,7 +2,8 @@ class Commodity::CategoriesController < ApplicationController
   layout "home"
 
   def show
-    @search = SkuCategory.find(params[:id]).skus.search(params[:q])
+    @sku_category = SkuCategory.find(params[:id])
+    @search = @sku_category.skus.search(params[:q])
     if @search.sorts.empty?
       @search.sorts = "total_sale desc"
     end
