@@ -14,7 +14,7 @@ h1, h2, h3, ul{
 	margin-right: auto;}
 body {
   margin: 0px;
-  font-family: "宋体", Tahoma, Verdana, Arial, sans-serif;
+  font-family: SimSun, Tahoma, Verdana, Arial, sans-serif;
 	font-size: 12px;
   color: #333333;}
 a {
@@ -130,16 +130,18 @@ table {
 	position: absolute;
 	top: 0;
 	right: 0;
+  a {
+    color: #FFFFFF;}
   #sina {
     position:absolute;
     top: 2px;
     right: 2px;
     z-index: 100;}
   #kaixin {
-	position:absolute;
-	top: 2px;
-	right: 48px;
-	z-index: 100;}}
+    position:absolute;
+    top: 2px;
+    right: 48px;
+    z-index: 100;}}
 //Logo style in Header.
 #logo {
 	position: absolute;
@@ -491,7 +493,7 @@ table {
     width: 135px;
     h3 {
     margin: 0 0 0 0;
-    font-family: "黑体";
+    font-family: SimHei;
     line-height: 30px;
     vertical-align: middle;
     text-indent: 30px;
@@ -550,6 +552,8 @@ div#copyright {
 	height: 50px;
 	padding: 0;
 	margin: 2px 0 2px 0;
+  > a {
+    color: #FFFFFF;}
   div {
     position:absolute;
     top: 0px; /**Changed 2012/01/13**/
