@@ -9,7 +9,8 @@ Ebiz::Application.routes.draw do
   devise_for :users,
              :path => "users",
              :controllers => { :sessions => "user/sessions",
-                               :registrations => "user/registrations"} do
+                               :registrations => "user/registrations",
+                               :passwords => "user/passwords" } do
     get "users/personal_sign_up" => "user/registrations#personal"
     post "users/personal_sign_up" => "user/registrations#create_personal"
     get "users/login_success" => "user/sessions#login_success"
