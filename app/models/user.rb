@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :user_addresses, :dependent => :destroy
   has_one :consignee_info, :dependent => :destroy
   has_many :favorites, :dependent => :destroy
+  has_one :mail_sale, :dependent => :destroy
   accepts_nested_attributes_for :person_extend
   accepts_nested_attributes_for :company_extend
   before_validation :default_values

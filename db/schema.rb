@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120225164312) do
+ActiveRecord::Schema.define(:version => 20120226124214) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -352,6 +352,22 @@ ActiveRecord::Schema.define(:version => 20120225164312) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "mail_sales", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "district_no"
+    t.string   "address"
+    t.string   "zip"
+    t.string   "phone"
+    t.string   "mobile"
+    t.string   "fax"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mail_sales", ["user_id"], :name => "index_mail_sales_on_user_id", :unique => true
 
   create_table "operatings", :force => true do |t|
     t.integer  "function_id"
