@@ -150,6 +150,7 @@ Ebiz::Application.routes.draw do
 
     namespace :index do
       resources :skus
+      resources :brands
     end
 
     resources :categories do
