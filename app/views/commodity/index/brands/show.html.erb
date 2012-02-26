@@ -1,14 +1,11 @@
-<p class="nav">全部结果 >> “<%= @keywords %>”</p>
+<p class="nav">全部结果 >> "<%= @brand.chinese_name %>"</p>
 
-<div id="index_left">
+<div id="index_cat_left">
   <h2>分类筛选</h2>
-  <h3><a href="#">全部搜索类目</a></h3>
-  <%=raw sku_search_categories @categories, @keywords %>
 </div>
 
 <div id="index_right">
   <div id="index_controller">
-    <p class="index_overall_result">“<%= @keywords %>”的搜索结果<strong>（<%= @skus.total_entries %>）</strong></p>
     <div id="index_conditions_up">
       <p class="float_left height_20 bottom_border">排序：</p>
       <ul class="h_ul float_left bottom_border">

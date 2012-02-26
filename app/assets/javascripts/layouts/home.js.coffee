@@ -15,3 +15,18 @@ jQuery ->
   jQuery("#sku_search").click ->
     jQuery("#sku_search_form").submit()
     false
+
+  jQuery("#copy_paper").click ->
+    jQuery("#q_name_cont").val("复印纸")
+    jQuery("#sku_search_form").submit()
+    false
+
+  jQuery("#gel_pen").click ->
+    jQuery("#q_name_cont").val("中性笔")
+    jQuery("#sku_search_form").submit()
+    false
+
+  jQuery("#rolls").click ->
+    jQuery("#q_name_cont").val("卷纸")
+    jQuery("#sku_search_form").submit()
+    false
