@@ -36,10 +36,10 @@
     <p class="p_1">为您节省：</p>
     <p><strong>￥0</strong></p>
     <p class="p_1 clear">库存：</p>
-    <p><%= get_inventory %></p>
+    <p><%= get_sku_inventory(@sku) %></p>
     <p>（如果缺货，请咨询<em>400-630-5606</em>）</p>
     <p class="p_1 clear">商品信息：</p>
-    <p><%= @sku.introduction %>（已有999999人评价）</p>
+    <p><%= @sku.introduction %><!--（已有999999人评价）--></p>
         <!--<p class="p_1 clear">活动信息：</p>
         <ul id="sku_details_promotion">
           <li>促销项目描述九个字一促销项目描述九个字二促销项目描述九个字三促销项目描述九个字四</li>
@@ -56,7 +56,7 @@
         <button id="plus" type="button">+</button>
         <div></div>
         <input type="button" class="add_to_cart" id="add_to_cart" value="添加到购物车"/>
-        <button class="add_to_favorite"><%= image_tag "sku_details/add_to_favourite.png"%></button>
+        <button id="add_to_favorite"><%= image_tag "sku_details/add_to_favourite.png"%></button>
     </div>
     <!--添加购物车成功信息 开始-->
     <div id="add_successful">

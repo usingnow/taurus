@@ -24,7 +24,15 @@ class User::UserCentersController < ApplicationController
   end
 
   def my_favorites
+    if params[:category_id]
+      @favorites = current_user.favorites.where("sku_id in (select id from skus where sku_category_id = ?)", params[:category_id])
+      .paginate(:page => params[:page], :per_page => 10)
+    else
+      @favorites = current_user.favorites.paginate(:page => params[:page], :per_page => 10)
+    end
 
+    @categories = SkuCategory.find_by_sql("select * from sku_categories where id in(select sku_category_id from skus
+      inner join favorites on skus.id = favorites.sku_id and user_id = #{current_user.id})")
   end
 
   def my_points

@@ -18,11 +18,11 @@ module Commodity::SkuDetailsHelper
     end
   end
 
-  def get_inventory
+  def get_sku_inventory(sku)
     if current_user.nil?
-      flag = @sku.inventory?(1,1)
+      flag = sku.inventory?(1,1)
     else
-      flag = @sku.inventory?(1,current_user.store_id)
+      flag = sku.inventory?(1,current_user.store_id)
     end
 
     if flag

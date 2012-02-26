@@ -223,6 +223,10 @@ Ebiz::Application.routes.draw do
         delete :del_user_address
       end
     end
+
+    namespace :index do
+      resources :favorites
+    end
   end
 
 
