@@ -70,56 +70,20 @@
   <div id="sku_browser_history" class="sku_long">
     <h3>浏览过的商品</h3>
     <ul>
-      <li>
-        <p>
-          <a href="#">
-          <%= image_tag "rails.png", :width => "120px", :height => "120px" %>
-          </a>
-        </p>
-        <p class="overflow_text"><a href="#">商品名称</a></p>
-        <!--<p>市场价：&yen;99999.00</p>-->
-        <p><strong>现价：&yen;99999.99</strong></p>
-      </li>
-      <li>
-        <p>
-          <a href="#">
-          <%= image_tag "rails.png", :width => "120px", :height => "120px" %>
-          </a>
-        </p>
-        <p class="overflow_text"><a href="#">商品名称</a></p>
-        <!--<p>市场价：&yen;99999.00</p>-->
-        <p><strong>现价：&yen;99999.99</strong></p>
-      </li>
-      <li>
-        <p>
-          <a href="#">
-          <%= image_tag "rails.png", :width => "120px", :height => "120px" %>
-          </a>
-        </p>
-        <p class="overflow_text"><a href="#">商品名称</a></p>
-        <!--<p>市场价：&yen;99999.00</p>-->
-        <p><strong>现价：&yen;99999.99</strong></p>
-      </li>
-      <li>
-        <p>
-          <a href="#">
-          <%= image_tag "rails.png", :width => "120px", :height => "120px" %>
-          </a>
-        </p>
-        <p class="overflow_text"><a href="#">商品名称</a></p>
-        <!--<p>市场价：&yen;99999.00</p>-->
-        <p><strong>现价：&yen;99999.99</strong></p>
-      </li>
-      <li>
-        <p>
-          <a href="#">
-          <%= image_tag "rails.png", :width => "120px", :height => "120px" %>
-          </a>
-        </p>
-        <p class="overflow_text"><a href="#">商品名称</a></p>
-        <!--<p>市场价：&yen;99999.00</p>-->
-        <p><strong>现价：&yen;99999.99</strong></p>
-      </li>
+      <% @sku_browsing_histories.each do |history| %>
+        <li>
+          <p>
+            <%= link_to (image_tag history.sku.main_img, :width => "120px", :height => "120px;"), commodity_sku_detail_path(history.sku_id) %>
+          </p>
+          <p class="overflow_text">
+            <%= link_to history.sku.name, commodity_sku_detail_path(history.sku_id) %>
+          </p>
+          <!--<p>市场价：&yen;99999.00</p>-->
+          <p>
+            <strong>现价：<%= number_to_currency history.sku.cost_aft_tax, :unit => "￥" %></strong>
+          </p>
+        </li>
+      <% end %>
     </ul>
   </div>
   <!--暂注释评论功能。
