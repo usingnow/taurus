@@ -404,7 +404,8 @@ table {
         color: #FFFFFF;}}}
   .highlight{
 	color : $text_red;
-	border-bottom: 1px solid #ffffff;}
+	border-bottom: 1px solid #ffffff;
+    z-index: 20}
   div{
     padding:0;
     a{
