@@ -108,4 +108,8 @@ class HomeController < ApplicationController
     render "home/help/contact_sd.html.erb"
   end
 
+  def pub_1
+    render "home/pub/pub_1.html.erb"
+  end
+
 end

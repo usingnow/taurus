@@ -37,7 +37,7 @@
           <button type="reset" class="login_button">重置</button>
         </p>
         <p style="text-align:center">
-          <a href="#">立即注册</a> | <%= link_to "忘记密码", new_password_path %> | <a href="#" id="change_ver_code">换验证码</a>
+          <%= link_to "立即注册", new_user_session_path, :title => "注册" %> | <%= link_to "忘记密码", new_user_password_path %> | <a href="#" id="change_ver_code">换验证码</a>
         </p>
       <% end %>
     <% end %>
@@ -45,12 +45,14 @@
 
   <div id="tabs-2" class="content">
     <ul>
-      <li><a href="#">公告壹有多少字会换行呢？现共</a></li>
+      <li><%= link_to "壹美壹家春节假期配送安排公告", pub_1_home_index_path %></li>
+      <!--
       <li><a href="#">十四字会换行十六十六十六十六</a></li>
       <li><a href="#">十四字会换行十六十六十六十六</a></li>
       <li><a href="#">应该是左对齐</a></li>
       <li><a href="#">六行后会超过边界</a></li>
-      <li><a href="#">六行后会超过边界</a></li>
+      <li><a href="#">六行后会超过边界</a></li
+      -->
     </ul>
   </div>
 </div>

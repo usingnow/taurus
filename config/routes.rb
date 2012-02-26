@@ -38,6 +38,7 @@ Ebiz::Application.routes.draw do
       get :forget_password
       get :faq
       get :contact_sd
+      get :pub_1
     end
   end
   resources :codes

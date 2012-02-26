@@ -617,6 +617,9 @@ div#copyright {
 	line-height: 20px;
 	vertical-align:middle;
 	margin: 4px 0 4px 0;
+  img {
+    outline: 1px solid #DDDDDD;
+    margin: 2px;}
   p {
     padding: 0 4px 0 4px;
     text-indent: 24px;}
@@ -655,4 +658,10 @@ div#copyright {
 	color: $text_red;
 	font-weight: normal;
 	padding: 0 0 0 4px;}
+.pub {
+  h1 {
+    text-align: center;}
+  table {
+    margin: 10px auto;
+    text-align: center;}}
 
