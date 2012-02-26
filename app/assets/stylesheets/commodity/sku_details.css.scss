@@ -132,6 +132,23 @@
   border-top: 1px dashed #dddddd;
   h3 {
     color: #E73221;}}
+#sku_browser_history {
+  ul {
+    width: 100%;
+    float: left;
+    margin: 0px;
+    padding: 0px 30px;}
+  li {
+    width: 165px;
+    float: left;
+    list-style: none;
+    background: lighten(#DDDDDD, 10%);
+    margin: 10px;
+    p {
+      text-align: center;}
+    > a {
+      text-align: center;
+      color: #FFFFFF;}}}
 //Notification for add_to_cart
 .failed {
   position: relative;
