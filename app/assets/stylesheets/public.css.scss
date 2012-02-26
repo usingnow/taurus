@@ -583,6 +583,11 @@ div#copyright {
 	cursor:pointer;}
 //Styles for Static Page, like helps pages in the footer.
 /**Help page style -- Starts -- 2012/01/14 **/
+.help_left_menu {
+  position: relative;
+  float: left;
+  margin: 0px;
+  padding: 0px;}
 .cs {
 	position: relative;
 	float: left;
@@ -615,12 +620,32 @@ div#copyright {
   p {
     padding: 0 4px 0 4px;
     text-indent: 24px;}
-  h3 {
-	display: block;
-	height:26px;
-	line-height:26px;
-	vertical-align:middle;
-	padding : 0 0 0 4px;}}
+  h1 {
+    display: block;
+    font-size: 16px;
+    height:26px;
+    line-height:26px;
+    vertical-align:middle;
+    padding : 0 0 0 4px;}
+  h2 {
+    font-size: 14px;
+    padding : 0 0 0 4px;}
+  em {
+    font-style: normal;
+    font-weight: bold;
+    color: $text_red;}
+  ul, ol {
+    padding-left: 40px;}
+  table, thead, tfoot, tbody, tr, th, td {
+    border-collapse: collapse;
+    border: 1px solid #999999;
+    padding: 4px 10px;
+    text-align: center;
+    font-size: 12px;}
+  th {
+    background: #DDDDDD;}
+  .fixed_width_s {
+    width: 40px;}}
 .help_h2 {
 	display:block;
 	background-image:url('/assets/templates/titlebar/bar_bg_1_30.png');

@@ -9,7 +9,8 @@ Ebiz::Application.routes.draw do
   devise_for :users,
              :path => "users",
              :controllers => { :sessions => "user/sessions",
-                               :registrations => "user/registrations"} do
+                               :registrations => "user/registrations",
+                               :passwords => "user/passwords" } do
     get "users/personal_sign_up" => "user/registrations#personal"
     post "users/personal_sign_up" => "user/registrations#create_personal"
     get "users/login_success" => "user/sessions#login_success"
@@ -19,6 +20,24 @@ Ebiz::Application.routes.draw do
   resources :home do
     collection do
       get :who_am_i
+      get :group_partner
+      get :join_us
+      get :media_report
+      get :registration_help
+      get :how_to_buy
+      get :how_to_query_order
+      get :deliver_area_help
+      get :deliver_fee_help
+      get :deliver_time_help
+      get :payment_method_help
+      get :monthly_check_help
+      get :coupon_help
+      get :refund_principle
+      get :complaints_suggestion_help
+      get :users_terms
+      get :forget_password
+      get :faq
+      get :contact_sd
     end
   end
   resources :codes

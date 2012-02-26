@@ -24,7 +24,7 @@
         <ul>
           <li><%= link_to "我的账户", user_user_centers_path %></li>
           <li>|</li>
-          <li><a href="#">客服中心</a></li>
+          <li><%= link_to "联系客服", contact_sd_home_index_path %></li>
           <li>|</li>
           <li><a href="#">收藏本站</a></li>
           <li>|</li>
@@ -122,57 +122,57 @@
       <div id="corp-info">
         <div>
           <h3>公司介绍</h3>
-          <ul  class="corp_info_li_line_height"> <!-- 修改了class 2012/01/12 -->
-            <li><a href="#" title="">我们是谁</a></li>
-            <li><a href="#" title="">集团伙伴</a></li>
-            <li><a href="#" title="">媒体报道</a></li>
-            <li><a href="#" title="">加入我们</a></li>
-            <li><a href="#" title="">申请成为供应商</a></li>
+          <ul  class="corp_info_li_line_height">
+            <li><%= link_to "我们是谁", who_am_i_home_index_path %></li>
+            <li><%= link_to "集团伙伴", group_partner_home_index_path %></li>
+            <li><%= link_to "媒体报道", media_report_home_index_path %></li>
+            <li><%= link_to "加入我们", join_us_home_index_path %></li>
+            <!--<li><a href="#" title="">申请成为供应商</a></li>-->
           </ul>
           <%= image_tag "/assets/templates/footer/logo_corp_info_1.png" %>
         </div>
         <div>
           <h3>我的订单</h3>
-          <ul class="corp_info_li_line_height"> <!-- 修改了class 2012/01/12 -->
-            <li><a href="#" title="">注册会员</a></li>
-            <li><a href="#" title="">如何下单</a></li>
-            <li><a href="#" title="">查询订单</a></li>
+          <ul class="corp_info_li_line_height">
+            <li><%= link_to "注册会员", registration_help_home_index_path %></li>
+            <li><%= link_to "如何下单", how_to_buy_home_index_path %></li>
+            <li><%= link_to "查询订单", how_to_query_order_home_index_path %></li>
           </ul>
           <%= image_tag "/assets/templates/footer/logo_corp_info_2.png" %>
         </div>
         <div>
           <h3>关于配送</h3>
-          <ul class="corp_info_li_line_height"> <!-- 修改了class 2012/01/12 -->
-            <li><a href="#" title="">配送范围</a></li>
-            <li><a href="#" title="">收费标准</a></li>
-            <li><a href="#" title="">配送时间</a></li>
+          <ul class="corp_info_li_line_height">
+            <li><%= link_to "配送范围", deliver_area_help_home_index_path %></li>
+            <li><%= link_to "收费标准", deliver_fee_help_home_index_path %></li>
+            <li><%= link_to "配送时间", deliver_time_help_home_index_path %></li>
           </ul>
           <%= image_tag "/assets/templates/footer/logo_corp_info_3.png" %>
         </div>
         <div>
           <h3>关于支付</h3>
-          <ul class="corp_info_li_line_height"> <!-- 修改了class 2012/01/12 -->
-            <li><a href="#" title="">支付方式</a></li>
-            <li><a href="#" title="">月结用户</a></li>
-            <li><a href="#" title="">购物券说明</a></li>
+          <ul class="corp_info_li_line_height">
+            <li><%= link_to "支付方式", payment_method_help_home_index_path %></li>
+            <li><%= link_to "月结用户", monthly_check_help_home_index_path %></li>
+            <li><%= link_to "购物券说明", coupon_help_home_index_path %></li>
           </ul>
           <%= image_tag "/assets/templates/footer/logo_corp_info_4.png" %>
         </div>
         <div>
           <h3>服务说明</h3>
-          <ul class="corp_info_li_line_height"> <!-- 修改了class 2012/01/12 -->
-            <li><a href="#" title="">退换货原则</a></li>
-            <li><a href="#" title="">投诉与建议</a></li>
-            <li><a href="#" title="">客户使用条款</a></li>
+          <ul class="corp_info_li_line_height">
+            <li><%= link_to "退换货原则", refund_principle_home_index_path %></li>
+            <li><%= link_to "投诉与建议", complaints_suggestion_help_home_index_path %></li>
+            <li><%= link_to "客户使用条款", users_terms_home_index_path %></li>
           </ul>
           <%= image_tag "/assets/templates/footer/logo_corp_info_5.png" %>
         </div>
         <div>
           <h3>帮助中心</h3>
-          <ul class="corp_info_li_line_height"> <!-- 修改了class 2012/01/12 -->
-            <li><a href="#" title="">忘记密码</a></li>
-            <li><a href="#" title="">常见问题</a></li>
-            <li><a href="#" title="">联系客服</a></li>
+          <ul class="corp_info_li_line_height">
+            <li><%= link_to "忘记密码", forget_password_home_index_path %></li>
+            <li><%= link_to "常见问题", faq_home_index_path %></li>
+            <li><%= link_to "联系客服", contact_sd_home_index_path %></li>
           </ul>
           <%= image_tag "/assets/templates/footer/logo_corp_info_6.png" %>
         </div>
