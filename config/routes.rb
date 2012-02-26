@@ -16,7 +16,11 @@ Ebiz::Application.routes.draw do
   end
 
 
-  resources :home
+  resources :home do
+    collection do
+      get :who_am_i
+    end
+  end
   resources :codes
 
   resources :alipaies do
@@ -221,6 +225,7 @@ Ebiz::Application.routes.draw do
         get :order_show
         get :edit_user_address
         delete :del_user_address
+        get :remit_payment_info
       end
     end
   end
