@@ -1,3 +1,6 @@
+#= require core/validation/formValidator
+#= require core/validation/formValidatorRegex
+
 jQuery ->
   fastSearch = (days) ->
     now = new Date()
@@ -44,3 +47,59 @@ jQuery ->
         jQuery('#total_items').html(data)
         alert "添加成功！"
     false
+
+  #索取目录表单验证
+  jQuery.formValidator.initConfig({formid:"new_mail_sale",debug:false,submitonce:true})
+
+  jQuery("#mail_sale_name").formValidator({
+    onshow:"请填写联系人姓名"
+  }).regexValidator({
+    regexp:"required",
+    datatype:"enum",
+    onerror:"联系人姓名必填"})
+
+  jQuery("#mail_sale_district_no").formValidator({
+    onshow:"请选择地区",
+    onfocus:"地区必须选择",
+  }).inputValidator({
+    min:1,
+    onerror: "地区必须选择"}).defaultPassed()
+
+  jQuery("#mail_sale_address").formValidator({
+    onshow:"请填写详细地址"
+  }).regexValidator({
+    regexp:"required",
+    datatype:"enum",
+    onerror:"详细地址必填"})
+
+  jQuery("#mail_sale_zip").formValidator({
+    onshow:"请填写邮政编码"
+  }).regexValidator({
+    regexp:"required",
+    datatype:"enum",
+    onerror:"邮政编码必填"})
+
+  #jQuery("#mail_sale_phone").formValidator({
+  #  onshow:"固定电话与移动电话必填一项"
+  #}).regexValidator({
+  #  regexp:"required",
+  #  datatype:"enum",
+  #  onerror:"固定电话与移动电话必填一项"})
+
+  #jQuery("#mail_sale_mobile").formValidator({
+  #  onshow:"固定电话与移动电话必填一项"
+  #}).regexValidator({
+  #  regexp:"mobile",
+  # datatype:"enum",
+  #  onerror:"固定电话与移动电话必填一项"})
+
+  #jQuery("#mail_sales_commit").click ->
+  #  if jQuery("#mail_sales_phone").val() == "" && jQuery("#mail_sale_mobile").val() != ""
+  #    jQuery("#mail_sales_phone").unFormValidator(true)
+  #    jQuery("#mail_sale_mobile").unFormValidator(false)
+  #  else if jQuery("#mail_sales_phone").val() != "" && jQuery("#mail_sale_mobile").val() == ""
+  #    jQuery("#mail_sale_mobile").unFormValidator(true)
+	#	  jQuery("#mail_sales_phone").unFormValidator(false)
+  #  else
+	#	  jQuery("#mail_sale_mobile").unFormValidator(false)
+	#	  jQuery("#mail_sales_phone").unFormValidator(false)

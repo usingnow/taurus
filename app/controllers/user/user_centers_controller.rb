@@ -16,7 +16,17 @@ class User::UserCentersController < ApplicationController
   end
 
   def mail_sales
+    @mail_sale = MailSale.new
+  end
 
+  def add_mail_sales
+    @mail_sale = current_user.build_mail_sale(params[:mail_sale])
+
+    if @mail_sale.save
+      redirect_to mail_sales_user_user_centers_url, :notice => "提交成功！"
+    else
+      render "mail_sales"
+    end
   end
 
   def comments
