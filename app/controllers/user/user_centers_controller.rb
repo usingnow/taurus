@@ -68,6 +68,10 @@ class User::UserCentersController < ApplicationController
 
   end
 
+  def remit_payment_info
+
+  end
+
   def edit_p_user_info
     @user_info = current_user
     @person_extend = @user_info.build_person_extend
