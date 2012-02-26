@@ -1,8 +1,8 @@
 jQuery ->
-  faseSearch = (days) ->
+  fastSearch = (days) ->
     now = new Date()
     if days >= 1
-     last = new Date(now.getTime()-86400000*days)
+      last = new Date(now.getTime()-86400000*days)
 
     yyyy = last.getFullYear()
     mm   = (last.getMonth()+1).toString()
@@ -19,16 +19,28 @@ jQuery ->
 
 
   jQuery("#last_one_month").click ->
-    faseSearch(30)
+    fastSearch(30)
     jQuery("#order_search").submit()
     false
 
   jQuery("#last_three_month").click ->
-    faseSearch(90)
+    fastSearch(90)
     jQuery("#order_search").submit()
     false
 
   jQuery("#last_six_month").click ->
-    faseSearch(180)
+    fastSearch(180)
     jQuery("#order_search").submit()
+    false
+
+  jQuery(".add_to_cart").click ->
+    jQuery.ajax '/cart/cart_skuships',
+      type: 'POST'
+      data: 'sku_id='+jQuery(this).attr("id")+'&quantity=1'
+      dataType: 'json'
+      error: (jqXHR, textStatus, errorThrown) ->
+        jQuery('body').append "AJAX Error: #{textStatus}"
+      success: (data, textStatus, jqXHR) ->
+        jQuery('#total_items').html(data)
+        alert "添加成功！"
     false

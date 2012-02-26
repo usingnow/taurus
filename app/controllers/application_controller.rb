@@ -36,14 +36,7 @@ class ApplicationController < ActionController::Base
         order_number.update_attributes(:seq=>order_number.seq+1)
       end
 
-      seq = order_number.seq.to_s
-      if seq.length == 1
-        seq = '000'+seq
-      elsif seq.length == 2
-        seq = '00'+seq
-      elsif seq.length == 3
-        seq = '0'+seq
-      end
+      seq = order_number.seq.to_s.rjust(4,"0")
 
       order_number.date.to_s(:number)+'_'+seq
     end
@@ -58,18 +51,8 @@ class ApplicationController < ActionController::Base
         serial_number.update_attributes(:sequence=>serial_number.sequence+1)
       end
 
-      seq = serial_number.sequence.to_s
-      if seq.length == 1
-        seq = '00000'+seq
-      elsif seq.length == 2
-        seq = '0000'+seq
-      elsif seq.length == 3
-        seq = '000'+seq
-      elsif seq.length == 4
-        seq = '00'+seq
-      elsif seq.length == 5
-        seq = '0'+seq
-      end
+      seq = serial_number.sequence.to_s.rjust(6,"0")
+
 
       serial_number.name+serial_number.date.to_s+seq
     end
@@ -95,7 +78,7 @@ class ApplicationController < ActionController::Base
       StoreEntryProductCart.destroy_all(:admin_id => admin_id,:cart_type => type)
     end
 
-    #更新库存
+    #入库增加库存
     def change_store_quantity(line_items,store_id)
       line_items.each do |item|
         @product_storeship = ProductStoreship.find_by_product_id_and_store_id(item.product_id,store_id)
@@ -109,6 +92,7 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    #出库减库存
     def subtract_store_quantity(line_items,delivery_order)
       line_items.each do |item|
         @product_storeship = ProductStoreship.find_by_product_id_and_store_id(item.product_id,delivery_order.store_id)

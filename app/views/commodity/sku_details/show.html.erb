@@ -36,10 +36,10 @@
     <p class="p_1">为您节省：</p>
     <p><strong>￥0</strong></p>
     <p class="p_1 clear">库存：</p>
-    <p><%= get_inventory %></p>
+    <p><%= get_sku_inventory(@sku) %></p>
     <p>（如果缺货，请咨询<em>400-630-5606</em>）</p>
     <p class="p_1 clear">商品信息：</p>
-    <p><%= @sku.introduction %>（已有999999人评价）</p>
+    <p><%= @sku.introduction %><!--（已有999999人评价）--></p>
         <!--<p class="p_1 clear">活动信息：</p>
         <ul id="sku_details_promotion">
           <li>促销项目描述九个字一促销项目描述九个字二促销项目描述九个字三促销项目描述九个字四</li>
@@ -56,7 +56,7 @@
         <button id="plus" type="button">+</button>
         <div></div>
         <input type="button" class="add_to_cart" id="add_to_cart" value="添加到购物车"/>
-        <button class="add_to_favorite"><%= image_tag "sku_details/add_to_favourite.png"%></button>
+        <button id="add_to_favorite"><%= image_tag "sku_details/add_to_favourite.png"%></button>
     </div>
     <!--添加购物车成功信息 开始-->
     <div id="add_successful">
@@ -70,56 +70,20 @@
   <div id="sku_browser_history" class="sku_long">
     <h3>浏览过的商品</h3>
     <ul>
-      <li>
-        <p>
-          <a href="#">
-          <%= image_tag "rails.png", :width => "120px", :height => "120px" %>
-          </a>
-        </p>
-        <p class="overflow_text"><a href="#">商品名称</a></p>
-        <!--<p>市场价：&yen;99999.00</p>-->
-        <p><strong>现价：&yen;99999.99</strong></p>
-      </li>
-      <li>
-        <p>
-          <a href="#">
-          <%= image_tag "rails.png", :width => "120px", :height => "120px" %>
-          </a>
-        </p>
-        <p class="overflow_text"><a href="#">商品名称</a></p>
-        <!--<p>市场价：&yen;99999.00</p>-->
-        <p><strong>现价：&yen;99999.99</strong></p>
-      </li>
-      <li>
-        <p>
-          <a href="#">
-          <%= image_tag "rails.png", :width => "120px", :height => "120px" %>
-          </a>
-        </p>
-        <p class="overflow_text"><a href="#">商品名称</a></p>
-        <!--<p>市场价：&yen;99999.00</p>-->
-        <p><strong>现价：&yen;99999.99</strong></p>
-      </li>
-      <li>
-        <p>
-          <a href="#">
-          <%= image_tag "rails.png", :width => "120px", :height => "120px" %>
-          </a>
-        </p>
-        <p class="overflow_text"><a href="#">商品名称</a></p>
-        <!--<p>市场价：&yen;99999.00</p>-->
-        <p><strong>现价：&yen;99999.99</strong></p>
-      </li>
-      <li>
-        <p>
-          <a href="#">
-          <%= image_tag "rails.png", :width => "120px", :height => "120px" %>
-          </a>
-        </p>
-        <p class="overflow_text"><a href="#">商品名称</a></p>
-        <!--<p>市场价：&yen;99999.00</p>-->
-        <p><strong>现价：&yen;99999.99</strong></p>
-      </li>
+      <% @sku_browsing_histories.each do |history| %>
+        <li>
+          <p>
+            <%= link_to (image_tag history.sku.main_img, :width => "120px", :height => "120px;"), commodity_sku_detail_path(history.sku_id) %>
+          </p>
+          <p class="overflow_text">
+            <%= link_to history.sku.name, commodity_sku_detail_path(history.sku_id) %>
+          </p>
+          <!--<p>市场价：&yen;99999.00</p>-->
+          <p>
+            <strong>现价：<%= number_to_currency history.sku.cost_aft_tax, :unit => "￥" %></strong>
+          </p>
+        </li>
+      <% end %>
     </ul>
   </div>
   <!--暂注释评论功能。

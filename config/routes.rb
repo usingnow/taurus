@@ -228,6 +228,10 @@ Ebiz::Application.routes.draw do
         get :remit_payment_info
       end
     end
+
+    namespace :index do
+      resources :favorites
+    end
   end
 
 

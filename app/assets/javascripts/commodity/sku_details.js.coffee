@@ -39,3 +39,14 @@ jQuery ->
 
   jQuery('#sku_carousel').jcarousel ->
     	wrap: 'circular'
+
+
+  jQuery("#add_to_favorite").click ->
+    jQuery.ajax '/user/index/favorites',
+      type: 'POST'
+      data: 'sku_id='+jQuery("#sku_id").val()
+      dataType: 'json'
+      error: (jqXHR, textStatus, errorThrown) ->
+        jQuery('body').append "AJAX Error: #{textStatus}"
+      success: (data, textStatus, jqXHR) ->
+        jQuery('#add_successful').attr("class","successful").html(data)

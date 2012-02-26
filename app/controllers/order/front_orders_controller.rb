@@ -84,7 +84,7 @@ class Order::FrontOrdersController < ApplicationController
         reserve_reason = cart.short_supply_skus(current_user.store_id)
 
         #获得判断订单保留站
-        unless reserve_reason.nil?
+        unless reserve_reason.blank?
            condition = Condition.find_by_action("true")
            station_procedureship_reserve = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(
                temp_payment.procedure_id,station_procedureship.next_station_id,condition.id)

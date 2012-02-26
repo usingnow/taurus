@@ -113,7 +113,7 @@
     line-height: 18px;
     vertical-align: middle;
     list-style: none;}}
-.add_to_favorite {
+#add_to_favorite {
   position: relative;
   float: right;
   width: 68px;
@@ -121,7 +121,8 @@
   border: 0px;
   padding: 0px;
   margin: 14px 0 0px 0px;
-  background-color: transparent;}
+  background-color: transparent;
+  cursor: pointer;}
 .sku_long {
   position: relative;
   float: left;

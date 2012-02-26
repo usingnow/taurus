@@ -29,24 +29,23 @@
         <td><%= number_to_currency order.total_amount, :unit => "￥" %></td>
         <td><%= order.instance.station.display_name %></td>
         <td>
-          <strong>
-            <%= link_to "立即付款", alipaies_path(:number => order.number), :target => "blank" %>
-          </strong>
-          <a href="#">修改</a>
-          <a href="#">取消</a>
+          <% if order.instance.procedure.id == 1 && order.instance.station_id == 5%>
+            <strong>
+              <%= link_to "立即付款", alipaies_path(:number => order.number), :target => "blank" %>
+            </strong>
+          <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="11">商品总价：<i><%=  %></i>元 + 安装费：<i>9999.99</i>元 + 组装费：<i>999.99</i>元 + 其他费用：<i>999.99</i>元</td>
-    </tr>
-    <tr>
-      <td colspan="11">+ 运费：<i>99.99</i>元</td>
-    </tr>
-    <tr>
-      <td colspan="11"><strong>应支付金额：</strong><strong><i>99999999.99</i></strong>元</td>
+      <td colspan="11">
+        <strong>本次购物应支付金额：</strong>
+        <strong>
+          <i><%= number_to_currency @orders.to_a.sum{ |order| order.total_amount}, :unit => "￥" %></i>
+        </strong>元
+      </td>
     </tr>
   </tfoot>
 </table>
@@ -65,7 +64,7 @@
     <li>在线支付， 请使用<a href="#">支付宝</a>
       <img src="/assets/order/alipay_logo.gif" />
       <form>
-        <button type="submit" class="order_button">立即支付</button>
+        <button type="button" class="order_button" onclick="window.location.href='<%= user_user_centers_path %>'">立即支付</button>
       </form>
     </li>
     <li>银行汇款，请将付款汇往：<br />

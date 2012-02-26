@@ -16,4 +16,8 @@ class SkuCategory < ActiveRecord::Base
     Sku.where("sku_category_id in(select id from sku_categories where number like '#{number}%')
       and status = 1 and id in(select sku_id from sku_on_shelves where status = 1)")
   end
+
+  def favorite_count_by_user_id(user_id)
+    Favorite.count(:joins => "inner join skus on favorites.sku_id = skus.id and sku_category_id = #{id} where favorites.user_id = #{user_id}")
+  end
 end
