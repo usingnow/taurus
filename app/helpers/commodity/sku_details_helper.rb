@@ -9,7 +9,7 @@ module Commodity::SkuDetailsHelper
 
       unless category.nil?
         while category do
-          str = "#{link_to category.name, commodity_category_path(category)} >>" + str
+          str = "#{link_to category.name, commodity_category_path(category)}  >>  " + str
           category = category.parent
         end
       end
