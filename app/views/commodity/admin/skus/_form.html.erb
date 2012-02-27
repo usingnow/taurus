@@ -44,9 +44,9 @@
                        if(result == "failure"){
                          alert("编号不存在!");
                        }else{
-                         jQuery("#sku_sku_category_id").val(result.sku_category.id);
-                         jQuery("#sku_sku_category_number").val(result.sku_category.number);
-                         jQuery("#sku_sku_category_name").val(result.sku_category.name);
+                         jQuery("#sku_sku_category_id").val(result.id);
+                         jQuery("#sku_sku_category_number").val(result.number);
+                         jQuery("#sku_sku_category_name").val(result.name);
                        }
                      },
                  });
