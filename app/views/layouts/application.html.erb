@@ -3,6 +3,7 @@
 <head>
   <title>Ebiz</title>
   <%= stylesheet_link_tag 'application' %>
+  <%= stylesheet_link_tag params[:controller] %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tag %>
   <script type="text/javascript">
@@ -24,16 +25,22 @@
 </head>
 <body>
   <div class="ui-layout-north">
-    <% if administrator_signed_in? %>
-       登录用户:<%= current_administrator.name %>
-      <%= link_to "退出", destroy_administrator_session_path, :method => :delete %>
-    <% else %>
-      <%= link_to "登录", new_administrator_session_path %>
-    <% end %>
+    <div id="header">
+      <p>
+        <% if administrator_signed_in? %>
+           登录用户:<%= current_administrator.name %>
+          <%= link_to "退出", destroy_administrator_session_path, :method => :delete %>
+        <% else %>
+          <%= link_to "登录", new_administrator_session_path %>
+        <% end %>
+      </p>
+    </div>
   </div>
 
   <div class="ui-layout-center">
-     <%= yield %>
+    <div id="main_content">
+      <%= yield %>
+    </div>
   </div>
 
   <div class="ui-layout-west">

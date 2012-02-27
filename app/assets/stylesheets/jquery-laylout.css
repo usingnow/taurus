@@ -1,7 +1,6 @@
 body {
     font-family: SimSun, Geneva, Arial, Helvetica, sans-serif;
-    font-size: 80%;
-    *font-size: 80%;
+    font-size: 12px;
 }
 
 /*
@@ -21,7 +20,7 @@ ui-layout-pane-[PANE-NAME]-[PANE-STATE] （如：ui-layout-pane-west-closed。�
 .ui-layout-pane {
     border: 0px solid #8db2e3;
     overflow: auto;
-    padding: 5px;
+    padding: 0px;
 }
 
 /*非必备样式，描述窗格中的内容*/
