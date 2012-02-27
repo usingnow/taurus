@@ -44,12 +44,16 @@ class Store::DeliveryOrdersController < ApplicationController
       render "new"
       return
     else
+      error = []
       @store_entry_product_carts.each do |cart|
         product_storeship = ProductStoreship.find_by_store_id_and_product_id(params[:delivery_order][:store_id],cart.product_id)
         if cart.quantity > product_storeship.quantity
-          redirect_to new_store_delivery_order_path, :notice => "库存不足,无法出库."
-          return
+          error << cart.product.product_id
         end
+      end
+      if !error.empty?
+        redirect_to new_store_delivery_order_path, :notice => "#{error.to_s}库存不足,无法出库."
+        return
       end
     end
 

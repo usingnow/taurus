@@ -31,9 +31,14 @@
           <td><%= number_to_currency order.total_amount, :unit => "￥" %></td>
           <td><%= order.instance.station.display_name %></td>
           <td>
-            <% if order.instance.procedure.id == 1 && order.instance.station_id == 5%>
+            <% if order.instance.procedure.id == 1 && order.instance.station_id == 5 %>
               <strong>
                 <%= link_to "立即付款", alipaies_path(:number => order.number), :target => "blank" %>
+              </strong>
+            <% end %>
+            <% if order.instance.procedure.id == 3 && order.instance.station_id == 10 %>
+              <strong>
+                <%= link_to "输入汇款资料", remit_payment_info_user_user_center_path(order), :target => "blank" %>
               </strong>
             <% end %>
           </td>

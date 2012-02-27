@@ -1,6 +1,6 @@
 <h1>流程规则维护</h1>
 
-<% form_tag(admin_station_procedureships_path,:method => :get) do  %>
+<%= form_tag(admin_station_procedureships_path,:method => :get) do  %>
     <%= select :station_procedureship, :procedure_id,
                Procedure.all.collect {|p| [ p.name, p.id ] },
                { :selected => session[:procedure_id] } %>

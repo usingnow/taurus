@@ -47,9 +47,9 @@
                          if(result == "failure"){
                            alert("编号不存在!");
                          }else{
-                           jQuery("#product_product_category_id").val(result.product_category.id);
-                           jQuery("#product_product_category_number").val(result.product_category.number);
-                           jQuery("#product_product_category_name").val(result.product_category.name);
+                           jQuery("#product_product_category_id").val(result.id);
+                           jQuery("#product_product_category_number").val(result.number);
+                           jQuery("#product_product_category_name").val(result.name);
                          }
                        },
                    });

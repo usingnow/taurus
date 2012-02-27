@@ -1,0 +1,10 @@
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: ebiz_production
+  pool: 5
+  host: 192.168.5.10
+  username: root
+  password: 1jia1mei!@#123
+  socket: /var/run/mysqld/mysqld.sock
