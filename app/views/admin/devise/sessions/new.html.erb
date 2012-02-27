@@ -1,15 +1,29 @@
-<h2>壹美壹家后台管理系统</h2>
+<div id="login">
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :login_no %><br />
-  <%= f.text_field :login_no %></div>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <p>
+      <%= f.label :login_no %>：
+      <%= f.text_field :login_no %>
+    </p>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+    <p>
+      <%= f.label :password %>：
+      <%= f.password_field :password %>
+    </p>
 
-  <div><%= f.submit "登录" %></div>
-<% end %>
+    <p>
+      <% if devise_mapping.rememberable? -%>
+        <%= f.check_box :remember_me, :class => "check" %> <label for="administrator_remember_me">记住我</label>
+      <% end -%>
+    </p>
+
+    <p>
+      <%= f.submit "登录", :class => "button" %>
+    </p>
+  <% end %>
+  <div class="notification_area">
+    密码不正确。
+  </div>
+</div>
+
