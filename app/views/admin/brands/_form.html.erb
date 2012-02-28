@@ -11,45 +11,46 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :chinese_name %><span class="red">*</span><br />
-    <%= f.text_field :chinese_name %>
+  <div class="field margin_left_40">
+    <%= f.label :chinese_name %>
+    <%= f.text_field :chinese_name %><span class="red">*</span>
   </div>
-  <div class="field">
-    <%= f.label :english_name %><br />
+  <div class="field margin_left_40">
+    <%= f.label :english_name %>
     <%= f.text_field :english_name %>
   </div>
-  <div class="field">
-    <%= f.label :pinyin %><br />
+  <div class="field margin_left_40">
+    <%= f.label :pinyin %>
     <%= f.text_field :pinyin %>
   </div>
-  <div class="field">
-    <%= f.label :web_address %><br />
+  <div class="field margin_left_40">
+    <%= f.label :web_address %>
     <%= f.text_field :web_address %>
   </div>
-  <div class="field">
-    <%= f.label :company_name %><span class="red">*</span><br />
-    <%= f.text_field :company_name %>
+  <div class="field margin_left_40">
+    <%= f.label :company_name %>
+    <%= f.text_field :company_name %><span class="red">*</span>
   </div>
-  <div class="field">
-    <%= f.label :company_introduction %><br />
+  <div class="field margin_left_40">
+    <%= f.label :company_introduction %>
     <%= f.text_area :company_introduction %>
   </div>
-  <div class="field">
-    <%= f.label :image %><br />
+  <div class="field margin_left_40">
+    <%= f.label :image %>
     <%= f.file_field :image %>
   </div>
-  <div class="field">
-    <%= f.label :active %><br />
+  <div class="field margin_left_40">
+    <%= f.label :active %>
     <%= f.radio_button :active, '1', :checked => true %>
     <%= f.label '激活' %>
     <%= f.radio_button :active, '0' %>
     <%= f.label '关闭' %>
   </div>
-  <div class="field">
-    <%= f.label :update_by %><br />
+  <div class="field margin_left_40">
+    <%= f.label :update_by %>
     <%= f.text_field :update_by %>
   </div>
+  <br />
   <div class="actions">
     <%= f.submit %>
   </div>
