@@ -434,7 +434,7 @@ zh-CN:
       name: "真实姓名"
       email: "邮箱"
       person_no: "会员编号"
-      role_no: "角色"
+      role: "角色"
       sex: "性别"
       birth: "出生日期"
       district_no: "所属地区"

@@ -32,7 +32,7 @@
         <%= t :active %>
       </p>
       <p>
-        <%= label_tag t 'attributes.user.role'%>
+        <%= label_tag t 'attributes.person_extend.role' %>
         <%= f.select :role_id, Role.all.collect {|r| [ r.name, r.id ] } %><span class="red">*</span>
       </p>
       <p>
