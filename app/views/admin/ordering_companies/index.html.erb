@@ -1,7 +1,7 @@
 <h1>订货公司列表</h1>
 
 <div class="grid_button">
-  <%= link_to '新增订货公司', new_admin_ordering_company_path %>
+  <%= link_to '新增订货公司', new_admin_ordering_company_path, :target => "_blank" %>
 </div>
 
 <table class="grid">
@@ -21,8 +21,8 @@
     <td><%= ordering_company.name %></td>
     <td><%= ordering_company.address %></td>
     <td><%= ordering_company.phone %></td>
-    <td><%= link_to '详情', admin_ordering_company_path(ordering_company) %></td>
-    <td><%= link_to '修改', edit_admin_ordering_company_path(ordering_company) %></td>
+    <td><%= link_to '详情', admin_ordering_company_path(ordering_company), :target => "_blank" %></td>
+    <td><%= link_to '修改', edit_admin_ordering_company_path(ordering_company), :target => "_blank" %></td>
   </tr>
 <% end %>
 </table>

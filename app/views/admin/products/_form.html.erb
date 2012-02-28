@@ -5,7 +5,8 @@
     <div class="split_content_left">
        <%= f.input :product_id %>
        <%= f.input :brand_name do %>
-         <%= f.autocomplete_field :brand_name, autocomplete_brand_chinese_name_admin_brands_path, :id_element => '#product_brand_id'  %>
+         <%= f.autocomplete_field :brand_name, autocomplete_brand_chinese_name_admin_brands_path,
+                                  :id_element => '#product_brand_id'  %>
        <% end %>
        <%= f.input :brand_id, :as => :hidden  %>
        <%= f.input :unit %>
@@ -31,10 +32,13 @@
     <div class="split_content_right">
        <%= f.input :name %>
        <%= f.input :product_category_name do %>
-         <%= f.autocomplete_field :product_category_name, autocomplete_product_category_name_admin_product_categories_path, :update_elements => {:id => '#product_product_category_id', :number => '#product_product_category_number'}  %>
-         <span style="font-weight: bold;">编号</span>
-         <%= f.text_field :product_category_number %>
-         <input type="button" id="check_product_category_number" value="验证" style="width: 60px;" />
+         <%= f.autocomplete_field :product_category_name,
+                                  autocomplete_product_category_name_admin_product_categories_path,
+                                  :update_elements => {:id => '#product_product_category_id',
+                                  :number => '#product_product_category_number'}  %>
+         <span style="font-weight: bold; color: #013DA4;">编号</span>
+         <%= f.text_field :product_category_number, :class => "short_input_text"%>
+         <input type="button" id="check_product_category_number" value="验证" />
        <% end %>
        <% content_for :ready do %>
           jQuery("#check_product_category_number").click(function(){
@@ -65,7 +69,8 @@
                            :first, :second, :checked => 'false'
        end %>
        <%= f.input :supplier_name do %>
-         <%= f.autocomplete_field :supplier_name, autocomplete_supplier_name_admin_suppliers_path, :id_element => '#product_supplier_id'  %>
+         <%= f.autocomplete_field :supplier_name, autocomplete_supplier_name_admin_suppliers_path,
+                                  :id_element => '#product_supplier_id'  %>
        <% end %>
        <%= f.input :supplier_id, :as => :hidden %>
        <%= f.input :have_shelf_life do
@@ -90,12 +95,12 @@
   </div>
 
   <div class="attributes">
-    <%= f.label '仓库' %><span class="red">*</span>
+    <span class="red">*</span><%= f.label '仓库' %>
     <%=raw product_stores(@product)  %>
 
     <%= f.label :description %><br />
 
-    <%= f.cktext_area :description, :toolbar=>'Full', :width=>'800px', :height=>'200px' %>
+    <%= f.cktext_area :description, :toolbar=>'Full', :width=>'auto', :height=>'200px' %>
   </div>
 
   <div class="actions">

@@ -23,7 +23,7 @@
 </div>
 
 <div class="grid_button">
-  <%= link_to '新建素材商品', new_admin_product_path %>
+  <%= link_to '新建素材商品', new_admin_product_path, :target => "_blank" %>
 </div>
 
 <table class="grid">
@@ -51,7 +51,7 @@
     <td><%= product.model %></td>
     <td><%= product.manufacturer %></td>
     <td><%= product.updated_at %></td>
-    <td><%= link_to '修改', edit_admin_product_path(product) %></td>
+    <td><%= link_to '修改', edit_admin_product_path(product), :target => "_blank" %></td>
   </tr>
 <% end %>
 </table>

@@ -11,19 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><span class="red">*</span><br />
+  <p>
+    <%= f.label :name %>
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
+    <span class="red">*</span>
+  </p>
+  <p>
+    <%= f.label :address %>
     <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
+  </p>
+  <p>
+    <%= f.label :phone %>
     <%= f.text_field :phone %>
-  </div>
-  <div class="field">
+  </p>
+  <p>
     <%= f.label '状态' %>
     <%= f.radio_button :active , false %>
     <%= f.label '关闭' %>
@@ -33,8 +34,8 @@
       <%= f.radio_button :active , true%>
     <% end %>
     <%= f.label '激活' %>
-  </div>
-  <div class="actions">
+  </p>
+  <p>
     <%= f.submit %>
-  </div>
+  </p>
 <% end %>
