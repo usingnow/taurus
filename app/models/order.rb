@@ -58,6 +58,7 @@ class Order < ActiveRecord::Base
     order_print_logs.count
   end
 
+
   validates_format_of :mobile,
                       :with => /^13[0-9]{1}[0-9]{8}$|^15[012356789]{1}[0-9]{8}$|^18[0256789]{1}[0-9]{8}$/,
                       :message => "格式不正确"

@@ -79,7 +79,6 @@ class User::UserCentersController < ApplicationController
   def order_show
     @order = current_user.orders.find params[:id]
     @consignee_info = current_user.consignee_info
-
   end
 
   def order_edit
@@ -87,8 +86,36 @@ class User::UserCentersController < ApplicationController
   end
 
   def remit_payment_info
-
+    @order_pay = OrderPay.new
+    @order_pay.order_id = params[:id]
+    @condition_id = params[:condition_id]
   end
+
+  def add_remit_payment_info
+    @order = Order.find(params[:id])
+    @condition_id = params[:condition_id]
+    @order_pay = @order.build_order_pay
+    OrderPay.transaction do
+      if @order_pay.save
+        order_cross_station @order, :condition_id => @condition_id
+        redirect_to user_user_centers_url
+      else
+        render "remit_payment_info"
+      end
+    end
+  end
+
+  def cancel
+    @order = Order.find(params[:id])
+    @condition_id = params[:condition_id]
+
+    Order.transaction do
+      order_cross_station @order, :condition_id => @condition_id
+    end
+
+    redirect_to user_user_centers_url
+  end
+
 
   def edit_p_user_info
     @user_info = current_user

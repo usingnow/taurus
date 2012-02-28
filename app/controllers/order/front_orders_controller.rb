@@ -207,4 +207,10 @@ class Order::FrontOrdersController < ApplicationController
     @orders = Order.where("id in(#{session[:order_ids].join(",")})")
   end
 
+
+  def operate
+
+
+  end
+
 end

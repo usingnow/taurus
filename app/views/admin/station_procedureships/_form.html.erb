@@ -28,23 +28,15 @@
   </div>
   <div class="field">
     <%= f.label :business_function_id %><br />
-    <%= collection_select :station_procedureship, :business_function_id, BusinessFunction.all, :id, :name, :prompt => true %>
+    <%= f.select :business_functions, BusinessFunction.all.collect {|b| [b.name, b.id]}, {}, :multiple => true, :size => 10 %>
   </div>
   <div class="field">
-    <%= f.label :operate_url %><br />
-    <%= f.text_field :operate_url %>
+    <%= f.label :order_oper_url %><br />
+    <%= f.collection_select :order_oper_url_id, OrderOperUrl.all, :id, :name, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :target %><br />
     <%= f.text_field :target %>
-  </div>
-  <div class="field">
-    <%= f.label :width %><br />
-    <%= f.text_field :width %>
-  </div>
-  <div class="field">
-    <%= f.label :height %><br />
-    <%= f.text_field :height %>
   </div>
   <div class="field">
     <%= f.label :sequence %><br />
