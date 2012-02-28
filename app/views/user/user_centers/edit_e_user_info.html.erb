@@ -6,15 +6,88 @@
 <div id="uc_content_wrapper">
   <h2 class="title">修改用户信息</h2>
 
-  <%= form_for @user_info, :url => "" do |f| %>
-    <%= f.fields_for :company_extend do |company_extend| %>
+  <%= form_for @company_extend, :url => update_e_user_info_user_user_centers_path, :html => {:id => "edit_enterprise"} do |f| %>
+
     <p>
-      <label for="company_extend_name">联系人姓名：</label>
-      <%= company_extend.text_field :name %>
+      <label>企业名称：</label>
+      <%= f.text_field :company_name %>
       <span class="red">*</span>
-      <span class="red">请使用真实姓名以确保及时收到所购商品</span>
+      <span id="company_extend_company_nameTip"></span>
     </p>
-    <% end %>
+    <p>
+      <label>所属行业：</label>
+      <%= f.collection_select :industry_id, Industry.all, :id, :name %>
+      <span class="red">*</span>
+      <span id="company_extend_industry_idTip"></span>
+    </p>
+    <p>
+      <label>公司性质：</label>
+      <%= f.collection_select :company_type_id, CompanyType.all, :id, :name %>
+      <span class="red">*</span>
+      <span id="company_extend_company_type_idTip"></span>
+    </p>
+    <p>
+      <label>公司规模：</label>
+      <%= f.collection_select :company_scale_id, CompanyScale.all, :id, :name, :include_blank => true %>
+    </p>
+
+    <h3>联系方式</h3>
+
+    <p>
+      <label>联系人姓名：</label>
+      <%= f.text_field :name %>
+      <span class="red">*</span>
+      <span id="company_extend_nameTip"></span>
+    </p>
+    <p>
+      <label>称呼：</label>
+      <%= f.collection_radio :sex, [[1,"先生"],[2,"女士"]], :first, :last %>
+    </p>
+    <p>
+      <label>联系人部门：</label>
+      <%= f.text_field :contact_post %>
+    </p>
+    <p>
+      <label>联系人职位：</label>
+      <%= f.text_field :contact_dept %>
+    </p>
+    <p>
+      <label>固定电话：</label>
+      <%= f.text_field :phone %>
+    </p>
+    <p>
+      <label>移动电话：</label>
+      <%= f.text_field :mobile %>
+    </p>
+    <p>
+      <label>传真号码：</label>
+      <%= f.text_field :fax %>
+    </p>
+    <p>
+      <label>电子邮箱：</label>
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <label>公司网址：</label>
+      <%= f.text_field :web_address %>
+    </p>
+    <p>
+      <label>默认区域：</label>
+      <%=raw address @company_extend.district, "company_extend" %>
+      <span class="red">*</span>
+      <span id="company_extend_district_noTip"></span>
+    </p>
+    <p>
+      <label>默认地址：</label>
+      <%= f.text_field :address %>
+    </p>
+    <p>
+      <label>默认邮编：</label>
+      <%= f.text_field :zip %>
+    </p>
+
+
+    <%= f.submit "提交" %>
   <% end %>
 
 </div>

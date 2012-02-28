@@ -7,14 +7,6 @@ class User::UserCentersController < ApplicationController
     @orders = current_user.orders.order("created_at desc").paginate(:page => params[:page], :per_page => 10)
   end
 
-  def detailed_p_user_info
-
-  end
-
-  def detailed_e_user_info
-
-  end
-
   def mail_sales
     @mail_sale = MailSale.new
   end
@@ -116,14 +108,40 @@ class User::UserCentersController < ApplicationController
     redirect_to user_user_centers_url
   end
 
+  def detailed_p_user_info
+    @user = current_user
+  end
 
   def edit_p_user_info
-    @user_info = current_user
-    @person_extend = @user_info.build_person_extend
+    @person_extend = current_user.person_extend
+  end
+
+  def update_p_user_info
+    @person_extend = current_user.person_extend
+
+    if @person_extend.update_attributes(params[:person_extend])
+      redirect_to detailed_p_user_info_user_user_centers_path
+    else
+      render "edit_p_user_info"
+    end
+  end
+
+
+  def detailed_e_user_info
+    @user = current_user
   end
 
   def edit_e_user_info
-    @user_info = current_user
-    @company_extend = @user_info.build_company_extend
+    @company_extend = current_user.company_extend
+  end
+
+  def update_e_user_info
+     @company_extend = current_user.company_extend
+
+    if @company_extend.update_attributes(params[:company_extend])
+      redirect_to detailed_e_user_info_user_user_centers_path
+    else
+      render "edit_e_user_info"
+    end
   end
 end

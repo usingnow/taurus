@@ -241,8 +241,10 @@ Ebiz::Application.routes.draw do
         get :order_edit
         get :new_user_address
         get :edit_p_user_info
+        put :update_p_user_info
         get :edit_e_user_info
-        post :add_mail_sales
+        put :update_e_user_info
+        put :add_mail_sales
       end
       member do
         get :order_show
