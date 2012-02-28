@@ -665,3 +665,30 @@ div#copyright {
     margin: 10px auto;
     text-align: center;}}
 
+
+//表单验证样式
+.onShow {
+  background: url(/assets/core/validation/on_show.gif) no-repeat 0;
+  padding-left: 25px;
+  font-size: 12px;
+  line-height: 22px;
+  vertical-align: middle;}
+.onFocus {
+  background:#E9F0FF url(/assets/core/validation/on_focus.gif) no-repeat 0;
+  padding-left:25px;
+  font-size: 12px;
+  line-height:22px;
+  vertical-align:middle;}
+.onError {
+  background:#FFF2E9 url(/assets/core/validation/on_error.gif) no-repeat 0;
+  padding-left:25px;
+  font-size: 12px;
+  line-height:22px;
+  vertical-align:middle;}
+.onCorrect {
+    background:#E9FFEB url(/assets/core/validation/on_correct.gif) no-repeat 0;
+    padding-left:25px;
+	font-size: 12px;
+	line-height:22px;
+	vertical-align:middle;}
+
