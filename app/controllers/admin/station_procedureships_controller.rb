@@ -50,9 +50,9 @@ class Admin::StationProcedureshipsController < ApplicationController
     end
   end
 
-  # GET /station_procedureships/1/edit
   def edit
     @station_procedureship = StationProcedureship.find(params[:id])
+
   end
 
   # POST /station_procedureships

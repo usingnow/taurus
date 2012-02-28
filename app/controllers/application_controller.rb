@@ -190,4 +190,19 @@ class ApplicationController < ActionController::Base
       flag
     end
 
+    #订单过站
+    def order_cross_station(object,options={})
+      instance = object.instance
+      station_procedureship = StationProcedureship.find_by_procedure_id_and_station_id_and_condition_id(
+                                instance.procedure_id, instance.station_id, options[:condition_id])
+
+
+      #保存过站记录
+      hash = [{:instance_id => instance.id, :station_id => instance.station_id,
+               :condition_id => options[:condition_id], :next_station_id => station_procedureship.next_station_id,
+               :created_by => "前台客户"}]
+      save_station_track(hash)
+
+      instance.update_attributes(:station_id => station_procedureship.next_station_id)
+    end
 end

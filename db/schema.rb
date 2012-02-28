@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120226124214) do
+ActiveRecord::Schema.define(:version => 20120228062357) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -86,6 +86,13 @@ ActiveRecord::Schema.define(:version => 20120226124214) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "bus_fun_sta_proships", :force => true do |t|
+    t.integer  "station_procedureship_id"
+    t.integer  "business_function_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "business_functions", :force => true do |t|
@@ -398,6 +405,15 @@ ActiveRecord::Schema.define(:version => 20120226124214) do
   create_table "order_numbers", :force => true do |t|
     t.date     "date"
     t.integer  "seq"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_oper_urls", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "link_method"
+    t.string   "confirm"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -812,10 +828,8 @@ ActiveRecord::Schema.define(:version => 20120226124214) do
     t.integer  "condition_id"
     t.integer  "next_station_id"
     t.integer  "business_function_id"
-    t.string   "operate_url"
+    t.integer  "order_oper_url_id"
     t.string   "target"
-    t.integer  "width"
-    t.integer  "height"
     t.boolean  "active"
     t.integer  "sequence"
     t.integer  "sub_sequence"
@@ -922,7 +936,6 @@ ActiveRecord::Schema.define(:version => 20120226124214) do
     t.integer  "role_id"
     t.integer  "status"
     t.integer  "user_type"
-    t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -935,6 +948,7 @@ ActiveRecord::Schema.define(:version => 20120226124214) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "store_id"
+    t.string   "email",                                 :default => "", :null => false
   end
 
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true

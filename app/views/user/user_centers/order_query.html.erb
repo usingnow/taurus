@@ -62,11 +62,7 @@
           <td><%= number_to_currency order.total_amount, :unit => "￥" %></td>
           <td><%= order.instance.station.display_name %></td>
           <td>
-            <% if order.instance.procedure.id == 1 && order.instance.station_id == 5%>
-              <strong>
-                <%= link_to "立即付款", alipaies_path(:number => order.number), :target => "blank" %>
-              </strong>
-            <% end %>
+            <%= user_order_operating order %>
           </td>
         </tr>
       <% end %>

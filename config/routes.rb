@@ -220,6 +220,7 @@ Ebiz::Application.routes.draw do
       collection do
         post :review
         get  :success
+        post :operate
       end
     end
   end
@@ -248,6 +249,8 @@ Ebiz::Application.routes.draw do
         get :edit_user_address
         delete :del_user_address
         get :remit_payment_info
+        post :add_remit_payment_info
+        delete :cancel
       end
     end
 
