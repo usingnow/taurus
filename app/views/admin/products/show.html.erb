@@ -1,179 +1,186 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Product:</b>
-  <%= @product.product_id %>
+<p class="clear_both">
+  <%= link_to '修改', edit_admin_product_path(@product) %> |
+  <%= link_to '返回', admin_products_path %>
 </p>
 
-<p>
-  <b>Name:</b>
-  <%= @product.name %>
+<p class="col_left">
+  <b><%= t 'activerecord.attributes.product.product_id' %></b>
+  <em><%= @product.product_id %></em>
 </p>
 
-<p>
-  <b>brand_id:</b>
-  <%= @product.brand_id %>
+<p class="col_right">
+  <b><%= t 'activerecord.attributes.product.name' %></b>
+  <em><%= @product.name %></em>
 </p>
 
-<p>
-  <b>cost_bef_tax:</b>
-  <%= @product.cost_bef_tax %>
+<p class="col_left">
+  <b><%= t 'activerecord.attributes.product.brand_id' %></b>
+  <em><%= @product.brand_id %></em>
 </p>
 
-<p>
-  <b>cost_aft_tax:</b>
-  <%= @product.cost_aft_tax %>
+<p class="col_right">
+  <b><%= t 'activerecord.attributes.product.cost_bef_tax' %></b>
+  <em><%= @product.cost_bef_tax %></em>
 </p>
 
-<p>
-  <b>product_category_id:</b>
-  <%= @product.product_category_id %>
+<p class="col_left">
+  <b><%= t 'activerecord.attributes.product.cost_aft_tax' %></b>
+  <em><%= @product.cost_aft_tax %></em>
 </p>
 
-<p>
-  <b>unit:</b>
-  <%= @product.unit %>
+<p class="col_right">
+  <b><%= t 'activerecord.attributes.product.product_category_id' %></b>
+  <em><%= @product.product_category_id %></em>
 </p>
 
-<p>
-  <b>specification:</b>
-  <%= @product.specification %>
+<p class="col_left">
+  <b><%= t 'activerecord.attributes.product.unit' %></b>
+  <em><%= @product.unit %></em>
 </p>
 
-<p>
-  <b>delivery_days:</b>
-  <%= @product.delivery_days %>
+<p class="col_right">
+  <b><%= t 'activerecord.attributes.product.specification' %></b>
+  <em><%= @product.specification %></em>
 </p>
 
-<p>
-  <b>delivery_descprition:</b>
-  <%= @product.delivery_descprition %>
+<p class="col_left">
+  <b><%= t 'activerecord.attributes.product.delivery_days' %></b>
+  <em><%= @product.delivery_days %></em>
 </p>
 
-<p>
-  <b>model:</b>
-  <%= @product.model %>
+<p class="col_right">
+  <b><%= t 'activerecord.attributes.product.delivery_descprition' %></b>
+  <em><%= @product.delivery_descprition %></em>
 </p>
 
-<p>
-  <b>size:</b>
-  <%= @product.size %>
+<p class="col_left">
+  <b><%= t 'activerecord.attributes.product.model' %></b>
+  <em><%= @product.model %></em>
 </p>
 
-<p>
-  <b>description:</b>
-  <%= @product.description %>
+<p class="col_right">
+  <b><%= t 'activerecord.attributes.product.size' %></b>
+  <em><%= @product.size %></em>
 </p>
 
-<p>
-  <b>color:</b>
-  <%= @product.color %>
+<p class="col_left">
+  <b><%= t 'activerecord.attributes.product.description' %></b>
+  <em><%= @product.description %></em>
 </p>
 
-<p>
-  <b>barcode:</b>
-  <%= @product.barcode %>
+<p class="col_right">
+  <b><%= t 'activerecord.attributes.product.color' %></b>
+  <em><%= @product.color %></em>
 </p>
 
-<p>
-  <b>supplier_id:</b>
-  <%= @product.supplier_id %>
+<p class="col_left">
+  <b><%= t 'activerecord.attributes.product.barcode' %></b>
+  <em><%= @product.barcode %></em>
 </p>
 
-<p>
-  <b>manufacturer:</b>
-  <%= @product.manufacturer %>
+<p class="col_right">
+  <b><%= t 'activerecord.attributes.product.supplier_id' %></b>
+  <em><%= @product.supplier_id %></em>
 </p>
 
-<p>
-  <b>shelf_life:</b>
-  <%= @product.shelf_life %>
+<p class="col_left">
+  <b><%= t 'activerecord.attributes.product.manufacturer' %></b>
+  <em><%= @product.manufacturer %></em>
 </p>
 
-<p>
-  <b>have_wanrranty:</b>
-  <%= @product.have_wanrranty %>
+<p class="col_right">
+  <b><%= t 'activerecord.attributes.product.shelf_life' %></b>
+  <em><%= @product.shelf_life %></em>
 </p>
 
-<p>
-  <b>wanrranty:</b>
-  <%= @product.wanrranty %>
+<p class="col_left">
+  <b><%= t 'activerecord.attributes.product.have_wanrranty' %></b>
+  <em><%= @product.have_wanrranty %></em>
 </p>
 
-<p>
-  <b>wanrranty_description:</b>
-  <%= @product.wanrranty_description %>
+<p class="col_right">
+  <b><%= t 'activerecord.attributes.product.wanrranty' %></b>
+  <em><%= @product.wanrranty %></em>
 </p>
 
-<p>
-  <b>origin:</b>
-  <%= @product.origin %>
+<p class="col_left">
+  <b><%= t 'activerecord.attributes.product.wanrranty_description' %></b>
+  <em><%= @product.wanrranty_description %></em>
 </p>
 
-
-<p>
-  <b>appendant:</b>
-  <%= @product.appendant %>
-</p>
-
-<p>
-  <b>is_green:</b>
-  <%= @product.is_green %>
-</p>
-
-<p>
-  <b>is_assembling_required:</b>
-  <%= @product.is_assembling_required %>
-</p>
-
-<p>
-  <b>assembling_fee_bef_tax:</b>
-  <%= @product.assembling_fee_bef_tax %>
-</p>
-
-<p>
-  <b>assembling_fee_aft_tax:</b>
-  <%= @product.assembling_fee_aft_tax %>
-</p>
-
-<p>
-  <b>is_maintanable:</b>
-  <%= @product.is_maintanable %>
-</p>
-
-<p>
-  <b>maintenance_cost_bef_tax:</b>
-  <%= @product.maintenance_cost_bef_tax %>
-</p>
-
-<p>
-  <b>maintenance_cost_aft_tax:</b>
-  <%= @product.maintenance_cost_aft_tax %>
-</p>
-
-<p>
-  <b>installation_cost_bef_tax:</b>
-  <%= @product.installation_cost_bef_tax %>
-</p>
-
-<p>
-  <b>insatllation_cost_aft_tax:</b>
-  <%= @product.insatllation_cost_aft_tax %>
+<p class="col_right">
+  <b><%= t 'activerecord.attributes.product.origin' %></b>
+  <em><%= @product.origin %></em>
 </p>
 
 
-<p>
-  <b>created_by:</b>
-  <%= @product.created_by %>
+<p class="col_left">
+  <b><%= t 'activerecord.attributes.product.appendant' %></b>
+  <em><%= @product.appendant %></em>
+</p>
+
+<p class="col_right">
+  <b><%= t 'activerecord.attributes.product.is_green' %></b>
+  <em><%= @product.is_green %></em>
+</p>
+
+<p class="col_left">
+  <b><%= t 'activerecord.attributes.product.is_assembling_required' %></b>
+  <em><%= @product.is_assembling_required %></em>
+</p>
+
+<p class="col_right">
+  <b><%= t 'activerecord.attributes.product.assembling_fee_bef_tax' %></b>
+  <em><%= @product.assembling_fee_bef_tax %></em>
+</p>
+
+<p class="col_left">
+  <b><%= t 'activerecord.attributes.product.assembling_fee_aft_tax' %></b>
+  <em><%= @product.assembling_fee_aft_tax %></em>
+</p>
+
+<p class="col_right">
+  <b><%= t 'activerecord.attributes.product.is_maintanable' %></b>
+  <em><%= @product.is_maintanable %></em>
+</p>
+
+<p class="col_left">
+  <b><%= t 'activerecord.attributes.product.maintenance_cost_bef_tax' %></b>
+  <em><%= @product.maintenance_cost_bef_tax %></em>
+</p>
+
+<p class="col_right">
+  <b><%= t 'activerecord.attributes.product.maintenance_cost_aft_tax' %></b>
+  <em><%= @product.maintenance_cost_aft_tax %></em>
+</p>
+
+<p class="col_left">
+  <b><%= t 'activerecord.attributes.product.installation_cost_bef_tax' %></b>
+  <em><%= @product.installation_cost_bef_tax %></em>
+</p>
+
+<p class="col_right">
+  <b><%= t 'activerecord.attributes.product.insatllation_cost_aft_tax' %></b>
+  <em><%= @product.insatllation_cost_aft_tax %></em>
 </p>
 
 
-<p>
-  <b>updated_by:</b>
-  <%= @product.updated_by %>
+<p class="col_left">
+  <b><%= t 'activerecord.attributes.product.created_by' %></b>
+  <em><%= @product.created_by %></em>
 </p>
 
 
+<p class="col_right">
+  <b><%= t 'activerecord.attributes.product.updated_by' %></b>
+  <em><%= @product.updated_by %></em>
+</p>
 
-<%= link_to 'Edit', edit_admin_product_path(@product) %> |
-<%= link_to 'Back', admin_products_path %>
+
+<p class="clear_both">
+  <%= link_to '修改', edit_admin_product_path(@product) %> |
+  <%= link_to '返回', admin_products_path %>
+</p>
+
