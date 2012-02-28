@@ -22,8 +22,9 @@
       <%= f.submit "登录", :class => "button" %>
     </p>
   <% end %>
-  <div class="notification_area">
-    密码不正确。
-  </div>
+
+  <% unless alert.nil? %>
+    <div class="notification_area"><%= alert %></div>
+  <% end %>
 </div>
 
