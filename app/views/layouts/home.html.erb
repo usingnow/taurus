@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-  <title>壹美壹家</title>
+  <title>宁波办公用品、生活用品、家居饰品、品牌家具一站式购物！全新生活和办公方式的引领者24小时快速送货上门——壹美壹家</title>
   <%= stylesheet_link_tag 'smoothness/jquery-ui-1.8.16.custom-jimmy.css', 'public' %>
   <%= stylesheet_link_tag params[:controller] %>
   <%= javascript_include_tag 'layouts/home' %>
@@ -15,7 +15,6 @@
     });
   </script>
 </head>
-
 <body>
   <div id="wrapper">
     <div id="header">
@@ -26,7 +25,7 @@
           <li>|</li>
           <li><%= link_to "联系客服", contact_sd_home_index_path %></li>
           <li>|</li>
-          <li><a href="#">收藏本站</a></li>
+          <li><a href="#" id="favorites">收藏本站</a></li>
           <li>|</li>
           <li><a href="#">订阅信息</a></li>
           <li>|</li>
@@ -36,7 +35,7 @@
       <div id="welcome">
         <p>
           <% if user_signed_in? %>
-            <%= get_user_name current_user %>欢迎您来到壹美壹家网上商城
+            <%= get_user_name current_user %>,欢迎您来到壹美壹家网上商城
             <%= link_to "注销", destroy_user_session_path, :method => :delete %>
           <% else %>
             <%= link_to "登录", new_user_session_path, :title => "登录" %>
