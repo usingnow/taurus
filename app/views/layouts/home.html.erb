@@ -35,9 +35,14 @@
       </div>
       <div id="welcome">
         <p>
-          <%= link_to "登录", new_user_session_path, :title => "登录" %>
-          或
-          <%= link_to "免费注册，享受会员服务", new_user_session_path, :title => "注册" %>
+          <% if user_signed_in? %>
+            <%= get_user_name current_user %>欢迎您来到壹美壹家网上商城
+            <%= link_to "注销", destroy_user_session_path, :method => :delete %>
+          <% else %>
+            <%= link_to "登录", new_user_session_path, :title => "登录" %>
+            或
+            <%= link_to "免费注册，享受会员服务", new_user_session_path, :title => "注册" %>
+          <% end %>
         </p>
       </div>
       <div id="cart">
