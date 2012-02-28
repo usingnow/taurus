@@ -170,7 +170,7 @@
           <%= hidden_field_tag 'order_id', @order.id %>
           商品编号:<%= f.text_field :number_eq %>
           商品名称:<%= f.text_field :name_cont %>
-          <%= submit_tag '查询' %>
+          <%= submit_tag '查询', :class => "margin_bottom_5" %>
         <% end %>
       </div>
       <table class="grid">
@@ -249,28 +249,29 @@
          <div class="attributes">
             <div class="split_content_left_long">
               <p>
-                <%= label_tag "收货人姓名" %><sapn class="red">*</sapn>
+                <%= label_tag "收货人姓名" %><sapn class="red float_right">*</sapn>
                 <%= f.text_field :name %>
               </p>
               <p>
-                <%= label_tag "收货地址" %><sapn class="red">*</sapn>
+                <%= label_tag "收货地址" %><sapn class="red float_right">*</sapn>
                 <%=raw address @order.district, "order" %>
               </p>
-              <p>
-                <%= label_tag "地址" %><sapn class="red">*</sapn>
-                <%= f.text_field :address %>请详细到路名、小区、门牌号码
+              <p class ="clear_both">
+                <%= label_tag "地址" %><sapn class="red float_right">*</sapn>
+                <%= f.text_field :address %><em>请详细到路名、小区、门牌号码</em>
               </p>
               <p>
-                <%= label_tag "固定电话" %><sapn>&nbsp;</sapn>
+                <%= label_tag "固定电话" %><sapn class="float_right">&nbsp;</sapn>
                 <%= f.text_field :phone %>
               </p>
-                <%= f.input :mobile %>
+                <%= label_tag "移动电话" %><sapn class="float_right">&nbsp;</sapn>
+                <%= f.text_field :mobile %>
               <p>
-                <%= label_tag "电子邮箱" %><sapn>&nbsp;</sapn>
+                <%= label_tag "电子邮箱" %><sapn class="float_right">&nbsp;</sapn>
                 <%= f.text_field :email %>
               </p>
               <p>
-                <%= label_tag "邮编" %><sapn>&nbsp;</sapn>
+                <%= label_tag "邮编" %><sapn class="float_right">&nbsp;</sapn>
                 <%= f.text_field :zip %>
               </p>
             </div>

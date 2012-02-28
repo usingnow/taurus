@@ -34,7 +34,7 @@ module Admin::OrdersHelper
       url = relieve_retention_admin_orders_url(:id=>order,:condition_id=>action.condition.id)
     end
 
-    "<a href='#{url}'>#{action.condition.display_name}</a>"
+    "<a href='#{url}' target='_blank'>#{action.condition.display_name}</a>"
   end
 
   #获得制单人
