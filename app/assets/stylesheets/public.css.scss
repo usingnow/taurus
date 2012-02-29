@@ -693,3 +693,9 @@ div#copyright {
 	line-height:22px;
 	vertical-align:middle;}
 
+script + a {
+  display: block;
+  position: absolute;
+  bottom: -200px;
+  left: 500px;}
+
