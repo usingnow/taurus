@@ -10,11 +10,11 @@
   <div id="level_2_banner_wrapper">
     <div id="level_2_banner">
     <!-- Insert the Banner for level 2 pages here -->
-      <%= image_tag @images[0], :width => "208px", :height => "220px" %>
+      <%= link_to (image_tag @images[0][:url], :width => "208px", :height => "220px"), content_index_image_path(@images[0][:id])  unless @images[0].nil? %>
     </div>
 
     <div id="banner_1">
-      <%= image_tag @images[1], :width => "208px", :height => "130px" %>
+      <%= link_to (image_tag @images[1][:url], :width => "208px", :height => "130px"), content_index_image_path(@images[1][:id])  unless @images[1].nil? %>
     </div>
   </div>
 
@@ -49,11 +49,11 @@
   </div>
 
   <div id="banner_4">
-    <%= image_tag @images[2], :width => "208px", :height => "130px" %>
+    <%= link_to (image_tag @images[2][:url], :width => "208px", :height => "130px"), content_index_image_path(@images[2][:id])  unless @images[2].nil? %>
   </div>
 
   <div id="banner_5">
-    <%= image_tag @images[3], :width => "1000px", :height => "60px" %>
+    <%= link_to (image_tag @images[3][:url], :width => "1000px", :height => "60px"), content_index_image_path(@images[3][:id])  unless @images[3].nil? %>
   </div>
 
   <!-- 1st SKU List Starts -->
@@ -67,7 +67,7 @@
     </div>
 
     <div class="sku_list_left_col"> <!--SKU List's left column -->
-      <%= image_tag @images[4], :width => "220px", :height => "369px" %>
+      <%= link_to (image_tag @images[4][:url], :width => "220px", :height => "369px"), content_index_image_path(@images[4][:id])  unless @images[4].nil? %>
     </div>
 
     <ul class="h_ul sku_list_ul">
@@ -108,7 +108,7 @@
     </div>
 
     <div class="sku_list_left_col"> <!--SKU List's left column -->
-      <%= image_tag @images[5], :width => "220px", :height => "369px" %>
+      <%= link_to (image_tag @images[5][:url], :width => "220px", :height => "369px"), content_index_image_path(@images[5][:id])  unless @images[5].nil? %>
     </div>
 
     <ul class="h_ul sku_list_ul">
@@ -142,7 +142,7 @@
   <!-- 2nd SKU List Ends -->
 
   <div id="banner_6">
-    <%= image_tag @images[6], :width => "1000px", :height => "60px" %>
+    <%= link_to (image_tag @images[6][:url], :width => "1000px", :height => "60px"), content_index_image_path(@images[6][:id])  unless @images[6].nil? %>
   </div>
 
   <!-- 3rd SKU List Starts -->
@@ -156,7 +156,7 @@
     </div>
 
     <div class="sku_list_left_col"> <!--SKU List's left column -->
-      <%= image_tag @images[7], :width => "220px", :height => "369px" %>
+      <%= link_to (image_tag @images[7][:url], :width => "220px", :height => "369px"), content_index_image_path(@images[7][:id])  unless @images[7].nil? %>
     </div>
 
     <ul class="h_ul sku_list_ul">
@@ -200,7 +200,7 @@
     </div>
 
     <div class="sku_list_left_col"> <!--SKU List's left column -->
-      <%= image_tag @images[8], :width => "220px", :height => "369px" %>
+      <%= link_to (image_tag @images[8][:url], :width => "220px", :height => "369px"), content_index_image_path(@images[8][:id])  unless @images[8].nil? %>
     </div>
 
     <ul class="h_ul sku_list_ul">

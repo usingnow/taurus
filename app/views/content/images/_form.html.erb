@@ -11,9 +11,10 @@
     <% end %>
 
     <%= f.input :image %>
+     <%= f.cktext_area :description, :toolbar=>'Full', :width=>'65%', :height=>'300px' %>
   </div>
 
-  <%= image_tag "/assets/admin/homepage_cms.png", :class => "cms_layout_indicator" %>
+  <%= image_tag "/assets/content/images/homepage_cms.png", :class => "cms_layout_indicator", :id => "cms_image" %>
 
   <div class="actions">
     <%= f.button :submit %>

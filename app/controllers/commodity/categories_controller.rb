@@ -39,7 +39,7 @@ class Commodity::CategoriesController < ApplicationController
 
     @images = {}
     Image.find_all_by_page(1).each do |image|
-      @images.store(image.location, image.image.url)
+      @images.store(image.location, { :url => image.image.url, :id => image.id })
     end
 
   end
@@ -71,7 +71,7 @@ class Commodity::CategoriesController < ApplicationController
 
     @images = {}
     Image.find_all_by_page(2).each do |image|
-      @images.store(image.location, image.image.url)
+      @images.store(image.location, { :url => image.image.url, :id => image.id })
     end
 
   end
@@ -111,7 +111,7 @@ class Commodity::CategoriesController < ApplicationController
 
     @images = {}
     Image.find_all_by_page(3).each do |image|
-      @images.store(image.location, image.image.url)
+      @images.store(image.location, { :url => image.image.url, :id => image.id })
     end
   end
 
@@ -139,7 +139,7 @@ class Commodity::CategoriesController < ApplicationController
     end
     @images = {}
     Image.find_all_by_page(4).each do |image|
-      @images.store(image.location, image.image.url)
+      @images.store(image.location, { :url => image.image.url, :id => image.id })
     end
   end
 
@@ -170,7 +170,7 @@ class Commodity::CategoriesController < ApplicationController
 
     @images = {}
     Image.find_all_by_page(5).each do |image|
-      @images.store(image.location, image.image.url)
+      @images.store(image.location, { :url => image.image.url, :id => image.id })
     end
   end
 
@@ -198,7 +198,7 @@ class Commodity::CategoriesController < ApplicationController
 
     @images = {}
     Image.find_all_by_page(6).each do |image|
-      @images.store(image.location, image.image.url)
+      @images.store(image.location, { :url => image.image.url, :id => image.id })
     end
   end
 end

@@ -38,10 +38,10 @@
   </ul>
 </div>
 <div id="banner_4">
-  <%= image_tag @images[1], :width => "208px", :height => "130px" %>
+  <%= link_to (image_tag @images[1][:url], :width => "208px", :height => "130px"), content_index_image_path(@images[1][:id]) %>
 </div>
 <div id="banner_5">
-  <%= image_tag @images[2], :width => "1000px", :height => "60px" %>
+  <%= link_to (image_tag @images[2][:url], :width => "1000px", :height => "60px"), content_index_image_path(@images[2][:id]) %>
 </div>
 <!-- 1st SKU List Starts -->
 <div class="sku_category">
@@ -53,7 +53,7 @@
     </ul>
   </div>
   <div class="sku_list_left_col"> <!--SKU List's left column -->
-    <%= image_tag @images[3], :width => "220px", :height => "369px" %>
+    <%= link_to (image_tag @images[3][:url], :width => "220px", :height => "369px"), content_index_image_path(@images[3][:id]) %>
   </div>
   <ul class="h_ul sku_list_ul">
     <% @oa_pc_skus.each do |sku| %>
@@ -91,7 +91,7 @@
     </ul>
   </div>
   <div class="sku_list_left_col"> <!--SKU List's left column -->
-    <%= image_tag @images[4], :width => "220px", :height => "369px" %>
+    <%= link_to (image_tag @images[4][:url], :width => "220px", :height => "369px"), content_index_image_path(@images[4][:id]) %>
   </div>
   <ul class="h_ul sku_list_ul">
     <% @office_skus.each do |sku| %>
@@ -119,7 +119,7 @@
 </div>
 <!-- 2nd SKU List Ends -->
 <div id="banner_6">
-  <%= image_tag @images[5], :width => "1000px", :height => "60px" %>
+  <%= link_to (image_tag @images[5][:url], :width => "1000px", :height => "60px"), content_index_image_path(@images[5][:id]) %>
 </div>
 <!-- 3rd SKU List Starts -->
 <div class="sku_category">
@@ -131,7 +131,7 @@
     </ul>
   </div>
   <div class="sku_list_left_col"> <!--SKU List's left column -->
-    <%= image_tag @images[6], :width => "220px", :height => "369px" %>
+    <%= link_to (image_tag @images[6][:url], :width => "220px", :height => "369px"), content_index_image_path(@images[6][:id]) %>
   </div>
   <ul class="h_ul sku_list_ul">
     <% @daily_skus.each do |sku| %>
@@ -169,7 +169,7 @@
     </ul>
   </div>
   <div class="sku_list_left_col"> <!--SKU List's left column -->
-    <%= image_tag @images[7], :width => "220px", :height => "369px" %>
+    <%= link_to (image_tag @images[7][:url], :width => "220px", :height => "369px"), content_index_image_path(@images[7][:id]) %>
   </div>
   <ul class="h_ul sku_list_ul">
     <% @off_fur_skus.each do |sku| %>
@@ -197,7 +197,7 @@
 </div>
 <!-- 4th SKU List Ends -->
 <div id="banner_7">
-  <%= image_tag @images[8], :width => "1000px", :height => "60px" %>
+  <%= link_to (image_tag @images[8][:url], :width => "1000px", :height => "60px"), content_index_image_path(@images[8][:id]) %>
 </div>
 <!-- 5th SKU List Starts -->
 <div class="sku_category">
@@ -209,7 +209,7 @@
     </ul>
   </div>
   <div class="sku_list_left_col"> <!--SKU List's left column -->
-    <%= image_tag @images[9], :width => "220px", :height => "369px" %>
+    <%= link_to (image_tag @images[9][:url], :width => "220px", :height => "369px"), content_index_image_path(@images[9][:id]) %>
   </div>
   <ul class="h_ul sku_list_ul">
     <% @liv_fur_skus.each do |sku| %>
@@ -246,7 +246,7 @@
     </ul>
   </div>
   <div class="sku_list_left_col"> <!--SKU List's left column -->
-    <%= image_tag @images[10], :width => "220px", :height => "369px" %>
+    <%= link_to (image_tag @images[10][:url], :width => "220px", :height => "369px"), content_index_image_path(@images[10][:id]) %>
   </div>
   <ul class="h_ul sku_list_ul">
     <% @fur_jew_skus.each do |sku| %>

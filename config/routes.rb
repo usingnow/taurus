@@ -194,6 +194,7 @@ Ebiz::Application.routes.draw do
   namespace :content do
     namespace :index do
       resources :announcements
+      resources :images
     end
     resources :announcements
     resources :images do
