@@ -62,9 +62,9 @@ class Cart < ActiveRecord::Base
   end
 
   #非直送品运费
-  def nds_carriage_cost(district_no)
+  def nds_carriage_cost(city_no)
     carriage_cost = 0
-    if district_no == 330200
+    if city_no == 330200
       unless total_amount > 50
         carriage_cost = 5
       end

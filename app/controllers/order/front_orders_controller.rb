@@ -41,21 +41,14 @@ class Order::FrontOrdersController < ApplicationController
       @cart = current_cart
       @temp_payment = InnerOrderPayment.find_by_user_id(@user.id)
       @consignee_info = ConsigneeInfo.find_by_user_id(@user.id)
-      if @consignee_info.district.city_no == 330200
-        if @cart.cart_skuships.to_a.sum{ |cart_sku| cart_sku.total_amount } > 50
-          @carriage_cost = 0
-        else
-          @carriage_cost = 5
-        end
-      else
-        if @cart.cart_skuships.to_a.sum{ |cart_sku| cart_sku.total_amount } > 200
-          @carriage_cost = 0
-        else
-          @carriage_cost = 20
-        end
-      end
+
       @not_direct_sendings = CartSkuship.where("cart_id = #{@cart.id} and sku_id in(select id from skus where sku_type != 2)")
       @direct_sendings = CartSkuship.where("cart_id = #{@cart.id} and sku_id in(select id from skus where sku_type = 2)")
+
+
+      @carriage_cost = @cart.nds_carriage_cost(@consignee_info.district.city_no)+@direct_sendings.to_a.sum{ |ds| ds.ds_carriage_cost(@consignee_info.district_no)}
+
+
       @order_remark = params[:order_remark]
     else
       @cart = current_cart
@@ -117,8 +110,8 @@ class Order::FrontOrdersController < ApplicationController
           :added_value_tax_no => temp_payment.added_value_tax_no, :account_reg_add => temp_payment.account_reg_add,
           :is_invoice_head => temp_payment.is_invoice_head, :company_name => temp_payment.company_name,
           :reserve_reason => reserve_reason, :customer_note => params[:customer_note],
-          :carriage_cost => cart.nds_carriage_cost(consignee_info.district_no),
-          :carriage_adjustment => cart.nds_carriage_cost(consignee_info.district_no))
+          :carriage_cost => cart.nds_carriage_cost(consignee_info.district.city_no),
+          :carriage_adjustment => cart.nds_carriage_cost(consignee_info.district.city_no))
         order.batch = order.number[0,8]+"-"+order.number[9,13]
 
         if order.save

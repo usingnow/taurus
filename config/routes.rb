@@ -245,6 +245,7 @@ Ebiz::Application.routes.draw do
         get :detailed_p_user_info
         get :detailed_e_user_info
         get :mail_sales
+        post :add_mail_sales
         get :user_addresses
         get :comments
         get :my_points
@@ -256,7 +257,6 @@ Ebiz::Application.routes.draw do
         put :update_p_user_info
         get :edit_e_user_info
         put :update_e_user_info
-        put :add_mail_sales
       end
       member do
         get :order_show
