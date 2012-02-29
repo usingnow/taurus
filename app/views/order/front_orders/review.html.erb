@@ -253,7 +253,7 @@
     </p>
   </div>
   <form action="/order/front_orders" method="post">
-    <button type="button" class="order_button">返回上页</button>
+    <button type="button" class="order_button" onclick="window.location.href='<%= new_order_front_order_path %>'">返回上页</button>
     <%= hidden_field_tag :customer_note, @order_remark %>
     <button type="submit" class="order_button">提交订单</button>
   </form>
