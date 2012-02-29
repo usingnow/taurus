@@ -144,7 +144,13 @@ div.middle_button {
   position: relative;
   float: left;
   width: 100%;
-  background: #DDEEFF;}
+  background: #DDEEFF;
+  h1 {
+    float: left;
+    margin-left: 4px;}
+  p {
+    float: right;
+    margin: 0px 4px;}}
 #left_menu {
   position: relative;
   float: left;

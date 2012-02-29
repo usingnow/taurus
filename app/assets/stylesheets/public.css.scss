@@ -197,12 +197,12 @@ table {
     background:none;
     padding: 2px 0px 2px 0px;}
   a {
-	padding: 0 10px 0 22px;
-	font-weight:bold;
-  line-height: 24px;
-  vertical-align: middle;
-	font-size:14px;
-	color: #ffffff;}
+    padding: 0 10px 0 19px;
+    font-weight:bold;
+    line-height: 24px;
+    vertical-align: middle;
+    font-size:14px;
+    color: #ffffff;}
   a:hover {
     font-weight:bold;
     font-size:14px;}}
@@ -267,7 +267,7 @@ table {
 	font-weight: bold;
 	line-height:26px;
 	vertical-align:middle;
-	border-top: 1px solid #dddddd;}
+	border-top: 1px solid #DDDDDD;}
 .bar_image_550 {
 	width: 542px;
 	height: 26px;
@@ -305,7 +305,7 @@ table {
 	position: relative;
 	float: left;
 	width: 1000px;
-	background-color: #ffffff;}
+	background-color: #FFFFFF;}
 
 // Homepage and level 2 pages SKU_categary style.
 .sku_category {
@@ -387,7 +387,9 @@ table {
 	width: 220px;
 	height: 369px;
 	background:#CC6633;
-	margin: 4px 0 0 0;}
+	margin: 4px 0 0 0;
+  a {
+    color: #FFFFFF;}}
 
 
 .sku_list_sort_hot {
@@ -399,9 +401,8 @@ table {
     color :#333333;
     cursor:pointer;
     border-bottom: 1px dashed #dddddd;
-    span {
-      + a {
-        color: #FFFFFF;}}}
+    span + a {
+        color: #FFFFFF;}}
   .highlight{
 	color : $text_red;
 	border-bottom: 1px solid #ffffff;
