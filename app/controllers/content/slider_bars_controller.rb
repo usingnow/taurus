@@ -19,7 +19,6 @@ class Content::SliderBarsController < ApplicationController
     @slider_bar = SliderBar.find(params[:id])
   end
 
-
   def create
     @slider_bar = SliderBar.new(params[:slider_bar])
 
