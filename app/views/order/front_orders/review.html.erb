@@ -247,7 +247,10 @@
   </p>
 
   <div id="delivery_fee">
-    <p>根据您订单金额和所属区域，本次购物的运费为：<strong><%= number_to_currency @carriage_cost, :unit => "￥" %></strong></p>
+    <p>
+      根据您订单金额和所属区域，本次购物的运费为：
+      <strong><%= number_to_currency @carriage_cost, :unit => "￥" %></strong>
+    </p>
   </div>
   <form action="/order/front_orders" method="post">
     <button type="button" class="order_button">返回上页</button>
