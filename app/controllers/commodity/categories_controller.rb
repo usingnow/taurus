@@ -14,21 +14,21 @@ class Commodity::CategoriesController < ApplicationController
     @slider_bars = SliderBar.limit(5).all
     @categories = SkuCategory.find_all_by_is_show_in_navigation_and_is_show_in_column_and_active_and_parent_id(
                   true,true,true,nil)
-    @recommendation = Sku.recommendation
-    @oa_supplies_skus = Sku.category_skus '0111'
-    @oa_supplies_hots = Sku.category_hots '0111'
-    @oa_paper_skus = Sku.category_skus '0112'
-    @oa_paper_hots = Sku.category_hots '0112'
-    @pc_articles_skus = Sku.category_skus '0113'
-    @pc_articles_hots = Sku.category_hots '0113'
-    @oa_bus_app_skus = Sku.category_skus '0114'
-    @oa_bus_app_hots = Sku.category_hots '0114'
-    @oa_mul_skus = Sku.category_skus '0115'
-    @oa_mul_hots = Sku.category_hots '0115'
-    @oa_ele_of_con_skus = Sku.category_skus '0116'
-    @oa_ele_of_con_hots = Sku.category_hots '0116'
-    @oa_machine_skus = Sku.category_skus '0117'
-    @oa_machine_hots = Sku.category_hots '0117'
+    @recommendation = SkuDisplay.index_display(:limit => 4, :page => 1, :location => 0)
+    @oa_supplies_skus = SkuDisplay.index_display(:limit => 8, :page => 1, :location => 1)
+    @oa_supplies_hots = SkuDisplay.index_display(:limit => 6, :page => 1, :location => 2)
+    @oa_paper_skus = SkuDisplay.index_display(:limit => 8, :page => 1, :location => 3)
+    @oa_paper_hots = SkuDisplay.index_display(:limit => 6, :page => 1, :location => 4)
+    @pc_articles_skus = SkuDisplay.index_display(:limit => 8, :page => 1, :location => 5)
+    @pc_articles_hots = SkuDisplay.index_display(:limit => 6, :page => 1, :location => 6)
+    @oa_bus_app_skus = SkuDisplay.index_display(:limit => 8, :page => 1, :location => 7)
+    @oa_bus_app_hots = SkuDisplay.index_display(:limit => 6, :page => 1, :location => 8)
+    @oa_mul_skus = SkuDisplay.index_display(:limit => 8, :page => 1, :location => 9)
+    @oa_mul_hots = SkuDisplay.index_display(:limit => 6, :page => 1, :location => 10)
+    @oa_ele_of_con_skus = SkuDisplay.index_display(:limit => 8, :page => 1, :location => 11)
+    @oa_ele_of_con_hots = SkuDisplay.index_display(:limit => 6, :page => 1, :location => 12)
+    @oa_machine_skus = SkuDisplay.index_display(:limit => 8, :page => 1, :location => 13)
+    @oa_machine_hots = SkuDisplay.index_display(:limit => 6, :page => 1, :location => 14)
 
     if current_user.nil?
       @sku_browsing_histories = Hash.new
@@ -43,19 +43,19 @@ class Commodity::CategoriesController < ApplicationController
     @slider_bars = SliderBar.limit(5).all
     @categories = SkuCategory.find_all_by_is_show_in_navigation_and_is_show_in_column_and_active_and_parent_id(
                   true,true,true,nil)
-    @recommendation = Sku.recommendation
-    @folder_skus = Sku.category_skus '0221'
-    @folder_hots = Sku.category_hots '0221'
-    @notebook_paper_skus = Sku.category_skus '0222'
-    @notebook_paper_hots = Sku.category_hots '0222'
-    @office_skus = Sku.category_skus '0223'
-    @office_hots = Sku.category_hots '0223'
-    @pen_skus = Sku.category_skus '0224'
-    @pen_hots = Sku.category_hots '0224'
-    @off_oper_sup_skus = Sku.category_skus '0225'
-    @off_oper_sup_hots = Sku.category_hots '0225'
-    @other_skus = Sku.category_skus '0229'
-    @other_hots = Sku.category_hots '0229'
+    @recommendation = SkuDisplay.index_display(:limit => 4, :page => 2, :location => 0)
+    @folder_skus = SkuDisplay.index_display(:limit => 8, :page => 2, :location => 1)
+    @folder_hots = SkuDisplay.index_display(:limit => 6, :page => 2, :location => 2)
+    @notebook_paper_skus = SkuDisplay.index_display(:limit => 8, :page => 2, :location => 3)
+    @notebook_paper_hots = SkuDisplay.index_display(:limit => 6, :page => 2, :location => 4)
+    @office_skus = SkuDisplay.index_display(:limit => 8, :page => 2, :location => 5)
+    @office_hots = SkuDisplay.index_display(:limit => 6, :page => 2, :location => 6)
+    @pen_skus = SkuDisplay.index_display(:limit => 8, :page => 2, :location => 7)
+    @pen_hots = SkuDisplay.index_display(:limit => 6, :page => 2, :location => 8)
+    @off_oper_sup_skus = SkuDisplay.index_display(:limit => 8, :page => 2, :location => 9)
+    @off_oper_sup_hots = SkuDisplay.index_display(:limit => 6, :page => 2, :location => 10)
+    @other_skus = SkuDisplay.index_display(:limit => 8, :page => 2, :location => 11)
+    @other_hots = SkuDisplay.index_display(:limit => 6, :page => 2, :location => 12)
 
     if current_user.nil?
       @sku_browsing_histories = Hash.new
@@ -70,27 +70,27 @@ class Commodity::CategoriesController < ApplicationController
     @slider_bars = SliderBar.limit(5).all
     @categories = SkuCategory.find_all_by_is_show_in_navigation_and_is_show_in_column_and_active_and_parent_id(
                   true,true,true,nil)
-    @recommendation = Sku.recommendation
-    @alcohol_skus = Sku.category_skus '0330'
-    @alcohol_hots = Sku.category_hots '0330'
-    @beverages_skus = Sku.category_skus '0331'
-    @beverages_hots = Sku.category_hots '0331'
-    @food_skus = Sku.category_skus '0332'
-    @food_hots = Sku.category_hots '0332'
-    @beverage_prod_skus = Sku.category_skus '0333'
-    @beverage_prod_hots = Sku.category_hots '0333'
-    @daily_skus = Sku.category_skus '0334'
-    @daily_hots = Sku.category_hots '0334'
-    @heal_man_sup_skus = Sku.category_skus '0335'
-    @heal_man_sup_hots = Sku.category_hots '0335'
-    @personal_care_skus = Sku.category_skus '0336'
-    @personal_care_hots = Sku.category_hots '0336'
-    @ticketing_skus = Sku.category_skus '0337'
-    @ticketing_hots = Sku.category_hots '0337'
-    @other_office_daily_skus = Sku.category_skus '0339'
-    @other_office_daily_hots = Sku.category_hots '0339'
-    @appliances_skus = Sku.category_skus '0340'
-    @appliances_hots = Sku.category_hots '0340'
+    @recommendation = SkuDisplay.index_display(:limit => 4, :page => 3, :location => 0)
+    @alcohol_skus = SkuDisplay.index_display(:limit => 8, :page => 3, :location => 1)
+    @alcohol_hots = SkuDisplay.index_display(:limit => 6, :page => 3, :location => 2)
+    @beverages_skus = SkuDisplay.index_display(:limit => 8, :page => 3, :location => 3)
+    @beverages_hots = SkuDisplay.index_display(:limit => 6, :page => 3, :location => 4)
+    @food_skus = SkuDisplay.index_display(:limit => 8, :page => 3, :location => 5)
+    @food_hots = SkuDisplay.index_display(:limit => 6, :page => 3, :location => 6)
+    @beverage_prod_skus = SkuDisplay.index_display(:limit => 8, :page => 3, :location => 7)
+    @beverage_prod_hots = SkuDisplay.index_display(:limit => 6, :page => 3, :location => 8)
+    @daily_skus = SkuDisplay.index_display(:limit => 8, :page => 3, :location => 9)
+    @daily_hots = SkuDisplay.index_display(:limit => 6, :page => 3, :location => 10)
+    @heal_man_sup_skus = SkuDisplay.index_display(:limit => 8, :page => 3, :location => 11)
+    @heal_man_sup_hots = SkuDisplay.index_display(:limit => 6, :page => 3, :location => 12)
+    @personal_care_skus = SkuDisplay.index_display(:limit => 8, :page => 3, :location => 13)
+    @personal_care_hots = SkuDisplay.index_display(:limit => 6, :page => 3, :location => 14)
+    @ticketing_skus = SkuDisplay.index_display(:limit => 8, :page => 3, :location => 15)
+    @ticketing_hots = SkuDisplay.index_display(:limit => 6, :page => 3, :location => 16)
+    @other_office_daily_skus = SkuDisplay.index_display(:limit => 8, :page => 3, :location => 17)
+    @other_office_daily_hots = SkuDisplay.index_display(:limit => 8, :page => 3, :location => 18)
+    @appliances_skus = SkuDisplay.index_display(:limit => 8, :page => 3, :location => 19)
+    @appliances_hots = SkuDisplay.index_display(:limit => 6, :page => 3, :location => 20)
 
     if current_user.nil?
       @sku_browsing_histories = Hash.new
@@ -104,17 +104,17 @@ class Commodity::CategoriesController < ApplicationController
     @slider_bars = SliderBar.limit(5).all
     @categories = SkuCategory.find_all_by_is_show_in_navigation_and_is_show_in_column_and_active_and_parent_id(
                   true,true,true,nil)
-    @recommendation = Sku.recommendation
-    @office_skus = Sku.category_skus '0441'
-    @office_hots = Sku.category_hots '0441'
-    @office_acc_skus = Sku.category_skus '0442'
-    @office_acc_hots = Sku.category_hots '0442'
-    @uniform_skus = Sku.category_skus '0443'
-    @uniform_hots = Sku.category_hots '0443'
-    @appliances_skus = Sku.category_skus '0444'
-    @appliances_hots = Sku.category_hots '0444'
-    @other_skus = Sku.category_skus '0449'
-    @other_hots = Sku.category_hots '0449'
+    @recommendation = SkuDisplay.index_display(:limit => 4, :page => 4, :location => 0)
+    @office_skus = SkuDisplay.index_display(:limit => 8, :page => 4, :location => 1)
+    @office_hots = SkuDisplay.index_display(:limit => 6, :page => 4, :location => 2)
+    @office_acc_skus = SkuDisplay.index_display(:limit => 8, :page => 4, :location => 3)
+    @office_acc_hots = SkuDisplay.index_display(:limit => 6, :page => 4, :location => 4)
+    @uniform_skus = SkuDisplay.index_display(:limit => 8, :page => 4, :location => 5)
+    @uniform_hots = SkuDisplay.index_display(:limit => 6, :page => 4, :location => 6)
+    @appliances_skus = SkuDisplay.index_display(:limit => 8, :page => 4, :location => 7)
+    @appliances_hots = SkuDisplay.index_display(:limit => 6, :page => 4, :location => 8)
+    @other_skus = SkuDisplay.index_display(:limit => 8, :page => 4, :location => 9)
+    @other_hots = SkuDisplay.index_display(:limit => 6, :page => 4, :location => 10)
 
     if current_user.nil?
       @sku_browsing_histories = Hash.new
@@ -128,19 +128,19 @@ class Commodity::CategoriesController < ApplicationController
     @slider_bars = SliderBar.limit(5).all
     @categories = SkuCategory.find_all_by_is_show_in_navigation_and_is_show_in_column_and_active_and_parent_id(
                   true,true,true,nil)
-    @recommendation = Sku.recommendation
-    @liv_room_fur_skus = Sku.category_skus '0551'
-    @liv_room_fur_hots = Sku.category_hots '0551'
-    @din_room_fur_skus = Sku.category_skus '0552'
-    @din_room_fur_hots = Sku.category_hots '0552'
-    @bedroom_furniture_skus = Sku.category_skus '0553'
-    @bedroom_furniture_hots = Sku.category_hots '0553'
-    @children_furniture_skus = Sku.category_skus '0554'
-    @children_furniture_hots = Sku.category_hots '0554'
-    @library_furniture_skus = Sku.category_skus '0555'
-    @library_furniture_hots = Sku.category_hots '0555'
-    @storage_supplies_skus = Sku.category_skus '0556'
-    @storage_supplies_hots = Sku.category_hots '0556'
+    @recommendation = SkuDisplay.index_display(:limit => 4, :page => 5, :location => 0)
+    @liv_room_fur_skus = SkuDisplay.index_display(:limit => 8, :page => 5, :location => 1)
+    @liv_room_fur_hots = SkuDisplay.index_display(:limit => 6, :page => 5, :location => 2)
+    @din_room_fur_skus = SkuDisplay.index_display(:limit => 8, :page => 5, :location => 3)
+    @din_room_fur_hots = SkuDisplay.index_display(:limit => 6, :page => 5, :location => 4)
+    @bedroom_furniture_skus = SkuDisplay.index_display(:limit => 8, :page => 5, :location => 5)
+    @bedroom_furniture_hots = SkuDisplay.index_display(:limit => 6, :page => 5, :location => 6)
+    @children_furniture_skus = SkuDisplay.index_display(:limit => 8, :page => 5, :location => 7)
+    @children_furniture_hots = SkuDisplay.index_display(:limit => 6, :page => 5, :location => 8)
+    @library_furniture_skus = SkuDisplay.index_display(:limit => 8, :page => 5, :location => 9)
+    @library_furniture_hots = SkuDisplay.index_display(:limit => 6, :page => 5, :location => 10)
+    @storage_supplies_skus = SkuDisplay.index_display(:limit => 8, :page => 5, :location => 11)
+    @storage_supplies_hots = SkuDisplay.index_display(:limit => 6, :page => 5, :location => 12)
 
     if current_user.nil?
       @sku_browsing_histories = Hash.new
@@ -154,15 +154,15 @@ class Commodity::CategoriesController < ApplicationController
     @slider_bars = SliderBar.limit(5).all
     @categories = SkuCategory.find_all_by_is_show_in_navigation_and_is_show_in_column_and_active_and_parent_id(
                   true,true,true,nil)
-    @recommendation = Sku.recommendation
-    @bedclothes_skus = Sku.category_skus '0661'
-    @bedclothes_hots = Sku.category_hots '0661'
-    @textile_jewelry_skus = Sku.category_skus '0662'
-    @textile_jewelry_hots = Sku.category_hots '0662'
-    @groceries_jewelry_skus = Sku.category_skus '0663'
-    @groceries_jewelry_hots = Sku.category_hots '0663'
-    @bathroom_articles_skus = Sku.category_skus '0665'
-    @bathroom_articles_hots = Sku.category_hots '0665'
+    @recommendation = SkuDisplay.index_display(:limit => 4, :page => 6, :location => 0)
+    @bedclothes_skus = SkuDisplay.index_display(:limit => 8, :page => 6, :location => 1)
+    @bedclothes_hots = SkuDisplay.index_display(:limit => 6, :page => 6, :location => 2)
+    @textile_jewelry_skus = SkuDisplay.index_display(:limit => 8, :page => 6, :location => 3)
+    @textile_jewelry_hots = SkuDisplay.index_display(:limit => 6, :page => 6, :location => 4)
+    @groceries_jewelry_skus = SkuDisplay.index_display(:limit => 8, :page => 6, :location => 5)
+    @groceries_jewelry_hots = SkuDisplay.index_display(:limit => 6, :page => 6, :location => 6)
+    @bathroom_articles_skus = SkuDisplay.index_display(:limit => 8, :page => 6, :location => 7)
+    @bathroom_articles_hots = SkuDisplay.index_display(:limit => 6, :page => 6, :location => 8)
 
 
     if current_user.nil?

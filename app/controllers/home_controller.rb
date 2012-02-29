@@ -3,19 +3,19 @@ class HomeController < ApplicationController
     @slider_bars = SliderBar.limit(5).all
     @categories = SkuCategory.find_all_by_is_show_in_navigation_and_is_show_in_column_and_active_and_parent_id(
                   true,true,true,nil)
-    @recommendation = SkuDisplay.order("sequence desc").find_all_by_page_and_location(0,0)
-    @oa_pc_skus = Sku.category_skus '01'
-    @oa_pc_hots = Sku.category_hots '01'
-    @office_skus = Sku.category_skus '02'
-    @office_hots = Sku.category_hots '02'
-    @daily_skus = Sku.category_skus '03'
-    @daily_hots = Sku.category_hots '03'
-    @off_fur_skus = Sku.category_skus '04'
-    @off_fur_hots = Sku.category_hots '04'
-    @liv_fur_skus = Sku.category_skus '05'
-    @liv_fur_hots = Sku.category_hots '05'
-    @fur_jew_skus = Sku.category_skus '06'
-    @fur_jew_hots = Sku.category_hots '06'
+    @recommendation = SkuDisplay.index_display(:limit => 4, :page => 0, :location => 0)
+    @oa_pc_skus = SkuDisplay.index_display(:limit => 8, :page => 0, :location => 1)
+    @oa_pc_hots = SkuDisplay.index_display(:limit => 6, :page => 0, :location => 2)
+    @office_skus = SkuDisplay.index_display(:limit => 8, :page => 0, :location => 3)
+    @office_hots = SkuDisplay.index_display(:limit => 6, :page => 0, :location => 4)
+    @daily_skus = SkuDisplay.index_display(:limit => 8, :page => 0, :location => 5)
+    @daily_hots = SkuDisplay.index_display(:limit => 6, :page => 0, :location => 6)
+    @off_fur_skus = SkuDisplay.index_display(:limit => 8, :page => 0, :location => 7)
+    @off_fur_hots = SkuDisplay.index_display(:limit => 6, :page => 0, :location => 8)
+    @liv_fur_skus = SkuDisplay.index_display(:limit => 8, :page => 0, :location => 9)
+    @liv_fur_hots = SkuDisplay.index_display(:limit => 6, :page => 0, :location => 10)
+    @fur_jew_skus = SkuDisplay.index_display(:limit => 8, :page => 0, :location => 11)
+    @fur_jew_hots = SkuDisplay.index_display(:limit => 6, :page => 0, :location => 12)
 
     if current_user.nil?
       @sku_browsing_histories = Hash.new

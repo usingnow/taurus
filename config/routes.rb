@@ -184,7 +184,11 @@ Ebiz::Application.routes.draw do
       end
     end
     resources :sku_details
-    resources :sku_displays
+    resources :sku_displays do
+      collection do
+        get :change_page
+      end
+    end
   end
 
   namespace :content do

@@ -2,6 +2,11 @@
   <%= t 'admin.actions.index.title', :model => t('activerecord.models.sku_display') %>
 </h1>
 
+<%= search_form_for @search, :url => commodity_sku_displays_path do |f| %>
+  <%= f.collection_select :page_eq, SkuDisplay.new.page_enum, :first, :second, :include_blank => "全部" %>
+  <%= f.collection_select :location_eq, SkuDisplay.new.location_enum(0), :first, :last, :include_blank => "全部" %>
+  <%= f.submit "应用" %>
+<% end %>
 
 <div class="grid_button">
   <%= link_to t('admin.actions.new.menu'), new_commodity_sku_display_path %>
@@ -17,7 +22,6 @@
       <th><%= t 'activerecord.attributes.sku_display.location' %></th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -28,7 +32,6 @@
       <td><%= sku_display.sequence %></td>
       <td><%= get_sku_display_page sku_display.page %></td>
       <td><%= get_sku_display_location sku_display.page, sku_display.location %></td>
-      <td><%= link_to t('admin.actions.show.menu'), commodity_sku_display_path(sku_display) %></td>
       <td><%= link_to t('admin.actions.edit.menu'), edit_commodity_sku_display_path(sku_display) %></td>
       <td><%= link_to t('admin.actions.delete.menu'), commodity_sku_display_path(sku_display), confirm: '是否确认?', method: :delete %></td>
     </tr>

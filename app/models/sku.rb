@@ -14,18 +14,7 @@ class Sku < ActiveRecord::Base
             :delivery_day, :sku_type,  :presence => true
   validates_uniqueness_of :number
 
-  scope :recommendation, where("number in('801800','801810','805457','805488')")
-  scope :on_shelves, where("status = 1  and id in(select sku_id from sku_on_shelves where status = 1)")
-
-  def self.category_skus(number)
-    limit(8).where("sku_category_id in(select id from sku_categories where number like '#{number}%')
-      and status = 1 and id in(select sku_id from sku_on_shelves where status = 1)")
-  end
-
-  def self.category_hots(number)
-    limit(6).order("total_sale desc").where("sku_category_id in(select id from sku_categories
-      where number like '#{number}%') and status = 1  and id in(select sku_id from sku_on_shelves where status = 1)")
-  end
+  scope :on_shelves, where("skus.status = 1  and skus.id in(select sku_id from sku_on_shelves where status = 1)")
 
   def nb_is_inventory
     flag = true

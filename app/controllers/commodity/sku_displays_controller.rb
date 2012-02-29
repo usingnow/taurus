@@ -1,17 +1,12 @@
 class Commodity::SkuDisplaysController < ApplicationController
-  # GET /sku_displays
-  # GET /sku_displays.json
-  def index
-    @sku_displays = SkuDisplay.all
+  before_filter :authenticate_administrator!
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @sku_displays }
-    end
+  def index
+    @search = SkuDisplay.search(params[:q])
+    @sku_displays = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
 
-  # GET /sku_displays/1
-  # GET /sku_displays/1.json
+
   def show
     @sku_display = SkuDisplay.find(params[:id])
 
@@ -62,5 +57,10 @@ class Commodity::SkuDisplaysController < ApplicationController
     @sku_display.destroy
 
     redirect_to commodity_sku_displays_url
+  end
+
+  def change_page
+    @locations = SkuDisplay.new.location_enum(params[:page].to_i)
+    render :json => @locations.to_json
   end
 end
