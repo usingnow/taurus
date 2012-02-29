@@ -10,11 +10,11 @@
   <div id="level_2_banner_wrapper">
     <div id="level_2_banner">
     <!-- Insert the Banner for level 2 pages here -->
-      <%= image_tag "l2/level2_bar_oapc.jpg" %>
+      <%= image_tag @images[0], :width => "208px", :height => "200px" %>
     </div>
 
     <div id="banner_1">
-      <%= image_tag "home/xszk_208_130.png" %>
+      <%= image_tag @images[1], :width => "208px", :height => "130px" %>
     </div>
   </div>
 
@@ -49,11 +49,11 @@
   </div>
 
   <div id="banner_4">
-    <%= image_tag "home/zmbj_208_130.png" %>
+    <%= image_tag @images[2], :width => "208px", :height => "130px" %>
   </div>
 
   <div id="banner_5">
-    <%= image_tag "category/bar1_1000_60.png" %>
+    <%= image_tag @images[3], :width => "1000px", :height => "60px" %>
   </div>
 
   <!-- 1st SKU List Starts -->
@@ -67,7 +67,7 @@
     </div>
 
     <div class="sku_list_left_col"> <!--SKU List's left column -->
-      <%= image_tag "category/1-1.jpg" %>
+      <%= image_tag @images[4], :width => "220px", :height => "369px" %>
     </div>
 
     <ul class="h_ul sku_list_ul">
@@ -108,7 +108,7 @@
     </div>
 
     <div class="sku_list_left_col"> <!--SKU List's left column -->
-      <%= image_tag "category/2-2.jpg" %>
+      <%= image_tag @images[5], :width => "220px", :height => "369px" %>
     </div>
 
     <ul class="h_ul sku_list_ul">
@@ -142,7 +142,7 @@
   <!-- 2nd SKU List Ends -->
 
   <div id="banner_6">
-    <%= image_tag "category/bar2_1000_60.png" %>
+    <%= image_tag @images[6], :width => "1000px", :height => "60px" %>
   </div>
 
   <!-- 3rd SKU List Starts -->
@@ -156,7 +156,7 @@
     </div>
 
     <div class="sku_list_left_col"> <!--SKU List's left column -->
-      <%= image_tag "category/3-3.jpg" %>
+      <%= image_tag @images[7], :width => "220px", :height => "369px" %>
     </div>
 
     <ul class="h_ul sku_list_ul">
@@ -174,7 +174,7 @@
       <h3 class="sku_list_bar_short">本类产品热销排行</h3>
 
       <div class="sku_list_sort_hot">
-        <% @food_skus.each_with_index do |hot,index| %>
+        <% @food_hots.each_with_index do |hot,index| %>
           <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
             <span><%= sub_str hot.name, 16  %></span>
             <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
@@ -200,7 +200,7 @@
     </div>
 
     <div class="sku_list_left_col"> <!--SKU List's left column -->
-      <%= image_tag "category/4-4.jpg" %>
+      <%= image_tag @images[8], :width => "220px", :height => "369px" %>
     </div>
 
     <ul class="h_ul sku_list_ul">
@@ -218,7 +218,7 @@
       <h3 class="sku_list_bar_short">本类产品热销排行</h3>
 
       <div class="sku_list_sort_hot">
-        <% @beverage_prod_skus.each_with_index do |hot,index| %>
+        <% @beverage_prod_hots.each_with_index do |hot,index| %>
           <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
             <span><%= sub_str hot.name, 16  %></span>
             <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
@@ -234,7 +234,7 @@
   <!-- 4th SKU List Ends -->
 
   <div id="banner_7">
-    <%= image_tag "category/bar3_1000_60.png" %>
+    <%= image_tag @images[9], :width => "1000px", :height => "60px" %>
   </div>
 
   <!-- 5th SKU List Starts -->
@@ -248,7 +248,7 @@
     </div>
 
     <div class="sku_list_left_col"> <!--SKU List's left column -->
-      <%= image_tag "category/5-5.jpg" %>
+      <%= image_tag @images[10], :width => "220px", :height => "369px" %>
     </div>
 
     <ul class="h_ul sku_list_ul">
@@ -265,7 +265,7 @@
     <div class="sku_list_sort">
       <h3 class="sku_list_bar_short">本类产品热销排行</h3>
       <div class="sku_list_sort_hot">
-        <% @daily_skus.each_with_index do |hot,index| %>
+        <% @daily_hots.each_with_index do |hot,index| %>
           <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
             <span><%= sub_str hot.name, 16  %></span>
             <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
@@ -291,7 +291,7 @@
     </div>
 
     <div class="sku_list_left_col"> <!--SKU List's left column -->
-      <%= image_tag "category/6-6.jpg" %>
+      <%= image_tag @images[11], :width => "220px", :height => "369px" %>
     </div>
 
     <ul class="h_ul sku_list_ul">
@@ -324,6 +324,10 @@
   </div>
   <!-- 6th SKU List Ends -->
 
+  <div id="banner_8">
+    <%= image_tag @images[12], :width => "1000px", :height => "60px" %>
+  </div>
+
   <!-- 7th SKU List Starts -->
   <div class="sku_category">
     <h2 class="bar_image_1000 bar_indent_8">个人护理</h2>
@@ -335,7 +339,7 @@
     </div>
 
     <div class="sku_list_left_col"> <!--SKU List's left column -->
-      <%= image_tag "category/6-6.jpg" %>
+      <%= image_tag @images[13], :width => "220px", :height => "369px" %>
     </div>
 
     <ul class="h_ul sku_list_ul">
@@ -379,7 +383,7 @@
     </div>
 
     <div class="sku_list_left_col"> <!--SKU List's left column -->
-      <%= image_tag "category/6-6.jpg" %>
+      <%= image_tag @images[14], :width => "220px", :height => "369px" %>
     </div>
 
     <ul class="h_ul sku_list_ul">
@@ -412,6 +416,10 @@
   </div>
   <!-- 8th SKU List Ends -->
 
+  <div id="banner_9">
+    <%= image_tag @images[15], :width => "1000px", :height => "60px" %>
+  </div>
+
   <!-- 9th SKU List Starts -->
   <div class="sku_category">
     <h2 class="bar_image_1000 bar_indent_8">其他办公生活用品</h2>
@@ -423,7 +431,7 @@
     </div>
 
     <div class="sku_list_left_col"> <!--SKU List's left column -->
-      <%= image_tag "category/6-6.jpg" %>
+     <%= image_tag @images[16], :width => "1000px", :height => "60px" %>
     </div>
 
     <ul class="h_ul sku_list_ul">
@@ -467,7 +475,7 @@
     </div>
 
     <div class="sku_list_left_col"> <!--SKU List's left column -->
-      <%= image_tag "category/6-6.jpg" %>
+      <%= image_tag @images[17], :width => "220px", :height => "369px" %>
     </div>
 
     <ul class="h_ul sku_list_ul">

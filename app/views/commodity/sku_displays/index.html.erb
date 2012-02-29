@@ -24,7 +24,7 @@
       <th></th>
     </tr>
   </thead>
-
+  <tbody>
   <% @sku_displays.each_with_index do |sku_display,index| %>
     <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
       <td><%= index+1 %></td>
@@ -36,6 +36,13 @@
       <td><%= link_to t('admin.actions.delete.menu'), commodity_sku_display_path(sku_display), confirm: '是否确认?', method: :delete %></td>
     </tr>
   <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="7"><%= will_paginate @sku_displays %></td>
+    </tr>
+  </tfoot>
+
 </table>
 
 

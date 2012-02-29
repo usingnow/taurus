@@ -1,5 +1,11 @@
 <h1>图片列表</h1>
 
+<%= search_form_for @search, :url => content_images_path do |f| %>
+  <%= f.collection_select :page_eq, Image.new.page_enum, :first, :second, :include_blank => "全部" %>
+  <%= f.collection_select :location_eq, Image.new.location_enum(0), :first, :last, :include_blank => "全部" %>
+  <%= f.submit "应用" %>
+<% end %>
+
 <div class="grid_button">
   <%= link_to "新增图片", new_content_image_path %>
 </div>
@@ -27,4 +33,11 @@
       </tr>
     <% end %>
   </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="6">
+        <%= will_paginate @images %>
+      </td>
+    </tr>
+  </tfoot>
 </table>

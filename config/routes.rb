@@ -193,7 +193,11 @@ Ebiz::Application.routes.draw do
 
   namespace :content do
     resources :announcements
-    resources :images
+    resources :images do
+      collection do
+        get :change_page
+      end
+    end
     resources :slider_bars
   end
 

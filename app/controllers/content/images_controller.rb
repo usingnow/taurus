@@ -1,6 +1,7 @@
 class Content::ImagesController < ApplicationController
   def index
-    @images = Image.all
+    @search = Image.search(params[:q])
+    @images = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
 
   def new
@@ -28,5 +29,11 @@ class Content::ImagesController < ApplicationController
     @image.destroy
 
     redirect_to content_images_url
+  end
+
+
+  def change_page
+    @locations = Image.new.location_enum(params[:page].to_i)
+    render :json => @locations.to_json
   end
 end
