@@ -45,14 +45,9 @@
 
   <div id="tabs-2" class="content">
     <ul>
-      <li><%= link_to "壹美壹家春节假期配送安排公告", pub_1_home_index_path %></li>
-      <!--
-      <li><a href="#">十四字会换行十六十六十六十六</a></li>
-      <li><a href="#">十四字会换行十六十六十六十六</a></li>
-      <li><a href="#">应该是左对齐</a></li>
-      <li><a href="#">六行后会超过边界</a></li>
-      <li><a href="#">六行后会超过边界</a></li
-      -->
+      <% @announcements.each do |announcement| %>
+        <li><%= link_to announcement.title, content_index_announcement_path(announcement) %></li>
+      <% end %>
     </ul>
   </div>
 </div>

@@ -1,0 +1,9 @@
+zh-CN:
+  activerecord:
+    models:
+      announcement: "公告"
+    attributes:
+      announcement:
+        title: "短标题"
+        internal_title: "长标题"
+        description: "内容"

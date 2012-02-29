@@ -16,12 +16,23 @@ class Content::ImagesController < ApplicationController
     @image = Image.find params[:id]
   end
 
+  def update
+    @image = Image.find params[:id]
+    if @image.update_attributes params[:image]
+      redirect_to content_images_url
+    else
+      render "edit"
+    end
+  end
+
   def create
     @image = Image.new params[:image]
 
-    @image.save
-
-    redirect_to content_images_url
+    if @image.save
+      redirect_to content_images_url
+    else
+      render "new"
+    end
   end
 
   def destroy

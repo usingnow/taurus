@@ -30,6 +30,8 @@ class HomeController < ApplicationController
       @images.store(image.location, image.image.url)
     end
 
+
+    @announcements = Announcement.limit(6).order("created_at desc").all
   end
 
   def who_am_i

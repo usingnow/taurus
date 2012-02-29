@@ -9,11 +9,6 @@ class Commodity::SkuDisplaysController < ApplicationController
 
   def show
     @sku_display = SkuDisplay.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @sku_display }
-    end
   end
 
 

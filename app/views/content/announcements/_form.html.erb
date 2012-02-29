@@ -2,9 +2,9 @@
   <%= f.error_notification %>
 
   <div class="attributes">
-    <%= f.input :title %>
-    <%= f.input :internal_title %>
-    <%= f.cktext_area :description, :toolbar=>'Full', :width=>'800px', :height=>'200px' %>
+    <%= f.input :title, :input_html => { :class => "title", :maxlength => "14"} %>
+    <%= f.input :internal_title, :input_html => { :class => "title"}  %>
+    <%= f.cktext_area :description, :toolbar=>'Full', :width=>'auto', :height=>'200px' %>
   </div>
 
   <div class="actions">

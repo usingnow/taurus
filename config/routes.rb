@@ -192,6 +192,9 @@ Ebiz::Application.routes.draw do
   end
 
   namespace :content do
+    namespace :index do
+      resources :announcements
+    end
     resources :announcements
     resources :images do
       collection do
