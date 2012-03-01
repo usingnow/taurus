@@ -14,19 +14,22 @@
     <p>
       <label for="old_password">当前密码：</label>
       <%= f.password_field :current_password %>
+      <em class="red">*</em>
     </p>
 
     <p>
       <label for="new_password">新设密码：</label>
       <%= f.password_field :password %>
+      <em class="red">*</em>
     </p>
 
     <p>
       <label for="confirm_new_password">确认新设密码：</label>
       <%= f.password_field :password_confirmation %>
+      <em class="red">*</em>
     </p>
-
-    <button type="submit">修改密码</button>
-    <button type="button">取消</button>
+    <br />
+    <button type="submit" class="handler">修改密码</button>
+    <button type="button" class="handler">取消</button>
   <% end %>
 </div>

@@ -187,15 +187,6 @@ div.remit {
       height: 25px;
       line-height: 25px;
       vertical-align: bottom;}
-    input.handler {
-      width: 142px;
-      height: 32px;
-      font-size: 16px;
-      color: #FFFFFF;
-      background-image: url('/assets/templates/btn_default.png');}
-    input.handler:hover {
-      background-image: url('/assets/templates/btn_default_hover.png');
-      cursor: pointer;}
     label {
       display: block;
       width: 100px;
@@ -209,4 +200,24 @@ div.remit {
       width: 220px;}
     textarea:focus {
       background: #DDDDDD;}}}
+button.handler {
+  width: 140px;
+  height: 30px;
+  font-size: 16px;
+  color: #FFFFFF;
+  border: none;
+  background-image: url('/assets/templates/btn_default.png');}
 
+//用户中心按钮式样。
+button.handler:hover {
+  background-image: url('/assets/templates/btn_default_hover.png');
+  cursor: pointer;}
+input.handler {
+  width: 142px;
+  height: 32px;
+  font-size: 16px;
+  color: #FFFFFF;
+  background-image: url('/assets/templates/btn_default.png');}
+input.handler:hover {
+  background-image: url('/assets/templates/btn_default_hover.png');
+  cursor: pointer;}

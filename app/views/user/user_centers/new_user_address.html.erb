@@ -1,10 +1,10 @@
-<p class="nav">您的位置：首页 >> 我的壹美壹家 >> 收货地址 >> 修改地址</p>
+<p class="nav">您的位置：首页 >> 我的壹美壹家 >> 收货地址 >> 新建地址</p>
 <div id="uc_menu_wrapper">
   <%= render "menu" %>
 </div>
 
 <div id="uc_content_wrapper">
-  <h2 class="title">修改收货地址</h2>
+  <h2 class="title">新建常用收货地址</h2>
   <%= form_for [:user, @user_address] do |f|%>
   <p>
     <label for="receiver">收件人姓名：</label>
@@ -48,7 +48,8 @@
     <%= f.text_field :zip %>
     <em class="remark">有助于快速确定送货地址</em>
   </p>
-  <%= f.submit "保存常用地址" %>
+    <br />
+  <%= f.submit "保存常用地址", :class => "handler" %>
   <% end %>
 
 </div>

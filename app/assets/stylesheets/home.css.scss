@@ -252,7 +252,9 @@
 	width:208px;
 	height: 130px;
 	margin: 10px 0 0 1px;
-	outline: 1px solid #dddddd;}
+	outline: 1px solid #dddddd;
+  a {
+    color: #FFFFFF;}}
 #banner_2 {
 	position: relative;
 	float: left;
@@ -260,58 +262,74 @@
 	height: 200px;
 	clear: left;
 	border: 1px solid #dddddd;
-	margin: 10px 0 0 0;}
+	margin: 10px 0 0 0;
+  a {
+    color: #FFFFFF;}}
 #banner_3 {
 	position: relative;
 	float: left;
 	width: 548px;
 	height: 200px;
-	margin: 10px 9px 0 8px;
-  + a {
-    color: #FFFFFF;}}
+	margin: 10px 9px 0 8px;}
+#banner_3 + a {
+    color: #FFFFFF;}
 #banner_4 {
 	position: relative;
 	float:left;
 	width:208px;
 	height: 130px;
 	margin: 80px 0 0 4px;
-	outline: 1px solid #dddddd;}
+	outline: 1px solid #dddddd;
+  a {
+    color: #FFFFFF;}	}
 #banner_5 {
 	position: relative;
 	float:left;
 	width:1000px;
 	height: 60px;
-	margin: 8px 0 0 0;}
+	margin: 8px 0 0 0;
+  a {
+    color: #FFFFFF;}}
 #banner_6 {
 	position: relative;
 	float:left;
 	width:1000px;
 	height: 60px;
-	margin: 8px 0 0 0;}
+	margin: 8px 0 0 0;
+  a {
+    color: #FFFFFF;}}
 #banner_7 {
 	position: relative;
 	float:left;
 	width:1000px;
 	height: 60px;
-	margin: 8px 0 0 0;}
+	margin: 8px 0 0 0;
+  a {
+    color: #FFFFFF;}}
 #banner_8 {
 	position: relative;
 	float:left;
 	width:1000px;
 	height: 60px;
-	margin: 8px 0 0 0;}
+	margin: 8px 0 0 0;
+  a {
+    color: #FFFFFF;}}
 #banner_9 {
 	position: relative;
 	float:left;
 	width:1000px;
 	height: 60px;
-	margin: 8px 0 0 0;}
+	margin: 8px 0 0 0;
+  a {
+    color: #FFFFFF;}}
 #banner_10 {
 	position: relative;
 	float:left;
 	width:1000px;
 	height: 60px;
-	margin: 8px 0 0 0;}
+	margin: 8px 0 0 0;
+  a {
+    color: #FFFFFF;}}
 
 //Slider Style in Homepage.
 
