@@ -1,9 +1,15 @@
 <h1>图片列表</h1>
 
 <%= search_form_for @search, :url => content_images_path do |f| %>
-  <%= f.collection_select :page_eq, Image.new.page_enum, :first, :second, :include_blank => "全部" %>
-  <%= f.collection_select :location_eq, Image.new.location_enum(0), :first, :last, :include_blank => "全部" %>
-  <%= f.submit "应用" %>
+  <%= f.hidden_field :page_eq %>
+  <button type="button" value="" class="page_button">全部</button>
+  <button type="button" value="0" class="page_button">首页</button>
+  <button type="button" value="1" class="page_button">OA PC用品</button>
+  <button type="button" value="2" class="page_button">文具办公用品</button>
+  <button type="button" value="3" class="page_button">生活用品</button>
+  <button type="button" value="4" class="page_button">办公家具</button>
+  <button type="button" value="5" class="page_button">生活家具</button>
+  <button type="button" value="6" class="page_button">家居饰品</button>
 <% end %>
 
 <div class="grid_button">

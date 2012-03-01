@@ -56,16 +56,36 @@ class User::UserCentersController < ApplicationController
     @user_addresses = current_user.user_addresses.paginate(:page => params[:page], :per_page => 10)
   end
 
+  def new_user_address
+    @user_address = UserAddress.new
+  end
+
+  def create_user_address
+    @user_address = current_user.user_addresses.build(params[:user_address])
+    if @user_address.save
+      redirect_to user_addresses_user_user_centers_url
+    else
+      render "new_user_address"
+    end
+  end
+
   def edit_user_address
     @user_address = current_user.user_addresses.find(params[:id])
   end
 
-  def del_user_address
-
+  def update_user_address
+    @user_address = current_user.user_addresses.find(params[:id])
+    if @user_address.update_attributes(params[:user_address])
+      redirect_to user_addresses_user_user_centers_url
+    else
+      render "edit_user_address"
+    end
   end
 
-  def new_user_address
-    @user_address = current_user.user_addresses.build
+  def del_user_address
+    @user_address = current_user.user_addresses.find(params[:id])
+    @user_address.destroy
+    redirect_to user_addresses_user_user_centers_url
   end
 
   def order_show

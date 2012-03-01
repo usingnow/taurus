@@ -23,4 +23,13 @@ module Commodity::Admin::SkusHelper
       end
     end
   end
+
+  def sku_status_link(object)
+    if object.status == 2
+      confirm = "确定修改此商品为开始销售么？"
+    else
+      confirm = "确定修改此商品为暂停销售么？"
+    end
+    link_to (format_sku_status object.status), update_status_commodity_admin_sku_path(object.id), :confirm => confirm, :method => :put
+  end
 end

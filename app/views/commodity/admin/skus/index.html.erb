@@ -54,7 +54,7 @@
     <td><%= sku.sku_category_id %></td>
     <td><%= sku.unit %></td>
     <td><%= format_sku_type sku.sku_type %></td>
-    <td><%= format_sku_status sku.status %></td>
+    <td><%= sku_status_link sku %></td>
     <td><%= link_to format_sku_shelf_status(sku.shelf_status), commodity_admin_sku_sku_on_shelves_path(sku) %></td>
     <td><%= sku.updated_at %></td>
     <td><%= link_to '商品组成', '/admin/sku_productships?sku_id='+sku.id.to_s %></td>

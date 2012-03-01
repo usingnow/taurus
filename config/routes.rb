@@ -160,11 +160,14 @@ Ebiz::Application.routes.draw do
   namespace :commodity do
     namespace :admin do
       resources :skus do
-        resources :sku_on_shelves
         collection do
-          get  :add
-          get  :search
+          get :add
+          get :search
         end
+        member do
+          put :update_status
+        end
+        resources :sku_on_shelves
       end
     end
 
@@ -242,8 +245,6 @@ Ebiz::Application.routes.draw do
     resources :user_addresses
     resources :user_centers do
       collection do
-        get :detailed_p_user_info
-        get :detailed_e_user_info
         get :mail_sales
         post :add_mail_sales
         get :user_addresses
@@ -253,14 +254,18 @@ Ebiz::Application.routes.draw do
         get :order_query
         get :order_edit
         get :new_user_address
+        post :create_user_address
+        get :detailed_p_user_info
         get :edit_p_user_info
         put :update_p_user_info
+        get :detailed_e_user_info
         get :edit_e_user_info
         put :update_e_user_info
       end
       member do
         get :order_show
         get :edit_user_address
+        put :update_user_address
         delete :del_user_address
         get :remit_payment_info
         post :add_remit_payment_info

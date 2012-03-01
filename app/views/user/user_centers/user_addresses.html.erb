@@ -32,7 +32,7 @@
           <td class="small_font"><%= user_address.email %></td>
           <td class="small_font">
             <%= link_to "修改", edit_user_address_user_user_center_path(user_address)  %>
-            <%= link_to "删除", del_user_address_user_user_center_path(user_address) %>
+            <%= link_to "删除", del_user_address_user_user_center_path(user_address), :confirm => "确定删除吗？", :method => :delete %>
           </td>
         </tr>
       <% end %>
