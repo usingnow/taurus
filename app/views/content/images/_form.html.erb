@@ -11,7 +11,14 @@
     <% end %>
 
     <%= f.input :image %>
-     <%= f.cktext_area :description, :toolbar=>'Full', :width=>'65%', :height=>'300px' %>
+    <%= f.input :line_type do
+      f.collection_radio :line_type, @image.line_type_enum, :first, :last, :checked => 0
+    end%>
+
+    <%= f.input :link, :hint => "如：http://www.google.com" %>
+
+
+    <%= f.cktext_area :description, :toolbar=>'Full', :width=>'65%', :height=>'300px' %>
   </div>
 
   <%= image_tag "/assets/content/images/homepage_cms.png", :class => "cms_layout_indicator", :id => "cms_image" %>

@@ -4,6 +4,10 @@ class Image < ActiveRecord::Base
                     :url => lambda{ |l| "/paperclip_assets/images/#{l.instance.location}/:id.:extension" },
                     :path => lambda{ |l| ":rails_root/public/paperclip_assets/images/#{l.instance.location}/:id.:extension" }
 
+  def line_type_enum
+    { 0 => '自定义', 1 => '链接' }
+  end
+
   def page_enum
     { 0 => '首页', 1 => 'OA PC用品', 2 => '文具办公用品', 3 => '生活用品', 4 => '办公家具', 5 => '生活家具', 6 => '家居饰品' }
   end

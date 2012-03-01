@@ -37,10 +37,7 @@ class Commodity::CategoriesController < ApplicationController
         and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
     end
 
-    @images = {}
-    Image.find_all_by_page(1).each do |image|
-      @images.store(image.location, { :url => image.image.url, :id => image.id })
-    end
+    @images = Image.find_all_by_page(1)
 
   end
 
@@ -69,10 +66,7 @@ class Commodity::CategoriesController < ApplicationController
         and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
     end
 
-    @images = {}
-    Image.find_all_by_page(2).each do |image|
-      @images.store(image.location, { :url => image.image.url, :id => image.id })
-    end
+    @images = Image.find_all_by_page(2)
 
   end
 
@@ -109,10 +103,7 @@ class Commodity::CategoriesController < ApplicationController
         and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
     end
 
-    @images = {}
-    Image.find_all_by_page(3).each do |image|
-      @images.store(image.location, { :url => image.image.url, :id => image.id })
-    end
+    @images = Image.find_all_by_page(3)
   end
 
   def off_fur
@@ -137,10 +128,7 @@ class Commodity::CategoriesController < ApplicationController
       @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
         and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
     end
-    @images = {}
-    Image.find_all_by_page(4).each do |image|
-      @images.store(image.location, { :url => image.image.url, :id => image.id })
-    end
+    @images = Image.find_all_by_page(4)
   end
 
   def liv_fur
@@ -168,10 +156,7 @@ class Commodity::CategoriesController < ApplicationController
         and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
     end
 
-    @images = {}
-    Image.find_all_by_page(5).each do |image|
-      @images.store(image.location, { :url => image.image.url, :id => image.id })
-    end
+    @images = Image.find_all_by_page(5)
   end
 
   def fur_jew
@@ -196,9 +181,6 @@ class Commodity::CategoriesController < ApplicationController
         and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
     end
 
-    @images = {}
-    Image.find_all_by_page(6).each do |image|
-      @images.store(image.location, { :url => image.image.url, :id => image.id })
-    end
+    @images = Image.find_all_by_page(6)
   end
 end

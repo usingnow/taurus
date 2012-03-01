@@ -25,10 +25,7 @@ class HomeController < ApplicationController
     end
 
 
-    @images = {}
-    Image.find_all_by_page(0).each do |image|
-      @images.store(image.location, { :url => image.image.url, :id => image.id })
-    end
+    @images = Image.find_all_by_page(0)
 
 
     @announcements = Announcement.limit(6).order("created_at desc").all
