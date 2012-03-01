@@ -1,18 +1,7 @@
 jQuery ->
-  jQuery("#q_page_eq").change ->
-    if @value == ""
-      jQuery("#q_location_eq").html("<option value=''>全部</option>")
-    else
-      jQuery.ajax '/content/images/change_page',
-        type: 'GET'
-        data: 'page='+@value
-        success: (data) ->
-          jQuery("#q_location_eq").html("")
-          jQuery.each data, (key, value) =>
-            jQuery("#q_location_eq").append("<option value='"+key+"'>"+value+"</option>")
-          false
-
-    false
+  jQuery(".page_button").click ->
+    jQuery("#q_page_eq").val(@value)
+    jQuery("#image_search").submit()
 
   jQuery("#image_page").change ->
     value = @value
