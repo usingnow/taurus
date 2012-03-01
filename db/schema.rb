@@ -316,8 +316,8 @@ ActiveRecord::Schema.define(:version => 20120229135448) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
-    t.integer  "line_type"
-    t.string   "link"
+    t.integer  "line_type",          :default => 0
+    t.string   "href"
   end
 
   create_table "industries", :force => true do |t|
