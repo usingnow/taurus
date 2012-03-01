@@ -46,8 +46,6 @@ div {
 input, select {
 	border: solid 1px #dddddd;
 	padding: 3px 3px 3px 3px;}
-input:focus {
-	background: #dddddd;}
 .element_clear_right {
 	clear: right;}
 .element_float_left {
@@ -250,6 +248,8 @@ table {
     font-weight:bold;
     color: #ff0000;
     a {
+      line-height: 32px;
+      vertical-align: middle;
 	    color: $text_red;}}
 	li:hover {
     background-image:url('/assets/templates/header/head_bg_107_33_red.png');
@@ -307,6 +307,10 @@ table {
 	width: 1000px;
 	background-color: #FFFFFF;}
 
+//新品推荐页面样式。
+
+
+
 // Homepage and level 2 pages SKU_categary style.
 .sku_category {
 	position: relative;
@@ -317,14 +321,16 @@ table {
 .sku_list_li {
 	width: 131px;
 	height: 180px;
-	border: 1px solid #FFFFFF;
 	margin: 2px;
 	padding: 0px;
-	text-align:center;
+	text-align: center;
   > a {
-    color: #FFFFFF;}}
-.sku_list_li:hover {
-	border: 1px solid $text_red;}
+    color: #FFFFFF;}
+  > a:hover {
+    color: #FFFFFF;}
+  img:hover {
+    outline: 1px solid #E73221;
+    cursor: pointer;}}
 .sku_list_ul {
 	position: relative;
 	float: left;
@@ -367,12 +373,12 @@ table {
     height: 23px;
     border-bottom: 1px dashed #990000;}
   div:hover {
-	position:absolute;
-	top: 8px;
-	left: 38px;
-	width: 152px;
-	height: 23px;
-	border-bottom: 1px solid #990000;}}
+    position:absolute;
+    top: 8px;
+    left: 38px;
+    width: 152px;
+    height: 23px;
+    border-bottom: 1px solid #990000;}}
 .category_recommend {
 	position:absolute;
 	top: 5px;

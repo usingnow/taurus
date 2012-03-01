@@ -29,7 +29,7 @@
   <ul class="h_ul sku_list_ul margin_0">
     <% @recommendation.each do |recommend| %>
       <li class="h_li sku_list_li height_auto">
-        <%= link_to (image_tag recommend.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(recommend.id) %>
+        <%= link_to (image_tag recommend.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(recommend.id), :target => "_blank" %>
         <p class="sku_list_p overflow_text"><%= link_to recommend.name, commodity_sku_detail_path(recommend.id) %></p>
         <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
         <strong>现价：&yen;<%= recommend.cost_aft_tax %></strong>
@@ -58,8 +58,8 @@
   <ul class="h_ul sku_list_ul">
     <% @oa_pc_skus.each do |sku| %>
       <li class="h_li sku_list_li">
-        <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
-        <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
+        <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id), :target => "_blank" %>
+        <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id), :target => "_blank" %></p>
         <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
         <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
       </li>
@@ -71,8 +71,8 @@
       <% @oa_pc_hots.each_with_index do |hot,index| %>
         <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
           <span><%= sub_str hot.name, 16  %></span>
-          <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
-          <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
+          <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id), :target => "_blank" %>
+          <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text", :target => "_blank" %>
           <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
         </div>
       <% end %>
@@ -96,8 +96,8 @@
   <ul class="h_ul sku_list_ul">
     <% @office_skus.each do |sku| %>
       <li class="h_li sku_list_li">
-        <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
-        <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
+        <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id), :target => "_blank" %>
+        <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id), :target => "_blank" %></p>
         <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
         <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
       </li>
@@ -109,8 +109,8 @@
       <% @office_hots.each_with_index do |hot,index| %>
         <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
           <span><%= sub_str hot.name, 16  %></span>
-          <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
-          <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
+          <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id), :target => "_blank" %>
+          <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text", :target => "_blank" %>
           <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
         </div>
       <% end %>
@@ -136,8 +136,8 @@
   <ul class="h_ul sku_list_ul">
     <% @daily_skus.each do |sku| %>
       <li class="h_li sku_list_li">
-        <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
-        <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
+        <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id), :target => "_blank" %>
+        <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id), :target => "_blank" %></p>
         <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
         <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
       </li>
@@ -149,8 +149,8 @@
       <% @daily_hots.each_with_index do |hot,index| %>
         <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
           <span><%= sub_str hot.name, 16  %></span>
-          <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
-          <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
+          <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id), :target => "_blank" %>
+          <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text", :target => "_blank" %>
           <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
         </div>
       <% end %>
@@ -174,8 +174,8 @@
   <ul class="h_ul sku_list_ul">
     <% @off_fur_skus.each do |sku| %>
       <li class="h_li sku_list_li">
-        <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
-        <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
+        <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id), :target => "_blank" %>
+        <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id), :target => "_blank" %></p>
         <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
         <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
       </li>
@@ -187,8 +187,8 @@
       <% @off_fur_hots.each_with_index do |hot,index| %>
         <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
           <span><%= sub_str hot.name, 16  %></span>
-          <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
-          <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
+          <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id), :target => "_blank" %>
+          <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text", :target => "_blank" %>
           <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
         </div>
       <% end %>
@@ -214,8 +214,8 @@
   <ul class="h_ul sku_list_ul">
     <% @liv_fur_skus.each do |sku| %>
       <li class="h_li sku_list_li">
-        <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
-        <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
+        <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id), :target => "_blank" %>
+        <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id), :target => "_blank" %></p>
         <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
         <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
       </li>
@@ -227,8 +227,8 @@
       <% @liv_fur_hots.each_with_index do |hot,index| %>
         <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
           <span><%= sub_str hot.name, 16  %></span>
-          <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
-          <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
+          <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id), :target => "_blank" %>
+          <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text", :target => "_blank" %>
           <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
         </div>
       <% end %>
@@ -251,8 +251,8 @@
   <ul class="h_ul sku_list_ul">
     <% @fur_jew_skus.each do |sku| %>
       <li class="h_li sku_list_li">
-        <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
-        <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
+        <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id), :target => "_blank" %>
+        <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id), :target => "_blank" %></p>
         <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
         <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
       </li>
@@ -264,8 +264,8 @@
       <% @fur_jew_hots.each_with_index do |hot,index| %>
         <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
           <span><%= sub_str hot.name, 16  %></span>
-          <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
-          <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
+          <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id), :target => "_blank" %>
+          <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text", :target => "_blank" %>
           <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
         </div>
       <% end %>

@@ -51,9 +51,9 @@
 	z-index:1000;
 }
 #main_menu div a {
-	font-size:12px;
+	font-size:14px;
 	color: #333333;
-	line-height:16px;
+	line-height: 22px;
 	border: 0px;
 	text-indent: 0px;
 }
@@ -181,9 +181,9 @@
   li {
     width: 104px;
     height: 26px;
-    padding:0px;
-    float:left;
-    text-align:center;
+    padding: 0px;
+    float: left;
+    text-align: center;
     line-height: 26px;
     vertical-align:middle;}
   .content {
@@ -262,9 +262,7 @@
 	height: 200px;
 	clear: left;
 	border: 1px solid #dddddd;
-	margin: 10px 0 0 0;
-  a {
-    color: #FFFFFF;}}
+	margin: 10px 0 0 0;}
 #banner_3 {
 	position: relative;
 	float: left;
@@ -346,26 +344,25 @@
     position: absolute;
     top: 252px;
     li {
-    background: #dddddd;
-    color: #E60013;
-    cursor: pointer;
-    float: left;
-    font-size: 12px;
-    height: 26px;
-    line-height: 22px;
-    vertical-align: middle;
-    list-style: none outside none;
-    margin: 0;
-    text-align: center;
-    width: 110px;
+      background: #dddddd;
+      color: #E60013;
+      cursor: pointer;
+      float: left;
+      font-size: 12px;
+      height: 26px;
+      line-height: 22px;
+      vertical-align: middle;
+      list-style: none outside none;
+      margin: 0;
+      text-align: center;
+      width: 110px;}
     li.on {
-    background: #ED2E2A;
-    border: 0 none;
-    color: #ffffff;
-    font-size: 12px;
-    height: 26px;
-    line-height: 22px;
-    width: 110px;}}}
+      border: 0 none;
+      font-size: 12px;
+      height: 26px;
+      line-height: 22px;
+      width: 110px;
+      font-weight: bold;}}
 
 //New SKU recommendation.
 #panic_buying {
