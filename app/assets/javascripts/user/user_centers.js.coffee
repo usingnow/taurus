@@ -80,30 +80,30 @@ jQuery ->
       datatype:"enum",
       onerror:"邮政编码必填"})
 
-    #jQuery("#mail_sale_phone").formValidator({
-    #  onshow:"固定电话与移动电话必填一项"
-    #}).regexValidator({
-    #  regexp:"required",
-    #  datatype:"enum",
-    #  onerror:"固定电话与移动电话必填一项"})
+    jQuery("#mail_sale_phone").formValidator({
+      onshow:"如：010-12345678-110，固话与手机至少填写一项"
+    }).regexValidator({
+      regexp:"phone",
+      datatype:"enum",
+      onerror:"固定电话与移动电话必填一项，或格式错误，如：010-12345678-110"})
 
-    #jQuery("#mail_sale_mobile").formValidator({
-    #  onshow:"固定电话与移动电话必填一项"
-    #}).regexValidator({
-    #  regexp:"mobile",
-    # datatype:"enum",
-    #  onerror:"固定电话与移动电话必填一项"})
+    jQuery("#mail_sale_mobile").formValidator({
+      onshow:"填写手机号便于接收发货通知短信及送货前确认"
+    }).regexValidator({
+      regexp:"mobile",
+      datatype:"enum",
+      onerror:"固定电话与移动电话必填一项，或格式错误"})
 
-    #jQuery("#mail_sales_commit").click ->
-    #  if jQuery("#mail_sales_phone").val() == "" && jQuery("#mail_sale_mobile").val() != ""
-    #    jQuery("#mail_sales_phone").unFormValidator(true)
-    #    jQuery("#mail_sale_mobile").unFormValidator(false)
-    #  else if jQuery("#mail_sales_phone").val() != "" && jQuery("#mail_sale_mobile").val() == ""
-    #    jQuery("#mail_sale_mobile").unFormValidator(true)
-    #	  jQuery("#mail_sales_phone").unFormValidator(false)
-    #  else
-    #	  jQuery("#mail_sale_mobile").unFormValidator(false)
-    #	  jQuery("#mail_sales_phone").unFormValidator(false)
+    jQuery("#mail_sales_commit").click ->
+      if jQuery("#mail_sale_phone").val() == "" && jQuery("#mail_sale_mobile").val() != ""
+        jQuery("#mail_sale_phone").unFormValidator(true)
+        jQuery("#mail_sale_mobile").unFormValidator(false)
+      else if jQuery("#mail_sale_phone").val() != "" && jQuery("#mail_sale_mobile").val() == ""
+        jQuery("#mail_sale_mobile").unFormValidator(true)
+        jQuery("#mail_sale_phone").unFormValidator(false)
+      else
+        jQuery("#mail_sale_mobile").unFormValidator(false)
+        jQuery("#mail_sale_phone").unFormValidator(false)
 
 
   #个人用户修改表单验证
@@ -182,3 +182,54 @@ jQuery ->
       regexp:"required",
       datatype:"enum",
       onerror:"联系人姓名必填"})
+
+  #收货地址验证
+  if jQuery("#user_address_form").length > 0
+    jQuery.formValidator.initConfig({formid:"user_address_form",debug:false,submitonce:true})
+
+    jQuery("#user_address_name").formValidator({
+      onshow:"请填写收件人姓名"
+    }).regexValidator({
+      regexp:"required",
+      datatype:"enum",
+      onerror:"收件人姓名必填"})
+
+    jQuery("#user_address_district_no").formValidator({
+      onshow:"请选择地区",
+      onfocus:"地区必须选择",
+    }).inputValidator({
+      min:1,
+      onerror: "地区必须选择"}).defaultPassed()
+
+    jQuery("#user_address_address").formValidator({
+      onshow:"请填写收货地址"
+    }).regexValidator({
+      regexp:"required",
+      datatype:"enum",
+      onerror:"收货地址必填"})
+
+    jQuery("#user_address_phone").formValidator({
+      onshow:"如：010-12345678-110，固话与手机至少填写一项"
+    }).regexValidator({
+      regexp:"phone",
+      datatype:"enum",
+      onerror:"固定电话与移动电话必填一项，或格式错误，如：010-12345678-110"})
+
+    jQuery("#user_address_mobile").formValidator({
+      onshow:"填写手机号便于接收发货通知短信及送货前确认"
+    }).regexValidator({
+      regexp:"mobile",
+      datatype:"enum",
+      onerror:"固定电话与移动电话必填一项，或格式错误"})
+
+
+    jQuery("#user_address_commit").click ->
+      if jQuery("#user_address_phone").val() == "" && jQuery("#user_address_mobile").val() != ""
+        jQuery("#user_address_phone").unFormValidator(true)
+        jQuery("#user_address_mobile").unFormValidator(false)
+      else if jQuery("#user_address_phone").val() != "" && jQuery("#user_address_mobile").val() == ""
+        jQuery("#user_address_mobile").unFormValidator(true)
+        jQuery("#user_address_phone").unFormValidator(false)
+      else
+        jQuery("#user_address_mobile").unFormValidator(false)
+        jQuery("#user_address_phone").unFormValidator(false)
