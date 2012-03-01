@@ -331,12 +331,33 @@ table {
   img:hover {
     outline: 1px solid #E73221;
     cursor: pointer;}}
+.sku_list_li_search_result {
+	width: 165px;
+	height: 180px;
+	margin: 2px;
+  margin-left: 20px;
+	padding: 2px;
+  padding-top: 20px;
+	text-align: center;
+  > a {
+    color: #FFFFFF;}
+  > a:hover {
+    color: #FFFFFF;}}
+.sku_list_li_search_result:hover {
+  background-color: #F6F6F6;
+  p {
+    color: #E73221;
+    a {
+      color: #E73221;}
+    a:hover {
+      text-decoration: underline;}}}
 .sku_list_ul {
 	position: relative;
 	float: left;
 	width: 550px;
 	margin: 4px 10px 0 10px;}
 .sku_list_p {
+  text-align: left;
 	margin: 2px 0 2px 0;}
 .sku_list_bar_short {
 	display: block;
@@ -704,4 +725,17 @@ script + a {
   position: absolute;
   bottom: -200px;
   left: 500px;}
+//CNY style
+.cny {
+  font-family: Tohoma;
+  font-size: 14px;
+  color: #E73221;
+  font-weight: bold;
+  font-style: normal}
+.grey_cny {
+  font-family: Tohoma;
+  font-size: 12px;
+  color: #999999;
+  font-style: normal;
+  text-decoration: line-through;}
 
