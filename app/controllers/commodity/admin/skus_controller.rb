@@ -9,8 +9,6 @@ class Commodity::Admin::SkusController < ApplicationController
     @skus = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
 
-  # GET /skus/1
-  # GET /skus/1.xml
   def show
     @sku = Sku.find(params[:id])
 
@@ -20,8 +18,7 @@ class Commodity::Admin::SkusController < ApplicationController
     end
   end
 
-  # GET /skus/new
-  # GET /skus/new.xml
+
   def new
     @sku = Sku.new
     @sku.cost_aft_tax = 0.00
@@ -36,7 +33,6 @@ class Commodity::Admin::SkusController < ApplicationController
 
   end
 
-  # GET /skus/1/edit
   def edit
     @sku = Sku.find(params[:id])
     @sku.brand_name = @sku.brand.chinese_name
@@ -44,8 +40,6 @@ class Commodity::Admin::SkusController < ApplicationController
     @sku.sku_category_number = @sku.sku_category.number
   end
 
-  # POST /skus
-  # POST /skus.xml
   def create
     @sku = Sku.new(params[:sku])
     @sku.total_sale = 0
@@ -62,8 +56,6 @@ class Commodity::Admin::SkusController < ApplicationController
     end
   end
 
-  # PUT /skus/1
-  # PUT /skus/1.xml
   def update
     @sku = Sku.find(params[:id])
 
@@ -76,8 +68,17 @@ class Commodity::Admin::SkusController < ApplicationController
     end
   end
 
-  # DELETE /skus/1
-  # DELETE /skus/1.xml
+  def update_status
+    @sku = Sku.find(params[:id])
+    if @sku.status == 1
+      @sku.update_attribute :status,2
+    else
+      @sku.update_attribute :status,1
+    end
+
+    redirect_to commodity_admin_skus_url
+  end
+
   def destroy
     @sku = Sku.find(params[:id])
     @sku.destroy

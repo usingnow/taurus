@@ -160,11 +160,14 @@ Ebiz::Application.routes.draw do
   namespace :commodity do
     namespace :admin do
       resources :skus do
-        resources :sku_on_shelves
         collection do
-          get  :add
-          get  :search
+          get :add
+          get :search
         end
+        member do
+          put :update_status
+        end
+        resources :sku_on_shelves
       end
     end
 
