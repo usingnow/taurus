@@ -19,19 +19,7 @@
   </div>
 
   <div id="banner_2">
-    <h2 class="bar_image_220 bar_center">您浏览过的商品</h2>  <!--2012/01/15 - Jimmy -->
-
-    <ul class="recent_visited_ul">
-      <% @sku_browsing_histories.each do |history| %>
-        <li class="recent_visited_li">
-          <%= link_to (image_tag history.sku.main_img, :width => "40px", :height => "40px;"), commodity_sku_detail_path(history.sku_id), :target => "_blank" %>
-          <div>
-            <i style="font-style:normal"><%= link_to history.sku.name[0,28], commodity_sku_detail_path(history.sku_id), :target => "_blank" %></i>
-            <i style="font-style:normal"><em class="cny"><%= number_to_currency history.sku.cost_aft_tax, :unit => "￥", :target => "_blank" %></em></i>
-          </div>
-        </li>
-      <% end %>
-    </ul>
+    <%= render "home/browsing_histories" %>
   </div>
 
   <div id="banner_3">
@@ -42,7 +30,7 @@
           <%= link_to (image_tag recommend.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(recommend.id) %>
           <p class="sku_list_p overflow_text"><%= link_to recommend.name, commodity_sku_detail_path(recommend.id) %></p>
           <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
-          <strong>现价：&yen;<%= recommend.cost_aft_tax %></strong>
+          <strong>现价：<%= cny recommend.cost_aft_tax %></strong>
         </li>
       <% end %>
     </ul>
@@ -76,7 +64,7 @@
           <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
           <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
           <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
-          <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
+          <strong>现价：<%= cny sku.cost_aft_tax %></strong>
         </li>
       <% end %>
     </ul>
@@ -89,7 +77,7 @@
             <span><%= sub_str hot.name, 16  %></span>
             <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
             <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
-            <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
+            <a class="sku_list_sort_hot_bottom_line"><strong><%= cny hot.cost_aft_tax %></strong></a>
           </div>
         <% end %>
       </div>
@@ -117,7 +105,7 @@
           <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
           <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
           <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
-          <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
+          <strong>现价：<%= cny sku.cost_aft_tax %></strong>
         </li>
       <% end %>
     </ul>
@@ -131,7 +119,7 @@
             <span><%= sub_str hot.name, 16  %></span>
             <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
             <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
-            <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
+            <a class="sku_list_sort_hot_bottom_line"><strong><%= cny hot.cost_aft_tax %></strong></a>
           </div>
         <% end %>
       </div>
@@ -165,7 +153,7 @@
           <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
           <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
           <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
-          <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
+          <strong>现价：<%= cny sku.cost_aft_tax %></strong>
         </li>
       <% end %>
     </ul>
@@ -179,7 +167,7 @@
             <span><%= sub_str hot.name, 16  %></span>
             <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
             <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
-            <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
+            <a class="sku_list_sort_hot_bottom_line"><strong><%= cny hot.cost_aft_tax %></strong></a>
           </div>
         <% end %>
       </div>
@@ -209,7 +197,7 @@
           <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
           <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
           <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
-          <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
+          <strong>现价：<%= cny sku.cost_aft_tax %></strong>
         </li>
       <% end %>
     </ul>
@@ -223,7 +211,7 @@
             <span><%= sub_str hot.name, 16  %></span>
             <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
             <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
-            <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
+            <a class="sku_list_sort_hot_bottom_line"><strong><%= cny hot.cost_aft_tax %></strong></a>
           </div>
         <% end %>
       </div>
@@ -257,7 +245,7 @@
           <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
           <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
           <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
-          <strong>现价：&yen;<%= sku.cost_aft_tax %></strong>
+          <strong>现价：<%= cny sku.cost_aft_tax %></strong>
         </li>
       <% end %>
     </ul>
@@ -270,7 +258,7 @@
             <span><%= sub_str hot.name, 16  %></span>
             <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
             <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
-            <a class="sku_list_sort_hot_bottom_line"><strong>&yen;<%= hot.cost_aft_tax %></strong></a>
+            <a class="sku_list_sort_hot_bottom_line"><strong><%= cny hot.cost_aft_tax %></strong></a>
           </div>
         <% end %>
       </div>

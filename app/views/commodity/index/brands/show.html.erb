@@ -43,7 +43,8 @@
         <li class="h_li sku_list_li">
           <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
           <p class="sku_list_p"><%= link_to sku.name[0,30], commodity_sku_detail_path(sku.id) %></p>
-          <strong>现价：<%= number_to_currency sku.cost_aft_tax, :unit => "￥" %></strong>
+          <%= cny sku.cost_aft_tax %>
+          <%= grey_cny sku.market_price %>
         </li>
       <% end %>
     </ul>

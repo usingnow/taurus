@@ -39,11 +39,11 @@
     <p class="p_5">销售单位：</p>
     <p class="p_6">某某单位，需动态</p>
     <p class="p_1">市场价格：</p>
-    <p class="p_2"><strong><em class="cny"><%= number_to_currency @sku.cost_aft_tax, :unit => "￥" %></em></strong></p>
+    <p class="p_2"><strong><%= grey_cny @sku.market_price %></strong></p>
     <p class="p_3">商品价格：</p>
-    <p class="p_4"><strong><em class="cny"><%= number_to_currency @sku.cost_aft_tax, :unit => "￥" %></em></strong></p>
+    <p class="p_4"><strong><%= cny @sku.cost_aft_tax %></strong></p>
     <p class="p_5">优惠价格：</p>
-    <p class="p_6"><strong>￥0</strong></p>
+    <p class="p_6"><strong><%= cny @sku.cost_aft_tax %></strong></p>
     <p class="p_1 clear">库存：</p>
     <p><%= get_sku_inventory(@sku) %></p>
     <p>（如果缺货，请咨询<em>400-630-5006</em>）</p>
@@ -88,7 +88,7 @@
           </p>
           <!--<p>市场价：&yen;99999.00</p>-->
           <p>
-            <strong>现价：<%= number_to_currency history.sku.cost_aft_tax, :unit => "￥" %></strong>
+            <strong>现价：<%= cny history.sku.cost_aft_tax %></strong>
           </p>
         </li>
       <% end %>

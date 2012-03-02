@@ -45,16 +45,9 @@
           <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
           <p class="sku_list_p">
             <%= link_to sku.name[0,30], commodity_sku_detail_path(sku.id) %><br />
-            <em class="cny"><%= number_to_currency sku.cost_aft_tax, :unit => "￥" %></em>
-            <em class="grey_cny">&yen;999.99</em>
+            <%= cny sku.cost_aft_tax %>
+            <%= grey_cny sku.market_price %>
           </p>
-          <!--<p class="sku_list_p">原价：<%= number_to_currency sku.market_price, :unit => "￥" %></p>-->
-
-          <!--
-          <br />
-          <button class="add_to_cart" id="<%= sku.id %>">加入购物车</button>
-          <button class="add_to_favorite" id="<%= sku.id %>">加关注</button>
-          -->
         </li>
       <% end %>
     </ul>

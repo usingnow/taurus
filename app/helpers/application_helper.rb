@@ -123,6 +123,14 @@ module ApplicationHelper
     end
   end
 
+  def cny(price)
+    content_tag(:em, (number_to_currency price, :unit => "￥"), :class => "cny")
+  end
+
+  def grey_cny(price)
+    content_tag(:em, (number_to_currency price, :unit => "￥"), :class => "grey_cny")
+  end
+
   private
 
     def format_value(value,hash)
