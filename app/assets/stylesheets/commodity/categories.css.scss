@@ -12,7 +12,9 @@
   width: 208px;
   height: 200px;
 	margin: 0;
-	border: 1px solid #dddddd;}
+	border: 1px solid #dddddd;
+  a {
+    color: #FFFFFF;}}
 .bar_indent_8 {
 	width: 992px;
 	padding: 0 0 0 8px;}
@@ -89,10 +91,9 @@
       margin: 12px 0px 0px 10px;
       background: #DDDDDD;}
     .h_li:hover {
-      background: lighten(#ED2E2A, 40%);
-      outline: 1px solid #E73221;
+      background: #ED2E2A;
       a {
-        color: #E73221;
+        color: #FFFFFF;
         text-decoration: underline;}
       span {
         color: #E73221;}}
@@ -100,7 +101,7 @@
       background: #ED2E2A;
       a {
         color: #FFFFFF;
-        outline: #DDDDDD;}
+        text-decoration: underline;}
       span {
         color: #FFFFFF;
         padding-left: 4px;}}

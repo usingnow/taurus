@@ -48,7 +48,7 @@
       <li class="h_li sku_list_li">
         <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id), :target => "_blank" %>
         <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id), :target => "_blank" %></p>
-        <strong>现价：<%= cny sku.cost_aft_tax %></strong>
+        <em class="cny"><%= cny sku.cost_aft_tax %></em>
       </li>
     <% end %>
   </ul>

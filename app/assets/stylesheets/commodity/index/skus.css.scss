@@ -34,7 +34,8 @@
     border-bottom: 1px dashed #E73221;
     color: #E73221;
     background-color: lighten(#E73221, 45%);
-    a {color: #E73221;}}}
+    a {
+      color: #E73221;}}}
 
 #index_right {
   float: right;
@@ -67,10 +68,9 @@
       margin: 12px 0px 0px 10px;
       background: #DDDDDD;}
     .h_li:hover {
-      background: lighten(#ED2E2A, 40%);
-      outline: 1px solid #E73221;
+      background: #ED2E2A;
       a {
-        color: #E73221;
+        color: #FFFFFF;
         text-decoration: underline;}
       span {
         color: #E73221;}}
@@ -78,7 +78,7 @@
       background: #ED2E2A;
       a {
         color: #FFFFFF;
-        outline: #DDDDDD;}
+        text-decoration: underline;}
       span {
         color: #FFFFFF;
         padding-left: 4px;}}
