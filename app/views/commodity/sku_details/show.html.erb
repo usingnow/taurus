@@ -6,8 +6,8 @@
   </p>
   <h1><%= @sku.name %></h1>
   <div id="sku_details_picture">
-    <a href="<%= @sku.main_img %>" class="jqzoom" rel='gal1' title="<%= @sku.name %>">
-      <%= image_tag @sku.main_img, :width => "400px", :height => "400px", :title => "#{@sku.name}" %>
+    <a href="<%= @sku.main_img(:style => :normal) %>" class="jqzoom" rel='gal1' title="<%= @sku.name %>">
+      <%= image_tag @sku.main_img(:style => :s400), :width => "400px", :height => "400px", :title => "#{@sku.name}" %>
     </a>
     <div id="controller_pane">
       <div id="controller_handler_center">
@@ -15,8 +15,8 @@
           <% @sku.sku_images.each_with_index do |sku_image,index| %>
             <li class="h_li h_padding_5">
               <a <% if index == 0 %> class="zoomThumbActive" <% end %> href='javascript:void(0);'
-                 rel="{gallery: 'gal1', smallimage: '<%= sku_image.image.url %>',largeimage: '<%= sku_image.image.url %>'}">
-                <%= image_tag sku_image.image.url, :width => "50px", :height => "50px" %>
+                 rel="{gallery: 'gal1', smallimage: '<%= sku_image.image.url(:s400) %>',largeimage: '<%= sku_image.image.url(:normal) %>'}">
+                <%= image_tag sku_image.image.url(:s50), :width => "50px", :height => "50px" %>
               </a>
             </li>
           <% end %>

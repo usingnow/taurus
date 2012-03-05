@@ -27,10 +27,11 @@ class Sku < ActiveRecord::Base
     flag
   end
 
-  def main_img
+  def main_img(options={})
+    options[:style] = :s120 if options[:style].nil?
     sku_image = sku_images.where(:is_main => true).first
     if !sku_image.nil?
-      sku_image.image.url(:s120)
+      sku_image.image.url(options[:style])
     else
 
     end
