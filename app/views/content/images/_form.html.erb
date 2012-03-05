@@ -15,7 +15,7 @@
       f.collection_radio :line_type, @image.line_type_enum, :first, :last, :checked => 0
     end%>
 
-    <%= f.input :link, :hint => "如：http://www.google.com" %>
+    <%= f.input :href, :hint => "如：http://www.google.com" %>
 
 
     <%= f.cktext_area :description, :toolbar=>'Full', :width=>'65%', :height=>'300px' %>
