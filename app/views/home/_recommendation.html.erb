@@ -1,0 +1,13 @@
+<h2 class="bar_image_550">新品推荐</h2>
+<ul class="h_ul sku_list_ul margin_0">
+  <% @recommendation.each do |recommend| %>
+    <li class="h_li sku_list_li height_auto">
+      <%= link_to (image_tag recommend.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(recommend.id), :target => "_blank" %>
+      <p class="sku_list_p overflow_text height_auto"><%= link_to recommend.name, commodity_sku_detail_path(recommend.id), :target => "_blank" %></p>
+      <strong>
+        <%= cny recommend.cost_aft_tax %>
+        <%= grey_cny recommend.market_price %>
+      </strong>
+    </li>
+  <% end %>
+</ul>
