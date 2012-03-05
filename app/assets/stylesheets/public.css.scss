@@ -320,7 +320,7 @@ table {
 
 .sku_list_li {
 	width: 128px;
-	height: 180px;
+	height: 170px;
 	margin: 2px;
 	padding: 4px 2px;
 	text-align: center;
@@ -356,6 +356,7 @@ table {
 	width: 550px;
 	margin: 4px 10px 0 10px;}
 .sku_list_p {
+  height: 28px;
   text-align: left;
 	margin: 2px 0 2px 0;}
 .sku_list_bar_short {
@@ -476,7 +477,7 @@ table {
     position: relative;
     float: left;
     margin: 0 0 0 0;
-	  padding: 0 14px 0 14px;
+	  padding: 0 8px;
 	  li {
     position: relative;
     float: left;
@@ -728,13 +729,13 @@ script + a {
   left: 500px;}
 //CNY style
 .cny {
-  font-family: Tohoma;
+  font-family: Arial Unicode MS, Tahoma, Verdana, Microsoft Yahei;
   font-size: 14px;
   color: #E73221;
   font-weight: bold;
   font-style: normal}
 .grey_cny {
-  font-family: Tohoma;
+  font-family: Arial Unicode MS, Tahoma, Verdana, Microsoft Yahei;
   font-size: 12px;
   color: #999999;
   font-style: normal;
