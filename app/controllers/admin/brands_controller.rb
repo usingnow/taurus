@@ -3,16 +3,9 @@ class Admin::BrandsController < ApplicationController
   authorize_resource
   autocomplete :brand, :chinese_name
 
-  # GET /brands
-  # GET /brands.xml
   def index
     @search = Brand.search(params[:q])
     @brands = @search.result.paginate(:page => params[:page], :per_page => 20)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @brands }
-    end
   end
 
   # GET /brands/1
@@ -58,8 +51,6 @@ class Admin::BrandsController < ApplicationController
     end
   end
 
-  # PUT /brands/1
-  # PUT /brands/1.xml
   def update
     @brand = Brand.find(params[:id])
 
