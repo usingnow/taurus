@@ -154,13 +154,14 @@
     width: 165px;
     float: left;
     list-style: none;
-    background: lighten(#DDDDDD, 10%);
     margin: 10px;
     p {
       text-align: center;}
     > a {
       text-align: center;
-      color: #FFFFFF;}}}
+      color: #FFFFFF;}}
+  li:hover {
+    background: lighten(#DDDDDD, 10%);}}
 //Notification for add_to_cart
 .failed {
   position: relative;
