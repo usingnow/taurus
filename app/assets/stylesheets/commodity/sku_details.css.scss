@@ -130,8 +130,10 @@
   border: 0px;
   padding: 0px;
   margin: 14px 0 0px 0px;
-  background-color: transparent;
-  cursor: pointer;}
+  cursor: pointer;
+  background-image: url("/assets/sku_details/add_to_fav.png");
+  font-size: 14px;
+  padding-left: 20px;}
 .sku_long {
   position: relative;
   float: left;

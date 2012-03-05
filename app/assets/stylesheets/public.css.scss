@@ -319,18 +319,17 @@ table {
 	margin: 10px 0 0 0;}
 
 .sku_list_li {
-	width: 131px;
+	width: 128px;
 	height: 180px;
 	margin: 2px;
-	padding: 0px;
+	padding: 4px 2px;
 	text-align: center;
   > a {
     color: #FFFFFF;}
   > a:hover {
-    color: #FFFFFF;}
-  img:hover {
-    outline: 1px solid #E73221;
-    cursor: pointer;}}
+    color: #FFFFFF;}}
+.sku_list_li:hover {
+  background-color: #F6F6F6;}
 .sku_list_li_search_result {
 	width: 165px;
 	height: 180px;
@@ -482,7 +481,9 @@ table {
     position: relative;
     float: left;
     display: block;
-    margin: 4px 2px 4px 2px;}}}
+    margin: 4px 2px 4px 2px;
+    a {
+      color: #FFFFFF;}}}}
 //联系方式
 #footer_contact_bar {
 	position: relative;
