@@ -1,10 +1,10 @@
-<p class="nav">您的位置：首页 >> 我的壹美壹家 >> 我的关注</p>
+<p class="nav">您的位置：首页 >> 我的壹美壹家 >> 我的收藏</p>
 <div id="uc_menu_wrapper">
   <%= render "menu" %>
 </div>
 
 <div id="uc_content_wrapper">
-  <h2 class="title">我关注的商品</h2>
+  <h2 class="title">我收藏的商品</h2>
   <!--
   <div class="uc_fav_tag">
     <h3>我的分类</h3>
@@ -44,7 +44,7 @@
             <td><%= get_sku_inventory(favorite.sku) %></td>
             <td>
               <%= link_to "加入购物车", "#", :class => "add_to_cart", :id => favorite.sku_id %><br />
-              <%= link_to "取消关注", user_index_favorite_path(favorite), :confirm => "确定取消关注?", :method => :delete %>
+              <%= link_to "取消收藏", user_index_favorite_path(favorite), :confirm => "确定取消收藏?", :method => :delete %>
             </td>
           </tr>
         <% end %>
