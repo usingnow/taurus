@@ -155,11 +155,11 @@
     float: left;
     list-style: none;
     margin: 10px;
-    p {
-      text-align: center;}
-    > a {
+    a.white {
       text-align: center;
-      color: #FFFFFF;}}
+      color: #FFFFFF;}
+    p {
+      text-align: center;}}
   li:hover {
     background: lighten(#DDDDDD, 10%);}}
 //Notification for add_to_cart

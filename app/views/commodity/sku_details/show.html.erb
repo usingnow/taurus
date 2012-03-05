@@ -81,7 +81,7 @@
       <% @sku_browsing_histories.each do |history| %>
         <li>
           <p>
-            <%= link_to (image_tag history.sku.main_img, :width => "120px", :height => "120px;"), commodity_sku_detail_path(history.sku_id) %>
+            <%= link_to (image_tag history.sku.main_img, :width => "120px", :height => "120px;"), commodity_sku_detail_path(history.sku_id), :class => "white" %>
           </p>
           <p class="overflow_text">
             <%= link_to history.sku.name, commodity_sku_detail_path(history.sku_id) %>
