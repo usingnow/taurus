@@ -58,30 +58,7 @@
       <%= image_cms(4, :width => "220px", :height => "369px") %>
     </div>
 
-    <ul class="h_ul sku_list_ul">
-      <% @alcohol_skus.each do |sku| %>
-        <li class="h_li sku_list_li">
-          <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
-          <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
-          <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
-          <strong>现价：<%= cny sku.cost_aft_tax %></strong>
-        </li>
-      <% end %>
-    </ul>
-
-    <div class="sku_list_sort">
-      <h3 class="sku_list_bar_short">本类产品热销排行</h3>
-      <div class="sku_list_sort_hot">
-        <% @alcohol_hots.each_with_index do |hot,index| %>
-           <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
-            <span><%= sub_str hot.name, 16  %></span>
-            <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
-            <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
-            <a class="sku_list_sort_hot_bottom_line"><strong><%= cny hot.cost_aft_tax %></strong></a>
-          </div>
-        <% end %>
-      </div>
-    </div>
+    <%= render "home/category_skus", :object => @alcohol_skus, :hot => @alcohol_hots %>
   </div>
   <!-- 1st SKU List Ends -->
 
@@ -99,32 +76,7 @@
       <%= image_cms(5, :width => "220px", :height => "369px") %>
     </div>
 
-    <ul class="h_ul sku_list_ul">
-      <% @beverages_skus.each do |sku| %>
-        <li class="h_li sku_list_li">
-          <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
-          <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
-          <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
-          <strong>现价：<%= cny sku.cost_aft_tax %></strong>
-        </li>
-      <% end %>
-    </ul>
-
-    <div class="sku_list_sort">
-      <h3 class="sku_list_bar_short">本类产品热销排行</h3>
-
-      <div class="sku_list_sort_hot">
-        <% @beverages_hots.each_with_index do |hot,index| %>
-          <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
-            <span><%= sub_str hot.name, 16  %></span>
-            <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
-            <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
-            <a class="sku_list_sort_hot_bottom_line"><strong><%= cny hot.cost_aft_tax %></strong></a>
-          </div>
-        <% end %>
-      </div>
-
-    </div>
+    <%= render "home/category_skus", :object => @beverages_skus, :hot => @beverages_hots %>
 
   </div>
   <!-- 2nd SKU List Ends -->
@@ -147,32 +99,7 @@
       <%= image_cms(7, :width => "220px", :height => "369px") %>
     </div>
 
-    <ul class="h_ul sku_list_ul">
-      <% @food_skus.each do |sku| %>
-        <li class="h_li sku_list_li">
-          <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
-          <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
-          <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
-          <strong>现价：<%= cny sku.cost_aft_tax %></strong>
-        </li>
-      <% end %>
-    </ul>
-
-    <div class="sku_list_sort">
-      <h3 class="sku_list_bar_short">本类产品热销排行</h3>
-
-      <div class="sku_list_sort_hot">
-        <% @food_hots.each_with_index do |hot,index| %>
-          <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
-            <span><%= sub_str hot.name, 16  %></span>
-            <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
-            <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
-            <a class="sku_list_sort_hot_bottom_line"><strong><%= cny hot.cost_aft_tax %></strong></a>
-          </div>
-        <% end %>
-      </div>
-
-    </div>
+    <%= render "home/category_skus", :object => @food_skus, :hot => @food_hots %>
 
   </div>
   <!-- 3rd SKU List Ends -->
@@ -191,32 +118,7 @@
       <%= image_cms(8, :width => "220px", :height => "369px") %>
     </div>
 
-    <ul class="h_ul sku_list_ul">
-      <% @beverage_prod_skus.each do |sku| %>
-        <li class="h_li sku_list_li">
-          <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
-          <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
-          <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
-          <strong>现价：<%= cny sku.cost_aft_tax %></strong>
-        </li>
-      <% end %>
-    </ul>
-
-    <div class="sku_list_sort">
-      <h3 class="sku_list_bar_short">本类产品热销排行</h3>
-
-      <div class="sku_list_sort_hot">
-        <% @beverage_prod_hots.each_with_index do |hot,index| %>
-          <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
-            <span><%= sub_str hot.name, 16  %></span>
-            <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
-            <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
-            <a class="sku_list_sort_hot_bottom_line"><strong><%= cny hot.cost_aft_tax %></strong></a>
-          </div>
-        <% end %>
-      </div>
-
-    </div>
+    <%= render "home/category_skus", :object => @beverage_prod_skus, :hot => @beverage_prod_hots %>
 
   </div>
   <!-- 4th SKU List Ends -->
@@ -239,31 +141,7 @@
       <%= image_cms(10, :width => "220px", :height => "369px") %>
     </div>
 
-    <ul class="h_ul sku_list_ul">
-      <% @daily_skus.each do |sku| %>
-        <li class="h_li sku_list_li">
-          <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
-          <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
-          <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
-          <strong>现价：<%= cny sku.cost_aft_tax %></strong>
-        </li>
-      <% end %>
-    </ul>
-
-    <div class="sku_list_sort">
-      <h3 class="sku_list_bar_short">本类产品热销排行</h3>
-      <div class="sku_list_sort_hot">
-        <% @daily_hots.each_with_index do |hot,index| %>
-          <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
-            <span><%= sub_str hot.name, 16  %></span>
-            <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
-            <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
-            <a class="sku_list_sort_hot_bottom_line"><strong><%= cny hot.cost_aft_tax %></strong></a>
-          </div>
-        <% end %>
-      </div>
-
-    </div>
+    <%= render "home/category_skus", :object => @daily_skus, :hot => @daily_hots %>
 
   </div>
   <!-- 5th SKU List Ends -->
@@ -282,32 +160,7 @@
       <%= image_cms(11, :width => "220px", :height => "369px") %>
     </div>
 
-    <ul class="h_ul sku_list_ul">
-      <% @heal_man_sup_skus.each do |sku| %>
-        <li class="h_li sku_list_li">
-          <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
-          <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
-          <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
-          <strong>现价：<%= cny sku.cost_aft_tax %></strong>
-        </li>
-      <% end %>
-    </ul>
-
-    <div class="sku_list_sort">
-      <h3 class="sku_list_bar_short">本类产品热销排行</h3>
-
-      <div class="sku_list_sort_hot">
-        <% @heal_man_sup_hots.each_with_index do |hot,index| %>
-          <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
-            <span><%= sub_str hot.name, 16  %></span>
-            <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
-            <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
-            <a class="sku_list_sort_hot_bottom_line"><strong><%= cny hot.cost_aft_tax %></strong></a>
-          </div>
-        <% end %>
-      </div>
-
-    </div>
+   <%= render "home/category_skus", :object => @heal_man_sup_skus, :hot => @heal_man_sup_hots %>
 
   </div>
   <!-- 6th SKU List Ends -->
@@ -330,32 +183,7 @@
       <%= image_cms(13, :width => "220px", :height => "369px") %>
     </div>
 
-    <ul class="h_ul sku_list_ul">
-      <% @personal_care_skus.each do |sku| %>
-        <li class="h_li sku_list_li">
-          <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
-          <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
-          <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
-          <strong>现价：<%= cny sku.cost_aft_tax %></strong>
-        </li>
-      <% end %>
-    </ul>
-
-    <div class="sku_list_sort">
-      <h3 class="sku_list_bar_short">本类产品热销排行</h3>
-
-      <div class="sku_list_sort_hot">
-        <% @personal_care_hots.each_with_index do |hot,index| %>
-          <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
-            <span><%= sub_str hot.name, 16  %></span>
-            <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
-            <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
-            <a class="sku_list_sort_hot_bottom_line"><strong><%= cny hot.cost_aft_tax %></strong></a>
-          </div>
-        <% end %>
-      </div>
-
-    </div>
+    <%= render "home/category_skus", :object => @personal_care_skus, :hot => @personal_care_hots %>
 
   </div>
   <!-- 7th SKU List Ends -->
@@ -374,32 +202,7 @@
       <%= image_cms(14, :width => "220px", :height => "369px") %>
     </div>
 
-    <ul class="h_ul sku_list_ul">
-      <% @ticketing_skus.each do |sku| %>
-        <li class="h_li sku_list_li">
-          <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
-          <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
-          <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
-          <strong>现价：<%= cny sku.cost_aft_tax %></strong>
-        </li>
-      <% end %>
-    </ul>
-
-    <div class="sku_list_sort">
-      <h3 class="sku_list_bar_short">本类产品热销排行</h3>
-
-      <div class="sku_list_sort_hot">
-        <% @ticketing_hots.each_with_index do |hot,index| %>
-          <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
-            <span><%= sub_str hot.name, 16  %></span>
-            <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
-            <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
-            <a class="sku_list_sort_hot_bottom_line"><strong><%= cny hot.cost_aft_tax %></strong></a>
-          </div>
-        <% end %>
-      </div>
-
-    </div>
+    <%= render "home/category_skus", :object => @ticketing_skus, :hot => @ticketing_hots %>
 
   </div>
   <!-- 8th SKU List Ends -->
@@ -422,32 +225,7 @@
       <%= image_cms(16, :width => "220px", :height => "369px") %>
     </div>
 
-    <ul class="h_ul sku_list_ul">
-      <% @other_office_daily_skus.each do |sku| %>
-        <li class="h_li sku_list_li">
-          <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
-          <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
-          <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
-          <strong>现价：<%= cny sku.cost_aft_tax %></strong>
-        </li>
-      <% end %>
-    </ul>
-
-    <div class="sku_list_sort">
-      <h3 class="sku_list_bar_short">本类产品热销排行</h3>
-
-      <div class="sku_list_sort_hot">
-        <% @other_office_daily_hots.each_with_index do |hot,index| %>
-          <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
-            <span><%= sub_str hot.name, 16  %></span>
-            <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
-            <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
-            <a class="sku_list_sort_hot_bottom_line"><strong><%= cny hot.cost_aft_tax %></strong></a>
-          </div>
-        <% end %>
-      </div>
-
-    </div>
+    <%= render "home/category_skus", :object => @other_office_daily_skus, :hot => @other_office_daily_hots %>
 
   </div>
   <!-- 9h SKU List Ends -->
@@ -466,32 +244,7 @@
       <%= image_cms(17, :width => "220px", :height => "369px") %>
     </div>
 
-    <ul class="h_ul sku_list_ul">
-      <% @appliances_skus.each do |sku| %>
-        <li class="h_li sku_list_li">
-          <%= link_to (image_tag sku.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
-          <p class="sku_list_p overflow_text"><%= link_to sku.name, commodity_sku_detail_path(sku.id) %></p>
-          <!--<p class="sku_list_p">市场价：&yen;99999.00</p>-->
-          <strong>现价：<%= cny sku.cost_aft_tax %></strong>
-        </li>
-      <% end %>
-    </ul>
-
-    <div class="sku_list_sort">
-      <h3 class="sku_list_bar_short">本类产品热销排行</h3>
-
-      <div class="sku_list_sort_hot">
-        <% @appliances_hots.each_with_index do |hot,index| %>
-          <div class="has_children <% if index == 0 %>first_sku_sort<% end %>">
-            <span><%= sub_str hot.name, 16  %></span>
-            <%= link_to (image_tag hot.main_img, :width => "120px", :height => "120px"), commodity_sku_detail_path(hot.id) %>
-            <%= link_to hot.name, commodity_sku_detail_path(hot.id), :class => "overflow_text" %>
-            <a class="sku_list_sort_hot_bottom_line"><strong><%= cny hot.cost_aft_tax %></strong></a>
-          </div>
-        <% end %>
-      </div>
-
-    </div>
+    <%= render "home/category_skus", :object => @appliances_skus, :hot => @appliances_hots %>
 
   </div>
   <!-- 10th SKU List Ends -->
