@@ -71,10 +71,10 @@
 .p_input {
   position: absolute;
   left: 125px;
-  width: 200px;
+  width: 300px;
   text-align: left;
   input {
-    width: 200px;}}
+    width: 180px;}}
 .p_button {
   position: absolute;
   left: 160px;
@@ -95,8 +95,9 @@
   top: 110px;
   #change_ver_code {
     position: absolute;
+    left: 170px;
     top: 0px;
-    left: 130px;
+    clear: right;
     display: block;
     width: 50px;
     height: 14px;}}
