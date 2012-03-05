@@ -30,7 +30,7 @@ class Sku < ActiveRecord::Base
   def main_img
     sku_image = sku_images.where(:is_main => true).first
     if !sku_image.nil?
-      sku_image.image.url
+      sku_image.image.url(:s120)
     else
 
     end

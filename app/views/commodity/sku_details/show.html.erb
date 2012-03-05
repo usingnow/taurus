@@ -25,19 +25,19 @@
     </div>
   </div>
   <div id="sku_basic_info">
-    <p class="ad">广告语位置</p>
+    <p class="ad"><%= @sku.advertisement %></p>
     <p class="p_1">商品编号：</p>
     <p class="p_2"><%= @sku.number %></p>
     <p class="p_3">商品型号：</p>
     <p class="p_4"><%= @sku.model %></p>
     <p class="p_5">品牌：</p>
-    <p class="p_6">某某品牌，需动态</p>
+    <p class="p_6"><%= @sku.brand.chinese_name %></p>
     <p class="p_1">颜色：</p>
-    <p class="p_2">红、蓝></p>
+    <p class="p_2"><%= @sku.color %></p>
     <p class="p_3">尺寸：</p>
-    <p class="p_4">200X800</p>
+    <p class="p_4"><%= @sku.size %></p>
     <p class="p_5">销售单位：</p>
-    <p class="p_6">某某单位，需动态</p>
+    <p class="p_6"><%= @sku.unit %></p>
     <p class="p_1">市场价格：</p>
     <p class="p_2"><strong><%= grey_cny @sku.market_price %></strong></p>
     <p class="p_3">商品价格：</p>
