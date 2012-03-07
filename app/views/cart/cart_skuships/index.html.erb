@@ -40,7 +40,7 @@
         <td id="subtotal<%= cart_sku.id %>"><%= number_to_currency cart_sku.total_amount, :unit => "￥" %></td>
         <td>
           <%= link_to t('admin.actions.delete.menu'), cart_cart_skuship_path(cart_sku), :confirm => t('admin.actions.delete.confirm'), :method => :delete %>
-          <a href="#">收藏</a>
+          <a href="#" class="add_to_favorite" data-sku_id="<%= cart_sku.sku_id %>">收藏</a>
         </td>
       </tr>
     <% end %>
