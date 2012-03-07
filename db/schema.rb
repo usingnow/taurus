@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120307024910) do
+ActiveRecord::Schema.define(:version => 20120307064005) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -153,7 +153,6 @@ ActiveRecord::Schema.define(:version => 20120307024910) do
     t.integer  "company_type_id"
     t.string   "district_no"
     t.integer  "company_scale_id"
-    t.string   "email"
     t.string   "company_name"
     t.string   "contact_dept"
     t.string   "contact_post"
@@ -526,7 +525,6 @@ ActiveRecord::Schema.define(:version => 20120307024910) do
   create_table "person_extends", :force => true do |t|
     t.integer  "user_id"
     t.string   "person_no"
-    t.string   "email"
     t.string   "name"
     t.integer  "sex"
     t.date     "birth"
@@ -955,6 +953,7 @@ ActiveRecord::Schema.define(:version => 20120307024910) do
     t.string   "email",                                 :default => "", :null => false
   end
 
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

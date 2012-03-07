@@ -117,13 +117,6 @@ jQuery ->
       datatype:"enum",
       onerror:"真实姓名必填"})
 
-    jQuery("#person_extend_email").formValidator({
-      onshow:"请输入邮箱",
-    }).inputValidator({
-      regexp:"required",
-      datatype:"enum",
-      onerror:"邮箱必填"})
-
     jQuery("#person_extend_district_no").formValidator({
       onshow:"请选择地区",
       onfocus:"地区必须选择",

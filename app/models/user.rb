@@ -35,8 +35,4 @@ class User < ActiveRecord::Base
       self.store_id = 1 unless self.store_id
     end
 
-  protected
-    def email_required?
-      false
-    end
 end

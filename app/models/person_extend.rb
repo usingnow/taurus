@@ -5,7 +5,6 @@ class PersonExtend < ActiveRecord::Base
   belongs_to :district, :class_name => "District", :foreign_key => "district_no"
   before_save :default_values
 
-  attr_accessor :email_confirmation
 
   validates_presence_of :name, :address ,:phone
   validates_presence_of :district_no ,:message => "请选择"

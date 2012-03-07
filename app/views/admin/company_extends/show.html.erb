@@ -36,7 +36,7 @@
         <%= label_tag "#{t 'attributes.company_extend.web_address'}：" %>
         <%= @company_extend.web_address %><br />
       </p>
-       <p>
+      <p>
         <%= label_tag "#{t 'attributes.company_extend.zip'}：" %>
         <%= @company_extend.zip %>
       </p>
@@ -52,7 +52,7 @@
       </p>
       <p>
         <%= label_tag "#{t :email}：" %>
-        <%= @company_extend.email %><br />
+        <%= @company_extend.user.email %><br />
       </p>
       <p>
         <%= label_tag "#{t 'attributes.company_extend.contact_post'}：" %>

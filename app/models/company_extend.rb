@@ -8,9 +8,7 @@ class CompanyExtend < ActiveRecord::Base
   belongs_to :district, :class_name => "District", :foreign_key => "district_no"
   before_save :default_values
 
-  attr_accessor :email_confirmation
-
-  validates_presence_of :company_name, :district_no, :email, :name
+  validates_presence_of :company_name, :district_no, :name
   validates_uniqueness_of :company_name
 
   private
