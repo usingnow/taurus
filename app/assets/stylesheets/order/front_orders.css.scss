@@ -187,7 +187,12 @@ fieldset {
     tr:hover {
       background-color:transparent;
       td {
-        color:#333333;}}
+        color:#333333;
+        a {
+          color: #333333;
+          text-decoration: none;}
+        a:hover {
+          color: #E73221;}}}
     td {
       height: 40px;
       line-height: 40px;
