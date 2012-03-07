@@ -44,8 +44,9 @@
     <ul  class="h_ul sku_list_ul">
       <% @skus.each do |sku| %>
         <li class="h_li sku_list_li_search_result">
-          <%= link_to (image_tag sku.main_img(:style => :s120), :width => "120px", :height => "120px"), commodity_sku_detail_path(sku.id) %>
-          <p class="sku_list_p"><%= link_to sku.name[0,30], commodity_sku_detail_path(sku.id) %></p>
+          <%= link_to (image_tag sku.main_img(:style => :s120), :width => "120px", :height => "120px"),
+                      commodity_sku_detail_path(sku.id), :target => "_blank" %>
+          <p class="sku_list_p"><%= link_to sku.name[0,30], commodity_sku_detail_path(sku.id), :target => "_blank" %></p>
           <%= cny sku.cost_aft_tax %>
           <%= grey_cny sku.market_price %>
         </li>
