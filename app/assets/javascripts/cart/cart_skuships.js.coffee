@@ -76,3 +76,13 @@ jQuery ->
           jQuery('#total_assembling_amount').html(Number(data.total_assembling_amount).toCurrency())
           jQuery('#total_amount').html(Number(data.total_amount).toCurrency())
           jQuery('#subtotal'+id).html(Number(data.subtotal).toCurrency())
+
+  jQuery(".add_to_favorite").click ->
+    jQuery.ajax '/user/index/favorites',
+      type: 'POST'
+      data: 'sku_id='+jQuery(this).attr("data-sku_id")
+      dataType: 'json'
+      error: (jqXHR, textStatus, errorThrown) ->
+        jQuery('body').append "AJAX Error: #{textStatus}"
+      success: (data, textStatus, jqXHR) ->
+        alert data
