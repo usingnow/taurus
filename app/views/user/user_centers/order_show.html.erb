@@ -28,13 +28,13 @@
       <tr>
         <td><%= order_detail.sku.number %></td>
         <td><%= order_detail.sku.name %></td>
-        <td><%= order_detail.sku.cost_aft_tax %></td>
+        <td><em><%= number_to_currency order_detail.sku.cost_aft_tax, :unit => "￥" %></em></td>
         <td><%= order_detail.quantity %></td>
         <td><%= format_boolean order_detail.is_need_install %></td>
-        <td><%= number_to_currency order_detail.sku.installation_cost_aft_tax, :unit => "￥" %></td>
+        <td><em><%= number_to_currency order_detail.sku.installation_cost_aft_tax, :unit => "￥" %></em></td>
         <td><%= format_boolean order_detail.is_need_assemble %></td>
-        <td><%= number_to_currency order_detail.sku.assembling_fee_aft_tax, :unit => "￥" %></td>
-        <td><%= number_to_currency order_detail.subtotal, :unit => "￥" %></td>
+        <td><em><%= number_to_currency order_detail.sku.assembling_fee_aft_tax, :unit => "￥" %></em></td>
+        <td><em><%= number_to_currency order_detail.subtotal, :unit => "￥" %></em></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,24 +42,22 @@
     <tr>
       <td colspan="11">
         商品总价：
-        <i><%= number_to_currency @order.total_sku_amount, :unit => "￥" %></i>+
+        <i class="cny"><%= number_to_currency @order.total_sku_amount, :unit => "￥" %></i> +
         安装费：
-        <i><%= number_to_currency @order.total_install_cost, :unit => "￥" %></i>+
+        <i class="cny"><%= number_to_currency @order.total_install_cost, :unit => "￥" %></i> +
         组装费：
-        <i><%= number_to_currency @order.total_assemble_cost, :unit => "￥" %></i>元+
+        <i class="cny"><%= number_to_currency @order.total_assemble_cost, :unit => "￥" %></i> +
         其他费用：
-        <i><%= number_to_currency @order.other_cost, :unit => "￥" %></i>
+        <i class="cny"><%= number_to_currency @order.other_cost, :unit => "￥" %></i>
       </td>
     </tr>
     <tr>
-      <td colspan="11">运费：<i><%= number_to_currency @order.carriage_adjustment, :unit => "￥" %></i></td>
+      <td colspan="11">运费：<i class="cny"><%= number_to_currency @order.carriage_adjustment, :unit => "￥" %></i></td>
     </tr>
     <tr>
       <td colspan="11">
         <strong>应支付金额：</strong>
-        <strong>
-          <i><%= number_to_currency @order.total_amount, :unit => "￥" %></i>
-        </strong>
+        <i class="cny"><%= number_to_currency @order.total_amount, :unit => "￥" %></i>
       </td>
     </tr>
   </tfoot>
