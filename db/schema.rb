@@ -946,6 +946,7 @@ ActiveRecord::Schema.define(:version => 20120307084434) do
     t.integer  "role_id"
     t.integer  "status"
     t.integer  "user_type"
+    t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -958,7 +959,6 @@ ActiveRecord::Schema.define(:version => 20120307084434) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "store_id"
-    t.string   "email",                                 :default => "", :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
