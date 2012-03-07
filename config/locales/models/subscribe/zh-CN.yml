@@ -1,0 +1,8 @@
+zh-CN:
+  activerecord:
+    models:
+      subscribe: "订阅信息"
+    attributes:
+      subscribe:
+        email: "邮箱"
+

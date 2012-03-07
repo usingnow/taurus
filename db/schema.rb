@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120307064005) do
+ActiveRecord::Schema.define(:version => 20120307084434) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -880,6 +880,14 @@ ActiveRecord::Schema.define(:version => 20120307064005) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "subscribes", :force => true do |t|
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subscribes", ["email"], :name => "index_subscribes_on_email", :unique => true
 
   create_table "suppliers", :force => true do |t|
     t.string   "name"

@@ -1,0 +1,30 @@
+<div class="help_left_menu">
+  <%= render "home/help/menu" %>
+</div>
+
+<div class="width_766 help_content">
+  <h2>订阅信息</h2>
+  <%= form_for [:user_index, @subscribe] do |f| %>
+    <% unless notice.nil? %>
+      <div class="successful"><%= notice %></div>
+    <% end %>
+    <% if @subscribe.errors.any?%>
+      <div class="failure">
+        <ul>
+          <% @subscribe.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div>
+      <p>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+        <span id="subscribe_emailTip"></span>
+      </p>
+    </div>
+
+    <%= f.submit "我要订阅" %>
+  <% end %>
+</div>

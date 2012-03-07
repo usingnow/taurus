@@ -271,6 +271,7 @@ Ebiz::Application.routes.draw do
 
     namespace :index do
       resources :favorites
+      resources :subscribes
     end
   end
 
