@@ -1,28 +1,18 @@
 jQuery ->
-  jQuery("#q_page_eq").change ->
-    if @value == ""
-      jQuery("#q_location_eq").html("<option value=''>全部</option>")
-    else
-      jQuery.ajax '/commodity/sku_displays/change_page',
-        type: 'GET'
-        data: 'page='+@value
-        success: (data) ->
-          jQuery("#q_location_eq").html("")
-          jQuery.each data, (key, value) =>
-            jQuery("#q_location_eq").append("<option value='"+key+"'>"+value+"</option>")
-          false
+  jQuery(".page_button").click ->
+    jQuery("#page").val(@value)
+    jQuery("#sku_display_search").submit()
 
+  jQuery(".add_to_sku_display").click ->
+    jQuery("#sku_display_sku_id").val(jQuery(this).attr("id"))
+    jQuery("#create_sku_display").submit()
     false
 
-  jQuery("#sku_display_page").change ->
-    jQuery.ajax '/commodity/sku_displays/change_page',
-      type: 'GET'
-      data: 'page='+@value
+  jQuery(".sequence_text").change ->
+    jQuery.ajax '/commodity/sku_displays/'+jQuery(this).attr("data-id"),
+      type: 'PUT'
+      data: 'sequence='+jQuery(this).val()
+      dataType: 'json'
       success: (data) ->
-        jQuery("#sku_display_location").html("")
-        jQuery.each data, (key, value) =>
-          jQuery("#sku_display_location").append("<option value='"+key+"'>"+value+"</option>")
-        false
+        alert data
     false
-
-  false

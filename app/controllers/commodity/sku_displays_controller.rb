@@ -1,61 +1,46 @@
+#encoding:UTF-8
 class Commodity::SkuDisplaysController < ApplicationController
   before_filter :authenticate_administrator!
 
   def index
-    @search = SkuDisplay.search(params[:q])
-    @sku_displays = @search.result.paginate(:page => params[:page], :per_page => 20)
-  end
-
-
-  def show
-    @sku_display = SkuDisplay.find(params[:id])
+    data = YAML.load(File.open(Rails.root+"lib/data/sku_display.yml"))
+    @page = data.find { |d| d['id'].to_s == params[:page] ||= "0" }
   end
 
 
   def new
-    @sku_display = SkuDisplay.new
-    @sku_display.sequence = 0
-  end
-
-
-  def edit
-    @sku_display = SkuDisplay.find(params[:id])
-    @sku_display.sku_number = @sku_display.sku.number
+    @sku_displays = SkuDisplay.find_all_by_page_and_location(params[:page_id], params[:location_id])
+    @search = Sku.search(params[:q])
+    @skus = @search.result.paginate(:page => params[:page], :per_page => 10)
+    @sku_display = SkuDisplay.new(:page => params[:page_id], :location => params[:location_id])
   end
 
 
   def create
     @sku_display = SkuDisplay.new(params[:sku_display])
-    @sku_display.sku_id = Sku.find_by_number(params[:sku_display][:sku_number]).id
-
+    @sku_display.sequence = 0
     if @sku_display.save
-      redirect_to commodity_sku_displays_url
+      redirect_to :back
     else
-      render action: "new"
+      redirect_to :back, :alert => @sku_display.errors
     end
   end
-
 
   def update
     @sku_display = SkuDisplay.find(params[:id])
-    @sku_display.sku_id = Sku.find_by_number(params[:sku_display][:sku_number]).id
-
-    if @sku_display.update_attributes(params[:sku_display])
-      redirect_to commodity_sku_displays_url
+    if @sku_display.update_attribute(:sequence,params[:sequence])
+      render :json => "更改成功".to_json
     else
-      render action: "edit"
+      render :json => "更改失败".to_json
     end
   end
+
 
   def destroy
     @sku_display = SkuDisplay.find(params[:id])
     @sku_display.destroy
 
-    redirect_to commodity_sku_displays_url
+    redirect_to :back
   end
 
-  def change_page
-    @locations = SkuDisplay.new.location_enum(params[:page].to_i)
-    render :json => @locations.to_json
-  end
 end

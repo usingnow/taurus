@@ -1,2 +1,99 @@
-<%= render 'form' %>
+<%= form_tag commodity_sku_displays_path, :id => "create_sku_display" do %>
+  <% unless alert.nil? %>
+    <div id="error_explanation">
+      <h2><%= I18n.t('errors.template.header.default')  %></h2>
+      <ul>
+      <% alert.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= hidden_field :sku_display, :page %>
+  <%= hidden_field :sku_display, :location %>
+  <%= hidden_field :sku_display, :sku_id %>
+<% end %>
 
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('activerecord.attributes.sku_display.sequence') %></th>
+      <th><%= t('activerecord.attributes.sku.number') %></th>
+      <th><%= t('activerecord.attributes.sku.name') %></th>
+      <th><%= t('activerecord.attributes.sku.unit') %></th>
+      <th><%= t('activerecord.attributes.sku.sku_type') %></th>
+      <th><%= t('activerecord.attributes.sku.status') %></th>
+      <th><%= t('activerecord.attributes.sku.sales_status') %></th>
+      <th><%= t('activerecord.attributes.sku.updated_at') %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+
+  <% @sku_displays.each_with_index do |sku_display,index| %>
+    <tr class="<%= cycle("odd","even") %>" group="<%= index %>">
+      <td><%= index+1 %></td>
+      <td><%= text_field_tag :sequence, sku_display.sequence ,:class => "sequence_text", :'data-id' => sku_display.id %></td>
+      <td><%= sku_display.sku.number %></td>
+      <td align="left"><%= link_to sku_display.sku.name, commodity_admin_sku_path(sku_display.sku_id), :target => "_blank" %></td>
+      <td><%= sku_display.sku.unit %></td>
+      <td><%= format_sku_type sku_display.sku.sku_type %></td>
+      <td><%= format_sku_status sku_display.sku.status %></td>
+      <td><%= format_sku_shelf_status(sku_display.sku.shelf_status)%></td>
+      <td><%= sku_display.sku.updated_at %></td>
+      <td><%= link_to t('admin.actions.delete.menu'), commodity_sku_display_path(sku_display),
+                      :confirm => t('admin.actions.delete.confirm'), :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+
+<div>
+  <%= search_form_for @search, :url => new_commodity_sku_display_path do |f| %>
+    <%= t 'activerecord.attributes.sku.number' %>:<%= f.text_field :number_eq %>
+    <%= t 'activerecord.attributes.sku.name' %>:<%= f.text_field :name_cont %>
+    <%= f.hidden_field :sku_category_number_start %>
+    <%= hidden_field_tag :page_id, @sku_display.page %>
+    <%= hidden_field_tag :location_id, @sku_display.location%>
+    <%= f.submit '查询' %>
+  <% end %>
+</div>
+
+<table class="grid">
+  <thead>
+   <tr>
+      <th>#</th>
+      <th><%= t('activerecord.attributes.sku.number') %></th>
+      <th><%= t('activerecord.attributes.sku.name') %></th>
+      <th><%= t('activerecord.attributes.sku.unit') %></th>
+      <th><%= t('activerecord.attributes.sku.sku_type') %></th>
+      <th><%= t('activerecord.attributes.sku.status') %></th>
+      <th><%= t('activerecord.attributes.sku.sales_status') %></th>
+      <th><%= t('activerecord.attributes.sku.updated_at') %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @skus.each_with_index do |sku,index| %>
+    <tr class="<%= cycle("odd","even") %>" group="<%= index+20 %>">
+      <td><%= index+1 %></td>
+      <td><%= sku.number %></td>
+      <td align="left"><%= link_to sku.name, commodity_admin_sku_path(sku), :target => "_blank" %></td>
+      <td><%= sku.unit %></td>
+      <td><%= format_sku_type sku.sku_type %></td>
+      <td><%= format_sku_status sku.status %></td>
+      <td><%= format_sku_shelf_status(sku.shelf_status)%></td>
+      <td><%= sku.updated_at %></td>
+      <td><%= link_to "添加", "#", :id => sku.id, :class => "add_to_sku_display" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="9"><%= will_paginate @skus %></td>
+    </tr>
+  </tfoot>
+</table>
