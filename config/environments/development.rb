@@ -19,11 +19,11 @@ Ebiz::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => "127.0.0.1:3000" }
   ActionMailer::Base.smtp_settings = {
-    :address        => "smtp.gmail.com",
-    :port           => 587,
+    :address        => "smtp.ym.163.com",
+    :port           => 25,
     :authentication => :plain,
-    :user_name      => "dtczxy@gmail.com",
-    :password       => "55615539"
+    :user_name      => "service@emehome.cn",
+    :password       => "emehome123ser@cd "
   }
 
   # Print deprecation notices to the Rails logger

@@ -10,7 +10,7 @@ if(user_id == ""){
        '</div>'+
       '<div class="split_content_right">'+
         '<p><%= label_tag '联系人姓名：' %><%= get_user_name(@user) %><br /></p>'+
-        '<p><%= label_tag '电子邮件：' %><%= get_user_email(@user) %><br /></p>'+
+        '<p><%= label_tag '电子邮件：' %><%= @user.email %><br /></p>'+
         '<p><%= label_tag '邮编：' %><%= get_user_zip(@user) %></p>'+
       '</div>'+
       '<div class="clear"></div>';
