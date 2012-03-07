@@ -1,6 +1,6 @@
 class Order::OrderPrintsController < ApplicationController
   def index
-    @order_print_logs = OrderPrintLog.find_all_by_order_id params[:order_id]
+    @order_print_logs = OrderPrintLog.find_all_by_order_id_and_line_type params[:order_id], params[:line_type]
   end
 
   def show
@@ -9,7 +9,7 @@ class Order::OrderPrintsController < ApplicationController
   end
 
   def create
-    @order_print_log =  OrderPrintLog.new :order_id => params[:order_id], :administrator_id => current_administrator
+    @order_print_log =  OrderPrintLog.new :order_id => params[:order_id], :administrator_id => current_administrator, :line_type => params[:line_type]
 
     if @order_print_log.save
       render :json => "success".to_json

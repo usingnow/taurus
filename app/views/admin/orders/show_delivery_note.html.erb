@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head id="ctl00_Head1">
     <title></title>
-    <%= javascript_include_tag :defaults%>
+    <%= javascript_include_tag :application%>
     <style type="text/css">
       @media print{
         .NoPrint{
@@ -90,6 +90,30 @@
         }
     </script>
 
+    <script language="javascript" type="text/javascript">
+     jQuery(document).ready(function() {
+         printArgs.prePrint = function() {
+           var ret = false;
+             jQuery.ajax({
+               type: "POST",
+               url: "<%= order_order_prints_path %>",
+               data: { order_id: "<%= @order.id %>", line_type: "1"},
+               dataType: "json",
+               success: function(result) {
+                   if (result == 'failure') {
+                       alert('打印记录保存失败!');
+                   } else {
+                          ret = true;
+                   }
+               },
+               cache: false, //禁止使用缓存
+               async: false//使用同步请求来设置返回值
+              });
+           return ret;
+         };
+     });
+   </script>
+
 </head>
 <body style="text-align: center;">
     <form name="aspnetForm" method="post" action="PrintOrderTransInfo.aspx?OrderId=109" id="aspnetForm">
@@ -133,32 +157,7 @@
         }
     </style>
 
-    <script language="javascript" type="text/javascript">
-        jQuery(document).ready(function() {
-            printArgs.prePrint = function() {
-            var ret = true;
-//              jQuery.ajax({
-//                        type: "POST",
-//                        url: "create_print_log",
-//                        data: { func: 'savelog', orderId: 109, printType:2 },
-//                        dataType: "json",
-//                        success: function(result, textStatus) {
-//                            if (result.error != '') {
-//                                alert(result.error);
-//                            } else {
-//                                   ret = true;
-//                            }
-//                        },
-//                        error: function(XMLHttpRequest, textStatus, errorThrown) {
-//                            alert(textStatus);
-//                        },
-//                        cache: false, //禁止使用缓存
-//                        async: false//使用同步请求来设置返回值
-//                    });
-                return ret;
-            };
-        });
-    </script>
+
      <% if @order.order_details.size <= 6 %>
        <% page = 0 %>
      <% else %>

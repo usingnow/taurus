@@ -115,7 +115,7 @@
     </p>
     <p id="print_link">
       <%= link_to '订单打印', order_order_print_path(@order),{:target => "blank"} %>
-      【<%= link_to "已打印#{@order.print_frequency}次", order_order_prints_path(:order_id => @order) %>】
+      【<%= link_to "已打印#{@order.order_print_sum(0)}次", order_order_prints_path(:order_id => @order, :line_type => "0") %>】
     </p>
   </div>
   <div class="clear"></div>

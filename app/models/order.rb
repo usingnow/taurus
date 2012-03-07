@@ -53,10 +53,12 @@ class Order < ActiveRecord::Base
     total_sku_amount+total_install_cost+total_assemble_cost+other_cost+carriage_adjustment
   end
 
-  #统计打印次数
-  def print_frequency
-    order_print_logs.count
+  #统计订单打印次数
+  def order_print_sum(line_type)
+    order_print_logs.count(:conditions => "line_type = #{line_type}")
   end
+
+
 
 
   validates_format_of :mobile,
