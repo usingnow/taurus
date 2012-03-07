@@ -224,3 +224,10 @@ input.handler:hover {
 
 .sku_image {
   border:0px;}
+
+.pagination {
+  float: right;
+  margin-top: 15px;
+  .current {
+    color: #E63221;
+    font-weight: bold;}}
