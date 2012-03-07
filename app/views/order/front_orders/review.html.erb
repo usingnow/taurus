@@ -26,8 +26,8 @@
           <td>子订单-<%= i %></td>
           <td><%= @consignee_info.name %></td>
           <td><%= @temp_payment.procedure.display_name %></td>
-          <td><%= number_to_currency @cart.total_amount, :unit => "￥" %></td>
-          <td><%= number_to_currency @carriage_cost, :unit => "￥" %></td>
+          <td><%= cny @cart.total_nds_amount %></td>
+          <td><%= cny @cart.nds_carriage_cost(@consignee_info.district.city_no) %></td>
         </tr>
         <tr>
           <td colspan="5">
@@ -55,8 +55,8 @@
                   <td><%= format_boolean nds.is_need_install %></td>
                   <td><%= number_to_currency nds.sku.installation_cost_aft_tax, :unit => "￥" %></td>
                   <td><%= format_boolean nds.is_need_assemble %></td>
-                  <td><%= number_to_currency nds.sku.assembling_fee_aft_tax, :unit => "￥" %></td>
-                  <td><%= number_to_currency nds.total_amount, :unit => "￥" %></td>
+                  <td><%= cny nds.sku.assembling_fee_aft_tax %></td>
+                  <td><%= cny nds.total_amount %></td>
                 </tr>
                 <% end %>
               </tbody>
@@ -65,15 +65,15 @@
                   <td colspan="11">
                     商品总价：
                     <i>
-                      <%= number_to_currency @cart.total_sku_amount, :unit => "￥" %>
+                      <%= cny @cart.total_nds_sku_amount %>
                     </i>
                     元 + 安装费：
                     <i>
-                      <%= number_to_currency @cart.total_installation_amount, :unit => "￥" %>
+                      <%= cny @cart.total_nds_installation_amount %>
                     </i>
                     元 + 组装费：
                     <i>
-                      <%= number_to_currency @cart.total_assembling_amount, :unit => "￥" %>
+                      <%= cny @cart.total_nds_assembling_amount %>
                     </i>
                     元
                   </td>
@@ -82,7 +82,7 @@
                   <td colspan="11">
                     <strong>选购商品价格总计</strong>
                     （不包含运费）：
-                    <strong><i><%= number_to_currency @cart.total_amount, :unit => "￥" %></i></strong>
+                    <strong><i><%= cny @cart.total_nds_amount %></i></strong>
                     元
                   </td>
                 </tr>
@@ -97,8 +97,8 @@
           <td>子订单-<%= i %></td>
           <td><%= @consignee_info.name %></td>
           <td><%= @temp_payment.procedure.display_name %></td>
-          <td><%= number_to_currency ds.total_amount, :unit => "￥" %></td>
-          <td><%= number_to_currency ds.ds_carriage_cost(@consignee_info.district_no), :unit => "￥" %></td>
+          <td><%= cny ds.total_amount %></td>
+          <td><%= cny ds.ds_carriage_cost(@consignee_info.district_no) %></td>
         </tr>
         <tr>
           <td colspan="5">
@@ -172,15 +172,15 @@
         <td colspan="11">
           商品总价：
           <i>
-            <%= number_to_currency @cart.total_sku_amount, :unit => "￥" %>
+            <%= number_to_currency @cart.total_nds_sku_amount, :unit => "￥" %>
           </i>
           元 + 安装费：
           <i>
-            <%= number_to_currency @cart.total_installation_amount, :unit => "￥" %>
+            <%= number_to_currency @cart.total_nds_installation_amount, :unit => "￥" %>
           </i>
           元 + 组装费：
           <i>
-            <%= number_to_currency @cart.total_assembling_amount, :unit => "￥" %>
+            <%= number_to_currency @cart.total_nds_assembling_amount, :unit => "￥" %>
           </i>
           元
         </td>
@@ -249,7 +249,7 @@
   <div id="delivery_fee">
     <p>
       根据您订单金额和所属区域，本次购物的运费为：
-      <strong><%= number_to_currency @carriage_cost, :unit => "￥" %></strong>
+      <strong><%= cny @carriage_cost %></strong>
     </p>
   </div>
   <form action="/order/front_orders" method="post">

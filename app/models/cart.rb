@@ -18,22 +18,50 @@ class Cart < ActiveRecord::Base
     cart_skuships.sum(:quantity)
   end
 
-  def total_sku_amount
-    cart_skuships.where("sku_id in (select id from skus where sku_type !=2)").to_a.sum do |cart_sku|
+  #非直送品商品总价
+  def total_nds_sku_amount
+    not_direct_sends.to_a.sum do |cart_sku|
       cart_sku.quantity * cart_sku.sku.cost_aft_tax
     end
   end
 
-  def total_installation_amount
+  #所有商品总价
+  def total_sku_amount
+    cart_skuships.to_a.sum do |cart_sku|
+      cart_sku.quantity * cart_sku.sku.cost_aft_tax
+    end
+  end
+
+  #
+  def total_nds_installation_amount
     cart_skuships.where("is_need_install = 1 and sku_id in (select id from skus where sku_type !=2)").to_a.sum do |cart_sku|
       cart_sku.sku.installation_cost_aft_tax
     end
   end
 
-  def total_assembling_amount
+  def total_installation_amount
+    cart_skuships.where("is_need_install = 1").to_a.sum do |cart_sku|
+      cart_sku.sku.installation_cost_aft_tax
+    end
+  end
+
+  #
+  def total_nds_assembling_amount
     cart_skuships.where("is_need_assemble = 1 and sku_id in (select id from skus where sku_type !=2)").to_a.sum do |cart_sku|
       cart_sku.sku.assembling_fee_aft_tax
     end
+  end
+
+  def total_assembling_amount
+    cart_skuships.where("is_need_assemble = 1").to_a.sum do |cart_sku|
+      cart_sku.sku.assembling_fee_aft_tax
+    end
+  end
+
+
+
+  def total_nds_amount
+    total_nds_sku_amount + total_nds_installation_amount + total_nds_assembling_amount
   end
 
   def total_amount
@@ -65,11 +93,11 @@ class Cart < ActiveRecord::Base
   def nds_carriage_cost(city_no)
     carriage_cost = 0
     if city_no == 330200
-      unless total_amount > 50
+      unless total_nds_amount > 50
         carriage_cost = 5
       end
     else
-      unless total_amount > 200
+      unless total_nds_amount > 200
         carriage_cost = 20
       end
     end
