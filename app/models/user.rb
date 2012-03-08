@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   before_validation :default_values
 
 
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
 
@@ -45,5 +45,4 @@ class User < ActiveRecord::Base
       self.status = 1 unless self.status
       self.store_id = 1 unless self.store_id
     end
-
 end
