@@ -4,10 +4,9 @@ class Admin::SkuCategoriesController < ApplicationController
   autocomplete :sku_category, :name, :extra_data => [:number]
 
   def index
-    @search = SkuCategory.search(params[:p])
+    @search = SkuCategory.search(params[:q])
     @search.sorts = "updated_at desc"
     @sku_categories = @search.result.paginate(:page => params[:page], :per_page => 20)
-
   end
 
   # GET /sku_categories/1

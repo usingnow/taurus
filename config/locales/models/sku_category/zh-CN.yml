@@ -1,0 +1,17 @@
+zh-CN:
+  activerecord:
+    models:
+      sku_category: "媒体商品分类"
+    attributes:
+      sku_category:
+        root_id: "根ID"
+        parent_id: "父ID"
+        number: "编号"
+        name: "名称"
+        is_show_in_navigation: "首页导航是否显示"
+        is_show_in_column: "首页栏目是否显示"
+        active: "是否有效"
+        description: "描述"
+        create_by: "创建者"
+        update_by: "更新者"
+        updated_at: "更新时间"
