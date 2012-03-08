@@ -46,7 +46,9 @@ class Order::FrontOrdersController < ApplicationController
       @direct_sendings = CartSkuship.where("cart_id = #{@cart.id} and sku_id in(select id from skus where sku_type = 2)")
 
 
-      @carriage_cost = @cart.nds_carriage_cost(@consignee_info.district.city_no)+@direct_sendings.to_a.sum{ |ds| ds.ds_carriage_cost(@consignee_info.district_no)}
+      @carriage_cost = 0
+      @carriage_cost += @cart.nds_carriage_cost(@consignee_info.district.city_no) if @not_direct_sendings.any?
+      @carriage_cost += @direct_sendings.to_a.sum{ |ds| ds.ds_carriage_cost(@consignee_info.district_no)} if @direct_sendings.any?
 
 
       @order_remark = params[:order_remark]
