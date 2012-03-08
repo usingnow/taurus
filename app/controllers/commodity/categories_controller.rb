@@ -36,7 +36,7 @@ class Commodity::CategoriesController < ApplicationController
       @sku_browsing_histories = Hash.new
     else
       @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
-        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+        and sku_id in(select id from skus where  id in(select sku_id from sku_on_shelves where status = 1))")
     end
 
     @images = Image.find_all_by_page(1)
@@ -65,7 +65,7 @@ class Commodity::CategoriesController < ApplicationController
       @sku_browsing_histories = Hash.new
     else
       @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
-        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+        and sku_id in(select id from skus where id in(select sku_id from sku_on_shelves where status = 1))")
     end
 
     @images = Image.find_all_by_page(2)
@@ -102,7 +102,7 @@ class Commodity::CategoriesController < ApplicationController
       @sku_browsing_histories = Hash.new
     else
       @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
-        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+        and sku_id in(select id from skus where  id in(select sku_id from sku_on_shelves where status = 1))")
     end
 
     @images = Image.find_all_by_page(3)
@@ -128,7 +128,7 @@ class Commodity::CategoriesController < ApplicationController
       @sku_browsing_histories = Hash.new
     else
       @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
-        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+        and sku_id in(select id from skus where  id in(select sku_id from sku_on_shelves where status = 1))")
     end
     @images = Image.find_all_by_page(4)
   end
@@ -155,7 +155,7 @@ class Commodity::CategoriesController < ApplicationController
       @sku_browsing_histories = Hash.new
     else
       @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
-        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+        and sku_id in(select id from skus where  id in(select sku_id from sku_on_shelves where status = 1))")
     end
 
     @images = Image.find_all_by_page(5)
@@ -180,7 +180,7 @@ class Commodity::CategoriesController < ApplicationController
       @sku_browsing_histories = Hash.new
     else
       @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
-        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+        and sku_id in(select id from skus where  id in(select sku_id from sku_on_shelves where status = 1))")
     end
 
     @images = Image.find_all_by_page(6)

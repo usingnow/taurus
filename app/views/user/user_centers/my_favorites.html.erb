@@ -44,7 +44,7 @@
             <td><%= number_to_currency favorite.sku.cost_aft_tax, :unit => "￥" %></td>
             <td><%= get_sku_inventory(favorite.sku) %></td>
             <td>
-              <%= link_to "加入购物车", "#", :class => "add_to_cart", :id => favorite.sku_id %><br />
+              <%= link_to "加入购物车", "#", :class => "add_to_cart", :id => favorite.sku_id if favorite.sku.status == 1 %><br />
               <%= link_to "取消收藏", user_index_favorite_path(favorite), :confirm => "确定取消收藏?", :method => :delete %>
             </td>
           </tr>
