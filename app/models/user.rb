@@ -1,3 +1,4 @@
+#encoding:UTF-8
 class User < ActiveRecord::Base
   has_one :person_extend, :dependent => :destroy
   has_one :company_extend, :dependent => :destroy
@@ -27,6 +28,16 @@ class User < ActiveRecord::Base
   validates_presence_of :login_no
   validates_numericality_of :role_id, :status, :store_id, :only_integer => true
   validates_uniqueness_of :login_no
+
+  def name
+    if user_type == 1
+      person_extend.name
+    elsif user_type == 2
+      company_extend.company_name
+    else
+      "无"
+    end
+  end
 
   private
     def default_values

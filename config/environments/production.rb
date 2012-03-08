@@ -51,11 +51,11 @@ Ebiz::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => "192.168.1.48" }
   ActionMailer::Base.smtp_settings = {
-    :address        => "smtp.gmail.com",
-    :port           => 587,
-    :authentication => :plain,
-    :user_name      => "dtczxy@gmail.com",
-    :password       => "55615539"
+    :openssl_verify_mode => 'none',
+    :address        => "localhost",
+    :authentication => :login,
+    :tls            => false,
+    :port           => 25
   }
 
   # Enable threaded mode
