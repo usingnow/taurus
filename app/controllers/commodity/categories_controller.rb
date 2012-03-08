@@ -29,6 +29,8 @@ class Commodity::CategoriesController < ApplicationController
     @oa_ele_of_con_hots = SkuDisplay.index_display(:limit => 6, :page => 1, :location => 12)
     @oa_machine_skus = SkuDisplay.index_display(:limit => 8, :page => 1, :location => 13)
     @oa_machine_hots = SkuDisplay.index_display(:limit => 6, :page => 1, :location => 14)
+    @other_skus = SkuDisplay.index_display(:limit => 8, :page => 1, :location => 15)
+    @other_hots = SkuDisplay.index_display(:limit => 6, :page => 1, :location => 16)
 
     if current_user.nil?
       @sku_browsing_histories = Hash.new

@@ -144,6 +144,16 @@
       category_no: '0117'
       size: 6
 
+    - id: 15
+      name: '其他OA*PC'
+      category_no: '0119'
+      size: 8
+
+    - id: 16
+      name: '其他OA*PC热销排行'
+      category_no: '0119'
+      size: 6
+
 - id: 2
   name: '文具办公用品'
   locations:
