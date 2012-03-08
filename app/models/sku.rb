@@ -7,14 +7,13 @@ class Sku < ActiveRecord::Base
   belongs_to :sku_category
   has_many :sku_on_shelves
   has_many :sku_browsing_histories
-
+  scope :on_shelves, where("skus.status = 1  and skus.id in(select sku_id from sku_on_shelves where status = 1)")
+  scope :begin_sales, where("skus.status = 1")
   attr_accessor :brand_name, :sku_category_name, :sku_category_number
 
   validates :number, :name, :brand_id, :brand_name, :sku_category_id, :sku_category_name, :unit, :specification,
             :delivery_day, :sku_type,  :presence => true
   validates_uniqueness_of :number
-
-  scope :on_shelves, where("skus.status = 1  and skus.id in(select sku_id from sku_on_shelves where status = 1)")
 
   def nb_is_inventory
     flag = true

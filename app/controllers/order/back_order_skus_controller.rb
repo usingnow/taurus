@@ -1,7 +1,7 @@
 #encoding:UTF-8
 class Order::BackOrderSkusController < ApplicationController
   def index
-    @search = Sku.search(params[:q])
+    @search = Sku.begin_sales.search(params[:q])
     @search.sorts = 'updated_at desc'
     @skus = @search.result.paginate(:page => params[:page],:per_page => 20)
   end
