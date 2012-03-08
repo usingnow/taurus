@@ -37,9 +37,10 @@
         <% @favorites.each do |favorite| %>
           <tr>
             <td>
-              <%= link_to (image_tag favorite.sku.main_img(:style => :s50), :class => "sku_image"), commodity_sku_detail_path(favorite.sku_id) %>
+              <%= link_to (image_tag favorite.sku.main_img(:style => :s50), :class => "sku_image"),
+                          commodity_sku_detail_path(favorite.sku_id), :target => "_blank" %>
             </td>
-            <td><%= link_to favorite.sku.name, commodity_sku_detail_path(favorite.sku_id) %></td>
+            <td><%= link_to favorite.sku.name, commodity_sku_detail_path(favorite.sku_id), :target => "_blank" %></td>
             <td><%= number_to_currency favorite.sku.cost_aft_tax, :unit => "￥" %></td>
             <td><%= get_sku_inventory(favorite.sku) %></td>
             <td>
