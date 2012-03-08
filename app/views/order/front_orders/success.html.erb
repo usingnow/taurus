@@ -26,7 +26,7 @@
         <td><%= order.created_at %></td>
         <td><%= order.name %></td>
         <td><%= order.instance.procedure.display_name %></td>
-        <td><%= number_to_currency order.total_amount, :unit => "￥" %></td>
+        <td><%= cny order.total_amount %></td>
         <td><%= order.instance.station.display_name %></td>
         <td><%= user_order_operating order %></td>
       </tr>
@@ -37,7 +37,7 @@
       <td colspan="11">
         <strong>本次购物应支付金额：</strong>
         <strong>
-          <i><%= number_to_currency @orders.to_a.sum{ |order| order.total_amount}, :unit => "￥" %></i>
+          <i><%= cny @orders.to_a.sum{ |order| order.total_amount} %></i>
         </strong>元
       </td>
     </tr>
@@ -50,7 +50,13 @@
     <li>如果您有订单正在处理中，请稍后通过“我的账户”查询最新的订单状态，或者请致电<strong class="remark">400-630-5006</strong>咨询。</li>
     <li>如果您选择在线支付或银行转账，在订单得到系统确认后请立即支付，否则订单有可能会被取消，敬请谅解。</li>
   </ul>
-  <p style="padding: 0 0 0 24px; font-size: 14px;"><strong>现在您可以：</strong><a href="#" class="special_blue">查看订单状态</a> <a href="#"  class="special_blue">继续购物</a> <a href="#"  class="special_blue">查看在线支付帮助</a></p>
+  <p style="padding: 0 0 0 24px; font-size: 14px;">
+    <strong>现在您可以：</strong>
+    <a href="#" class="special_blue"></a>
+    <%= link_to "查看订单状态", user_user_centers_path, :class => "special_blue" %>
+    <%= link_to "继续购物", "/", :class => "special_blue" %>
+    <%= link_to "查看在线支付帮助", payment_method_help_home_index_path, :class => "special_blue" %>
+  </p>
 </div>
 <div id="payment_note">
   <h2>请根据您选择的支付方式付款</h2>
