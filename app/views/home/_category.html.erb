@@ -10,8 +10,8 @@
       <div id="main_menu_sub_m<%= index+1 %>" class="cms_submenu non_display">
         <div class="cmsmenuleft">
           <dl class="menu_recommend">
-            <% category.children.index_display.each do |child| %>
-              <% sons = child.children.index_display %>
+            <% category.children.navigation.each do |child| %>
+              <% sons = child.children.navigation %>
               <% unless sons.empty? %>
                 <dt><%= link_to child.name, commodity_category_path(child) %></dt>
                 <dd>
