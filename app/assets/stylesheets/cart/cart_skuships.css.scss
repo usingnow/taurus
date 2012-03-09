@@ -30,8 +30,9 @@ button.order_button:hover {
   th {
     line-height: 26px;
     vertical-align:middle;
-    background:url('/assets/templates/titlebar/bar_bg_1_35.png');
-    border: 1px solid #999999;}
+    background: url('/assets/templates/titlebar/bar_bg_1_35.png');
+    border: 1px solid #999999;
+    min-width: 80px;}
   caption {
     text-align:left;
     font-size: 16px;
@@ -54,6 +55,9 @@ button.order_button:hover {
       border: 1px solid #999999;
       text-align: center;
       font-size: 12px;
+      em {
+        font-family: Arial Unicode MS, Tahoma, Verdana, Microsoft Yahei;
+        font-style: normal;}
       input {
         width: 40px;
         text-align: center;}
