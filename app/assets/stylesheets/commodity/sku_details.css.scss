@@ -110,6 +110,23 @@
     background-color: transparent;
     background-image: url("/assets/sku_details/add_to_cart.png");}
   .add_to_cart:hover{
+    curser: pointer;}
+
+  .add_to_cart_grey {
+    position: relative;
+    float: left;
+    width: 167px;
+    height: 39px;
+    border: 0px;
+    margin: 5px 0 5px 0;
+    padding: 0 12px 0 0;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: right;
+    cursor: pointer;
+    background-color: transparent;
+    background-image: url("/assets/commodity/sku_details/add_to_chart_grey.png");}
+  .add_to_cart:hover{
     curser: pointer;}}
 #sku_details_promotion {
   position: relative;

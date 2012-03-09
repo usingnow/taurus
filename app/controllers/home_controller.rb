@@ -1,8 +1,7 @@
 class HomeController < ApplicationController
   def index
     @slider_bars = SliderBar.limit(5).all
-    @categories = SkuCategory.find_all_by_is_show_in_navigation_and_is_show_in_column_and_active_and_parent_id(
-                  true,true,true,nil)
+    @categories = SkuCategory.top_navigation
     @recommendation = SkuDisplay.index_display(:limit => 4, :page => 0, :location => 0)
     @oa_pc_skus = SkuDisplay.index_display(:limit => 8, :page => 0, :location => 1)
     @oa_pc_hots = SkuDisplay.index_display(:limit => 6, :page => 0, :location => 2)
@@ -21,7 +20,7 @@ class HomeController < ApplicationController
       @sku_browsing_histories = Hash.new
     else
       @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("updated_at desc").where("user_id = #{current_user.id}
-        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+        and sku_id in(select id from skus where id in(select sku_id from sku_on_shelves where status = 1))")
     end
 
 

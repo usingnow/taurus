@@ -209,7 +209,6 @@ zh-CN:
     product_category: "素材商品分类"
     purchase: "采购单"
     role: "角色"
-    sku_category: "媒体商品分类"
     sku_productship: "媒体商品组成"
     sku_image: "媒体商品相册"
     station: "站别"
@@ -364,20 +363,6 @@ zh-CN:
       create_by: "创建者"
       update_by: "更新者"
       updated_at: "更新时间"
-
-    sku_category:
-      root_id: "根ID"
-      parent_id: "父ID"
-      number: "编号"
-      name: "名称"
-      is_show_in_navigation: "首页导航是否显示"
-      is_show_in_column: "首页栏目是否显示"
-      active: "是否有效"
-      description: "描述"
-      create_by: "创建者"
-      update_by: "更新者"
-      updated_at: "更新时间"
-
 
 
     sku_productship:
@@ -554,6 +539,7 @@ zh-CN:
     misc:
       remove: "删除"
       add_new: "新增"
+      search: "查询"
     actions:
       index:
         title: "%{model}列表"

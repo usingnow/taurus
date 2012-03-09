@@ -41,6 +41,7 @@ class User::RegistrationsController < Devise::RegistrationsController
         expire_session_data_after_sign_in!
         respond_with resource, :location => after_inactive_sign_up_path_for(resource)
       end
+      resource.update_attribute(:confirmed_at, Time.now)
     else
       clean_up_passwords(resource)
       resource.build_company_extend
@@ -63,6 +64,7 @@ class User::RegistrationsController < Devise::RegistrationsController
         expire_session_data_after_sign_in!
         respond_with resource, :location => after_inactive_sign_up_path_for(resource)
       end
+      resource.update_attribute(:confirmed_at, Time.now)
     else
       clean_up_passwords(resource)
       resource.build_person_extend

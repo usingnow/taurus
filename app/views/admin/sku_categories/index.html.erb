@@ -1,33 +1,52 @@
 <h1>媒体商品分类列表</h1>
 
-<table>
-  <tr>
-    <th><%= t('attributes.sku_category.number') %></th>
-    <th><%= t('attributes.sku_category.name') %></th>
-    <th><%= t('attributes.sku_category.is_show_in_navigation') %></th>
-    <th><%= t('attributes.sku_category.is_show_in_column') %></th>
-    <th><%= t('attributes.sku_category.description') %></th>
-    <th><%= t('attributes.sku_category.updated_at') %></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="attributes">
+  <%= search_form_for [:admin, @search] do |f| %>
+    <%= t 'activerecord.attributes.sku_category.number' %>
+    <%= f.text_field :number_start %>
+    <%= t 'activerecord.attributes.sku_category.name' %>
+    <%= f.text_field :name_cont %>
+    <%= f.submit t 'admin.misc.search' %>
+  <% end %>
+</div>
+<div class="grid_button">
+  <%= link_to t('admin.actions.new.menu'), new_admin_sku_category_path %>
+</div>
 
-<% @sku_categories.each do |sku_category| %>
-  <tr>
-    <td><%= sku_category.number %></td>
-    <td><%= sku_category.name %></td>
-    <td><%= sku_category.is_show_in_navigation %></td>
-    <td><%= sku_category.is_show_in_column %></td>
-    <td><%= sku_category.description %></td>
-    <td><%= sku_category.updated_at %></td>
-    <td><%= link_to 'Show', admin_sku_category_path(sku_category) %></td>
-    <td><%= link_to 'Edit', edit_admin_sku_category_path(sku_category) %></td>
-    <td><%= link_to 'Destroy', admin_sku_category_path(sku_category), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th><%= t('activerecord.attributes.sku_category.number') %></th>
+      <th><%= t('activerecord.attributes.sku_category.name') %></th>
+      <th><%= t('activerecord.attributes.sku_category.is_show_in_navigation') %></th>
+      <th><%= t('activerecord.attributes.sku_category.is_show_in_column') %></th>
+      <th><%= t('activerecord.attributes.sku_category.description') %></th>
+      <th><%= t('activerecord.attributes.sku_category.updated_at') %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @sku_categories.each do |sku_category| %>
+    <tr>
+      <td><%= sku_category.number %></td>
+      <td><%= sku_category.name %></td>
+      <td><%= sku_category.is_show_in_navigation %></td>
+      <td><%= sku_category.is_show_in_column %></td>
+      <td><%= sku_category.description %></td>
+      <td><%= sku_category.updated_at %></td>
+      <td><%= link_to t('admin.actions.show.menu'), admin_sku_category_path(sku_category) %></td>
+      <td><%= link_to t('admin.actions.edit.menu'), edit_admin_sku_category_path(sku_category) %></td>
+      <td><%= link_to t('admin.actions.delete.menu'), admin_sku_category_path(sku_category), :confirm => t('admin.actions.delete.confirm'), :method => :delete %></td>
+    </tr>
+  <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="9"><%= will_paginate @sku_categories %></td>
+    </tr>
+  </tfoot>
 </table>
 
-<br />
 
-<%= link_to '新建媒体商品分类', new_admin_sku_category_path %>

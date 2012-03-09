@@ -8,6 +8,6 @@ class Brand < ActiveRecord::Base
 
 
   def skus
-    Sku.where("brand_id = #{id} and status = 1 and id in(select sku_id from sku_on_shelves where status = 1)")
+    Sku.where("brand_id = #{id} and id in(select sku_id from sku_on_shelves where status = 1)")
   end
 end

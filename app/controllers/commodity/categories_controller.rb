@@ -12,8 +12,7 @@ class Commodity::CategoriesController < ApplicationController
 
   def oa_pc
     @slider_bars = SliderBar.limit(5).all
-    @categories = SkuCategory.find_all_by_is_show_in_navigation_and_is_show_in_column_and_active_and_parent_id(
-                  true,true,true,nil)
+    @categories = SkuCategory.top_navigation
     @recommendation = SkuDisplay.index_display(:limit => 4, :page => 1, :location => 0)
     @oa_supplies_skus = SkuDisplay.index_display(:limit => 8, :page => 1, :location => 1)
     @oa_supplies_hots = SkuDisplay.index_display(:limit => 6, :page => 1, :location => 2)
@@ -36,7 +35,7 @@ class Commodity::CategoriesController < ApplicationController
       @sku_browsing_histories = Hash.new
     else
       @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
-        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+        and sku_id in(select id from skus where  id in(select sku_id from sku_on_shelves where status = 1))")
     end
 
     @images = Image.find_all_by_page(1)
@@ -45,8 +44,7 @@ class Commodity::CategoriesController < ApplicationController
 
   def office
     @slider_bars = SliderBar.limit(5).all
-    @categories = SkuCategory.find_all_by_is_show_in_navigation_and_is_show_in_column_and_active_and_parent_id(
-                  true,true,true,nil)
+    @categories = SkuCategory.top_navigation
     @recommendation = SkuDisplay.index_display(:limit => 4, :page => 2, :location => 0)
     @folder_skus = SkuDisplay.index_display(:limit => 8, :page => 2, :location => 1)
     @folder_hots = SkuDisplay.index_display(:limit => 6, :page => 2, :location => 2)
@@ -65,7 +63,7 @@ class Commodity::CategoriesController < ApplicationController
       @sku_browsing_histories = Hash.new
     else
       @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
-        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+        and sku_id in(select id from skus where id in(select sku_id from sku_on_shelves where status = 1))")
     end
 
     @images = Image.find_all_by_page(2)
@@ -74,8 +72,7 @@ class Commodity::CategoriesController < ApplicationController
 
   def daily
     @slider_bars = SliderBar.limit(5).all
-    @categories = SkuCategory.find_all_by_is_show_in_navigation_and_is_show_in_column_and_active_and_parent_id(
-                  true,true,true,nil)
+    @categories = SkuCategory.top_navigation
     @recommendation = SkuDisplay.index_display(:limit => 4, :page => 3, :location => 0)
     @alcohol_skus = SkuDisplay.index_display(:limit => 8, :page => 3, :location => 1)
     @alcohol_hots = SkuDisplay.index_display(:limit => 6, :page => 3, :location => 2)
@@ -102,7 +99,7 @@ class Commodity::CategoriesController < ApplicationController
       @sku_browsing_histories = Hash.new
     else
       @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
-        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+        and sku_id in(select id from skus where  id in(select sku_id from sku_on_shelves where status = 1))")
     end
 
     @images = Image.find_all_by_page(3)
@@ -110,8 +107,7 @@ class Commodity::CategoriesController < ApplicationController
 
   def off_fur
     @slider_bars = SliderBar.limit(5).all
-    @categories = SkuCategory.find_all_by_is_show_in_navigation_and_is_show_in_column_and_active_and_parent_id(
-                  true,true,true,nil)
+    @categories = SkuCategory.top_navigation
     @recommendation = SkuDisplay.index_display(:limit => 4, :page => 4, :location => 0)
     @office_skus = SkuDisplay.index_display(:limit => 8, :page => 4, :location => 1)
     @office_hots = SkuDisplay.index_display(:limit => 6, :page => 4, :location => 2)
@@ -128,15 +124,14 @@ class Commodity::CategoriesController < ApplicationController
       @sku_browsing_histories = Hash.new
     else
       @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
-        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+        and sku_id in(select id from skus where  id in(select sku_id from sku_on_shelves where status = 1))")
     end
     @images = Image.find_all_by_page(4)
   end
 
   def liv_fur
     @slider_bars = SliderBar.limit(5).all
-    @categories = SkuCategory.find_all_by_is_show_in_navigation_and_is_show_in_column_and_active_and_parent_id(
-                  true,true,true,nil)
+    @categories = SkuCategory.top_navigation
     @recommendation = SkuDisplay.index_display(:limit => 4, :page => 5, :location => 0)
     @liv_room_fur_skus = SkuDisplay.index_display(:limit => 8, :page => 5, :location => 1)
     @liv_room_fur_hots = SkuDisplay.index_display(:limit => 6, :page => 5, :location => 2)
@@ -155,7 +150,7 @@ class Commodity::CategoriesController < ApplicationController
       @sku_browsing_histories = Hash.new
     else
       @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
-        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+        and sku_id in(select id from skus where  id in(select sku_id from sku_on_shelves where status = 1))")
     end
 
     @images = Image.find_all_by_page(5)
@@ -163,8 +158,7 @@ class Commodity::CategoriesController < ApplicationController
 
   def fur_jew
     @slider_bars = SliderBar.limit(5).all
-    @categories = SkuCategory.find_all_by_is_show_in_navigation_and_is_show_in_column_and_active_and_parent_id(
-                  true,true,true,nil)
+    @categories = SkuCategory.top_navigation
     @recommendation = SkuDisplay.index_display(:limit => 4, :page => 6, :location => 0)
     @bedclothes_skus = SkuDisplay.index_display(:limit => 8, :page => 6, :location => 1)
     @bedclothes_hots = SkuDisplay.index_display(:limit => 6, :page => 6, :location => 2)
@@ -180,7 +174,7 @@ class Commodity::CategoriesController < ApplicationController
       @sku_browsing_histories = Hash.new
     else
       @sku_browsing_histories = SkuBrowsingHistory.limit(3).order("quantity desc").where("user_id = #{current_user.id}
-        and sku_id in(select id from skus where status = 1 and id in(select sku_id from sku_on_shelves where status = 1))")
+        and sku_id in(select id from skus where  id in(select sku_id from sku_on_shelves where status = 1))")
     end
 
     @images = Image.find_all_by_page(6)

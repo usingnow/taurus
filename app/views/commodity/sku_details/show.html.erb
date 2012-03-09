@@ -63,7 +63,11 @@
       <%= text_field_tag :quantity, 1, :id => "sku_quantity" %>
       <button id="plus" type="button">+</button>
       <div></div>
-      <input type="button" class="add_to_cart" id="add_to_cart" value="添加到购物车"/>
+      <% if @sku.status == 1 %>
+        <input type="button" class="add_to_cart" id="add_to_cart" value="添加到购物车"/>
+      <% else %>
+        <input type="button" class="add_to_cart_grey" value="添加到购物车"/>
+      <% end %>
       <button id="add_to_favorite" class="add_to_fav">收藏</button>
     </div>
     <!--添加购物车成功信息 开始-->

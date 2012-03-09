@@ -28,7 +28,11 @@
         <td><%= link_to "删除", order_back_order_sku_path(cart), :confirm => "确定删除?", :method => :delete, :remote => true %></td>
       </tr>
     <% end %>
-    <tr><td colspan="10" align="right" id="total_amount">总计:<%= number_to_currency @back_order_skus.to_a.sum{ |sku| sku.subtotal }, :unit => "￥" %></td></tr>
+    <tr>
+      <td colspan="10" align="right" id="total_amount">
+        总计:<%= number_to_currency @back_order_skus.to_a.sum{ |sku| sku.subtotal }, :unit => "￥" %>
+      </td>
+    </tr>
   </tbody>
 </table>
 
