@@ -569,7 +569,9 @@ div#copyright {
     width: 1000px;
     padding: 0 0 0 170px;}
   li {
-	margin: 0 0 0 10px;}}
+	margin: 0 0 0 10px;
+      a {
+        color: #FFFFFF;}}}
 
 // Recent visited bar style with a 3 rows list
 // listed in the homepage.
@@ -721,8 +723,7 @@ div#copyright {
 	font-size: 12px;
 	line-height:22px;
 	vertical-align:middle;}
-
-script + a {
+a[title="站长统计"] {
   display: block;
   position: absolute;
   bottom: -200px;
