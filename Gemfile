@@ -5,8 +5,10 @@ gem 'mysql2', '~>0.3.10'
 
 gem 'rake','0.9.2.2'
 
+# Windows下不用安装以下两包。
 gem 'execjs'
 gem 'therubyracer'
+
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
@@ -14,7 +16,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'capistrano'  #自动部署
+#gem 'capistrano'  #自动部署
 gem 'ckeditor', '3.7.0.rc2' #富文本编辑器
 gem "paperclip", "2.4.0"   #文件上传
 gem 'rmagick', '2.13.1', :require => 'RMagick' #图像处理
@@ -26,10 +28,9 @@ gem "cancan", "1.6.7" #权限
 gem 'rails3-jquery-autocomplete' #自动完成
 gem 'jquery-rails', '1.0.19'
 
-#gem 'activemerchant', :require => "active_merchant"
-#gem 'activemerchant_patch_for_china'
+#pdf打印
+#gem 'prawn', :git => "git://github.com/prawnpdf/prawn.git"
 
-#gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 group :test do
   gem "rspec"
