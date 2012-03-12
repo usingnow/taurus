@@ -8,6 +8,6 @@ class Commodity::Index::SkusController < ApplicationController
     end
     @skus = @search.result.paginate(:page => params[:page], :per_page => 20)
     @categories = SkuCategory.where("parent_id is null")
-    @keywords = params[:q][:name_cont]
+    @keywords = params[:q][:name_or_number_cont]
   end
 end
