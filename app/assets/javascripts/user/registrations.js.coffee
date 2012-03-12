@@ -46,8 +46,9 @@ jQuery ->
 		operateor:"=",
 		onerror:"2次密码不一致,请确认"})
 
-  jQuery("#user_check").formValidator({
+  jQuery(":checkbox[name='user_check']").formValidator({
     onshow: "请勾选"
+    oncorrect: ""
   }).inputValidator({
     min:1,
     onerror:"请勾选"})
