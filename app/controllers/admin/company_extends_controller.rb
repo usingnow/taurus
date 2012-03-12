@@ -33,17 +33,12 @@ class Admin::CompanyExtendsController < ApplicationController
     @company_extend = CompanyExtend.find(params[:id])
   end
 
-  # POST /company_extends
-  # POST /company_extends.xml
   def create
     @user = User.new params[:user]
     @user.user_type = 2
-    @company_extend = CompanyExtend.new(params[:company_extend])
-    @company_extend.user = @user
 
-    unless [@company_extend, @user].map(&:valid?).include?(false)
-      @company_extend.company_no = current_company_no
-      @company_extend.save
+    if @user.save
+      @user.update_attribute(:confirmed_at, Time.now)
       redirect_to admin_company_extends_url
     else
       render :action => "new"

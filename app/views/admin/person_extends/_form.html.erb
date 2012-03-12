@@ -1,4 +1,4 @@
-<%= form_for :user, :url => admin_person_extends_path do |f| %>
+<%= form_for @user, :url => admin_person_extends_path do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= t('activerecord.errors.template.header', :count => @user.errors.size+@person_extend.errors.size, :model => t('models.person_extend'))  %></h2>
@@ -43,37 +43,39 @@
         <%= label_tag t :email %>
         <%= f.email_field :email %><span class="red">*</span>
       </p>
-      <p>
-        <%= label_tag t 'attributes.person_extend.name' %>
-        <%= text_field :person_extend, :name %><span class="red">*</span>
-      </p>
-      <p>
-        <%= label_tag t 'attributes.person_extend.sex' %>
-        <%= radio_button :person_extend, :sex, '0', :class => "radio" %>
-        女
-        <%= radio_button :person_extend, :sex, '1', :class => "radio", :checked => true %>
-        男
-      </p>
-      <p>
-        <%= label_tag t 'attributes.person_extend.birth' %>
-        <%= date_select :person_extend, :birth, {:include_blank => true} %>
-      </p>
-      <p>
-        <%= label_tag t 'attributes.person_extend.district_no' %>
-        <%= raw address nil,'person_extend' %><span class="red">*</span>
-      </p>
-      <p>
-        <%= label_tag '联系地址：' %>
-        <%= text_field :person_extend, :address %><span class="red">*</span>
-      </p>
-      <p>
-        <%= label_tag '联系电话：' %>
-        <%= phone_field :person_extend, :phone %><span class="red">*</span>
-      </p>
-      <p>
-        <%= label_tag '邮政编码：' %>
-        <%= text_field :person_extend, :post %>
-      </p>
+      <%= f.fields_for :person_extend do |p| %>
+        <p>
+          <%= label_tag t 'attributes.person_extend.name' %>
+          <%= p.text_field :name %><span class="red">*</span>
+        </p>
+        <p>
+          <%= label_tag t 'attributes.person_extend.sex' %>
+          <%= p.radio_button :sex, '0', :class => "radio" %>
+          女
+          <%= p.radio_button :sex, '1', :class => "radio", :checked => true %>
+          男
+        </p>
+        <p>
+          <%= label_tag t 'attributes.person_extend.birth' %>
+          <%= p.date_select :birth, {:include_blank => true} %>
+        </p>
+        <p>
+          <%= label_tag t 'attributes.person_extend.district_no' %>
+          <%= raw address nil,'user[person_extend_attributes]' %><span class="red">*</span>
+        </p>
+        <p>
+          <%= label_tag '联系地址：' %>
+          <%= p.text_field :address %><span class="red">*</span>
+        </p>
+        <p>
+          <%= label_tag '联系电话：' %>
+          <%= p.phone_field :phone %><span class="red">*</span>
+        </p>
+        <p>
+          <%= label_tag '邮政编码：' %>
+          <%= p.text_field :post %>
+        </p>
+      <% end %>
     </div>
     <div class="clear"></div>
   </div>

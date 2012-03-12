@@ -1,16 +1,11 @@
-<%= form_for :user, :url => admin_company_extends_path do |f| %>
+<%= form_for @user, :url => admin_company_extends_path do |f| %>
    <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= t('activerecord.errors.template.header', :count => @user.errors.size+@company_extend.errors.size, :model => t('models.company_extend'))  %></h2>
+      <h2><%= t('activerecord.errors.template.header', :count => @user.errors.size, :model => t('models.company_extend'))  %></h2>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
-      <% end %>
-      <% if @company_extend.errors.any? %>
-        <% @company_extend.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
       <% end %>
       </ul>
     </div>
@@ -48,90 +43,92 @@
         <label>仓库</label>
         <%= f.select :store_id, Store.all.collect {|s| [ s.name, s.id ] } %><span class="red">*</span>
       </p>
-      <p>
-        <%= label_tag t 'attributes.company_extend.company_name' %>
-        <%= text_field :company_extend, :company_name %><span class="red">*</span>
-      </p>
-      <p>
-        <%= label_tag t :industry %>
-        <%= select :company_extend, :industry_id, Industry.all.collect{ |p| [p.name, p.id]} %><span class="red">*</span>
-      </p>
+      <%= f.fields_for :company_extend do |c| %>
+        <p>
+          <%= label_tag t 'attributes.company_extend.company_name' %>
+          <%= c.text_field :company_name %><span class="red">*</span>
+        </p>
+        <p>
+          <%= label_tag t :industry %>
+          <%= c.select :industry_id, Industry.all.collect{ |p| [p.name, p.id]} %><span class="red">*</span>
+        </p>
+      </div>
+      <div class="clear"></div>
     </div>
-    <div class="clear"></div>
-  </div>
 
-  <div class="attributes">
-    <div class="split_content_left">
-      <p>
-        <%= label_tag t :company_type %>
-        <%= select :company_extend, :company_type_id, CompanyType.all.collect{ |p| [p.name, p.id]} %><span class="red">*</span>
-      </p>
+    <div class="attributes">
+      <div class="split_content_left">
+        <p>
+          <%= label_tag t :company_type %>
+          <%= c.select :company_type_id, CompanyType.all.collect{ |p| [p.name, p.id]} %><span class="red">*</span>
+        </p>
+      </div>
+      <div class="split_content_right">
+        <p>
+           <%= label_tag t :company_scale %>
+           <%= c.select :company_scale_id, CompanyScale.all.collect{ |p| [p.name, p.id]},{:include_blank => "-请选择-"} %>
+        </p>
+      </div>
+      <div class="split_content_left_long">
+        <p>
+          <%= label_tag t :district %>
+          <%= raw address nil, 'user[company_extend_attributes]' %><span class="red">*</span>
+        </p>
+        <p>
+          <%= label_tag t 'attributes.company_extend.address' %>
+          <%= c.text_field :address %>
+        </p>
+        <p>
+          <%= label_tag t :email %>
+          <%= f.text_field :email %><span class="red">*</span>
+        </p>
+        <p>
+          <%= label_tag t 'attributes.company_extend.web_address' %>
+          <%= c.text_field :web_address %>
+        </p>
+      </div>
+      <div class="clear"></div>
     </div>
-    <div class="split_content_right">
-      <p>
-         <%= label_tag t :company_scale %>
-         <%= select :company_extend, :company_scale_id, CompanyScale.all.collect{ |p| [p.name, p.id]},{:include_blank => "-请选择-"} %>
-      </p>
-    </div>
-    <div class="split_content_left_long">
-      <p>
-        <%= label_tag t :district %>
-        <%= raw address nil, 'company_extend' %><span class="red">*</span>
-      </p>
-      <p>
-        <%= label_tag t 'attributes.company_extend.address' %>
-        <%= text_field :company_extend, :address %>
-      </p>
-      <p>
-        <%= label_tag t :email %>
-        <%= f.text_field :email %><span class="red">*</span>
-      </p>
-      <p>
-        <%= label_tag t 'attributes.company_extend.web_address' %>
-        <%= text_field :company_extend, :web_address %>
-      </p>
-    </div>
-    <div class="clear"></div>
-  </div>
-  <div class="attributes">
-    <div class="split_content_left">
-      <p>
-        <%= label_tag t 'attributes.company_extend.name' %>
-        <%= text_field :company_extend, :name %><span class="red">*</span>
-      </p>
-      <p>
-        <%= label_tag t 'attributes.company_extend.contact_dept' %>
-        <%= text_field :company_extend, :contact_dept %>
-      </p>
-      <p>
-        <%= label_tag t 'attributes.company_extend.phone' %>
-        <%= text_field :company_extend, :phone %>
-      </p>
-      <p>
-        <%= label_tag t 'attributes.company_extend.mobile' %>
-        <%= text_field :company_extend, :mobile %>
-      </p>
-    </div>
-    <div class="split_content_right">
-      <p>
-        <%= label_tag t 'attributes.company_extend.sex' %>
-        <%= radio_button :company_extend, :sex, '0', :class => "radio" %>
-        女
-        <%= radio_button :company_extend, :sex, '1', :class => "radio", :checked => true %>
-        男
-      </p>
-      <p>
-        <%= label_tag t 'attributes.company_extend.contact_post' %>
-        <%= text_field :company_extend, :contact_post %>
-      </p>
-      <p>
-        <%= label_tag t 'attributes.company_extend.fax' %>
-        <%= text_field :company_extend, :fax %>
-      </p>
-      <p>
-        <%= label_tag t 'attributes.company_extend.zip' %>
-        <%= text_field :company_extend, :zip %>
-      </p>
+    <div class="attributes">
+      <div class="split_content_left">
+        <p>
+          <%= label_tag t 'attributes.company_extend.name' %>
+          <%= c.text_field :name %><span class="red">*</span>
+        </p>
+        <p>
+          <%= label_tag t 'attributes.company_extend.contact_dept' %>
+          <%= c.text_field :contact_dept %>
+        </p>
+        <p>
+          <%= label_tag t 'attributes.company_extend.phone' %>
+          <%= c.text_field :phone %>
+        </p>
+        <p>
+          <%= label_tag t 'attributes.company_extend.mobile' %>
+          <%= c.text_field :mobile %>
+        </p>
+      </div>
+      <div class="split_content_right">
+        <p>
+          <%= label_tag t 'attributes.company_extend.sex' %>
+          <%= c.radio_button :sex, '0', :class => "radio" %>
+          女
+          <%= c.radio_button :sex, '1', :class => "radio", :checked => true %>
+          男
+        </p>
+        <p>
+          <%= label_tag t 'attributes.company_extend.contact_post' %>
+          <%= c.text_field :contact_post %>
+        </p>
+        <p>
+          <%= label_tag t 'attributes.company_extend.fax' %>
+          <%= c.text_field :fax %>
+        </p>
+        <p>
+          <%= label_tag t 'attributes.company_extend.zip' %>
+          <%= c.text_field :zip %>
+        </p>
+      <% end %>
     </div>
     <div class="clear"></div>
   </div>

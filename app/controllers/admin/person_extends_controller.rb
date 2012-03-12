@@ -17,12 +17,9 @@ class Admin::PersonExtendsController < ApplicationController
   def create
     @user = User.new params[:user]
     @user.user_type = 1
-    @person_extend = PersonExtend.new params[:person_extend]
-    @person_extend.user = @user
 
-    unless [@person_extend, @user].map(&:valid?).include?(false)
-      @person_extend.person_no = current_person_no
-      @person_extend.save
+    if @user.save
+      @user.update_attribute(:confirmed_at, Time.now)
       redirect_to admin_person_extends_url
     else
       render :action => "new"
