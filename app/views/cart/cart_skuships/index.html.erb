@@ -17,10 +17,10 @@
       <th>商品编号</th>
       <th>商品名称</th>
       <th>单价</th>
-      <th>数量</th>
-      <th>安装</th>
+      <th class="short">数量</th>
+      <th class="short">安装</th>
       <th>安装费用</th>
-      <th>组装</th>
+      <th class="short">组装</th>
       <th>组装费用</th>
       <th>小计</th>
       <th>操作</th>
@@ -31,13 +31,13 @@
       <tr class="<%= set_odd_even_class (index+1) %>" id="<%= cart_sku.id %>">
         <td><%= cart_sku.sku.number %></td>
         <td><%= cart_sku.sku.name %></td>
-        <td><%= number_to_currency cart_sku.sku.cost_aft_tax, :unit => "￥" %></td>
+        <td><em><%= number_to_currency cart_sku.sku.cost_aft_tax, :unit => "￥" %></em></td>
         <td><%= text_field_tag :quantity, cart_sku.quantity, :class => "cart_sku_quantity" %></td>
         <td><%= check_box_tag :is_need_install, 1, cart_sku.is_need_install, :class => "cart_sku_is_need_install check" %></td>
-        <td><%= number_to_currency cart_sku.sku.installation_cost_aft_tax, :unit => "￥" %></td>
+        <td><em><%= number_to_currency cart_sku.sku.installation_cost_aft_tax, :unit => "￥" %></em></td>
         <td><%= check_box_tag :is_need_assemble, 1, cart_sku.is_need_assemble, :class => "cart_sku_is_need_assemble check" %></td>
-        <td><%= number_to_currency cart_sku.sku.assembling_fee_aft_tax, :unit => "￥" %></td>
-        <td id="subtotal<%= cart_sku.id %>"><%= number_to_currency cart_sku.total_amount, :unit => "￥" %></td>
+        <td><em><%= number_to_currency cart_sku.sku.assembling_fee_aft_tax, :unit => "￥" %></em></td>
+        <td id="subtotal<%= cart_sku.id %>"><em><%= number_to_currency cart_sku.total_amount, :unit => "￥" %></em></td>
         <td>
           <%= link_to t('admin.actions.delete.menu'), cart_cart_skuship_path(cart_sku), :confirm => t('admin.actions.delete.confirm'), :method => :delete %>
           <a href="#" class="add_to_favorite" data-sku_id="<%= cart_sku.sku_id %>">收藏</a>
@@ -54,15 +54,15 @@
     <tr>
       <td colspan="11">
         商品总价：
-        <i id="total_sku_amount">
+        <i id="total_sku_amount" class="cny">
           <%= number_to_currency @cart.total_sku_amount, :unit => "￥" %>
         </i>
         元 + 安装费：
-        <i id="total_installation_amount">
+        <i id="total_installation_amount" class="cny">
           <%= number_to_currency @cart.total_installation_amount, :unit => "￥" %>
         </i>
         元 + 组装费：
-        <i id="total_assembling_amount">
+        <i id="total_assembling_amount" class="cny">
           <%= number_to_currency @cart.total_assembling_amount, :unit => "￥" %>
         </i>
         元
@@ -72,7 +72,7 @@
       <td colspan="11">
         <strong>选购商品价格总计</strong>
         （不包含运费）：
-        <strong><i id="total_amount"><%= number_to_currency @cart.total_amount, :unit => "￥" %></i></strong>
+        <strong><i id="total_amount" class="cny"><%= number_to_currency @cart.total_amount, :unit => "￥" %></i></strong>
         元
       </td>
     </tr>
