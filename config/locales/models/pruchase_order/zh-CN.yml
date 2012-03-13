@@ -1,0 +1,14 @@
+zh-CN:
+  activerecord:
+    models:
+      purchase_order: "采购单"
+    attributes:
+      purchase_order:
+        po_id: "采购单编号"
+        ordering_company_id: "订货公司"
+        supplier_id: "供应商"
+        administrator_id: "制单人"
+        po_remarks: "备注"
+        created_at: "采购单日期"
+        po_time_of_delivery: "期望交货日期"
+

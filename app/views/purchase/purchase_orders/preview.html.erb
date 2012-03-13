@@ -1,0 +1,61 @@
+<%= simple_form_for [:purchase, @purchase_order] do |f| %>
+
+  <%= f.label :po_id %>(系统自动生成)
+  <%= f.label :created_at %><%= Time.now.strftime('%Y-%m-%d') %>
+  <%= f.label :administrator_id %><%= current_administrator.name %>
+  <%= f.label :ordering_company_id %>
+  <%= @purchase_order.ordering_company.name %>
+  <%= f.input :ordering_company_id, :as => :hidden %>
+  <%= t 'activerecord.attributes.ordering_company.address' %>
+  <%= @purchase_order.ordering_company.address %>
+  <%= t 'activerecord.attributes.ordering_company.phone' %>
+  <%= @purchase_order.ordering_company.phone %>
+  <%= label_tag t 'activerecord.attributes.supplier.supplier_id' %>
+  <%= @purchase_order.supplier.supplier_id %>
+  <%= f.input :supplier_id, :as => :hidden %>
+  <%= t 'activerecord.attributes.supplier.name' %>
+  <%= @purchase_order.supplier.name %>
+  <%= t 'activerecord.attributes.supplier.contact_way' %>
+  <%= @purchase_order.supplier.contact_way %>
+  <%= t 'activerecord.attributes.supplier.fax' %>
+  <%= @purchase_order.supplier.fax %>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= t 'activerecord.attributes.product.product_id' %></th>
+        <th><%= t 'activerecord.attributes.product.name' %></th>
+        <th><%= t 'activerecord.attributes.product.specification' %></th>
+        <th><%= t 'activerecord.attributes.product.unit' %></th>
+        <th><%= t 'activerecord.attributes.product.cost_aft_tax' %></th>
+        <th><%= t 'activerecord.attributes.po_product_list.product_purchase_amount' %></th>
+        <th><%= t 'activerecord.attributes.po_product_list.subtotal' %></th>
+        <th><%= t 'activerecord.attributes.product.inventory' %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart.po_product_temp_lists.each_with_index do |po_product,index| %>
+        <tr class="<%= cycle("odd","even") %>">
+          <td><%= index+1 %></td>
+          <td><%= po_product.product.product_id %></td>
+          <td><%= po_product.product.name %></td>
+          <td><%= po_product.product.specification %></td>
+          <td><%= po_product.product.unit %></td>
+          <td><%= po_product.product.cost_aft_tax %></td>
+          <td><%= po_product.product_purchase_amount %></td>
+          <td><%= po_product.subtotal %></td>
+          <td><%= format_product_inventory po_product.product.nb_inventory? %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= f.label :po_time_of_delivery %>
+  <%= @purchase_order.po_time_of_delivery %>
+  <%= f.input :po_time_of_delivery, :as => :hidden %>
+  <%= f.label :po_remarks %>
+  <%= @purchase_order.po_remarks %>
+  <%= f.input :po_remarks, :as => :hidden %>
+  <button type="button" onclick="window.location.href='<%= new_purchase_purchase_order_path %>'">返回修改</button>
+  <%= f.submit t 'admin.misc.submit' %>
+<% end %>

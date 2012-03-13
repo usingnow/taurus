@@ -1,0 +1,71 @@
+<%= simple_form_for @purchase_order, :url => preview_purchase_purchase_orders_path, :method => :get do |f| %>
+  <%= error_messages @purchase_order %>
+  <%= f.label :po_id %>(系统自动生成)
+  <%= f.label :created_at %><%= Time.now.strftime('%Y-%m-%d') %>
+  <%= f.label :administrator_id %><%= current_administrator.name %>
+  <%= f.input :ordering_company_id, :collection => OrderingCompany.all,
+                  :label_method => :name, :value_method => :id, :as => :select %>
+  <%= t 'activerecord.attributes.ordering_company.address' %>
+  <span id="ordering_company_address"></span>
+  <%= t 'activerecord.attributes.ordering_company.phone' %>
+  <span id="ordering_company_phone"></span>
+  <%= label_tag t 'activerecord.attributes.supplier.supplier_id' %>
+  <%= text_field_tag :supplier_id %>
+  <button type="button" id="check_supplier_id">验证</button>
+  <%= f.input :supplier_id, :as => :hidden %>
+  <%= t 'activerecord.attributes.supplier.name' %>
+  <span id="supplier_name"></span>
+  <%= t 'activerecord.attributes.supplier.contact_way' %>
+  <span id="supplier_contact_way"></span>
+  <%= t 'activerecord.attributes.supplier.fax' %>
+  <span id="supplier_fax"></span>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= t 'activerecord.attributes.product.product_id' %></th>
+        <th><%= t 'activerecord.attributes.product.name' %></th>
+        <th><%= t 'activerecord.attributes.product.specification' %></th>
+        <th><%= t 'activerecord.attributes.product.unit' %></th>
+        <th><%= t 'activerecord.attributes.product.cost_aft_tax' %></th>
+        <th><%= t 'activerecord.attributes.po_product_list.product_purchase_amount' %></th>
+        <th><%= t 'activerecord.attributes.po_product_list.subtotal' %></th>
+        <th><%= t 'activerecord.attributes.product.inventory' %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="po_products">
+      <%= render "purchase/po_product_temp_lists/po_products" %>
+    </tbody>
+  </table>
+
+  <%= f.input :po_time_of_delivery, :as => :date %>
+  <%= f.input :po_remarks, :input_html => { :cols => 120, :rows => 5} %>
+  <%= f.submit t('admin.misc.preview', :model => t('activerecord.models.purchase_order')) %>
+<% end %>
+
+<%= search_form_for @search, :url => search_products_purchase_purchase_orders_path, :remote => true do |s| %>
+  <%= t 'activerecord.attributes.product.product_id' %>
+  <%= s.text_field :product_id_start %>
+  <%= t 'activerecord.attributes.product.name' %>
+  <%= s.text_field :name_cont %>
+  <%= s.submit t 'admin.misc.search' %>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= t 'activerecord.attributes.product.product_id' %></th>
+        <th><%= t 'activerecord.attributes.product.name' %></th>
+        <th><%= t 'activerecord.attributes.product.specification' %></th>
+        <th><%= t 'activerecord.attributes.product.unit' %></th>
+        <th><%= t 'activerecord.attributes.product.cost_aft_tax' %></th>
+        <th><%= t 'activerecord.attributes.product.inventory' %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render "products" %>
+    </tbody>
+  </table>
+<% end %>

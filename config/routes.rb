@@ -64,7 +64,6 @@ Ebiz::Application.routes.draw do
     resources :groups
     resources :home
     resources :industries
-    resources :panic_buyings
     resources :permissions
     resources :products do
       collection do
@@ -127,13 +126,6 @@ Ebiz::Application.routes.draw do
     resources :districts do
       collection do
         get  :ajax
-      end
-    end
-    resources :product_purchaseships
-    resources :purchases do
-      collection do
-        put  :next
-        get  :be_store
       end
     end
     resources :ordering_companies
@@ -234,6 +226,18 @@ Ebiz::Application.routes.draw do
         post :operate
       end
     end
+  end
+
+  namespace :purchase do
+    resources :po_product_lists
+    resources :purchase_orders do
+      collection do
+        get :search_products
+        get :preview
+        get :check_supplier_id
+      end
+    end
+    resources :po_product_temp_lists
   end
 
   namespace :user do

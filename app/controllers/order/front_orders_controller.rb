@@ -103,7 +103,7 @@ class Order::FrontOrdersController < ApplicationController
                  :created_by => "前台客户"}]
         save_station_track(hash)
 
-        order = Order.new(:number => current_number, :instance_id => instance.id, :user_id => user.id,
+        order = Order.new(:number => current_order_number, :instance_id => instance.id, :user_id => user.id,
           :district_no => consignee_info.district_no, :name => consignee_info.name,:address => consignee_info.address,
           :zip => consignee_info.zip, :phone => consignee_info.phone, :mobile => consignee_info.mobile,
           :email => consignee_info.email, :invoice_type => temp_payment.invoice_type,
@@ -155,7 +155,7 @@ class Order::FrontOrdersController < ApplicationController
                    :created_by => "前台客户"}]
           save_station_track(hash)
 
-          order = Order.new(:number => current_number, :instance_id => instance.id, :user_id => user.id,
+          order = Order.new(:number => current_order_number, :instance_id => instance.id, :user_id => user.id,
             :district_no => consignee_info.district_no, :name => consignee_info.name,:address => consignee_info.address,
             :zip => consignee_info.zip, :phone => consignee_info.phone, :mobile => consignee_info.mobile,
             :email => consignee_info.email, :invoice_type => temp_payment.invoice_type,

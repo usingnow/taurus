@@ -1,7 +1,6 @@
 <h1>入库单列表</h1>
 
 <div class="grid_button">
-   <%= link_to '采购单入库', be_store_admin_purchases_path %>
    <%= link_to '新增入库单', new_admin_store_entry_path %>
 </div>
 
@@ -21,7 +20,7 @@
   <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
     <td><%= index+1 %></td>
     <td><%= store_entry.number %></td>
-    <td><%= store_entry.purchase.number if !store_entry.purchase.nil? %></td>
+    <td></td>
     <td><%= store_entry.ordering_company.name %></td>
     <td><%= store_entry.supplier.name %></td>
     <td><%= store_entry.store.name %></td>

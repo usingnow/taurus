@@ -1,0 +1,14 @@
+<% @cart.po_product_temp_lists.each_with_index do |po_product,index| %>
+  <tr class="<%= cycle("odd","even") %>">
+    <td><%= index+1 %></td>
+    <td><%= po_product.product.product_id %></td>
+    <td><%= po_product.product.name %></td>
+    <td><%= po_product.product.specification %></td>
+    <td><%= po_product.product.unit %></td>
+    <td><%= po_product.product.cost_aft_tax %></td>
+    <td><%= text_field_tag :product_purchase_amount, po_product.product_purchase_amount, :'data-id' => po_product.id %></td>
+    <td><%= po_product.subtotal %></td>
+    <td><%= format_product_inventory po_product.product.nb_inventory? %></td>
+    <td><%= link_to t('admin.actions.delete.menu'), purchase_po_product_temp_list_path(po_product), :confirm => t('admin.actions.delete.confirm'), :method => :delete, :remote => true %></td>
+  </tr>
+<% end %>

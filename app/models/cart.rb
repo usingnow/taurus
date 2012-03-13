@@ -2,6 +2,17 @@
 class Cart < ActiveRecord::Base
   has_many :cart_skuships, :dependent => :destroy
   has_many :skus, :through => :cart_skuships
+  has_many :po_product_temp_lists, :dependent => :destroy
+
+  def add_po_product(product_id)
+    current_po_product = po_product_temp_lists.find_by_product_id(product_id)
+    if current_po_product
+     current_po_product.product_purchase_amount += 1
+    else
+      current_po_product = po_product_temp_lists.build(:product_id => product_id)
+    end
+    current_po_product
+  end
 
   def add_sku(sku_id,quantity)
     current_cart_sku = cart_skuships.find_by_sku_id(sku_id)

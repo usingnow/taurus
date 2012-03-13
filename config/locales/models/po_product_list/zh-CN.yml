@@ -1,0 +1,11 @@
+zh-CN:
+  activerecord:
+    models:
+      po_product_list: "采购商品列表"
+    attributes:
+      po_product_list:
+        po_id: "采购单"
+        product_id: "素材商品"
+        product_purchase_amount: "订购数量"
+        subtotal: "小计"
+
