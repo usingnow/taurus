@@ -4,7 +4,8 @@ class Purchase::PurchaseOrdersController < ApplicationController
   authorize_resource
 
   def index
-    @purchase_orders = PurchaseOrder.all
+    @search = PurchaseOrder.search(params[:q])
+    @purchase_orders = @search.result.paginate(:page => params[:page], :per_page => 15)
   end
 
 
@@ -21,6 +22,10 @@ class Purchase::PurchaseOrdersController < ApplicationController
   end
 
   def edit
+    @purchase_order = PurchaseOrder.find(params[:id])
+
+    @search = Product.search(params[:q])
+    @products = @search.result.paginate(:page => params[:page], :per_page => 10)
   end
 
   def create
@@ -48,6 +53,9 @@ class Purchase::PurchaseOrdersController < ApplicationController
 
 
   def update
+    @purchase_order = PurchaseOrder.find(params[:id])
+    @purchase_order.update_attributes(params[:purchase_order])
+    redirect_to purchase_purchase_orders_url
   end
 
 

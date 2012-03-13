@@ -11,4 +11,7 @@ zh-CN:
         po_remarks: "备注"
         created_at: "采购单日期"
         po_time_of_delivery: "期望交货日期"
+        price: "采购总金额"
+        po_status: "采购状态"
+        po_store_status: "入库状态"
 

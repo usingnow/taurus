@@ -1,0 +1,70 @@
+<%= simple_form_for [:purchase, @purchase_order] do |f| %>
+  <%= error_messages @purchase_order %>
+  <%= f.label :po_id %><%= @purchase_order.po_id %>
+  <%= f.label :created_at %><%= @purchase_order.created_at %>
+  <%= f.label :administrator_id %><%= @purchase_order.administrator.name %>
+  <%= f.label :po_status %><%= format_po_status @purchase_order.po_status %>
+  <%= f.label :ordering_company_id %>
+  <%= @purchase_order.ordering_company.name %>
+  <%= t 'activerecord.attributes.ordering_company.address' %>
+  <%= @purchase_order.ordering_company.address %>
+  <%= t 'activerecord.attributes.ordering_company.phone' %>
+  <%= @purchase_order.ordering_company.phone %>
+  <%= label_tag t 'activerecord.attributes.supplier.supplier_id' %>
+  <%= @purchase_order.supplier.supplier_id %>
+  <%= t 'activerecord.attributes.supplier.name' %>
+  <%= @purchase_order.supplier.name %>
+  <%= t 'activerecord.attributes.supplier.contact_way' %>
+  <%= @purchase_order.supplier.contact_way %>
+  <%= t 'activerecord.attributes.supplier.fax' %>
+  <%= @purchase_order.supplier.fax %>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= t 'activerecord.attributes.product.product_id' %></th>
+        <th><%= t 'activerecord.attributes.product.name' %></th>
+        <th><%= t 'activerecord.attributes.product.specification' %></th>
+        <th><%= t 'activerecord.attributes.product.unit' %></th>
+        <th><%= t 'activerecord.attributes.product.cost_aft_tax' %></th>
+        <th><%= t 'activerecord.attributes.po_product_list.product_purchase_amount' %></th>
+        <th><%= t 'activerecord.attributes.po_product_list.subtotal' %></th>
+        <th><%= t 'activerecord.attributes.product.inventory' %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="po_products">
+      <%= render "purchase/po_product_lists/po_products" %>
+    </tbody>
+  </table>
+
+  <%= f.input :po_time_of_delivery, :as => :date %>
+  <%= f.input :po_remarks, :input_html => { :cols => 120, :rows => 5} %>
+  <%= f.submit t('admin.misc.save') %>
+<% end %>
+
+<%= search_form_for @search, :url => search_products_purchase_purchase_orders_path, :remote => true do |s| %>
+  <%= t 'activerecord.attributes.product.product_id' %>
+  <%= s.text_field :product_id_start %>
+  <%= t 'activerecord.attributes.product.name' %>
+  <%= s.text_field :name_cont %>
+  <%= s.submit t 'admin.misc.search' %>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= t 'activerecord.attributes.product.product_id' %></th>
+        <th><%= t 'activerecord.attributes.product.name' %></th>
+        <th><%= t 'activerecord.attributes.product.specification' %></th>
+        <th><%= t 'activerecord.attributes.product.unit' %></th>
+        <th><%= t 'activerecord.attributes.product.cost_aft_tax' %></th>
+        <th><%= t 'activerecord.attributes.product.inventory' %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render "products" %>
+    </tbody>
+  </table>
+<% end %>

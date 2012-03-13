@@ -1,6 +1,12 @@
 jQuery ->
-  jQuery("[name='product_purchase_amount']").live 'change', (event) ->
+  jQuery(".new_product_purchase_amount").live 'change', (event) ->
     jQuery.ajax '/purchase/po_product_temp_lists/'+jQuery(this).attr("data-id"),
+      type: 'PUT',
+      data: 'product_purchase_amount=' + @value,
+      dataType: 'script'
+
+  jQuery(".edit_product_purchase_amount").live 'change', (event) ->
+    jQuery.ajax '/purchase/po_product_lists/'+jQuery(this).attr("data-id"),
       type: 'PUT',
       data: 'product_purchase_amount=' + @value,
       dataType: 'script'

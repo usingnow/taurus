@@ -512,6 +512,7 @@ zh-CN:
       search: "查询"
       preview: "%{model}预览"
       submit: "提交"
+      save: "保存"
     actions:
       index:
         title: "%{model}列表"

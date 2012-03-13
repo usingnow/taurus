@@ -7,6 +7,12 @@
     <td><%= product.unit %></td>
     <td><%= product.cost_aft_tax %></td>
     <td><%= format_product_inventory product.nb_inventory? %></td>
-    <td><%= link_to t('admin.misc.add_new'), purchase_po_product_temp_lists_path(:product_id => product.id), :method => :post, :remote => true %></td>
+    <td>
+      <% if @purchase_order.po_id.nil? %>
+        <%= link_to t('admin.misc.add_new'), purchase_po_product_temp_lists_path(:product_id => product.id), :method => :post, :remote => true %>
+      <% else %>
+        <%= link_to t('admin.misc.add_new'), purchase_po_product_lists_path(:product_id => product.id, :purchase_order_id => @purchase_order.id), :method => :post, :remote => true %>
+      <% end %>
+    </td>
   </tr>
 <% end %>
