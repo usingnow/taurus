@@ -25,10 +25,6 @@ class PurchaseOrder < ActiveRecord::Base
   end
 
   def store_price
-    store_entries.to_a.sum do |store_entry|
-      store_entry.product_store_entryships.to_a.sum do |product|
-        product.quantity*product_unit_price
-      end
-    end
+    po_product_lists.to_a.sum { |list| list.store_price }
   end
 end

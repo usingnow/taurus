@@ -1,5 +1,8 @@
 <%= link_to t('admin.actions.new.title', :model => t('activerecord.models.purchase_order')), new_purchase_purchase_order_path %>
 
+<%= search_form_for @search, :url => purchase_purchase_orders_path do |f| %>
+  <%= f.submit t('admin.misc.search') %>
+<% end %>
 <table>
   <thead>
     <tr>

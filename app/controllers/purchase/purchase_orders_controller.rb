@@ -78,6 +78,12 @@ class Purchase::PurchaseOrdersController < ApplicationController
     @products = @search.result.paginate(:page => params[:page], :per_page => 10)
   end
 
+  def search_products_edit
+    @search = Product.search(params[:q])
+    @products = @search.result.paginate(:page => params[:page], :per_page => 10)
+    @purchase_order = PurchaseOrder.find(params[:purchase_order_id])
+  end
+
   def preview
     @purchase_order = PurchaseOrder.new params[:purchase_order]
     @cart = current_cart

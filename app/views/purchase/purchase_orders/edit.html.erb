@@ -43,7 +43,8 @@
   <%= f.submit t('admin.misc.save') %>
 <% end %>
 
-<%= search_form_for @search, :url => search_products_purchase_purchase_orders_path, :remote => true do |s| %>
+<%= search_form_for @search, :url => search_products_edit_purchase_purchase_orders_path, :remote => true do |s| %>
+  <%= hidden_field_tag :purchase_order_id, @purchase_order.id %>
   <%= t 'activerecord.attributes.product.product_id' %>
   <%= s.text_field :product_id_start %>
   <%= t 'activerecord.attributes.product.name' %>
@@ -63,8 +64,8 @@
         <th></th>
       </tr>
     </thead>
-    <tbody>
-      <%= render "products" %>
+    <tbody id="search_products">
+      <%= render "products_edit" %>
     </tbody>
   </table>
 <% end %>

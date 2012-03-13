@@ -243,6 +243,7 @@ Ebiz::Application.routes.draw do
     resources :purchase_orders do
       collection do
         get :search_products
+        get :search_products_edit
         get :preview
         get :check_supplier_id
       end
