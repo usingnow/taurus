@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120312121835) do
+ActiveRecord::Schema.define(:version => 20120313092244) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -872,7 +872,7 @@ ActiveRecord::Schema.define(:version => 20120312121835) do
 
   create_table "store_entries", :force => true do |t|
     t.string   "number"
-    t.integer  "purchase_id"
+    t.integer  "purchase_order_id"
     t.integer  "ordering_company_id"
     t.integer  "supplier_id"
     t.integer  "store_id"

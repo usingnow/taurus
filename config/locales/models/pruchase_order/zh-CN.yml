@@ -14,4 +14,6 @@ zh-CN:
         price: "采购总金额"
         po_status: "采购状态"
         po_store_status: "入库状态"
+        po_released_at: "发布日期"
+        po_closed_at: "关闭日期"
 

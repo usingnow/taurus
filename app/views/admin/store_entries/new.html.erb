@@ -1,7 +1,7 @@
 <h1>新建入库单</h1>
 
 <%= form_for([:admin,@store_entry]) do |f| %>
-  <%= f.hidden_field :purchase_id %>
+  <%= f.hidden_field :purchase_order_id %>
   <% if @store_entry.errors.any? %>
     <div id="error_explanation">
       <h2><%= t('activerecord.errors.template.header', :count => @store_entry.errors.size,

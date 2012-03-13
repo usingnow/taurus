@@ -10,19 +10,13 @@ class Purchase::PurchaseOrdersController < ApplicationController
 
 
   def show
+    @purchase_order = PurchaseOrder.find(params[:id])
   end
 
   def new
     @purchase_order = PurchaseOrder.new
 
     @cart = current_cart
-
-    @search = Product.search(params[:q])
-    @products = @search.result.paginate(:page => params[:page], :per_page => 10)
-  end
-
-  def edit
-    @purchase_order = PurchaseOrder.find(params[:id])
 
     @search = Product.search(params[:q])
     @products = @search.result.paginate(:page => params[:page], :per_page => 10)
@@ -51,6 +45,12 @@ class Purchase::PurchaseOrdersController < ApplicationController
     end
   end
 
+  def edit
+    @purchase_order = PurchaseOrder.find(params[:id])
+
+    @search = Product.search(params[:q])
+    @products = @search.result.paginate(:page => params[:page], :per_page => 10)
+  end
 
   def update
     @purchase_order = PurchaseOrder.find(params[:id])
@@ -58,8 +58,19 @@ class Purchase::PurchaseOrdersController < ApplicationController
     redirect_to purchase_purchase_orders_url
   end
 
+  def released_edit
+    @purchase_order = PurchaseOrder.find(params[:id])
+  end
+
+  def released_update
+    redirect_to purchase_purchase_orders_url
+  end
+
 
   def destroy
+    @purchase_order = PurchaseOrder.find(params[:id])
+    @purchase_order.update_attributes(:po_status => 2, :po_closed_at => Time.now)
+    redirect_to purchase_purchase_orders_url
   end
 
   def search_products
@@ -82,5 +93,11 @@ class Purchase::PurchaseOrdersController < ApplicationController
   def check_supplier_id
     @supplier = Supplier.find_by_supplier_id params[:supplier_id]
     render :json => @supplier.to_json
+  end
+
+  def release
+    @purchase_order = PurchaseOrder.find(params[:id])
+    @purchase_order.update_attributes(:po_status => 1, :po_released_at => Time.now)
+    redirect_to purchase_purchase_orders_url
   end
 end

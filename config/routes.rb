@@ -116,8 +116,6 @@ Ebiz::Application.routes.draw do
     resources :person_extends
     resources :roles
     resources :procedure_roleships
-    resources :esc_replies
-    resources :escs
     resources :cities do
       collection do
         get  :ajax
@@ -132,7 +130,15 @@ Ebiz::Application.routes.draw do
     resources :product_storeships
     resources :stores
     resources :product_store_entryships
-    resources :store_entries
+    resources :store_entries do
+      collection do
+        get :purchase_orders
+      end
+      member do
+        get :new_from_po
+        post :create_from_po
+      end
+    end
     resources :store_entry_product_carts
     resources :banks
     resources :inner_sku_carts
@@ -229,12 +235,21 @@ Ebiz::Application.routes.draw do
   end
 
   namespace :purchase do
-    resources :po_product_lists
+    resources :po_product_lists do
+      member do
+        put :released_update
+      end
+    end
     resources :purchase_orders do
       collection do
         get :search_products
         get :preview
         get :check_supplier_id
+      end
+      member do
+        put :release
+        get :released_edit
+        put :released_update
       end
     end
     resources :po_product_temp_lists

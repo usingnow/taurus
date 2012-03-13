@@ -6,4 +6,19 @@ class PoProductList < ActiveRecord::Base
     product_purchase_amount*product.cost_aft_tax
   end
 
+  def store_amount
+    purchase_order.store_entries.to_a.sum do |store_entry|
+      store_entry.product_store_entryships.find_all_by_product_id(product_id).to_a.sum do |product|
+        product.quantity
+      end
+    end
+  end
+
+  def store_price
+    purchase_order.store_entries.to_a.sum do |store_entry|
+      store_entry.product_store_entryships.find_all_by_product_id(product_id).to_a.sum do |product|
+        product.quantity*product_unit_price
+      end
+    end
+  end
 end

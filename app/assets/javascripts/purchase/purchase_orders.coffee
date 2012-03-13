@@ -11,6 +11,13 @@ jQuery ->
       data: 'product_purchase_amount=' + @value,
       dataType: 'script'
 
+  jQuery(".released_edit_product_purchase_amount").live 'change', (event) ->
+    jQuery.ajax '/purchase/po_product_lists/'+jQuery(this).attr("data-id")+'/released_update',
+      type: 'PUT',
+      data: 'product_purchase_amount=' + @value,
+      dataType: 'script'
+
+
   jQuery("#purchase_order_ordering_company_id").change ->
     jQuery.ajax '/admin/ordering_companies/'+@value,
       type: 'GET',

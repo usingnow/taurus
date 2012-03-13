@@ -2,8 +2,6 @@
 class Admin::StoreEntriesController < ApplicationController
   before_filter :authenticate_administrator!
 
-  # GET /store_entries
-  # GET /store_entries.xml
   def index
     @store_entries = StoreEntry.all
 
@@ -13,8 +11,6 @@ class Admin::StoreEntriesController < ApplicationController
     end
   end
 
-  # GET /store_entries/1
-  # GET /store_entries/1.xml
   def show
     @store_entry = StoreEntry.find(params[:id])
 
@@ -24,16 +20,14 @@ class Admin::StoreEntriesController < ApplicationController
     end
   end
 
-  # GET /store_entries/new
-  # GET /store_entries/new.xml
   def new
     @store_entry = StoreEntry.new
     admin_id = current_administrator.id
-    purchase_id = params[:purchase_id]
+    purchase_order_id = params[:purchase_order_id]
 
-    if purchase_id != nil
-      purchase = Purchase.find(purchase_id)
-      @store_entry.purchase_id = purchase.id
+    if purchase_order_id != nil
+      purchase_order = PurchaseOrder.find(purchase_order_id)
+      @store_entry.purchase_order_id = purchase_order.id
       @store_entry.ordering_company_id = purchase.ordering_company_id
       @store_entry.supplier_id = purchase.supplier_id
       StoreEntryProductCart.destroy_all(:admin_id => admin_id, :cart_type => 1)
@@ -48,13 +42,10 @@ class Admin::StoreEntriesController < ApplicationController
     @store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id_and_cart_type(admin_id,1)
   end
 
-  # GET /store_entries/1/edit
   def edit
     @store_entry = StoreEntry.find(params[:id])
   end
 
-  # POST /store_entries
-  # POST /store_entries.xml
   def create
     admin_id = current_administrator.id
 
@@ -85,8 +76,8 @@ class Admin::StoreEntriesController < ApplicationController
       if ProductStoreEntryship.create(line_items)
         if destroy_sepc_by_admin_id(admin_id,1) #删除入库单商品购物车
           change_store_quantity(store_entry_product_carts,@store_entry.store_id)
-          if !@store_entry.purchase_id.nil?
-            @purchase = Purchase.find(@store_entry.purchase_id)
+          if !@store_entry.purchase_order_id.nil?
+            @purchase = Purchase.find(@store_entry.purchase_order_id)
             @purchase.update_attributes(:status => 2)
           end
         end
@@ -98,8 +89,6 @@ class Admin::StoreEntriesController < ApplicationController
     end
   end
 
-  # PUT /store_entries/1
-  # PUT /store_entries/1.xml
   def update
     @store_entry = StoreEntry.find(params[:id])
 
@@ -114,15 +103,31 @@ class Admin::StoreEntriesController < ApplicationController
     end
   end
 
-  # DELETE /store_entries/1
-  # DELETE /store_entries/1.xml
-  def destroy
-    @store_entry = StoreEntry.find(params[:id])
-    @store_entry.destroy
+  def purchase_orders
+    @search = PurchaseOrder.released.search(params[:q])
+    @purchase_orders = @search.result.paginate(:page => params[:page], :per_page => 15)
+  end
 
-    respond_to do |format|
-      format.html { redirect_to(admin_store_entries_url) }
-      format.xml  { head :ok }
+  def new_from_po
+    @purchase_order = PurchaseOrder.find(params[:id])
+  end
+
+  def create_from_po
+    @purchase_order = PurchaseOrder.find(params[:id])
+    @store_entry = StoreEntry.new(:number => current_serial_number("SE"), :purchase_order_id => @purchase_order.id,
+                                  :ordering_company_id => @purchase_order.ordering_company_id, :supplier_id => @purchase_order.supplier_id,
+                                  :store_id => 1)
+
+    params[:quantity].each do |key,value|
+      if value.to_i > 0
+        @store_entry.product_store_entryships << ProductStoreEntryship.new(:product_id => key,:quantity => value, :delivery_date => @purchase_order.po_time_of_delivery)
+      end
     end
+
+    if @store_entry.save
+      change_store_quantity(@store_entry.product_store_entryships,@store_entry.store_id)
+      @purchase_order.update_attributes(:po_store_status => true)
+    end
+    redirect_to admin_store_entries_url
   end
 end

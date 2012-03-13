@@ -523,8 +523,8 @@ zh-CN:
         title: "新建%{model}"
         menu: "新建"
       edit:
-        title: "编辑%{model_label} '%{object_label}'"
-        menu: "编辑"
+        title: "修改%{model}"
+        menu: "修改"
       delete:
         title: "删除%{model_label} '%{object_label}'"
         menu: "删除"

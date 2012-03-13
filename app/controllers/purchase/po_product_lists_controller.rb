@@ -15,10 +15,19 @@ class Purchase::PoProductListsController < ApplicationController
     render "operating"
   end
 
-   def destroy
+  def destroy
     @po_product_list = PoProductList.find(params[:id])
     @po_product_list.destroy
     @purchase_order = PurchaseOrder.find(@po_product_list.purchase_order_id)
     render "operating"
   end
+
+  def released_update
+    @po_product_list = PoProductList.find(params[:id])
+    if params[:product_purchase_amount].to_i >= @po_product_list.store_amount
+      @po_product_list.update_attribute(:product_purchase_amount, params[:product_purchase_amount])
+    end
+    @purchase_order = PurchaseOrder.find(@po_product_list.purchase_order_id)
+  end
+
 end

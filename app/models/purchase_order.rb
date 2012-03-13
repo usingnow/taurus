@@ -4,6 +4,8 @@ class PurchaseOrder < ActiveRecord::Base
   belongs_to :ordering_company
   belongs_to :supplier
   belongs_to :administrator
+  has_many :store_entries
+  scope :released, where(:po_status => 1)
 
   validates_presence_of :po_time_of_delivery
   validates_numericality_of :ordering_company_id, :supplier_id, :only_integer => true, :message => "不能为空"
@@ -20,5 +22,13 @@ class PurchaseOrder < ActiveRecord::Base
 
   def price
     po_product_lists.to_a.sum { |list| list.product_unit_price*list.product_purchase_amount }
+  end
+
+  def store_price
+    store_entries.to_a.sum do |store_entry|
+      store_entry.product_store_entryships.to_a.sum do |product|
+        product.quantity*product_unit_price
+      end
+    end
   end
 end
