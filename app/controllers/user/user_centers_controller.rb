@@ -90,7 +90,6 @@ class User::UserCentersController < ApplicationController
 
   def order_show
     @order = current_user.orders.find params[:id]
-    @consignee_info = current_user.consignee_info
   end
 
   def order_edit

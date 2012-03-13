@@ -65,16 +65,16 @@
 
 <div id="order_info_review">
   <h2>订单其他信息预览</h2>
-  <p>收件人姓名：<%= @consignee_info.name %></p>
-  <p>所属区域： <%= @consignee_info.district.city.province.name %>&nbsp;
-              <%= @consignee_info.district.city.name %>&nbsp;
-              <%= @consignee_info.district.name %>
+  <p>收件人姓名：<%= @order.name %></p>
+  <p>所属区域： <%= @order.district.city.province.name %>&nbsp;
+              <%= @order.district.city.name %>&nbsp;
+              <%= @order.district.name %>
   </p>
-  <p>送货地址： <%= @consignee_info.address %></p>
-  <p>固定电话： <%= @consignee_info.phone %></p>
-  <p>移动电话： <%= @consignee_info.mobile %></p>
-  <p>电子邮件： <%= @consignee_info.email %></p>
-  <p>邮政编码： <%= @consignee_info.zip %></p>
+  <p>送货地址： <%= @order.address %></p>
+  <p>固定电话： <%= @order.phone %></p>
+  <p>移动电话： <%= @order.mobile %></p>
+  <p>电子邮件： <%= @order.email %></p>
+  <p>邮政编码： <%= @order.zip %></p>
   <hr />
   <p>支付方式： <%= @order.instance.procedure.display_name %></p>
   <hr />
