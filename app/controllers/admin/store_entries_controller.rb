@@ -2,15 +2,10 @@
 class Admin::StoreEntriesController < ApplicationController
   before_filter :authenticate_administrator!
 
-  # GET /store_entries
-  # GET /store_entries.xml
   def index
-    @store_entries = StoreEntry.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @store_entries }
-    end
+    @search = StoreEntry.search(params[:q])
+    @search.sorts = "created_at desc"
+    @store_entries = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /store_entries/1

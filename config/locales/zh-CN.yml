@@ -550,7 +550,7 @@ zh-CN:
         title: "新建 %{model}"
         menu: "新建"
       edit:
-        title: "编辑%{model_label} '%{object_label}'"
+        title: "编辑%{model}"
         menu: "编辑"
       delete:
         title: "删除%{model_label} '%{object_label}'"

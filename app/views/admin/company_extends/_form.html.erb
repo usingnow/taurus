@@ -1,8 +1,7 @@
-<%= form_for @user, :url => admin_company_extends_path do |f| %>
+<%= form_for @user, :url => (@user.id.nil?? admin_company_extends_path : admin_company_extend_path(@user))  do |f| %>
    <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= t('activerecord.errors.template.header', :count => @user.errors.size, :model => t('models.company_extend'))  %></h2>
-
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -10,18 +9,25 @@
       </ul>
     </div>
   <% end %>
-
   <div class="attributes">
     <div class="split_content_left">
       <p>
         <%= label_tag t :login_no %>
-        <%= f.text_field :login_no %><span class="red">*</span>
+        <% if @user.id.nil? %>
+          <%= f.text_field :login_no %><span class="red">*</span>
+        <% else %>
+          <%= @user.login_no %>
+        <% end %>
       </p>
     </div>
     <div class="split_content_right">
       <p>
         <%= label_tag t :password %>
-        <%= f.password_field :password %><span class="red">*</span>
+        <% if @user.id.nil? %>
+          <%= f.password_field :password %><span class="red">*</span>
+        <% else %>
+          ******
+        <% end %>
       </p>
     </div>
     <div class="clear"></div>

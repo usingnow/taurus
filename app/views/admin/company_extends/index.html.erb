@@ -41,6 +41,7 @@
       <th>所属组</th>
       <th>账号状态</th>
       <th>历史状态</th>
+      <th></th>
     </tr>
   </thead>
 <% @company_extends.each_with_index do |company_extend,index| %>
@@ -53,6 +54,7 @@
     <td><%= company_extend.user.role.name %></td>
     <td><%= format_user_status company_extend.user.status %></td>
     <td></td>
+    <td><%= link_to t('admin.actions.edit.menu'), edit_admin_company_extend_path(company_extend.user_id) %></td>
   </tr>
 <% end %>
 </table>
