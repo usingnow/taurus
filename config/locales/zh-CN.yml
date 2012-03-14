@@ -513,6 +513,8 @@ zh-CN:
       preview: "%{model}预览"
       submit: "提交"
       save: "保存"
+      start_date: "起始日期"
+      end_date: "结束日期"
     actions:
       index:
         title: "%{model}列表"

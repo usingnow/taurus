@@ -1,6 +1,18 @@
 <%= link_to t('admin.actions.new.title', :model => t('activerecord.models.purchase_order')), new_purchase_purchase_order_path %>
 
 <%= search_form_for @search, :url => purchase_purchase_orders_path do |f| %>
+  <%= f.label :po_id %>
+  <%= f.text_field :po_id_eq %>
+  <%= f.label :po_status %>
+  <%= f.collection_select :po_status_eq, PurchaseOrder.po_status_enum, :first, :last, :include_blank => true %>
+  <%= t 'activerecord.attributes.supplier.supplier_id' %>
+  <%= f.text_field :supplier_supplier_id_eq %>
+  <%= f.label :administrator_id %>
+  <%= f.text_field :administrator_name_cont %>
+  <%= t 'admin.misc.start_date' %>
+  <%= f.date_select :created_at_gt,{:include_blank=>true} %>
+  <%= t 'admin.misc.end_date' %>
+  <%= f.date_select :created_at_lt,{:include_blank=>true} %>
   <%= f.submit t('admin.misc.search') %>
 <% end %>
 <table>

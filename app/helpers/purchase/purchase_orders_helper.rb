@@ -1,11 +1,11 @@
 #encoding:UTF-8
 module Purchase::PurchaseOrdersHelper
   def format_po_status(value)
-    { 0 => "保存", 1 => "已发布", 2 => "已关闭" }[value]
+    PurchaseOrder.po_status_enum[value]
   end
 
   def format_po_store_status(value)
-    { false => "待入库", true => "已入库" }[value]
+    PurchaseOrder.po_store_status_enum[value]
   end
 
   def purchase_order_operating(object)

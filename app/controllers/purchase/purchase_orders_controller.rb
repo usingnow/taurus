@@ -5,6 +5,7 @@ class Purchase::PurchaseOrdersController < ApplicationController
 
   def index
     @search = PurchaseOrder.search(params[:q])
+    @search.sorts = "created_at desc"
     @purchase_orders = @search.result.paginate(:page => params[:page], :per_page => 15)
   end
 
