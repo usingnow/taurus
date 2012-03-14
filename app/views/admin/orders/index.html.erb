@@ -9,11 +9,17 @@
       </p>
       <p>
         <%= f.label '日期范围' %>
-        <%= f.date_select :created_at_gt,{:include_blank=>true} %>升序<%= radio_button_tag :sort, "asc" %><br />
-        <%= f.label '~' %>
-        <%= f.date_select :created_at_lt,{:include_blank=>true} %>降序<%= radio_button_tag :sort, "desc", true %>
+        <%= f.date_select :created_at_gt,{:include_blank=>true} %>
+        <%= f.label '~', :style => "width: auto;" %>
+        <%= f.date_select :created_at_lt,{:include_blank=>true} %>
       </p>
       <p>
+        <label>升序</label>
+        <%= radio_button_tag :sort, "asc" %>
+        <label>降序</label>
+        <%= radio_button_tag :sort, "desc", true %>
+      </p>
+      <p class="clear_both">
         <%= f.label '用户名' %>
         <%= f.text_field :user_login_no_eq %>
       </p>
@@ -90,4 +96,3 @@
 </table>
 
 <%= will_paginate @orders %>
-
