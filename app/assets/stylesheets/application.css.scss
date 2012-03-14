@@ -81,15 +81,27 @@ div.grid_button {
 
 div.split_content_left {
   float: left;
-  width: 49%}
+  width: 49%;
+  p {
+    margin: 5px 0px;
+    position: relative;
+    float: left;}}
 
 div.split_content_left_long {
   float: left;
-  width: 49%;}
+  width: 49%;
+  p {
+    margin: 5px 0px;
+    position: relative;
+    float: left;}}
 
 div.split_content_right {
   float: left;
-  width: 50%;}
+  width: 50%;
+  p {
+    margin: 5px 0px;
+    position: relative;
+    float: left;}}
 
 input {
   width: 150px;}
