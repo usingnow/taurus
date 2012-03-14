@@ -24,7 +24,8 @@ class PurchaseOrder < ActiveRecord::Base
     if current_po_product
      current_po_product.product_purchase_amount += 1
     else
-      current_po_product = po_product_lists.build(:product_id => product_id, :product_purchase_amount => 1)
+      product = Product.find(product_id)
+      current_po_product = po_product_lists.build(:product_id => product_id, :product_purchase_amount => 1, :product_unit_price => product.cost_aft_tax)
     end
     current_po_product
   end

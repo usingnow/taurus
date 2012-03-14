@@ -3,7 +3,7 @@ class PoProductList < ActiveRecord::Base
   belongs_to :purchase_order
 
   def subtotal
-    product_purchase_amount*product.cost_aft_tax
+    product_purchase_amount*product_unit_price
   end
 
   def store_amount
