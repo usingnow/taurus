@@ -19,24 +19,8 @@
   <span id="supplier_contact_way"></span>
   <%= t 'activerecord.attributes.supplier.fax' %>
   <span id="supplier_fax"></span>
-  <table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th><%= t 'activerecord.attributes.product.product_id' %></th>
-        <th><%= t 'activerecord.attributes.product.name' %></th>
-        <th><%= t 'activerecord.attributes.product.specification' %></th>
-        <th><%= t 'activerecord.attributes.product.unit' %></th>
-        <th><%= t 'activerecord.attributes.product.cost_aft_tax' %></th>
-        <th><%= t 'activerecord.attributes.po_product_list.product_purchase_amount' %></th>
-        <th><%= t 'activerecord.attributes.po_product_list.subtotal' %></th>
-        <th><%= t 'activerecord.attributes.product.inventory' %></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody id="po_products">
-      <%= render "purchase/po_product_temp_lists/po_products" %>
-    </tbody>
+  <table id="po_products">
+    <%= render "purchase/po_product_temp_lists/po_products" %>
   </table>
 
   <%= f.input :po_time_of_delivery, :as => :date %>

@@ -24,6 +24,11 @@ class Cart < ActiveRecord::Base
     current_cart_sku
   end
 
+  #采购单临时商品总金额
+  def po_price
+    po_product_temp_lists.to_a.sum { |list| list.product.cost_aft_tax*list.product_purchase_amount }
+  end
+
 
   def total_items
     cart_skuships.sum(:quantity)
