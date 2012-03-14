@@ -63,7 +63,7 @@
         <td><%= po_product.product.unit %></td>
         <td><%= po_product.product_purchase_amount %></td>
         <td><%= po_product.store_amount %></td>
-        <td><%= text_field_tag :"quantity[#{po_product.product_id}]", 0 %></td>
+        <td><%= text_field_tag :"quantity[#{po_product.product_id}]", 0, :class => "entry_quantity" %></td>
         <td><%= format_product_inventory po_product.product.nb_inventory? %></td>
       </tr>
     <% end %>

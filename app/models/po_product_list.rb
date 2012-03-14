@@ -2,6 +2,8 @@ class PoProductList < ActiveRecord::Base
   belongs_to :product
   belongs_to :purchase_order
 
+  validates_numericality_of :product_purchase_amount, :only_integer => true, :greater_than => 0
+
   def subtotal
     product_purchase_amount*product_unit_price
   end
