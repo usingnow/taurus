@@ -1,6 +1,7 @@
 class SkuCategory < ActiveRecord::Base
   has_many :children, :class_name => 'SkuCategory', :foreign_key => 'parent_id'
   belongs_to :parent, :class_name => 'SkuCategory', :foreign_key => 'parent_id'
+  belongs_to :root, :class_name => 'SkuCategory', :foreign_key => 'root_id'
   scope :navigation, where(:is_show_in_navigation => true, :active => true)
   scope :top_navigation, where(:is_show_in_navigation => true, :active => true, :parent_id => nil)
 
