@@ -328,6 +328,7 @@ class Admin::OrdersController < ApplicationController
   #打印送货单
   def print_delivery_note
     @search = Order.search(params[:q])
+    @search.sorts = "created_at desc"
     @orders = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
 
