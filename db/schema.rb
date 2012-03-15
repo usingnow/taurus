@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120308075155) do
+ActiveRecord::Schema.define(:version => 20120315075243) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -57,9 +57,9 @@ ActiveRecord::Schema.define(:version => 20120308075155) do
   create_table "back_order_skus", :force => true do |t|
     t.integer  "sku_id"
     t.integer  "quantity",   :default => 1
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "banks", :force => true do |t|
@@ -511,7 +511,6 @@ ActiveRecord::Schema.define(:version => 20120308075155) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_delivery",                                       :default => false
-    t.decimal  "total_price",         :precision => 8, :scale => 2, :default => 0.0
     t.decimal  "carriage_adjustment", :precision => 8, :scale => 2, :default => 0.0
   end
 
@@ -943,9 +942,10 @@ ActiveRecord::Schema.define(:version => 20120308075155) do
 
   create_table "users", :force => true do |t|
     t.string   "login_no"
-    t.integer  "role_id"
     t.integer  "status"
     t.integer  "user_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"
@@ -956,8 +956,7 @@ ActiveRecord::Schema.define(:version => 20120308075155) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "role_id"
     t.integer  "store_id"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
