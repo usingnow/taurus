@@ -17,7 +17,7 @@
   <% @groups.each_with_index do |group,index| %>
     <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
       <td><%= index+1 %></td>
-      <td><%= group.number %></td>
+      <td><%= link_to group.number, admin_group_path(group) %></td>
       <td><%= group.name %></td>
       <td><%= group.desc %></td>
       <td><%= link_to '修改', edit_admin_group_path(group) %></td>
