@@ -10,23 +10,28 @@
       <p>
         <%= f.label '日期范围' %>
         <%= f.date_select :created_at_gt,{:include_blank=>true} %>
-        <%= f.label '~', :style => "width: auto" %>
+        <%= f.label '~', :style => "width: auto;" %>
         <%= f.date_select :created_at_lt,{:include_blank=>true} %>
       </p>
-      <p>
-        <%= f.label '用户名' %>
-        <%= f.text_field :user_login_no_eq %>
+      <p class="clear_both">
+        <label>升序</label>
+        <%= radio_button_tag :sort, "asc" %>
+        <label>降序</label>
+        <%= radio_button_tag :sort, "desc", true %>
       </p>
     </div>
     <div class="split_content_right">
       <p>
-        <%= f.label '商品名称' %>
-        <%= f.text_field :order_details_sku_name_cont %>
+        <%= f.label '用户名' %>
+        <%= f.text_field :user_login_no_eq %>
       </p>
-      <p>
-        <%= f.label '订单金额' %>
-        <%= f.text_field :total_price_gt %>~
-        <%= f.text_field :total_price_lt %>
+      <p class="clear_both">
+        <%= f.label '商品名称' %>
+        <%= text_field_tag :sku_name %>
+      </p>
+      <p class="clear_both">
+        <%= f.label '订单状态' %>
+        <%= f.select :instance_station_id_eq, Station.all.collect{ |s| [s.name ,s.id]} ,{:include_blank => true } %>
       </p>
       <p>
         <label>&nbsp;</label>
@@ -44,7 +49,7 @@
       <th><%= t 'activerecord.attributes.order.number' %></th>
       <th><%= t 'activerecord.attributes.order.user' %></th>
       <th><%= t 'activerecord.attributes.order.instance' %></th>
-      <th><%= t 'activerecord.attributes.order.total_price' %></th>
+      <th><%= t 'activerecord.attributes.order.total_amount' %></th>
       <th><%= t 'activerecord.attributes.order.station' %></th>
       <th><%= t 'activerecord.attributes.order.make_by' %></th>
       <th><%= t 'activerecord.attributes.order.sku_type' %></th>

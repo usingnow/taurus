@@ -16,7 +16,7 @@ zh-CN:
         email: "邮箱"
         user: "客户名"
         instance: "支付流程"
-        total_price: "订单金额"
+        total_amount: "订单金额"
         station: "订单状态"
         make_by: "制单人"
         sku_type: "商品类型"

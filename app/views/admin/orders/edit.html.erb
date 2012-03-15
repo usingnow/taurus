@@ -15,9 +15,9 @@
       <%= form_for @order, :url => internal_note_order_back_order_path do |f| %>
         <table class="info_table">
           <tr>
-            <td class="info_table_title"><%= f.label :instance_id %>:</td>
+            <td class="info_table_title"><%= f.label :instance %>:</td>
             <td><%= f.label @order.instance.procedure.name %></td>
-            <td class="info_table_title"><%= f.label :station_id %>:</td>
+            <td class="info_table_title"><%= f.label :station %>:</td>
             <td><%= f.label @order.instance.station.name %></td>
           </tr>
           <tr>
@@ -27,9 +27,9 @@
             <td><%= @order.batch %></td>
           </tr>
           <tr>
-            <td class="info_table_title"><%= f.label :total_price %>:</td>
-            <td><%= number_to_currency @order.total_price, :unit => "￥" %></td>
-            <td class="info_table_title"> <%= f.label :user_id %>:</td>
+            <td class="info_table_title"><%= f.label :total_amount %>:</td>
+            <td><%= cny @order.total_amount %></td>
+            <td class="info_table_title"> <%= f.label :user %>:</td>
             <td><%= get_user_name @order.user %></td>
           </tr>
           <tr>
