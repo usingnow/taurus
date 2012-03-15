@@ -1,26 +1,16 @@
 #encoding:UTF-8
 class Admin::AdministratorsController < ApplicationController
   before_filter :authenticate_administrator!
-  authorize_resource
 
   def index
     @search = Administrator.search(params[:q])
     @administrators = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
 
-  # GET /admins/1
-  # GET /admins/1.xml
   def show
-    @admin = Admin.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @admin }
-    end
+    @administrator = Administrator.find(params[:id])
   end
 
-  # GET /admins/new
-  # GET /admins/new.xml
   def new
     @administrator = Administrator.new
 

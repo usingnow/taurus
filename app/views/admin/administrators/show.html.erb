@@ -1,75 +1,31 @@
-<p id="notice"><%= notice %></p>
+<%= t 'attributes.administrator.login_no' %>
+<%= @administrator.login_no %>
 
-<p>
-  <b><%=t('admin.login_no')%>:</b>
-  <%= @admin.login_no %>
-</p>
+<%= t 'attributes.administrator.status' %>
+<%= { 1 => "激活", 0 => "锁定" }[@administrator.status] %>
 
-<p>
-  <b>Password:</b>
-  <%= @admin.password %>
-</p>
+<%= t 'attributes.administrator.email' %>
+<%= @administrator.email %>
 
-<p>
-  <b>Status:</b>
-  <%= @admin.status %>
-</p>
+<%= t 'attributes.administrator.name' %>
+<%= @administrator.name %>
 
-<p>
-  <b>Question:</b>
-  <%= @admin.question %>
-</p>
+<%= t 'attributes.administrator.address' %>
+<%= @administrator.address %>
 
-<p>
-  <b>Answer:</b>
-  <%= @admin.answer %>
-</p>
+<%= t 'attributes.administrator.phone' %>
+<%= @administrator.phone %>
 
-<p>
-  <b>Last login time:</b>
-  <%= @admin.last_login_time %>
-</p>
+<%= t 'attributes.administrator.fax' %>
+<%= @administrator.fax %>
 
-<p>
-  <b>Email:</b>
-  <%= @admin.email %>
-</p>
+<%= t 'attributes.administrator.mobile' %>
+<%= @administrator.mobile %>
 
-<p>
-  <b>Sex:</b>
-  <%= @admin.sex %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @admin.name %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%= @admin.address %>
-</p>
-
-<p>
-  <b>Phone:</b>
-  <%= @admin.phone %>
-</p>
-
-<p>
-  <b>Fax:</b>
-  <%= @admin.fax %>
-</p>
-
-<p>
-  <b>Mobile:</b>
-  <%= @admin.mobile %>
-</p>
-
-<p>
-  <b>Post:</b>
-  <%= @admin.post %>
-</p>
+<%= t 'attributes.administrator.zip' %>
+<%= @administrator.zip %>
 
 
-<%= link_to 'Edit', edit_admin_admin_path(@admin) %> |
-<%= link_to 'Back', admin_admins_path %>
+
+
+
