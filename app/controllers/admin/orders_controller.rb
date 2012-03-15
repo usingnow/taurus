@@ -307,10 +307,6 @@ class Admin::OrdersController < ApplicationController
     session[:condition_id] = params[:condition_id]
   end
 
-
-
-
-
   #所有字段订单搜索
   def all
     @search = Order.search(params[:q])
