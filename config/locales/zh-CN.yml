@@ -494,24 +494,9 @@ zh-CN:
       update: "更新%{model}"
       submit: "储存%{model}"
 
-
-
-  ckeditor:
-      page_title: "CKEditor文件管理"
-      upload_files: "上传新文件"
-      buttons:
-        cancel: "取消"
-        refresh:
-          title: "刷新"
-          hint: "刷新页面"
-        upload:
-          title: "上传"
-          hint: "上传新文件"
-
   #常见字段
   created_at: "创建时间"
   user_number: "会员编号"
-  number: "编号"
   name: "名称"
   address: "地址"
   phone: "电话"
