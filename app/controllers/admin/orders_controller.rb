@@ -1,8 +1,8 @@
 #encoding:UTF-8
 class Admin::OrdersController < ApplicationController
   before_filter :authenticate_administrator!
-
-
+  # GET /orders
+  # GET /orders.xml
   def index
     q = {"instance_station_station_type_in" => ['0','3','4']}.merge(params[:q] || {}).merge(order_search)
     @search = Order.search(q)

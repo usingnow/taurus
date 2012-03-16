@@ -65,7 +65,7 @@ class Order < ActiveRecord::Base
                       :with => /^13[0-9]{1}[0-9]{8}$|^15[012356789]{1}[0-9]{8}$|^18[0256789]{1}[0-9]{8}$/,
                       :message => "格式不正确"
 
-  validates_presence_of :user_id, :address
+  validates_presence_of :user_id
 
   validates_presence_of :inner_note, :if => :cancel
   protected
