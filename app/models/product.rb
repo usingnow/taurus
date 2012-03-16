@@ -14,18 +14,18 @@ class Product < ActiveRecord::Base
   validate :brand_exists?, :category_exists?, :supplier_exists?
 
 
-  def nb_is_inventory
-    product_storeship = product_storeships.where(:store_id => 1).first
-    if product_storeship.quantity < 1
+  def inventory?(quantity,store_id)
+    product_storeship = product_storeships.where(:store_id => store_id).first
+    if product_storeship.quantity < quantity
       false
     else
       true
     end
   end
 
-  def inventory?(quantity,store_id)
-    product_storeship = product_storeships.where(:store_id => store_id).first
-    if product_storeship.quantity < quantity
+  def nb_inventory?
+    product_storeship = product_storeships.find_by_store_id(1)
+    if product_storeship.quantity < 1
       false
     else
       true

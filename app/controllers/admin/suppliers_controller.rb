@@ -13,14 +13,12 @@ class Admin::SuppliersController < ApplicationController
     end
   end
 
-  # GET /suppliers/1
-  # GET /suppliers/1.xml
   def show
     @supplier = Supplier.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @supplier }
+      format.html
+      format.json  { render :json => @supplier.to_json }
     end
   end
 

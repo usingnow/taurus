@@ -57,9 +57,9 @@ ActiveRecord::Schema.define(:version => 20120315075243) do
   create_table "back_order_skus", :force => true do |t|
     t.integer  "sku_id"
     t.integer  "quantity",   :default => 1
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "banks", :force => true do |t|
@@ -378,6 +378,16 @@ ActiveRecord::Schema.define(:version => 20120315075243) do
 
   add_index "mail_sales", ["user_id"], :name => "index_mail_sales_on_user_id", :unique => true
 
+  create_table "number_counters", :force => true do |t|
+    t.string   "name"
+    t.string   "date"
+    t.integer  "sequence"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "number_counters", ["name"], :name => "index_number_counters_on_name", :unique => true
+
   create_table "operatings", :force => true do |t|
     t.integer  "function_id"
     t.string   "name"
@@ -537,6 +547,30 @@ ActiveRecord::Schema.define(:version => 20120315075243) do
     t.datetime "updated_at"
   end
 
+  create_table "po_product_lists", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "purchase_order_id"
+    t.integer  "product_purchase_amount",                               :default => 0
+    t.decimal  "product_unit_price",      :precision => 8, :scale => 2, :default => 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "product_received",                                      :default => 0
+  end
+
+  add_index "po_product_lists", ["product_id"], :name => "index_product_purchaseships_on_product_id"
+  add_index "po_product_lists", ["purchase_order_id"], :name => "index_product_purchaseships_on_purchase_order_id"
+
+  create_table "po_product_temp_lists", :force => true do |t|
+    t.integer  "cart_id"
+    t.integer  "product_id"
+    t.integer  "product_purchase_amount", :default => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "po_product_temp_lists", ["cart_id"], :name => "index_po_product_temp_lists_on_cart_id"
+  add_index "po_product_temp_lists", ["product_id"], :name => "index_po_product_temp_lists_on_product_id"
+
   create_table "procedure_roleships", :force => true do |t|
     t.integer  "procedure_id"
     t.integer  "role_id"
@@ -573,17 +607,6 @@ ActiveRecord::Schema.define(:version => 20120315075243) do
     t.integer  "sequence",    :default => 0
     t.integer  "level",       :default => 0
     t.boolean  "active",      :default => false
-  end
-
-  create_table "product_purchaseships", :force => true do |t|
-    t.integer  "product_id"
-    t.integer  "purchase_id"
-    t.integer  "quantity"
-    t.decimal  "unit_price_aft_tax", :precision => 10, :scale => 0
-    t.decimal  "total_amount",       :precision => 10, :scale => 0
-    t.date     "delivery_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "product_store_entryships", :force => true do |t|
@@ -658,28 +681,24 @@ ActiveRecord::Schema.define(:version => 20120315075243) do
     t.datetime "updated_at"
   end
 
-  create_table "purchases", :force => true do |t|
-    t.string   "number"
+  create_table "purchase_orders", :force => true do |t|
+    t.string   "po_id"
     t.integer  "ordering_company_id"
-    t.integer  "status"
-    t.text     "note"
+    t.integer  "po_status"
+    t.text     "po_remarks"
     t.integer  "supplier_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "po_released_at"
+    t.datetime "po_closed_at"
+    t.boolean  "po_store_status"
+    t.integer  "administrator_id"
+    t.datetime "po_time_of_delivery"
   end
 
-  create_table "rails_admin_histories", :force => true do |t|
-    t.text     "message"
-    t.string   "username"
-    t.integer  "item"
-    t.string   "table"
-    t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 8
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+  add_index "purchase_orders", ["administrator_id"], :name => "index_purchase_orders_on_administrator_id"
+  add_index "purchase_orders", ["ordering_company_id"], :name => "index_purchase_orders_on_ordering_company_id"
+  add_index "purchase_orders", ["supplier_id"], :name => "index_purchase_orders_on_supplier_id"
 
   create_table "roles", :force => true do |t|
     t.string   "number"
@@ -852,7 +871,7 @@ ActiveRecord::Schema.define(:version => 20120315075243) do
 
   create_table "store_entries", :force => true do |t|
     t.string   "number"
-    t.integer  "purchase_id"
+    t.integer  "purchase_order_id"
     t.integer  "ordering_company_id"
     t.integer  "supplier_id"
     t.integer  "store_id"
@@ -901,6 +920,8 @@ ActiveRecord::Schema.define(:version => 20120315075243) do
     t.string   "update_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "fax"
+    t.string   "supplier_id"
   end
 
   create_table "systems", :force => true do |t|
@@ -942,11 +963,9 @@ ActiveRecord::Schema.define(:version => 20120315075243) do
 
   create_table "users", :force => true do |t|
     t.string   "login_no"
+    t.integer  "role_id"
     t.integer  "status"
     t.integer  "user_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -956,8 +975,10 @@ ActiveRecord::Schema.define(:version => 20120315075243) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "store_id"
+    t.string   "email",                                 :default => "", :null => false
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"

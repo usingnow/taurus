@@ -1,0 +1,114 @@
+<%= t 'activerecord.attributes.purchase_order.po_id' %>
+<%= @purchase_order.po_id %>
+
+<%= t 'activerecord.attributes.purchase_order.created_at' %>
+<%= @purchase_order.created_at %>
+
+<%= t 'activerecord.attributes.purchase_order.administrator_id' %>
+<%= @purchase_order.administrator.name %>
+
+<%= t 'activerecord.attributes.purchase_order.po_status' %>
+<%= format_po_status @purchase_order.po_status %>
+
+<%= t 'activerecord.attributes.purchase_order.po_store_status' %>
+<%= format_po_store_status @purchase_order.po_store_status %>
+
+<%= t 'activerecord.attributes.purchase_order.po_released_at' %>
+<%= @purchase_order.po_released_at %>
+
+<%= t 'activerecord.attributes.purchase_order.po_closed_at' %>
+<%= @purchase_order.po_closed_at %>
+
+<%= t 'activerecord.attributes.purchase_order.ordering_company_id' %>
+<%= @purchase_order.ordering_company.name %>
+
+<%= t 'activerecord.attributes.ordering_company.address' %>
+<%= @purchase_order.ordering_company.address %>
+
+<%= t 'activerecord.attributes.ordering_company.phone' %>
+<%= @purchase_order.ordering_company.phone %>
+
+<%= t 'activerecord.attributes.supplier.supplier_id' %>
+<%= @purchase_order.supplier.supplier_id %>
+
+<%= t 'activerecord.attributes.supplier.name' %>
+<%= @purchase_order.supplier.name %>
+
+<%= t 'activerecord.attributes.supplier.contact_way' %>
+<%= @purchase_order.supplier.contact_way %>
+
+<%= t 'activerecord.attributes.supplier.fax' %>
+<%= @purchase_order.supplier.fax %>
+
+<%= t 'admin.actions.index.title', :model => t('activerecord.models.po_product_list') %>
+
+<% if @purchase_order.po_status == 0 %>
+  <%= link_to t('admin.actions.edit.title', :model => t('activerecord.models.purchase_order')), edit_purchase_purchase_order_path(@purchase_order.id) %>
+<% elsif @purchase_order.po_status == 1 %>
+  <%= link_to t('admin.actions.edit.title', :model => t('activerecord.models.purchase_order')) %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t 'activerecord.attributes.product.product_id' %></th>
+      <th><%= t 'activerecord.attributes.product.name' %></th>
+      <th><%= t 'activerecord.attributes.product.specification' %></th>
+      <th><%= t 'activerecord.attributes.product.unit' %></th>
+      <th><%= t 'activerecord.attributes.product.cost_aft_tax' %></th>
+      <th><%= t 'activerecord.attributes.po_product_list.product_purchase_amount' %></th>
+      <th><%= t 'activerecord.attributes.po_product_list.subtotal' %></th>
+      <th><%= t 'activerecord.attributes.po_product_list.product_store_amount' %></th>
+      <th><%= t 'activerecord.attributes.po_product_list.product_store_price' %></th>
+      <th><%= t 'activerecord.attributes.product.inventory' %></th>
+    </tr>
+  </thead>
+  <tbody id="po_products">
+    <% @purchase_order.po_product_lists.each_with_index do |po_product,index| %>
+      <tr class="<%= cycle("odd","even") %>">
+        <td><%= index+1 %></td>
+        <td><%= po_product.product.product_id %></td>
+        <td><%= po_product.product.name %></td>
+        <td><%= po_product.product.specification %></td>
+        <td><%= po_product.product.unit %></td>
+        <td><%= cny po_product.product.cost_aft_tax %></td>
+        <td><%= po_product.product_purchase_amount %></td>
+        <td><%= cny po_product.subtotal %></td>
+        <td><%= po_product.store_amount %></td>
+        <td><%= cny po_product.store_price %></td>
+        <td><%= format_product_inventory po_product.product.nb_inventory? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= t 'activerecord.attributes.purchase_order.price' %>
+<%= cny @purchase_order.price %>
+
+<%= t 'activerecord.attributes.purchase_order.po_time_of_delivery' %>
+<%= @purchase_order.po_time_of_delivery %>
+
+<%= t 'activerecord.attributes.purchase_order.po_remarks' %>
+<%= @purchase_order.po_remarks %>
+
+相关入库单：
+<table>
+  <% @purchase_order.store_entries.each_with_index do |store_entry,index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= store_entry.number %></td>
+      <td><%= store_entry.created_at %></td>
+    </tr>
+  <% end %>
+</table>
+
+<% if @purchase_order.po_status == 0 || @purchase_order.po_status == 1  %>
+  <%= link_to "关闭采购单", purchase_purchase_order_path(@purchase_order), :confirm => "确定关闭采购单么？", :method => :delete  %>
+<% end %>
+<% if @purchase_order.po_status == 0 %>
+  <%= link_to "发布", release_purchase_purchase_order_path(@purchase_order), :confirm => "确定发布采购单么？", :method => :put  %>
+<% else %>
+  <%= link_to "打印" %>
+<% end %>
+<%= link_to "关闭页面", "#", :onclick => "window.close()" %>

@@ -1,0 +1,46 @@
+<thead>
+  <tr>
+    <th>#</th>
+    <th><%= t 'activerecord.attributes.product.product_id' %></th>
+    <th><%= t 'activerecord.attributes.product.name' %></th>
+    <th><%= t 'activerecord.attributes.product.specification' %></th>
+    <th><%= t 'activerecord.attributes.product.unit' %></th>
+    <th><%= t 'activerecord.attributes.product.cost_aft_tax' %></th>
+    <th><%= t 'activerecord.attributes.po_product_list.product_purchase_amount' %></th>
+    <th><%= t 'activerecord.attributes.po_product_list.subtotal' %></th>
+    <th><%= t 'activerecord.attributes.po_product_list.product_store_amount' %></th>
+    <th><%= t 'activerecord.attributes.po_product_list.product_store_price' %></th>
+    <th><%= t 'activerecord.attributes.product.inventory' %></th>
+  </tr>
+</thead>
+<tbody>
+<% @purchase_order.po_product_lists.each_with_index do |po_product,index| %>
+  <tr class="<%= cycle("odd","even") %>">
+    <td><%= index+1 %></td>
+    <td><%= po_product.product.product_id %></td>
+    <td><%= po_product.product.name %></td>
+    <td><%= po_product.product.specification %></td>
+    <td><%= po_product.product.unit %></td>
+    <td><%= cny po_product.product.cost_aft_tax %></td>
+    <td><%= text_field_tag :product_purchase_amount, po_product.product_purchase_amount, :class => "released_edit_product_purchase_amount", :'data-id' => po_product.id %></td>
+    <td><%= cny po_product.subtotal %></td>
+    <td><%= po_product.store_amount %></td>
+    <td><%= cny po_product.store_price %></td>
+    <td><%= format_product_inventory po_product.product.nb_inventory? %></td>
+  </tr>
+<% end %>
+</tbody>
+<tfoot>
+  <tr>
+    <td colspan="11">
+       <%= t 'activerecord.attributes.purchase_order.price' %>
+       <%= cny @purchase_order.price %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="11">
+      已入库商品合计金额
+      <%= cny @purchase_order.store_price %>
+    </td>
+  </tr>
+</tfoot>

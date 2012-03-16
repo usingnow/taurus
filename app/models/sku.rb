@@ -18,7 +18,7 @@ class Sku < ActiveRecord::Base
   def nb_is_inventory
     flag = true
     products.each do |product|
-      unless product.nb_is_inventory
+      unless product.nb_inventory?
         flag = false
         break
       end
