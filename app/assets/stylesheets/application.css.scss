@@ -5,9 +5,13 @@
 
 body {
   background-color: #DDEEFF;}
+a {
+  color: #013DA4;
+  text-decoration: none;}
 
 a:hover {
-  color: #E73221;}
+  color: #E73221;
+  text-decoration: underline;}
 
 .red {
   color: #E73221;}
@@ -277,3 +281,9 @@ p {
   font-weight: bold;}
 .title {
   width: 500px;}
+
+//后台人名币统一格式。
+.cny {
+  font-family: Arial Unicode MS, Tahoma, Verdana, Microsoft Yahei;
+  font-size: 12px;
+  font-style: normal;}
