@@ -1,21 +1,30 @@
-<%= link_to t('admin.actions.new.title', :model => t('activerecord.models.purchase_order')), new_purchase_purchase_order_path, :target => "_blank" %>
-
-<%= search_form_for @search, :url => purchase_purchase_orders_path do |f| %>
-  <%= f.label :po_id %>
-  <%= f.text_field :po_id_eq %>
-  <%= f.label :po_status %>
-  <%= f.collection_select :po_status_eq, PurchaseOrder.po_status_enum, :first, :last, :include_blank => true %>
-  <%= t 'activerecord.attributes.supplier.supplier_id' %>
-  <%= f.text_field :supplier_supplier_id_eq %>
-  <%= f.label :administrator_id %>
-  <%= f.text_field :administrator_name_cont %>
-  <%= t 'admin.misc.start_date' %>
-  <%= f.date_select :created_at_gt,{:include_blank=>true} %>
-  <%= t 'admin.misc.end_date' %>
-  <%= f.date_select :created_at_lt,{:include_blank=>true} %>
-  <%= f.submit t('admin.misc.search') %>
-<% end %>
-<table>
+<div id="purchase_controller_panel">
+  <%= search_form_for @search, :url => purchase_purchase_orders_path do |f| %>
+    <p class="clear_both">
+      <%= f.label :po_id %>
+      <%= f.text_field :po_id_eq %>
+      <%= f.label :po_status %>
+      <%= f.collection_select :po_status_eq, PurchaseOrder.po_status_enum, :first, :last, :include_blank => true %>
+      <label><%= t 'activerecord.attributes.supplier.supplier_id' %></label>
+      <%= f.text_field :supplier_supplier_id_eq %>
+      <%= f.label :administrator_id %>
+      <%= f.text_field :administrator_name_cont %>
+    </p>
+    <p class="clear_both">
+      <label><%= t 'admin.misc.start_date' %></label>
+      <%= f.date_select :created_at_gt,{:include_blank=>true} %>
+      <label><%= t 'admin.misc.end_date' %></label>
+      <%= f.date_select :created_at_lt,{:include_blank=>true} %>
+      <%= f.submit t('admin.misc.search') %>
+    </p>
+    <p class="right">
+      <%= link_to t('admin.actions.new.title', :model => t('activerecord.models.purchase_order')),
+                    new_purchase_purchase_order_path, :target => "_blank" %>
+    </p>
+  <% end %>
+</div>
+<hr class="clear_both"/>
+<table id="purchase_order_list">
   <thead>
     <tr>
       <th>#</th>
@@ -25,12 +34,12 @@
       <th><%= t 'activerecord.attributes.purchase_order.price' %></th>
       <th><%= t 'activerecord.attributes.purchase_order.po_status' %></th>
       <th><%= t 'activerecord.attributes.purchase_order.po_store_status' %></th>
-      <th></th>
+      <th>可执行操作</th>
     </tr>
   </thead>
   <tbody>
   <% @purchase_orders.each_with_index do |purchase_order,index| %>
-    <tr class="<%= cycle("odd","even") %>">
+    <tr class="<%= cycle("odd","even") %>" group="<%= index %>">
       <td><%= index+1 %></td>
       <td><%= link_to purchase_order.po_id, purchase_purchase_order_path(purchase_order), :target => "_blank" %></td>
       <td><%= purchase_order.supplier.name %></td>
@@ -44,7 +53,7 @@
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="8"><%= will_paginate @purchase_orders %></td>
+      <td colspan="8" class="fix_height"><%= will_paginate @purchase_orders %></td>
     </tr>
   </tfoot>
 </table>
