@@ -15,6 +15,10 @@ class Sku < ActiveRecord::Base
             :delivery_day, :sku_type,  :presence => true
   validates_uniqueness_of :number
 
+  def sku_cost
+    sku_productships.to_a.sum{ |sku_product| sku_product.package_num*sku_product.product.cost_aft_tax }
+  end
+
   def nb_is_inventory
     flag = true
     products.each do |product|
