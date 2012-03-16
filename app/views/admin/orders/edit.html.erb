@@ -60,7 +60,7 @@
             <td class="info_table_title"><%= f.label :zip %></td>
             <td><%= is_blank(@order.zip) %></td>
             <td class="info_table_title"><%= f.label :address %>:</td>
-            <td colspan="3"> <%= f.label @order.address %></td>
+            <td colspan="3"> <%= @order.address %></td>
           </tr>
           <tr>
             <td class="info_table_title"><%= f.label :inner_note %></td>
