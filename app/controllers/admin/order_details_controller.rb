@@ -9,7 +9,7 @@ class Admin::OrderDetailsController < ApplicationController
     @order_detail = OrderDetail.find_by_sku_id_and_order_id(sku_id,order_id)
     if @order_detail.nil?
       @order_detail = OrderDetail.new(:order_id => order_id, :sku_id => sku_id, :unit_price => sku.cost_aft_tax,
-                                      :created_admin_id => admin_id, :updated_admin_id => admin_id)
+                                      :sku_cost => sku.sku_cost, :created_admin_id => admin_id, :updated_admin_id => admin_id)
     else
       @order_detail.quantity+=1
     end

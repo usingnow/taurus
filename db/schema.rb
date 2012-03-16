@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120315075243) do
+ActiveRecord::Schema.define(:version => 20120316060619) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -412,6 +412,7 @@ ActiveRecord::Schema.define(:version => 20120315075243) do
     t.integer  "updated_admin_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "sku_cost",         :precision => 8, :scale => 2, :default => 0.0
   end
 
   create_table "order_numbers", :force => true do |t|

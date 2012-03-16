@@ -140,7 +140,7 @@ class ApplicationController < ActionController::Base
       line_items = []
       inner_sku_carts.each do |cart|
         line_items << {:order_id => order_id, :sku_id => cart.sku_id, :unit_price => cart.sku.cost_aft_tax,
-                       :quantity => cart.quantity}
+                       :quantity => cart.quantity, :sku_cost => cart.sku.sku_cost}
       end
       OrderDetail.create(line_items)
     end
