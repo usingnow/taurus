@@ -47,7 +47,8 @@
   <label><%= t 'admin.actions.index.title', :model => t('activerecord.models.po_product_list') %></label>
   <p class="right button">
     <% if @purchase_order.po_status == 0 %>
-      <%= link_to t('admin.actions.edit.title', :model => t('activerecord.models.purchase_order')), edit_purchase_purchase_order_path(@purchase_order.id) %>
+      <%= link_to t('admin.actions.edit.title', :model => t('activerecord.models.purchase_order')),
+                  edit_purchase_purchase_order_path(@purchase_order.id) %>
     <% elsif @purchase_order.po_status == 1 %>
       <%= link_to t('admin.actions.edit.title', :model => t('activerecord.models.purchase_order')) %>
     <% end %>

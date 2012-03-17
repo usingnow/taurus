@@ -1,15 +1,29 @@
 p {
+  position: relative;
+  float: left;
+  margin: 0px;
+  height: 24px;
+  line-height: 24px;
+  virtical-align: middle;
+  label {
     position: relative;
     float: left;
-    margin: 5px 0px;
-    label {
-      position: relative;
-      float: left;
-      text-align: right;
-      margin-left: 20px;}
-    input {
-      position: relative;
-      float: left;}}
+    text-align: right;
+    margin-left: 20px;}
+  input {
+    position: relative;
+    float: left;}}
+span {
+  position: relative;
+  float: left;
+  height: 24px;
+  line-height: 24px;
+  virtical-align: middle;}
+input {
+  margin: 2px 0px;}
+input.float_l {
+  position: relative;
+  float: left;}
 p.right {
   position: relative;
   float: right;}
@@ -45,6 +59,15 @@ p.purchase_order_info {
   width: 100%;
   padding: 4px;
   border-bottom: 1px solid #999999;
+  div {  //新建采购单，订货公司选择器特殊样例，希望今后helper能改进。
+    position: relative;
+    float: left;
+    width: auto;
+    margin-bottom: 0px;
+    select {
+      width: 250px;}}
+  span.standard {
+    width: 250px;}
   p.standard {
     width: 250px;}
   p.short {
@@ -52,7 +75,9 @@ p.purchase_order_info {
   p.long {
     width: 350px;}
   label.margin_l_475 {
-    margin-left: 475px;}}
+    margin-left: 475px;}
+  label.margin_l_395 {
+    margin-left: 395px;}}
 #button_panel {
   position: relative;
   float: left;
@@ -86,3 +111,22 @@ table#store_entries {
   td {
     padding: 2px;
     border: 1px solid #999999;}}
+table {
+  tfoot {
+    tr {
+      border: none;
+      background-color: transparent;
+      td.align_left {
+        text-align: left;
+        padding-left: 20px;}
+      .subtotal {
+        color: #E73221;
+        text-decoration: underline;}}}}
+#search_control_panel {
+  margin: 30px 0px 5px 0px;}
+#purchase_delivery_date_control_panel {
+  border-top: 1px solid #999999;
+  margin: 30px 0px 10px 0px;
+  padding-top: 5px;
+  label {
+    clear: both;}}
