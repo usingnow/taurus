@@ -5,10 +5,15 @@ class Store::SalesOrderDeliveriesController < ApplicationController
     @orders = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
 
+
   def show
+    @delivery_order = DeliveryOrder.find(params[:id])
+  end
+
+  def new
     @delivery_order = DeliveryOrder.new
     admin_id = current_administrator.id
-    order_id = params[:id]
+    order_id = params[:order_id]
 
     order_details = OrderDetail.find_all_by_order_id(order_id)
     @delivery_order.order_id = order_id
@@ -35,7 +40,7 @@ class Store::SalesOrderDeliveriesController < ApplicationController
     if delivery_order_carts.empty?
       @delivery_order = DeliveryOrder.new
       @delivery_order.errors.add("商品","至少一件")
-      render "show"
+      render "new"
       return
     else
       error = []
@@ -46,7 +51,7 @@ class Store::SalesOrderDeliveriesController < ApplicationController
         end
       end
       if !error.empty?
-        redirect_to store_sales_order_delivery_path(params[:delivery_order][:order_id]), :notice => "#{error.to_s}库存不足,无法出库."
+        redirect_to new_store_sales_order_delivery_path(:order_id => params[:delivery_order][:order_id]), :notice => "#{error.to_s}库存不足,无法出库."
         return
       end
     end

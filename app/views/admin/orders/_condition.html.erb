@@ -59,11 +59,7 @@
     </p>
     <p>
       <%= label_tag '所属地区：' %>
-      <% if !@order.district.nil? %>
-        <%= @order.district.city.province.name %>&nbsp;
-        <%= @order.district.city.name %>&nbsp;
-        <%= @order.district.name %>
-      <% end %>
+      <%= @order.district.address %>
     </p><br />
     <p>
       <%= label_tag '收货地址：' %>
@@ -84,6 +80,14 @@
     <p>
       <%= label_tag '邮   编：' %>
       <%= @order.zip %>
+    </p>
+    <p>
+      <%= label_tag '出库状态：' %>
+      <%= format_delivery_status @order %>
+    </p>
+    <p>
+      <%= label_tag '相关出库单：' %>
+      <%= link_to @order.delivery_order.number, store_sales_order_delivery_path(@order.delivery_order.id) if @order.delivery_order %>
     </p>
   </div>
   <div class="split_content_right">

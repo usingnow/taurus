@@ -72,5 +72,9 @@ module Admin::OrdersHelper
     Order::INVOICE_HEAD[value]
   end
 
+  def format_delivery_status(object)
+    object.delivery_order ? "已出库" : "未出库"
+  end
+
 
 end
