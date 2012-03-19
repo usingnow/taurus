@@ -135,10 +135,44 @@
       <%= label_tag '发票类型：' %>
       <%= format_invoice_type(@order.invoice_type) %>
     </p>
-    <p>
-       <%= label_tag '发票抬头：' %>
-      <%= format_is_invoice_head(@order.is_invoice_head) %>
-    </p>
+    <% unless @order.invoice_type == 2 %>
+      <% if @order.invoice_type == 1 %>
+        <p>
+          <%= label_tag '开户银行：' %>
+          <%= @order.account_bank %>
+        </p>
+        <p>
+          <%= label_tag '开户名称：' %>
+          <%= @order.account_person_name %>
+        </p>
+        <p>
+          <%= label_tag '注册电话：' %>
+          <%= @order.account_phone %>
+        </p>
+        <p>
+          <%= label_tag '银行帐号：' %>
+          <%= @order.account_no %>
+        </p>
+        <p>
+          <%= label_tag '增值税登记号：' %>
+          <%= @order.added_value_tax_no %>
+        </p>
+        <p>
+          <%= label_tag '注册地址：' %>
+          <%= @order.account_reg_add %>
+        </p>
+      <% end %>
+      <p>
+         <%= label_tag '发票抬头：' %>
+         <%= format_is_invoice_head @order.is_invoice_head %>
+      </p>
+      <% if @order.is_invoice_head == 1 %>
+        <p>
+          <%= label_tag '单位名称：' %>
+          <%= @order.company_name %>
+        </p>
+      <% end %>
+    <% end %>
   </div>
   <div class="clear"></div>
 </div>

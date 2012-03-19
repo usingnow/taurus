@@ -204,13 +204,24 @@
                 <%= f.radio_button :invoice_type, '0', :class => "radio", :checked => true %>普通
                 <%= f.radio_button :invoice_type, '1', :class => "radio" %>增值税发票
               </p>
-              <div id="type_invoice"></div>
+              <div id="type_invoice">
+                <% if @order.invoice_type == 1 %>
+                  <p><%= label_tag "开户银行" %><%= f.text_field :account_bank %></p>
+                  <p><%= label_tag "开户名称" %><%= f.text_field :account_person_name %></p>
+                  <p><%= label_tag "注册电话" %><%= f.text_field :account_phone %></p>
+                  <p><%= label_tag "银行帐号" %><%= f.text_field :account_no %></p>
+                  <p><%= label_tag "增值税登记号" %><%= f.text_field :added_value_tax_no %></p>
+                  <p><%= label_tag "注册地址" %><%= f.text_field :account_reg_add %></p>
+                <% end %>
+              </div>
               <p>
                 <%= label_tag "发票抬头" %>
                 <%= f.radio_button :is_invoice_head, '0', :class => "radio", :checked => true %>个人
                 <%= f.radio_button :is_invoice_head, '1', :class => "radio" %> 单位
               </p>
-              <p id="title_company_name"></p>
+              <p id="title_company_name">
+                <%= label_tag "单位名称" %><%= f.text_field :company_name %>
+              </p>
             </div>
             <div class="clear"></div>
           </div>
