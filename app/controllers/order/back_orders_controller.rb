@@ -90,7 +90,7 @@ class Order::BackOrdersController < ApplicationController
 
 
       @order = Order.new
-      @order.number = current_number   #获得订单编号
+      @order.number = current_order_number   #获得订单编号
       @order.batch = @order.number[0,8]+"-"+@order.number[9,13]
       @order.instance_id = instance.id
       @order.user_id = params[:user_id]

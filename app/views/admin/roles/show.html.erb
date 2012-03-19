@@ -1,25 +1,11 @@
-<p id="notice"><%= notice %></p>
+<%= t 'attributes.role.number' %>
+<%= @role.number %>
 
-<p>
-  <b>Number:</b>
-  <%= @role.number %>
-</p>
+<%= t 'attributes.role.name' %>
+<%= @role.name %>
 
-<p>
-  <b>Name:</b>
-  <%= @role.name %>
-</p>
+<%= t 'attributes.role.descripion' %>
+<%= @role.description %>
 
-<p>
-  <b>Description:</b>
-  <%= @role.description %>
-</p>
-
-<p>
-  <b>Is reserve:</b>
-  <%= @role.is_reserve %>
-</p>
-
-
-<%= link_to 'Edit', edit_admin_role_path(@role) %> |
-<%= link_to 'Back', admin_roles_path %>
+<%= t 'attributes.role.is_reserve' %>
+<%= { false => "否", true => "是" }[@role.is_reserve] %>

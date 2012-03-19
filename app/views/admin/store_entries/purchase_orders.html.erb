@@ -1,0 +1,35 @@
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t 'activerecord.attributes.purchase_order.po_id' %></th>
+      <th><%= t 'activerecord.attributes.purchase_order.supplier_id' %></th>
+      <th><%= t 'activerecord.attributes.purchase_order.created_at' %></th>
+      <th><%= t 'activerecord.attributes.purchase_order.price' %></th>
+      <th><%= t 'activerecord.attributes.purchase_order.po_status' %></th>
+      <th><%= t 'activerecord.attributes.purchase_order.po_store_status' %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @purchase_orders.each_with_index do |purchase_order,index| %>
+    <tr class="<%= cycle("odd","even") %>">
+      <td><%= index+1 %></td>
+      <td><%= purchase_order.po_id %></td>
+      <td><%= purchase_order.supplier.name %></td>
+      <td><%= purchase_order.created_at %></td>
+      <td><%= cny purchase_order.price %></td>
+      <td><%= format_po_status purchase_order.po_status %></td>
+      <td><%= format_po_store_status purchase_order.po_store_status %></td>
+      <td><%= link_to "入库", new_from_po_admin_store_entry_path(purchase_order) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="8"><%= will_paginate @purchase_orders %></td>
+    </tr>
+  </tfoot>
+</table>
+
+

@@ -15,9 +15,9 @@
       <%= form_for @order, :url => internal_note_order_back_order_path do |f| %>
         <table class="info_table">
           <tr>
-            <td class="info_table_title"><%= f.label :instance_id %>:</td>
+            <td class="info_table_title"><%= f.label :instance %>:</td>
             <td><%= f.label @order.instance.procedure.name %></td>
-            <td class="info_table_title"><%= f.label :station_id %>:</td>
+            <td class="info_table_title"><%= f.label :station %>:</td>
             <td><%= f.label @order.instance.station.name %></td>
           </tr>
           <tr>
@@ -27,9 +27,9 @@
             <td><%= @order.batch %></td>
           </tr>
           <tr>
-            <td class="info_table_title"><%= f.label :total_price %>:</td>
-            <td><%= number_to_currency @order.total_price, :unit => "￥" %></td>
-            <td class="info_table_title"> <%= f.label :user_id %>:</td>
+            <td class="info_table_title"><%= f.label :total_amount %>:</td>
+            <td><%= cny @order.total_amount %></td>
+            <td class="info_table_title"> <%= f.label :user %>:</td>
             <td><%= get_user_name @order.user %></td>
           </tr>
           <tr>
@@ -60,7 +60,7 @@
             <td class="info_table_title"><%= f.label :zip %></td>
             <td><%= is_blank(@order.zip) %></td>
             <td class="info_table_title"><%= f.label :address %>:</td>
-            <td colspan="3"> <%= f.label @order.address %></td>
+            <td colspan="3"> <%= @order.address %></td>
           </tr>
           <tr>
             <td class="info_table_title"><%= f.label :inner_note %></td>
@@ -81,6 +81,7 @@
             <th>商品编号</th>
             <th>商品名称</th>
             <th>单位</th>
+            <th>素材成本（单价）</th>
             <th>单价</th>
             <th>数量</th>
             <th>安装</th>
@@ -99,6 +100,7 @@
               <td><%= detail.sku.number %></td>
               <td><%= detail.sku.name %></td>
               <td><%= detail.sku.unit %></td>
+              <td><%= detail.sku_cost == 0 ? "--" : detail.sku_cost %></td>
               <td><%= detail.sku.cost_aft_tax %></td>
               <td><%= text_field_tag :quantity, detail.quantity, :size => 3, :class=> "order_details_quantity", :id => "#{detail.id}" %></td>
               <td><%= format_is_need(detail.is_need_install) %></td>
@@ -202,13 +204,24 @@
                 <%= f.radio_button :invoice_type, '0', :class => "radio", :checked => true %>普通
                 <%= f.radio_button :invoice_type, '1', :class => "radio" %>增值税发票
               </p>
-              <div id="type_invoice"></div>
+              <div id="type_invoice">
+                <% if @order.invoice_type == 1 %>
+                  <p><%= label_tag "开户银行" %><%= f.text_field :account_bank %></p>
+                  <p><%= label_tag "开户名称" %><%= f.text_field :account_person_name %></p>
+                  <p><%= label_tag "注册电话" %><%= f.text_field :account_phone %></p>
+                  <p><%= label_tag "银行帐号" %><%= f.text_field :account_no %></p>
+                  <p><%= label_tag "增值税登记号" %><%= f.text_field :added_value_tax_no %></p>
+                  <p><%= label_tag "注册地址" %><%= f.text_field :account_reg_add %></p>
+                <% end %>
+              </div>
               <p>
                 <%= label_tag "发票抬头" %>
                 <%= f.radio_button :is_invoice_head, '0', :class => "radio", :checked => true %>个人
                 <%= f.radio_button :is_invoice_head, '1', :class => "radio" %> 单位
               </p>
-              <p id="title_company_name"></p>
+              <p id="title_company_name">
+                <%= label_tag "单位名称" %><%= f.text_field :company_name %>
+              </p>
             </div>
             <div class="clear"></div>
           </div>

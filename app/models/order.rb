@@ -10,8 +10,12 @@ class Order < ActiveRecord::Base
   has_many :skus, :through => :order_details
   belongs_to :district, :class_name => "District", :foreign_key => "district_no"
   has_many :order_print_logs
+  has_one :delivery_order
 
   attr_accessor :condition_type
+
+  INVOICE_TYPE = { 0 => "普通", 1 => "增值税发票", 2 => "不需要" }
+  INVOICE_HEAD = { 0 => "个人", 1 => "单位" }
 
 
   def add_cart_skuships_from_cart(cart)
@@ -60,12 +64,11 @@ class Order < ActiveRecord::Base
 
 
 
-
   validates_format_of :mobile,
                       :with => /^13[0-9]{1}[0-9]{8}$|^15[012356789]{1}[0-9]{8}$|^18[0256789]{1}[0-9]{8}$/,
                       :message => "格式不正确"
 
-  validates_presence_of :user_id
+  validates_presence_of :user_id, :address
 
   validates_presence_of :inner_note, :if => :cancel
   protected

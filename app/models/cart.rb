@@ -2,6 +2,17 @@
 class Cart < ActiveRecord::Base
   has_many :cart_skuships, :dependent => :destroy
   has_many :skus, :through => :cart_skuships
+  has_many :po_product_temp_lists, :dependent => :destroy
+
+  def add_po_product(product_id)
+    current_po_product = po_product_temp_lists.find_by_product_id(product_id)
+    if current_po_product
+     current_po_product.product_purchase_amount += 1
+    else
+      current_po_product = po_product_temp_lists.build(:product_id => product_id)
+    end
+    current_po_product
+  end
 
   def add_sku(sku_id,quantity)
     current_cart_sku = cart_skuships.find_by_sku_id(sku_id)
@@ -11,6 +22,11 @@ class Cart < ActiveRecord::Base
       current_cart_sku = cart_skuships.build(:sku_id => sku_id, :is_need_install => 0, :is_need_assemble => 0)
     end
     current_cart_sku
+  end
+
+  #采购单临时商品总金额
+  def po_price
+    po_product_temp_lists.to_a.sum { |list| list.product.cost_aft_tax*list.product_purchase_amount }
   end
 
 

@@ -109,10 +109,6 @@ module ApplicationHelper
     str
   end
 
-  def sub_str(str,length)
-    str[0,length]
-  end
-
   def order_indicator_for(order)
     if order == 'asc'
       '&uarr;'
@@ -129,6 +125,22 @@ module ApplicationHelper
 
   def grey_cny(price)
     content_tag(:em, (number_to_currency price, :unit => "￥"), :class => "grey_cny")
+  end
+
+  def area(object)
+    object.district ? object.district.address : ""
+  end
+  
+  def error_messages(object)
+    if object.errors.any?
+      h2 = content_tag(:h2, I18n.t('activerecord.errors.template.header.default'))
+      li = ''
+      object.errors.full_messages.each do |msg|
+        li += content_tag(:li, msg)
+      end
+      ul = content_tag(:ul, li.html_safe)
+      content_tag(:div, h2+ul, :id => "error_explanation").html_safe
+    end
   end
 
   private

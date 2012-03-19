@@ -1,97 +1,68 @@
-<h1><%= notice %></h1>
-<%= simple_form_for @delivery_order, :url => store_sales_order_deliveries_path do |f| %>
-  <%= f.error_notification %>
-
-  <div class="attributes">
-    <div class="split_content_left">
+<div class="attributes">
+  <div class="split_content_left">
+    <p>
+      <%= label_tag '订单编号：' %>
+      <%= @delivery_order.order.number %>
+    </p>
+    <p>
+      <%= label_tag '出库方式：' %>
+      <%= { 1 => "自配", 2 => "快递", 3 => "客户自提" }[@delivery_order.line_type] %>
+    </p>
+    <p>
+      <%= label_tag({ 1 => "送货人：", 2 => "快递公司名称：", 3 => "自提人姓名：" }[@delivery_order.line_type]) %>
+      <%= @delivery_order.name %>
+    </p>
+    <% if @delivery_order.line_type == 2 %>
       <p>
-        <%= f.input :order_id, :as => :hidden %>
-        <%= label_tag '订单编号：' %>
-        <%= @delivery_order.order.number %>
+        <%= label_tag '运单号：' %>
+        <%= @delivery_order.waybill_number %>
       </p>
+    <% elsif @delivery_order.line_type == 3 %>
       <p>
-         <label class="string required"><abbr title="required">*</abbr>出库方式：</label>
-         <%= f.select :line_type, "<option value='1'>自配</option><option value='2'>快递</option>
-             <option value='3'>客户自提</option>", {:include_blank => "-请选择-"},{:required => "required", :id => "line_type"} %>
+        <%= label_tag '联系电话：' %>
+        <%= @delivery_order.phone %>
       </p>
-      <p id="number"></p>
-    </div>
-    <div class="split_content_right">
-      <p>
-        <%= f.input :store_id, :as => :hidden %>
-        <%= label_tag '仓库：' %>
-        <%= @delivery_order.order.user.store.name %>
-      </p>
-      <p id="name"></p>
-      <p id="date"></p>
-    </div>
-    <div class="clear"></div>
+    <% end %>
   </div>
+  <div class="split_content_right">
+    <p>
+      <%= label_tag '仓库：' %>
+      <%= @delivery_order.store.name %>
+    </p>
+    <p>
+      <%= label_tag @delivery_order.line_type == 3 ? "提货日期：" : '送货日期：' %>
+      <%= @delivery_order.delivery_date %>
+    </p>
+  </div>
+  <div class="clear"></div>
+</div>
 
-  <hr />
+<hr />
 
-  <table class="grid">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>商品编码</th>
-        <th>商品名称</th>
-        <th>规格</th>
-        <th>型号</th>
-        <th>单位</th>
-        <th>数量</th>
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>商品编码</th>
+      <th>商品名称</th>
+      <th>规格</th>
+      <th>型号</th>
+      <th>单位</th>
+      <th>数量</th>
+    </tr>
+  </thead>
+  <tbody id="product_carts">
+    <% @delivery_order.prod_del_ordships.each_with_index do |ship,index| %>
+      <tr class="<%= cycle("odd","even") %>">
+        <td><%= index+1 %></td>
+        <td><%= ship.product.product_id %></td>
+        <td align="left"><%= ship.product.name %></td>
+        <td><%= ship.product.specification %></td>
+        <td><%= ship.product.model %></td>
+        <td><%= ship.product.unit %></td>
+        <td><%= ship.quantity %></td>
       </tr>
-    </thead>
-    <tbody id="product_carts">
-      <% @delivery_order_carts.each_with_index do |cart,index| %>
-        <tr class="<%= set_odd_even_class(index) %>">
-          <td><%= index+1 %></td>
-          <td><%= cart.product.product_id %></td>
-          <td align="left"><%= cart.product.name %></td>
-          <td><%= cart.product.specification %></td>
-          <td><%= cart.product.model %></td>
-          <td><%= cart.product.unit %></td>
-          <td><%= cart.quantity %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <div class="actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
-
-<% content_for :ready do %>
-  jQuery('#line_type').change(function(){
-    var value = jQuery(this).val();
-    if(value == 1){
-     jQuery('#name').html('<label class="string required"><abbr title="required">*</abbr>送货人：</label>'+
-                          '<%= text_field :delivery_order, :name, :required => "required" %>');
-     jQuery('#date').html('<label class="string required"><abbr title="required">*</abbr>送货日期：</label>'+
-                          '<%= text_field :delivery_order, :delivery_date, :required => "required" %>');
-     jQuery("#delivery_order_delivery_date").datepicker({dateFormat : "yy-mm-dd" });
-    }else if(value == 2){
-      jQuery('#name').html('<label class="string required"><abbr title="required">*</abbr>快递公司名称：</label>'+
-                           '<%= text_field :delivery_order, :name, :required => "required" %>');
-      jQuery('#number').html('<label class="string required"><abbr title="required">*</abbr>运单号：</label>'+
-                           '<%= text_field :delivery_order, :waybill_number, :required => "required" %>');
-      jQuery('#date').html('<label class="string required"><abbr title="required">*</abbr>送货日期：</label>'+
-                           '<%= text_field :delivery_order, :delivery_date, :required => "required" %>');
-      jQuery("#delivery_order_delivery_date").datepicker({dateFormat : "yy-mm-dd" });
-    }else if(value == 3){
-      jQuery('#name').html('<label class="string required"><abbr title="required">*</abbr>自提人姓名：</label>'+
-                           '<%= text_field :delivery_order, :name, :required => "required" %>');
-      jQuery('#number').html('<label class="string required"><abbr title="required">*</abbr>联系电话：</label>'+
-                           '<%= text_field :delivery_order, :phone, :required => "required" %>');
-      jQuery('#date').html('<label class="string required"><abbr title="required">*</abbr>提货日期：</label>'+
-                           '<%= text_field :delivery_order, :delivery_date, :required => "required" %>');
-      jQuery("#delivery_order_delivery_date").datepicker({dateFormat : "yy-mm-dd" });
-    }else{
-      jQuery('#name').html('');
-      jQuery('#number').html('');
-      jQuery('#date').html('');
-    }
-  });
-<% end %>
+    <% end %>
+  </tbody>
+</table>
 

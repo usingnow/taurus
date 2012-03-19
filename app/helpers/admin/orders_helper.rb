@@ -65,21 +65,15 @@ module Admin::OrdersHelper
   end
 
   def format_invoice_type(value)
-    if value == 0
-      "普通"
-    elsif value == 1
-      "增值税发票"
-    else
-      "不需要"
-    end
+    Order::INVOICE_TYPE[value]
   end
 
   def format_is_invoice_head(value)
-    if value == 0
-      "个人"
-    else
-      "单位"
-    end
+    Order::INVOICE_HEAD[value]
+  end
+
+  def format_delivery_status(object)
+    object.delivery_order ? "已出库" : "未出库"
   end
 
 

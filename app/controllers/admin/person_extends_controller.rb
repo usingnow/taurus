@@ -1,12 +1,9 @@
 class Admin::PersonExtendsController < ApplicationController
   before_filter :authenticate_administrator!
-  authorize_resource
 
   def index
-
     @search = PersonExtend.search(params[:q])
     @person_extends = @search.result.paginate(:page => params[:page], :per_page => 20)
-
   end
 
   def new
@@ -24,6 +21,10 @@ class Admin::PersonExtendsController < ApplicationController
     else
       render :action => "new"
     end
+  end
+
+  def show
+    @person_extend = PersonExtend.find(params[:id])
   end
 
 end

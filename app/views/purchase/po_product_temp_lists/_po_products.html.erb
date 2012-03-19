@@ -1,0 +1,38 @@
+<thead>
+  <tr>
+    <th>#</th>
+    <th><%= t 'activerecord.attributes.product.product_id' %></th>
+    <th><%= t 'activerecord.attributes.product.name' %></th>
+    <th><%= t 'activerecord.attributes.product.specification' %></th>
+    <th><%= t 'activerecord.attributes.product.unit' %></th>
+    <th><%= t 'activerecord.attributes.product.cost_aft_tax' %></th>
+    <th><%= t 'activerecord.attributes.po_product_list.product_purchase_amount' %></th>
+    <th><%= t 'activerecord.attributes.po_product_list.subtotal' %></th>
+    <th><%= t 'activerecord.attributes.product.inventory' %></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @cart.po_product_temp_lists.each_with_index do |po_product,index| %>
+  <tr class="<%= cycle("odd","even") %>">
+    <td><%= index+1 %></td>
+    <td><%= po_product.product.product_id %></td>
+    <td><%= po_product.product.name %></td>
+    <td><%= po_product.product.specification %></td>
+    <td><%= po_product.product.unit %></td>
+    <td><%= cny po_product.product.cost_aft_tax %></td>
+    <td><%= text_field_tag :product_purchase_amount, po_product.product_purchase_amount, :class => "new_product_purchase_amount", :'data-id' => po_product.id %></td>
+    <td><%= cny po_product.subtotal %></td>
+    <td><%= format_product_inventory po_product.product.nb_inventory? %></td>
+    <td><%= link_to t('admin.actions.delete.menu'), purchase_po_product_temp_list_path(po_product), :confirm => t('admin.actions.delete.confirm'), :method => :delete, :remote => true %></td>
+  </tr>
+<% end %>
+</tbody>
+<tfoot>
+  <tr>
+    <td colspan="10">
+       <%= t 'activerecord.attributes.purchase_order.price' %>
+       <%= cny @cart.po_price %>
+    </td>
+  </tr>
+</tfoot>

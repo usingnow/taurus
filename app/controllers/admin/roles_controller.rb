@@ -1,9 +1,5 @@
 class Admin::RolesController < ApplicationController
   before_filter :authenticate_administrator!
-  authorize_resource
-
-  # GET /roles
-  # GET /roles.xml
   def index
     @roles = Role.all
 
@@ -13,15 +9,8 @@ class Admin::RolesController < ApplicationController
     end
   end
 
-  # GET /roles/1
-  # GET /roles/1.xml
   def show
     @role = Role.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @role }
-    end
   end
 
   # GET /roles/new

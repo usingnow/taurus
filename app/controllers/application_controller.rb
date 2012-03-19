@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     end
 
     #获得订单编号
-    def current_number
+    def current_order_number
       date = ::Time.zone ? ::Time.zone.today : ::Date.today
       order_number = OrderNumber.find_last_by_date(date)
       if order_number == nil
@@ -140,7 +140,7 @@ class ApplicationController < ActionController::Base
       line_items = []
       inner_sku_carts.each do |cart|
         line_items << {:order_id => order_id, :sku_id => cart.sku_id, :unit_price => cart.sku.cost_aft_tax,
-                       :quantity => cart.quantity}
+                       :quantity => cart.quantity, :sku_cost => cart.sku.sku_cost}
       end
       OrderDetail.create(line_items)
     end
@@ -204,5 +204,14 @@ class ApplicationController < ActionController::Base
       save_station_track(hash)
 
       instance.update_attributes(:station_id => station_procedureship.next_station_id)
+    end
+
+    def current_number(name)
+      number_counter = NumberCounter.current_number(name)
+      if number_counter.save
+        number_counter.name + number_counter.date.to_s + number_counter.sequence.to_s.rjust(3,"0")
+      else
+        "未知错误"
+      end
     end
 end

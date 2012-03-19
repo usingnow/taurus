@@ -1,30 +1,17 @@
 #encoding:UTF-8
 class Admin::OrdersController < ApplicationController
   before_filter :authenticate_administrator!
-  # GET /orders
-  # GET /orders.xml
+
+
   def index
-    q = {"instance_station_station_type_in" => ['0','3','4']}.merge(params[:q] || {})
-    if !params[:sku_name].nil?
-      if !params[:sku_name].blank?
-        order_ids = OrderDetail.find_by_sql("select order_id from order_details where sku_id in(select id from skus where name like '%#{params[:sku_name]}%')").map(&:order_id)
-        q = {"id_in" => order_ids}.merge(q || {})
-      end
-    end
+    q = {"instance_station_station_type_in" => ['0','3','4']}.merge(params[:q] || {}).merge(order_search)
     @search = Order.search(q)
     sort = params[:sort] ||= "desc"
-
     @search.sorts = "created_at #{sort}"
     @orders = @search.result.paginate(:page => params[:page],:per_page => 15)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @orders }
-    end
   end
 
-  # GET /orders/1
-  # GET /orders/1.xml
+
   def show
     @order = Order.find(params[:id])
 
@@ -307,14 +294,11 @@ class Admin::OrdersController < ApplicationController
     session[:condition_id] = params[:condition_id]
   end
 
-
-
-
-
   #所有字段订单搜索
   def all
-    @search = Order.search(params[:q])
-    @search.sorts = 'created_at desc'
+    @search = Order.search(order_search.merge(params[:q] || {}))
+    sort = params[:sort] ||= "desc"
+    @search.sorts = "created_at #{sort}"
     @orders = @search.result.paginate(:page => params[:page],:per_page => 15)
   end
 
@@ -327,7 +311,9 @@ class Admin::OrdersController < ApplicationController
 
   #打印送货单
   def print_delivery_note
-    @search = Order.search(params[:q])
+    @search = Order.search(order_search.merge(params[:q] || {}))
+    sort = params[:sort] ||= "desc"
+    @search.sorts = "created_at #{sort}"
     @orders = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
 
@@ -335,4 +321,29 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:order_id])
     render :layout => false
   end
+
+  private
+    def order_search
+      q = Hash.new
+      if params[:query]
+        unless params[:query][:sku_name].blank?
+          order_ids = OrderDetail.find_by_sql("select order_id from order_details where sku_id in(select id from skus where name like '%#{params[:query][:sku_name]}%')").map(&:order_id)
+          q = {"id_in" => order_ids.empty?? [0] : order_ids}.merge(q || {})
+        end
+        unless params[:query][:user_no].blank?
+          user = params[:query][:user_no][0,1] == "P" ? PersonExtend.find_by_person_no(params[:query][:user_no]) : CompanyExtend.find_by_company_no(params[:query][:user_no])
+          q = { "user_id_eq" =>  user ? user.user_id : 0 }.merge(q || {})
+        end
+        unless params[:query][:user_name].blank?
+          user_ids = PersonExtend.where("name like ?", "%#{params[:query][:user_name]}%").map(&:user_id)
+          user_ids += CompanyExtend.where("company_name like ?", "%#{params[:query][:user_name]}%").map(&:user_id)
+          q = { "user_id_in" =>  user_ids.empty?? [0] : user_ids }.merge(q || {})
+        end
+        unless params[:query][:sku_no].blank?
+          order_ids = OrderDetail.find_by_sql("select order_id from order_details where sku_id in(select id from skus where number = '#{params[:query][:sku_no]}')").map(&:order_id)
+          q = {"id_in" => order_ids.empty?? [0] : order_ids }.merge(q || {})
+        end
+      end
+      q
+    end
 end

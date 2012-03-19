@@ -4,8 +4,8 @@ zh-CN:
       product: "素材商品"
     attributes:
       product:
-        product_id: "素材商品ID"
-        name: "素材商品名"
+        product_id: "素材商品编号"
+        name: "素材商品名称"
         brand_id: "品牌ID"
         cost_bef_tax: "税前成本"
         cost_aft_tax: "税后成本"
@@ -38,3 +38,4 @@ zh-CN:
         insatllation_cost_aft_tax: "税后安装成本"
         created_by: "该商品创建于"
         updated_by: "该商品更新于"
+        inventory: "库存"

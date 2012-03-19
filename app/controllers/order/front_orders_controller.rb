@@ -103,7 +103,7 @@ class Order::FrontOrdersController < ApplicationController
                  :created_by => "前台客户"}]
         save_station_track(hash)
 
-        order = Order.new(:number => current_number, :instance_id => instance.id, :user_id => user.id,
+        order = Order.new(:number => current_order_number, :instance_id => instance.id, :user_id => user.id,
           :district_no => consignee_info.district_no, :name => consignee_info.name,:address => consignee_info.address,
           :zip => consignee_info.zip, :phone => consignee_info.phone, :mobile => consignee_info.mobile,
           :email => consignee_info.email, :invoice_type => temp_payment.invoice_type,
@@ -122,7 +122,7 @@ class Order::FrontOrdersController < ApplicationController
 
           cart.not_direct_sends.each do |nds|
             line_items << {:order_id => order.id, :sku_id => nds.sku_id, :unit_price => nds.sku.cost_aft_tax,
-                           :quantity => nds.quantity}
+                           :sku_cost => nds.sku.sku_cost, :quantity => nds.quantity}
           end
 
           if OrderDetail.create(line_items)
@@ -155,7 +155,7 @@ class Order::FrontOrdersController < ApplicationController
                    :created_by => "前台客户"}]
           save_station_track(hash)
 
-          order = Order.new(:number => current_number, :instance_id => instance.id, :user_id => user.id,
+          order = Order.new(:number => current_order_number, :instance_id => instance.id, :user_id => user.id,
             :district_no => consignee_info.district_no, :name => consignee_info.name,:address => consignee_info.address,
             :zip => consignee_info.zip, :phone => consignee_info.phone, :mobile => consignee_info.mobile,
             :email => consignee_info.email, :invoice_type => temp_payment.invoice_type,
@@ -177,7 +177,7 @@ class Order::FrontOrdersController < ApplicationController
             session[:order_ids] << order.id
 
             if OrderDetail.create(:order_id => order.id, :sku_id => ds.sku_id, :unit_price => ds.sku.cost_aft_tax,
-                             :quantity => ds.quantity)
+                                  :sku_cost => ds.sku.sku_cost, :quantity => ds.quantity)
               flag = true
             else
               flag = false

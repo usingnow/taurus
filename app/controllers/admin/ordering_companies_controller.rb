@@ -1,8 +1,6 @@
 class Admin::OrderingCompaniesController < ApplicationController
   before_filter :authenticate_administrator!
 
-  # GET /ordering_companies
-  # GET /ordering_companies.xml
   def index
     @ordering_companies = OrderingCompany.all
 
@@ -12,14 +10,12 @@ class Admin::OrderingCompaniesController < ApplicationController
     end
   end
 
-  # GET /ordering_companies/1
-  # GET /ordering_companies/1.xml
   def show
     @ordering_company = OrderingCompany.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @ordering_company }
+      format.html
+      format.json  { render :json => @ordering_company.to_json }
     end
   end
 

@@ -190,7 +190,7 @@ zh-CN:
     template: &errors_template
       header:
         one: "有 1 个错误发生导致「%{model}」无法被保存。"
-        default: "有如下错误发生导致保存失败。"
+        default: "有如下错误发生,请查看。"
         other: "有 %{count} 个错误发生导致「%{model}」无法被保存。"
       body: "如下字段出现错误："
 
@@ -201,19 +201,17 @@ zh-CN:
     delivery_order: "出库单"
     esc: "升级单"
     group: "组"
-    ordering_company: "订货公司"
     person_extend: "个人会员"
     panic_buying: "疯狂抢购"
     procedure: "流程"
     product: "素材商品"
     product_category: "素材商品分类"
-    purchase: "采购单"
     role: "角色"
     sku_productship: "媒体商品组成"
     sku_image: "媒体商品相册"
     station: "站别"
     station_procedureship: "流程规则"
-    supplier: "供应商"
+
 
   attributes: &attributes
     administrator:
@@ -342,19 +340,6 @@ zh-CN:
       product_list: "素材商品列表"
       brand_chinese_name: "品牌中文名称"
 
-    supplier:
-      name: "名称"
-      input_person: "登录者姓名"
-      contact_name: "联系人"
-      contact_way: "联系方式"
-      terms_of_exchange: "交易条件"
-      delivery: "交货期"
-      level: "级别"
-      active: "状态"
-      create_by: "创建者"
-      update_by: "更新者"
-      updated_at: "更新时间"
-
     product_category:
       parent_id: "父ID"
       number: "编号"
@@ -437,13 +422,6 @@ zh-CN:
       is_reserve: "是否保留"
       set_procedure_permission: "设置流程权限"
 
-
-
-    ordering_company:
-      name: "名称"
-      address: "地址"
-      phone: "电话"
-
     order_pay:
       buyer_alipay_no: "买家支付宝帐号"
       alipay_no: "支付宝交易号"
@@ -457,14 +435,6 @@ zh-CN:
       remitter: "汇款人姓名"
       bank_id: "汇入银行"
       note: "汇款备注"
-
-
-    purchase:
-      ordering_company_id: "订货公司"
-      supplier_id: "供应商"
-      note: "备注"
-
-
 
     inner_order_address:
       mobile: "手机"
@@ -494,24 +464,9 @@ zh-CN:
       update: "更新%{model}"
       submit: "储存%{model}"
 
-
-
-  ckeditor:
-      page_title: "CKEditor文件管理"
-      upload_files: "上传新文件"
-      buttons:
-        cancel: "取消"
-        refresh:
-          title: "刷新"
-          hint: "刷新页面"
-        upload:
-          title: "上传"
-          hint: "上传新文件"
-
   #常见字段
   created_at: "创建时间"
   user_number: "会员编号"
-  number: "编号"
   name: "名称"
   address: "地址"
   phone: "电话"
@@ -538,8 +493,13 @@ zh-CN:
   admin:
     misc:
       remove: "删除"
-      add_new: "新增"
+      add_new: "添加"
       search: "查询"
+      preview: "%{model}预览"
+      submit: "提交"
+      save: "保存"
+      start_date: "起始日期"
+      end_date: "结束日期"
     actions:
       index:
         title: "%{model}列表"
@@ -547,11 +507,11 @@ zh-CN:
         title: "%{model} '%{object_label}'明细"
         menu: "显示"
       new:
-        title: "新建 %{model}"
+        title: "新建%{model}"
         menu: "新建"
       edit:
-        title: "编辑%{model_label} '%{object_label}'"
-        menu: "编辑"
+        title: "修改%{model}"
+        menu: "修改"
       delete:
         title: "删除%{model_label} '%{object_label}'"
         menu: "删除"

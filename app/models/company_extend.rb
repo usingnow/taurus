@@ -16,7 +16,7 @@ class CompanyExtend < ActiveRecord::Base
       number = UserNumber.last
       number.company_no += 1
       number.save
-      self.company_no = "C" + number.company_no.to_s.rjust(6,"0") unless self.company_no
+      self.company_no = "U" + number.company_no.to_s.rjust(6,"0") unless self.company_no
       self.created_by = "用户注册" unless self.created_by
       self.updated_by = "用户注册" unless self.updated_by
     end
