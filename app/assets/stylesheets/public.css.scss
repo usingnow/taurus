@@ -723,11 +723,6 @@ div#copyright {
 	font-size: 12px;
 	line-height:22px;
 	vertical-align:middle;}
-a[title="站长统计"] {
-  display: block;
-  position: absolute;
-  bottom: -200px;
-  left: 500px;}
 //CNY style
 .cny {
   font-family: Arial Unicode MS, Tahoma, Verdana, Microsoft Yahei;
@@ -741,3 +736,11 @@ a[title="站长统计"] {
   color: #999999;
   font-style: normal;
   text-decoration: line-through;}
+
+//Statics icon in footer
+.foot_statics {
+  position: relative;
+  float: left;
+  clear: both;
+  img {
+    margin-left: 475px;}}
