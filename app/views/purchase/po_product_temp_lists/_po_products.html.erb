@@ -14,7 +14,7 @@
 </thead>
 <tbody>
 <% @cart.po_product_temp_lists.each_with_index do |po_product,index| %>
-  <tr class="<%= cycle("odd","even") %>">
+  <tr class="<%= cycle("odd","even") %>" group="<%= index %>" >
     <td><%= index+1 %></td>
     <td><%= po_product.product.product_id %></td>
     <td><%= po_product.product.name %></td>
@@ -30,7 +30,12 @@
 </tbody>
 <tfoot>
   <tr>
-    <td colspan="10">
+    <td colspan="10" style="text-align: right; padding-right: 20px;">
+       上一页 .. 1 2 .. 下一页， 没做分页 willpaginate
+    </td>
+  </tr>
+  <tr>
+    <td colspan="10" class="align_left subtotal">
        <%= t 'activerecord.attributes.purchase_order.price' %>
        <%= cny @cart.po_price %>
     </td>
