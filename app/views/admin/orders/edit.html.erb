@@ -81,7 +81,6 @@
             <th>商品编号</th>
             <th>商品名称</th>
             <th>单位</th>
-            <th>素材成本（单价）</th>
             <th>单价</th>
             <th>数量</th>
             <th>安装</th>
@@ -100,7 +99,6 @@
               <td><%= detail.sku.number %></td>
               <td><%= detail.sku.name %></td>
               <td><%= detail.sku.unit %></td>
-              <td><%= detail.sku_cost == 0 ? "--" : detail.sku_cost %></td>
               <td><%= detail.sku.cost_aft_tax %></td>
               <td><%= text_field_tag :quantity, detail.quantity, :size => 3, :class=> "order_details_quantity", :id => "#{detail.id}" %></td>
               <td><%= format_is_need(detail.is_need_install) %></td>
