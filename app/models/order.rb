@@ -13,6 +13,10 @@ class Order < ActiveRecord::Base
 
   attr_accessor :condition_type
 
+  INVOICE_TYPE = { 0 => "普通", 1 => "增值税发票", 2 => "不需要" }
+  INVOICE_HEAD = { 0 => "个人", 1 => "单位" }
+
+
 
   def add_cart_skuships_from_cart(cart)
     cart.cart_skuships.each do |sku|
