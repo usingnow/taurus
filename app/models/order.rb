@@ -10,12 +10,12 @@ class Order < ActiveRecord::Base
   has_many :skus, :through => :order_details
   belongs_to :district, :class_name => "District", :foreign_key => "district_no"
   has_many :order_print_logs
+  has_one :delivery_order
 
   attr_accessor :condition_type
 
   INVOICE_TYPE = { 0 => "普通", 1 => "增值税发票", 2 => "不需要" }
   INVOICE_HEAD = { 0 => "个人", 1 => "单位" }
-
 
 
   def add_cart_skuships_from_cart(cart)
@@ -61,7 +61,6 @@ class Order < ActiveRecord::Base
   def order_print_sum(line_type)
     order_print_logs.count(:conditions => "line_type = #{line_type}")
   end
-
 
 
 
