@@ -42,21 +42,22 @@
        <% end %>
        <% content_for :ready do %>
           jQuery("#check_product_category_number").click(function(){
+            if(jQuery("#product_product_category_number").val().length != 9 ) return alert("请输入4级分类编号");
             jQuery.ajax({
-                       type: "get",
-                       url: "/admin/product_categories/check",
-                       data: { number: jQuery("#product_product_category_number").val() },
-                       dataType: "json",
-                       success: function(result) {
-                         if(result == "failure"){
-                           alert("编号不存在!");
-                         }else{
-                           jQuery("#product_product_category_id").val(result.id);
-                           jQuery("#product_product_category_number").val(result.number);
-                           jQuery("#product_product_category_name").val(result.name);
-                         }
-                       },
-                   });
+               type: "get",
+               url: "/admin/product_categories/check",
+               data: { number: jQuery("#product_product_category_number").val() },
+               dataType: "json",
+               success: function(result) {
+                 if(result == "failure"){
+                   alert("编号不存在!");
+                 }else{
+                   jQuery("#product_product_category_id").val(result.id);
+                   jQuery("#product_product_category_number").val(result.number);
+                   jQuery("#product_product_category_name").val(result.name);
+                 }
+               },
+            });
           });
        <% end %>
        <%= f.input :product_category_id, :as => :hidden %>

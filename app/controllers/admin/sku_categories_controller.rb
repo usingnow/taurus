@@ -1,7 +1,7 @@
 class Admin::SkuCategoriesController < ApplicationController
   before_filter :authenticate_administrator!
 
-  autocomplete :sku_category, :name, :extra_data => [:number]
+  autocomplete :sku_category, :name, :extra_data => [:number], :scopes => [:four]
 
   def index
     @search = SkuCategory.search(params[:q])
