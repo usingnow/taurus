@@ -75,4 +75,9 @@ class Sku < ActiveRecord::Base
     end
     sku_browsing_history
   end
+
+  def available_skus(store_id)
+    sku_productship = sku_productships.to_a.min { |a| a.product.inventory(store_id)/a.package_num }
+    sku_productship.product.inventory(store_id)/sku_productship.package_num
+  end
 end

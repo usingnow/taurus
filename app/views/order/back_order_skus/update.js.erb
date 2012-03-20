@@ -9,10 +9,11 @@ str = '<% @back_order_skus.each_with_index do |cart,index| %>'+
           '<td><%= cart.sku.installation_cost_aft_tax %></td>'+
           '<td><%= cart.sku.assembling_fee_aft_tax %></td>'+
           '<td><%= cart.subtotal %></td>'+
+          '<td><%= cart.sku.available_skus(@back_order_sku.user.store_id) %></td>'+
           '<td><%= link_to "删除", order_back_order_sku_path(cart), :confirm => "确定删除?", :method => :delete, :remote => true %></td>'+
         '</tr>'+
       '<% end %>'+
-      '<tr><td colspan="10" align="right" id="total_amount">总计:<%= number_to_currency @back_order_skus.to_a.sum{ |sku| sku.subtotal }, :unit => "￥" %></td></tr>';
+      '<tr><td colspan="11" align="right" id="total_amount">总计:<%= number_to_currency @back_order_skus.to_a.sum{ |sku| sku.subtotal }, :unit => "￥" %></td></tr>';
 jQuery("#back_order_skus").html(str);
 
 jQuery(".back_order_sku_quantity").change(function() {

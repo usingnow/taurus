@@ -89,6 +89,7 @@
             <th>组装费用</th>
             <th>交货期</th>
             <th>合计</th>
+            <th>最小可销售数量</th>
             <th>操作</th>
           </tr>
         </thead>
@@ -107,11 +108,12 @@
               <td><%= detail.sku.assembling_fee_aft_tax %></td>
               <td><%= detail.sku.delivery_day %></td>
               <td><%= detail.subtotal %></td>
+              <td><%= detail.sku.available_skus(@order.user.store_id) %></td>
               <td><%= link_to '删除', admin_order_detail_path(detail), :confirm => '确定删除?', :method => :delete, :remote => true %></td>
             </tr>
           <% end %>
           <tr>
-            <td colspan="13" align="right">
+            <td colspan="14" align="right">
               运费：<%= number_to_currency @order.carriage_cost, :unit => "￥" %>,
               安装费合计：<%= number_to_currency @order.total_install_cost, :unit => "￥" %>,
               组装费合计：<%= number_to_currency @order.total_assemble_cost, :unit => "￥" %>,

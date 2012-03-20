@@ -43,8 +43,7 @@
       <th>组装费用</th>
       <th>交货期</th>
       <th>合计</th>
-      <th>宁波仓库</th>
-      <th>象山仓库</th>
+      <th>最小可销售数量</th>
     </tr>
   </thead>
   <% @order.order_details.each_with_index do |detail,index| %>
@@ -61,8 +60,7 @@
       <td><%= detail.assemble_cost %></td>
       <td><%= detail.sku.delivery_day %></td>
       <td><%= detail.unit_price*detail.quantity %></td>
-      <td><%= detail.is_have_nb_store %></td>
-      <td><%= detail.is_have_xs_store %></td>
+      <td><%= detail.sku.available_skus(@order.user.store_id) %></td>
     </tr>
   <% end %>
 </table>

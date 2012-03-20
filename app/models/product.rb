@@ -33,6 +33,11 @@ class Product < ActiveRecord::Base
     end
   end
 
+  def inventory(store_id)
+    product_storeship = product_storeships.find_by_store_id(store_id)
+    product_storeship.quantity - product_storeship.sales_reserved
+  end
+
   protected
 
     def brand_exists?
