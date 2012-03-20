@@ -39,38 +39,34 @@
     <%= render "purchase/po_product_temp_lists/po_products" %>
   </table>
 
-  <!--调整素材商品选择表格位置，请小张确认是否有bug -->
-
-  <%= search_form_for @search, :url => search_products_purchase_purchase_orders_path, :remote => true do |s| %>
-    <div id="search_control_panel">
-      <label><%= t 'activerecord.attributes.product.product_id' %></label>
-      <%= s.text_field :product_id_start, :class => "float_l" %>
-      <label><%= t 'activerecord.attributes.product.name' %></label>
-      <%= s.text_field :name_cont, :class => "float_l" %>
-      <%= s.submit t 'admin.misc.search' %>
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th><%= t 'activerecord.attributes.product.product_id' %></th>
-          <th><%= t 'activerecord.attributes.product.name' %></th>
-          <th><%= t 'activerecord.attributes.product.specification' %></th>
-          <th><%= t 'activerecord.attributes.product.unit' %></th>
-          <th><%= t 'activerecord.attributes.product.cost_aft_tax' %></th>
-          <th><%= t 'activerecord.attributes.product.inventory' %></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="search_products">
-        <%= render "products" %>
-      </tbody>
-    </table>
-  <% end %>
+  <div id="search_control_panel">
+    <label><%= t 'activerecord.attributes.product.product_id' %></label>
+    <%= text_field :q, :product_id_start, :class => "float_l" %>
+    <label><%= t 'activerecord.attributes.product.name' %></label>
+    <%= text_field :q, :name_cont, :class => "float_l" %>
+    <button type="button" id="product_search_button"><%= t 'admin.misc.search' %></button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= t 'activerecord.attributes.product.product_id' %></th>
+        <th><%= t 'activerecord.attributes.product.name' %></th>
+        <th><%= t 'activerecord.attributes.product.specification' %></th>
+        <th><%= t 'activerecord.attributes.product.unit' %></th>
+        <th><%= t 'activerecord.attributes.product.cost_aft_tax' %></th>
+        <th><%= t 'activerecord.attributes.product.inventory' %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="search_products">
+      <%= render "products" %>
+    </tbody>
+  </table>
 
   <div id="purchase_delivery_date_control_panel">
     <%= f.input :po_time_of_delivery, :as => :date %>
     <%= f.input :po_remarks, :input_html => { :cols => 120, :rows => 5} %>
-    <%= f.submit t('admin.misc.preview', :model => t('activerecord.models.purchase_order')) %>
+    <%= f.submit t('admin.misc.preview', :model => t('activerecord.models.purchase_order')), :id => "purchase_order_submit" %>
   </div>
 <% end %>

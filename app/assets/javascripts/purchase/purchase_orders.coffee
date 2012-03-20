@@ -40,3 +40,9 @@ jQuery ->
           jQuery("#supplier_fax").html(data.fax)
         else
           alert "编号不存在"
+
+  jQuery("#product_search_button").click ->
+    jQuery.ajax '/purchase/purchase_orders/search_products',
+      type: 'GET',
+      data: {"q[product_id_start]":jQuery("#q_product_id_start").val(),"q[name_cont]":jQuery("#q_name_cont").val()},
+      dataType: 'script'
