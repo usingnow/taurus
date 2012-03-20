@@ -1,7 +1,7 @@
 class Admin::ProductCategoriesController < ApplicationController
   before_filter :authenticate_administrator!
 
-  autocomplete :product_category, :name, :extra_data => [:number]
+  autocomplete :product_category, :name, :extra_data => [:number], :scopes => [:four]
 
   def index
     @search = ProductCategory.search(params[:p])
