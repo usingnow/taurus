@@ -2,7 +2,7 @@
 SimpleForm.setup do |config|
   # Components used by the form builder to generate a complete input. You can remove
   # any of them, change the order, or even add your own components to the stack.
-  # config.components = [ :placeholder, :label_input, :hint, :error ]
+  #config.components = [ :placeholder, :label_input, :hint, :error ]
 
   # Default tag used on hints.
   # config.hint_tag = :span
@@ -59,11 +59,11 @@ SimpleForm.setup do |config|
   # config.form_class = :simple_form
 
   # Whether attributes are required by default (or not). Default is true.
-  # config.required_by_default = true
+  #config.required_by_default = false
 
   # Tell browsers whether to use default HTML5 validations (novalidate option).
   # Default is enabled.
-  # config.browser_validations = true
+  config.browser_validations = false
 
   # Determines whether HTML5 types (:email, :url, :search, :tel) and attributes
   # (e.g. required) are used or not. True by default.

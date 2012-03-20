@@ -3,7 +3,7 @@
 
   <div class="attributes">
     <div class="split_content_left">
-      <%= f.input :number %>
+      <%= f.input :number, :input_html => { :maxlength => 6 } %>
       <%= f.input :brand_name do %>
         <%= f.autocomplete_field :brand_name, autocomplete_brand_chinese_name_admin_brands_path, :id_element => '#sku_brand_id'  %>
       <% end %>
