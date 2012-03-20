@@ -131,6 +131,10 @@ module ApplicationHelper
     object.district ? object.district.address : ""
   end
 
+  def symbol_label(name)
+    label_tag name+"："
+  end
+
   private
 
     def format_value(value,hash)

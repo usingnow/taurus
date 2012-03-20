@@ -4,13 +4,9 @@ class Admin::SkuImagesController < ApplicationController
   # GET /sku_images
   # GET /sku_images.xml
   def index
-    if params[:sku_id] != nil
-      sku_id = params[:sku_id]
-    else
-      sku_id = session[:sku_id]
-    end
+    session[:sku_id] = params[:sku_id] if params[:sku_id]
 
-    @sku_images = SkuImage.find_all_by_sku_id(sku_id)
+    @sku_images = SkuImage.find_all_by_sku_id(session[:sku_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -47,8 +43,7 @@ class Admin::SkuImagesController < ApplicationController
   # POST /sku_images
   # POST /sku_images.xml
   def create
-    @sku_image = SkuImage.new(params[:sku_image])
-    @sku_image.sku_id = session[:sku_id]
+    @sku_image = SkuImage.new({:sku_id => session[:sku_id]}.merge(params[:sku_image]))
 
     respond_to do |format|
       if @sku_image.save

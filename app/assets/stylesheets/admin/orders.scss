@@ -1,0 +1,36 @@
+#main_content{
+  .list_info{
+    list-style-type:none;
+    padding:0;
+    li{
+      line-height:20px;
+      vertical-align: middle;
+      label{
+        line-height:20px;
+        text-align:left;
+        width:auto;
+        min-width:80px;
+      }
+    }
+  }
+
+  .order_price_info{
+    list-style-type:none;
+    li{
+      line-height:20px;
+      vertical-align: middle;
+      label{
+        line-height:20px;
+        text-align:left;
+        width:auto;
+        min-width:80px;
+      }
+    }
+  }
+}
+
+
+.right_button{
+  text-align:right;
+}
+

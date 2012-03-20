@@ -76,5 +76,7 @@ module Admin::OrdersHelper
     object.delivery_order ? "已出库" : "未出库"
   end
 
-
+  def order_type(object)
+    object.order_details.last.sku.sku_type == 1 ? "在库品" : "直送品" if object.order_details.any?
+  end
 end
