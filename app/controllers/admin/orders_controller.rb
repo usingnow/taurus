@@ -322,6 +322,14 @@ class Admin::OrdersController < ApplicationController
     render :layout => false
   end
 
+  def take_over_logs
+    @order = Order.find(params[:id])
+  end
+
+  def order_tracks
+    @order = Order.find(params[:id])
+  end
+
   private
     def order_search
       q = Hash.new

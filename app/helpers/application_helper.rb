@@ -131,8 +131,8 @@ module ApplicationHelper
     object.district ? object.district.address : ""
   end
 
-  def symbol_label(name)
-    label_tag name+"："
+  def symbol_label(content,options={})
+    label_tag "", content+"：", options
   end
 
   private

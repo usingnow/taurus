@@ -107,6 +107,10 @@ Ebiz::Application.routes.draw do
         get  :sign_in
         get  :take_over
       end
+      member do
+        get  :take_over_logs
+        get  :order_tracks
+      end
     end
     resources :order_details
     resources :order_pays

@@ -12,7 +12,6 @@ class OrderPay < ActiveRecord::Base
   validates_numericality_of :price, :if => :input_pay_info
   validates_confirmation_of :price, :message => "与订单金额不符", :if => :input_pay_info
 
-
   protected
     def paid
       condition_type == "1"
