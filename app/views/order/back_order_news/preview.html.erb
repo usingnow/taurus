@@ -10,6 +10,7 @@
       <th>安装费用</th>
       <th>组装费用</th>
       <th>合计</th>
+      <th>最小可销售数量</th>
     </tr>
   </thead>
   <tbody id="back_order_skus">
@@ -24,10 +25,11 @@
         <td><%= cart.sku.installation_cost_aft_tax %></td>
         <td><%= cart.sku.assembling_fee_aft_tax %></td>
         <td><%= cart.subtotal %></td>
+        <td><%= cart.sku.available_skus(@user.store_id) %></td>
       </tr>
     <% end %>
     <tr>
-      <td colspan="10" align="right" id="total_amount">
+      <td colspan="11" align="right" id="total_amount">
         运费：<%= number_to_currency @carriage_cost, :unit => "￥" %>,
         安装费合计：<%= number_to_currency @back_order_skus.to_a.sum{ |cart| cart.sku.installation_cost_aft_tax }, :unit => "￥" %>,
         组装费合计：<%= number_to_currency @back_order_skus.to_a.sum{ |cart| cart.sku.assembling_fee_aft_tax }, :unit => "￥" %>,

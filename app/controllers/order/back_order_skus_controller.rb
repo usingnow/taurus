@@ -23,9 +23,9 @@ class Order::BackOrderSkusController < ApplicationController
     else
       @back_order_sku.quantity += 1
     end
-      @back_order_sku.save
+    @back_order_sku.save
 
-      @back_order_skus = BackOrderSku.find_all_by_user_id(params[:user_id])
+    @back_order_skus = BackOrderSku.find_all_by_user_id(params[:user_id])
   end
 
   def destroy
