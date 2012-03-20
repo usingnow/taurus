@@ -143,8 +143,8 @@ module ApplicationHelper
     end
   end
 
-  def symbol_label(name)
-    label_tag name+"："
+  def symbol_label(content,options={})
+    label_tag "", content+"：", options
   end
 
   private

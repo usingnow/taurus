@@ -50,7 +50,7 @@
   <% @order.order_details.each_with_index do |detail,index| %>
     <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
       <td><%= index+1 %></td>
-      <td><%= detail.sku.number %></td>
+      <td><%= link_to detail.sku.number, commodity_admin_sku_path(detail.sku_id) %></td>
       <td><%= detail.sku.name %></td>
       <td><%= detail.sku.unit %></td>
       <td><%= detail.unit_price %></td>
@@ -83,172 +83,148 @@
     <%= symbol_label '其他费用' %>
     <%= cny @order.other_cost %>
   </li>
-  <li>
+  <li id="left_li" class="border_bottom">
     <%= symbol_label '标准运费' %>
     <%= cny @order.carriage_cost %>
   </li>
-  <li>
+  <li class="border_bottom">
     <%= symbol_label '调整后运费' %>
     <%= cny @order.carriage_adjustment %>
   </li>
-  <li>
-    <%= symbol_label '合计' %>
+  <li class="red">
+    <%= symbol_label '合计', :class => "red" %>
     <%= cny @order.total_amount %>
   </li>
 </ul>
 
 
+<h1 class="consignee_info_title">收货人信息</h1>
+<ul class="list_info">
+  <li>
+    <%= symbol_label "收货人姓名" %>
+    <span><%= @order.name %></span>
+  </li>
+  <li>
+    <%= symbol_label "收货人姓名" %>
+    <span><%= @order.name %></span>
+  </li>
+  <li>
+    <%= symbol_label "所属地区" %>
+    <span><%= @order.district.address %></span>
+  </li>
+  <li>
+    <%= symbol_label "收货地址" %>
+    <span><%= @order.address %></span>
+  </li>
+  <li>
+    <%= symbol_label "固定电话" %>
+    <span><%= @order.phone %></span>
+  </li>
+  <li>
+    <%= symbol_label "手机" %>
+    <span><%= @order.mobile %></span>
+  </li>
+  <li>
+    <%= symbol_label "电子邮箱" %>
+    <span><%= @order.email %></span>
+  </li>
+  <li>
+    <%= symbol_label "邮编" %>
+    <span><%= @order.zip %></span>
+  </li>
+  <li class="second">
+    <%= symbol_label "出库状态", :class => "orange" %>
+    <%= format_delivery_status @order %>
+  </li>
+  <li>
+    <%= symbol_label "相关出库单", :class => "orange" %>
+    <%= link_to @order.delivery_order.number, store_sales_order_delivery_path(@order.delivery_order.id) if @order.delivery_order %>
+  </li>
+</ul>
 
-
-<div class="attributes">
-  <div class="split_content_left">
-    <h2>收货人信息</h2>
-    <p>
-      <%= label_tag '收货人姓名：' %>
-      <%= @order.name %>
-    </p>
-    <p>
-      <%= label_tag '所属地区：' %>
-      <%= @order.district.address %>
-    </p><br />
-    <p>
-      <%= label_tag '收货地址：' %>
-      <%= @order.address %>
-    </p>
-    <p>
-      <%= label_tag '固定电话：' %>
-      <%= @order.phone %><br />
-    </p>
-    <p>
-      <%= label_tag '手机：' %>
-      <%= @order.mobile %><br />
-    </p>
-     <p>
-      <%= label_tag '电子邮箱：' %>
-      <%= @order.email %><br />
-    </p>
-    <p>
-      <%= label_tag '邮   编：' %>
-      <%= @order.zip %>
-    </p>
-    <p>
-      <%= label_tag '出库状态：' %>
-      <%= format_delivery_status @order %>
-    </p>
-    <p>
-      <%= label_tag '相关出库单：' %>
-      <%= link_to @order.delivery_order.number, store_sales_order_delivery_path(@order.delivery_order.id) if @order.delivery_order %>
-    </p>
-  </div>
-  <div class="split_content_right">
-    <p id="print_link">
-      <%= link_to '订单打印', order_order_print_path(@order),{:target => "blank"} %>
-      【<%= link_to "已打印#{@order.order_print_sum(0)}次", order_order_prints_path(:order_id => @order, :line_type => "0") %>】
-    </p>
-  </div>
-  <div class="clear"></div>
-</div>
-
-
-<h2>支付及发票信息</h2>
-<div class="attributes">
-  <div class="split_content_left">
-    <p>
-      <%= label_tag '支付方式：' %>
-      <%= @order.instance.procedure.display_name %>
-    </p>
-    <p>
-      <%= label_tag '发票类型：' %>
-      <%= format_invoice_type(@order.invoice_type) %>
-    </p>
-    <% unless @order.invoice_type == 2 %>
-      <% if @order.invoice_type == 1 %>
-        <p>
-          <%= label_tag '开户银行：' %>
-          <%= @order.account_bank %>
-        </p>
-        <p>
-          <%= label_tag '开户名称：' %>
-          <%= @order.account_person_name %>
-        </p>
-        <p>
-          <%= label_tag '注册电话：' %>
-          <%= @order.account_phone %>
-        </p>
-        <p>
-          <%= label_tag '银行帐号：' %>
-          <%= @order.account_no %>
-        </p>
-        <p>
-          <%= label_tag '增值税登记号：' %>
-          <%= @order.added_value_tax_no %>
-        </p>
-        <p>
-          <%= label_tag '注册地址：' %>
-          <%= @order.account_reg_add %>
-        </p>
-      <% end %>
-      <p>
-         <%= label_tag '发票抬头：' %>
-         <%= format_is_invoice_head @order.is_invoice_head %>
-      </p>
-      <% if @order.is_invoice_head == 1 %>
-        <p>
-          <%= label_tag '单位名称：' %>
-          <%= @order.company_name %>
-        </p>
-      <% end %>
+<h1>支付及发票信息</h1>
+<ul class="list_info">
+  <li>
+    <%= symbol_label "支付方式" %>
+    <span><%= @order.instance.procedure.display_name %></span>
+  </li>
+  <li>
+    <%= symbol_label "发票类型" %>
+    <span><%= format_invoice_type(@order.invoice_type) %></span>
+  </li>
+  <% unless @order.invoice_type == 2 %>
+    <% if @order.invoice_type == 1 %>
+      <li>
+        <%= symbol_label "开户银行" %>
+        <span><%= @order.account_bank %></span>
+      </li>
+      <li>
+        <%= symbol_label "开户名称" %>
+        <span><%= @order.account_person_name %></span>
+      </li>
+      <li>
+        <%= symbol_label "注册电话" %>
+        <span><%= @order.account_phone %></span>
+      </li>
+      <li>
+        <%= symbol_label "银行帐号" %>
+        <span><%= @order.account_no %></span>
+      </li>
+      <li>
+        <%= symbol_label "增值税登记号" %>
+        <span><%= @order.added_value_tax_no %></span>
+      </li>
+      <li>
+        <%= symbol_label "注册地址" %>
+        <span><%= @order.account_reg_add %></span>
+      </li>
     <% end %>
-  </div>
-  <div class="clear"></div>
+    <li>
+      <%= symbol_label "发票抬头" %>
+      <span><%= format_is_invoice_head @order.is_invoice_head %></span>
+    </li>
+    <% if @order.is_invoice_head == 1 %>
+      <li>
+        <%= symbol_label "单位名称" %>
+        <span><%= @order.company_name %></span>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<h1>备注信息</h1>
+<ul class="list_info">
+  <li>
+    <%= symbol_label "客户备注" %>
+    <span><%= @order.customer_note %></span>
+  </li>
+  <li class="second">
+    <%= symbol_label "内部备注" %>
+    <span><%= @order.inner_note %></span>
+  </li>
+</ul>
+
+<h1>相关记录</h1>
+<ul class="list_info">
+  <li>
+    <%= symbol_label "打印次数" %>
+    <span><%= @order.order_print_sum(0) %>次</span>
+  </li>
+  <li>
+    <%= symbol_label "订单追踪" %>
+    <%= link_to "点击查看", order_tracks_admin_order_path(@order), :target => "_blank" %>
+  </li>
+  <li>
+    <%= symbol_label "接管记录" %>
+    <%= link_to "点击查看", take_over_logs_admin_order_path(@order), :target => "_blank" %>
+  </li>
+</ul>
+
+
+<div class="right_button">
+  <%= link_to '订单打印', order_order_print_path(@order),{:target => "blank"} %>
+  <% @order.next_action.each do |action| %>
+    <%=raw condition_action(action,@order) %>
+  <% end %>
+  <%= link_to "关闭页面", "#", :onclick => "return window.close()"  %>
 </div>
-
-<h2>订单追踪</h2>
-<table class="grid">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>当前站</th>
-      <th>操作(条件)</th>
-      <th>下一站</th>
-      <th>操作者</th>
-      <th>操作时间</th>
-    </tr>
-  </thead>
-  <% @order.instance.tracks.each_with_index do |track,index| %>
-    <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
-      <td><%= index+1 %></td>
-      <td><%= track.station.name %></td>
-      <td><%= track.condition.name %></td>
-      <td><%= track.next_station.name %></td>
-      <td><%= track.created_by %></td>
-      <td><%= track.created_at %></td>
-    </tr>
-  <% end %>
-</table>
-
-<h2>接管记录</h2>
-<table class="grid">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>操作者</th>
-      <th>操作类型</th>
-      <th>操作时间</th>
-    </tr>
-  </thead>
-  <% @order.order_take_logs.each_with_index do |log,index| %>
-    <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
-      <td><%= index+1 %></td>
-      <td><%= log.created_by %></td>
-      <td><%= format_order_take_log_type log.oper_type %></td>
-      <td><%= log.created_at %></td>
-    </tr>
-  <% end %>
-</table>
-
-
-<h2>订单备注</h2>
-<p>客户备注：<%= @order.customer_note %></p>
-<p>内部备注：<%= @order.inner_note %></p>
-
