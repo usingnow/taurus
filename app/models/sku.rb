@@ -11,10 +11,14 @@ class Sku < ActiveRecord::Base
   scope :begin_sales, where("skus.status = 1")
   attr_accessor :brand_name, :sku_category_name, :sku_category_number
 
+  #验证
   validates :number, :name, :brand_id, :brand_name, :sku_category_id, :sku_category_name, :unit, :specification,
             :delivery_day, :sku_type,  :presence => true
+  validates_numericality_of :number, :only_integer => true
+  validates_length_of :number, :in => 6..6
   validates_uniqueness_of :number
 
+  #自定义属性
   def sku_cost
     sku_productships.to_a.sum{ |sku_product| sku_product.package_num*sku_product.product.cost_aft_tax }
   end
