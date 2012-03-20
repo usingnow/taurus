@@ -23,3 +23,5 @@ zh-CN:
         user_login_no: "会员用户名"
         created_at: "下单日期"
         inner_note: "订单备注"
+        order_type: "订单类型"
+

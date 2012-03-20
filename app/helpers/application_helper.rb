@@ -143,6 +143,10 @@ module ApplicationHelper
     end
   end
 
+  def symbol_label(name)
+    label_tag name+"："
+  end
+
   private
 
     def format_value(value,hash)

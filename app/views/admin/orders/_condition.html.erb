@@ -1,12 +1,32 @@
-<table>
-  <tr>
-    <td>订单号码:</td><td class="red"><%= @order.number %></td>
-    <td>订单批次:</td><td class="red"><%= @order.batch %></td>
-    <td>订单类型:</td><td class="red"><%= get_sku_type(@order) %></td>
-    <td>订单状态:</td><td class="red"><%= @order.instance.station.name %></td>
-    <td>客户:</td><td class="red"><%= get_user_name(@order.user)  %></td>
-  </tr>
-</table>
+<ul class="list_info">
+  <li>
+    <%= symbol_label t('activerecord.attributes.order.number') %>
+    <span class="red"><%= @order.number %></span>
+  </li>
+  <li>
+    <%= symbol_label t('activerecord.attributes.order.batch') %>
+    <span class="red"><%= @order.batch %></span>
+  </li>
+  <li>
+    <%= symbol_label t('activerecord.attributes.order.order_type') %>
+    <span><%= order_type @order %></span>
+  </li>
+  <li>
+    <%= symbol_label t('activerecord.attributes.order.station') %>
+    <span><%= @order.instance.station.name %></span>
+  </li>
+  <li>
+    <%= symbol_label t('activerecord.attributes.order.user') %>
+    <span><%= @order.user.name %></span>
+  </li>
+</ul>
+
+<div class="right_button">
+  <% @order.next_action.each do |action| %>
+    <%=raw condition_action(action,@order) %>
+  <% end %>
+  <%= link_to "关闭页面", "#", :onclick => "return window.close()"  %>
+</div>
 <hr />
 <table class="grid">
   <thead>
@@ -46,7 +66,39 @@
     </tr>
   <% end %>
 </table>
-<hr />
+<ul class="order_price_info">
+  <li>
+    <%= symbol_label '商品总价' %>
+    <%= cny @order.total_sku_amount %>
+  </li>
+  <li>
+    <%= symbol_label '安装费' %>
+    <%= cny @order.total_install_cost %>
+  </li>
+  <li>
+    <%= symbol_label '组装费' %>
+    <%= cny @order.total_assemble_cost %>
+  </li>
+  <li>
+    <%= symbol_label '其他费用' %>
+    <%= cny @order.other_cost %>
+  </li>
+  <li>
+    <%= symbol_label '标准运费' %>
+    <%= cny @order.carriage_cost %>
+  </li>
+  <li>
+    <%= symbol_label '调整后运费' %>
+    <%= cny @order.carriage_adjustment %>
+  </li>
+  <li>
+    <%= symbol_label '合计' %>
+    <%= cny @order.total_amount %>
+  </li>
+</ul>
+
+
+
 
 <div class="attributes">
   <div class="split_content_left">
@@ -89,34 +141,6 @@
     </p>
   </div>
   <div class="split_content_right">
-    <p>
-      <%= label_tag '商品总价：' %>
-      <%= @order.total_sku_amount %> 元
-    </p>
-    <p>
-      <%= label_tag '安装费：' %>
-      <%= @order.total_install_cost %> 元
-    </p>
-    <p>
-      <%= label_tag '组装费：' %>
-      <%= @order.total_assemble_cost %> 元
-    </p>
-    <p>
-      <%= label_tag '其他费用：' %>
-      <%= @order.other_cost %> 元
-    </p>
-    <p>
-      <%= label_tag '标准运费：' %>
-      <%= @order.carriage_cost %> 元
-    </p>
-    <p>
-      <%= label_tag '调整后运费：' %>
-      <%= @order.carriage_adjustment %> 元
-    </p>
-    <p>
-      <%= label_tag '合计：' %>
-      <%= @order.total_amount %> 元
-    </p>
     <p id="print_link">
       <%= link_to '订单打印', order_order_print_path(@order),{:target => "blank"} %>
       【<%= link_to "已打印#{@order.order_print_sum(0)}次", order_order_prints_path(:order_id => @order, :line_type => "0") %>】
