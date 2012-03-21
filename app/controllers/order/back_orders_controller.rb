@@ -149,14 +149,32 @@ class Order::BackOrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.update_attributes(params[:order])
 
-    render :partial => "update_cost"
+    render "update_price"
   end
 
   def other_cost
     @order = Order.find(params[:id])
     @order.update_attributes(params[:order])
 
-    render :partial => "update_cost"
+    render "update_price"
+  end
+
+
+  def create_user_address
+    @order = Order.find(params[:id])
+    user_addresses = @order.user.user_addresses.find_all_by_name_and_district_no_and_address(
+      params[:order][:name],params[:order][:district_no],params[:order][:address])
+    if user_addresses.any?
+      render :json => "failure".to_json
+    else
+      @user_address =  @order.user.user_addresses.build params[:order]
+      @user_address.save
+      render "user_address_operating"
+    end
+  end
+
+  def show_user_address
+    @user_address = UserAddress.find(params[:id])
   end
 
 end

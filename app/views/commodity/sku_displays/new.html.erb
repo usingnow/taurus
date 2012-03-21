@@ -32,7 +32,7 @@
 
 
   <% @sku_displays.each_with_index do |sku_display,index| %>
-    <tr class="<%= cycle("odd","even") %>" group="<%= index %>">
+    <tr class="<%= cycle("odd","even") %>">
       <td><%= index+1 %></td>
       <td><%= text_field_tag :sequence, sku_display.sequence ,:class => "sequence_text", :'data-id' => sku_display.id %></td>
       <td><%= sku_display.sku.number %></td>

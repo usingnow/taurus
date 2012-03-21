@@ -220,6 +220,8 @@ Ebiz::Application.routes.draw do
         put  :internal_note
         put  :carriage_adjustment
         put  :other_cost
+        post :create_user_address
+        get :show_user_address
       end
     end
     resources :back_order_news do

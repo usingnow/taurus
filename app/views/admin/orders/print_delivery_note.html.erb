@@ -77,7 +77,7 @@
   </thead>
 
 <% @orders.each_with_index do |order,index| %>
-  <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
+  <tr class="<%= set_odd_even_class(index) %>">
     <td><%= index+1 %></td>
     <td><%= link_to order.number, admin_order_path(order) %></td>
     <td><%= get_user_name(order.user) %></td>
@@ -87,7 +87,7 @@
     <td><%= order.created_at %></td>
     <td><%= link_to order.order_print_sum(1), order_order_prints_path(:order_id => order, :line_type => "1") %></td>
   </tr>
-  <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
+  <tr class="<%= set_odd_even_class(index) %>">
     <td colspan="7" class="summary">
       订单概述：总共含<%= order.total_details %>种商品，
       合计<%= order.total_skus %>个商品，

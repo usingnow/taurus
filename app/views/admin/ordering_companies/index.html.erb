@@ -16,7 +16,7 @@
     </tr>
   </thead>
 <% @ordering_companies.each_with_index do |ordering_company,index| %>
-  <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+  <tr class="<%= set_odd_even_class index %>">
     <td><%= index+1 %></td>
     <td><%= ordering_company.name %></td>
     <td><%= ordering_company.address %></td>

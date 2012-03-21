@@ -1,5 +1,5 @@
 str = '<% @back_order_skus.each_with_index do |cart,index| %>'+
-        '<tr class="<%= set_odd_even_class(index) %>" group="<%= index %>" id="back_order_sku<%= cart.id %>">'+
+        '<tr class="<%= set_odd_even_class(index) %>" id="back_order_sku<%= cart.id %>">'+
           '<td><%= index+1 %></td>'+
           '<td><%= cart.sku.number %></td>'+
           '<td><%= cart.sku.name.gsub("\n", "") %></td>'+
@@ -23,9 +23,4 @@ jQuery(".back_order_sku_quantity").change(function() {
               })
   });
 
-$("[group]").hover(function(){
-  $("[group='"+$(this).attr('group')+"']").addClass("highlight");
-},function(){
-  $("[group='"+$(this).attr('group')+"']").removeClass("highlight");
-});
 

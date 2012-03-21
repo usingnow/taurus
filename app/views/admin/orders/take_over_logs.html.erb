@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <% @order.order_take_logs.each_with_index do |log,index| %>
-    <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+    <tr class="<%= set_odd_even_class index %>">
       <td><%= index+1 %></td>
       <td><%= log.created_by %></td>
       <td><%= format_order_take_log_type log.oper_type %></td>

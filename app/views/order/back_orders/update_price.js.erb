@@ -1,0 +1,4 @@
+jQuery("#order_price").html("<%= j(render "price_info_edit") %>");
+if(jQuery("#other_cost").length > 0 || jQuery("#carriage_adjustment").length > 0){
+  jQuery("#order_price_info").css("width","550px");
+}

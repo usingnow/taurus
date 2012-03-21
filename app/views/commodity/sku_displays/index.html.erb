@@ -19,7 +19,7 @@
   </thead>
   <tbody>
   <% @page['locations'].each_with_index do |location,index| %>
-    <tr class="<%= cycle("odd","even") %>" group="<%= index %>">
+    <tr class="<%= cycle("odd","even") %>">
       <td><%= index+1 %></td>
       <td><%= @page['name'] %></td>
       <td><%= location['name'] %></td>

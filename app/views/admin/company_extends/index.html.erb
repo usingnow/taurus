@@ -45,7 +45,7 @@
     </tr>
   </thead>
 <% @company_extends.each_with_index do |company_extend,index| %>
-  <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+  <tr class="<%= set_odd_even_class index %>">
     <td><%= index+1 %></td>
     <td><%= link_to company_extend.company_no, admin_company_extend_path(company_extend) %></td>
     <td><%= company_extend.user.login_no %></td>

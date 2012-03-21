@@ -16,21 +16,20 @@ class Admin::OrderDetailsController < ApplicationController
     @order_detail.save
 
     @order = Order.find(order_id)
+    render "operating"
   end
 
   def update
-    value = params[:value]
-
     @order_detail = OrderDetail.find(params[:id])
-    @order_detail.update_attributes(:quantity => value)
-
-    @order = Order.find(@order_detail.order_id)
+    @order_detail.update_attributes(:quantity => params[:value])
+    @order = @order_detail.order
+    render "operating"
   end
 
   def destroy
     @order_detail = OrderDetail.find(params[:id])
     @order_detail.destroy
-
-    @order = Order.find(@order_detail.order_id)
+    @order = @order_detail.order
+    render "operating"
   end
 end

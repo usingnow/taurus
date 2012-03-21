@@ -22,12 +22,14 @@
     list-style-type:none;
     width: 400px;
     float: right;
+    text-align:left;
     #left_li{
       float: left;
       padding-left: 0;
     }
     .border_bottom{
       border-bottom: 1px solid black;
+      height:20px;
     }
     li{
       line-height:20px;
@@ -63,4 +65,16 @@
 .right_button{
   text-align:right;
 }
+
+#user_addresses{
+  text-align:left;
+  width:400px;
+  caption{
+    color: #013DA4;
+    text-align:left;
+  }
+}
+
+
+
 

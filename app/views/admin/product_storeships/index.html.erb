@@ -38,7 +38,7 @@
     </tr>
   </thead>
   <% @product_storeships.each_with_index do |product_storeship,index| %>
-    <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+    <tr class="<%= set_odd_even_class index %>">
       <td><%= index+1 %></td>
       <td><%= product_storeship.store.name %></td>
       <td><%= product_storeship.product.name %></td>

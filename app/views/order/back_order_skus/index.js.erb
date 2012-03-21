@@ -18,8 +18,4 @@ jQuery(".add_sku_to_back_order_skus").click(function(){
   jQuery(this).attr("href",jQuery(this).attr("href")+"&user_id="+jQuery('#user_id').val());
 });
 
-jQuery("[group]").hover(function(){
-  jQuery("[group='"+jQuery(this).attr('group')+"']").addClass("highlight");
-},function(){
-  jQuery("[group='"+jQuery(this).attr('group')+"']").removeClass("highlight");
-});
+

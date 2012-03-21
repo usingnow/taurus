@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <% @order.instance.tracks.each_with_index do |track,index| %>
-    <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+    <tr class="<%= set_odd_even_class index %>">
       <td><%= index+1 %></td>
       <td><%= track.station.name %></td>
       <td><%= track.condition.name %></td>

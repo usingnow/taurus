@@ -29,7 +29,7 @@
   <% flag = false %>
   <% @station_procedureships.each_with_index do |station_procedureship,index| %>
     <% if station_procedureship.sequence == k+1  %>
-      <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
+      <tr class="<%= set_odd_even_class(index) %>">
         <td><%= index+1 %></td>
         <td><%= station_procedureship.station.name %></td>
         <td><%= station_procedureship.condition.name %></td>
