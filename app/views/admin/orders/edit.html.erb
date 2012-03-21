@@ -1,302 +1,170 @@
-<script>
-  $(function(){
-     $("#order_tabs").tabs();
-  });
-</script>
+<%= render "base_info" %>
 
-<div id="order_tabs">
-	<ul>
-		<li><a href="#order_tabs-1">基本信息</a></li>
-        <li><a href="#order_tabs-2">商品信息</a></li>
-        <li><a href="#order_tabs-3">发票信息</a></li>
-        <li><a href="#order_tabs-4">收货地址</a></li>
-	</ul>
-	<div id="order_tabs-1">
-      <%= form_for @order, :url => internal_note_order_back_order_path do |f| %>
-        <table class="info_table">
-          <tr>
-            <td class="info_table_title"><%= f.label :instance %>:</td>
-            <td><%= f.label @order.instance.procedure.name %></td>
-            <td class="info_table_title"><%= f.label :station %>:</td>
-            <td><%= f.label @order.instance.station.name %></td>
-          </tr>
-          <tr>
-            <td class="info_table_title"><%= f.label :number %>:</td>
-            <td><%= @order.number %></td>
-            <td class="info_table_title"><%= f.label :batch %>:</td>
-            <td><%= @order.batch %></td>
-          </tr>
-          <tr>
-            <td class="info_table_title"><%= f.label :total_amount %>:</td>
-            <td><%= cny @order.total_amount %></td>
-            <td class="info_table_title"> <%= f.label :user %>:</td>
-            <td><%= get_user_name @order.user %></td>
-          </tr>
-          <tr>
-            <td class="info_table_title"><%= f.label t :user_number %>:</td>
-            <td> <%= get_user_number @order.user %></td>
-            <td class="info_table_title"> <%= f.label :user_login_no %>:</td>
-            <td> <%= f.label @order.user.login_no %></td>
-          </tr>
-          <tr>
-            <td class="info_table_title"><%= f.label :created_at %>:</td>
-            <td><%= f.label @order.created_at %></td>
-            <td class="info_table_title"><%= f.label :make_by %>:</td>
-            <td><%= get_make_by @order %></td>
-          </tr>
-          <tr>
-            <td class="info_table_title"><%= f.label :contact_name %></td>
-            <td><%= f.label @order.name %></td>
-            <td class="info_table_title"><%= f.label :phone %>:</td>
-            <td><%= is_blank(@order.phone) %></td>
-          </tr>
-          <tr>
-            <td class="info_table_title"><%= f.label :mobile %></td>
-            <td><%= is_blank(@order.mobile) %></td>
-            <td class="info_table_title"><%= f.label :email %>:</td>
-            <td> <%= is_blank(@order.email) %></td>
-          </tr>
-          <tr>
-            <td class="info_table_title"><%= f.label :zip %></td>
-            <td><%= is_blank(@order.zip) %></td>
-            <td class="info_table_title"><%= f.label :address %>:</td>
-            <td colspan="3"> <%= @order.address %></td>
-          </tr>
-          <tr>
-            <td class="info_table_title"><%= f.label :inner_note %></td>
-            <td colspan="3"><%= f.text_area :inner_note, :cols=>50, :rows=>5 %></td>
-          </tr>
-        </table>
+<div class="right_button">
+  <%= link_to "关闭页面", "#", :onclick => "return window.close()"  %>
+</div>
 
-        <div class="actions">
-          <%= f.submit '保存'%>
-        </div>
-      <% end %>
-	</div>
-    <div id="order_tabs-2">
-      <table class="grid">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>商品编号</th>
-            <th>商品名称</th>
-            <th>单位</th>
-            <th>单价</th>
-            <th>数量</th>
-            <th>安装</th>
-            <th>安装费用</th>
-            <th>组装</th>
-            <th>组装费用</th>
-            <th>交货期</th>
-            <th>合计</th>
-            <th>最小可销售数量</th>
-            <th>操作</th>
-          </tr>
-        </thead>
-        <tbody id="order_details">
-          <% @order.order_details.each_with_index do |detail,index| %>
-            <tr class="<%= set_odd_even_class(index) %>">
-              <td><%= index+1 %></td>
-              <td><%= detail.sku.number %></td>
-              <td><%= detail.sku.name %></td>
-              <td><%= detail.sku.unit %></td>
-              <td><%= detail.sku.cost_aft_tax %></td>
-              <td><%= text_field_tag :quantity, detail.quantity, :size => 3, :class=> "order_details_quantity", :id => "#{detail.id}" %></td>
-              <td><%= format_is_need(detail.is_need_install) %></td>
-              <td><%= detail.sku.installation_cost_aft_tax %></td>
-              <td><%= format_is_need(detail.is_need_assemble) %></td>
-              <td><%= detail.sku.assembling_fee_aft_tax %></td>
-              <td><%= detail.sku.delivery_day %></td>
-              <td><%= detail.subtotal %></td>
-              <td><%= detail.sku.available_skus(@order.user.store_id) %></td>
-              <td><%= link_to '删除', admin_order_detail_path(detail), :confirm => '确定删除?', :method => :delete, :remote => true %></td>
-            </tr>
+<hr />
+
+<table class="grid" id="order_sku_list">
+  <%= render "admin/order_details/line_items" %>
+</table>
+
+<hr />
+
+<div>
+  <%= search_form_for @search, :url => search_commodity_admin_skus_path, :remote => true, :html => {:method => :get} do |f| %>
+    <%= hidden_field_tag 'order_id', @order.id %>
+    商品编号:<%= f.text_field :number_eq %>
+    商品名称:<%= f.text_field :name_cont %>
+    <%= submit_tag '查询', :class => "margin_bottom_5" %>
+  <% end %>
+</div>
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>商品编号</th>
+      <th>商品名称</th>
+      <th>单位</th>
+      <th>单价</th>
+      <th>交货期</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody id="search_skus"></tbody>
+</table>
+<hr />
+
+<%= simple_form_for @order, :url => condition_admin_orders_path  do |f| %>
+  <h1>收货人信息</h1>
+  <table id="user_addresses">
+    <%= render "order/back_orders/user_addresses" %>
+  </table>
+  <ul class="list_info" id="consignee_info">
+    <li>
+      <%= f.input :name %>
+    </li>
+    <li id="area_li">
+      <%= f.input :district_no do
+        render "order/back_orders/area"
+      end%>
+    </li>
+    <li>
+      <%= f.input :address %>
+    </li>
+    <li>
+      <%= f.input :phone %>
+    </li>
+    <li>
+      <%= f.input :mobile %>
+    </li>
+    <li>
+      <%= f.input :email %>
+    </li>
+    <li>
+      <%= f.input :zip %>
+    </li>
+  </ul>
+
+  <%= link_to "添加到常用地址", "#", :id => "add_to_user_addresses" %>
+
+  <h1>支付与发票信息</h1>
+  <ul class="list_info">
+    <li id="invoice_type_li">
+      <%= f.input :invoice_type, :collection => [[2, '不需要'], [0, '普通'], [1, '增值税发票']],
+                  :label_method => :last, :value_method => :first, :as => :radio, :class => "radio" %>
+    </li>
+    <% unless @order.invoice_type == 2 %>
+      <li class="invoice_head">
+        <%= f.input :is_invoice_head do %>
+          <%= f.collection_radio :is_invoice_head, [[0, '个人'], [1, '单位']], :first, :second, :class => "radio" %>
+          <% if @order.is_invoice_head == 1 %>
+            <%= f.text_field :company_name %>
           <% end %>
-          <tr>
-            <td colspan="14" align="right">
-              运费：<%= number_to_currency @order.carriage_cost, :unit => "￥" %>,
-              安装费合计：<%= number_to_currency @order.total_install_cost, :unit => "￥" %>,
-              组装费合计：<%= number_to_currency @order.total_assemble_cost, :unit => "￥" %>,
-              总计:<%= number_to_currency @order.total_amount, :unit => "￥" %>
-            </td>
-          </tr>
-          <script type="text/javascript">
-            $(".order_details_quantity").change(function() {
-              $.ajax({url: "/admin/order_details/"+this.id,
-                      type: "put",
-                      data: 'value=' + this.value + '&order_id=<%= @order.id %>',
-                      dataType: 'script'})
-            });
-          </script>
-        </tbody>
-      </table>
-
-      <div class="grid_button">
-        <% if can? :carriage_adjustment, Order %>
-         调整后运费<input type="number" value="<%= @order.carriage_adjustment %>" id="carriage_adjustment" />
-         <input type="button" value="修改运费" id="carriage_adjustment_update" />
         <% end %>
-        <% if can? :other_cost, Order %>
-         其他费用<input type="number" value="<%= @order.other_cost %>" id="other_cost" />
-         <input type="button" value="修改其他费用" id="other_cost_update" />
-        <% end %>
-        <% content_for :ready do %>
-          jQuery('#carriage_adjustment_update').click(function(){
-            jQuery.ajax({
-              url: "/order/back_orders/<%= @order.id %>/carriage_adjustment",
-              type: "put",
-              data: {"order[carriage_adjustment]": jQuery('#carriage_adjustment').val()},
-              success:function(result){
-                jQuery('#order_details').html(result);
-              }
-            });
-          });
-
-          jQuery('#other_cost_update').click(function(){
-            jQuery.ajax({
-              url: "/order/back_orders/<%= @order.id %>/other_cost",
-              type: "put",
-              data: {"order[other_cost]": jQuery('#other_cost').val()},
-              success:function(result){
-                jQuery('#order_details').html(result);
-              }
-            });
-          });
-        <% end %>
-      </div>
-
-      <hr />
-
-      <div>
-        <%= search_form_for @search, :url => search_commodity_admin_skus_path, :remote => true, :html => {:method => :get} do |f| %>
-          <%= hidden_field_tag 'order_id', @order.id %>
-          商品编号:<%= f.text_field :number_eq %>
-          商品名称:<%= f.text_field :name_cont %>
-          <%= submit_tag '查询', :class => "margin_bottom_5" %>
-        <% end %>
-      </div>
-      <table class="grid">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>商品编号</th>
-            <th>商品名称</th>
-            <th>单位</th>
-            <th>单价</th>
-            <th>安装费用</th>
-            <th>组装费用</th>
-            <th>交货期</th>
-            <th>操作</th>
-          </tr>
-        </thead>
-        <tbody id="search_skus"></tbody>
-      </table>
-      <hr />
-
-      <%= button_to '完成修改并且过站', condition_admin_orders_path %>
-    </div>
-    <div id="order_tabs-3">
-      <%= form_for @order, :url => condition_admin_orders_path  do |f| %>
-        <div class="attributes">
-            <div class="split_content_left">
-              <p>
-                <%= label_tag "发票类型" %>
-                <%= f.radio_button :invoice_type, '0', :class => "radio", :checked => true %>普通
-                <%= f.radio_button :invoice_type, '1', :class => "radio" %>增值税发票
-              </p>
-              <div id="type_invoice">
-                <% if @order.invoice_type == 1 %>
-                  <p><%= label_tag "开户银行" %><%= f.text_field :account_bank %></p>
-                  <p><%= label_tag "开户名称" %><%= f.text_field :account_person_name %></p>
-                  <p><%= label_tag "注册电话" %><%= f.text_field :account_phone %></p>
-                  <p><%= label_tag "银行帐号" %><%= f.text_field :account_no %></p>
-                  <p><%= label_tag "增值税登记号" %><%= f.text_field :added_value_tax_no %></p>
-                  <p><%= label_tag "注册地址" %><%= f.text_field :account_reg_add %></p>
-                <% end %>
-              </div>
-              <p>
-                <%= label_tag "发票抬头" %>
-                <%= f.radio_button :is_invoice_head, '0', :class => "radio", :checked => true %>个人
-                <%= f.radio_button :is_invoice_head, '1', :class => "radio" %> 单位
-              </p>
-              <p id="title_company_name">
-                <%= label_tag "单位名称" %><%= f.text_field :company_name %>
-              </p>
-            </div>
-            <div class="clear"></div>
-          </div>
-
-          <script type="text/javascript">
-            $(".radio").click(function(){
-              var value = this.value;
-              var name = this.name;
-              if(name == "order[is_invoice_head]"){
-                if(value == "0"){
-                   $("#title_company_name").html("");
-                }else{
-                   $("#title_company_name").html('<%= label_tag "单位名称" %><%= f.text_field :company_name %>');
-                }
-              }else{
-                if(value == "0"){
-                  $("#type_invoice").html("");
-                }else{
-                  var str = '';
-                  str+= '<p><%= label_tag "开户银行" %><%= f.text_field :account_bank %></p>';
-                  str+= '<p><%= label_tag "开户名称" %><%= f.text_field :account_person_name %></p>';
-                  str+= '<p><%= label_tag "注册电话" %><%= f.text_field :account_phone %></p>';
-                  str+= '<p><%= label_tag "银行帐号" %><%= f.text_field :account_no %></p>';
-                  str+= '<p><%= label_tag "增值税登记号" %><%= f.text_field :added_value_tax_no %></p>';
-                  str+= '<p><%= label_tag "注册地址" %><%= f.text_field :account_reg_add %></p>';
-                  $("#type_invoice").html(str);
-                }
-              }
-            });
-          </script>
-          <div class="actions">
-            <%= f.submit '完成修改并且过站' %>
-          </div>
+      </li>
+      <% if @order.invoice_type == 1 %>
+        <li class="appreciation">
+          <%= f.input :account_bank %>
+        </li>
+        <li class="appreciation">
+          <%= f.input :account_person_name %>
+        </li>
+        <li class="appreciation">
+          <%= f.input :account_phone %>
+        </li>
+        <li class="appreciation">
+          <%= f.input :account_no %>
+        </li>
+        <li class="appreciation">
+          <%= f.input :added_value_tax_no %>
+        </li>
+        <li class="appreciation">
+          <%= f.input :account_reg_add %>
+        </li>
       <% end %>
-    </div>
-    <div id="order_tabs-4">
-       <%= simple_form_for @order, :url => condition_admin_orders_path do |f| %>
-         <div class="attributes">
-            <div class="split_content_left_long">
-              <p>
-                <%= label_tag "收货人姓名" %><sapn class="red float_right">*</sapn>
-                <%= f.text_field :name %>
-              </p>
-              <p>
-                <%= label_tag "收货地址" %><sapn class="red float_right">*</sapn>
-                <%=raw address @order.district, "order" %>
-              </p>
-              <p class ="clear_both">
-                <%= label_tag "地址" %><sapn class="red float_right">*</sapn>
-                <%= f.text_field :address %><em>请详细到路名、小区、门牌号码</em>
-              </p>
-              <p>
-                <%= label_tag "固定电话" %><sapn class="float_right">&nbsp;</sapn>
-                <%= f.text_field :phone %>
-              </p>
-                <%= label_tag "移动电话" %><sapn class="float_right">&nbsp;</sapn>
-                <%= f.text_field :mobile %>
-              <p>
-                <%= label_tag "电子邮箱" %><sapn class="float_right">&nbsp;</sapn>
-                <%= f.text_field :email %>
-              </p>
-              <p>
-                <%= label_tag "邮编" %><sapn class="float_right">&nbsp;</sapn>
-                <%= f.text_field :zip %>
-              </p>
-            </div>
-            <div class="clear"></div>
-          </div>
-          <div class="actions">
-            <%= f.button :submit, :value => '完成修改并且过站' %>
-          </div>
-       <% end %>
-    </div>
+    <% end %>
+    <li>
+      <%= symbol_label "支付方式" %>
+      <span class="red"><%= @order.instance.procedure.display_name %></span>
+    </li>
+  </ul>
+
+<h1>备注信息</h1>
+<ul class="list_info">
+  <li>
+    <%= f.input :customer_note, :input_html => {:cols => 100, :rows => 2} %>
+  </li>
+  <li class="second">
+    <%= f.input :inner_note, :input_html => {:cols => 100, :rows => 2} %>
+  </li>
+</ul>
+
+<div class="actions">
+  <%= f.submit '完成修改并且过站' %>
 </div>
 
 
+<script type="text/javascript">
+  jQuery("[name='order[invoice_type]']").change(function(){
+    if(jQuery(this).val() == "2"){
+      jQuery(".invoice_head").remove();
+      jQuery(".appreciation").remove();
+    }else if(jQuery(this).val() == "0"){
+      jQuery(".invoice_head").remove();
+      jQuery(".appreciation").remove();
+      jQuery("#invoice_type_li").append(
+        '<li class="invoice_head">'+
+          '<%= f.input :is_invoice_head do %>'+
+            '<%= f.collection_radio :is_invoice_head, [[0, '个人'], [1, '单位']], :first, :second, :class => "radio" %>'+
+            '<% if @order.is_invoice_head == 1 %>'+
+              '<%= f.text_field :company_name %>'+
+            '<% end %>'+
+          '<% end %>'+
+        '</li>'
+      );
+    }else{
+      jQuery("#invoice_type_li").append(
+        '<li class="appreciation"><%= f.input :account_bank %></li>'+
+        '<li class="appreciation"><%= f.input :account_person_name %></li>'+
+        '<li class="appreciation"><%= f.input :account_phone %></li>'+
+        '<li class="appreciation"><%= f.input :account_no %></li>'+
+        '<li class="appreciation"><%= f.input :added_value_tax_no %></li>'+
+        '<li class="appreciation"><%= f.input :account_reg_add %></li>');
+    }
+  });
+
+  jQuery("[name='order[is_invoice_head]']").live('change',function(event){
+    if(jQuery(this).val() == "0"){
+      jQuery("#order_company_name").remove();
+    }else{
+      jQuery(this).parent().append('<%= f.text_field :company_name %>');
+    }
+  });
+
+</script>
+
+<% end %>
 
 

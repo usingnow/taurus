@@ -1,25 +1,4 @@
-<ul class="list_info">
-  <li>
-    <%= symbol_label t('activerecord.attributes.order.number') %>
-    <span class="red"><%= @order.number %></span>
-  </li>
-  <li>
-    <%= symbol_label t('activerecord.attributes.order.batch') %>
-    <span class="red"><%= @order.batch %></span>
-  </li>
-  <li>
-    <%= symbol_label t('activerecord.attributes.order.order_type') %>
-    <span><%= order_type @order %></span>
-  </li>
-  <li>
-    <%= symbol_label t('activerecord.attributes.order.station') %>
-    <span><%= @order.instance.station.name %></span>
-  </li>
-  <li>
-    <%= symbol_label t('activerecord.attributes.order.user') %>
-    <span><%= @order.user.name %></span>
-  </li>
-</ul>
+<%= render "base_info" %>
 
 <div class="right_button">
   <% @order.next_action.each do |action| %>
