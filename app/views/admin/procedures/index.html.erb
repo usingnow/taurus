@@ -17,7 +17,7 @@
     </tr>
   </thead>
 <% @procedures.each_with_index do |procedure,index| %>
-  <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
+  <tr class="<%= set_odd_even_class(index) %>">
     <td><%= index+1 %></td>
     <td><%= procedure.name %></td>
     <td><%= procedure.display_name %></td>

@@ -13,7 +13,7 @@
     </tr>
   </thead>
 <% @product_purchaseships.each_with_index do |product_purchaseship,index| %>
-  <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+  <tr class="<%= set_odd_even_class index %>">
     <td><%= index+1 %></td>
     <td><%= product_purchaseship.product.name %></td>
     <td><%= product_purchaseship.quantity %></td>

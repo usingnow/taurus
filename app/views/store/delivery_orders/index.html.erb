@@ -43,7 +43,7 @@
   </thead>
 
 <% @delivery_orders.each_with_index do |delivery_order,index| %>
-  <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+  <tr class="<%= set_odd_even_class index %>">
     <td><%= index+1 %></td>
     <td><%= delivery_order.number %></td>
     <td><%= delivery_order.store.name %></td>

@@ -47,7 +47,7 @@
     </tr>
   </thead>
   <% @order.order_details.each_with_index do |detail,index| %>
-    <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+    <tr class="<%= set_odd_even_class index %>">
       <td><%= index+1 %></td>
       <td><%= link_to detail.sku.number, commodity_admin_sku_path(detail.sku_id) %></td>
       <td><%= detail.sku.name %></td>

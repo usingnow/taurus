@@ -42,7 +42,7 @@
   </thead>
 
 <% @products.each_with_index do |product,index| %>
-  <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+  <tr class="<%= set_odd_even_class index %>">
     <td><%= link_to product.product_id, admin_product_path(product) %></td>
     <td><%= product.name %></td>
     <td><%= product.unit %></td>

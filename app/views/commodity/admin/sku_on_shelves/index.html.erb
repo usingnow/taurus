@@ -20,7 +20,7 @@
   </thead>
 
   <% @sku.sku_on_shelves.each_with_index do |sku_on_shelf,index| %>
-    <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+    <tr class="<%= set_odd_even_class index %>">
       <td><%= index+1 %></td>
       <td><%= sku_on_shelf.on_shelf_time %></td>
       <td><%= sku_on_shelf.off_shelf_time %></td>

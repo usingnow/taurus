@@ -19,7 +19,7 @@
   </thead>
   <tbody>
   <% @store_entries.each_with_index do |store_entry,index| %>
-    <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+    <tr class="<%= set_odd_even_class index %>">
       <td><%= index+1 %></td>
       <td><%= store_entry.number %></td>
       <td><%= store_entry.purchase.number if !store_entry.purchase.nil? %></td>

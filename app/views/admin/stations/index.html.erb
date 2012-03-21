@@ -20,7 +20,7 @@
   </thead>
 
 <% @stations.each_with_index do |station,index| %>
-  <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
+  <tr class="<%= set_odd_even_class(index) %>">
     <td><%= index %></td>
     <td><%= station.name %></td>
     <td><%= station.display_name %></td>

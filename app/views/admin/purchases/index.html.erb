@@ -18,7 +18,7 @@
     </tr>
   </thead>
 <% @purchases.each_with_index do |purchase,index| %>
-  <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+  <tr class="<%= set_odd_even_class index %>">
     <td><%= purchase.number %></td>
     <td><%= purchase.ordering_company.name %></td>
     <td><%= purchase.supplier.name %></td>

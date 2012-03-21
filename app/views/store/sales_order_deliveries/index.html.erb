@@ -16,7 +16,7 @@
   </thead>
 
 <% @orders.each_with_index do |order,index| %>
-  <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
+  <tr class="<%= set_odd_even_class(index) %>">
     <td><%= index+1 %></td>
     <td><%= order.number %></td>
     <td><%= get_user_name(order.user) %></td>

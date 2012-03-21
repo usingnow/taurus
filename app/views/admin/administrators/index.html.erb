@@ -19,7 +19,7 @@
   </thead>
   <tbody>
     <% @administrators.each_with_index do |admin,index| %>
-      <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
+      <tr class="<%= set_odd_even_class(index) %>">
         <td><%= index+1 %></td>
         <td><%= link_to admin.name, admin_administrator_path(admin) %></td>
         <td><%= admin.login_no %></td>
@@ -29,7 +29,7 @@
         <td><%= format_user_status(admin.status) %></td>
         <td><%= link_to '修改', edit_admin_administrator_path(admin)  %></td>
       </tr>
-      <tr class="<%= set_odd_even_class(index) %>" group="<%= index %>">
+      <tr class="<%= set_odd_even_class(index) %>">
         <td colspan="6" align="left">
           所属用户组：
           <% admin.groups.each do |group|%>

@@ -17,7 +17,7 @@
     </tr>
   </thead>
 <% @roles.each_with_index do |role,index| %>
-  <tr class="<%= set_odd_even_class index %>" group="<%= index %>">
+  <tr class="<%= set_odd_even_class index %>">
     <td><%= index+1 %></td>
     <td><%= link_to role.number, admin_role_path(role) %></td>
     <td><%= role.name %></td>
