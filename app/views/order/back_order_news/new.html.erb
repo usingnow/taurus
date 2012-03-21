@@ -67,7 +67,7 @@
 <%= simple_form_for @inner_order_address, :url => "/order/back_order_news/preview", :html => {:id => "back_order_new"}  do |f| %>
   <%= hidden_field_tag 'user_id', @user.id  %>
   <%= f.error_notification %>
-<%= render "payment" %>
+  <%= render "payment" %>
 
 <div class="attributes">
   <div class="split_content_left_long">

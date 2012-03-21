@@ -78,8 +78,11 @@
     <% unless @order.invoice_type == 2 %>
       <li class="invoice_head">
         <%= f.input :is_invoice_head do %>
-          <%= f.collection_radio :is_invoice_head, [[0, '个人'], [1, '单位']], :first, :second, :class => "radio" %>
           <% if @order.is_invoice_head == 1 %>
+            <%= f.collection_radio :is_invoice_head, [[1, '单位']], :first, :second, :class => "radio" %>
+            <%= f.text_field :company_name %>
+          <% else %>
+            <%= f.collection_radio :is_invoice_head, [[0, '个人'], [1, '单位']], :first, :second, :class => "radio" %>
             <%= f.text_field :company_name %>
           <% end %>
         <% end %>
@@ -145,6 +148,16 @@
         '</li>'
       );
     }else{
+      jQuery(".invoice_head").remove();
+      jQuery("#invoice_type_li").append(
+        '<li class="invoice_head">'+
+          '<%= f.input :is_invoice_head do %>'+
+            '<%= f.collection_radio :is_invoice_head, [[1,'单位']], :first, :last %>'+
+            '<%= f.text_field :company_name %>'+
+          '<% end %>'+
+        '</li>'
+      );
+      jQuery("#order_is_invoice_head_1").attr('checked','checked');
       jQuery("#invoice_type_li").append(
         '<li class="appreciation"><%= f.input :account_bank %></li>'+
         '<li class="appreciation"><%= f.input :account_person_name %></li>'+
