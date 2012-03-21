@@ -22,7 +22,7 @@
 <script type="text/javascript">
   $(".radio").click(function(){
     var value = this.value;
-      if(value != "2"){
+      if(value == "0"){
         jQuery("#invoice_head").html('<%= label_tag "发票抬头" %>'+
                                      '<%= radio_button_tag "inner_order_payment[is_invoice_head]", '0', true, :class => "invoice_head" %>个人'+
                                      '<%= radio_button_tag "inner_order_payment[is_invoice_head]", '1', false, :class => "invoice_head" %> 单位');
@@ -33,10 +33,16 @@
              $("#title_company_name").html('<%= label_tag "单位名称" %><%= text_field :inner_order_payment, :company_name, :required => "required" %>');
           }
         });
-
-        if(value == "0"){
-          $("#type_invoice").html("");
+        $("#title_company_name").html("");
+        $("#type_invoice").html("");
+      }else{
+        if(value == "2"){
+          jQuery("#invoice_head").html("");
+          jQuery("#type_invoice").html("");
         }else{
+          jQuery("#invoice_head").html('<%= label_tag "发票抬头" %>'+
+                                     '<%= radio_button_tag "inner_order_payment[is_invoice_head]", '1', true, :class => "invoice_head" %> 单位');
+          $("#title_company_name").html('<%= label_tag "单位名称" %><%= text_field :inner_order_payment, :company_name, :required => "required" %>');
           var str = '';
           str+= '<p><%= label_tag "开户银行" %><%= text_field :inner_order_payment, :account_bank %></p>';
           str+= '<p><%= label_tag "开户名称" %><%= text_field :inner_order_payment, :account_person_name %></p>';
@@ -46,9 +52,6 @@
           str+= '<p><%= label_tag "注册地址" %><%= text_field :inner_order_payment, :account_reg_add %></p>';
           $("#type_invoice").html(str);
         }
-      }else{
-         jQuery("#invoice_head").html("");
-         jQuery("#type_invoice").html("");
       }
   });
 </script>

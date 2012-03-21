@@ -68,7 +68,12 @@ class Order < ActiveRecord::Base
                       :with => /^13[0-9]{1}[0-9]{8}$|^15[012356789]{1}[0-9]{8}$|^18[0256789]{1}[0-9]{8}$/,
                       :message => "格式不正确"
 
-  validates_presence_of :user_id, :address, :name, :district_no
+  validates_presence_of :user_id, :address, :name, :district_no, :invoice_type
+  validates_presence_of :is_invoice_head, :if => Proc.new { invoice_type != 2 }
+  validates_presence_of :company_name, :if => Proc.new { is_invoice_head == 1 }
+  validates_presence_of :account_bank, :account_person_name, :account_phone, :account_no, :added_value_tax_no,
+                        :account_reg_add, :if => Proc.new { invoice_type == 1 }
+
 
   validates_presence_of :inner_note, :if => :cancel
   protected
