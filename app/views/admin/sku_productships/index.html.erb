@@ -1,4 +1,5 @@
 <h1>素材商品列表</h1>
+<h2 class="red"><%= alert %></h2>
 
 <table class="grid">
   <thead>
@@ -84,6 +85,22 @@
        });
      });
 
+
+
+      var DispClose = true;
+
+      function UnLoadEvent(){
+        DispClose = false;
+        jQuery.ajax({
+          type: "delete",
+          url: "/commodity/admin/skus/<%= session[:sku_id] %>",
+          data: "",
+          success: function(result){}
+        });
+      }
+
+
+      window.onunload = UnLoadEvent;
 
    </script>
   </tbody>

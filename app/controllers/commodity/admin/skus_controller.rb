@@ -86,6 +86,7 @@ class Commodity::Admin::SkusController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(commodity_admin_skus_url) }
       format.xml  { head :ok }
+      format.json
     end
   end
 
