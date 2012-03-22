@@ -40,7 +40,7 @@
       <th><%= t 'activerecord.attributes.user.created_at' %></th>
       <th><%= t 'activerecord.attributes.user.role' %></th>
       <th><%= t 'activerecord.attributes.user.status' %></th>
-      <th><%= t 'activerecord.attributes.user.history_status' %></th>
+      <th><%= t 'activerecord.attributes.user.store_id' %></th>
     </tr>
   </thead>
 <% @person_extends.each_with_index do |person,index| %>
@@ -52,12 +52,7 @@
     <td><%= person.created_at %></td>
     <td><%= person.user.role.name %></td>
     <td><%= format_user_status(person.user.status) %></td>
-    <td></td>
-  </tr>
-  <tr class="<%= set_odd_even_class index %>">
-    <td colspan="8" align="right">
-      重置随机密码   重置密码   收货地址(1条)   修改
-    </td>
+    <td><%= person.user.store.name %></td>
   </tr>
 <% end %>
 </table>
