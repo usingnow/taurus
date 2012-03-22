@@ -40,7 +40,7 @@
       <th>注册时间</th>
       <th>所属组</th>
       <th>账号状态</th>
-      <th>历史状态</th>
+      <th>仓库</th>
       <th></th>
     </tr>
   </thead>
@@ -53,7 +53,7 @@
     <td><%= company_extend.created_at %></td>
     <td><%= company_extend.user.role.name %></td>
     <td><%= format_user_status company_extend.user.status %></td>
-    <td></td>
+    <td><%= company_extend.user.store.name %></td>
     <td><%= link_to t('admin.actions.edit.menu'), edit_admin_company_extend_path(company_extend.user_id) %></td>
   </tr>
 <% end %>
