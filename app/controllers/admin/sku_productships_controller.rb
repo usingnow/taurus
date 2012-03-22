@@ -70,10 +70,12 @@ class Admin::SkuProductshipsController < ApplicationController
 
 
   def destroy
-    sku_productship = SkuProductship.find(params[:id])
-    sku_productship.destroy
-
     @sku_productships = SkuProductship.find_all_by_sku_id session[:sku_id]
+
+    if @sku_productships.size > 1
+      sku_productship = SkuProductship.find(params[:id])
+      sku_productship.destroy
+    end
 
     render :partial => "line_items"
   end

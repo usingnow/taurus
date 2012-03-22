@@ -1,3 +1,4 @@
+#encoding:UTF-8
 class Admin::SkuImagesController < ApplicationController
   before_filter :authenticate_administrator!
 
@@ -5,6 +6,9 @@ class Admin::SkuImagesController < ApplicationController
   # GET /sku_images.xml
   def index
     session[:sku_id] = params[:sku_id] if params[:sku_id]
+
+    @sku_productships = SkuProductship.find_all_by_sku_id(session[:sku_id])
+    return redirect_to admin_sku_productships_path, :alert => "请至少添加一个素材商品" if @sku_productships.size == 0
 
     @sku_images = SkuImage.find_all_by_sku_id(session[:sku_id])
 
