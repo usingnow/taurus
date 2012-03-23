@@ -33,10 +33,11 @@ class Admin::PermissionsController < ApplicationController
   def procedure_new
     @group = Group.find(params[:id])
     @procedures = Procedure.activated
-    authorize! :procedure_new, Permission
+    authorize! :procedure_create, Permission
   end
 
   def procedure_create
+    authorize! :procedure_create, Permission
     permissions = params[:permission]
 
     @group = Group.find(params[:id])

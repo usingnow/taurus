@@ -16,7 +16,7 @@
       <td><%= group.name %></td>
       <td><%= group.desc %></td>
       <td><%= link_to '设置功能权限', new_admin_permission_path(:group_id => group) if can? :create, Permission, :group_id => 2 %></td>
-      <td><%= link_to '设置流程权限', procedure_new_admin_permission_path(group) if can? :procedure_new, Permission.first %></td>
+      <td><%= link_to '设置流程权限', procedure_new_admin_permission_path(group) if can? :procedure_create, Permission.first %></td>
     </tr>
   <% end %>
 </table>
