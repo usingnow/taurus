@@ -1,7 +1,7 @@
 <h1>流程列表</h1>
 
 <div class="grid_button">
-  <%= link_to '新建流程', new_admin_procedure_path %>
+  <%= link_to '新建流程', new_admin_procedure_path if can? :create, Procedure %>
 </div>
 
 <table class="grid">
@@ -13,7 +13,6 @@
       <th><%= t('attributes.procedure.active') %></th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 <% @procedures.each_with_index do |procedure,index| %>
@@ -22,9 +21,8 @@
     <td><%= procedure.name %></td>
     <td><%= procedure.display_name %></td>
     <td><%= format_boolean(procedure.active) %></td>
-    <td><%= link_to 'Show', admin_procedure_path(procedure) %></td>
-    <td><%= link_to 'Edit', edit_admin_procedure_path(procedure) %></td>
-    <td><%= link_to 'Destroy', admin_procedure_path(procedure), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to t('admin.actions.show.menu'), admin_procedure_path(procedure)  %></td>
+    <td><%= link_to t('admin.actions.edit.menu'), edit_admin_procedure_path(procedure) if can? :update, Procedure %></td>
   </tr>
 <% end %>
 </table>

@@ -24,7 +24,7 @@
 
 
 <div class="grid_button">
-  <%= link_to '新建媒体商品', new_commodity_admin_sku_path %>
+  <%= link_to '新建媒体商品', new_commodity_admin_sku_path if can? :create, Sku %>
 </div>
 
 <table class="grid">
@@ -54,12 +54,12 @@
     <td><%= sku.sku_category_id %></td>
     <td><%= sku.unit %></td>
     <td><%= format_sku_type sku.sku_type %></td>
-    <td><%= sku_status_link sku %></td>
-    <td><%= link_to format_sku_shelf_status(sku.shelf_status), commodity_admin_sku_sku_on_shelves_path(sku) %></td>
+    <td><%= can?(:update_status,Sku) ? sku_status_link(sku) : format_sku_status(sku.status) %></td>
+    <td><%= can?(:read,SkuOnShelf) ? (link_to format_sku_shelf_status(sku.shelf_status), commodity_admin_sku_sku_on_shelves_path(sku)) : format_sku_shelf_status(sku.shelf_status) %></td>
     <td><%= sku.updated_at %></td>
-    <td><%= link_to '商品组成', '/admin/sku_productships?sku_id='+sku.id.to_s %></td>
-    <td><%= link_to '相册', '/admin/sku_images?sku_id='+sku.id.to_s %></td>
-    <td><%= link_to '修改', edit_commodity_admin_sku_path(sku) %></td>
+    <td><%= link_to '商品组成', '/admin/sku_productships?sku_id='+sku.id.to_s if can? :manage, SkuProductship %></td>
+    <td><%= link_to '相册', '/admin/sku_images?sku_id='+sku.id.to_s if can? :manage, SkuImage %></td>
+    <td><%= link_to '修改', edit_commodity_admin_sku_path(sku) if can? :update, Sku %></td>
   </tr>
 <% end %>
 </table>

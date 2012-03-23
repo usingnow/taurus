@@ -1,5 +1,6 @@
 class Admin::StationProcedureshipsController < ApplicationController
   before_filter :authenticate_administrator!
+  authorize_resource
 
   # GET /station_procedureships
   # GET /station_procedureships.xml

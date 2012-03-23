@@ -1,4 +1,7 @@
 class Content::AnnouncementsController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   def index
     @announcements = Announcement.all
   end

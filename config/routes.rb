@@ -65,7 +65,12 @@ Ebiz::Application.routes.draw do
     resources :home
     resources :industries
     resources :panic_buyings
-    resources :permissions
+    resources :permissions do
+      member do
+        get :procedure_new
+        post :procedure_create
+      end
+    end
     resources :products do
       collection do
         get  :search
@@ -165,7 +170,6 @@ Ebiz::Application.routes.draw do
     namespace :admin do
       resources :skus do
         collection do
-          get :add
           get :search
         end
         member do

@@ -1,6 +1,7 @@
 class Admin::SkuCategoriesController < ApplicationController
   before_filter :authenticate_administrator!
-
+  authorize_resource
+  skip_authorize_resource :only => [:autocomplete_sku_category_name, :check]
   autocomplete :sku_category, :name, :extra_data => [:number], :scopes => [:four]
 
   def index

@@ -1,5 +1,6 @@
 class Admin::AdministratorGroupshipsController < ApplicationController
   before_filter :authenticate_administrator!
+  authorize_resource
 
   def new
     @administrator_groupships = AdministratorGroupship.find_all_by_administrator_id(params[:id])

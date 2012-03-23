@@ -1,5 +1,6 @@
 class Admin::PersonExtendsController < ApplicationController
   before_filter :authenticate_administrator!
+  authorize_resource
 
   def index
     @search = PersonExtend.search(params[:q])

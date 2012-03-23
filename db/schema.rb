@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120316060619) do
+ActiveRecord::Schema.define(:version => 20120323111234) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -199,6 +199,8 @@ ActiveRecord::Schema.define(:version => 20120316060619) do
     t.integer  "condition_type"
     t.string   "action"
     t.string   "display_name"
+    t.string   "act"
+    t.string   "subject_class"
   end
 
   create_table "consignee_infos", :force => true do |t|
@@ -537,6 +539,18 @@ ActiveRecord::Schema.define(:version => 20120316060619) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "procedure_permissions", :force => true do |t|
+    t.integer  "group_id"
+    t.integer  "condition_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "procedure_id"
+    t.integer  "station_id"
+  end
+
+  add_index "procedure_permissions", ["group_id", "condition_id"], :name => "index_procedure_permissions_on_group_id_and_condition_id"
+  add_index "procedure_permissions", ["procedure_id", "station_id"], :name => "index_procedure_permissions_on_procedure_id_and_station_id"
 
   create_table "procedure_roleships", :force => true do |t|
     t.integer  "procedure_id"

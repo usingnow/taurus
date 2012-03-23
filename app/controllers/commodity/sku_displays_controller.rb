@@ -1,6 +1,7 @@
 #encoding:UTF-8
 class Commodity::SkuDisplaysController < ApplicationController
   before_filter :authenticate_administrator!
+  authorize_resource
 
   def index
     data = YAML.load(File.open(Rails.root+"lib/data/sku_display.yml"))

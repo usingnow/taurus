@@ -1,5 +1,7 @@
 class Admin::ProductCategoriesController < ApplicationController
   before_filter :authenticate_administrator!
+  authorize_resource
+  skip_authorize_resource :only => [:autocomplete_product_category_name, :check]
 
   autocomplete :product_category, :name, :extra_data => [:number], :scopes => [:four]
 

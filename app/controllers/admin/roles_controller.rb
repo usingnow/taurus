@@ -1,5 +1,7 @@
 class Admin::RolesController < ApplicationController
   before_filter :authenticate_administrator!
+  authorize_resource
+
   def index
     @roles = Role.all
 

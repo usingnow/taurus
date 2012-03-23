@@ -10,7 +10,7 @@
   <% end %>
 </div>
 <div class="grid_button">
-  <%= link_to t('admin.actions.new.menu'), new_admin_sku_category_path %>
+  <%= link_to t('admin.actions.new.menu'), new_admin_sku_category_path if can? :create, SkuCategory %>
 </div>
 
 <table>
@@ -22,7 +22,6 @@
       <th><%= t('activerecord.attributes.sku_category.is_show_in_column') %></th>
       <th><%= t('activerecord.attributes.sku_category.description') %></th>
       <th><%= t('activerecord.attributes.sku_category.updated_at') %></th>
-      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -37,8 +36,7 @@
       <td><%= sku_category.description %></td>
       <td><%= sku_category.updated_at %></td>
       <td><%= link_to t('admin.actions.show.menu'), admin_sku_category_path(sku_category) %></td>
-      <td><%= link_to t('admin.actions.edit.menu'), edit_admin_sku_category_path(sku_category) %></td>
-      <td><%= link_to t('admin.actions.delete.menu'), admin_sku_category_path(sku_category), :confirm => t('admin.actions.delete.confirm'), :method => :delete %></td>
+      <td><%= link_to t('admin.actions.edit.menu'), edit_admin_sku_category_path(sku_category) if can? :update, SkuCategory  %></td>
     </tr>
   <% end %>
   </tbody>

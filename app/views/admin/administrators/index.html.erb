@@ -36,7 +36,7 @@
             【<%= group.name %>】
           <% end  %>
         </td>
-        <td><%= link_to '设置组', new_admin_administrator_groupship_path(:id => admin.id) %></td>
+        <td><%= link_to '设置组', new_admin_administrator_groupship_path(:id => admin.id) if can? :manage, AdministratorGroupship %></td>
         <td><%= link_to '重置密码' %></td>
       </tr>
     <% end %>

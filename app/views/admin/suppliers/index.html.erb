@@ -19,7 +19,7 @@
 </div>
 
 <div class="grid_button">
-  <%= link_to '新增供应商', new_admin_supplier_path, :target => "_blank" %>
+  <%= link_to '新增供应商', new_admin_supplier_path, :target => "_blank"  if can? :create, Supplier %>
 </div>
 
 <table class="grid">
@@ -41,8 +41,8 @@
     <td><%= supplier.name %></td>
     <td><%= supplier.input_person %></td>
     <td><%= supplier.updated_at %></td>
-    <td><%= link_to 'Show', admin_supplier_path(supplier) %></td>
-    <td><%= link_to 'Edit', edit_admin_supplier_path(supplier) %></td>
+    <td><%= link_to t('admin.actions.show.menu'), admin_supplier_path(supplier) %></td>
+    <td><%= link_to t('admin.actions.edit.menu'), edit_admin_supplier_path(supplier) if can? :update, Supplier %></td>
   </tr>
 <% end %>
 </table>

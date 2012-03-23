@@ -19,7 +19,7 @@
 </div>
 
 <div class="grid_button">
-  <%= link_to '新建品牌', new_admin_brand_path, :target => "_blank" %>
+  <%= link_to '新建品牌', new_admin_brand_path, :target => "_blank" if can? :create, Brand %>
 </div>
 
 <table class="grid">
@@ -42,8 +42,8 @@
     <td><%= brand.english_name %></td>
     <td><%= brand.company_name %></td>
     <td><%= brand.updated_at %></td>
-    <td><%= link_to 'Show', admin_brand_path(brand) %></td>
-    <td><%= link_to 'Edit', edit_admin_brand_path(brand) %></td>
+    <td><%= link_to t('admin.actions.show.menu'), admin_brand_path(brand) %></td>
+    <td><%= link_to t('admin.actions.edit.menu'), edit_admin_brand_path(brand) if can? :update, Brand %></td>
   </tr>
 <% end %>
 </table>

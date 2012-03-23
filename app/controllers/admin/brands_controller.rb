@@ -1,6 +1,7 @@
 class Admin::BrandsController < ApplicationController
   before_filter :authenticate_administrator!
   authorize_resource
+  skip_authorize_resource :only => :autocomplete_brand_chinese_name
   autocomplete :brand, :chinese_name
 
   def index
@@ -35,8 +36,6 @@ class Admin::BrandsController < ApplicationController
     @brand = Brand.find(params[:id])
   end
 
-  # POST /brands
-  # POST /brands.xml
   def create
     @brand = Brand.new(params[:brand])
 
@@ -65,8 +64,6 @@ class Admin::BrandsController < ApplicationController
     end
   end
 
-  # DELETE /brands/1
-  # DELETE /brands/1.xml
   def destroy
     @brand = Brand.find(params[:id])
     @brand.destroy

@@ -1,8 +1,7 @@
 class Admin::SkuProductshipsController < ApplicationController
   before_filter :authenticate_administrator!
+  authorize_resource
 
-  # GET /sku_productships
-  # GET /sku_productships.xml
   def index
     if params[:sku_id] != nil
       sku_id = params[:sku_id]
