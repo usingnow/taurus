@@ -49,8 +49,8 @@
 <% @skus.each_with_index do |sku,index| %>
   <tr class="<%= set_odd_even_class index %>">
     <td><%= index+1 %></td>
-    <td><%= sku.number %></td>
-    <td align="left"><%= link_to sku.name, commodity_admin_sku_path(sku) %></td>
+    <td><%= link_to sku.number, commodity_admin_sku_path(sku) %></td>
+    <td align="left"><%= sku.name %></td>
     <td><%= sku.sku_category_id %></td>
     <td><%= sku.unit %></td>
     <td><%= format_sku_type sku.sku_type %></td>

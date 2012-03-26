@@ -39,8 +39,8 @@
     </li>
 
     <li class="margin_top_20">
-      <a class="left20" href="">返回</a>
-      <a href="">修改</a>
+      <%= link_to "返回", admin_suppliers_path, :class => "left20" %>
+      <%= link_to "修改", edit_admin_supplier_path(@supplier) if can? :update, Supplier %>
     </li>
   </ul>
 </div>
