@@ -18,7 +18,7 @@ module Purchase::PurchaseOrdersHelper
       html += link_to "修改", released_edit_purchase_purchase_order_path(object.id), :target => "_blank"
       html += link_to "关闭", purchase_purchase_order_path(object.id), :confirm => "确定关闭采购单么？", :method => :delete
     elsif object.po_status == 2
-      html = link_to "打印"
+      html = link_to "打印", print_purchase_purchase_order_path(object.id), :target => "_blank"
     end
     html.html_safe
   end

@@ -1,7 +1,6 @@
 #encoding:UTF-8
 class Purchase::PurchaseOrdersController < ApplicationController
   before_filter :authenticate_administrator!
-  authorize_resource
 
   def index
     @search = PurchaseOrder.search(params[:q])
@@ -106,5 +105,34 @@ class Purchase::PurchaseOrdersController < ApplicationController
     @purchase_order = PurchaseOrder.find(params[:id])
     @purchase_order.update_attributes(:po_status => 1, :po_released_at => Time.now)
     redirect_to purchase_purchase_orders_url
+  end
+
+  def print
+    @purchase_order = PurchaseOrder.find(params[:id])
+    pdf = Prawn::Document.new(:page_size => 'A4')
+    pdf.font "#{::Prawn::BASEDIR}/data/fonts/SimHei.ttf"
+    pdf.text "壹美壹家采购订单", :align => :center, :size => 20
+
+    pdf.table([["订单编号：",@purchase_order.po_id,"供应商编号：",@purchase_order.supplier.supplier_id],
+               ["订单日期：",@purchase_order.created_at.to_s,"供方电话：",@purchase_order.supplier.contact_way],
+               ["订货公司：",@purchase_order.ordering_company.name,"供方传真：",@purchase_order.supplier.fax],
+               ["订货地址：",@purchase_order.ordering_company.address,"供应公司：",@purchase_order.supplier.name],
+               ["订方电话：",@purchase_order.ordering_company.phone]],:cell_style => {:size => 10, :border_width => 0},
+               :column_widths => {1 => 200})
+
+    data = [["#","商品编码","商品名称","规格","型号","单位","数量","单价","合计"]]
+    @purchase_order.po_product_lists.each_with_index do |po_product,index|
+      data << [index+1,po_product.product.product_id,po_product.product.name,po_product.product.specification,
+               po_product.product.model,po_product.product.unit,po_product.product_purchase_amount,po_product.product_unit_price,
+               po_product.subtotal]
+    end
+    data << ["","","","","","","","共计金额",@purchase_order.price]
+
+    pdf.table(data,:cell_style => {:size => 10 }, :column_widths => [20,50,161,54,54,35,30,59,59])
+
+    pdf.table([["交货日期：",@purchase_order.po_time_of_delivery.to_s],["订单备注：",@purchase_order.po_remarks]],
+              :cell_style => {:border_width => 0, :size => 10 })
+
+    send_data pdf.render, type: "application/pdf", disposition: "inline"
   end
 end

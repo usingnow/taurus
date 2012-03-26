@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120316060619) do
+ActiveRecord::Schema.define(:version => 20120326031048) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -199,6 +199,8 @@ ActiveRecord::Schema.define(:version => 20120316060619) do
     t.integer  "condition_type"
     t.string   "action"
     t.string   "display_name"
+    t.string   "act"
+    t.string   "subject_class"
   end
 
   create_table "consignee_infos", :force => true do |t|
@@ -572,6 +574,18 @@ ActiveRecord::Schema.define(:version => 20120316060619) do
   add_index "po_product_temp_lists", ["cart_id"], :name => "index_po_product_temp_lists_on_cart_id"
   add_index "po_product_temp_lists", ["product_id"], :name => "index_po_product_temp_lists_on_product_id"
 
+  create_table "procedure_permissions", :force => true do |t|
+    t.integer  "group_id"
+    t.integer  "condition_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "procedure_id"
+    t.integer  "station_id"
+  end
+
+  add_index "procedure_permissions", ["group_id", "condition_id"], :name => "index_procedure_permissions_on_group_id_and_condition_id"
+  add_index "procedure_permissions", ["procedure_id", "station_id"], :name => "index_procedure_permissions_on_procedure_id_and_station_id"
+
   create_table "procedure_roleships", :force => true do |t|
     t.integer  "procedure_id"
     t.integer  "role_id"
@@ -783,9 +797,9 @@ ActiveRecord::Schema.define(:version => 20120316060619) do
     t.integer  "sku_id"
     t.integer  "product_id"
     t.string   "package_name"
-    t.integer  "package_num"
-    t.decimal  "sales_bef_tax", :precision => 10, :scale => 0
-    t.decimal  "sales_aft_tax", :precision => 10, :scale => 0
+    t.integer  "package_num",                                 :default => 1
+    t.decimal  "sales_bef_tax", :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "sales_aft_tax", :precision => 8, :scale => 2, :default => 0.0
     t.boolean  "is_main"
     t.string   "created_by"
     t.string   "updated_by"
