@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120323111234) do
+ActiveRecord::Schema.define(:version => 20120326031048) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -778,16 +778,14 @@ ActiveRecord::Schema.define(:version => 20120323111234) do
     t.integer  "sku_id"
     t.integer  "product_id"
     t.string   "package_name"
-    t.integer  "package_num"
-    t.decimal  "sales_bef_tax", :precision => 10, :scale => 0
-    t.decimal  "sales_aft_tax", :precision => 10, :scale => 0
+    t.integer  "package_num",                                 :default => 1
+    t.decimal  "sales_bef_tax", :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "sales_aft_tax", :precision => 8, :scale => 2, :default => 0.0
     t.boolean  "is_main"
     t.string   "created_by"
     t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "media_id"
-    t.string   "Material_id"
   end
 
   create_table "skus", :force => true do |t|
