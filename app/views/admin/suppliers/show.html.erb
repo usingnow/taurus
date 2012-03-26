@@ -1,55 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div id="show_info">
+  <h1>供应商信息</h1>
+  <ul>
+    <li>
+        <label>供应商编号：</label>
+        <span class="red">001</span>
+    </li>
+    <li>
+        <label>供应商名称：</label>
+        <span><%= @supplier.name %></span>
+    </li>
+    <li>
+        <label>登陆者姓名：</label>
+        <span><%= @supplier.input_person %></span>
+    </li>
+    <li>
+        <label>联系人：</label>
+        <span><%= @supplier.contact_name %></span>
+    </li>
+    <li>
+        <label>联系方式：</label>
+        <span><%= @supplier.contact_way %></span>
+    </li>
+    <li>
+        <label>交易条件：</label>
+        <span><%= @supplier.terms_of_exchange %></span>
+    </li>
+    <li>
+        <label>交货期：</label>
+        <span><%= @supplier.delivery %></span>
+    </li>
+    <li>
+        <label>级别：</label>
+        <span><%= @supplier.level %></span>
+    </li>
+    <li>
+        <label>状态：</label>
+        <span><%= @supplier.active %></span>
+    </li>
 
-<p>
-  <b>Name:</b>
-  <%= @supplier.name %>
-</p>
-
-<p>
-  <b>Input person:</b>
-  <%= @supplier.input_person %>
-</p>
-
-<p>
-  <b>Contact name:</b>
-  <%= @supplier.contact_name %>
-</p>
-
-<p>
-  <b>Contact way:</b>
-  <%= @supplier.contact_way %>
-</p>
-
-<p>
-  <b>Terms of exchange:</b>
-  <%= @supplier.terms_of_exchange %>
-</p>
-
-<p>
-  <b>Delivery:</b>
-  <%= @supplier.delivery %>
-</p>
-
-<p>
-  <b>Level:</b>
-  <%= @supplier.level %>
-</p>
-
-<p>
-  <b>Active:</b>
-  <%= @supplier.active %>
-</p>
-
-<p>
-  <b>Create by:</b>
-  <%= @supplier.create_by %>
-</p>
-
-<p>
-  <b>Update by:</b>
-  <%= @supplier.update_by %>
-</p>
-
-
-<%= link_to 'Edit', edit_admin_supplier_path(@supplier) %> |
-<%= link_to 'Back', admin_suppliers_path %>
+    <li class="margin_top_20">
+      <%= link_to "返回", admin_suppliers_path, :class => "left20" %>
+      <%= link_to "修改", edit_admin_supplier_path(@supplier) if can? :update, Supplier %>
+    </li>
+  </ul>
+</div>

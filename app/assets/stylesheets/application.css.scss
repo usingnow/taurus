@@ -285,8 +285,105 @@ p {
 .title {
   width: 500px;}
 
-//后台人名币统一格式。
-.cny {
-  font-family: Arial Unicode MS, Tahoma, Verdana, Microsoft Yahei;
-  font-size: 12px;
-  font-style: normal;}
+
+
+
+//show页面共用样式 begin
+.left20{
+  padding-left:20px
+}
+
+.indent2em{
+  text-indent: 2em
+}
+
+a.longbtn{
+  display:block;
+  height:22px;
+  width:80px;
+  line-height:22px;
+  vertical-align:middle;
+  font-weight:bold;
+  text-decoration:none;
+  margin-bottom:5px;
+  margin-right:20px;
+  color:white;
+}
+
+
+#show_info .margin_top_20{
+  margin-top:20px;
+}
+
+#show_info span{
+  margin-left: 10px;
+}
+
+#show_info a{
+  float:left;
+  padding-left:20px;
+  display:block;
+  height:22px;
+  width:50px;
+  line-height:22px;
+  vertical-align:middle;
+  font-weight:bold;
+  text-decoration:none;
+  margin-bottom:5px;
+  margin-right:20px;
+  color:white;
+}
+
+#show_info a.longbtn{
+  display:block;
+  height:22px;
+  width:80px;
+  line-height:22px;
+  vertical-align:middle;
+  font-weight:bold;
+  text-decoration:none;
+  margin-bottom:5px;
+  margin-right:20px;
+  color:white;
+}
+
+
+#show_info a:link{
+  background-color:#2272B1;
+}
+
+#show_info a:visited{
+  background-color:#2272B1;
+}
+
+#show_info a:hover{
+  background-color:#F26522;
+}
+
+#show_info label{
+  display:block;
+  width:120px;
+  float:left;
+  vertical-align:middle;
+  text-align:left;
+  color:#013DA4;
+  height:25px;
+  line-height:25px;
+}
+
+#show_info ul{
+  line-height:25px;
+  vertical-align:middle;
+  list-style:none;
+  padding-left:20px
+}
+
+#show_info li{
+  margin-top:3px;
+  margin-bottom:3px;
+}
+
+//end
+
+
+

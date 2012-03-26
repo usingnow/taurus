@@ -11,6 +11,10 @@ class Sku < ActiveRecord::Base
   scope :begin_sales, where("skus.status = 1")
   attr_accessor :brand_name, :sku_category_name, :sku_category_number
 
+  CAN_ON_BE_HALF = { false => "否", true => "是" }
+  CAN_RETURN = { false => "否", true => "是" }
+
+
   #验证
   validates :number, :name, :brand_id, :brand_name, :sku_category_id, :sku_category_name, :unit, :specification,
             :delivery_day, :sku_type,  :presence => true

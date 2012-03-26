@@ -1,165 +1,120 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Number:</b>
-  <%= @sku.number %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @sku.name %>
-</p>
-
-<p>
-  <b>Brand:</b>
-  <%= @sku.brand_id %>
-</p>
-
-<p>
-  <b>Sku category:</b>
-  <%= @sku.sku_category_id %>
-</p>
-
-<p>
-  <b>Unit:</b>
-  <%= @sku.unit %>
-</p>
-
-<p>
-  <b>Specification:</b>
-  <%= @sku.specification %>
-</p>
-
-<p>
-  <b>Delivery day:</b>
-  <%= @sku.delivery_day %>
-</p>
-
-<p>
-  <b>Type:</b>
-  <%= @sku.sku_type %>
-</p>
-
-<p>
-  <b>Model:</b>
-  <%= @sku.model %>
-</p>
-
-<p>
-  <b>Size:</b>
-  <%= @sku.size %>
-</p>
-
-<p>
-  <b>Delivery description:</b>
-  <%= @sku.delivery_description %>
-</p>
-
-<p>
-  <b>Can return:</b>
-  <%= @sku.can_return %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @sku.description %>
-</p>
-
-<p>
-  <b>Color:</b>
-  <%= @sku.color %>
-</p>
-
-<p>
-  <b>Can on be half:</b>
-  <%= @sku.can_on_be_half %>
-</p>
-
-<p>
-  <b>Classifcation:</b>
-  <%= @sku.classifcation %>
-</p>
-
-<p>
-  <b>Is integral:</b>
-  <%= @sku.is_integral %>
-</p>
-
-<p>
-  <b>Integral:</b>
-  <%= @sku.integral %>
-</p>
-
-<p>
-  <b>Introduction:</b>
-  <%= @sku.introduction %>
-</p>
-
-<p>
-  <b>Advertisement:</b>
-  <%= @sku.advertisement %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @sku.status %>
-</p>
-
-<p>
-  <b>Sales status:</b>
-  <%= @sku.sales_status %>
-</p>
-
-<p>
-  <b>Cost bef tax:</b>
-  <%= @sku.cost_bef_tax %>
-</p>
-
-<p>
-  <b>Cost aft tax:</b>
-  <%= @sku.cost_aft_tax %>
-</p>
-
-<p>
-  <b>Market price:</b>
-  <%= @sku.market_price %>
-</p>
-
-<p>
-  <b>Assembling fee bef tax:</b>
-  <%= @sku.assembling_fee_bef_tax %>
-</p>
-
-<p>
-  <b>Assembling fee aft tax:</b>
-  <%= @sku.assembling_fee_aft_tax %>
-</p>
-
-<p>
-  <b>Installation cost bef tax:</b>
-  <%= @sku.installation_cost_bef_tax %>
-</p>
-
-<p>
-  <b>Insatllation cost aft tax:</b>
-  <%= @sku.installation_cost_aft_tax %>
-</p>
-
-<p>
-  <b>Create by:</b>
-  <%= @sku.create_by %>
-</p>
-
-<p>
-  <b>Update by:</b>
-  <%= @sku.update_by %>
-</p>
-
-<p>
-  <b>Total sale:</b>
-  <%= @sku.total_sale %>
-</p>
-
-
-<%= link_to 'Edit', edit_commodity_admin_sku_path(@sku) %> |
-<%= link_to 'Back', commodity_admin_skus_path %>
+<div id="show_info">
+  <h1>媒体商品信息</h1>
+  <ul>
+    <li>
+      <%= link_to "返回", commodity_admin_skus_path, :class => "left20" %>
+      <%= link_to "修改", edit_commodity_admin_sku_path(@sku) if can? :update, Sku %>
+      <%= link_to "素材组成", admin_sku_productships_path(:sku_id => @sku), :class => "longbtn" if can? :manage, SkuProductship %>
+      <%= link_to "相册", admin_sku_images_path(:sku_id => @sku) if can? :manage, SkuImage %>
+      <br />
+      <hr />
+    </li>
+    <li>
+      <label>媒体商品编号：</label>
+      <span class="red"><%= @sku.number %></span>
+    </li>
+    <li>
+      <label>媒体商品名称：</label>
+      <span><%= @sku.name %></span>
+    </li>
+    <li>
+      <label>媒体商品分类编号：</label>
+      <span>110231001</span>
+    </li>
+    <li>
+      <label>媒体商品分类名称：</label>
+      <span><%= @sku.sku_category.name %></span>
+      <hr />
+    </li>
+    <li>
+      <label>单位：</label>
+      <span><%= @sku.unit %></span>
+    </li>
+    <li>
+      <label>规格：</label>
+      <span><%= @sku.specification %></span>
+    </li>
+    <li>
+      <label>颜色：</label>
+      <span><%= @sku.color %></span>
+    </li>
+    <li>
+      <label>素材商品型号：</label>
+      <span><%= @sku.model %></span>
+    </li>
+    <li>
+      <label>素材商品尺寸：</label>
+      <span><%= @sku.size %></span>
+      <hr />
+    </li>
+    <li>
+      <label>交货天数：</label>
+      <span><%= @sku.delivery_day %></span>
+    </li>
+    <li>
+      <label>交货描述：</label>
+      <span><%= @sku.delivery_description %></span>
+    </li>
+    <li>
+      <label>类型区分：</label>
+      <span><%= format_sku_type @sku.sku_type %></span>
+    </li>
+    <li>
+      <label>代购品区分：</label>
+      <span><%= Sku::CAN_ON_BE_HALF[@sku.can_on_be_half] %></span>
+    </li>
+    <li>
+      <label>可否退换：</label>
+      <span><%= Sku::CAN_RETURN[@sku.can_return] %></span>
+    </li>
+    <li>
+      <label>种类：</label>
+      <span><%= @sku.classifcation %></span>
+      <hr />
+    </li>
+    <li>
+      <label>市场价：</label>
+      <span><%= cny @sku.market_price %></span>
+    </li>
+    <li>
+      <label>税前媒体价：</label>
+      <span><%= cny @sku.cost_bef_tax %></span>
+    </li>
+    <li>
+      <label>税后媒体价：</label>
+      <span><%= cny @sku.cost_aft_tax %></span>
+    </li>
+    <li>
+      <label>税前组装费：</label>
+      <span><%= cny @sku.assembling_fee_bef_tax %></span>
+    </li>
+    <li>
+      <label>税后组装费：</label>
+      <span><%= cny @sku.assembling_fee_aft_tax %></span>
+    </li>
+    <li>
+      <label>税前安装费：</label>
+      <span><%= cny @sku.installation_cost_bef_tax %></span>
+    </li>
+    <li>
+      <label>税后安装费：</label>
+      <span><%= cny @sku.installation_cost_aft_tax %></span>
+      <hr />
+    </li>
+    <li>
+      <label>媒体商品简介：</label>
+      <span><%= @sku.introduction %></span>
+    </li>
+    <li>
+      <label>广告语：</label>
+      <span><%= @sku.advertisement %></span>
+      <hr />
+    </li>
+    <li>
+      <%= link_to "返回", commodity_admin_skus_path, :class => "left20" %>
+      <%= link_to "修改", edit_commodity_admin_sku_path(@sku) if can? :update, Sku %>
+      <%= link_to "素材组成", admin_sku_productships_path(:sku_id => @sku), :class => "longbtn" if can? :manage, SkuProductship %>
+      <%= link_to "相册", admin_sku_images_path(:sku_id => @sku) if can? :manage, SkuImage %>
+    </li>
+  </ul>
+</div>
