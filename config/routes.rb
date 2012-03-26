@@ -262,6 +262,7 @@ Ebiz::Application.routes.draw do
         put :release
         get :released_edit
         put :released_update
+        get :print
       end
     end
     resources :po_product_temp_lists

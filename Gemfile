@@ -29,7 +29,7 @@ gem 'rails3-jquery-autocomplete' #自动完成
 gem 'jquery-rails', '1.0.19'
 
 #pdf打印
-#gem 'prawn', :git => "git://github.com/prawnpdf/prawn.git"
+gem 'prawn', :git => "git://github.com/prawnpdf/prawn.git"
 
 
 group :test do
