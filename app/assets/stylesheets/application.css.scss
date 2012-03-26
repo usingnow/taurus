@@ -232,6 +232,21 @@ div.middle_button {
     //border: 1px solid orange;
     background-image: url('/assets/admin/admin_bg_th_orange.gif');
     cursor: pointer;}
+  button[type=button] {
+    width: auto;
+    padding: 2px 10px 3px 10px;
+    border: 1px solid #013DA4;
+    font-size: 12px;
+    line-height: 13px;
+    vertical-align: middle;
+    height: 20px;
+    color: white;
+    background-image: url("/assets/admin/admin_bg_th.gif");}
+  button[type=button]:hover {
+    color: #E73221;
+    //border: 1px solid orange;
+    background-image: url('/assets/admin/admin_bg_th_orange.gif');
+    cursor: pointer;}
   div.margin_left_40 {
     margin-left: 0px;}
   .field {

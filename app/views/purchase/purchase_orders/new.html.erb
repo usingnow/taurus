@@ -66,7 +66,7 @@
 
   <div id="purchase_delivery_date_control_panel">
     <%= f.input :po_time_of_delivery, :as => :date %>
-    <%= f.input :po_remarks, :input_html => { :cols => 120, :rows => 5} %>
-    <%= f.submit t('admin.misc.preview', :model => t('activerecord.models.purchase_order')), :id => "purchase_order_submit" %>
+    <%= f.input :po_remarks, :input_html => { :cols => 120, :rows => 5, :style => "float: left"} %>
+    <%= f.submit t('admin.misc.preview', :model => t('activerecord.models.purchase_order')), :id => "purchase_order_submit", :style => "float: left; clear: both;" %>
   </div>
 <% end %>
