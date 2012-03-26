@@ -27,7 +27,7 @@
 </div>
 
 <div class="grid_button">
-  <%= link_to '新增个人会员', new_admin_person_extend_path %>
+  <%= link_to '新增个人会员', new_admin_person_extend_path if can? :create, PersonExtend %>
 </div>
 
 <table class="grid">

@@ -1,16 +1,20 @@
 #encoding:UTF-8
 class Order::BackOrdersController < ApplicationController
+  before_filter :authenticate_administrator!
+
   def index
 
   end
 
   def new
+    authorize! :create, Order
     @user = User.new
     @date = Time.now.strftime("%Y-%m-%d")
   end
 
   #内部 新建订单 用户搜索
   def user
+    authorize! :create, Order
     @user = User.find_by_login_no(params[:user][:index])
     if @user.nil?
       user = CompanyExtend.find_by_company_no(params[:user][:index])
@@ -30,6 +34,7 @@ class Order::BackOrdersController < ApplicationController
 
 
   def create
+    authorize! :create, Order
     #获得选择的商品
     back_order_skus = BackOrderSku.find_all_by_user_id(params[:user_id])
 
@@ -146,6 +151,7 @@ class Order::BackOrdersController < ApplicationController
   end
 
   def carriage_adjustment
+    authorize! :carriage_adjustment, Order
     @order = Order.find(params[:id])
     @order.update_attributes(params[:order])
 
@@ -153,6 +159,7 @@ class Order::BackOrdersController < ApplicationController
   end
 
   def other_cost
+    authorize! :other_cost, Order
     @order = Order.find(params[:id])
     @order.update_attributes(params[:order])
 

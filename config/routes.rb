@@ -64,7 +64,13 @@ Ebiz::Application.routes.draw do
     resources :groups
     resources :home
     resources :industries
-    resources :permissions
+    resources :panic_buyings
+    resources :permissions do
+      member do
+        get :procedure_new
+        post :procedure_create
+      end
+    end
     resources :products do
       collection do
         get  :search
@@ -163,7 +169,6 @@ Ebiz::Application.routes.draw do
     namespace :admin do
       resources :skus do
         collection do
-          get :add
           get :search
         end
         member do

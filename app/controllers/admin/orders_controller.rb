@@ -1,7 +1,7 @@
 #encoding:UTF-8
 class Admin::OrdersController < ApplicationController
   before_filter :authenticate_administrator!
-
+  authorize_resource
 
   def index
     q = {"instance_station_station_type_in" => ['0','3','4']}.merge(params[:q] || {}).merge(order_search)
@@ -14,11 +14,6 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @order }
-    end
   end
 
   # GET /orders/new

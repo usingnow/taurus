@@ -1,0 +1,56 @@
+<%= form_tag(procedure_create_admin_permission_path(@group)) do %>
+  <h1><%= @group.name %></h1>
+
+  <% @procedures.each do |procedure| %>
+    <div class="permission">
+      <%= procedure.name %>
+        <div>
+          <% procedure.normal_stations.each do |ns| %>
+            <div>
+              <fieldset>
+                <legend><%= ns.name %></legend>
+                <% ns.conditions(procedure.id).each do |con| %>
+                  <label class="floating">
+                    <% flag = false %>
+                    <% @group.procedure_permissions.each do |per| %>
+                      <% if per.condition_id == con.id && per.procedure_id == procedure.id && per.station_id == ns.id %>
+                        <% flag = true %>
+                      <% end %>
+                    <% end %>
+                    <% if flag == true %>
+                      <input checked="checked"  name="permission[]" type="checkbox"
+                             value="{:procedure_id => <%= procedure.id %>,:station_id => <%= ns.id %>, :condition_id => <%= con.id %>}" />
+                    <% else %>
+                      <input name="permission[]" type="checkbox"
+                             value="{:procedure_id => <%= procedure.id %>,:station_id => <%= ns.id %>, :condition_id => <%= con.id %>}" />
+                    <% end %>
+                    <%= con.name %>
+                  </label>
+                <% end %>
+                <label class="floating">
+                    <% flag = false %>
+                    <% @group.procedure_permissions.each do |per| %>
+                      <% if per.condition_id == 33 && per.procedure_id == procedure.id && per.station_id == ns.id %>
+                        <% flag = true %>
+                      <% end %>
+                    <% end %>
+                    <% if flag == true %>
+                      <input checked="checked"  name="permission[]" type="checkbox"
+                             value="{:procedure_id => <%= procedure.id %>,:station_id => <%= ns.id %>, :condition_id => 33}" />
+                    <% else %>
+                      <input name="permission[]" type="checkbox"
+                             value="{:procedure_id => <%= procedure.id %>,:station_id => <%= ns.id %>, :condition_id => 33}" />
+                    <% end %>
+                    订单打印
+                  </label>
+              </fieldset>
+            </div>
+          <% end %>
+        </div>
+      </div>
+  <% end %>
+  <%= submit_tag '保存' %>
+<% end %>
+
+
+

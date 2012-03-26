@@ -7,7 +7,7 @@
     <%= submit_tag '应用' %>
 <% end %>
 <div class="grid_button">
-  <%= link_to '新建', new_admin_station_procedureship_path, :onclick => "return this.href+='?procedure_id='+$('#station_procedureship_procedure_id').val()" %>
+  <%= link_to '新建', new_admin_station_procedureship_path, :onclick => "return this.href+='?procedure_id='+$('#station_procedureship_procedure_id').val()" if can? :create, StationProcedureship %>
 </div>
 <table class="grid">
   <thead>
@@ -18,7 +18,6 @@
       <th><%= t('attributes.station_procedureship.next_station_id') %></th>
       <th><%= t('attributes.station_procedureship.business_function_id') %></th>
       <th><%= t('attributes.station_procedureship.sequence') %></th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -36,8 +35,7 @@
         <td><%= station_procedureship.next_station.name %></td>
         <td><% if station_procedureship.business_function != nil  %><%= station_procedureship.business_function.name %><% end %></td>
         <td><%= station_procedureship.sequence %></td>
-        <td><%= link_to 'Edit', edit_admin_station_procedureship_path(station_procedureship) %></td>
-        <td><%= link_to 'Destroy', admin_station_procedureship_path(station_procedureship), :confirm => 'Are you sure?', :method => :delete %></td>
+        <td><%= link_to t('admin.actions.edit.menu'), edit_admin_station_procedureship_path(station_procedureship) if can? :update, StationProcedureship %></td>
       </tr>
       <% flag = true %>
     <% end %>

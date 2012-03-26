@@ -1,6 +1,6 @@
 class Admin::PermissionsController < ApplicationController
   before_filter :authenticate_administrator!
-  authorize_resource
+  #authorize_resource
 
   def index
     @groups = Group.all
@@ -26,6 +26,32 @@ class Admin::PermissionsController < ApplicationController
     end
 
     Permission.create(line_itmes)
+
+    redirect_to admin_permissions_url
+  end
+
+  def procedure_new
+    @group = Group.find(params[:id])
+    @procedures = Procedure.activated
+    authorize! :procedure_create, Permission
+  end
+
+  def procedure_create
+    authorize! :procedure_create, Permission
+    permissions = params[:permission]
+
+    @group = Group.find(params[:id])
+    ProcedurePermission.transaction do
+      ProcedurePermission.destroy_all(:group_id => params[:id])
+      if permissions
+        permissions.each do |permission|
+          @group.procedure_permissions <<
+            ProcedurePermission.new(:condition_id => eval(permission)[:condition_id], :procedure_id => eval(permission)[:procedure_id],
+                                    :station_id => eval(permission)[:station_id])
+        end
+        @group.save
+      end
+    end
 
     redirect_to admin_permissions_url
   end

@@ -183,23 +183,29 @@
 
 <h1>相关记录</h1>
 <ul class="list_info">
-  <li>
-    <%= symbol_label "打印次数" %>
-    <span><%= @order.order_print_sum(0) %>次</span>
-  </li>
-  <li>
-    <%= symbol_label "订单追踪" %>
-    <%= link_to "点击查看", order_tracks_admin_order_path(@order), :target => "_blank" %>
-  </li>
-  <li>
-    <%= symbol_label "接管记录" %>
-    <%= link_to "点击查看", take_over_logs_admin_order_path(@order), :target => "_blank" %>
-  </li>
+  <% if can? :print, @order %>
+    <li>
+      <%= symbol_label "打印次数" %>
+      <span><%= link_to "#{@order.order_print_sum(0)}次", order_order_prints_path(:order_id => @order, :line_type => "0") %></span>
+    </li>
+  <% end %>
+  <% if can? :order_tracks, Order %>
+    <li>
+      <%= symbol_label "订单追踪" %>
+      <%= link_to "点击查看", order_tracks_admin_order_path(@order), :target => "_blank" %>
+    </li>
+  <% end %>
+  <% if can? :take_over_logs, Order %>
+    <li>
+      <%= symbol_label "接管记录" %>
+      <%= link_to "点击查看", take_over_logs_admin_order_path(@order), :target => "_blank" %>
+    </li>
+  <% end %>
 </ul>
 
 
 <div class="right_button">
-  <%= link_to '订单打印', order_order_print_path(@order),{:target => "blank"} %>
+  <%= link_to '订单打印', order_order_print_path(@order),{:target => "blank"} if can? :print, @order %>
   <% @order.next_action.each do |action| %>
     <%=raw condition_action(action,@order) %>
   <% end %>

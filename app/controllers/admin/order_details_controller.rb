@@ -28,8 +28,8 @@ class Admin::OrderDetailsController < ApplicationController
 
   def destroy
     @order_detail = OrderDetail.find(params[:id])
-    @order_detail.destroy
     @order = @order_detail.order
+    @order_detail.destroy if @order.order_details.size > 1
     render "operating"
   end
 end

@@ -4,12 +4,19 @@ class Ability
   def initialize(administrator)
     # Define abilities for the passed in user here. For example:
     #
-     administrator ||= Administrator.new # guest user (not logged in)
-       administrator.groups.each do |group|
-         group.permissions.each do |permission|
-           can permission.operating.action.to_sym, permission.operating.subject_class.constantize
-         end
-       end
+    administrator ||= Administrator.new # guest user (not logged in)
+    administrator.groups.each do |group|
+      group.permissions.each do |permission|
+        can eval(permission.operating.action), eval(permission.operating.subject_class)
+      end
+    end
+
+    administrator.groups.each do |group|
+      group.procedure_permissions.each do |permission|
+        can eval(permission.condition.act), eval(permission.condition.subject_class),
+            :instance => {:procedure_id => permission.procedure_id, :station_id => permission.station_id }
+      end
+    end
 
 
     #

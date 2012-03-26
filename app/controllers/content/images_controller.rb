@@ -1,4 +1,7 @@
 class Content::ImagesController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   def index
     @search = Image.search(params[:q])
     @images = @search.result.paginate(:page => params[:page], :per_page => 20)

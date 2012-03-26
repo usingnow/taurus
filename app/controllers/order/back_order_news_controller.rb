@@ -1,5 +1,8 @@
 class Order::BackOrderNewsController < ApplicationController
+  before_filter :authenticate_administrator!
+
   def new
+    authorize! :create, Order
     @user = User.find params[:user_id]
     BackOrderSku.destroy_all(:user_id => params[:user_id])
     @search = Sku.search(params[:q])
@@ -9,6 +12,8 @@ class Order::BackOrderNewsController < ApplicationController
   end
 
   def preview
+    authorize! :create, Order
+
     @user = User.find params[:user_id]
 
     @inner_order_payment = InnerOrderPayment.new(params[:inner_order_payment])

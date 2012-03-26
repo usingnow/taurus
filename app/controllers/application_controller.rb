@@ -1,10 +1,13 @@
 #encoding:UTF-8
 class ApplicationController < ActionController::Base
-
   private
-
+    #CanCan
     def current_ability
       @current_ability ||= Ability.new(current_administrator)
+    end
+
+    rescue_from CanCan::AccessDenied do
+      render :text => "访问被拒绝！"
     end
 
     #获得购物车

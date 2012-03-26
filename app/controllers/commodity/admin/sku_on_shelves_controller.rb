@@ -1,4 +1,7 @@
 class Commodity::Admin::SkuOnShelvesController < ApplicationController
+  before_filter :authenticate_administrator!
+  authorize_resource
+
   def index
     @sku = Sku.find(params[:sku_id])
   end

@@ -1,7 +1,7 @@
 <h1>站别列表</h1>
 
 <div class="grid_button">
-  <%= link_to '新建站别', new_admin_station_path %>
+  <%= link_to '新建站别', new_admin_station_path if can? :create, Station %>
 </div>
 <table class="grid">
   <thead>
@@ -28,9 +28,8 @@
     <td><%= station.business_function %></td>
     <td><%= format_station_type(station.station_type) %></td>
     <td><%= station.sequence %></td>
-    <td><%= link_to 'Show', admin_station_path(station) %></td>
-    <td><%= link_to 'Edit', edit_admin_station_path(station) %></td>
-    <td><%= link_to 'Destroy', admin_station_path(station), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to t('admin.actions.show.menu'), admin_station_path(station) %></td>
+    <td><%= link_to t('admin.actions.edit.menu'), edit_admin_station_path(station) if can? :update, Station %></td>
   </tr>
 <% end %>
 </table>

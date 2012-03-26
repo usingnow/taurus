@@ -1,8 +1,7 @@
 class Commodity::Admin::SkusController < ApplicationController
   before_filter :authenticate_administrator!
   authorize_resource
-
-
+  skip_authorize_resource :only => :search
   def index
     @search = Sku.search(params[:q])
     @search.sorts = "updated_at desc"
@@ -68,17 +67,6 @@ class Commodity::Admin::SkusController < ApplicationController
     end
   end
 
-  def update_status
-    @sku = Sku.find(params[:id])
-    if @sku.status == 1
-      @sku.update_attribute :status,2
-    else
-      @sku.update_attribute :status,1
-    end
-
-    redirect_to commodity_admin_skus_url
-  end
-
   def destroy
     @sku = Sku.find(params[:id])
     @sku.destroy
@@ -90,30 +78,18 @@ class Commodity::Admin::SkusController < ApplicationController
     end
   end
 
-  def add
-    @sku = session[:sku]
-    @sku.save
-
-    @sku_productships = session[:sku_productships]
-    @sku_productships.each do |sku_productship|
-      sku_productship.sku_id = @sku.id
-      @sku_productship = sku_productship
-      @sku_productship.save
+  def update_status
+    @sku = Sku.find(params[:id])
+    if @sku.status == 1
+      @sku.update_attribute :status,2
+    else
+      @sku.update_attribute :status,1
     end
 
-    @sku_images = session[:sku_images]
-    @sku_images.each do |sku_image|
-      sku_image.sku_id = @sku.id
-      @sku_image = sku_image
-      @sku_image.save
-    end
-
-    respond_to do |format|
-       format.html { redirect_to(commodity_admin_skus_url) }
-    end
+    redirect_to commodity_admin_skus_url
   end
 
-   def search
+  def search
     @search = Sku.search(params[:q])
     @search.sorts = 'updated_at desc'
     @skus = @search.result.paginate(:page => params[:page],:per_page => 20)

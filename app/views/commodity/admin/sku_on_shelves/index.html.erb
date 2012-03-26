@@ -3,7 +3,7 @@
 </h1>
 
 <div class="grid_button">
-  <%= link_to t('admin.actions.new.menu'), new_commodity_admin_sku_sku_on_shelf_path(@sku) %>
+  <%= link_to t('admin.actions.new.menu'), new_commodity_admin_sku_sku_on_shelf_path(@sku) if can? :create, SkuOnShelf %>
 </div>
 
 <table class="grid">
@@ -26,10 +26,10 @@
       <td><%= sku_on_shelf.off_shelf_time %></td>
       <td><%= sku_on_shelf.off_shelf_description %></td>
       <td><%= format_sku_on_shelf_status sku_on_shelf.status %></td>
-      <td><%= get_sku_on_shelf_operating(sku_on_shelf.status, sku_on_shelf, @sku) %></td>
+      <td><%= get_sku_on_shelf_operating(sku_on_shelf.status, sku_on_shelf, @sku) if can? :update, SkuOnShelf %></td>
       <td>
         <%= link_to t('admin.actions.delete.menu'), commodity_admin_sku_sku_on_shelf_path(@sku, sku_on_shelf),
-                    :confirm => t('admin.actions.delete.confirm'), :method => :delete  %>
+                    :confirm => t('admin.actions.delete.confirm'), :method => :delete if can? :delete, SkuOnShelf  %>
       </td>
     </tr>
   <% end %>

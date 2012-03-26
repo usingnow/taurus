@@ -1,8 +1,9 @@
 class Admin::ProductsController < ApplicationController
   before_filter :authenticate_administrator!
+  authorize_resource
+  skip_authorize_resource :only => :search
 
-  # GET /products
-  # GET /products.xml
+
   def index
     @search = Product.search(params[:q])
     @search.sorts = "updated_at desc"
@@ -14,8 +15,6 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
-  # GET /products/1
-  # GET /products/1.xml
   def show
     @product = Product.find(params[:id])
 
@@ -25,8 +24,7 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
-  # GET /products/new
-  # GET /products/new.xml
+
   def new
     @product = Product.new
 
