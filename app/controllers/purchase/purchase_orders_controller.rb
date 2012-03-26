@@ -1,10 +1,7 @@
 #encoding:UTF-8
 class Purchase::PurchaseOrdersController < ApplicationController
   before_filter :authenticate_administrator!
-<<<<<<< HEAD
   #authorize_resource
-=======
->>>>>>> 14d3604fa7a6cee1e197849f7dd3ad64a9b7f8df
 
   def index
     @search = PurchaseOrder.search(params[:q])
