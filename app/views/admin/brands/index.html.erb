@@ -42,7 +42,7 @@
     <td><%= brand.english_name %></td>
     <td><%= brand.company_name %></td>
     <td><%= brand.updated_at %></td>
-    <td><%= link_to t('admin.actions.show.menu'), admin_brand_path(brand) %></td>
+    <td><%= link_to t('admin.actions.show.menu'), admin_brand_path(brand), :target => "_blank" %></td>
     <td><%= link_to t('admin.actions.edit.menu'), edit_admin_brand_path(brand) if can? :update, Brand %></td>
   </tr>
 <% end %>
