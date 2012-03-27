@@ -46,3 +46,9 @@ jQuery ->
       type: 'GET',
       data: {"q[product_id_start]":jQuery("#q_product_id_start").val(),"q[name_cont]":jQuery("#q_name_cont").val()},
       dataType: 'script'
+
+  jQuery("#edit_product_search_button").click ->
+    jQuery.ajax '/purchase/purchase_orders/search_products_edit',
+      type: 'GET',
+      data: {"q[product_id_start]":jQuery("#q_product_id_start").val(),"q[name_cont]":jQuery("#q_name_cont").val(),"purchase_order_id":jQuery("#purchase_order_id").val()},
+      dataType: 'script'

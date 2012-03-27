@@ -52,19 +52,14 @@
     <%= render "purchase/po_product_lists/po_products" %>
   </table>
 
-
-  <%= f.input :po_time_of_delivery, :as => :date %>
-  <%= f.input :po_remarks, :input_html => { :cols => 120, :rows => 5} %>
-  <%= f.submit t('admin.misc.save') %>
-<% end %>
-
-<%= search_form_for @search, :url => search_products_edit_purchase_purchase_orders_path, :remote => true do |s| %>
-  <%= hidden_field_tag :purchase_order_id, @purchase_order.id %>
-  <%= t 'activerecord.attributes.product.product_id' %>
-  <%= s.text_field :product_id_start %>
-  <%= t 'activerecord.attributes.product.name' %>
-  <%= s.text_field :name_cont %>
-  <%= s.submit t 'admin.misc.search' %>
+  <div id="search_control_panel">
+    <%= hidden_field_tag :purchase_order_id, @purchase_order.id %>
+    <label><%= t 'activerecord.attributes.product.product_id' %></label>
+    <%= text_field :q, :product_id_start, :class => "float_l" %>
+    <label><%= t 'activerecord.attributes.product.name' %></label>
+    <%= text_field :q, :name_cont, :class => "float_l" %>
+    <button type="button" id="edit_product_search_button"><%= t 'admin.misc.search' %></button>
+  </div>
 
   <table>
     <thead>
@@ -83,4 +78,10 @@
       <%= render "products_edit" %>
     </tbody>
   </table>
+
+  <div id="purchase_delivery_date_control_panel">
+    <%= f.input :po_time_of_delivery, :as => :date %>
+    <%= f.input :po_remarks, :input_html => { :cols => 120, :rows => 5, :style => "float: left"} %>
+    <%= f.submit t('admin.misc.save'), :id => "purchase_order_submit", :style => "float: left; clear: both;" %>
+  </div>
 <% end %>
