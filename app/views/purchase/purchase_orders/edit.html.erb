@@ -1,23 +1,53 @@
 <%= simple_form_for [:purchase, @purchase_order] do |f| %>
+
   <%= error_messages @purchase_order %>
-  <%= f.label :po_id %><%= @purchase_order.po_id %>
-  <%= f.label :created_at %><%= @purchase_order.created_at %>
-  <%= f.label :administrator_id %><%= @purchase_order.administrator.name %>
-  <%= f.label :po_status %><%= format_po_status @purchase_order.po_status %>
-  <%= f.label :ordering_company_id %>
-  <%= @purchase_order.ordering_company.name %>
-  <%= t 'activerecord.attributes.ordering_company.address' %>
-  <%= @purchase_order.ordering_company.address %>
-  <%= t 'activerecord.attributes.ordering_company.phone' %>
-  <%= @purchase_order.ordering_company.phone %>
-  <%= label_tag t 'activerecord.attributes.supplier.supplier_id' %>
-  <%= @purchase_order.supplier.supplier_id %>
-  <%= t 'activerecord.attributes.supplier.name' %>
-  <%= @purchase_order.supplier.name %>
-  <%= t 'activerecord.attributes.supplier.contact_way' %>
-  <%= @purchase_order.supplier.contact_way %>
-  <%= t 'activerecord.attributes.supplier.fax' %>
-  <%= @purchase_order.supplier.fax %>
+
+  <ul id="purchase_review_info">
+    <li>
+      <%= f.label :po_id %>
+      <span><%= @purchase_order.po_id %></span>
+    </li>
+    <li>
+      <%= f.label :created_at %>
+      <span><%= Time.now.strftime('%Y-%m-%d') %></span>
+    </li>
+    <li>
+      <%= f.label :administrator_id %>
+      <span><%= current_administrator.name %></span>
+    </li>
+    <li>
+      <%= f.label :ordering_company_id %>
+      <span><%= @purchase_order.ordering_company.name %></span>
+    </li>
+    <%= f.input :ordering_company_id, :as => :hidden %>
+    <li>
+      <label><%= t 'activerecord.attributes.ordering_company.address' %></label>
+      <span><%= @purchase_order.ordering_company.address %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.ordering_company.phone' %></label>
+      <span><%= @purchase_order.ordering_company.phone %></span>
+    </li>
+    <li>
+      <%= label_tag t 'activerecord.attributes.supplier.supplier_id' %>
+      <span><%= @purchase_order.supplier.supplier_id %></span>
+    </li>
+
+    <%= f.input :supplier_id, :as => :hidden %>
+    <li>
+      <label><%= t 'activerecord.attributes.supplier.name' %></label>
+      <span><%= @purchase_order.supplier.name %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.supplier.contact_way' %></label>
+      <span><%= @purchase_order.supplier.contact_way %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.supplier.fax' %></label>
+      <span><%= @purchase_order.supplier.fax %></span>
+    </li>
+  </ul>
+
   <table id="po_products">
     <%= render "purchase/po_product_lists/po_products" %>
   </table>
