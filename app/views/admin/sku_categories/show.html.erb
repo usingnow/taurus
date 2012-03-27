@@ -40,8 +40,8 @@
     </li>
     <li>
       <br />
-      <%= link_to "返回", admin_sku_categories_path, :class => "left20" %>
-      <%= link_to "修改", edit_admin_sku_category_path(@sku_category) %>
+      <%= link_to "返回", admin_sku_categories_path, :class => "left20" if can? :read, SkuCategory %>
+      <%= link_to "修改", edit_admin_sku_category_path(@sku_category)  if can? :update, SkuCategory %>
     </li>
   </ul>
 </div>

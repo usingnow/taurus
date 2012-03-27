@@ -10,3 +10,4 @@ paperclip_assets/
 ckeditor_assets/
 config/database.yml
 public/system/
+public/assets/
