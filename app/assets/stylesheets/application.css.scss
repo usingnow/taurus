@@ -325,14 +325,19 @@ a.longbtn{
   color:white;
 }
 
-
-#show_info .margin_top_20{
-  margin-top:20px;
+#show_info {
+  select {
+    float:none;
+  }
+  .margin_top_20 {
+    margin-top:20px;
+  }
+  span {
+    margin-left: 10px;
+  }
 }
 
-#show_info span{
-  margin-left: 10px;
-}
+
 
 #show_info a{
   float:left;
