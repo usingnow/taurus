@@ -1,55 +1,47 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Root:</b>
-  <%= @sku_category.root_id %>
-</p>
-
-<p>
-  <b>Parent id:</b>
-  <%= @sku_category.parent_id %>
-</p>
-
-<p>
-  <b>Number:</b>
-  <%= @sku_category.number %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @sku_category.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @sku_category.description %>
-</p>
-
-<p>
-  <b>Is show in navigation:</b>
-  <%= @sku_category.is_show_in_navigation %>
-</p>
-
-<p>
-  <b>Is show in column:</b>
-  <%= @sku_category.is_show_in_column %>
-</p>
-
-<p>
-  <b>Active:</b>
-  <%= @sku_category.active %>
-</p>
-
-<p>
-  <b>Create by:</b>
-  <%= @sku_category.create_by %>
-</p>
-
-<p>
-  <b>Update by:</b>
-  <%= @sku_category.update_by %>
-</p>
-
-
-<%= link_to 'Edit', edit_admin_sku_category_path(@sku_category) %> |
-<%= link_to 'Back', admin_sku_categories_path %>
+<div id="show_info">
+  <h1>媒体商品分类信息</h1>
+  <ul>
+    <li>
+      <label>媒体分类编号：</label>
+      <span class="red"><%= @sku_category.number %></span>
+    </li>
+    <li>
+      <label>媒体分类名称：</label>
+      <span><%= @sku_category.name %></span>
+    </li>
+    <li>
+      <label>上级分类编号：</label>
+      <span><%= @sku_category.parent.number %></span>
+    </li>
+    <li>
+      <label>上级分类名称：</label>
+      <span><%= @sku_category.parent.name %></span>
+    </li>
+    <li>
+      <label>所属一级分类名称：</label>
+      <span><%= @sku_category.root.name %></span>
+      <hr />
+    </li>
+    <li>
+      <label>首页导航显示：</label>
+      <span><%= SkuCategory::IS_SHOW_IN_NAVIGATION[@sku_category.is_show_in_navigation] %></span>
+    </li>
+    <li>
+      <label>首页栏目显示：</label>
+      <span><%= SkuCategory::IS_SHOW_IN_COLUMN[@sku_category.is_show_in_column] %></span>
+    </li>
+    <li>
+      <label>是否有效：</label>
+      <span><%= SkuCategory::ACTIVE[@sku_category.active] %></span>
+    </li>
+    <li>
+      <label>备注：</label>
+      <span><%= @sku_category.description %></span>
+    </li>
+    <li>
+      <br />
+      <%= link_to "返回", admin_sku_categories_path, :class => "left20" %>
+      <%= link_to "修改", edit_admin_sku_category_path(@sku_category) %>
+    </li>
+  </ul>
+</div>
