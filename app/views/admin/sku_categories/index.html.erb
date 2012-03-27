@@ -24,7 +24,6 @@
       <th><%= t('activerecord.attributes.sku_category.description') %></th>
       <th><%= t('activerecord.attributes.sku_category.updated_at') %></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -37,7 +36,6 @@
       <td><%= sku_category.is_show_in_column %></td>
       <td><%= sku_category.description %></td>
       <td><%= sku_category.updated_at %></td>
-      <td><%= link_to t('admin.actions.show.menu'), admin_sku_category_path(sku_category) %></td>
       <td><%= link_to t('admin.actions.edit.menu'), edit_admin_sku_category_path(sku_category) if can? :update, SkuCategory  %></td>
     </tr>
   <% end %>
