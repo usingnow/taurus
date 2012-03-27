@@ -13,18 +13,16 @@
       <th><%= t('attributes.product_category.description') %></th>
       <th><%= t('attributes.product_category.updated_at') %></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
 <% @product_categories.each_with_index do |product_category,index| %>
   <tr class="<%= set_odd_even_class index %>">
     <td><%= index+1 %></td>
-    <td><%= product_category.number %></td>
+    <td><%= link_to product_category.number, admin_product_category_path(product_category) %></td>
     <td><%= product_category.name %></td>
     <td><%= product_category.description %></td>
     <td><%= product_category.updated_at %></td>
-    <td><%= link_to t('admin.actions.show.menu'), admin_product_category_path(product_category) %></td>
     <td><%= link_to t('admin.actions.edit.menu'), edit_admin_product_category_path(product_category) if can? :update, ProductCategory %></td>
   </tr>
 <% end %>
