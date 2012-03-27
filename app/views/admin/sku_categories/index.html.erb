@@ -16,6 +16,7 @@
 <table>
   <thead>
     <tr>
+      <th>#</th>
       <th><%= t('activerecord.attributes.sku_category.number') %></th>
       <th><%= t('activerecord.attributes.sku_category.name') %></th>
       <th><%= t('activerecord.attributes.sku_category.is_show_in_navigation') %></th>
@@ -27,9 +28,10 @@
     </tr>
   </thead>
   <tbody>
-  <% @sku_categories.each do |sku_category| %>
+  <% @sku_categories.each_with_index do |sku_category,index| %>
     <tr>
-      <td><%= sku_category.number %></td>
+      <td><%= index+1 %></td>
+      <td><%= link_to sku_category.number, admin_sku_category_path(sku_category), :target => "_blank" %></td>
       <td><%= sku_category.name %></td>
       <td><%= sku_category.is_show_in_navigation %></td>
       <td><%= sku_category.is_show_in_column %></td>

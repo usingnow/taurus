@@ -1,3 +1,4 @@
+#encoding:UTF-8
 class SkuCategory < ActiveRecord::Base
   has_many :children, :class_name => 'SkuCategory', :foreign_key => 'parent_id'
   belongs_to :parent, :class_name => 'SkuCategory', :foreign_key => 'parent_id'
@@ -5,6 +6,10 @@ class SkuCategory < ActiveRecord::Base
   scope :four, where("length(number) = 9")
   scope :navigation, where(:is_show_in_navigation => true, :active => true)
   scope :top_navigation, where(:is_show_in_navigation => true, :active => true, :parent_id => nil)
+
+  IS_SHOW_IN_NAVIGATION = { false => "否", true => "是" }
+  IS_SHOW_IN_COLUMN = { false => "否", true => "是" }
+  ACTIVE = { false => "否", true => "是" }
 
 
   validates :root_id, :parent_id, :number, :name, :presence => true
