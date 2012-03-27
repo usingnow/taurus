@@ -64,6 +64,8 @@ class Purchase::PurchaseOrdersController < ApplicationController
   end
 
   def released_update
+    @purchase_order = PurchaseOrder.find(params[:id])
+    @purchase_order.update_attributes(params[:purchase_order])
     redirect_to purchase_purchase_orders_url
   end
 

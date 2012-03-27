@@ -59,8 +59,7 @@
   <span><%= @purchase_order.po_time_of_delivery %></span>
 
   <label class="clear_both"><%= t 'activerecord.attributes.purchase_order.po_remarks' %></label>
-  <input type="text" style="float: left;"/>
-  <span><%= @purchase_order.po_remarks %></span>
+  <%= f.text_field :po_remarks, :style => "float: left;width:80%;" %>
   <hr />
 
   <h4 style="clear: both;">相关入库单：</h4>
