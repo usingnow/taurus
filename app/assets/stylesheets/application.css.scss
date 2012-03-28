@@ -312,19 +312,6 @@ p {
   text-indent: 2em
 }
 
-a.longbtn{
-  display:block;
-  height:22px;
-  width:80px;
-  line-height:22px;
-  vertical-align:middle;
-  font-weight:bold;
-  text-decoration:none;
-  margin-bottom:5px;
-  margin-right:20px;
-  color:white;
-}
-
 #show_info {
   select {
     float:none;
@@ -335,50 +322,79 @@ a.longbtn{
   span {
     margin-left: 10px;
   }
+  .orange{
+    color:#EE4000;
+  }
+  a {
+    float:left;
+    padding-left:20px;
+    display:block;
+    height:22px;
+    width:50px;
+    line-height:22px;
+    vertical-align:middle;
+    font-weight:bold;
+    text-decoration:none;
+    margin-bottom:5px;
+    margin-right:20px;
+    color:white;
+  }
+
+  a.longbtn{
+    display:block;
+    height:22px;
+    width:80px;
+    line-height:22px;
+    vertical-align:middle;
+    font-weight:bold;
+    text-decoration:none;
+    margin-bottom:5px;
+    margin-right:20px;
+    color:white;
+  }
+  a:link{
+    background-color:#2272B1;
+  }
+  a:visited{
+    background-color:#2272B1;
+  }
+  a:hover{
+    background-color:#F26522;
+  }
+  a.link {
+    float:none;
+    padding:0px;
+    display:block;
+    height:auto;
+    width:auto;
+    line-height:auto;
+    vertical-align:middle;
+    font-weight:normal;
+    text-decoration:none;
+    margin:0;
+    color:#013DA4;
+  }
+  a.link:link{
+    background:not specified;
+  }
+  a.link:visited{
+    background:not specified;
+  }
+  a.link:hover{
+    background:not specified;
+  }
+  table {
+    caption {
+      text-align:left;
+      padding-left:20px;
+      font-weight:bold;
+    }
+  }
 }
 
 
 
-#show_info a{
-  float:left;
-  padding-left:20px;
-  display:block;
-  height:22px;
-  width:50px;
-  line-height:22px;
-  vertical-align:middle;
-  font-weight:bold;
-  text-decoration:none;
-  margin-bottom:5px;
-  margin-right:20px;
-  color:white;
-}
 
-#show_info a.longbtn{
-  display:block;
-  height:22px;
-  width:80px;
-  line-height:22px;
-  vertical-align:middle;
-  font-weight:bold;
-  text-decoration:none;
-  margin-bottom:5px;
-  margin-right:20px;
-  color:white;
-}
-
-
-#show_info a:link{
-  background-color:#2272B1;
-}
-
-#show_info a:visited{
-  background-color:#2272B1;
-}
-
-#show_info a:hover{
-  background-color:#F26522;
-}
 
 #show_info label{
   display:block;

@@ -10,10 +10,8 @@ class Admin::StoreEntriesController < ApplicationController
 
   def show
     @store_entry = StoreEntry.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @store_entry }
+    if @store_entry.store_in_type == 1
+      render "purchase_show"
     end
   end
 
