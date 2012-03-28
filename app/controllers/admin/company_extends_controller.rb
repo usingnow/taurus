@@ -5,7 +5,6 @@ class Admin::CompanyExtendsController < ApplicationController
   def index
     @search = CompanyExtend.search(params[:q])
     @company_extends = @search.result.paginate(:page => params[:page], :per_page => 20)
-
   end
 
   def show
