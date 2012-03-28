@@ -1,97 +1,111 @@
-<h1><%= notice %></h1>
-<%= simple_form_for @delivery_order, :url => store_sales_order_deliveries_path do |f| %>
-  <%= f.error_notification %>
+<%= form_for @delivery_order, :url => store_sales_order_deliveries_path do |f| %>
+  <%= f.hidden_field :order_id %>
+  <div id="show_info">
+    <h1>订单出库</h1>
+    <h2><%= notice %></h2>
+    <%= error_messages @delivery_order %>
+    <ul>
+      <li>
+        <%= symbol_label "出库记录编号" %>
+        <span>（系统自动生成）</span>
+      </li>
+      <li>
+        <%= symbol_label "出库时间" %>
+        <span><%= Time.now %></span>
+      </li>
+      <li>
+        <%= symbol_label "操作人" %>
+        <span><%= current_administrator.name %></span>
+        <hr />
+      </li>
+      <li>
+        <%= symbol_label "订单编号" %>
+        <span><%= @delivery_order.order.number %></span>
+      </li>
+      <li>
+        <%= symbol_label "订单日期" %>
+        <span><%= @delivery_order.order.created_at %></span>
+      </li>
+      <li>
+        <%= symbol_label "制单人" %>
+        <span><%= @delivery_order.order.make_administrator.name %></span>
+        <hr />
+      </li>
+      <li>
+        <%= symbol_label "出库仓库" %>
+        <span><%= @delivery_order.order.user.store.name %></span>
+      </li>
+      <li id="line_type_li">
+        <label><abbr title='required'>*</abbr>出库方式</label>
+        <%= f.collection_select :line_type, DeliveryOrder::LINE_TYPE, :first, :second %>
+      </li>
+      <li>
+        <label><abbr title="required">*</abbr>送货人</label>
+        <%= f.text_field :name %>
+      </li>
+      <li>
+        <label><abbr title="required">*</abbr>送货日期</label>
+        <%= f.date_select :delivery_date %>
+      </li>
+    </ul>
 
-  <div class="attributes">
-    <div class="split_content_left">
-      <p>
-        <%= f.input :order_id, :as => :hidden %>
-        <%= label_tag '订单编号：' %>
-        <%= @delivery_order.order.number %>
-      </p>
-      <p>
-         <label class="string required"><abbr title="required">*</abbr>出库方式：</label>
-         <%= f.select :line_type, "<option value='1'>自配</option><option value='2'>快递</option>
-             <option value='3'>客户自提</option>", {:include_blank => "-请选择-"},{:required => "required", :id => "line_type"} %>
-      </p>
-      <p id="number"></p>
-    </div>
-    <div class="split_content_right">
-      <p>
-        <%= f.input :store_id, :as => :hidden %>
-        <%= label_tag '仓库：' %>
-        <%= @delivery_order.order.user.store.name %>
-      </p>
-      <p id="name"></p>
-      <p id="date"></p>
-    </div>
-    <div class="clear"></div>
-  </div>
+    <hr />
 
-  <hr />
-
-  <table class="grid">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>商品编码</th>
-        <th>商品名称</th>
-        <th>规格</th>
-        <th>型号</th>
-        <th>单位</th>
-        <th>数量</th>
-      </tr>
-    </thead>
-    <tbody id="product_carts">
-      <% @delivery_order_carts.each_with_index do |cart,index| %>
-        <tr class="<%= set_odd_even_class(index) %>">
-          <td><%= index+1 %></td>
-          <td><%= cart.product.product_id %></td>
-          <td align="left"><%= cart.product.name %></td>
-          <td><%= cart.product.specification %></td>
-          <td><%= cart.product.model %></td>
-          <td><%= cart.product.unit %></td>
-          <td><%= cart.quantity %></td>
+    <table class="grid">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>商品编码</th>
+          <th>商品名称</th>
+          <th>规格</th>
+          <th>型号</th>
+          <th>单位</th>
+          <th>数量</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <div class="actions">
-    <%= f.button :submit %>
+      </thead>
+      <tbody id="product_carts">
+        <% @delivery_order_carts.each_with_index do |cart,index| %>
+          <tr class="<%= set_odd_even_class(index) %>">
+            <td><%= index+1 %></td>
+            <td><%= cart.product.product_id %></td>
+            <td align="left"><%= cart.product.name %></td>
+            <td><%= cart.product.specification %></td>
+            <td><%= cart.product.model %></td>
+            <td><%= cart.product.unit %></td>
+            <td><%= cart.quantity %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <hr />
+    <%= f.submit "确认出库" %>
+    <input type="button" value="关闭页面" onclick="return window.close()" />
   </div>
-<% end %>
 
-<% content_for :ready do %>
-  jQuery('#line_type').change(function(){
-    var value = jQuery(this).val();
-    if(value == 1){
-     jQuery('#name').html('<label class="string required"><abbr title="required">*</abbr>送货人：</label>'+
-                          '<%= text_field :delivery_order, :name, :required => "required" %>');
-     jQuery('#date').html('<label class="string required"><abbr title="required">*</abbr>送货日期：</label>'+
-                          '<%= text_field :delivery_order, :delivery_date, :required => "required" %>');
-     jQuery("#delivery_order_delivery_date").datepicker({dateFormat : "yy-mm-dd" });
-    }else if(value == 2){
-      jQuery('#name').html('<label class="string required"><abbr title="required">*</abbr>快递公司名称：</label>'+
-                           '<%= text_field :delivery_order, :name, :required => "required" %>');
-      jQuery('#number').html('<label class="string required"><abbr title="required">*</abbr>运单号：</label>'+
-                           '<%= text_field :delivery_order, :waybill_number, :required => "required" %>');
-      jQuery('#date').html('<label class="string required"><abbr title="required">*</abbr>送货日期：</label>'+
-                           '<%= text_field :delivery_order, :delivery_date, :required => "required" %>');
-      jQuery("#delivery_order_delivery_date").datepicker({dateFormat : "yy-mm-dd" });
-    }else if(value == 3){
-      jQuery('#name').html('<label class="string required"><abbr title="required">*</abbr>自提人姓名：</label>'+
-                           '<%= text_field :delivery_order, :name, :required => "required" %>');
-      jQuery('#number').html('<label class="string required"><abbr title="required">*</abbr>联系电话：</label>'+
-                           '<%= text_field :delivery_order, :phone, :required => "required" %>');
-      jQuery('#date').html('<label class="string required"><abbr title="required">*</abbr>提货日期：</label>'+
-                           '<%= text_field :delivery_order, :delivery_date, :required => "required" %>');
-      jQuery("#delivery_order_delivery_date").datepicker({dateFormat : "yy-mm-dd" });
-    }else{
-      jQuery('#name').html('');
-      jQuery('#number').html('');
-      jQuery('#date').html('');
-    }
-  });
-<% end %>
+  <% content_for :ready do %>
+    jQuery('#delivery_order_line_type').change(function(){
+      jQuery('#line_type_li ~ li').remove();
+      var value = jQuery(this).val();
+      if(value == 1){
+       jQuery('#line_type_li').after('<li><label><abbr title="required">*</abbr>送货人</label>'+
+                                      '<%= f.text_field :name %></li><li><label><abbr title="required">*</abbr>送货日期</label>'+
+                                      '<%= j(f.date_select :delivery_date) %></li>');
+      }else if(value == 2){
+        jQuery('#line_type_li').after('<li><label><abbr title="required">*</abbr>快递公司名称</label>'+
+                                       '<%= f.text_field :name %></li>'+
+                                       '<li><label><abbr title="required">*</abbr>运单号</label>'+
+                                       '<%= f.text_field :waybill_number %></li>'+
+                                       '<li><label><abbr title="required">*</abbr>送货日期</label>'+
+                                       '<%= j(f.date_select :delivery_date) %></li>');
+      }else if(value == 3){
+        jQuery('#line_type_li').after('<li><label><abbr title="required">*</abbr>自提人姓名</label>'+
+                                       '<%= f.text_field :name %></li>'+
+                                       '<li><label><abbr title="required">*</abbr>联系电话</label>'+
+                                       '<%= f.text_field :phone %></li>'+
+                                       '<li><label><abbr title="required">*</abbr>提货日期</label>'+
+                                       '<%= j(f.date_select :delivery_date) %></li>');
+      }
+    });
+  <% end %>
 
+<% end %>

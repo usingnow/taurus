@@ -115,7 +115,7 @@
   </li>
   <li>
     <%= symbol_label "相关出库单", :class => "orange" %>
-    <%= link_to @order.delivery_order.number, store_sales_order_delivery_path(@order.delivery_order.id) if @order.delivery_order %>
+    <%= link_to @order.delivery_order.number, store_delivery_order_path(@order.delivery_order.id) if @order.delivery_order %>
   </li>
 </ul>
 
