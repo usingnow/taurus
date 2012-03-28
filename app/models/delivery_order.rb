@@ -5,7 +5,7 @@ class DeliveryOrder < ActiveRecord::Base
   belongs_to :order
   has_many :prod_del_ordships, :dependent => :destroy
 
-  DELIVERY_TYPE = { 1 => "内部领用", 2 => "退换货", 3 => "损耗", 4 => "调货", 5 => "其他" }
+  DELIVERY_TYPE = { 1 => "订单出库", 2 => "内部领用", 3 => "退换货", 4 => "损耗", 5 => "调货", 6 => "其他" }
 
 
   validates_presence_of :store_id, :administrator_id, :name, :line_type

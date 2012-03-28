@@ -1,27 +1,34 @@
-<h1>出库单列表</h1>
+<div id="show_info">
+  <h1>出库单列表</h1>
 
-<div class="attributes">
   <%= search_form_for [:store,@search] do |f| %>
-    <div class="split_content_left">
-      <p>
+    <ul>
+      <li>
+        <%= f.label '出库单编号' %>
+        <%= f.text_field :number_start %>
+      </li>
+      <li>
+        <%= f.label '订单编号' %>
+        <%= f.text_field :order_number_start %>
+      </li>
+      <li>
         <%= f.label '出库类型' %>
-        <%= f.collection_select :order_id_null, [['false', '全部'], ['true', '订单出库'] ,['true', '其他']] ,
-                                :first, :second, :checked => 'false' %>
-      </p>
-      <p>
+        <%= f.collection_select :delivery_type_eq, DeliveryOrder::DELIVERY_TYPE ,
+                                :first, :second, :include_blank => true %>
+      </li>
+      <li>
+        <%= f.label '仓库' %>
+        <%= f.collection_select :store_id_eq, Store.all ,
+                                :id, :name, :include_blank => true %>
+      </li>
+      <li>
         <%= f.label '出库日期' %>
         <%= f.text_field :created_at_gt %>
         ~
         <%= f.text_field :created_at_lt %>
-      </p>
-    </div>
-    <div class="split_content_right">
-      <p>
-        <label>&nbsp;</label>
-        <%= f.submit '查询'%>
-      </p>
-    </div>
-    <div class="clear"></div>
+        <%= f.submit '搜索'%>
+      </li>
+    </ul>
   <% end %>
 </div>
 
@@ -34,10 +41,11 @@
   <thead>
     <tr>
       <th>#</th>
+      <th>出库记录编号</th>
       <th>订单编号</th>
-      <th>仓库</th>
+      <th>出货仓库</th>
       <th>操作人</th>
-      <th>出库方式</th>
+      <th>出库类型</th>
       <th>出库时间</th>
     </tr>
   </thead>
@@ -46,28 +54,13 @@
   <tr class="<%= set_odd_even_class index %>">
     <td><%= index+1 %></td>
     <td><%= link_to delivery_order.number, store_delivery_order_path(delivery_order) %></td>
+    <td><%= delivery_order.order.number if delivery_order.order %></td>
     <td><%= delivery_order.store.name %></td>
     <td><%= delivery_order.administrator.name %></td>
-    <td><%= format_delivery_type delivery_order.order_id %></td>
+    <td><%= DeliveryOrder::DELIVERY_TYPE[delivery_order.delivery_type] %></td>
     <td><%= delivery_order.created_at %></td>
   </tr>
 <% end %>
 </table>
 
 <%= will_paginate @delivery_orders %>
-
-
-<% content_for :ready do %>
-  jQuery('#q_order_id_null').change(function(){
-    var text = jQuery(this).find("option:selected").text();
-    if(text == '订单出库'){
-      jQuery(this).attr('name','q[order_id_not_null]');
-    }else{
-      jQuery(this).attr('name','q[order_id_null]');
-    }
-  });
-
-  jQuery('#q_created_at_gt').datepicker({dateFormat: "yy-mm-dd"});
-  jQuery('#q_created_at_lt').datepicker({dateFormat: "yy-mm-dd"});
-<% end %>
-
