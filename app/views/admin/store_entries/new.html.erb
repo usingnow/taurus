@@ -18,11 +18,11 @@
       </li>
       <li>
         <%= f.label "收货仓库" %>
-        <span><%= f.collection_select :store_id, Store.all, :id, :name %></span>
+        <%= f.collection_select :store_id, Store.all, :id, :name %>
       </li>
       <li>
         <%= f.label "入库类型" %>
-        <span><%= f.collection_select :store_in_type, StoreEntry::STORE_IN_TYPE.find_all { |key,value| [key, value] if key != 1 }, :first, :second %></span>
+        <%= f.collection_select :store_in_type, StoreEntry::STORE_IN_TYPE.find_all { |key,value| [key, value] if key != 1 }, :first, :second %>
       </li>
     </ul>
 

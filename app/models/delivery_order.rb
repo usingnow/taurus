@@ -9,5 +9,7 @@ class DeliveryOrder < ActiveRecord::Base
   LINE_TYPE = { 1 => "自配", 2 => "快递", 3 => "客户自提" }
 
 
-  validates_presence_of :store_id, :administrator_id, :name, :line_type
+  validates_presence_of :store_id, :administrator_id, :name, :delivery_type, :number
+  validates_presence_of :phone, :if => Proc.new { delivery_type != 1 }
+  validates_presence_of :line_type, :if => Proc.new { delivery_type == 1 }
 end

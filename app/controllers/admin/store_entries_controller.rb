@@ -112,7 +112,7 @@ class Admin::StoreEntriesController < ApplicationController
     @purchase_order = PurchaseOrder.find(params[:id])
     @store_entry = StoreEntry.new(:number => current_serial_number("SE"), :purchase_order_id => @purchase_order.id,
                                   :ordering_company_id => @purchase_order.ordering_company_id, :supplier_id => @purchase_order.supplier_id,
-                                  :store_id => 1)
+                                  :store_id => 1, :administrator_id => current_administrator.id,:store_in_type => 1)
 
     params[:quantity].each do |key,value|
       if value.to_i > 0
