@@ -1,5 +1,5 @@
 <div id="show_info">
-  <h1>普通出库记录</h1>
+  <h1>订单出库记录</h1>
   <ul>
     <li>
       <a href="#" onclick="return window.close()" class="longbtn">关闭页面</a>
@@ -20,20 +20,33 @@
       <hr />
     </li>
     <li>
-      <%= symbol_label "发货仓库" %>
+      <%= symbol_label "订单编号" %>
+      <span><%= @delivery_order.order.number %></span>
+    </li>
+    <li>
+      <%= symbol_label "订单日期" %>
+      <span><%= @delivery_order.order.created_at %></span>
+    </li>
+    <li>
+      <%= symbol_label "制单人" %>
+      <span><%= @delivery_order.order.make_administrator.name %></span>
+      <hr />
+    </li>
+    <li>
+      <%= symbol_label "出库仓库" %>
       <span><%= @delivery_order.store.name %></span>
     </li>
     <li>
-      <%= symbol_label "收货人" %>
+      <%= symbol_label "出库方式" %>
+      <span><%= DeliveryOrder::LINE_TYPE[@delivery_order.line_type] %></span>
+    </li>
+    <li>
+      <%= symbol_label "送货人" %>
       <span><%= @delivery_order.name %></span>
     </li>
     <li>
-      <%= symbol_label "联系方式" %>
-      <span><%= @delivery_order.phone %></span>
-    </li>
-    <li>
-      <%= symbol_label "出库类型" %>
-      <span><%= DeliveryOrder::DELIVERY_TYPE[@delivery_order.delivery_type] %></span>
+      <%= symbol_label "送货日期" %>
+      <span><%= @delivery_order.delivery_date %></span>
     </li>
   </ul>
 

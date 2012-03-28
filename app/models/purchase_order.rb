@@ -4,7 +4,7 @@ class PurchaseOrder < ActiveRecord::Base
   belongs_to :ordering_company
   belongs_to :supplier
   belongs_to :administrator
-  has_many :store_entries
+  has_many :store_entries, :dependent => :destroy
   scope :released, where(:po_status => 1)
 
   validates_presence_of :po_time_of_delivery
@@ -28,6 +28,20 @@ class PurchaseOrder < ActiveRecord::Base
       current_po_product = po_product_lists.build(:product_id => product_id, :product_purchase_amount => 1, :product_unit_price => product.cost_aft_tax)
     end
     current_po_product
+  end
+
+  #采购商品总数量
+  def purchase_amount
+    po_product_lists.to_a.sum { |list| list.product_purchase_amount }
+  end
+
+  #入库总数量
+  def store_amount
+    store_entries.to_a.sum do |store_entry|
+      store_entry.product_store_entryships.to_a.sum do |list|
+        list.quantity
+      end
+    end
   end
 
   #采购单商品总金额

@@ -5,11 +5,11 @@ class Order < ActiveRecord::Base
   belongs_to :user
   belongs_to :administrator, :class_name => "Administrator", :foreign_key => "take_admin_id"
   belongs_to :make_administrator, :class_name => "Administrator", :foreign_key => "created_admin_id"
-  has_one :order_pay
-  has_many :order_take_logs
+  has_one :order_pay, :dependent => :destroy
+  has_many :order_take_logs, :dependent => :destroy
   has_many :skus, :through => :order_details
   belongs_to :district, :class_name => "District", :foreign_key => "district_no"
-  has_many :order_print_logs
+  has_many :order_print_logs, :dependent => :destroy
   has_one :delivery_order
 
   attr_accessor :condition_type

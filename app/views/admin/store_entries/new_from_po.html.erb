@@ -1,91 +1,135 @@
-<%= simple_form_for @purchase_order, :url => create_from_po_admin_store_entry_path(@purchase_order), :method => :post do |f| %>
+<%= form_for @purchase_order, :url => create_from_po_admin_store_entry_path(@purchase_order), :method => :post do |f| %>
+  <div id="show_info">
+    <h1>采购单入库</h1>
+    <ul>
+      <li>
+        <%= symbol_label "入库记录编号" %>
+        <span>(系统自动生成)</span>
+      </li>
+      <li>
+        <%= symbol_label "入库时间" %>
+        <span><%= Time.now %></span>
+      </li>
+      <li>
+        <%= symbol_label "操作人" %>
+        <span><%= current_administrator.name %></span>
+        <hr />
+      </li>
+      <li>
+        <%= symbol_label t('activerecord.attributes.purchase_order.po_id') %>
+        <span><%= @purchase_order.po_id %></span>
+      </li>
+      <li>
+        <%= symbol_label t('activerecord.attributes.purchase_order.created_at') %>
+        <span><%= @purchase_order.created_at %></span>
+      </li>
+      <li>
+        <%= symbol_label t('activerecord.attributes.purchase_order.administrator_id') %>
+        <span><%= @purchase_order.administrator.name %></span>
+      </li>
+      <li class="margin_top_20">
+        <%= symbol_label t('activerecord.attributes.purchase_order.po_status'), :class => "orange" %>
+        <span><%= format_po_status @purchase_order.po_status %></span>
+      </li>
+      <li>
+        <%= symbol_label t('activerecord.attributes.purchase_order.po_released_at'), :class => "orange" %>
+        <span><%= @purchase_order.po_released_at %></span>
+      </li>
+      <li>
+        <%= symbol_label t('activerecord.attributes.purchase_order.po_store_status'), :class => "orange" %>
+        <span><%= format_po_store_status @purchase_order.po_store_status %></span>
+        <hr />
+      </li>
+      <li>
+        <%= symbol_label t('activerecord.attributes.purchase_order.ordering_company_id') %>
+        <span><%= @purchase_order.ordering_company.name %></span>
+      </li>
+      <li>
+        <%= symbol_label t('activerecord.attributes.ordering_company.address') %>
+        <span><%= @purchase_order.ordering_company.address %></span>
+      </li>
+      <li>
+        <%= symbol_label t('activerecord.attributes.ordering_company.phone') %>
+        <span><%= @purchase_order.ordering_company.phone %></span>
+        <hr />
+      </li>
+      <li>
+        <%= symbol_label t('activerecord.attributes.supplier.supplier_id') %>
+        <span><%= @purchase_order.supplier.supplier_id %></span>
+      </li>
+      <li>
+        <%= symbol_label t('activerecord.attributes.supplier.name') %>
+        <span><%= @purchase_order.supplier.name %></span>
+      </li>
+      <li>
+        <%= symbol_label t('activerecord.attributes.supplier.contact_way') %>
+        <span><%= @purchase_order.supplier.contact_way %></span>
+      </li>
+      <li>
+        <%= symbol_label t('activerecord.attributes.supplier.fax') %>
+        <span><%= @purchase_order.supplier.fax %></span>
+      </li>
+    </ul>
 
-  <%= t 'activerecord.attributes.purchase_order.po_id' %>
-  <%= @purchase_order.po_id %>
+    <hr />
 
-  <%= t 'activerecord.attributes.purchase_order.created_at' %>
-  <%= @purchase_order.created_at %>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th><%= t 'activerecord.attributes.product.product_id' %></th>
+          <th><%= t 'activerecord.attributes.product.name' %></th>
+          <th><%= t 'activerecord.attributes.product.specification' %></th>
+          <th><%= t 'activerecord.attributes.product.unit' %></th>
+          <th><%= t 'activerecord.attributes.po_product_list.product_purchase_amount' %></th>
+          <th><%= t 'activerecord.attributes.po_product_list.product_store_amount' %></th>
+          <th>本次入库数量</th>
+          <th><%= t 'activerecord.attributes.product.inventory' %></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @purchase_order.po_product_lists.each_with_index do |po_product,index| %>
+        <tr class="<%= cycle("odd","even") %>">
+          <td><%= index+1 %></td>
+          <td><%= po_product.product.product_id %></td>
+          <td><%= po_product.product.name %></td>
+          <td><%= po_product.product.specification %></td>
+          <td><%= po_product.product.unit %></td>
+          <td><%= po_product.product_purchase_amount %></td>
+          <td><%= po_product.store_amount %></td>
+          <td><%= text_field_tag :"quantity[#{po_product.product_id}]", 0, :class => "entry_quantity" %></td>
+          <td><%= format_product_inventory po_product.product.nb_inventory? %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
 
-  <%= t 'activerecord.attributes.purchase_order.administrator_id' %>
-  <%= @purchase_order.administrator.name %>
+    <hr />
 
-  <%= t 'activerecord.attributes.purchase_order.po_status' %>
-  <%= format_po_status @purchase_order.po_status %>
-
-  <%= t 'activerecord.attributes.purchase_order.po_store_status' %>
-  <%= format_po_store_status @purchase_order.po_store_status %>
-
-  <%= t 'activerecord.attributes.purchase_order.po_released_at' %>
-  <%= @purchase_order.po_released_at %>
-
-  <%= t 'activerecord.attributes.purchase_order.ordering_company_id' %>
-  <%= @purchase_order.ordering_company.name %>
-
-  <%= t 'activerecord.attributes.ordering_company.address' %>
-  <%= @purchase_order.ordering_company.address %>
-
-  <%= t 'activerecord.attributes.ordering_company.phone' %>
-  <%= @purchase_order.ordering_company.phone %>
-
-  <%= t 'activerecord.attributes.supplier.supplier_id' %>
-  <%= @purchase_order.supplier.supplier_id %>
-
-  <%= t 'activerecord.attributes.supplier.name' %>
-  <%= @purchase_order.supplier.name %>
-
-  <%= t 'activerecord.attributes.supplier.contact_way' %>
-  <%= @purchase_order.supplier.contact_way %>
-
-  <%= t 'activerecord.attributes.supplier.fax' %>
-  <%= @purchase_order.supplier.fax %>
-
-  <table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th><%= t 'activerecord.attributes.product.product_id' %></th>
-        <th><%= t 'activerecord.attributes.product.name' %></th>
-        <th><%= t 'activerecord.attributes.product.specification' %></th>
-        <th><%= t 'activerecord.attributes.product.unit' %></th>
-        <th><%= t 'activerecord.attributes.po_product_list.product_purchase_amount' %></th>
-        <th><%= t 'activerecord.attributes.po_product_list.product_store_amount' %></th>
-        <th>本次入库数量</th>
-        <th><%= t 'activerecord.attributes.product.inventory' %></th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @purchase_order.po_product_lists.each_with_index do |po_product,index| %>
-      <tr class="<%= cycle("odd","even") %>">
-        <td><%= index+1 %></td>
-        <td><%= po_product.product.product_id %></td>
-        <td><%= po_product.product.name %></td>
-        <td><%= po_product.product.specification %></td>
-        <td><%= po_product.product.unit %></td>
-        <td><%= po_product.product_purchase_amount %></td>
-        <td><%= po_product.store_amount %></td>
-        <td><%= text_field_tag :"quantity[#{po_product.product_id}]", 0, :class => "entry_quantity" %></td>
-        <td><%= format_product_inventory po_product.product.nb_inventory? %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-
-  <%= t 'activerecord.attributes.purchase_order.po_time_of_delivery' %>
-  <%= @purchase_order.po_time_of_delivery %>
-
-  <%= t 'activerecord.attributes.purchase_order.po_remarks' %>
-  <%= @purchase_order.po_remarks %>
-
-  <%= f.submit t('admin.misc.submit') %>
+    <ul>
+      <li>
+        <%= symbol_label t('activerecord.attributes.purchase_order.po_time_of_delivery') %>
+        <span><%= @purchase_order.po_time_of_delivery %></span>
+      </li>
+      <li>
+        <%= symbol_label t('activerecord.attributes.purchase_order.po_remarks') %>
+        <span><%= @purchase_order.po_remarks %></span>
+      </li>
+      <li>
+        <%= f.submit "确认入库" %>
+        <input type="button" value="关闭页面" onclick="return window.close()" />
+      </li>
+    </ul>
+  </div>
 <% end %>
 
-相关入库单：
-<table>
-  <% @purchase_order.store_entries.each_with_index do |store_entry,index| %>
-    <tr>
-      <td><%= index+1 %></td>
-      <td><%= store_entry.number %></td>
-      <td><%= store_entry.created_at %></td>
-    </tr>
+<h4>相关入库单：</h4>
+<ol>
+  <% @purchase_order.store_entries.each do |store_entry| %>
+    <li>
+      <%= link_to store_entry.number, admin_store_entry_path(store_entry), :class => "link" %>
+      <%= store_entry.created_at %>
+    </li>
   <% end %>
-</table>
+</ol>
+

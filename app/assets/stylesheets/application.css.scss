@@ -364,7 +364,7 @@ p {
   a.link {
     float:none;
     padding:0px;
-    display:block;
+    display:inline;
     height:auto;
     width:auto;
     line-height:auto;
@@ -375,13 +375,13 @@ p {
     color:#013DA4;
   }
   a.link:link{
-    background:not specified;
+    background-color:transparent;
   }
   a.link:visited{
-    background:not specified;
+    background-color:transparent;
   }
   a.link:hover{
-    background:not specified;
+    background-color:transparent;
   }
   table {
     caption {
@@ -420,6 +420,42 @@ p {
 }
 
 //end
+
+#main_content{
+  .list_info{
+    list-style-type:none;
+    padding:0;
+    li{
+      min-height:20px;
+      line-height:20px;
+      vertical-align: middle;
+      label{
+        line-height:20px;
+        text-align:left;
+        width:auto;
+        min-width:80px;
+      }
+    }
+    .second{
+      margin-top:20px;
+    }
+  }
+  .orange{
+    color:#EE4000;
+  }
+
+  .red{
+    color:red;
+  }
+
+  p{
+    min-height:20px;
+  }
+
+  .margin_top_20 {
+    margin-top:20px;
+  }
+}
 
 
 

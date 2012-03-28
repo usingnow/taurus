@@ -17,7 +17,6 @@ class Store::SalesOrderDeliveriesController < ApplicationController
 
     order_details = OrderDetail.find_all_by_order_id(order_id)
     @delivery_order.order_id = order_id
-    @delivery_order.store_id = @delivery_order.order.user.store_id
 
     DeliveryOrderCart.destroy_all(:administrator_id => admin_id)
     line_items = []
@@ -43,10 +42,15 @@ class Store::SalesOrderDeliveriesController < ApplicationController
       render "new"
       return
     else
+      @delivery_order = DeliveryOrder.new(params[:delivery_order])
+      @delivery_order.number = current_serial_number("DO")
+      @delivery_order.administrator_id = admin_id
+      @delivery_order.store_id = @delivery_order.order.user.store_id
+      @delivery_order.delivery_type = 1
+
       error = []
       delivery_order_carts.each do |cart|
-        product_storeship = ProductStoreship.find_by_store_id_and_product_id(params[:delivery_order][:store_id],cart.product_id)
-        if cart.quantity > product_storeship.quantity
+        if cart.quantity > cart.product.inventory(@delivery_order.store_id)
           error << cart.product.product_id
         end
       end
@@ -57,28 +61,16 @@ class Store::SalesOrderDeliveriesController < ApplicationController
     end
 
     DeliveryOrder.transaction do
-      @delivery_order = DeliveryOrder.new(params[:delivery_order])
-      @delivery_order.number = current_serial_number("DO")
-      @delivery_order.administrator_id = admin_id
+      delivery_order_carts.each do |cart|
+        @delivery_order.prod_del_ordships << ProdDelOrdship.new(:delivery_order_id => @delivery_order.id,
+                       :product_id => cart.product_id,
+                       :quantity => cart.quantity)
+      end
 
       if @delivery_order.save
-
-        line_items = []
-
-        delivery_order_carts.each do |cart|
-          line_items << {:delivery_order_id => @delivery_order.id,
-                         :product_id => cart.product_id,
-                         :quantity => cart.quantity}
-        end
-
-        if ProdDelOrdship.create(line_items)
-          if DeliveryOrderCart.destroy_all(:administrator_id => admin_id)
-            subtract_store_quantity(delivery_order_carts,@delivery_order)
-            if !@delivery_order.order_id.nil?
-              @order = Order.find(@delivery_order.order_id)
-              @order.update_attribute("is_delivery",0)
-            end
-          end
+        if DeliveryOrderCart.destroy_all(:administrator_id => admin_id)
+          subtract_store_quantity(delivery_order_carts,@delivery_order)
+          @delivery_order.order.update_attribute("is_delivery",0)
         end
       end
     end

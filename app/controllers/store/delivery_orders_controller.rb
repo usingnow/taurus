@@ -10,21 +10,13 @@ class Store::DeliveryOrdersController < ApplicationController
 
   def show
     @delivery_order = DeliveryOrder.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @delivery_order }
-    end
+    render "order_show" if @delivery_order.delivery_type == 1
   end
 
-  # GET /delivery_orders/new
-  # GET /delivery_orders/new.xml
   def new
     @delivery_order = DeliveryOrder.new
-    admin_id = current_administrator.id
 
-    @store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id_and_cart_type(admin_id,2)
-
+    @store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id_and_cart_type(current_administrator.id,2)
   end
 
   def edit
@@ -62,24 +54,15 @@ class Store::DeliveryOrdersController < ApplicationController
       @delivery_order.number = current_serial_number("DO")
       @delivery_order.administrator_id = admin_id
 
+      @store_entry_product_carts.each do |cart|
+        @delivery_order.prod_del_ordships << ProdDelOrdship.new(:delivery_order_id => @delivery_order.id,
+                       :product_id => cart.product_id,
+                       :quantity => cart.quantity)
+      end
+
       if @delivery_order.save
-
-        line_items = []
-
-        @store_entry_product_carts.each do |cart|
-          line_items << {:delivery_order_id => @delivery_order.id,
-                         :product_id => cart.product_id,
-                         :quantity => cart.quantity}
-        end
-
-        if ProdDelOrdship.create(line_items)
-          if destroy_sepc_by_admin_id(admin_id,2) #删除出库单商品购物车
-            subtract_store_quantity(@store_entry_product_carts,@delivery_order)
-            if !@delivery_order.order_id.nil?
-              @order = Order.find(@delivery_order.order_id)
-              @order.update_attributes(:is_delivery => 0)
-            end
-          end
+        if destroy_sepc_by_admin_id(admin_id,2) #删除出库单商品购物车
+          subtract_store_quantity(@store_entry_product_carts,@delivery_order)
         end
 
         redirect_to(store_delivery_orders_url)
