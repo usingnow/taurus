@@ -45,9 +45,9 @@ class Admin::StoreEntriesController < ApplicationController
     admin_id = current_administrator.id
 
     #取出将要添加的商品
-    store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id_and_cart_type(admin_id,1) #0：采购单，1：入库单 类型区分，
+    @store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id_and_cart_type(admin_id,1) #0：采购单，1：入库单 类型区分，
 
-    if store_entry_product_carts.empty?
+    if @store_entry_product_carts.empty?
       @store_entry = StoreEntry.new
       @store_entry.errors.add("商品","至少一件")
       render "new"
@@ -56,12 +56,13 @@ class Admin::StoreEntriesController < ApplicationController
 
     @store_entry = StoreEntry.new(params[:store_entry])
     @store_entry.number = current_serial_number("SE")
+    @store_entry.administrator_id = current_administrator.id
 
     if @store_entry.save
 
       line_items = []
 
-      store_entry_product_carts.each do |cart|
+      @store_entry_product_carts.each do |cart|
         line_items << {:store_entry_id => @store_entry.id,
                        :product_id => cart.product_id,
                        :quantity => cart.quantity,
@@ -70,7 +71,7 @@ class Admin::StoreEntriesController < ApplicationController
 
       if ProductStoreEntryship.create(line_items)
         if destroy_sepc_by_admin_id(admin_id,1) #删除入库单商品购物车
-          change_store_quantity(store_entry_product_carts,@store_entry.store_id)
+          change_store_quantity(@store_entry_product_carts,@store_entry.store_id)
           if !@store_entry.purchase_order_id.nil?
             @purchase = Purchase.find(@store_entry.purchase_order_id)
             @purchase.update_attributes(:status => 2)

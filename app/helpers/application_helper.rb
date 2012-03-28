@@ -147,10 +147,6 @@ module ApplicationHelper
     label_tag "", content+"：", options
   end
 
-  def symbol_label(content,options={})
-    label_tag "", content+"：", options
-  end
-
   private
 
     def format_value(value,hash)

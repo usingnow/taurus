@@ -9,5 +9,5 @@ class StoreEntry < ActiveRecord::Base
 
   STORE_IN_TYPE = { 1 => "采购入库", 2 => "退换货", 3 => "调货", 4 => "其他" }
 
-  validates_presence_of :ordering_company_id
+  validates_presence_of :ordering_company_id, :if => Proc.new { store_in_type == 1 }
 end
