@@ -45,7 +45,7 @@
 <% @delivery_orders.each_with_index do |delivery_order,index| %>
   <tr class="<%= set_odd_even_class index %>">
     <td><%= index+1 %></td>
-    <td><%= delivery_order.number %></td>
+    <td><%= link_to delivery_order.number, store_delivery_order_path(delivery_order) %></td>
     <td><%= delivery_order.store.name %></td>
     <td><%= delivery_order.administrator.name %></td>
     <td><%= format_delivery_type delivery_order.order_id %></td>

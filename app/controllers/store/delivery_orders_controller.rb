@@ -10,11 +10,6 @@ class Store::DeliveryOrdersController < ApplicationController
 
   def show
     @delivery_order = DeliveryOrder.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @delivery_order }
-    end
   end
 
   # GET /delivery_orders/new
