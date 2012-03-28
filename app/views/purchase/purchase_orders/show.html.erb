@@ -125,7 +125,12 @@
 
 <div id="button_panel">
   <% if @purchase_order.po_status == 0 || @purchase_order.po_status == 1  %>
-    <%= link_to "关闭采购单", purchase_purchase_order_path(@purchase_order), :confirm => "确定关闭采购单么？",
+     <% confirm = "确定关闭采购单么？"
+        if @purchase_order.po_store_status
+          confirm = "素材商品采购数量与入库数量不一致，是否继续关闭采购单？" if @purchase_order.purchase_amount != @purchase_order.store_amount
+        end
+     %>
+    <%= link_to "关闭采购单", purchase_purchase_order_path(@purchase_order), :confirm => confirm,
                 :method => :delete, :class => "green"  %>
   <% end %>
   <% if @purchase_order.po_status == 0 %>
