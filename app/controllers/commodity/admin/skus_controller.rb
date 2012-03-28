@@ -69,7 +69,7 @@ class Commodity::Admin::SkusController < ApplicationController
 
   def destroy
     @sku = Sku.find(params[:id])
-    @sku.destroy
+    @sku.destroy if @sku.sku_productships.size == 0
 
     respond_to do |format|
       format.html { redirect_to(commodity_admin_skus_url) }
