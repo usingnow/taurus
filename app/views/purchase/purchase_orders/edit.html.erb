@@ -1,40 +1,65 @@
 <%= simple_form_for [:purchase, @purchase_order] do |f| %>
+
   <%= error_messages @purchase_order %>
-  <%= f.label :po_id %><%= @purchase_order.po_id %>
-  <%= f.label :created_at %><%= @purchase_order.created_at %>
-  <%= f.label :administrator_id %><%= @purchase_order.administrator.name %>
-  <%= f.label :po_status %><%= format_po_status @purchase_order.po_status %>
-  <%= f.label :ordering_company_id %>
-  <%= @purchase_order.ordering_company.name %>
-  <%= t 'activerecord.attributes.ordering_company.address' %>
-  <%= @purchase_order.ordering_company.address %>
-  <%= t 'activerecord.attributes.ordering_company.phone' %>
-  <%= @purchase_order.ordering_company.phone %>
-  <%= label_tag t 'activerecord.attributes.supplier.supplier_id' %>
-  <%= @purchase_order.supplier.supplier_id %>
-  <%= t 'activerecord.attributes.supplier.name' %>
-  <%= @purchase_order.supplier.name %>
-  <%= t 'activerecord.attributes.supplier.contact_way' %>
-  <%= @purchase_order.supplier.contact_way %>
-  <%= t 'activerecord.attributes.supplier.fax' %>
-  <%= @purchase_order.supplier.fax %>
+
+  <ul id="purchase_review_info">
+    <li>
+      <%= f.label :po_id %>
+      <span><%= @purchase_order.po_id %></span>
+    </li>
+    <li>
+      <%= f.label :created_at %>
+      <span><%= Time.now.strftime('%Y-%m-%d') %></span>
+    </li>
+    <li>
+      <%= f.label :administrator_id %>
+      <span><%= current_administrator.name %></span>
+    </li>
+    <li>
+      <%= f.label :ordering_company_id %>
+      <span><%= @purchase_order.ordering_company.name %></span>
+    </li>
+    <%= f.input :ordering_company_id, :as => :hidden %>
+    <li>
+      <label><%= t 'activerecord.attributes.ordering_company.address' %></label>
+      <span><%= @purchase_order.ordering_company.address %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.ordering_company.phone' %></label>
+      <span><%= @purchase_order.ordering_company.phone %></span>
+    </li>
+    <li>
+      <%= label_tag t 'activerecord.attributes.supplier.supplier_id' %>
+      <span><%= @purchase_order.supplier.supplier_id %></span>
+    </li>
+
+    <%= f.input :supplier_id, :as => :hidden %>
+    <li>
+      <label><%= t 'activerecord.attributes.supplier.name' %></label>
+      <span><%= @purchase_order.supplier.name %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.supplier.contact_way' %></label>
+      <span><%= @purchase_order.supplier.contact_way %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.supplier.fax' %></label>
+      <span><%= @purchase_order.supplier.fax %></span>
+    </li>
+  </ul>
+
   <table id="po_products">
     <%= render "purchase/po_product_lists/po_products" %>
   </table>
 
-
-  <%= f.input :po_time_of_delivery, :as => :date %>
-  <%= f.input :po_remarks, :input_html => { :cols => 120, :rows => 5} %>
-  <%= f.submit t('admin.misc.save') %>
-<% end %>
-
-<%= search_form_for @search, :url => search_products_edit_purchase_purchase_orders_path, :remote => true do |s| %>
-  <%= hidden_field_tag :purchase_order_id, @purchase_order.id %>
-  <%= t 'activerecord.attributes.product.product_id' %>
-  <%= s.text_field :product_id_start %>
-  <%= t 'activerecord.attributes.product.name' %>
-  <%= s.text_field :name_cont %>
-  <%= s.submit t 'admin.misc.search' %>
+  <div id="search_control_panel">
+    <%= hidden_field_tag :purchase_order_id, @purchase_order.id %>
+    <label><%= t 'activerecord.attributes.product.product_id' %></label>
+    <%= text_field :q, :product_id_start, :class => "float_l" %>
+    <label><%= t 'activerecord.attributes.product.name' %></label>
+    <%= text_field :q, :name_cont, :class => "float_l" %>
+    <button type="button" id="edit_product_search_button"><%= t 'admin.misc.search' %></button>
+  </div>
 
   <table>
     <thead>
@@ -53,4 +78,10 @@
       <%= render "products_edit" %>
     </tbody>
   </table>
+
+  <div id="purchase_delivery_date_control_panel">
+    <%= f.input :po_time_of_delivery, :as => :date %>
+    <%= f.input :po_remarks, :input_html => { :cols => 120, :rows => 5, :style => "float: left"} %>
+    <%= f.submit t('admin.misc.save'), :id => "purchase_order_submit", :style => "float: left; clear: both;" %>
+  </div>
 <% end %>

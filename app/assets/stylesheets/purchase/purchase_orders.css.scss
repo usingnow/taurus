@@ -13,6 +13,10 @@ p {
   input {
     position: relative;
     float: left;}}
+hr {
+  float: left;
+  clear: both;
+  width: 100%;}
 span {
   position: relative;
   float: left;
@@ -130,3 +134,24 @@ table {
   padding-top: 5px;
   label {
     clear: both;}}
+
+//Purchase Review Page Style
+#purchase_review_info {
+  padding-left: 4px;
+  li {
+    list-style: none;}
+  label {
+    clear: both;}}
+
+#related_store_entry {
+  width: auto;
+  td {
+    padding: 2px 8px;}}
+
+.double_underline {
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 40px;
+  border-bottom: 3px double;}
+.padding_top_20 {
+  padding-top: 20px;}

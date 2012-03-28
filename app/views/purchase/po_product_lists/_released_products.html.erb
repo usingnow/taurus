@@ -32,15 +32,19 @@
 </tbody>
 <tfoot>
   <tr>
-    <td colspan="11">
-       <%= t 'activerecord.attributes.purchase_order.price' %>
-       <%= cny @purchase_order.price %>
+    <td colspan="11" class="padding_top_20">
+       <span class="double_underline">
+         <%= t 'activerecord.attributes.purchase_order.price' %>：
+         <%= cny @purchase_order.price %>
+       </span>
     </td>
   </tr>
   <tr>
-    <td colspan="11">
-      已入库商品合计金额
-      <%= cny @purchase_order.store_price %>
+    <td colspan="11" class="padding_top_20">
+      <span class="double_underline red">
+        已入库商品合计金额：
+        <%= cny @purchase_order.store_price %>
+      </span>
     </td>
   </tr>
 </tfoot>

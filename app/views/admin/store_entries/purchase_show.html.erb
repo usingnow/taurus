@@ -1,0 +1,130 @@
+<div id="show_info">
+  <h1>采购入库记录</h1>
+  <ul>
+    <li>
+      <a href="#" onclick="return window.close()" class="longbtn">关闭页面</a>
+      <br />
+      <hr />
+    </li>
+    <li>
+      <%= symbol_label "入库记录编号" %>
+      <span><%= @store_entry.number %></span>
+    </li>
+    <li>
+      <%= symbol_label "入库时间" %>
+      <span><%= @store_entry.created_at %></span>
+    </li>
+    <li>
+      <%= symbol_label "操作人" %>
+      <span><%= @store_entry.administrator.name %></span>
+      <hr />
+    </li>
+    <li>
+      <%= symbol_label "采购单编号" %>
+      <span><%= @store_entry.purchase_order.po_id %></span>
+    </li>
+    <li>
+      <%= symbol_label "采购单日期" %>
+      <span><%= @store_entry.purchase_order.created_at %></span>
+    </li>
+    <li>
+      <%= symbol_label "制单人" %>
+      <span><%= @store_entry.purchase_order.administrator.name %></span>
+    </li>
+    <li class="margin_top_20">
+      <%= symbol_label "采购单状态", :class => "orange" %>
+      <span><%= format_po_status @store_entry.purchase_order.po_status %></span>
+    </li>
+    <li>
+      <%= symbol_label "入库状态", :class => "orange" %>
+      <span>已入库</span>
+      <hr />
+    </li>
+    <li>
+      <%= symbol_label "订货公司" %>
+      <span><%= @store_entry.purchase_order.ordering_company.name %></span>
+    </li>
+    <li>
+      <%= symbol_label "订方地址" %>
+      <span><%= @store_entry.purchase_order.ordering_company.address %></span>
+    </li>
+    <li>
+      <%= symbol_label "订方电话" %>
+      <span><%= @store_entry.purchase_order.ordering_company.phone %></span>
+    </li>
+    <li class="margin_top_20">
+      <%= symbol_label "供应商编号" %>
+      <span><%= @store_entry.purchase_order.supplier.supplier_id %></span>
+    </li>
+    <li>
+      <%= symbol_label "供方公司" %>
+      <span><%= @store_entry.purchase_order.supplier.name %></span>
+    </li>
+    <li>
+      <%= symbol_label "供方电话" %>
+      <span><%= @store_entry.purchase_order.supplier.contact_way %></span>
+    </li>
+    <li>
+      <%= symbol_label "供方传真" %>
+      <span><%= @store_entry.purchase_order.supplier.fax %></span>
+    </li>
+  </ul>
+
+  <hr />
+
+  <table>
+    <caption>商品列表</caption>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= t 'activerecord.attributes.product.product_id' %></th>
+        <th><%= t 'activerecord.attributes.product.name' %></th>
+        <th><%= t 'activerecord.attributes.product.specification' %></th>
+        <th><%= t 'activerecord.attributes.product.unit' %></th>
+        <th>订购数量</th>
+        <th>本次入库数量</th>
+        <th>库存</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @store_entry.product_store_entryships.each_with_index do |product_store_entry,index| %>
+      <tr class="<%= cycle "odd","even" %>">
+        <td><%= index+1 %></td>
+        <td><%= product_store_entry.product.product_id %></td>
+        <td><%= product_store_entry.product.name %></td>
+        <td><%= product_store_entry.product.specification %></td>
+        <td><%= product_store_entry.product.unit %></td>
+        <td><%= product_store_entry.purchase_amount %></td>
+        <td><%= product_store_entry.quantity %></td>
+        <td><%= product_store_entry.product.inventory(@store_entry.store_id) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <hr />
+
+  <ul>
+    <li>
+      <%= symbol_label "期望交货日期" %>
+      <span><%= @store_entry.purchase_order.po_time_of_delivery %></span>
+    </li>
+    <li>
+      <%= symbol_label "备注" %>
+      <span><%= @store_entry.note %></span>
+    </li>
+  </ul>
+
+  <h4>相关入库单：</h4>
+  <ol>
+    <% @store_entry.purchase_order.store_entries.each do |store_entry| %>
+      <li>
+        <%= link_to store_entry.number, admin_store_entry_path(store_entry), :class => "link" %>
+        <%= store_entry.created_at %>
+      </li>
+    <% end %>
+  </ol>
+
+  <hr />
+  <a href="#" onclick="return window.close()" class="longbtn">关闭页面</a>
+</div>

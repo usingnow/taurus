@@ -21,7 +21,7 @@
   <% @store_entries.each_with_index do |store_entry,index| %>
     <tr class="<%= set_odd_even_class index %>">
       <td><%= index+1 %></td>
-      <td><%= store_entry.number %></td>
+      <td><%= link_to store_entry.number, admin_store_entry_path(store_entry), :target => "_blank" %></td>
       <td><%= store_entry.purchase_order.po_id if store_entry.purchase_order %></td>
       <td><%= store_entry.ordering_company.name %></td>
       <td><%= store_entry.supplier.name %></td>

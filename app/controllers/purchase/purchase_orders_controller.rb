@@ -1,6 +1,7 @@
 #encoding:UTF-8
 class Purchase::PurchaseOrdersController < ApplicationController
   before_filter :authenticate_administrator!
+  #authorize_resource
 
   def index
     @search = PurchaseOrder.search(params[:q])
@@ -63,6 +64,8 @@ class Purchase::PurchaseOrdersController < ApplicationController
   end
 
   def released_update
+    @purchase_order = PurchaseOrder.find(params[:id])
+    @purchase_order.update_attributes(params[:purchase_order])
     redirect_to purchase_purchase_orders_url
   end
 

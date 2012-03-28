@@ -3,6 +3,7 @@ class StoreEntry < ActiveRecord::Base
   belongs_to :ordering_company
   belongs_to :supplier
   belongs_to :store
+  belongs_to :administrator
   has_many :product_store_entryships
   validates_presence_of :ordering_company_id
 end

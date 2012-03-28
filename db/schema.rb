@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120326031048) do
+ActiveRecord::Schema.define(:version => 20120327085226) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -641,6 +641,7 @@ ActiveRecord::Schema.define(:version => 20120326031048) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sales_reserved", :default => 0
+    t.string   "store_position"
   end
 
   create_table "products", :force => true do |t|
@@ -893,7 +894,11 @@ ActiveRecord::Schema.define(:version => 20120326031048) do
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "store_in_type",       :default => 0
+    t.integer  "administrator_id"
   end
+
+  add_index "store_entries", ["administrator_id"], :name => "index_store_entries_on_administrator_id"
 
   create_table "store_entry_product_carts", :force => true do |t|
     t.integer  "product_id"
