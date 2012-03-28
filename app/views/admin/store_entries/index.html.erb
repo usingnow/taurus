@@ -1,4 +1,31 @@
-<h1>入库单列表</h1>
+<div id="show_info">
+  <h1>入库单列表</h1>
+
+  <%= search_form_for [:admin,@search] do |f| %>
+    <ul>
+      <li>
+        <%= f.label '入库单编号' %>
+        <%= f.text_field :number_start %>
+      </li>
+      <li>
+        <%= f.label '采购单编号' %>
+        <%= f.text_field :purchase_order_po_id_start %>
+      </li>
+      <li>
+        <%= f.label '入库类型' %>
+        <%= f.collection_select :store_in_type_eq, StoreEntry::STORE_IN_TYPE ,
+                                :first, :second, :include_blank => true %>
+      </li>
+      <li>
+        <%= f.label '入库日期' %>
+        <%= f.text_field :created_at_gt %>
+        ~
+        <%= f.text_field :created_at_lt %>
+        <%= f.submit '搜索'%>
+      </li>
+    </ul>
+  <% end %>
+</div>
 
 <div class="grid_button">
   <%= link_to '新增入库单', new_admin_store_entry_path %>
