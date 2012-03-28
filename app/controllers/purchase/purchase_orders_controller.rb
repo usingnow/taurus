@@ -136,6 +136,16 @@ class Purchase::PurchaseOrdersController < ApplicationController
     pdf.table([["交货日期：",@purchase_order.po_time_of_delivery.to_s],["订单备注：",@purchase_order.po_remarks]],
               :cell_style => {:border_width => 0, :size => 10 })
 
+    pdf.draw_text "说明：1、本采购订单是采购合同一部分，采购订单合同组成完整的采购合同文件。其它条款按采购合同执行。", :size => 10, :at => [0,85]
+    pdf.draw_text "2、贵公司收到采购单后关于对商品的数量交期问题，应于12小时内签字确认回传，否则视为默认。", :size => 10, :at => [30,70]
+    pdf.draw_text "3、送货时请务必携带此订单（快递配送放入快递箱）。", :size => 10, :at => [30,55]
+    pdf.draw_text "4、厂商回复栏：", :size => 10, :at => [30,40]
+    pdf.draw_text "制单人：", :size => 10, :at => [0,0]
+    pdf.draw_text "审核：", :size => 10, :at => [120,0]
+    pdf.draw_text "审批：", :size => 10, :at => [240,0]
+    pdf.draw_text "仓库确认：", :size => 10, :at => [360,0]
+
+
     send_data pdf.render, type: "application/pdf", disposition: "inline"
   end
 end
