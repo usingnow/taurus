@@ -10,6 +10,7 @@ class Store::DeliveryOrdersController < ApplicationController
 
   def show
     @delivery_order = DeliveryOrder.find(params[:id])
+    render "order_show" if @delivery_order.delivery_type == 1
   end
 
   # GET /delivery_orders/new

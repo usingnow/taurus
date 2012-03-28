@@ -1,0 +1,82 @@
+<div id="show_info">
+  <h1>订单出库记录</h1>
+  <ul>
+    <li>
+      <a href="#" onclick="return window.close()" class="longbtn">关闭页面</a>
+      <br />
+      <hr />
+    </li>
+    <li>
+      <%= symbol_label "出库记录编号" %>
+      <span><%= @delivery_order.number %></span>
+    </li>
+    <li>
+      <%= symbol_label "出库时间" %>
+      <span><%= @delivery_order.created_at %></span>
+    </li>
+    <li>
+      <%= symbol_label "操作人" %>
+      <span><%= @delivery_order.administrator.name %></span>
+      <hr />
+    </li>
+    <li>
+      <%= symbol_label "订单编号" %>
+      <span><%= @delivery_order.order.number %></span>
+    </li>
+    <li>
+      <%= symbol_label "订单日期" %>
+      <span><%= @delivery_order.order.created_at %></span>
+    </li>
+    <li>
+      <%= symbol_label "制单人" %>
+      <span><%= @delivery_order.order.make_administrator.name %></span>
+      <hr />
+    </li>
+    <li>
+      <%= symbol_label "出库仓库" %>
+      <span><%= @delivery_order.store.name %></span>
+    </li>
+    <li>
+      <%= symbol_label "出库方式" %>
+      <span><%= DeliveryOrder::LINE_TYPE[@delivery_order.line_type] %></span>
+    </li>
+    <li>
+      <%= symbol_label "送货人" %>
+      <span><%= @delivery_order.name %></span>
+    </li>
+    <li>
+      <%= symbol_label "送货日期" %>
+      <span><%= @delivery_order.delivery_date %></span>
+    </li>
+  </ul>
+
+  <hr />
+
+  <table>
+    <caption>商品列表</caption>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= t 'activerecord.attributes.product.product_id' %></th>
+        <th><%= t 'activerecord.attributes.product.name' %></th>
+        <th><%= t 'activerecord.attributes.product.specification' %></th>
+        <th><%= t 'activerecord.attributes.product.unit' %></th>
+        <th>本次出库数量</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @delivery_order.prod_del_ordships.each_with_index do |product_delivery,index| %>
+      <tr class="<%= cycle "odd","even" %>">
+        <td><%= index+1 %></td>
+        <td><%= product_delivery.product.product_id %></td>
+        <td><%= product_delivery.product.name %></td>
+        <td><%= product_delivery.product.specification %></td>
+        <td><%= product_delivery.product.unit %></td>
+        <td><%= product_delivery.quantity %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <hr />
+  <a href="#" onclick="return window.close()" class="longbtn">关闭页面</a>
+</div>
