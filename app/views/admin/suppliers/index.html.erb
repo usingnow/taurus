@@ -26,10 +26,10 @@
   <thead>
     <tr>
       <th>#</th>
-      <th>ID</th>
-      <th><%= t('attributes.supplier.name') %></th>
-      <th><%= t('attributes.supplier.input_person') %></th>
-      <th><%= t('attributes.supplier.updated_at') %></th>
+      <th>供应商编号</th>
+      <th><%= t('activerecord.attributes.supplier.name') %></th>
+      <th><%= t('activerecord.attributes.supplier.input_person') %></th>
+      <th><%= t('activerecord.attributes.supplier.updated_at') %></th>
       <th></th>
       <th></th>
    </tr>
@@ -37,7 +37,7 @@
 <% @suppliers.each_with_index do |supplier,index| %>
   <tr class="<%= set_odd_even_class index %>">
     <td><%= index+1 %></td>
-    <td><%= supplier.id %></td>
+    <td><%= supplier.supplier_id %></td>
     <td><%= supplier.name %></td>
     <td><%= supplier.input_person %></td>
     <td><%= supplier.updated_at %></td>

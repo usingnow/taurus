@@ -3,7 +3,7 @@
   <ul>
     <li>
         <label>供应商编号：</label>
-        <span class="red">001</span>
+        <span class="red"><%= @supplier.supplier_id %></span>
     </li>
     <li>
         <label>供应商名称：</label>
@@ -35,7 +35,7 @@
     </li>
     <li>
         <label>状态：</label>
-        <span><%= @supplier.active %></span>
+        <span><%= Supplier::ACTIVE[@supplier.active] %></span>
     </li>
 
     <li class="margin_top_20">
