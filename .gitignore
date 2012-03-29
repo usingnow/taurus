@@ -11,3 +11,4 @@ ckeditor_assets/
 config/database.yml
 public/system/
 public/assets/
+public/print_file/

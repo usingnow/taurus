@@ -145,7 +145,12 @@ class Purchase::PurchaseOrdersController < ApplicationController
     pdf.draw_text "审批：", :size => 10, :at => [240,0]
     pdf.draw_text "仓库确认：", :size => 10, :at => [360,0]
 
+    po_id = @purchase_order.po_id
+    #Dir.new "print_file" unless File.directory? "print_file"
+    #Dir.new "print_file/#{po_id}" unless File.directory? "print_file/#{po_id}"
+    FileUtils.makedirs "public/print_file/purchase/#{po_id}"
 
+    pdf.render_file "public/print_file/purchase/#{po_id}/#{Time.now.strftime("%Y%m%d%H%M%S")}.pdf"
     send_data pdf.render, type: "application/pdf", disposition: "inline"
   end
 end
