@@ -120,10 +120,17 @@ class Admin::StoreEntriesController < ApplicationController
       end
     end
 
-    if @store_entry.save
-      change_store_quantity(@store_entry.product_store_entryships,@store_entry.store_id)
-      @purchase_order.update_attributes(:po_store_status => true)
+    if @store_entry.product_store_entryships.size == 0
+      @purchase_order.errors.add("入库商品","数量最少为1")
+      render "new_from_po"
+    else
+      if @store_entry.save
+        change_store_quantity(@store_entry.product_store_entryships,@store_entry.store_id)
+        @purchase_order.update_attributes(:po_store_status => true)
+        redirect_to admin_store_entries_url
+      else
+        render "new_from_po"
+      end
     end
-    redirect_to admin_store_entries_url
   end
 end

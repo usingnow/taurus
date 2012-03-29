@@ -1,6 +1,7 @@
 <%= form_for @purchase_order, :url => create_from_po_admin_store_entry_path(@purchase_order), :method => :post do |f| %>
   <div id="show_info">
     <h1>采购单入库</h1>
+    <%= error_messages @purchase_order %>
     <ul>
       <li>
         <%= symbol_label "入库记录编号" %>
