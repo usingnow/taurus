@@ -112,15 +112,14 @@
 
 
 <h4 class="clear_both">相关入库单：</h4>
-<table id="store_entries">
-  <% @purchase_order.store_entries.each_with_index do |store_entry,index| %>
-    <tr class="<%= set_odd_even_class index %>">
-      <td><%= index+1 %></td>
-      <td><%= store_entry.number %></td>
-      <td><%= store_entry.created_at %></td>
-    </tr>
+<ol>
+  <% @purchase_order.store_entries.each do |store_entry| %>
+    <li>
+      <%= link_to store_entry.number, admin_store_entry_path(store_entry), :class => "link" %>
+      <%= store_entry.created_at %>
+    </li>
   <% end %>
-</table>
+</ol>
 
 <div id="button_panel">
   <% if @purchase_order.po_status == 0 || @purchase_order.po_status == 1  %>
