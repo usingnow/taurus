@@ -47,10 +47,9 @@
   <label><%= t 'admin.actions.index.title', :model => t('activerecord.models.po_product_list') %></label>
   <p class="right button">
     <% if @purchase_order.po_status == 0 %>
-      <%= link_to t('admin.actions.edit.title', :model => t('activerecord.models.purchase_order')),
-                  edit_purchase_purchase_order_path(@purchase_order.id) %>
+      <%= link_to t('admin.actions.edit.title', :model => t('activerecord.models.purchase_order')), edit_purchase_purchase_order_path(@purchase_order) %>
     <% elsif @purchase_order.po_status == 1 %>
-      <%= link_to t('admin.actions.edit.title', :model => t('activerecord.models.purchase_order')) %>
+      <%= link_to t('admin.actions.edit.title', :model => t('activerecord.models.purchase_order')), released_edit_purchase_purchase_order_path(@purchase_order) %>
     <% end %>
   </p>
 </div>
@@ -137,7 +136,7 @@
     <%= link_to "发布", release_purchase_purchase_order_path(@purchase_order), :confirm => "确定发布采购单么？",
                 :method => :put, :class => "orange" %>
   <% else %>
-    <%= link_to "打印", print_purchase_purchase_order_path(object.id), :target => "_blank", :class => "orange" %>
+    <%= link_to "打印", print_purchase_purchase_order_path(@purchase_order), :target => "_blank", :class => "orange" %>
   <% end %>
   <%= link_to "关闭页面", "#", :onclick => "window.close()", :class => "grey" %>
 </div>
