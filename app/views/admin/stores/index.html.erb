@@ -1,7 +1,7 @@
 <h1>仓库列表</h1>
 
 <div class="grid_button">
-  <%= link_to '新增仓库', new_admin_store_path %>
+  <%= link_to '新增仓库', new_admin_store_path if can? :create, Store %>
 </div>
 
 <table class="grid">
@@ -21,7 +21,7 @@
     <td><%= store.name %></td>
     <td><%= store.description %></td>
     <td><%= link_to '详情', admin_store_path(store) %></td>
-    <td><%= link_to '修改', edit_admin_store_path(store) %></td>
+    <td><%= link_to '修改', edit_admin_store_path(store) if can? :update, Store %></td>
   </tr>
 <% end %>
 </table>

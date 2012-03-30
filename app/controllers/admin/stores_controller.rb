@@ -2,8 +2,6 @@ class Admin::StoresController < ApplicationController
   before_filter :authenticate_administrator!
   authorize_resource
 
-  # GET /stores
-  # GET /stores.xml
   def index
     @stores = Store.all
 
@@ -13,8 +11,6 @@ class Admin::StoresController < ApplicationController
     end
   end
 
-  # GET /stores/1
-  # GET /stores/1.xml
   def show
     @store = Store.find(params[:id])
 
@@ -24,8 +20,6 @@ class Admin::StoresController < ApplicationController
     end
   end
 
-  # GET /stores/new
-  # GET /stores/new.xml
   def new
     @store = Store.new
 
@@ -35,13 +29,10 @@ class Admin::StoresController < ApplicationController
     end
   end
 
-  # GET /stores/1/edit
   def edit
     @store = Store.find(params[:id])
   end
 
-  # POST /stores
-  # POST /stores.xml
   def create
     @store = Store.new(params[:store])
 
@@ -56,8 +47,6 @@ class Admin::StoresController < ApplicationController
     end
   end
 
-  # PUT /stores/1
-  # PUT /stores/1.xml
   def update
     @store = Store.find(params[:id])
 
@@ -72,8 +61,6 @@ class Admin::StoresController < ApplicationController
     end
   end
 
-  # DELETE /stores/1
-  # DELETE /stores/1.xml
   def destroy
     @store = Store.find(params[:id])
     @store.destroy

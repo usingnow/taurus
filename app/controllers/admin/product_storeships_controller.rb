@@ -2,13 +2,12 @@ class Admin::ProductStoreshipsController < ApplicationController
   before_filter :authenticate_administrator!
 
   def index
+    authorize! :read, ProductStoreship
     @search = ProductStoreship.search(params[:q])
     @product_storeships = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
-
-  # GET /product_storeships/1
-  # GET /product_storeships/1.xml
   def show
+    authorize! :read, ProductStoreship
     @product_storeship = ProductStoreship.find(params[:id])
 
     respond_to do |format|

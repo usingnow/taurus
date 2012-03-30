@@ -3,17 +3,20 @@ class Store::DeliveryOrdersController < ApplicationController
   before_filter :authenticate_administrator!
 
   def index
+    authorize! :read, DeliveryOrder
     @search = DeliveryOrder.search(params[:q])
     @search.sorts = "created_at desc"
     @delivery_orders = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
 
   def show
+    authorize! :read, DeliveryOrder
     @delivery_order = DeliveryOrder.find(params[:id])
     render "order_show" if @delivery_order.delivery_type == 1
   end
 
   def new
+    authorize! :create, DeliveryOrder
     @delivery_order = DeliveryOrder.new
 
     @store_entry_product_carts = StoreEntryProductCart.find_all_by_admin_id_and_cart_type(current_administrator.id,2)
@@ -25,6 +28,7 @@ class Store::DeliveryOrdersController < ApplicationController
 
 
   def create
+    authorize! :create, DeliveryOrder
     admin_id = current_administrator.id
 
     #取出将要添加的商品

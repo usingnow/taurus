@@ -3,12 +3,14 @@ class Admin::StoreEntriesController < ApplicationController
   before_filter :authenticate_administrator!
 
   def index
+    authorize! :read, StoreEntry
     @search = StoreEntry.search(params[:q])
     @search.sorts = "created_at desc"
     @store_entries = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
 
   def show
+    authorize! :read, StoreEntry
     @store_entry = StoreEntry.find(params[:id])
     if @store_entry.store_in_type == 1
       render "purchase_show"
@@ -16,6 +18,7 @@ class Admin::StoreEntriesController < ApplicationController
   end
 
   def new
+    authorize! :create, StoreEntry
     @store_entry = StoreEntry.new
     admin_id = current_administrator.id
     purchase_order_id = params[:purchase_order_id]
@@ -42,6 +45,7 @@ class Admin::StoreEntriesController < ApplicationController
   end
 
   def create
+    authorize! :create, StoreEntry
     admin_id = current_administrator.id
 
     #取出将要添加的商品
@@ -100,15 +104,18 @@ class Admin::StoreEntriesController < ApplicationController
   end
 
   def purchase_orders
+    authorize! :read, StoreEntry
     @search = PurchaseOrder.released.search(params[:q])
     @purchase_orders = @search.result.paginate(:page => params[:page], :per_page => 15)
   end
 
   def new_from_po
+    authorize! :read, StoreEntry
     @purchase_order = PurchaseOrder.find(params[:id])
   end
 
   def create_from_po
+    authorize! :read, StoreEntry
     @purchase_order = PurchaseOrder.find(params[:id])
     @store_entry = StoreEntry.new(:number => current_serial_number("SE"), :purchase_order_id => @purchase_order.id,
                                   :ordering_company_id => @purchase_order.ordering_company_id, :supplier_id => @purchase_order.supplier_id,

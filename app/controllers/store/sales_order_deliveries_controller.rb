@@ -1,16 +1,19 @@
 #encoding:UTF-8
 class Store::SalesOrderDeliveriesController < ApplicationController
   def index
+    authorize! :create, DeliveryOrder
     @search = Order.search("is_delivery_eq" => "1")
     @orders = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
 
 
   def show
+    authorize! :create, DeliveryOrder
     @delivery_order = DeliveryOrder.find(params[:id])
   end
 
   def new
+    authorize! :create, DeliveryOrder
     @delivery_order = DeliveryOrder.new
     admin_id = current_administrator.id
     order_id = params[:order_id]
@@ -32,6 +35,7 @@ class Store::SalesOrderDeliveriesController < ApplicationController
   end
 
   def create
+    authorize! :create, DeliveryOrder
     admin_id = current_administrator.id
 
     delivery_order_carts = DeliveryOrderCart.find_all_by_administrator_id(admin_id)
