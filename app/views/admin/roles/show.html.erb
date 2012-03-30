@@ -1,11 +1,35 @@
-<%= t 'attributes.role.number' %>
-<%= @role.number %>
+<div id="show_info">
+  <h1>会员角色信息查看</h1>
+  <ul>
+    <li>
+      <label><%= t 'attributes.role.number' %></label>
+      <span><%= @role.number %></span>
+    </li>
+    <li>
+      <label><%= t 'attributes.role.name' %></label>
+      <span><%= @role.name %></span>
+    </li>
+    <li>
+      <label><%= t 'attributes.role.description' %></label>
+      <span><%= @role.description %></span>
+    </li>
+    <li>
+      <label><%= t 'attributes.role.is_reserve' %></label>
+      <span><%= { false => "否", true => "是" }[@role.is_reserve] %></span>
+    </li>
+    <li class="margin_top_20">
+      <%= link_to "返回", "#", :class => "left20" %>
+      <%= link_to "修改", "#" %>
+    </li>
+  </ul>
+</div>
 
-<%= t 'attributes.role.name' %>
-<%= @role.name %>
 
-<%= t 'attributes.role.descripion' %>
-<%= @role.description %>
 
-<%= t 'attributes.role.is_reserve' %>
-<%= { false => "否", true => "是" }[@role.is_reserve] %>
+
+
+
+
+
+
+
