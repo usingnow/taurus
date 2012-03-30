@@ -7,6 +7,7 @@
     <th><%= t('attributes.sku_image.is_main') %></th>
     <th><%= t('attributes.sku_image.sort') %></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @sku_images.each do |sku_image| %>
@@ -16,6 +17,7 @@
     <td><%= sku_image.is_main %></td>
     <td><%= sku_image.sort %></td>
     <td><%= image_tag sku_image.image.url, :height => "120px", :width => "120px" %></td>
+    <td><%= link_to t("admin.actions.delete.menu"), admin_sku_image_path(sku_image), :confirm => t('admin.actions.delete.confirm'), :method => :delete %></td>
   </tr>
 <% end %>
 </table>
