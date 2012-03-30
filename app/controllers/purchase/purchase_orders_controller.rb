@@ -1,7 +1,7 @@
 #encoding:UTF-8
 class Purchase::PurchaseOrdersController < ApplicationController
   before_filter :authenticate_administrator!
-  #authorize_resource
+  authorize_resource
 
   def index
     @search = PurchaseOrder.search(params[:q])
@@ -14,6 +14,7 @@ class Purchase::PurchaseOrdersController < ApplicationController
     @purchase_order = PurchaseOrder.find(params[:id])
   end
 
+
   def new
     @purchase_order = PurchaseOrder.new
 
@@ -21,6 +22,28 @@ class Purchase::PurchaseOrdersController < ApplicationController
 
     @search = Product.search(params[:q])
     @products = @search.result.paginate(:page => params[:page], :per_page => 10)
+  end
+
+  def check_supplier_id
+    @supplier = Supplier.find_by_supplier_id params[:supplier_id]
+    render :json => @supplier.to_json
+  end
+
+  def search_products
+    @search = Product.search(params[:q])
+    @products = @search.result.paginate(:page => params[:page], :per_page => 10)
+  end
+
+  def preview
+    @purchase_order = PurchaseOrder.new params[:purchase_order]
+    @cart = current_cart
+    if @purchase_order.valid?
+      render "preview"
+    else
+      @search = Product.search(params[:q])
+      @products = @search.result.paginate(:page => params[:page], :per_page => 10)
+      render "new"
+    end
   end
 
   def create
@@ -76,10 +99,7 @@ class Purchase::PurchaseOrdersController < ApplicationController
     redirect_to purchase_purchase_orders_url
   end
 
-  def search_products
-    @search = Product.search(params[:q])
-    @products = @search.result.paginate(:page => params[:page], :per_page => 10)
-  end
+
 
   def search_products_edit
     @search = Product.search(params[:q])
@@ -87,22 +107,7 @@ class Purchase::PurchaseOrdersController < ApplicationController
     @purchase_order = PurchaseOrder.find(params[:purchase_order_id])
   end
 
-  def preview
-    @purchase_order = PurchaseOrder.new params[:purchase_order]
-    @cart = current_cart
-    if @purchase_order.valid?
-      render "preview"
-    else
-      @search = Product.search(params[:q])
-      @products = @search.result.paginate(:page => params[:page], :per_page => 10)
-      render "new"
-    end
-  end
 
-  def check_supplier_id
-    @supplier = Supplier.find_by_supplier_id params[:supplier_id]
-    render :json => @supplier.to_json
-  end
 
   def release
     @purchase_order = PurchaseOrder.find(params[:id])

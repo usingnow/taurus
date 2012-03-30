@@ -18,8 +18,7 @@
       <%= f.submit t('admin.misc.search') %>
     </p>
     <p class="right">
-      <%= link_to t('admin.actions.new.title', :model => t('activerecord.models.purchase_order')),
-                    new_purchase_purchase_order_path, :target => "_blank" %>
+      <%= link_to t('admin.actions.new.title', :model => t('activerecord.models.purchase_order')), new_purchase_purchase_order_path, :target => "_blank" if can? :create, PurchaseOrder %>
     </p>
   <% end %>
 </div>

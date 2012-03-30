@@ -1,5 +1,6 @@
 class Admin::OrderingCompaniesController < ApplicationController
   before_filter :authenticate_administrator!
+  authorize_resource
 
   def index
     @ordering_companies = OrderingCompany.all
@@ -19,8 +20,6 @@ class Admin::OrderingCompaniesController < ApplicationController
     end
   end
 
-  # GET /ordering_companies/new
-  # GET /ordering_companies/new.xml
   def new
     @ordering_company = OrderingCompany.new
 
@@ -30,13 +29,10 @@ class Admin::OrderingCompaniesController < ApplicationController
     end
   end
 
-  # GET /ordering_companies/1/edit
   def edit
     @ordering_company = OrderingCompany.find(params[:id])
   end
 
-  # POST /ordering_companies
-  # POST /ordering_companies.xml
   def create
     @ordering_company = OrderingCompany.new(params[:ordering_company])
 
@@ -51,8 +47,6 @@ class Admin::OrderingCompaniesController < ApplicationController
     end
   end
 
-  # PUT /ordering_companies/1
-  # PUT /ordering_companies/1.xml
   def update
     @ordering_company = OrderingCompany.find(params[:id])
 
@@ -67,8 +61,6 @@ class Admin::OrderingCompaniesController < ApplicationController
     end
   end
 
-  # DELETE /ordering_companies/1
-  # DELETE /ordering_companies/1.xml
   def destroy
     @ordering_company = OrderingCompany.find(params[:id])
     @ordering_company.destroy

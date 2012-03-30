@@ -45,13 +45,15 @@
 </div>
 <div class="clear_both">
   <label><%= t 'admin.actions.index.title', :model => t('activerecord.models.po_product_list') %></label>
-  <p class="right button">
-    <% if @purchase_order.po_status == 0 %>
-      <%= link_to t('admin.actions.edit.title', :model => t('activerecord.models.purchase_order')), edit_purchase_purchase_order_path(@purchase_order) %>
-    <% elsif @purchase_order.po_status == 1 %>
-      <%= link_to t('admin.actions.edit.title', :model => t('activerecord.models.purchase_order')), released_edit_purchase_purchase_order_path(@purchase_order) %>
-    <% end %>
-  </p>
+  <% if can? :update, PurchaseOrder %>
+    <p class="right button">
+      <% if @purchase_order.po_status == 0 %>
+        <%= link_to t('admin.actions.edit.title', :model => t('activerecord.models.purchase_order')), edit_purchase_purchase_order_path(@purchase_order) %>
+      <% elsif @purchase_order.po_status == 1 %>
+        <%= link_to t('admin.actions.edit.title', :model => t('activerecord.models.purchase_order')), released_edit_purchase_purchase_order_path(@purchase_order) %>
+      <% end %>
+    </p>
+  <% end %>
 </div>
 <table>
   <thead>
@@ -115,7 +117,7 @@
 <ol>
   <% @purchase_order.store_entries.each do |store_entry| %>
     <li>
-      <%= link_to store_entry.number, admin_store_entry_path(store_entry), :class => "link" %>
+      <%= can?(:read, StoreEntry) ? (link_to store_entry.number, admin_store_entry_path(store_entry), :class => "link") : store_entry.number %>
       <%= store_entry.created_at %>
     </li>
   <% end %>
@@ -129,13 +131,13 @@
         end
      %>
     <%= link_to "关闭采购单", purchase_purchase_order_path(@purchase_order), :confirm => confirm,
-                :method => :delete, :class => "green"  %>
+                :method => :delete, :class => "green" if can? :destroy, PurchaseOrder %>
   <% end %>
   <% if @purchase_order.po_status == 0 %>
     <%= link_to "发布", release_purchase_purchase_order_path(@purchase_order), :confirm => "确定发布采购单么？",
-                :method => :put, :class => "orange" %>
+                :method => :put, :class => "orange" if can? :release, PurchaseOrder %>
   <% else %>
-    <%= link_to "打印", print_purchase_purchase_order_path(@purchase_order), :target => "_blank", :class => "orange" %>
+    <%= link_to "打印", print_purchase_purchase_order_path(@purchase_order), :target => "_blank", :class => "orange" if can? :print, PurchaseOrder %>
   <% end %>
   <%= link_to "关闭页面", "#", :onclick => "window.close()", :class => "grey" %>
 </div>

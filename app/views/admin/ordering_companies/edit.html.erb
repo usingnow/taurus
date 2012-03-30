@@ -2,5 +2,7 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', [:admin,@ordering_company] %> |
-<%= link_to 'Back', admin_ordering_companies_path %>
+<% if can? :read, OrderingCompany %>
+  <%= link_to t('admin.actions.show.menu'), [:admin,@ordering_company] %>
+  <%= link_to '返回', admin_ordering_companies_path %>
+<% end %>
