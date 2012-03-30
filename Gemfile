@@ -1,4 +1,5 @@
 source 'http://ruby.taobao.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
 gem 'mysql2', '~>0.3.10'
@@ -29,7 +30,7 @@ gem 'rails3-jquery-autocomplete' #自动完成
 gem 'jquery-rails', '1.0.19'
 
 #pdf打印
-gem 'prawn', :git => "git://github.com/prawnpdf/prawn.git"
+gem 'prawn', '0.12.0'
 
 
 group :test do
