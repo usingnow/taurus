@@ -15,12 +15,12 @@
     <td><%= sku_image.image_description %></td>
     <td><%= sku_image.is_main %></td>
     <td><%= sku_image.sort %></td>
-    <td><%= image_tag sku_image.image.url %></td>
+    <td><%= image_tag sku_image.image.url, :height => "120px", :width => "120px" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to '添加图片', new_admin_sku_image_path %> |
+<%= link_to '添加图片', new_admin_sku_image_path if can? :create, SkuImage %>
 <%= link_to '确定', commodity_admin_skus_path %>
