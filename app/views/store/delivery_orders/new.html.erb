@@ -107,7 +107,10 @@
       </thead>
       <tbody id="search_product"></tbody>
     </table>
-
+    <p>
+       <%= f.label "备注" %>
+      <%= f.text_field :de_remarks, :style => "width:80%" %>
+    </p>
     <hr />
     <%= f.submit "确认出库" %>
     <input type="button" value="关闭页面" onclick="return window.close()" />
