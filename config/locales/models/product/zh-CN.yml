@@ -9,7 +9,7 @@ zh-CN:
         brand_id: "品牌ID"
         cost_bef_tax: "税前成本"
         cost_aft_tax: "税后成本"
-        product_category_id: "素材商品分类ID"
+        product_category: "素材商品分类"
         unit: "单位"
         specification: "规格"
         delivery_days: "交货日期"
@@ -41,3 +41,4 @@ zh-CN:
         created_by: "该商品创建于"
         updated_by: "该商品更新于"
         inventory: "库存"
+        store: "仓库"
