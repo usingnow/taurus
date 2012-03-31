@@ -1,87 +1,112 @@
-<%= simple_form_for([:commodity_admin,@sku]) do |f| %>
-  <%= f.error_notification %>
+<%= form_for([:commodity_admin,@sku]) do |f| %>
+  <%= error_messages @sku %>
 
-  <div class="attributes">
-    <div class="split_content_left">
-      <%= f.input :number %>
-      <%= f.input :brand_name do %>
-        <%= f.autocomplete_field :brand_name, autocomplete_brand_chinese_name_admin_brands_path, :id_element => '#sku_brand_id'  %>
-      <% end %>
-      <%= f.input :brand_id, :as => :hidden  %>
-      <%= f.input :unit %>
-      <%= f.input :color %>
-      <%= f.input :delivery_day %>
-      <%= f.input :sku_type do %>
-        <%= f.collection_radio :sku_type, [[1, '在库品'] ,[2, '直送品'] ,[3,'非在库'] ,[4,'未定'] ,[5,'劳务费用']] ,
-                               :first, :second, :checked => 1 %>
-      <% end %>
-      <%= f.input :can_on_be_half, :collection => [['false', '否'], ['true', '是']],
-                  :label_method => :last, :value_method => :first, :checked => 'false', :as => :radio %>
-      <%= f.input :classifcation do %>
-       <%= f.select :classifcation,"<option value='1'>单品</option><option value='2'>大包装</option><option value='3'>大大包装</option><option value='4'>组合品</option>" %>
-      <% end %>
-      <%= f.input :cost_bef_tax %>
-      <%= f.input :assembling_fee_bef_tax %>
-      <%= f.input :installation_cost_bef_tax %>
-    </div>
+  <%= f.label :number %>
+  <%= f.text_field :number %>
 
-    <div class="split_content_right">
-      <%= f.input :name %>
-      <%= f.input :sku_category_name do %>
-        <%= f.autocomplete_field :sku_category_name, autocomplete_sku_category_name_admin_sku_categories_path, :update_elements => {:id => '#sku_sku_category_id', :number => '#sku_sku_category_number'}  %>
-        <span style="font-weight: bold;">编号</span>
-        <%= f.text_field :sku_category_number %>
-        <input type="button" id="check_sku_category_number" value="验证" style="width: 60px;" />
-      <% end %>
-      <% content_for :ready do %>
-        jQuery("#check_sku_category_number").click(function(){
-          if(jQuery("#sku_sku_category_number").val().length != 9 ) return alert("请输入4级分类编号");
-          jQuery.ajax({
-                     type: "get",
-                     url: "/admin/sku_categories/check",
-                     data: { number: jQuery("#sku_sku_category_number").val() },
-                     dataType: "json",
-                     success: function(result) {
-                       if(result == "failure"){
-                         alert("编号不存在!");
-                       }else{
-                         jQuery("#sku_sku_category_id").val(result.id);
-                         jQuery("#sku_sku_category_number").val(result.number);
-                         jQuery("#sku_sku_category_name").val(result.name);
-                       }
-                     },
-                 });
-        });
-      <% end %>
-      <%= f.input :sku_category_id, :as => :hidden %>
-      <%= f.input :specification %>
-      <%= f.input :size %>
-      <%= f.input :delivery_description, :input_html => {:rows => 1, :cols => 25} %>
-      <%= f.input :model %>
-      <%= f.input :can_return do
-        f.collection_radio :can_return, [['false', '否'], ['true', '是']],
-                           :first, :second, :checked => 'false'
-      end %>
-      <%= f.input :cost_aft_tax %>
-      <%= f.input :market_price %>
-      <%= f.input :assembling_fee_aft_tax %>
-      <%= f.input :installation_cost_aft_tax %>
-    </div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
 
-    <div class="clear"></div>
-  </div>
+  <%= f.label :brand %>
+  <%= f.autocomplete_field :brand_name, autocomplete_brand_chinese_name_admin_brands_path, :id_element => '#sku_brand_id'  %>
+  <%= f.hidden_field :brand_id %>
 
-  <div class="attributes">
-    <%= f.input :introduction, :input_html => {:rows => 2, :cols => 75} %>
-    <%= f.input :advertisement, :input_html => {:rows => 2, :cols => 75}  %>
-    <%= f.cktext_area :description, :toolbar=>'Full', :width=>'800px', :height=>'200px' %>
-  </div>
+  <%= f.label :unit %>
+  <%= f.text_field :unit %>
 
-  <div class="actions">
-    <% if @sku.id == nil %>
-      <%= f.submit '下一步', :style => "aaa" %>
-    <% else %>
-      <%= f.submit %>
-    <% end %>
-  </div>
+  <%= f.label :color %>
+  <%= f.text_field :color %>
+
+  <%= f.label :delivery_day %>
+  <%= f.text_field :delivery_day %>
+
+  <%= f.label :sku_type %>
+  <%= f.collection_radio :sku_type, [[1, '在库品'] ,[2, '直送品'] ,[3,'非在库'] ,[4,'未定'] ,[5,'劳务费用']] ,
+                         :first, :second, :checked => 1 %>
+
+  <%= f.label :can_on_be_half %>
+  <%= f.collection_radio :can_on_be_half,[['false', '否'], ['true', '是']], :first, :last, :checked => 'false' %>
+
+  <%= f.label :classifcation %>
+  <%= f.select :classifcation,"<option value='1'>单品</option><option value='2'>大包装</option><option value='3'>大大包装</option><option value='4'>组合品</option>" %>
+
+  <%= f.label :market_price %>
+  <%= f.text_field :market_price %>
+
+  <%= f.label :cost_bef_tax %>
+  <%= f.text_field :cost_bef_tax %>
+
+  <%= f.label :cost_aft_tax %>
+  <%= f.text_field :cost_aft_tax %>
+
+  <%= f.label :assembling_fee_bef_tax %>
+  <%= f.text_field :assembling_fee_bef_tax %>
+
+  <%= f.label :assembling_fee_aft_tax %>
+  <%= f.text_field :assembling_fee_aft_tax %>
+
+  <%= f.label :installation_cost_bef_tax %>
+  <%= f.text_field :installation_cost_bef_tax %>
+
+  <%= f.label :installation_cost_aft_tax %>
+  <%= f.text_field :installation_cost_aft_tax %>
+
+  <%= f.label :sku_category %>
+  <%= f.autocomplete_field :sku_category_name, autocomplete_sku_category_name_admin_sku_categories_path, :update_elements => {:id => '#sku_sku_category_id', :number => '#sku_sku_category_number'}  %>
+  <span style="font-weight: bold;">
+    <%= t 'activerecord.attributes.sku_category.number' %>
+  </span>
+  <%= f.text_field :sku_category_number %>
+  <input type="button" id="check_sku_category_number" value="验证" style="width: 60px;" />
+  <% content_for :ready do %>
+    jQuery("#check_sku_category_number").click(function(){
+      if(jQuery("#sku_sku_category_number").val().length != 9 ) return alert("请输入4级分类编号");
+      jQuery.ajax({
+                 type: "get",
+                 url: "/admin/sku_categories/check",
+                 data: { number: jQuery("#sku_sku_category_number").val() },
+                 dataType: "json",
+                 success: function(result) {
+                   if(result == "failure"){
+                     alert("编号不存在!");
+                   }else{
+                     jQuery("#sku_sku_category_id").val(result.id);
+                     jQuery("#sku_sku_category_number").val(result.number);
+                     jQuery("#sku_sku_category_name").val(result.name);
+                   }
+                 },
+             });
+    });
+  <% end %>
+  <%= f.hidden_field :sku_category_id %>
+
+  <%= f.label :specification %>
+  <%= f.text_field :specification %>
+
+  <%= f.label :size %>
+  <%= f.text_field :size %>
+
+  <%= f.label :delivery_description %>
+  <%= f.text_area :delivery_description, :rows => 1, :cols => 25 %>
+
+  <%= f.label :model %>
+  <%= f.text_field :model %>
+
+  <%= f.label :can_return %>
+  <%= f.collection_radio :can_return, [['false', '否'], ['true', '是']],  :first, :second, :checked => 'false' %>
+
+  <%= f.label :introduction %>
+  <%= f.text_area :introduction, :rows => 2, :cols => 75 %>
+
+  <%= f.label :advertisement %>
+  <%= f.text_area :advertisement, :rows => 2, :cols => 75 %>
+
+  <%= f.label :description %>
+  <%= f.cktext_area :description, :toolbar=>'Full', :width=>'800px', :height=>'200px' %>
+
+  <% if @sku.id == nil %>
+    <%= f.submit '下一步' %>
+  <% else %>
+    <%= f.submit %>
+  <% end %>
 <% end %>
