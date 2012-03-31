@@ -1,143 +1,192 @@
 <%= form_for([:admin,@product]) do |f| %>
   <%= error_messages @product %>
+  <div id="show_info">
+    <ul>
+      <li>
+        <label><%= t 'activerecord.attributes.product.product_id' %><abbr title="required">*</abbr></label>
+        <%= f.text_field :product_id %>
+      </li>
+      <li>
+        <label><%= t 'activerecord.attributes.product.name' %><abbr title="required">*</abbr></label>
+        <%= f.text_field :name %>
+      </li>
+      <li>
+        <label><%= t 'activerecord.attributes.product.product_category' %><abbr title="required">*</abbr></label>
+        <%= f.autocomplete_field :product_category_name,
+                                 autocomplete_product_category_name_admin_product_categories_path,
+                                 :update_elements => {:id => '#product_product_category_id',
+                                 :number => '#product_product_category_number'}  %>
+        <span style="font-weight: bold; color: #013DA4;">编号</span>
+        <%= f.text_field :product_category_number, :class => "short_input_text"%>
+        <input type="button" id="check_product_category_number" value="验证" />
+        <% content_for :ready do %>
+          jQuery("#check_product_category_number").click(function(){
+            if(jQuery("#product_product_category_number").val().length != 9 ) return alert("请输入4级分类编号");
+            jQuery.ajax({
+               type: "get",
+               url: "/admin/product_categories/check",
+               data: { number: jQuery("#product_product_category_number").val() },
+               dataType: "json",
+               success: function(result) {
+                 if(result == "failure"){
+                   alert("编号不存在!");
+                 }else{
+                   jQuery("#product_product_category_id").val(result.id);
+                   jQuery("#product_product_category_number").val(result.number);
+                   jQuery("#product_product_category_name").val(result.name);
+                 }
+               },
+            });
+          });
+        <% end %>
+        <%= f.hidden_field :product_category_id %>
+        <hr />
+      </li>
 
-  <%= f.label :product_id %>
-  <%= f.text_field :product_id %>
+      <li>
+        <label><%= t 'activerecord.attributes.product.unit' %><abbr title="required">*</abbr></label>
+        <%= f.text_field :unit %>
+      </li>
+      <li>
+        <label><%= t 'activerecord.attributes.product.specification' %><abbr title="required">*</abbr></label>
+        <%= f.text_field :specification %>
+      </li>
+      <li>
+        <%= f.label :model %>
+        <%= f.text_field :model %>
+      </li>
+      <li>
+        <%= f.label :color %>
+        <%= f.text_field :color %>
+      </li>
+      <li>
+        <%= f.label :barcode %>
+        <%= f.text_field :barcode %>
+      </li>
+      <li>
+        <%= f.label :size %>
+        <%= f.text_field :size %>
+        <hr />
+      </li>
 
-  <%= f.autocomplete_field :brand_name, autocomplete_brand_chinese_name_admin_brands_path, :id_element => '#product_brand_id'  %>
-  <%= f.hidden_field :brand_id %>
+      <li>
+        <label><%= t 'activerecord.attributes.product.supplier_id' %><abbr title="required">*</abbr></label>
+        <%= f.autocomplete_field :supplier_name, autocomplete_supplier_name_admin_suppliers_path, :id_element => '#product_supplier_id'  %>
+        <%= f.hidden_field :supplier_id %>
+      </li>
+      <li>
+        <label><%= t 'activerecord.attributes.product.brand_id' %><abbr title="required">*</abbr></label>
+        <%= f.autocomplete_field :brand_name, autocomplete_brand_chinese_name_admin_brands_path, :id_element => '#product_brand_id'  %>
+        <%= f.hidden_field :brand_id %>
+      </li>
+      <li>
+        <label><%= t 'activerecord.attributes.product.delivery_days' %><abbr title="required">*</abbr></label>
+        <%= f.text_field :delivery_days %>
+      </li>
+      <li>
+        <%= f.label :delivery_descprition %>
+        <%= f.text_field :delivery_descprition %>
+      </li>
+      <li>
+        <%= f.label :manufacturer %>
+        <%= f.text_field :manufacturer %>
+      </li>
+      <li>
+        <%= f.label :origin %>
+        <%= f.text_field :origin %>
+      </li>
+      <li>
+        <%= f.label :appendant %>
+        <%= f.text_field :appendant %>
+        <hr />
+      </li>
 
-  <%= f.label :unit %>
-  <%= f.text_field :unit %>
+      <li>
+        <%= f.label :cost_bef_tax %>
+        <%= f.text_field :cost_bef_tax %>
+      </li>
+      <li>
+        <%= f.label :cost_aft_tax %>
+        <%= f.text_field :cost_aft_tax %>
+      </li>
+      <li>
+        <%= f.label :assembling_fee_bef_tax %>
+        <%= f.text_field :assembling_fee_bef_tax %>
+      </li>
+      <li>
+        <%= f.label :assembling_fee_aft_tax %>
+        <%= f.text_field :assembling_fee_aft_tax %>
+      </li>
+      <li>
+        <%= f.label :maintenance_cost_bef_tax %>
+        <%= f.text_field :maintenance_cost_bef_tax %>
+      </li>
+      <li>
+        <%= f.label :maintenance_cost_aft_tax %>
+        <%= f.text_field :maintenance_cost_aft_tax %>
+      </li>
+      <li>
+        <%= f.label :installation_cost_bef_tax %>
+        <%= f.text_field :installation_cost_bef_tax %>
+      </li>
+      <li>
+        <%= f.label :insatllation_cost_aft_tax %>
+        <%= f.text_field :insatllation_cost_aft_tax %>
+        <hr />
+      </li>
 
-  <%= f.label :delivery_days %>
-  <%= f.text_field :delivery_days %>
+      <li>
+        <%= f.label :is_green %>
+        <%= f.collection_radio :is_green, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
+      </li>
+      <li>
+        <%= f.label :is_maintanable %>
+        <%= f.collection_radio :is_maintanable, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
+      </li>
+      <li>
+        <%= f.label :can_on_behalf %>
+        <%= f.collection_radio :can_on_behalf, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
+      </li>
+      <li>
+        <%= f.label :is_assembling_required %>
+        <%= f.collection_radio :is_assembling_required, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
+      </li>
+      <li>
+        <%= f.label :is_installation_required %>
+        <%= f.collection_radio :is_installation_required, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
+        <br /><hr />
+      </li>
+      <li>
+        <%= f.label :have_shelf_life %>
+        <%= f.collection_radio :have_shelf_life, [['1', '无保质期'], ['2', '按生产日期'],['3','按失效日期']], :first, :second, :checked => '1' %>
+      </li>
+      <li>
+        <%= f.label :shelf_life %>
+        <%= f.text_field :shelf_life %>
+      </li>
+      <li>
+        <%= f.label :have_wanrranty %>
+        <%= f.collection_radio :have_wanrranty, [['false','否'],['true','是']],  :first, :second, :checked => 'false' %>
+      </li>
+      <li>
+        <%= f.label :wanrranty %>
+        <%= f.text_field :wanrranty %>
+      </li>
+      <li>
+        <%= f.label :wanrranty_description %>
+        <%= f.text_field :wanrranty_description, :rows => 1, :cols => 25 %>
+        <hr />
+      </li>
 
-  <%= f.label :cost_bef_tax %>
-  <%= f.text_field :cost_bef_tax %>
-
-  <%= f.label :model %>
-  <%= f.text_field :model %>
-
-  <%= f.label :color %>
-  <%= f.text_field :color %>
-
-  <%= f.label :barcode %>
-  <%= f.text_field :barcode %>
-
-  <%= f.label :manufacturer %>
-  <%= f.text_field :manufacturer %>
-
-  <%= f.label :shelf_life %>
-  <%= f.text_field :shelf_life %>
-
-  <%= f.label :wanrranty %>
-  <%= f.text_field :wanrranty %>
-
-  <%= f.label :origin %>
-  <%= f.text_field :origin %>
-
-  <%= f.label :is_green %>
-  <%= f.collection_radio :is_green, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
-
-  <%= f.label :assembling_fee_bef_tax %>
-  <%= f.text_field :assembling_fee_bef_tax %>
-
-  <%= f.label :is_maintanable %>
-  <%= f.collection_radio :is_maintanable, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
-
-  <%= f.label :maintenance_cost_aft_tax %>
-  <%= f.text_field :maintenance_cost_aft_tax %>
-
-  <%= f.label :installation_cost_bef_tax %>
-  <%= f.text_field :installation_cost_bef_tax %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :product_category_name %>
-  <%= f.autocomplete_field :product_category_name,
-                          autocomplete_product_category_name_admin_product_categories_path,
-                          :update_elements => {:id => '#product_product_category_id',
-                          :number => '#product_product_category_number'}  %>
-  <span style="font-weight: bold; color: #013DA4;">编号</span>
-  <%= f.text_field :product_category_number, :class => "short_input_text"%>
-  <input type="button" id="check_product_category_number" value="验证" />
-  <% content_for :ready do %>
-    jQuery("#check_product_category_number").click(function(){
-      if(jQuery("#product_product_category_number").val().length != 9 ) return alert("请输入4级分类编号");
-      jQuery.ajax({
-         type: "get",
-         url: "/admin/product_categories/check",
-         data: { number: jQuery("#product_product_category_number").val() },
-         dataType: "json",
-         success: function(result) {
-           if(result == "failure"){
-             alert("编号不存在!");
-           }else{
-             jQuery("#product_product_category_id").val(result.id);
-             jQuery("#product_product_category_number").val(result.number);
-             jQuery("#product_product_category_name").val(result.name);
-           }
-         },
-      });
-    });
-  <% end %>
-  <%= f.hidden_field :product_category_id %>
-
-  <%= f.label :specification %>
-  <%= f.text_field :specification %>
-
-  <%= f.label :delivery_descprition %>
-  <%= f.text_field :delivery_descprition %>
-
-  <%= f.label :cost_aft_tax %>
-  <%= f.text_field :cost_aft_tax %>
-
-  <%= f.label :size %>
-  <%= f.text_field :size %>
-
-  <%= f.label :can_on_behalf %>
-  <%= f.collection_radio :can_on_behalf, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
-
-  <%= f.label :supplier_name %>
-  <%= f.autocomplete_field :supplier_name, autocomplete_supplier_name_admin_suppliers_path, :id_element => '#product_supplier_id'  %>
-  <%= f.hidden_field :supplier_id %>
-
-  <%= f.label :have_shelf_life %>
-  <%= f.collection_radio :have_shelf_life, [['1', '无保质期'], ['2', '按生产日期'],['3','按失效日期']], :first, :second, :checked => '1' %>
-
-  <%= f.label :have_wanrranty %>
-  <%= f.collection_radio :have_wanrranty, [['false','否'],['true','是']],  :first, :second, :checked => 'false' %>
-
-  <%= f.label :wanrranty_description %>
-  <%= f.text_field :wanrranty_description, :rows => 1, :cols => 25 %>
-
-  <%= f.label :appendant %>
-  <%= f.text_field :appendant %>
-
-  <%= f.label :is_assembling_required %>
-  <%= f.collection_radio :is_assembling_required, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
-
-  <%= f.label :assembling_fee_aft_tax %>
-  <%= f.text_field :assembling_fee_aft_tax %>
-
-  <%= f.label :maintenance_cost_bef_tax %>
-  <%= f.text_field :maintenance_cost_bef_tax %>
-
-
-  <%= f.label :is_installation_required %>
-  <%= f.collection_radio :is_installation_required, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
-
-  <%= f.label :insatllation_cost_aft_tax %>
-  <%= f.text_field :insatllation_cost_aft_tax %>
-
-
-  <%= f.label :store %>
-  <%=raw product_stores(@product)  %>
-
-  <%= f.label :description %>
+      <li>
+        <label><%= t 'activerecord.attributes.product.store' %><abbr title="required">*</abbr></label>
+        <%=raw product_stores(@product)  %>
+      </li>
+      <li class="padding_bottom_10">
+        <%= f.label :description %>
+      </li>
+    </ul>
+  </div>
   <%= f.cktext_area :description, :toolbar=>'Full', :width=>'auto', :height=>'200px' %>
-
-  <%= f.submit %>
+   <%= f.submit %>
 <% end %>

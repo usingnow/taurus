@@ -6,7 +6,7 @@ zh-CN:
       product:
         product_id: "素材商品编号"
         name: "素材商品名称"
-        brand_id: "品牌ID"
+        brand_id: "品牌"
         cost_bef_tax: "税前成本"
         cost_aft_tax: "税后成本"
         product_category: "素材商品分类"
@@ -19,7 +19,7 @@ zh-CN:
         description: "素材商品描述"
         color: "颜色"
         barcode: "条形码"
-        supplier_id: "供应商ID"
+        supplier_id: "供应商"
         manufacturer: "生产商"
         have_shelf_life: "是否有质保期"
         shelf_life: "质保期"
