@@ -1,0 +1,23 @@
+zh-CN:
+  activerecord:
+    models:
+      company_extend: "图片"
+    attributes:
+      company_extend:
+        company_no: "企业会员编号"
+        company_name: "公司名称"
+        industry_type_id: "行业类别"
+        email: "邮箱"
+        district_no: "公司所属地"
+        address: "公司详细地址"
+        company_type_id: "公司性质"
+        company_scale_id: "公司规模"
+        web_address: "公司网址"
+        name: "联系人姓名"
+        phone: "电话"
+        mobile: "手机"
+        sex: "性别"
+        contact_dept: "联系人部门"
+        contact_post: "联系人职位"
+        fax: "传真"
+        zip: "邮编"
