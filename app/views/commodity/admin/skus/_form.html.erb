@@ -1,111 +1,145 @@
-<%= form_for([:commodity_admin,@sku]) do |f| %>
+﻿<%= form_for([:commodity_admin,@sku]) do |f| %>
   <%= error_messages @sku %>
 
-  <%= f.label :number %>
-  <%= f.text_field :number %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :brand %>
-  <%= f.autocomplete_field :brand_name, autocomplete_brand_chinese_name_admin_brands_path, :id_element => '#sku_brand_id'  %>
-  <%= f.hidden_field :brand_id %>
-
-  <%= f.label :unit %>
-  <%= f.text_field :unit %>
-
-  <%= f.label :color %>
-  <%= f.text_field :color %>
-
-  <%= f.label :delivery_day %>
-  <%= f.text_field :delivery_day %>
-
-  <%= f.label :sku_type %>
-  <%= f.collection_radio :sku_type, [[1, '在库品'] ,[2, '直送品'] ,[3,'非在库'] ,[4,'未定'] ,[5,'劳务费用']] ,
-                         :first, :second, :checked => 1 %>
-
-  <%= f.label :can_on_be_half %>
-  <%= f.collection_radio :can_on_be_half,[['false', '否'], ['true', '是']], :first, :last, :checked => 'false' %>
-
-  <%= f.label :classifcation %>
-  <%= f.select :classifcation,"<option value='1'>单品</option><option value='2'>大包装</option><option value='3'>大大包装</option><option value='4'>组合品</option>" %>
-
-  <%= f.label :market_price %>
-  <%= f.text_field :market_price %>
-
-  <%= f.label :cost_bef_tax %>
-  <%= f.text_field :cost_bef_tax %>
-
-  <%= f.label :cost_aft_tax %>
-  <%= f.text_field :cost_aft_tax %>
-
-  <%= f.label :assembling_fee_bef_tax %>
-  <%= f.text_field :assembling_fee_bef_tax %>
-
-  <%= f.label :assembling_fee_aft_tax %>
-  <%= f.text_field :assembling_fee_aft_tax %>
-
-  <%= f.label :installation_cost_bef_tax %>
-  <%= f.text_field :installation_cost_bef_tax %>
-
-  <%= f.label :installation_cost_aft_tax %>
-  <%= f.text_field :installation_cost_aft_tax %>
-
-  <%= f.label :sku_category %>
-  <%= f.autocomplete_field :sku_category_name, autocomplete_sku_category_name_admin_sku_categories_path, :update_elements => {:id => '#sku_sku_category_id', :number => '#sku_sku_category_number'}  %>
-  <span style="font-weight: bold;">
-    <%= t 'activerecord.attributes.sku_category.number' %>
-  </span>
-  <%= f.text_field :sku_category_number %>
-  <input type="button" id="check_sku_category_number" value="验证" style="width: 60px;" />
-  <% content_for :ready do %>
-    jQuery("#check_sku_category_number").click(function(){
-      if(jQuery("#sku_sku_category_number").val().length != 9 ) return alert("请输入4级分类编号");
-      jQuery.ajax({
-                 type: "get",
-                 url: "/admin/sku_categories/check",
-                 data: { number: jQuery("#sku_sku_category_number").val() },
-                 dataType: "json",
-                 success: function(result) {
-                   if(result == "failure"){
-                     alert("编号不存在!");
-                   }else{
-                     jQuery("#sku_sku_category_id").val(result.id);
-                     jQuery("#sku_sku_category_number").val(result.number);
-                     jQuery("#sku_sku_category_name").val(result.name);
-                   }
-                 },
-             });
-    });
-  <% end %>
-  <%= f.hidden_field :sku_category_id %>
-
-  <%= f.label :specification %>
-  <%= f.text_field :specification %>
-
-  <%= f.label :size %>
-  <%= f.text_field :size %>
-
-  <%= f.label :delivery_description %>
-  <%= f.text_area :delivery_description, :rows => 1, :cols => 25 %>
-
-  <%= f.label :model %>
-  <%= f.text_field :model %>
-
-  <%= f.label :can_return %>
-  <%= f.collection_radio :can_return, [['false', '否'], ['true', '是']],  :first, :second, :checked => 'false' %>
-
-  <%= f.label :introduction %>
-  <%= f.text_area :introduction, :rows => 2, :cols => 75 %>
-
-  <%= f.label :advertisement %>
-  <%= f.text_area :advertisement, :rows => 2, :cols => 75 %>
-
-  <%= f.label :description %>
+<div id="show_info">
+  <ul>
+    <li>
+      <label><%= t 'activerecord.attributes.sku.number' %><abbr title="required">*</abbr></label>
+      <%= f.text_field :number %>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.sku.name' %><abbr title="required">*</abbr></label>
+      <%= f.text_field :name %>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.sku.sku_category' %><abbr title="required">*</abbr></label>
+      <%= f.autocomplete_field :sku_category_name, autocomplete_sku_category_name_admin_sku_categories_path, :update_elements => {:id => '#sku_sku_category_id', :number => '#sku_sku_category_number'}  %>
+      <span class="label_style"><%= t 'activerecord.attributes.sku_category.number' %></span>
+      <%= f.text_field :sku_category_number %>
+      <input type="button" id="check_sku_category_number" value="验证" />
+      <% content_for :ready do %>
+          jQuery("#check_sku_category_number").click(function(){
+          if(jQuery("#sku_sku_category_number").val().length != 9 ) return alert("请输入4级分类编号");
+          jQuery.ajax({
+          type: "get",
+          url: "/admin/sku_categories/check",
+          data: { number: jQuery("#sku_sku_category_number").val() },
+          dataType: "json",
+          success: function(result) {
+          if(result == "failure"){
+          alert("编号不存在!");
+          }else{
+          jQuery("#sku_sku_category_id").val(result.id);
+          jQuery("#sku_sku_category_number").val(result.number);
+          jQuery("#sku_sku_category_name").val(result.name);
+          }
+          },
+          });
+          });
+      <% end %>
+      <%= f.hidden_field :sku_category_id %>
+      <hr />
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.sku.brand' %><abbr title="required">*</abbr></label>
+      <%= f.autocomplete_field :brand_name, autocomplete_brand_chinese_name_admin_brands_path, :id_element => '#sku_brand_id'  %>
+      <%= f.hidden_field :brand_id %>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.sku.unit' %><abbr title="required">*</abbr></label>
+      <%= f.text_field :unit %>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.sku.specification' %><abbr title="required">*</abbr></label>
+      <%= f.text_field :specification %>
+    </li>
+    <li>
+      <%= f.label :color %>
+      <%= f.text_field :color %>
+    </li>
+    <li>
+      <%= f.label :model %>
+      <%= f.text_field :model %>
+    </li>
+    <li>
+      <%= f.label :size %>
+      <%= f.text_field :size %>
+      <hr />
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.sku.delivery_day' %><abbr title="required">*</abbr></label>
+      <%= f.text_field :delivery_day %>
+    </li>
+    <li>
+      <%= f.label :delivery_description %>
+      <%= f.text_area :delivery_description, :rows => 1, :cols => 25, :style => "margin-left: 0px;" %>
+    </li>
+    <li>
+      <%= f.label :sku_type %>
+      <%= f.collection_radio :sku_type, [[1, '在库品'] ,[2, '直送品'] ,[3,'非在库'] ,[4,'未定'] ,[5,'劳务费用']] ,
+                             :first, :second, :checked => 1 %>
+      <br />
+    </li>
+    <li>
+      <%= f.label :can_on_be_half %>
+      <%= f.collection_radio :can_on_be_half,[['false', '否'], ['true', '是']], :first, :last, :checked => 'false' %>
+      <br />
+    </li>
+    <li>
+      <%= f.label :can_return %>
+      <%= f.collection_radio :can_return, [['false', '否'], ['true', '是']],  :first, :second, :checked => 'false' %>
+      <br />
+    </li>
+    <li>
+      <%= f.label :classifcation %>
+      <%= f.select :classifcation, "<option value='1'>单品</option><option value='2'>大包装</option><option value='3'>大大包装</option><option value='4'>组合品</option>" %>
+      <hr />
+    </li>
+    <li>
+      <%= f.label :market_price %>
+      <%= f.text_field :market_price %>
+    </li>
+    <li>
+      <%= f.label :cost_bef_tax %>
+      <%= f.text_field :cost_bef_tax %>
+    </li>
+    <li>
+      <%= f.label :cost_aft_tax %>
+      <%= f.text_field :cost_aft_tax %>
+    </li>
+    <li>
+      <%= f.label :assembling_fee_bef_tax %>
+      <%= f.text_field :assembling_fee_bef_tax %>
+    </li>
+    <li>
+      <%= f.label :assembling_fee_aft_tax %>
+      <%= f.text_field :assembling_fee_aft_tax %>
+    </li>
+    <li>
+      <%= f.label :installation_cost_bef_tax %>
+      <%= f.text_field :installation_cost_bef_tax %>
+    </li>
+    <li>
+      <%= f.label :installation_cost_aft_tax %>
+      <%= f.text_field :installation_cost_aft_tax %>
+      <hr />
+    </li>
+    <li>
+      <%= f.label :introduction %>
+      <%= f.text_area :introduction, :rows => 2, :cols => 75, :style => "margin-left: 0px;" %>
+    </li>
+    <li>
+      <%= f.label :advertisement %>
+      <%= f.text_area :advertisement, :rows => 2, :cols => 75, :style => "margin-left: 0px;" %>
+    </li>
+    <li class="padding_bottom_10">
+      <%= f.label :description %>
+    </li>
+  </ul>
+</div>
   <%= f.cktext_area :description, :toolbar=>'Full', :width=>'800px', :height=>'200px' %>
-
   <% if @sku.id == nil %>
-    <%= f.submit '下一步' %>
+    <%= f.submit '下一步', :id => "next_step" %>
   <% else %>
     <%= f.submit %>
   <% end %>
