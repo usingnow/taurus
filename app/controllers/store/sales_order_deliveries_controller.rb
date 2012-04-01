@@ -25,8 +25,13 @@ class Store::SalesOrderDeliveriesController < ApplicationController
     line_items = []
     order_details.each do |detail|
       detail.sku.sku_productships.each do |ship|
-        line_items << { :product_id => ship.product_id, :quantity => detail.quantity*ship.package_num,
-                    :administrator_id => admin_id }
+        item = line_items.find { |item| item[:product_id] == ship.product_id}
+        if item
+          item[:quantity] += detail.quantity*ship.package_num
+        else
+          line_items << { :product_id => ship.product_id, :quantity => detail.quantity*ship.package_num,
+                      :administrator_id => admin_id }
+        end
       end
     end
     DeliveryOrderCart.create(line_items)
