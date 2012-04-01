@@ -9,6 +9,7 @@ zh-CN:
         brand: "品牌中文名"
         brand_name: "品牌中文名"
         sku_category: "分类名称"
+        sku_category_id: "媒体商品分类"
         unit: "单位"
         specification: "规格"
         sku_type: "类型区分"
