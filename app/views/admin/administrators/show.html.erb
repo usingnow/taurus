@@ -38,8 +38,8 @@
       <span><%= @administrator.zip %></span>
     </li>
     <li class="margin_top_20">
-      <%= link_to "返回", "#", :class => "left20" %>
-      <%= link_to "修改", "#" %>
+      <%= link_to "返回", admin_administrators_path, :class => "left20" %>
+      <%= link_to "修改", edit_admin_administrator_path(@administrator) if can? :update, Administrator %>
     </li>
   </ul>
 </div>
