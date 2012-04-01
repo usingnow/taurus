@@ -88,24 +88,21 @@ div.split_content_left {
   width: 49%;
   p {
     margin: 5px 0px;
-    position: relative;
-    float: left;}}
+    position: relative;}}
 
 div.split_content_left_long {
   float: left;
   width: 49%;
   p {
     margin: 5px 0px;
-    position: relative;
-    float: left;}}
+    position: relative;}}
 
 div.split_content_right {
   float: left;
   width: 50%;
   p {
     margin: 5px 0px;
-    position: relative;
-    float: left;}}
+    position: relative;}}
 
 input {
   width: 150px;}
@@ -183,7 +180,6 @@ div.middle_button {
   padding: 5px;
   background-color: #DDEEFF;
   input[type="radio"] {
-    float: left;
     width: 20px;}
   .short_input_text {
     width: 80px;}
@@ -431,8 +427,8 @@ p {
     list-style-type:none;
     padding:0;
     li{
-      min-height:20px;
-      line-height:20px;
+      min-height:30px;
+      line-height:30px;
       vertical-align: middle;
       label{
         line-height:20px;
