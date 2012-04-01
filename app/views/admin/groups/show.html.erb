@@ -15,7 +15,7 @@
     </li>
     <li class="margin_top_20">
       <%= link_to "返回", admin_groups_path, :class => "left20" %>
-      <%= link_to "修改", edit_admin_group_path(@group) if can? :edit, Group %>
+      <%= link_to "修改", edit_admin_group_path(@group) if can? :update, Group %>
     </li>
   </ul>
 </div>
