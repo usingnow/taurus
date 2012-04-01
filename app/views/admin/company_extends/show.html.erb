@@ -88,8 +88,8 @@
       <span><%= @company_extend.fax %></span>
     </li>
     <li class="margin_top_20">
-      <%= link_to "返回", "#", :class => "left20" %>
-      <%= link_to "修改", "#" %>
+      <%= link_to "返回", admin_company_extends_path, :class => "left20" %>
+      <%= link_to "修改", edit_admin_company_extend_path(@company_extend)  if can? :update, CompanyExtend %>
     </li>
   </ul>
 </div>
