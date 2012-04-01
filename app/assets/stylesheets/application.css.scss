@@ -414,6 +414,11 @@ p {
   min-height:25px;
   margin-top:3px;
   margin-bottom:3px;
+  span {
+    input {
+      float:left;
+    }
+  }
 }
 
 #show_info .label40{

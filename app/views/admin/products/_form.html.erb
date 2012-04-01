@@ -102,59 +102,58 @@
       </li>
 
       <li>
-        <%= f.label :cost_bef_tax %>
+        <label><%= t 'activerecord.attributes.product.cost_bef_tax' %><abbr title="required">*</abbr></label>
         <%= f.text_field :cost_bef_tax %>
       </li>
       <li>
-        <%= f.label :cost_aft_tax %>
+        <label><%= t 'activerecord.attributes.product.cost_aft_tax' %><abbr title="required">*</abbr></label>
         <%= f.text_field :cost_aft_tax %>
       </li>
       <li>
-        <%= f.label :assembling_fee_bef_tax %>
-        <%= f.text_field :assembling_fee_bef_tax %>
+        <label><%= t 'activerecord.attributes.product.is_maintanable' %><abbr title="required">*</abbr></label>
+        <%= f.collection_radio :is_maintanable, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
       </li>
       <li>
-        <%= f.label :assembling_fee_aft_tax %>
-        <%= f.text_field :assembling_fee_aft_tax %>
-      </li>
-      <li>
-        <%= f.label :maintenance_cost_bef_tax %>
+        <label><%= t 'activerecord.attributes.product.maintenance_cost_bef_tax' %><abbr title="required">*</abbr></label>
         <%= f.text_field :maintenance_cost_bef_tax %>
       </li>
       <li>
-        <%= f.label :maintenance_cost_aft_tax %>
+        <label><%= t 'activerecord.attributes.product.maintenance_cost_aft_tax' %><abbr title="required">*</abbr></label>
         <%= f.text_field :maintenance_cost_aft_tax %>
       </li>
       <li>
-        <%= f.label :installation_cost_bef_tax %>
+        <label><%= t 'activerecord.attributes.product.is_assembling_required' %><abbr title="required">*</abbr></label>
+        <%= f.collection_radio :is_assembling_required, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
+      </li>
+      <li>
+        <label><%= t 'activerecord.attributes.product.assembling_fee_bef_tax' %><abbr title="required">*</abbr></label>
+        <%= f.text_field :assembling_fee_bef_tax %>
+      </li>
+      <li>
+        <label><%= t 'activerecord.attributes.product.assembling_fee_aft_tax' %><abbr title="required">*</abbr></label>
+        <%= f.text_field :assembling_fee_aft_tax %>
+      </li>
+      <li>
+        <label><%= t 'activerecord.attributes.product.is_installation_required' %><abbr title="required">*</abbr></label>
+        <%= f.collection_radio :is_installation_required, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
+      </li>
+      <li>
+        <label><%= t 'activerecord.attributes.product.installation_cost_bef_tax' %><abbr title="required">*</abbr></label>
         <%= f.text_field :installation_cost_bef_tax %>
       </li>
       <li>
-        <%= f.label :insatllation_cost_aft_tax %>
+        <label><%= t 'activerecord.attributes.product.insatllation_cost_aft_tax' %><abbr title="required">*</abbr></label>
         <%= f.text_field :insatllation_cost_aft_tax %>
         <hr />
       </li>
 
       <li>
-        <%= f.label :is_green %>
-        <%= f.collection_radio :is_green, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
-      </li>
-      <li>
-        <%= f.label :is_maintanable %>
-        <%= f.collection_radio :is_maintanable, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
-      </li>
-      <li>
         <%= f.label :can_on_behalf %>
         <%= f.collection_radio :can_on_behalf, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
       </li>
       <li>
-        <%= f.label :is_assembling_required %>
-        <%= f.collection_radio :is_assembling_required, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
-      </li>
-      <li>
-        <%= f.label :is_installation_required %>
-        <%= f.collection_radio :is_installation_required, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
-        <br /><hr />
+        <%= f.label :is_green %>
+        <%= f.collection_radio :is_green, [['false', '否'], ['true', '是']], :first, :second, :checked => 'false' %>
       </li>
       <li>
         <%= f.label :have_shelf_life %>
