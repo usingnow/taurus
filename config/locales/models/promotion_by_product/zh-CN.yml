@@ -1,0 +1,9 @@
+zh-CN:
+  activerecord:
+    models:
+      promotion_by_product: "商品类活动"
+    attributes:
+      promotion_by_product:
+        products_selection: "活动商品选择方式"
+        promotion_basis: "优惠条件"
+        product_discount: "单品折扣"

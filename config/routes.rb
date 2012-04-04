@@ -318,7 +318,13 @@ Ebiz::Application.routes.draw do
         post :preview
       end
     end
+    resources :promotion_by_products do
+      collection do
+        post :preview
+      end
+    end
     resources :promotion_member_temps
+    resources :promotion_product_temps
   end
 
 

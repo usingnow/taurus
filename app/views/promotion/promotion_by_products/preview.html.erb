@@ -47,9 +47,9 @@
           <%= f.hidden_field :order_payment_over %>
         </li>
         <li>
-          <label><%= t 'activerecord.attributes.promotion_by_order.purchase_amount_limit' %></label>
-          <span>大于<%= @promotion_by_order.purchase_amount_limit %>件</span>
-          <%= f.hidden_field :purchase_amount_limit %>
+          <label><%= t 'activerecord.attributes.online_promotion.purchase_amount_limit' %></label>
+          <span>大于<%= @promotion_by_order.online_promotion.purchase_amount_limit %>件</span>
+          <%= op_f.hidden_field :purchase_amount_limit %>
         </li>
         <li>
           <label><%= t 'activerecord.attributes.online_promotion.min_member_point' %></label>
@@ -120,7 +120,7 @@
         <li>
           <label><%= t 'activerecord.attributes.online_promotion.sku_id' %></label>
           <% if @promotion_by_order.online_promotion.sku_id %>
-            <span><%= can?(:read, Sku) ? link_to(@promotion_by_order.online_promotion.sku.number, commodity_admin_sku_path(@promotion_by_order.online_promotion.sku_id), :class => "link") : @online_promotion.sku.number %></span>
+            <span><%= can?(:read, Sku) ? link_to(@online_promotion.sku.number, commodity_admin_sku_path(@online_promotion.sku_id)) : @online_promotion.sku.number %></span>
             <span><%= @promotion_by_order.online_promotion.sku.name %></span>
           <% end %>
           <%= op_f.hidden_field :sku_id %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120403171946) do
+ActiveRecord::Schema.define(:version => 20120404140354) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -417,7 +417,6 @@ ActiveRecord::Schema.define(:version => 20120403171946) do
     t.boolean  "priority",                                                 :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "purchase_amount_limit",                                    :default => 0
     t.boolean  "sign_up_time_limit",                                       :default => false
     t.integer  "procedure_id"
   end
@@ -727,11 +726,12 @@ ActiveRecord::Schema.define(:version => 20120403171946) do
   end
 
   create_table "promotion_by_orders", :force => true do |t|
-    t.decimal  "order_payment_over", :precision => 8, :scale => 2, :default => 0.0
-    t.decimal  "discount",           :precision => 8, :scale => 2, :default => 1.0
-    t.boolean  "free_delivery",                                    :default => false
+    t.decimal  "order_payment_over",    :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "discount",              :precision => 8, :scale => 2, :default => 1.0
+    t.boolean  "free_delivery",                                       :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "purchase_amount_limit",                               :default => 0
   end
 
   create_table "promotion_by_products", :force => true do |t|
@@ -739,10 +739,9 @@ ActiveRecord::Schema.define(:version => 20120403171946) do
     t.integer  "selection_parameter"
     t.integer  "promotion_basis",                                   :default => 0
     t.integer  "basis_parameter",                                   :default => 0
-    t.integer  "promotion_method"
-    t.decimal  "method_parameter",    :precision => 8, :scale => 2, :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "product_discount",    :precision => 8, :scale => 2, :default => 1.0
   end
 
   create_table "promotion_member_temps", :force => true do |t|
@@ -765,6 +764,17 @@ ActiveRecord::Schema.define(:version => 20120403171946) do
 
   add_index "promotion_members", ["member_info"], :name => "index_promotion_members_on_member_info"
   add_index "promotion_members", ["online_promotion_id"], :name => "index_promotion_members_on_online_promotion_id"
+
+  create_table "promotion_product_temps", :force => true do |t|
+    t.integer  "products_selection"
+    t.integer  "selection_parameter"
+    t.integer  "administrator_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "promotion_product_temps", ["administrator_id"], :name => "index_promotion_product_temps_on_administrator_id"
+  add_index "promotion_product_temps", ["selection_parameter"], :name => "index_promotion_product_temps_on_selection_parameter"
 
   create_table "provinces", :force => true do |t|
     t.string   "number"

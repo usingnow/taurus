@@ -11,7 +11,6 @@ zh-CN:
         start: "开始时间"
         end: "结束时间"
         description: "活动说明"
-        purchase_amount_limit: "商品数量"
         min_member_point: "用户最小积分"
         sign_up_time_limit: "用户注册日期"
         member_sign_up_start: "起始日期"

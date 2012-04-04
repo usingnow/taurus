@@ -1,7 +1,7 @@
-<%= form_for @promotion_by_order, :url => preview_promotion_promotion_by_orders_path do |f| %>
+<%= form_for @promotion_by_product, :url => preview_promotion_promotion_by_products_path do |f| %>
   <%= f.fields_for :online_promotion do |op_f| %>
     <div id="show_info">
-      <%= error_messages @promotion_by_order %>
+      <%= error_messages @promotion_by_product %>
       <h1>新建活动：<span class="red">*</span>为必填</h1>
       <ul>
         <li>
@@ -14,7 +14,7 @@
         </li>
         <li>
           <label><%= t 'activerecord.attributes.online_promotion.online_promotionable_type' %><abbr title="required">*</abbr></label>
-          <span class="red">订单类</span>
+          <span class="red">商品类</span>
         </li>
         <li>
           <label><%= t 'activerecord.attributes.online_promotion.promotion_type' %><abbr title="required">*</abbr></label>
@@ -37,12 +37,13 @@
       <h1>活动规则：若选项为空或为“0”，即表示无限制</h1>
       <ul>
         <li>
-          <%= f.label :order_payment_over %>
-          <span>大于<%= f.text_field :order_payment_over %>元</span>
+          <%= f.label :products_selection %>
+          <%= f.collection_select :products_selection, PromotionByProduct::PRODUCTS_SELECTION, :first, :second %>
         </li>
         <li>
-          <%= f.label :purchase_amount_limit %>
-          <span>大于<%= f.text_field :purchase_amount_limit %>件</span>
+          <%= f.label :promotion_basis %>
+          <%= f.collection_select :promotion_basis, PromotionByProduct::PROMOTION_BASIS, :first, :second %>
+          <%= f.text_field :basis_parameter %>
         </li>
         <li>
           <%= op_f.label :min_member_point %>
@@ -61,7 +62,7 @@
           <%= op_f.date_select :member_sign_up_end, :disabled => true %>
         </li>
         <li>
-          <label><%= t 'activerecord.attributes.online_promotion.member_type' %></label>
+          <%= op_f.label :member_type %>
           <%= op_f.collection_select :member_type, OnlinePromotion::MEMBER_TYPE, :first, :second %>
         </li>
         <li>
@@ -77,8 +78,8 @@
       <h1>活动内容</h1>
       <ul>
         <li>
-          <%= f.label :discount %>
-          <%= f.text_field :discount %>
+          <%= f.label :product_discount %>
+          <%= f.text_field :product_discount %>
           <span class="red">说明：输入1为全价，输入0.95为95折</span>
         </li>
         <li>
@@ -88,10 +89,6 @@
         <li>
           <%= op_f.label :free_assembling %>
           <%= op_f.collection_radio :free_assembling, OnlinePromotion::FREE_ASSEMBLING, :first, :second %>
-        </li>
-        <li>
-          <%= f.label :free_delivery %>
-          <%= f.collection_radio :free_delivery, PromotionByOrder::FREE_DELIVERY, :first, :second %>
         </li>
         <li>
           <%= op_f.label :points_promotion_method %>

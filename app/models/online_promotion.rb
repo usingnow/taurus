@@ -1,6 +1,6 @@
 #encoding:UTF-8
 class OnlinePromotion < ActiveRecord::Base
-  belongs_to :online_promotionable, :polymorphic => true
+  belongs_to :online_promotionable, :polymorphic => true, :dependent => :destroy
   belongs_to :procedure
   belongs_to :sku
   has_many :promotion_members

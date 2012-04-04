@@ -7,3 +7,4 @@ zh-CN:
         order_payment_over: "订单总金额"
         discount: "订单折扣"
         free_delivery: "免除配送费"
+        purchase_amount_limit: "商品数量"
