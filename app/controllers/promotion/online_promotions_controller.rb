@@ -7,6 +7,15 @@ class Promotion::OnlinePromotionsController < ApplicationController
     @online_promotions = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
 
+  def show
+    @online_promotion = OnlinePromotion.find(params[:id])
+    if @online_promotion.online_promotionable_type == "PromotionByOrder"
+      render "promotion/promotion_by_orders/show"
+    else
+
+    end
+  end
+
   def search_skus
     @search = Sku.search(params[:q])
     @search.sorts = "updated_at desc"

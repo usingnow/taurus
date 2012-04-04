@@ -48,7 +48,7 @@
   <% @online_promotions.each_with_index do |online_promotion,index| %>
     <tr class="<%= cycle "odd","even" %>">
       <td><%= index+1 %></td>
-      <td><%= online_promotion.code %></td>
+      <td><%= link_to online_promotion.code, promotion_online_promotion_path(online_promotion) %></td>
       <td><%= online_promotion.title %></td>
       <td><%= online_promotion.start %></td>
       <td><%= online_promotion.end %></td>

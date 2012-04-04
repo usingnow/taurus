@@ -120,7 +120,7 @@
         <li>
           <label><%= t 'activerecord.attributes.online_promotion.sku_id' %></label>
           <% if @promotion_by_order.online_promotion.sku_id %>
-            <span><%= @promotion_by_order.online_promotion.sku.number %></span>
+            <span><%= can?(:read, Sku) ? link_to(@online_promotion.sku.number, commodity_admin_sku_path(@online_promotion.sku_id)) : @online_promotion.sku.number %></span>
             <span><%= @promotion_by_order.online_promotion.sku.name %></span>
           <% end %>
           <%= op_f.hidden_field :sku_id %>

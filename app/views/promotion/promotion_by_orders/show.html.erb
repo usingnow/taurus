@@ -1,0 +1,110 @@
+<div id="show_info">
+  <h1>订单活动基础信息</h1>
+  <ul>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.code' %></label>
+      <span><%= @online_promotion.code %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.title' %></label>
+      <span><%= @online_promotion.title %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.online_promotionable_type' %></label>
+      <span class="red">订单类</span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.promotion_type' %></label>
+      <span><%= OnlinePromotion::PROMOTION_TYPE[@online_promotion.promotion_type] %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.start' %></label>
+      <span><%= @online_promotion.start %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.end' %></label>
+      <span><%= @online_promotion.end %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.status' %></label>
+      <span class="red"><%= OnlinePromotion::STATUS[@online_promotion.status] %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.description' %></label>
+      <span><%= @online_promotion.description %></span>
+    </li>
+  </ul>
+
+  <h1>活动规则</h1>
+  <ul>
+    <li>
+      <label><%= t 'activerecord.attributes.promotion_by_order.order_payment_over' %></label>
+      <span>大于<%= @online_promotion.online_promotionable.order_payment_over %>元</span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.purchase_amount_limit' %></label>
+      <span>大于<%= @online_promotion.purchase_amount_limit %>件</span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.min_member_point' %></label>
+      <span>大于<%= @online_promotion.min_member_point %>分</span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.sign_up_time_limit' %></label>
+      <span><%= OnlinePromotion::SIGN_UP_TIME_LIMIT[@online_promotion.sign_up_time_limit] %></span>
+    </li>
+    <li>
+      <label class="indent2em"><%= t 'activerecord.attributes.online_promotion.member_sign_up_start' %></label>
+      <span><%= @online_promotion.member_sign_up_start %></span>
+    </li>
+    <li>
+      <label class="indent2em"><%= t 'activerecord.attributes.online_promotion.member_sign_up_end' %></label>
+      <span><%= @online_promotion.member_sign_up_end %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.member_type' %></label>
+      <span><%= OnlinePromotion::MEMBER_TYPE[@online_promotion.member_type] %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.order_channel' %></label>
+      <span><%= OnlinePromotion::ORDER_CHANNEL[@online_promotion.order_channel] %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.procedure_id' %></label>
+      <span><%= @online_promotion.procedure_id ? @online_promotion.procedure.name : "无限制" %></span>
+    </li>
+  </ul>
+
+
+  <h1>活动内容</h1>
+  <ul>
+    <li>
+      <label><%= t 'activerecord.attributes.promotion_by_order.discount' %></label>
+      <span><%= @online_promotion.online_promotionable.discount %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.free_installation' %></label>
+      <span><%= OnlinePromotion::FREE_INSTALLATION[@online_promotion.free_installation] %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.free_assembling' %></label>
+      <span><%= OnlinePromotion::FREE_ASSEMBLING[@online_promotion.free_assembling] %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.promotion_by_order.free_delivery' %></label>
+      <span><%= PromotionByOrder::FREE_DELIVERY[@online_promotion.online_promotionable.free_delivery] %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.points_promotion_method' %></label>
+      <span><%= OnlinePromotion::POINTS_PROMOTION_METHOD[@online_promotion.points_promotion_method] %></span>
+      <span><%= @online_promotion.points_promotion_parameter %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.sku_id' %></label>
+      <% if @online_promotion.sku_id %>
+        <span><%= can?(:read, Sku) ? link_to(@online_promotion.sku.number, commodity_admin_sku_path(@online_promotion.sku_id)) : @online_promotion.sku.number %></span>
+        <span><%= @online_promotion.sku.name %></span>
+      <% end %>
+    </li>
+  </ul>
+</div>
