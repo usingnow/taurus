@@ -16,6 +16,9 @@ jQuery ->
       jQuery("#promotion_by_order_online_promotion_attributes_member_sign_up_end_3i").removeAttr("disabled")
 
 
+  if jQuery("#promotion_by_order_online_promotion_attributes_member_type").val() != "0"
+    jQuery("#promotion_by_order_online_promotion_attributes_member_type").after("<a href='#' id='set_member' class='link'>设置</a>")
+
   jQuery("#promotion_by_order_online_promotion_attributes_member_type").change ->
     jQuery("#set_member").remove()
     if @value != "0"

@@ -3,6 +3,9 @@ class OnlinePromotion < ActiveRecord::Base
   belongs_to :online_promotionable, :polymorphic => true
   belongs_to :procedure
   belongs_to :sku
+  has_many :promotion_members
+
+  attr_accessor :current_step, :administrator_id
 
   PROMOTION_TYPE = { 1 => "对客户", 2 => "对购物" }
   SIGN_UP_TIME_LIMIT = { false => "无限制", true => "有限制" }
@@ -17,4 +20,22 @@ class OnlinePromotion < ActiveRecord::Base
 
   validates_presence_of :code, :title, :promotion_type, :status, :start, :end, :description
   validates_uniqueness_of :code
+  validate :member_exists?
+
+  protected
+    def member_exists?
+      unless member_type == 0
+        if current_step == "preview"
+          count = PromotionMemberTemp.count(:conditions => "administrator_id = #{administrator_id} and member_type = #{member_type}")
+          if count == 0
+            errors.add(:member_type,"不能为空")
+          end
+        elsif current_step == "save"
+          count = promotion_members.count
+          if count == 0
+            errors.add(:member_type,"不能为空")
+          end
+        end
+      end
+    end
 end

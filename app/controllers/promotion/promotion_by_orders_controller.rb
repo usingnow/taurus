@@ -10,6 +10,8 @@ class Promotion::PromotionByOrdersController < ApplicationController
   def preview
     @promotion_by_order = PromotionByOrder.new(params[:promotion_by_order])
     @promotion_by_order.online_promotion.status = 0
+    @promotion_by_order.online_promotion.current_step = "preview"
+    @promotion_by_order.online_promotion.administrator_id = current_administrator.id
     render "new" unless @promotion_by_order.valid?
   end
 
@@ -19,6 +21,8 @@ class Promotion::PromotionByOrdersController < ApplicationController
       render "new"
     else
       @promotion_by_order.online_promotion.status = 0
+      @promotion_by_order.online_promotion.current_step = "save"
+      @promotion_by_order.online_promotion.administrator_id = current_administrator.id
       if @promotion_by_order.online_promotion.member_type != 0
         current_administrator.promotion_member_temps.find_all_by_member_type(@promotion_by_order.online_promotion.member_type).each do |temp|
           @promotion_by_order.promotion_members << PromotionMember.new(:member_info => temp.member_info)

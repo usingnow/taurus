@@ -61,7 +61,7 @@
           <%= op_f.date_select :member_sign_up_end, :disabled => true %>
         </li>
         <li>
-          <%= op_f.label :member_type %>
+          <label><%= t 'activerecord.attributes.online_promotion.member_type' %></label>
           <%= op_f.collection_select :member_type, OnlinePromotion::MEMBER_TYPE, :first, :second %>
         </li>
         <li>
