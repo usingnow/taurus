@@ -390,31 +390,27 @@ p {
       font-weight:bold;
     }
   }
-}
-
-
-
-
-
-#show_info label{
-  display:block;
-  width:120px;
-  float:left;
-  vertical-align:middle;
-  text-align:left;
-  color:#013DA4;
-  height:25px;
-  line-height:25px;
+  label{
+    display:block;
+    width:120px;
+    float:left;
+    vertical-align:middle;
+    text-align:left;
+    color:#013DA4;
+    height:25px;
+    line-height:25px;
+  }
 }
 
 #show_info ul{
-  line-height:25px;
+  line-height:30px;
   vertical-align:middle;
   list-style:none;
   padding-left:20px
 }
 
 #show_info li{
+  min-height:30px;
   margin-top:3px;
   margin-bottom:3px;
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ebiz</title>
+  <%= stylesheet_link_tag 'application' %>
+  <%= stylesheet_link_tag params[:controller] %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag params[:controller] %>
+  <%= csrf_meta_tag %>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      jQuery("table>tbody tr").live({
+        mouseenter:function(){
+          jQuery(this).addClass("highlight");
+        },
+        mouseleave:function(){
+          jQuery(this).removeClass("highlight");
+        }
+      });
+      <%= yield(:ready) %> //动态加载js
+    });
+  </script>
+</head>
+<body>
+  <%= yield %>
+</body>
+</html>

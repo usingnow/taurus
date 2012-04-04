@@ -307,6 +307,20 @@ Ebiz::Application.routes.draw do
     end
   end
 
+  namespace :promotion do
+    resources :online_promotions do
+      collection do
+        get :search_skus
+      end
+    end
+    resources :promotion_by_orders do
+      collection do
+        post :preview
+      end
+    end
+    resources :promotion_member_temps
+  end
+
 
   root :to => 'home#index'
 
