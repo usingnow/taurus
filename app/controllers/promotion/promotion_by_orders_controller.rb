@@ -9,10 +9,8 @@ class Promotion::PromotionByOrdersController < ApplicationController
 
   def preview
     @promotion_by_order = PromotionByOrder.new(params[:promotion_by_order])
-    if @promotion_by_order.valid?
-    else
-      render "new"
-    end
+    @promotion_by_order.online_promotion.status = 0
+    render "new" unless @promotion_by_order.valid?
   end
 
   def create
