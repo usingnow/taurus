@@ -12,7 +12,7 @@ class Promotion::OnlinePromotionsController < ApplicationController
     if @online_promotion.online_promotionable_type == "PromotionByOrder"
       render "promotion/promotion_by_orders/show"
     else
-
+      render "promotion/promotion_by_products/show"
     end
   end
 

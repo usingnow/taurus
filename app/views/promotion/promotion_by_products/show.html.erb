@@ -1,5 +1,5 @@
 <div id="show_info">
-  <h1>订单活动基础信息</h1>
+  <h1>商品活动基础信息</h1>
   <ul>
     <li>
       <label><%= t 'activerecord.attributes.online_promotion.code' %></label>
@@ -11,7 +11,7 @@
     </li>
     <li>
       <label><%= t 'activerecord.attributes.online_promotion.online_promotionable_type' %></label>
-      <span class="red">订单类</span>
+      <span class="red">商品类</span>
     </li>
     <li>
       <label><%= t 'activerecord.attributes.online_promotion.promotion_type' %></label>
@@ -38,12 +38,13 @@
   <h1>活动规则</h1>
   <ul>
     <li>
-      <label><%= t 'activerecord.attributes.promotion_by_order.order_payment_over' %></label>
-      <span>大于<%= @online_promotion.online_promotionable.order_payment_over %>元</span>
+      <label><%= t 'activerecord.attributes.promotion_by_product.products_selection' %></label>
+      <span><%= PromotionByProduct::PRODUCTS_SELECTION[@online_promotion.online_promotionable.products_selection] %></span>
     </li>
     <li>
-      <label><%= t 'activerecord.attributes.online_promotion.purchase_amount_limit' %></label>
-      <span>大于<%= @online_promotion.purchase_amount_limit %>件</span>
+      <label><%= t 'activerecord.attributes.promotion_by_product.promotion_basis' %></label>
+      <span><%= PromotionByProduct::PROMOTION_BASIS[@online_promotion.online_promotionable.promotion_basis] %></span>
+      <span><%= @online_promotion.online_promotionable.basis_parameter %></span>
     </li>
     <li>
       <label><%= t 'activerecord.attributes.online_promotion.min_member_point' %></label>
@@ -79,8 +80,8 @@
   <h1>活动内容</h1>
   <ul>
     <li>
-      <label><%= t 'activerecord.attributes.promotion_by_order.discount' %></label>
-      <span><%= @online_promotion.online_promotionable.discount %></span>
+      <label><%= t 'activerecord.attributes.promotion_by_product.product_discount' %></label>
+      <span><%= @online_promotion.online_promotionable.product_discount %></span>
     </li>
     <li>
       <label><%= t 'activerecord.attributes.online_promotion.free_installation' %></label>
@@ -91,10 +92,6 @@
       <span><%= OnlinePromotion::FREE_ASSEMBLING[@online_promotion.free_assembling] %></span>
     </li>
     <li>
-      <label><%= t 'activerecord.attributes.promotion_by_order.free_delivery' %></label>
-      <span><%= PromotionByOrder::FREE_DELIVERY[@online_promotion.online_promotionable.free_delivery] %></span>
-    </li>
-    <li>
       <label><%= t 'activerecord.attributes.online_promotion.points_promotion_method' %></label>
       <span><%= OnlinePromotion::POINTS_PROMOTION_METHOD[@online_promotion.points_promotion_method] %></span>
       <span><%= @online_promotion.points_promotion_parameter %></span>
@@ -102,7 +99,7 @@
     <li>
       <label><%= t 'activerecord.attributes.online_promotion.sku_id' %></label>
       <% if @online_promotion.sku_id %>
-        <span><%= can?(:read, Sku) ? link_to(@online_promotion.sku.number, commodity_admin_sku_path(@online_promotion.sku_id)) : @online_promotion.sku.number %></span>
+        <span><%= can?(:read, Sku) ? link_to(@online_promotion.sku.number, commodity_admin_sku_path(@online_promotion.sku_id), :class => "link") : @online_promotion.sku.number %></span>
         <span><%= @online_promotion.sku.name %></span>
       <% end %>
     </li>
