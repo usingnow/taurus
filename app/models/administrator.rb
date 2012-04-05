@@ -2,6 +2,7 @@ class Administrator < ActiveRecord::Base
   has_many :administrator_groupships
   has_many :groups, :through => :administrator_groupships
   has_many :promotion_member_temps
+  has_many :promotion_product_temps
 
   devise :database_authenticatable, :registerable, :timeoutable,
          :recoverable, :rememberable, :trackable, :validatable, :timeout_in => 15.minutes

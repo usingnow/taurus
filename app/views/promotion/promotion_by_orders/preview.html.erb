@@ -115,12 +115,13 @@
           <label><%= t 'activerecord.attributes.online_promotion.points_promotion_method' %></label>
           <span><%= OnlinePromotion::POINTS_PROMOTION_METHOD[@promotion_by_order.online_promotion.points_promotion_method] %></span>
           <span><%= @promotion_by_order.online_promotion.points_promotion_parameter %></span>
+          <%= op_f.hidden_field :points_promotion_method %>
           <%= op_f.hidden_field :points_promotion_parameter %>
         </li>
         <li>
           <label><%= t 'activerecord.attributes.online_promotion.sku_id' %></label>
           <% if @promotion_by_order.online_promotion.sku_id %>
-            <span><%= can?(:read, Sku) ? link_to(@promotion_by_order.online_promotion.sku.number, commodity_admin_sku_path(@promotion_by_order.online_promotion.sku_id), :class => "link") : @online_promotion.sku.number %></span>
+            <span><%= can?(:read, Sku) ? link_to(@promotion_by_order.online_promotion.sku.number, commodity_admin_sku_path(@promotion_by_order.online_promotion.sku_id), :class => "link") : @promotion_by_order.online_promotion.sku.number %></span>
             <span><%= @promotion_by_order.online_promotion.sku.name %></span>
           <% end %>
           <%= op_f.hidden_field :sku_id %>

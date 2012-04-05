@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120404140354) do
+ActiveRecord::Schema.define(:version => 20120405035924) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -775,6 +775,16 @@ ActiveRecord::Schema.define(:version => 20120404140354) do
 
   add_index "promotion_product_temps", ["administrator_id"], :name => "index_promotion_product_temps_on_administrator_id"
   add_index "promotion_product_temps", ["selection_parameter"], :name => "index_promotion_product_temps_on_selection_parameter"
+
+  create_table "promotion_products", :force => true do |t|
+    t.integer  "online_promotion_id"
+    t.integer  "product_info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "promotion_products", ["online_promotion_id"], :name => "index_promotion_products_on_online_promotion_id"
+  add_index "promotion_products", ["product_info"], :name => "index_promotion_products_on_product_info"
 
   create_table "provinces", :force => true do |t|
     t.string   "number"

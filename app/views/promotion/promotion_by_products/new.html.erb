@@ -37,40 +37,40 @@
       <h1>活动规则：若选项为空或为“0”，即表示无限制</h1>
       <ul>
         <li>
-          <%= f.label :products_selection %>
+          <label><%= t 'activerecord.attributes.promotion_by_product.products_selection' %></label>
           <%= f.collection_select :products_selection, PromotionByProduct::PRODUCTS_SELECTION, :first, :second %>
         </li>
         <li>
-          <%= f.label :promotion_basis %>
+          <label><%= t 'activerecord.attributes.promotion_by_product.promotion_basis' %></label>
           <%= f.collection_select :promotion_basis, PromotionByProduct::PROMOTION_BASIS, :first, :second %>
           <%= f.text_field :basis_parameter %>
         </li>
         <li>
-          <%= op_f.label :min_member_point %>
+          <label><%= t 'activerecord.attributes.online_promotion.min_member_point' %></label>
           <span>大于<%= op_f.text_field :min_member_point %>分</span>
         </li>
         <li>
-          <%= op_f.label :sign_up_time_limit %>
+          <label><%= t 'activerecord.attributes.online_promotion.sign_up_time_limit' %></label>
           <%= op_f.collection_select :sign_up_time_limit, OnlinePromotion::SIGN_UP_TIME_LIMIT, :first, :second  %>
         </li>
         <li>
-          <%= op_f.label :member_sign_up_start, "", :class => "indent2em" %>
+          <label class="indent2em"><%= t 'activerecord.attributes.online_promotion.member_sign_up_start' %></label>
           <%= op_f.date_select :member_sign_up_start, :disabled => true %>
         </li>
         <li>
-          <%= op_f.label :member_sign_up_end, "", :class => "indent2em" %>
+          <label class="indent2em"><%= t 'activerecord.attributes.online_promotion.member_sign_up_end' %></label>
           <%= op_f.date_select :member_sign_up_end, :disabled => true %>
         </li>
         <li>
-          <%= op_f.label :member_type %>
+          <label><%= t 'activerecord.attributes.online_promotion.member_type' %></label>
           <%= op_f.collection_select :member_type, OnlinePromotion::MEMBER_TYPE, :first, :second %>
         </li>
         <li>
-          <%= op_f.label :order_channel %>
+          <label><%= t 'activerecord.attributes.online_promotion.order_channel' %></label>
           <%= op_f.collection_select :order_channel, OnlinePromotion::ORDER_CHANNEL, :first, :second %>
         </li>
         <li>
-          <%= op_f.label :procedure_id %>
+          <label><%= t 'activerecord.attributes.online_promotion.procedure_id' %></label>
           <%= op_f.collection_select :procedure_id, Procedure.activated, :id, :name, :include_blank => "无限制" %>
         </li>
       </ul>
@@ -78,25 +78,25 @@
       <h1>活动内容</h1>
       <ul>
         <li>
-          <%= f.label :product_discount %>
+         <label><%= t 'activerecord.attributes.promotion_by_product.product_discount' %></label>
           <%= f.text_field :product_discount %>
           <span class="red">说明：输入1为全价，输入0.95为95折</span>
         </li>
         <li>
-          <%= op_f.label :free_installation %>
+          <label><%= t 'activerecord.attributes.online_promotion.free_installation' %></label>
           <%= op_f.collection_radio :free_installation, OnlinePromotion::FREE_INSTALLATION, :first, :second %>
         </li>
         <li>
-          <%= op_f.label :free_assembling %>
+          <label><%= t 'activerecord.attributes.online_promotion.free_assembling' %></label>
           <%= op_f.collection_radio :free_assembling, OnlinePromotion::FREE_ASSEMBLING, :first, :second %>
         </li>
         <li>
-          <%= op_f.label :points_promotion_method %>
+          <label><%= t 'activerecord.attributes.online_promotion.points_promotion_method' %></label>
           <%= op_f.collection_select :points_promotion_method, OnlinePromotion::POINTS_PROMOTION_METHOD, :first, :second %>
           <%= op_f.text_field :points_promotion_parameter %>
         </li>
         <li>
-          <%= op_f.label :sku_id %>
+          <label><%= t 'activerecord.attributes.online_promotion.sku_id' %></label>
           <%= text_field_tag :sku_name, nil, :readonly => true %>
           <%= link_to "清空", "#", :id => "empty_sku", :class => "link" %>
           <%= link_to "设置", "#", :id => "set_sku", :class => "link" %>

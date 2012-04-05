@@ -37,7 +37,7 @@ jQuery ->
       jQuery(this).after("<a href='#' id='set_product' class='link'>设置</a>")
 
   jQuery("#set_product").live 'click',(event) ->
-    window.open('/promotion/promotion_member_temps?member_type='+jQuery("#promotion_by_product_online_promotion_attributes_member_type").val(),'','height=600,width=800')
+    window.open('/promotion/promotion_product_temps?products_selection='+jQuery("#promotion_by_product_products_selection").val(),'','height=600,width=800')
 
   jQuery("#set_sku").click ->
     window.open('/promotion/online_promotions/search_skus','','height=600,width=800')
