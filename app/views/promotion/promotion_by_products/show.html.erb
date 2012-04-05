@@ -27,7 +27,7 @@
     </li>
     <li>
       <label><%= t 'activerecord.attributes.online_promotion.status' %></label>
-      <span class="red"><%= OnlinePromotion::STATUS[@online_promotion.status] %></span>
+      <span class="red"><%= format_online_promotion_status @online_promotion %></span>
     </li>
     <li>
       <label><%= t 'activerecord.attributes.online_promotion.description' %></label>
@@ -104,4 +104,5 @@
       <% end %>
     </li>
   </ul>
+  <%= render "promotion/online_promotions/buttons" %>
 </div>
