@@ -27,7 +27,11 @@
     </li>
     <li>
       <label><%= t 'activerecord.attributes.online_promotion.status' %></label>
-      <span class="red"><%= format_online_promotion_status @online_promotion %></span>
+      <span class="red"><%= OnlinePromotion::STATUS[@online_promotion.status] %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.online_promotion.progress' %></label>
+      <span class="red"><%= OnlinePromotion::PROGRESS[@online_promotion.progress] %></span>
     </li>
     <li>
       <label><%= t 'activerecord.attributes.online_promotion.description' %></label>

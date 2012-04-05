@@ -310,7 +310,12 @@ Ebiz::Application.routes.draw do
   namespace :promotion do
     resources :online_promotions do
       get :search_skus, :on => :collection
-      put :release, :on => :member
+      member do
+        put :release
+        get :close_view
+        put :close
+      end
+
     end
     resources :promotion_by_orders do
       post :preview, :on => :collection

@@ -42,6 +42,7 @@
       <th><%= t 'activerecord.attributes.online_promotion.online_promotionable_type' %></th>
       <th><%= t 'activerecord.attributes.online_promotion.promotion_type' %></th>
       <th><%= t 'activerecord.attributes.online_promotion.status' %></th>
+      <th><%= t 'activerecord.attributes.online_promotion.progress' %></th>
       <th><%= t 'admin.misc.updated_at' %></th>
     </tr>
   </thead>
@@ -55,7 +56,8 @@
       <td><%= online_promotion.end %></td>
       <td><%= OnlinePromotion::ONLINE_PROMOTIONABLE[online_promotion.online_promotionable_type] %></td>
       <td><%= OnlinePromotion::PROMOTION_TYPE[online_promotion.promotion_type] %></td>
-      <td><%= format_online_promotion_status online_promotion %></td>
+      <td><%= OnlinePromotion::STATUS[online_promotion.status] %></td>
+      <td><%= OnlinePromotion::PROGRESS[online_promotion.progress] %></td>
       <td><%= online_promotion.updated_at %></td>
     </tr>
   <% end %>

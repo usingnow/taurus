@@ -29,4 +29,21 @@ class Promotion::OnlinePromotionsController < ApplicationController
     @online_promotion.update_attribute(:status,1)
     redirect_to promotion_online_promotion_url(@online_promotion), :notice => "发布成功"
   end
+
+  def close_view
+    @online_promotion = OnlinePromotion.find(params[:id])
+    render "close_view", :layout => "empty"
+  end
+
+  def close
+    @online_promotion = OnlinePromotion.find(params[:id])
+    @online_promotion.current_step = "close"
+    if @online_promotion.update_attributes(:status => 2, :remarks => params[:online_promotion][:remarks])
+      render "close_view", :layout => "empty"
+    else
+      @online_promotion.status = 0
+      render "close_view", :layout => "empty"
+    end
+
+  end
 end

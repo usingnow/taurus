@@ -1,2 +1,7 @@
-<%= link_to "发布活动", release_promotion_online_promotion_path(@online_promotion), :class => "longbtn", :confirm => "确认发布么？", :method => :put if @online_promotion.status == 0%>
+<%= link_to "关闭活动", close_view_promotion_online_promotion_path(@online_promotion), :class => "longbtn",
+            :confirm => "确认关闭么？", :id => "close_promotion" if @online_promotion.status != 2 %>
+
+<%= link_to "发布活动", release_promotion_online_promotion_path(@online_promotion), :class => "longbtn",
+            :confirm => "确认发布么？", :method => :put if @online_promotion.status == 0 %>
+
 <%= link_to "关闭页面", "#", :class => "longbtn", :onclick => "return window.close();" %>

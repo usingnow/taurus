@@ -4,4 +4,6 @@ jQuery ->
     window.opener.jQuery("#sku_name").val(jQuery(this).attr("data-name"))
     window.close()
 
-  jQuery
+  jQuery("#close_promotion").click ->
+    window.open(jQuery(this).attr("href"),'','height=600,width=800')
+    false

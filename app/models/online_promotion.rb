@@ -16,10 +16,28 @@ class OnlinePromotion < ActiveRecord::Base
   ORDER_CHANNEL = { 0 => "无限制", 1 => "前台下单", 2 => "后台下单" }
   ONLINE_PROMOTIONABLE = { "PromotionByOrder" => "订单类", "PromotionByProduct" => "商品类" }
   STATUS = { 0 => "保存", 1 => "已确认", 2 => "已关闭" }
+  PROGRESS = { 0 => "", 1 => "未开始", 2 => "进行中", 3 => "已结束" }
 
+
+  def progress
+    case status
+    when 1
+      if Time.now < start
+        value = 1
+      elsif Time.now > self.end
+        value = 3
+      else
+        value = 2
+      end
+    else
+      value = 0
+    end
+    value
+  end
 
   validates_presence_of :code, :title, :promotion_type, :status, :start, :end, :description
   validates_uniqueness_of :code
+  validates_presence_of :remarks, :if => Proc.new { current_step == "close" }
   validate :member_exists?
 
   protected

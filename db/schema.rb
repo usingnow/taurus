@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120405035924) do
+ActiveRecord::Schema.define(:version => 20120405130443) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -419,8 +419,11 @@ ActiveRecord::Schema.define(:version => 20120405035924) do
     t.datetime "updated_at"
     t.boolean  "sign_up_time_limit",                                       :default => false
     t.integer  "procedure_id"
+    t.text     "remarks"
+    t.integer  "administrator_id"
   end
 
+  add_index "online_promotions", ["administrator_id"], :name => "index_online_promotions_on_administrator_id"
   add_index "online_promotions", ["code"], :name => "index_online_promotions_on_code", :unique => true
   add_index "online_promotions", ["online_promotionable_id"], :name => "index_online_promotions_on_online_promotionable_id"
   add_index "online_promotions", ["procedure_id"], :name => "index_online_promotions_on_procedure_id"
