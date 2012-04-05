@@ -39,6 +39,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def number
+    user_type == 1 ? person_extend.person_no : company_extend.company_no
+  end
+
   private
     def default_values
       self.role_id = 2 unless self.role_id

@@ -4,7 +4,7 @@ zh-CN:
       user: "会员"
     attributes:
       user:
-        login_no: "用户名"
+        login_no: "会员登录帐号"
         password: "密码"
         password_confirmation: "确认密码"
         created_at: "注册时间"
@@ -14,4 +14,6 @@ zh-CN:
         email: "邮箱"
         current_password: "当前密码"
         store_id: "仓库"
+        number: "会员编号"
+        name: "会员名称"
 

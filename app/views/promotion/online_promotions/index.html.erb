@@ -1,0 +1,68 @@
+<%= search_form_for @search, :url => promotion_online_promotions_path do |f| %>
+  <div id="show_info">
+    <ul>
+      <li>
+        <%= f.label :code %>
+        <%= f.text_field :code_cont %>
+      </li>
+      <li>
+        <%= f.label :title %>
+        <%= f.text_field :title_cont %>
+      </li>
+      <li>
+        <%= f.label :online_promotionable_type %>
+        <%= f.collection_select :online_promotionable_type_eq, OnlinePromotion::ONLINE_PROMOTIONABLE, :first, :second, :include_blank => true %>
+      </li>
+      <li>
+        <%= f.label :promotion_type %>
+        <%= f.collection_select :promotion_type_eq, OnlinePromotion::PROMOTION_TYPE, :first, :second, :include_blank => true %>
+      </li>
+      <li>
+        <%= f.label :status %>
+        <%= f.collection_select :status_eq, OnlinePromotion::STATUS, :first, :second, :include_blank => true %>
+        <%= f.submit t('admin.misc.search') %>
+      </li>
+    </ul>
+  </div>
+<% end %>
+
+<div class="grid_button">
+  <%= link_to "新建订单活动", new_promotion_promotion_by_order_path %>
+  <%= link_to "新建商品活动", new_promotion_promotion_by_product_path %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t 'activerecord.attributes.online_promotion.code' %></th>
+      <th><%= t 'activerecord.attributes.online_promotion.title' %></th>
+      <th><%= t 'activerecord.attributes.online_promotion.start' %></th>
+      <th><%= t 'activerecord.attributes.online_promotion.end' %></th>
+      <th><%= t 'activerecord.attributes.online_promotion.online_promotionable_type' %></th>
+      <th><%= t 'activerecord.attributes.online_promotion.promotion_type' %></th>
+      <th><%= t 'activerecord.attributes.online_promotion.status' %></th>
+      <th><%= t 'admin.misc.updated_at' %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @online_promotions.each_with_index do |online_promotion,index| %>
+    <tr class="<%= cycle "odd","even" %>">
+      <td><%= index+1 %></td>
+      <td><%= link_to online_promotion.code, promotion_online_promotion_path(online_promotion) %></td>
+      <td><%= online_promotion.title %></td>
+      <td><%= online_promotion.start %></td>
+      <td><%= online_promotion.end %></td>
+      <td><%= OnlinePromotion::ONLINE_PROMOTIONABLE[online_promotion.online_promotionable_type] %></td>
+      <td><%= OnlinePromotion::PROMOTION_TYPE[online_promotion.promotion_type] %></td>
+      <td><%= OnlinePromotion::STATUS[online_promotion.status] %></td>
+      <td><%= online_promotion.updated_at %></td>
+    </tr>
+  <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="9"><%= will_paginate @online_promotions %></td>
+    </tr>
+  </tfoot>
+</table>

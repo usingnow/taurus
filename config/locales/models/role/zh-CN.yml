@@ -1,0 +1,11 @@
+zh-CN:
+  activerecord:
+    models:
+      role: "角色"
+    attributes:
+      role:
+        number: "角色编号"
+        name: "角色名称"
+
+
+

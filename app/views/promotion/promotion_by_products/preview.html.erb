@@ -1,0 +1,132 @@
+<%= form_for @promotion_by_product, :url => promotion_promotion_by_products_path do |f| %>
+  <%= f.fields_for :online_promotion do |op_f| %>
+    <div id="show_info">
+      <%= error_messages @promotion_by_product %>
+      <h1>商品活动基础信息：</h1>
+      <ul>
+        <li>
+          <label><%= t 'activerecord.attributes.online_promotion.code' %></label>
+          <span><%= @promotion_by_product.online_promotion.code %></span>
+          <%= op_f.hidden_field :code %>
+        </li>
+        <li>
+          <label><%= t 'activerecord.attributes.online_promotion.title' %></label>
+          <span><%= @promotion_by_product.online_promotion.title %></span>
+          <%= op_f.hidden_field :title %>
+        </li>
+        <li>
+          <label><%= t 'activerecord.attributes.online_promotion.online_promotionable_type' %></label>
+          <span class="red">商品类</span>
+        </li>
+        <li>
+          <label><%= t 'activerecord.attributes.online_promotion.promotion_type' %></label>
+          <span><%= OnlinePromotion::PROMOTION_TYPE[@promotion_by_product.online_promotion.promotion_type] %></span>
+          <%= op_f.hidden_field :promotion_type %>
+        </li>
+        <li>
+          <label><%= t 'activerecord.attributes.online_promotion.start' %></label>
+          <span><%= @promotion_by_product.online_promotion.start %></span>
+          <%= op_f.hidden_field :start %>
+        </li>
+        <li>
+          <label><%= t 'activerecord.attributes.online_promotion.end' %></label>
+          <span><%= @promotion_by_product.online_promotion.end %></span>
+          <%= op_f.hidden_field :end %>
+        </li>
+        <li>
+          <label><%= t 'activerecord.attributes.online_promotion.description' %></label>
+          <span><%= @promotion_by_product.online_promotion.description %></span>
+          <%= op_f.hidden_field :description %>
+        </li>
+      </ul>
+
+      <h1>活动规则：</h1>
+      <ul>
+        <li>
+          <label><%= t 'activerecord.attributes.promotion_by_product.products_selection' %></label>
+          <span><%= PromotionByProduct::PRODUCTS_SELECTION[@promotion_by_product.products_selection] %></span>
+          <%= f.hidden_field :products_selection %>
+        </li>
+        <li>
+          <label><%= t 'activerecord.attributes.promotion_by_product.promotion_basis' %></label>
+          <span><%= PromotionByProduct::PROMOTION_BASIS[@promotion_by_product.promotion_basis] %></span>
+          <span><%= @promotion_by_product.basis_parameter %></span>
+          <%= f.hidden_field :promotion_basis %>
+          <%= f.hidden_field :basis_parameter %>
+        </li>
+        <li>
+          <label><%= t 'activerecord.attributes.online_promotion.min_member_point' %></label>
+          <span>大于<%= @promotion_by_product.online_promotion.min_member_point %>分</span>
+          <%= op_f.hidden_field :min_member_point %>
+        </li>
+        <li>
+          <label><%= t 'activerecord.attributes.online_promotion.sign_up_time_limit' %></label>
+          <span><%= @promotion_by_product.online_promotion.sign_up_time_limit %></span>
+          <%= op_f.hidden_field :sign_up_time_limit %>
+        </li>
+        <li>
+          <label class="indent2em"><%= t 'activerecord.attributes.online_promotion.member_sign_up_start' %></label>
+          <span><%= @promotion_by_product.online_promotion.member_sign_up_start %></span>
+          <%= op_f.hidden_field :member_sign_up_start %>
+        </li>
+        <li>
+          <label class="indent2em"><%= t 'activerecord.attributes.online_promotion.member_sign_up_end' %></label>
+          <span><%= @promotion_by_product.online_promotion.member_sign_up_end %></span>
+          <%= op_f.hidden_field :member_sign_up_end %>
+        </li>
+        <li>
+          <label><%= t 'activerecord.attributes.online_promotion.member_type' %></label>
+          <span><%= OnlinePromotion::MEMBER_TYPE[@promotion_by_product.online_promotion.member_type] %></span>
+          <%= op_f.hidden_field :member_type %>
+        </li>
+        <li>
+          <label><%= t 'activerecord.attributes.online_promotion.order_channel' %></label>
+          <span><%= OnlinePromotion::ORDER_CHANNEL[@promotion_by_product.online_promotion.order_channel] %></span>
+          <%= op_f.hidden_field :order_channel %>
+        </li>
+        <li>
+          <label><%= t 'activerecord.attributes.online_promotion.procedure_id' %></label>
+          <span><%= @promotion_by_product.online_promotion.procedure_id ? @promotion_by_product.online_promotion.procedure.name : "无限制" %></span>
+          <%= op_f.hidden_field :procedure_id %>
+        </li>
+      </ul>
+
+      <h1>活动内容</h1>
+      <ul>
+        <li>
+          <label><%= t 'activerecord.attributes.promotion_by_product.product_discount' %></label>
+          <span><%= @promotion_by_product.product_discount %></span>
+          <%= f.hidden_field :product_discount %>
+        </li>
+        <li>
+          <label><%= t 'activerecord.attributes.online_promotion.free_installation' %></label>
+          <span><%= OnlinePromotion::FREE_INSTALLATION[@promotion_by_product.online_promotion.free_installation] %></span>
+          <%= op_f.hidden_field :free_installation %>
+        </li>
+        <li>
+          <label><%= t 'activerecord.attributes.online_promotion.free_assembling' %></label>
+          <span><%= OnlinePromotion::FREE_ASSEMBLING[@promotion_by_product.online_promotion.free_assembling] %></span>
+          <%= op_f.hidden_field :free_assembling %>
+        </li>
+        <li>
+          <label><%= t 'activerecord.attributes.online_promotion.points_promotion_method' %></label>
+          <span><%= OnlinePromotion::POINTS_PROMOTION_METHOD[@promotion_by_product.online_promotion.points_promotion_method] %></span>
+          <span><%= @promotion_by_product.online_promotion.points_promotion_parameter %></span>
+          <%= op_f.hidden_field :points_promotion_method %>
+          <%= op_f.hidden_field :points_promotion_parameter %>
+        </li>
+        <li>
+          <label><%= t 'activerecord.attributes.online_promotion.sku_id' %></label>
+          <% if @promotion_by_product.online_promotion.sku_id %>
+            <span><%= can?(:read, Sku) ? link_to(@promotion_by_product.online_promotion.sku.number, commodity_admin_sku_path(@promotion_by_product.online_promotion.sku_id), :class => "link") : @promotion_by_product.online_promotion.sku.number %></span>
+            <span><%= @promotion_by_product.online_promotion.sku.name %></span>
+          <% end %>
+          <%= op_f.hidden_field :sku_id %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.submit "返回修改" %>
+  <%= f.submit "保存" %>
+<% end %>

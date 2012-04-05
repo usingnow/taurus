@@ -8,9 +8,9 @@
       </p>
       <p>
         <%= label_tag "发票类型" %>
-        <%= radio_button_tag "inner_order_payment[invoice_type]", '2', true, :class => "radio" %>不需要
-        <%= radio_button_tag "inner_order_payment[invoice_type]", '0', false, :class => "radio" %>普通
-        <%= radio_button_tag "inner_order_payment[invoice_type]", '1', false, :class => "radio" %>增值税发票
+        <%= radio_button_tag "inner_order_payment[invoice_type]", '2', true, :class => "radio" %><label>不需要</label>
+        <%= radio_button_tag "inner_order_payment[invoice_type]", '0', false, :class => "radio" %><label>普通</label>
+        <%= radio_button_tag "inner_order_payment[invoice_type]", '1', false, :class => "radio" %><label>增值税发票</label>
       </p>
       <p id="invoice_head"></p>
       <div id="type_invoice"></div>
@@ -24,8 +24,8 @@
     var value = this.value;
       if(value == "0"){
         jQuery("#invoice_head").html('<%= label_tag "发票抬头" %>'+
-                                     '<%= radio_button_tag "inner_order_payment[is_invoice_head]", '0', true, :class => "invoice_head" %>个人'+
-                                     '<%= radio_button_tag "inner_order_payment[is_invoice_head]", '1', false, :class => "invoice_head" %> 单位');
+                                     '<%= radio_button_tag "inner_order_payment[is_invoice_head]", '0', true, :class => "invoice_head" %><label>个人</label>'+
+                                     '<%= radio_button_tag "inner_order_payment[is_invoice_head]", '1', false, :class => "invoice_head" %><label>单位</label>');
         jQuery(".invoice_head").click(function(){
           if(this.value == "0"){
              $("#title_company_name").html("");
@@ -41,7 +41,7 @@
           jQuery("#type_invoice").html("");
         }else{
           jQuery("#invoice_head").html('<%= label_tag "发票抬头" %>'+
-                                     '<%= radio_button_tag "inner_order_payment[is_invoice_head]", '1', true, :class => "invoice_head" %> 单位');
+                                     '<%= radio_button_tag "inner_order_payment[is_invoice_head]", '1', true, :class => "invoice_head" %><label>单位</label>');
           $("#title_company_name").html('<%= label_tag "单位名称" %><%= text_field :inner_order_payment, :company_name, :required => "required" %>');
           var str = '';
           str+= '<p><%= label_tag "开户银行" %><%= text_field :inner_order_payment, :account_bank %></p>';

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120401082248) do
+ActiveRecord::Schema.define(:version => 20120330021018) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -649,8 +649,8 @@ ActiveRecord::Schema.define(:version => 20120401082248) do
   create_table "products", :force => true do |t|
     t.string   "product_id"
     t.string   "name"
-    t.decimal  "cost_bef_tax",              :precision => 8, :scale => 2, :default => 0.0
-    t.decimal  "cost_aft_tax",              :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "cost_bef_tax",              :precision => 8, :scale => 2
+    t.decimal  "cost_aft_tax",              :precision => 8, :scale => 2
     t.string   "brand_id"
     t.string   "product_category_id"
     t.string   "unit"
@@ -675,14 +675,14 @@ ActiveRecord::Schema.define(:version => 20120401082248) do
     t.string   "appendant"
     t.boolean  "is_green"
     t.boolean  "is_assembling_required"
-    t.decimal  "assembling_fee_bef_tax",    :precision => 8, :scale => 2, :default => 0.0
-    t.decimal  "assembling_fee_aft_tax",    :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "assembling_fee_bef_tax",    :precision => 8, :scale => 2
+    t.decimal  "assembling_fee_aft_tax",    :precision => 8, :scale => 2
     t.boolean  "is_maintanable"
-    t.decimal  "maintenance_cost_bef_tax",  :precision => 8, :scale => 2, :default => 0.0
-    t.decimal  "maintenance_cost_aft_tax",  :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "maintenance_cost_bef_tax",  :precision => 8, :scale => 2
+    t.decimal  "maintenance_cost_aft_tax",  :precision => 8, :scale => 2
     t.boolean  "is_installation_required"
-    t.decimal  "installation_cost_bef_tax", :precision => 8, :scale => 2, :default => 0.0
-    t.decimal  "insatllation_cost_aft_tax", :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "installation_cost_bef_tax", :precision => 8, :scale => 2
+    t.decimal  "insatllation_cost_aft_tax", :precision => 8, :scale => 2
     t.string   "created_by"
     t.string   "updated_by"
     t.datetime "created_at"

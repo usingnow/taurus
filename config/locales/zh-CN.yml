@@ -440,6 +440,28 @@ zh-CN:
     inner_order_address:
       mobile: "手机"
 
+    online_promotion:
+      code: "活动编号"
+      title: "活动名称"
+      online_promotionable_type: "活动范围"
+      promotion_type: "活动类型"
+      start: "开始时间"
+      end: "结束时间"
+      description: "活动说明"
+      min_member_point: "用户最小积分"
+      sign_up_time_limit: "用户注册日期"
+      member_sign_up_start: "起始日期"
+      member_sign_up_end: "结束日期"
+      member_type: "会员范围"
+      order_channel: "订单方式"
+      procedure_id: "付款方式"
+      promotion_members: "特定会员"
+      free_installation: "免除安装费"
+      free_assembling: "免除组装费"
+      points_promotion_method: "积分奖励"
+      sku_id: "礼品"
+      status: "活动状态"
+
 
 
 
@@ -501,6 +523,7 @@ zh-CN:
       save: "保存"
       start_date: "起始日期"
       end_date: "结束日期"
+      updated_at: "更新日期"
     actions:
       index:
         title: "%{model}列表"

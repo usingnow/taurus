@@ -180,6 +180,7 @@ div.middle_button {
   padding: 5px;
   background-color: #DDEEFF;
   input[type="radio"] {
+    float: left;
     width: 20px;}
   .short_input_text {
     width: 80px;}
@@ -386,32 +387,27 @@ p {
       font-weight:bold;
     }
   }
-}
-
-
-
-
-
-#show_info label{
-  display:block;
-  width:120px;
-  float:left;
-  vertical-align:middle;
-  text-align:left;
-  color:#013DA4;
-  height:25px;
-  line-height:25px;
+  label{
+    display:block;
+    width:120px;
+    float:left;
+    vertical-align:middle;
+    text-align:left;
+    color:#013DA4;
+    height:25px;
+    line-height:25px;
+  }
 }
 
 #show_info ul{
-  line-height:25px;
+  line-height:30px;
   vertical-align:middle;
   list-style:none;
   padding-left:20px
 }
 
 #show_info li{
-  min-height:25px;
+  min-height:30px;
   margin-top:3px;
   margin-bottom:3px;
   span {
