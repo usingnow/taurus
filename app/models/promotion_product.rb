@@ -1,3 +1,4 @@
+#encoding:UTF-8
 class PromotionProduct < ActiveRecord::Base
   belongs_to :online_promotion
   belongs_to :brand, :class_name => "Brand", :foreign_key => "selection_parameter"
