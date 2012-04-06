@@ -124,17 +124,18 @@
     <% end %>
 
     <% if user_signed_in? %>
-      <%= form_for @customer_rating, :url => commodity_sku_detail_customer_ratings_path(@sku) do |f| %>
+      <%= form_for @customer_rating, :url => commodity_sku_detail_customer_ratings_path(@sku), :html => {:class => "comment_form"} do |f| %>
         <%= f.radio_button :rating, 1, :class => "star required" %>
         <%= f.radio_button :rating, 2, :class => "star" %>
         <%= f.radio_button :rating, 3, :class => "star" %>
         <%= f.radio_button :rating, 4, :class => "star" %>
         <%= f.radio_button :rating, 5, :class => "star", :checked => true %>
-        <%= f.text_area :comment, :cols => 80, :rows => 5 %>
-        <%= f.submit "提交", :class => "handler" %>
+        <span class="comment_info">（请选择您的评分）</span>
+        <%= f.text_area :comment, :cols => 80, :rows => 5, :class => "comment_textarea" %>
+        <%= f.submit "提交", :class => "comment_submit" %>
       <% end %>
     <% else %>
-      <%= link_to "请登录", new_user_session_path %>
+      <%= link_to "评论请先登录", new_user_session_path %>
     <% end %>
   </div>
 </div>
