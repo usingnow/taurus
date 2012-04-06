@@ -6,7 +6,7 @@ zh-CN:
       customer_rating:
         user_id: "会员"
         sku_id: "媒体商品"
-        rating: "评价"
+        rating: "评分"
         comment: "内容"
         administrator_id: "回复人"
         reply: "回复内容"

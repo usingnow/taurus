@@ -7,4 +7,8 @@ class Admin::CustomerRatingsController < ApplicationController
     @search.sorts = "updated_at desc"
     @customer_ratings = @search.result.paginate(:page => params[:page], :per_page => 20)
   end
+
+  def show
+    @customer_rating = CustomerRating.find(params[:id])
+  end
 end

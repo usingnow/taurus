@@ -1,0 +1,39 @@
+<div id="show_info">
+  <h1>评论信息</h1>
+  <ul>
+    <li>
+      <label><%= t 'activerecord.attributes.sku.number' %></label>
+      <span><%= @customer_rating.sku.number %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.sku.name' %></label>
+      <span><%= @customer_rating.sku.name %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.user.number' %></label>
+      <span><%= @customer_rating.user.number %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.user.name' %></label>
+      <span><%= @customer_rating.user.name %></span>
+      <hr />
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.customer_rating.created_at' %></label>
+      <span><%= @customer_rating.created_at %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.customer_rating.rating' %></label>
+      <span><%= @customer_rating.rating %>分</span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.customer_rating.comment' %></label>
+      <span><%= @customer_rating.comment %></span>
+      <hr />
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.customer_rating.created_at' %></label>
+      <span><%= @customer_rating.created_at %></span>
+    </li>
+  </ul>
+</div>
