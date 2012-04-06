@@ -70,6 +70,9 @@ class Sku < ActiveRecord::Base
     flag
   end
 
+  def average_rating
+    customer_ratings.any? ? (customer_ratings.to_a.sum { |rating| rating.rating} / customer_ratings.count.to_f).round : 5
+  end
 
   def add_browsing_history(user_id)
     sku_browsing_history = sku_browsing_histories.find_by_user_id(user_id)
@@ -85,4 +88,5 @@ class Sku < ActiveRecord::Base
     sku_productship = sku_productships.to_a.min { |a| a.product.inventory(store_id)/a.package_num }
     sku_productship.product.inventory(store_id)/sku_productship.package_num
   end
+
 end
