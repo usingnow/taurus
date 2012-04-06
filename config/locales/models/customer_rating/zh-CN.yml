@@ -1,0 +1,16 @@
+zh-CN:
+  activerecord:
+    models:
+      customer_rating: "评论"
+    attributes:
+      customer_rating:
+        user_id: "会员"
+        sku_id: "媒体商品"
+        rating: "评价"
+        comment: "内容"
+        administrator_id: "回复人"
+        reply: "回复内容"
+        created_at: "评论时间"
+        updated_at: "回复时间"
+        is_reply: "是否回复"
+

@@ -61,6 +61,7 @@ Ebiz::Application.routes.draw do
     resources :company_extends
     resources :company_scales
     resources :company_types
+    resources :customer_ratings
     resources :groups
     resources :home
     resources :industries
