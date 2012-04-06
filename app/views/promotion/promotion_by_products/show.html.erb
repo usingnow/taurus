@@ -30,6 +30,10 @@
       <span class="red"><%= OnlinePromotion::STATUS[@online_promotion.status] %></span>
     </li>
     <li>
+      <label><%= t 'activerecord.attributes.online_promotion.progress' %></label>
+      <span class="red"><%= OnlinePromotion::PROGRESS[@online_promotion.progress] %></span>
+    </li>
+    <li>
       <label><%= t 'activerecord.attributes.online_promotion.description' %></label>
       <span><%= @online_promotion.description %></span>
     </li>
@@ -104,4 +108,5 @@
       <% end %>
     </li>
   </ul>
+  <%= render "promotion/online_promotions/buttons" %>
 </div>

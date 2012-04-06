@@ -309,19 +309,19 @@ Ebiz::Application.routes.draw do
 
   namespace :promotion do
     resources :online_promotions do
-      collection do
-        get :search_skus
+      get :search_skus, :on => :collection
+      member do
+        put :release
+        get :close_view
+        put :close
       end
+
     end
     resources :promotion_by_orders do
-      collection do
-        post :preview
-      end
+      post :preview, :on => :collection
     end
     resources :promotion_by_products do
-      collection do
-        post :preview
-      end
+      post :preview, :on => :collection
     end
     resources :promotion_member_temps
     resources :promotion_product_temps

@@ -24,6 +24,8 @@ zh-CN:
         points_promotion_method: "积分奖励"
         sku_id: "礼品"
         status: "活动状态"
+        progress: "进行状态"
+        remarks: "备注"
 
 
 

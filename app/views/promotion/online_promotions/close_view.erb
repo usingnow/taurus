@@ -1,0 +1,29 @@
+<%= form_for @online_promotion, :url => close_promotion_online_promotion_path(@online_promotion) do |f| %>
+  <div id="show_info">
+    <%= error_messages @online_promotion %>
+    <ul>
+       <li>
+        <label><%= t 'activerecord.attributes.online_promotion.code' %></label>
+        <span><%= @online_promotion.code %></span>
+      </li>
+      <li>
+        <label><%= t 'activerecord.attributes.online_promotion.title' %></label>
+        <span><%= @online_promotion.title %></span>
+      </li>
+      <li>
+        <label><%= t 'activerecord.attributes.online_promotion.remarks' %><abbr title="required">*</abbr></label>
+        <%= f.text_area :remarks, :cols => 80, :rows => 5 %>
+      </li>
+    </ul>
+    <%= f.submit "关闭活动" %>
+    <input type="button" value="取消" onclick="return window.close();" />
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  var status = "<%= @online_promotion.status %>";
+  if(status == "2"){
+    window.close();
+    window.opener.location.reload();
+  }
+</script>
