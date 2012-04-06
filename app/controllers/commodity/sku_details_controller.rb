@@ -3,6 +3,7 @@ class Commodity::SkuDetailsController < ApplicationController
 
   def show
     @sku = Sku.find(params[:id])
+    @customer_rating = CustomerRating.new
 
     if current_user.nil?
       @sku_browsing_histories = Hash.new

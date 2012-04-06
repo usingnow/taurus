@@ -1,5 +1,6 @@
 #= require plugin/jquery.jqzoom-core-pack
 #= require plugin/jquery.jcarousel.min
+#= require core/rating/jquery.rating.pack
 
 jQuery ->
   jQuery("#add_to_cart").click ->
@@ -50,3 +51,7 @@ jQuery ->
         jQuery('body').append "AJAX Error: #{textStatus}"
       success: (data, textStatus, jqXHR) ->
         jQuery('#add_successful').attr("class","successful").html(data)
+
+
+  if jQuery("#alert").text().length > 0
+    alert jQuery("#alert").text()

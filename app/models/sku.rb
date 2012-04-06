@@ -7,6 +7,7 @@ class Sku < ActiveRecord::Base
   belongs_to :sku_category
   has_many :sku_on_shelves, :dependent => :destroy
   has_many :sku_browsing_histories, :dependent => :destroy
+  has_many :customer_ratings, :dependent => :destroy
   scope :on_shelves, where("skus.id in(select sku_id from sku_on_shelves where status = 1)")
   scope :begin_sales, where("skus.status = 1")
   attr_accessor :brand_name, :sku_category_name, :sku_category_number

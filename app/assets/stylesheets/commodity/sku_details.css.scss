@@ -1,5 +1,6 @@
 //= require plugin/jquery.jqzoom
 //= require plugin/jquery.jcarousel
+//= require core/rating/jquery.rating
 
 #sku_details_wrapper{
   h1 {
@@ -200,3 +201,25 @@
 .zoomPad {
   img {
     outline: 1px solid #DDDDDD;}}
+
+
+//评论
+#sku_comments {
+  .item {
+    padding: 10px 15px 5px;
+    border: 1px solid #F3E6C6;
+    background: #FFFCF5;
+    margin-top: 10px;
+  }
+  .topic {
+    padding: 0 0 2px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #F9F0DB;
+    overflow: hidden;
+    zoom: 1;
+  }
+  .date {
+    float: right;
+    color: #999;
+  }
+}

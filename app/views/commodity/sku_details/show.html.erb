@@ -1,3 +1,4 @@
+<div id="alert"><%= alert %></div>
 <div id="sku_details_wrapper">
   <p class="sku_details_nav">您的位置：
     <a href="/">首页</a> >>
@@ -93,15 +94,42 @@
           </p>
           <!--<p>市场价：&yen;99999.00</p>-->
           <p>
-            <em class="cny"><%= cny history.sku.cost_aft_tax %></em></strong>
+            <em class="cny"><%= cny history.sku.cost_aft_tax %></em>
           </p>
         </li>
       <% end %>
     </ul>
   </div>
-  <!--暂注释评论功能。
   <div id="sku_comments" class="sku_long">
     <h3>商品评论</h3>
+    <% @sku.customer_ratings.each do |rating| %>
+      <div class="item">
+        <div class="topic">
+          <span>
+            <% 5.times.each do |t| %>
+              <%= radio_button_tag :"star#{rating.id}", nil, (t+1 == rating.rating ? true : false), :class => "star", :disabled => "disabled" %>
+            <% end %>
+          </span>
+          <span class="date"><%= rating.created_at %></span>
+        </div>
+        <div class="content">
+           <%= rating.comment %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <%= form_for @customer_rating, :url => commodity_sku_detail_customer_ratings_path(@sku) do |f| %>
+        <%= f.radio_button :rating, 1, :class => "star required" %>
+        <%= f.radio_button :rating, 2, :class => "star" %>
+        <%= f.radio_button :rating, 3, :class => "star" %>
+        <%= f.radio_button :rating, 4, :class => "star" %>
+        <%= f.radio_button :rating, 5, :class => "star", :checked => true %>
+        <%= f.text_area :comment, :cols => 80, :rows => 5 %>
+        <%= f.submit "提交", :class => "handler" %>
+      <% end %>
+    <% else %>
+      <%= link_to "请登录", new_user_session_path %>
+    <% end %>
   </div>
-  -->
 </div>

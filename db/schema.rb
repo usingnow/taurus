@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120330021018) do
+ActiveRecord::Schema.define(:version => 20120406053207) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -170,6 +170,8 @@ ActiveRecord::Schema.define(:version => 20120330021018) do
     t.datetime "updated_at"
   end
 
+  add_index "company_extends", ["user_id"], :name => "index_company_extends_on_user_id"
+
   create_table "company_scales", :force => true do |t|
     t.string   "name"
     t.integer  "sequence"
@@ -217,6 +219,21 @@ ActiveRecord::Schema.define(:version => 20120330021018) do
   end
 
   add_index "consignee_infos", ["user_id"], :name => "index_consignee_infos_on_user_id", :unique => true
+
+  create_table "customer_ratings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "sku_id"
+    t.integer  "rating",           :default => 0
+    t.string   "comment"
+    t.integer  "administrator_id"
+    t.string   "reply"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "customer_ratings", ["administrator_id"], :name => "index_customer_ratings_on_administrator_id"
+  add_index "customer_ratings", ["sku_id"], :name => "index_customer_ratings_on_sku_id"
+  add_index "customer_ratings", ["user_id"], :name => "index_customer_ratings_on_user_id"
 
   create_table "delivery_order_carts", :force => true do |t|
     t.integer  "product_id"
@@ -392,6 +409,41 @@ ActiveRecord::Schema.define(:version => 20120330021018) do
 
   add_index "number_counters", ["name"], :name => "index_number_counters_on_name", :unique => true
 
+  create_table "online_promotions", :force => true do |t|
+    t.string   "online_promotionable_type"
+    t.integer  "online_promotionable_id"
+    t.string   "code"
+    t.string   "title"
+    t.integer  "promotion_type"
+    t.string   "description"
+    t.datetime "start"
+    t.datetime "end"
+    t.integer  "status"
+    t.integer  "member_type",                                              :default => 0
+    t.integer  "min_member_point",                                         :default => 0
+    t.datetime "member_sign_up_start"
+    t.datetime "member_sign_up_end"
+    t.integer  "order_channel"
+    t.boolean  "free_installation",                                        :default => false
+    t.boolean  "free_assembling",                                          :default => false
+    t.integer  "points_promotion_method"
+    t.decimal  "points_promotion_parameter", :precision => 8, :scale => 2, :default => 0.0
+    t.integer  "sku_id"
+    t.boolean  "priority",                                                 :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "sign_up_time_limit",                                       :default => false
+    t.integer  "procedure_id"
+    t.text     "remarks"
+    t.integer  "administrator_id"
+  end
+
+  add_index "online_promotions", ["administrator_id"], :name => "index_online_promotions_on_administrator_id"
+  add_index "online_promotions", ["code"], :name => "index_online_promotions_on_code", :unique => true
+  add_index "online_promotions", ["online_promotionable_id"], :name => "index_online_promotions_on_online_promotionable_id"
+  add_index "online_promotions", ["procedure_id"], :name => "index_online_promotions_on_procedure_id"
+  add_index "online_promotions", ["sku_id"], :name => "index_online_promotions_on_product_id"
+
   create_table "operatings", :force => true do |t|
     t.integer  "function_id"
     t.string   "name"
@@ -552,6 +604,8 @@ ActiveRecord::Schema.define(:version => 20120330021018) do
     t.datetime "updated_at"
   end
 
+  add_index "person_extends", ["user_id"], :name => "index_person_extends_on_user_id"
+
   create_table "po_product_lists", :force => true do |t|
     t.integer  "product_id"
     t.integer  "purchase_order_id"
@@ -649,8 +703,8 @@ ActiveRecord::Schema.define(:version => 20120330021018) do
   create_table "products", :force => true do |t|
     t.string   "product_id"
     t.string   "name"
-    t.decimal  "cost_bef_tax",              :precision => 8, :scale => 2
-    t.decimal  "cost_aft_tax",              :precision => 8, :scale => 2
+    t.decimal  "cost_bef_tax",              :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "cost_aft_tax",              :precision => 8, :scale => 2, :default => 0.0
     t.string   "brand_id"
     t.string   "product_category_id"
     t.string   "unit"
@@ -675,19 +729,80 @@ ActiveRecord::Schema.define(:version => 20120330021018) do
     t.string   "appendant"
     t.boolean  "is_green"
     t.boolean  "is_assembling_required"
-    t.decimal  "assembling_fee_bef_tax",    :precision => 8, :scale => 2
-    t.decimal  "assembling_fee_aft_tax",    :precision => 8, :scale => 2
+    t.decimal  "assembling_fee_bef_tax",    :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "assembling_fee_aft_tax",    :precision => 8, :scale => 2, :default => 0.0
     t.boolean  "is_maintanable"
-    t.decimal  "maintenance_cost_bef_tax",  :precision => 8, :scale => 2
-    t.decimal  "maintenance_cost_aft_tax",  :precision => 8, :scale => 2
+    t.decimal  "maintenance_cost_bef_tax",  :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "maintenance_cost_aft_tax",  :precision => 8, :scale => 2, :default => 0.0
     t.boolean  "is_installation_required"
-    t.decimal  "installation_cost_bef_tax", :precision => 8, :scale => 2
-    t.decimal  "insatllation_cost_aft_tax", :precision => 8, :scale => 2
+    t.decimal  "installation_cost_bef_tax", :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "insatllation_cost_aft_tax", :precision => 8, :scale => 2, :default => 0.0
     t.string   "created_by"
     t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "promotion_by_orders", :force => true do |t|
+    t.decimal  "order_payment_over",    :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "discount",              :precision => 8, :scale => 2, :default => 1.0
+    t.boolean  "free_delivery",                                       :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "purchase_amount_limit",                               :default => 0
+  end
+
+  create_table "promotion_by_products", :force => true do |t|
+    t.integer  "products_selection",                                :default => 0
+    t.integer  "selection_parameter"
+    t.integer  "promotion_basis",                                   :default => 0
+    t.integer  "basis_parameter",                                   :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "product_discount",    :precision => 8, :scale => 2, :default => 1.0
+  end
+
+  create_table "promotion_member_temps", :force => true do |t|
+    t.integer  "member_type"
+    t.integer  "member_info"
+    t.integer  "administrator_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "promotion_member_temps", ["administrator_id"], :name => "index_promotion_member_temps_on_administrator_id"
+  add_index "promotion_member_temps", ["member_info"], :name => "index_promotion_member_temps_on_member_info"
+
+  create_table "promotion_members", :force => true do |t|
+    t.integer  "online_promotion_id"
+    t.integer  "member_info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "promotion_members", ["member_info"], :name => "index_promotion_members_on_member_info"
+  add_index "promotion_members", ["online_promotion_id"], :name => "index_promotion_members_on_online_promotion_id"
+
+  create_table "promotion_product_temps", :force => true do |t|
+    t.integer  "products_selection"
+    t.integer  "selection_parameter"
+    t.integer  "administrator_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "promotion_product_temps", ["administrator_id"], :name => "index_promotion_product_temps_on_administrator_id"
+  add_index "promotion_product_temps", ["selection_parameter"], :name => "index_promotion_product_temps_on_selection_parameter"
+
+  create_table "promotion_products", :force => true do |t|
+    t.integer  "online_promotion_id"
+    t.integer  "product_info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "promotion_products", ["online_promotion_id"], :name => "index_promotion_products_on_online_promotion_id"
+  add_index "promotion_products", ["product_info"], :name => "index_promotion_products_on_product_info"
 
   create_table "provinces", :force => true do |t|
     t.string   "number"

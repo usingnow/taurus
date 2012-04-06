@@ -193,7 +193,9 @@ Ebiz::Application.routes.draw do
         get :fur_jew
       end
     end
-    resources :sku_details
+    resources :sku_details do
+      resources :customer_ratings
+    end
     resources :sku_displays
   end
 
@@ -315,7 +317,6 @@ Ebiz::Application.routes.draw do
         get :close_view
         put :close
       end
-
     end
     resources :promotion_by_orders do
       post :preview, :on => :collection
