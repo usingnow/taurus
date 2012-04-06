@@ -223,3 +223,32 @@
     color: #999;
   }
 }
+.comment_textarea {
+  float: left;
+  clear: both;
+  margin-top: 12px;
+  border-color: #DDDDDD;}
+.comment_submit {
+  float: left;
+  clear: both;
+  background-image: url(/assets/cart_skuships/chartbutton01.png);
+  width: 102px;
+  height: 33px;
+  line-height: 28px;
+  vertical-align: middle;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border: 0px;
+  margin: 12px 0px 0px 2px;
+}
+.comment_submit:hover {
+  background-image: url(/assets/cart_skuships/chartbutton02.png);
+  cursor: pointer;
+}
+.comment_info {
+  margin-left: 20px;
+  color: #E73221;}
+.comment_form {
+  margin-top: 12px;
+}
