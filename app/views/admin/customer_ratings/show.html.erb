@@ -8,6 +8,7 @@
     <li>
       <label><%= t 'activerecord.attributes.sku.name' %></label>
       <span><%= @customer_rating.sku.name %></span>
+      <hr />
     </li>
     <li>
       <label><%= t 'activerecord.attributes.user.number' %></label>
@@ -16,11 +17,6 @@
     <li>
       <label><%= t 'activerecord.attributes.user.name' %></label>
       <span><%= @customer_rating.user.name %></span>
-      <hr />
-    </li>
-    <li>
-      <label><%= t 'activerecord.attributes.customer_rating.created_at' %></label>
-      <span><%= @customer_rating.created_at %></span>
     </li>
     <li>
       <label><%= t 'activerecord.attributes.customer_rating.rating' %></label>
@@ -29,11 +25,24 @@
     <li>
       <label><%= t 'activerecord.attributes.customer_rating.comment' %></label>
       <span><%= @customer_rating.comment %></span>
-      <hr />
     </li>
     <li>
       <label><%= t 'activerecord.attributes.customer_rating.created_at' %></label>
       <span><%= @customer_rating.created_at %></span>
+      <hr />
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.customer_rating.administrator_id' %></label>
+      <span><%= @customer_rating.administrator ? @customer_rating.administrator.name : "无" %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.customer_rating.reply' %></label>
+      <span><%= @customer_rating.reply %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.customer_rating.updated_at' %></label>
+      <span><%= @customer_rating.updated_at %></span>
     </li>
   </ul>
+  <%= link_to "关闭页面", "#", :onclick => "window.close();", :class => "longbtn" %>
 </div>
