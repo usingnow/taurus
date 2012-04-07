@@ -11,4 +11,19 @@ class Admin::CustomerRatingsController < ApplicationController
   def show
     @customer_rating = CustomerRating.find(params[:id])
   end
+
+  def edit
+    @customer_rating = CustomerRating.find(params[:id])
+  end
+
+  def update
+    @customer_rating = CustomerRating.find(params[:id])
+    @customer_rating.administrator_id = current_administrator.id
+    @customer_rating.current_action = "reply"
+    if @customer_rating.update_attributes(params[:customer_rating])
+      redirect_to admin_customer_rating_path(@customer_rating)
+    else
+      render "edit"
+    end
+  end
 end

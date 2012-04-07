@@ -42,7 +42,11 @@
     <li>
       <label><%= t 'activerecord.attributes.customer_rating.updated_at' %></label>
       <span><%= @customer_rating.updated_at %></span>
+      <hr />
+    </li>
+    <li>
+      <%= link_to "回复", edit_admin_customer_rating_path(@customer_rating) if can? :update, CustomerRating%>
+      <%= link_to "关闭页面", "#", :onclick => "window.close();", :class => "longbtn" %>
     </li>
   </ul>
-  <%= link_to "关闭页面", "#", :onclick => "window.close();", :class => "longbtn" %>
 </div>

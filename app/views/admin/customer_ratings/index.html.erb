@@ -22,7 +22,7 @@
       <th><%= t 'activerecord.attributes.sku.number' %></th>
       <th><%= t 'activerecord.attributes.sku.name' %></th>
       <th><%= t 'activerecord.attributes.customer_rating.user_id' %></th>
-      <th></th>
+      <th><%= t 'activerecord.attributes.customer_rating.is_reply' %></th>
       <th></th>
     </tr>
   </thead>
@@ -34,8 +34,8 @@
       <td><%= rating.sku.number %></td>
       <td><%= rating.sku.name %></td>
       <td><%= rating.user.name %></td>
+      <td><%= rating.reply ? "是" : "否" %></td>
       <td><%= link_to t('admin.actions.show.menu'), admin_customer_rating_path(rating), :target => "_blank" %></td>
-      <td><%= link_to "回复", edit_admin_customer_rating_path(rating) %></td>
     </tr>
   <% end %>
   </tbody>
