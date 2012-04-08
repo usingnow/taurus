@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120406053207) do
+ActiveRecord::Schema.define(:version => 20120408033123) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -229,6 +229,7 @@ ActiveRecord::Schema.define(:version => 20120406053207) do
     t.string   "reply"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "visibility",       :default => true
   end
 
   add_index "customer_ratings", ["administrator_id"], :name => "index_customer_ratings_on_administrator_id"

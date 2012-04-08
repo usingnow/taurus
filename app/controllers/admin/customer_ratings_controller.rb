@@ -21,9 +21,15 @@ class Admin::CustomerRatingsController < ApplicationController
     @customer_rating.administrator_id = current_administrator.id
     @customer_rating.current_action = "reply"
     if @customer_rating.update_attributes(params[:customer_rating])
-      redirect_to admin_customer_rating_path(@customer_rating)
+      redirect_to admin_customer_rating_url(@customer_rating)
     else
       render "edit"
     end
+  end
+
+  def destroy
+    @customer_rating = CustomerRating.find(params[:id])
+    @customer_rating.destroy
+    redirect_to admin_customer_ratings_url
   end
 end

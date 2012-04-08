@@ -29,7 +29,7 @@
       <td><%= get_sku_on_shelf_operating(sku_on_shelf.status, sku_on_shelf, @sku) if can? :update, SkuOnShelf %></td>
       <td>
         <%= link_to t('admin.actions.delete.menu'), commodity_admin_sku_sku_on_shelf_path(@sku, sku_on_shelf),
-                    :confirm => t('admin.actions.delete.confirm'), :method => :delete if can? :delete, SkuOnShelf  %>
+                    :confirm => t('admin.actions.delete.confirm'), :method => :delete if can? :destroy, SkuOnShelf  %>
       </td>
     </tr>
   <% end %>
