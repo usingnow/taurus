@@ -222,6 +222,12 @@
     float: right;
     color: #999;
   }
+  .reply {
+    @extend .item;
+    border: none;
+    margin-top: 5px;
+    color: #D75509;
+  }
 }
 .comment_textarea {
   float: left;
