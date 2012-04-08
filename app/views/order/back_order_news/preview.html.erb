@@ -31,8 +31,8 @@
     <tr>
       <td colspan="11" align="right" id="total_amount">
         运费：<%= number_to_currency @carriage_cost, :unit => "￥" %>,
-        安装费合计：<%= number_to_currency @back_order_skus.to_a.sum{ |cart| cart.sku.installation_cost_aft_tax }, :unit => "￥" %>,
-        组装费合计：<%= number_to_currency @back_order_skus.to_a.sum{ |cart| cart.sku.assembling_fee_aft_tax }, :unit => "￥" %>,
+        安装费合计：<%= number_to_currency @user.admin_temp_installation_cost, :unit => "￥" %>,
+        组装费合计：<%= number_to_currency @user.admin_temp_assembling_fee, :unit => "￥" %>,
         总计:<%= number_to_currency @back_order_skus.to_a.sum{ |sku| sku.subtotal }+@carriage_cost, :unit => "￥" %>
       </td>
     </tr>

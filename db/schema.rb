@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120401082248) do
+ActiveRecord::Schema.define(:version => 20120408064153) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -56,11 +56,16 @@ ActiveRecord::Schema.define(:version => 20120401082248) do
 
   create_table "back_order_skus", :force => true do |t|
     t.integer  "sku_id"
-    t.integer  "quantity",   :default => 1
+    t.integer  "quantity",         :default => 1
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.boolean  "is_need_install",  :default => false
+    t.boolean  "is_need_assemble", :default => false
   end
+
+  add_index "back_order_skus", ["sku_id"], :name => "index_back_order_skus_on_sku_id"
+  add_index "back_order_skus", ["user_id"], :name => "index_back_order_skus_on_user_id"
 
   create_table "banks", :force => true do |t|
     t.string   "number"
@@ -407,9 +412,9 @@ ActiveRecord::Schema.define(:version => 20120401082248) do
     t.integer  "sku_id"
     t.decimal  "unit_price",       :precision => 8, :scale => 2, :default => 0.0
     t.integer  "quantity",                                       :default => 1
-    t.integer  "is_need_install",                                :default => 0
+    t.boolean  "is_need_install",                                :default => false
     t.decimal  "install_cost",     :precision => 8, :scale => 2, :default => 0.0
-    t.integer  "is_need_assemble",                               :default => 0
+    t.boolean  "is_need_assemble",                               :default => false
     t.decimal  "assemble_cost",    :precision => 8, :scale => 2, :default => 0.0
     t.decimal  "other_cost",       :precision => 8, :scale => 2, :default => 0.0
     t.integer  "created_admin_id"
@@ -418,6 +423,11 @@ ActiveRecord::Schema.define(:version => 20120401082248) do
     t.datetime "updated_at"
     t.decimal  "sku_cost",         :precision => 8, :scale => 2, :default => 0.0
   end
+
+  add_index "order_details", ["created_admin_id"], :name => "index_order_details_on_created_admin_id"
+  add_index "order_details", ["order_id"], :name => "index_order_details_on_order_id"
+  add_index "order_details", ["sku_id"], :name => "index_order_details_on_sku_id"
+  add_index "order_details", ["updated_admin_id"], :name => "index_order_details_on_updated_admin_id"
 
   create_table "order_numbers", :force => true do |t|
     t.date     "date"

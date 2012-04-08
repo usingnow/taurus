@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_one :consignee_info, :dependent => :destroy
   has_many :favorites, :dependent => :destroy
   has_one :mail_sale, :dependent => :destroy
+  has_many :back_order_skus, :dependent => :destroy
   accepts_nested_attributes_for :person_extend
   accepts_nested_attributes_for :company_extend
   before_validation :default_values
@@ -37,6 +38,15 @@ class User < ActiveRecord::Base
     else
       "无"
     end
+  end
+
+  #后台订单临时商品统计
+  def admin_temp_installation_cost
+    back_order_skus.to_a.sum { |temp| temp.is_need_install ? temp.sku.installation_cost_aft_tax : 0 }
+  end
+
+  def admin_temp_assembling_fee
+    back_order_skus.to_a.sum { |temp| temp.is_need_assemble ? temp.sku.assembling_fee_aft_tax : 0 }
   end
 
   private

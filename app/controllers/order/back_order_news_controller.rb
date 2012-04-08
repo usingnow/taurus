@@ -4,10 +4,9 @@ class Order::BackOrderNewsController < ApplicationController
   def new
     authorize! :create, Order
     @user = User.find params[:user_id]
-    BackOrderSku.destroy_all(:user_id => params[:user_id])
     @search = Sku.search(params[:q])
     @procedures = Procedure.user_procedures params[:user_id]
-    @back_order_skus = Array.new
+    @back_order_skus = BackOrderSku.find_all_by_user_id(@user.id)
     @inner_order_address = InnerOrderAddress.new
   end
 

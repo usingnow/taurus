@@ -122,7 +122,9 @@ class Order::FrontOrdersController < ApplicationController
 
           cart.not_direct_sends.each do |nds|
             line_items << {:order_id => order.id, :sku_id => nds.sku_id, :unit_price => nds.sku.cost_aft_tax,
-                           :sku_cost => nds.sku.sku_cost, :quantity => nds.quantity}
+                           :sku_cost => nds.sku.sku_cost, :quantity => nds.quantity,
+                           :is_need_install => nds.is_need_install, :install_cost => nds.sku.installation_cost_aft_tax,
+                           :is_need_assemble => nds.is_need_assemble, :assemble_cost => nds.sku.assembling_fee_aft_tax }
           end
 
           if OrderDetail.create(line_items)
@@ -177,7 +179,9 @@ class Order::FrontOrdersController < ApplicationController
             session[:order_ids] << order.id
 
             if OrderDetail.create(:order_id => order.id, :sku_id => ds.sku_id, :unit_price => ds.sku.cost_aft_tax,
-                                  :sku_cost => ds.sku.sku_cost, :quantity => ds.quantity)
+                                  :sku_cost => ds.sku.sku_cost, :quantity => ds.quantity,
+                                  :is_need_install => ds.is_need_install, :install_cost => ds.sku.installation_cost_aft_tax,
+                                  :is_need_assemble => ds.is_need_assemble, :assemble_cost => ds.sku.assembling_fee_aft_tax)
               flag = true
             else
               flag = false

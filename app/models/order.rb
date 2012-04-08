@@ -44,12 +44,12 @@ class Order < ActiveRecord::Base
 
   #安装总价
   def total_install_cost
-    order_details.to_a.sum { |item| item.install_cost}
+    order_details.to_a.sum { |item| item.is_need_install ? item.install_cost : 0 }
   end
 
   #组装总价
   def total_assemble_cost
-    order_details.to_a.sum { |item| item.assemble_cost}
+    order_details.to_a.sum { |item| item.is_need_assemble ? item.assemble_cost : 0 }
   end
 
   #合计
