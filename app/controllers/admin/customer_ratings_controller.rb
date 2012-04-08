@@ -32,4 +32,10 @@ class Admin::CustomerRatingsController < ApplicationController
     @customer_rating.destroy
     redirect_to admin_customer_ratings_url
   end
+
+  def close
+    @customer_rating = CustomerRating.find(params[:id])
+    @customer_rating.update_attribute(:visibility,false)
+    redirect_to admin_customer_rating_url(@customer_rating)
+  end
 end

@@ -8,6 +8,14 @@
     <li>
       <label><%= t 'activerecord.attributes.sku.name' %></label>
       <span><%= @customer_rating.sku.name %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.customer_rating.visibility' %></label>
+      <span><%= format_boolean @customer_rating.visibility %></span>
+    </li>
+    <li>
+      <label><%= t 'activerecord.attributes.customer_rating.is_reply' %></label>
+      <span><%= @customer_rating.reply ? "是" : "否" %></span>
       <hr />
     </li>
     <li>
@@ -46,6 +54,8 @@
     </li>
     <li>
       <%= link_to "回复", edit_admin_customer_rating_path(@customer_rating) if can? :update, CustomerRating %>
+      <%= link_to "关闭前台显示", close_admin_customer_rating_path(@customer_rating), :confirm => "是否关闭？",
+                  :method => :put, :class => "longbtn" if can? :close, CustomerRating %>
       <%= link_to t('admin.actions.delete.menu'), admin_customer_rating_path(@customer_rating),
                   :confirm => t('admin.actions.delete.confirm'), :method => :delete if can? :destroy, CustomerRating %>
       <%= link_to "关闭页面", "#", :onclick => "window.close();", :class => "longbtn" %>

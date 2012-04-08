@@ -2,6 +2,7 @@ class CustomerRating < ActiveRecord::Base
   belongs_to :user
   belongs_to :sku
   belongs_to :administrator
+  scope :index_display, where(:visibility => true)
 
   attr_accessor :current_action
 
