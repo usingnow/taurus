@@ -61,7 +61,9 @@ Ebiz::Application.routes.draw do
     resources :company_extends
     resources :company_scales
     resources :company_types
-    resources :customer_ratings
+    resources :customer_ratings do
+      put :close, :on => :member
+    end
     resources :groups
     resources :home
     resources :industries

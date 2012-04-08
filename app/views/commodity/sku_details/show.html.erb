@@ -107,7 +107,7 @@
   </div>
   <div id="sku_comments" class="sku_long">
     <h3>商品评论</h3>
-    <% @sku.customer_ratings.each do |rating| %>
+    <% @sku.customer_ratings.index_display.each do |rating| %>
       <div class="item">
         <div class="topic">
           <span>

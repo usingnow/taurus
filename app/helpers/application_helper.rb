@@ -1,19 +1,7 @@
 #encoding:UTF-8
 module ApplicationHelper
   def format_boolean(boolean)
-    if boolean == true
-      "是"
-    else
-      "否"
-    end
-  end
-
-  def is_blank(value)
-    if value == ''
-
-    else
-      value
-    end
+    { false => "否", true => "是" }[boolean]
   end
 
   def set_odd_even_class(value)
