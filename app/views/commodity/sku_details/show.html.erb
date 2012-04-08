@@ -48,7 +48,7 @@
     <p class="p_1 clear">库存：</p>
     <p><%= get_sku_inventory(@sku) %></p>
     <p>（如果缺货，请咨询<em>400-630-5006</em>）</p>
-    <p>
+    <p style="clear: both;" ]>
       <% 5.times.each do |t| %>
         <%= radio_button_tag :sku_star, nil, (t+1 == @sku.average_rating ? true : false), :class => "star", :disabled => "disabled" %>
       <% end %>
