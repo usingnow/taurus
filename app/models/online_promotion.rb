@@ -7,6 +7,11 @@ class OnlinePromotion < ActiveRecord::Base
 
   attr_accessor :current_step, :administrator_id
 
+  def self.not_in_priorities(id)
+    OnlinePromotion.where("id not in(select promotion_low from promotion_priorities where promotion_high = #{id} union all
+                           (select promotion_high from promotion_priorities where promotion_low = #{id})) and id != #{id}")
+  end
+
   PROMOTION_TYPE = { 1 => "对客户", 2 => "对购物" }
   SIGN_UP_TIME_LIMIT = { false => "无限制", true => "有限制" }
   FREE_INSTALLATION = { false => "否", true => "是" }
@@ -17,7 +22,6 @@ class OnlinePromotion < ActiveRecord::Base
   ONLINE_PROMOTIONABLE = { "PromotionByOrder" => "订单类", "PromotionByProduct" => "商品类" }
   STATUS = { 0 => "保存", 1 => "已确认", 2 => "已关闭" }
   PROGRESS = { 0 => "", 1 => "未开始", 2 => "进行中", 3 => "已结束" }
-
 
   def progress
     case status

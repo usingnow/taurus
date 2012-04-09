@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120405130443) do
+ActiveRecord::Schema.define(:version => 20120409031927) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -219,6 +219,22 @@ ActiveRecord::Schema.define(:version => 20120405130443) do
   end
 
   add_index "consignee_infos", ["user_id"], :name => "index_consignee_infos_on_user_id", :unique => true
+
+  create_table "customer_ratings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "sku_id"
+    t.integer  "rating",           :default => 0
+    t.string   "comment"
+    t.integer  "administrator_id"
+    t.string   "reply"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "visibility",       :default => true
+  end
+
+  add_index "customer_ratings", ["administrator_id"], :name => "index_customer_ratings_on_administrator_id"
+  add_index "customer_ratings", ["sku_id"], :name => "index_customer_ratings_on_sku_id"
+  add_index "customer_ratings", ["user_id"], :name => "index_customer_ratings_on_user_id"
 
   create_table "delivery_order_carts", :force => true do |t|
     t.integer  "product_id"
@@ -688,8 +704,8 @@ ActiveRecord::Schema.define(:version => 20120405130443) do
   create_table "products", :force => true do |t|
     t.string   "product_id"
     t.string   "name"
-    t.decimal  "cost_bef_tax",              :precision => 8, :scale => 2
-    t.decimal  "cost_aft_tax",              :precision => 8, :scale => 2
+    t.decimal  "cost_bef_tax",              :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "cost_aft_tax",              :precision => 8, :scale => 2, :default => 0.0
     t.string   "brand_id"
     t.string   "product_category_id"
     t.string   "unit"
@@ -714,14 +730,14 @@ ActiveRecord::Schema.define(:version => 20120405130443) do
     t.string   "appendant"
     t.boolean  "is_green"
     t.boolean  "is_assembling_required"
-    t.decimal  "assembling_fee_bef_tax",    :precision => 8, :scale => 2
-    t.decimal  "assembling_fee_aft_tax",    :precision => 8, :scale => 2
+    t.decimal  "assembling_fee_bef_tax",    :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "assembling_fee_aft_tax",    :precision => 8, :scale => 2, :default => 0.0
     t.boolean  "is_maintanable"
-    t.decimal  "maintenance_cost_bef_tax",  :precision => 8, :scale => 2
-    t.decimal  "maintenance_cost_aft_tax",  :precision => 8, :scale => 2
+    t.decimal  "maintenance_cost_bef_tax",  :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "maintenance_cost_aft_tax",  :precision => 8, :scale => 2, :default => 0.0
     t.boolean  "is_installation_required"
-    t.decimal  "installation_cost_bef_tax", :precision => 8, :scale => 2
-    t.decimal  "insatllation_cost_aft_tax", :precision => 8, :scale => 2
+    t.decimal  "installation_cost_bef_tax", :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "insatllation_cost_aft_tax", :precision => 8, :scale => 2, :default => 0.0
     t.string   "created_by"
     t.string   "updated_by"
     t.datetime "created_at"
@@ -767,6 +783,16 @@ ActiveRecord::Schema.define(:version => 20120405130443) do
 
   add_index "promotion_members", ["member_info"], :name => "index_promotion_members_on_member_info"
   add_index "promotion_members", ["online_promotion_id"], :name => "index_promotion_members_on_online_promotion_id"
+
+  create_table "promotion_priorities", :force => true do |t|
+    t.integer  "promotion_high"
+    t.integer  "promotion_low"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "promotion_priorities", ["promotion_high"], :name => "index_promotion_priorities_on_promotion_high"
+  add_index "promotion_priorities", ["promotion_low"], :name => "index_promotion_priorities_on_promotion_low"
 
   create_table "promotion_product_temps", :force => true do |t|
     t.integer  "products_selection"
