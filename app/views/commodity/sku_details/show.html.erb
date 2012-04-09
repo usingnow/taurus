@@ -48,7 +48,7 @@
     <p class="p_1 clear">库存：</p>
     <p><%= get_sku_inventory(@sku) %></p>
     <p>（如果缺货，请咨询<em>400-630-5006</em>）</p>
-    <p style="clear: both;" ]>
+    <p style="clear: both;">
       <% 5.times.each do |t| %>
         <%= radio_button_tag :sku_star, nil, (t+1 == @sku.average_rating ? true : false), :class => "star", :disabled => "disabled" %>
       <% end %>
@@ -120,13 +120,14 @@
         <div class="content">
            <%= rating.comment %>
         </div>
-        <div class="reply">
-          <span>客服回复：</span>
-          <span>
-            回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容
-            回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容
-          </span>
-        </div>
+        <% if rating.reply %>
+          <div class="reply">
+            <span>客服回复：</span>
+            <span>
+              <%= rating.reply %>
+            </span>
+          </div>
+        <% end %>
       </div>
     <% end %>
 
