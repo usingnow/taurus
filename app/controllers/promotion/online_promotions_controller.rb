@@ -1,4 +1,3 @@
-#encoding:UTF-8
 class Promotion::OnlinePromotionsController < ApplicationController
   before_filter :authenticate_administrator!
 
@@ -44,6 +43,11 @@ class Promotion::OnlinePromotionsController < ApplicationController
       @online_promotion.status = 0
       render "close_view", :layout => "empty"
     end
+  end
 
+  def priorities
+    @online_promotion = OnlinePromotion.find(params[:id])
+    @high_priorities = PromotionPriority.find_all_by_promotion_low(@online_promotion.id)
+    @low_priorities = PromotionPriority.find_all_by_promotion_high(@online_promotion.id)
   end
 end

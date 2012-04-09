@@ -7,3 +7,7 @@ jQuery ->
   jQuery("#close_promotion").click ->
     window.open(jQuery(this).attr("href"),'','height=600,width=800')
     false
+
+  jQuery(".add_priorities").click ->
+    window.open(jQuery(this).attr("href"),'','height=600,width=800')
+    false

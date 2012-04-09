@@ -319,7 +319,9 @@ Ebiz::Application.routes.draw do
         put :release
         get :close_view
         put :close
+        get :priorities
       end
+      resources :promotion_priorities
     end
     resources :promotion_by_orders do
       post :preview, :on => :collection
