@@ -31,14 +31,14 @@
       <td><%= link_to detail.sku.number, commodity_admin_sku_path(detail.sku_id) %></td>
       <td><%= detail.sku.name %></td>
       <td><%= detail.sku.unit %></td>
-      <td><%= detail.unit_price %></td>
+      <td><%= detail.promotion_unit_price %></td>
       <td><%= detail.quantity %></td>
       <td><%= format_is_need(detail.is_need_install) %></td>
-      <td><%= detail.install_cost %></td>
+      <td><%= detail.promotion_installation_cost %></td>
       <td><%= format_is_need(detail.is_need_assemble) %></td>
-      <td><%= detail.assemble_cost %></td>
+      <td><%= detail.promotion_assembling_fee %></td>
       <td><%= detail.sku.delivery_day %></td>
-      <td><%= detail.unit_price*detail.quantity %></td>
+      <td><%= detail.promotion_subtotal %></td>
       <td><%= detail.sku.available_skus(@order.user.store_id) %></td>
     </tr>
   <% end %>
@@ -46,15 +46,15 @@
 <ul class="order_price_info">
   <li>
     <%= symbol_label '商品总价' %>
-    <%= cny @order.total_sku_amount %>
+    <%= cny @order.promotion_sku_price %>
   </li>
   <li>
     <%= symbol_label '安装费' %>
-    <%= cny @order.total_install_cost %>
+    <%= cny @order.promotion_installation_cost %>
   </li>
   <li>
     <%= symbol_label '组装费' %>
-    <%= cny @order.total_assemble_cost %>
+    <%= cny @order.promotion_assembling_fee %>
   </li>
   <li>
     <%= symbol_label '其他费用' %>
@@ -62,15 +62,15 @@
   </li>
   <li id="left_li" class="border_bottom">
     <%= symbol_label '标准运费' %>
-    <%= cny @order.carriage_cost %>
+    <%= cny @order.promotion_carriage_cost %>
   </li>
   <li class="border_bottom">
     <%= symbol_label '调整后运费' %>
-    <%= cny @order.carriage_adjustment %>
+    <%= cny @order.promotion_carriage_adjustment %>
   </li>
   <li class="red">
     <%= symbol_label '合计', :class => "red" %>
-    <%= cny @order.total_amount %>
+    <%= cny @order.promotion_price %>
   </li>
 </ul>
 

@@ -4,7 +4,6 @@ class Promotion::OnlinePromotionsController < ApplicationController
 
   def index
     @search = OnlinePromotion.search(params[:q])
-    aaa = OnlinePromotion.current_orders(:order_payment_over => 300)
     @search.sorts = "updated_at desc"
     @online_promotions = @search.result.paginate(:page => params[:page], :per_page => 20)
 

@@ -68,4 +68,5 @@ class Cart::CartSkushipsController < ApplicationController
       render :json => cart.total_items.to_json
     end
   end
+
 end

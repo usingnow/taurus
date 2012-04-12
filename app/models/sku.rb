@@ -84,4 +84,5 @@ class Sku < ActiveRecord::Base
     sku_productship = sku_productships.to_a.min { |a| a.product.inventory(store_id)/a.package_num }
     sku_productship.product.inventory(store_id)/sku_productship.package_num
   end
+
 end

@@ -23,11 +23,17 @@
         }
       });
 
+      jQuery(document).keydown(function(event) {
+        if (event.keyCode == 13) {
+          jQuery('form').each(function() {
+            event.preventDefault();
+          });
+        }
+      });
 
       <%= yield(:ready) %> //动态加载js
     });
   </script>
-
 </head>
 <body>
   <div class="ui-layout-north">

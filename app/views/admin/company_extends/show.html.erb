@@ -1,91 +1,95 @@
-<div class="attributes">
-    <div class="split_content_left">
-      <p>
-        <%= label_tag "#{t :login_no}：" %>
-        <%= @company_extend.user.login_no %>
-      </p>
-      <p>
-        <%= label_tag "#{t 'attributes.company_extend.name'}：" %>
-        <%= @company_extend.name %>
-      </p>
-      <p>
-        <%= label_tag "#{t 'attributes.company_extend.phone'}：" %>
-        <%= @company_extend.phone %><br />
-      </p>
-      <p>
-        <%= label_tag "#{t 'attributes.company_extend.contact_dept'}：" %>
-        <%= @company_extend.contact_dept %><br />
-      </p>
-      <p>
-        <%= label_tag "#{t :status}：" %>
-        <%= format_user_status @company_extend.user.status %>
-      </p>
-       <p>
-        <label>仓库：</label>
-        <%= @company_extend.user.store.name %>
-      </p>
-      <p>
-        <%= label_tag "#{t :industry}：" %>
-       <%= @company_extend.industry.name %>
-      </p>
-      <p>
-        <%= label_tag "#{t :company_scale}：" %>
-        <%= get_company_scale_name @company_extend %><br />
-      </p>
-      <p>
-        <%= label_tag "#{t 'attributes.company_extend.web_address'}：" %>
-        <%= @company_extend.web_address %><br />
-      </p>
-      <p>
-        <%= label_tag "#{t 'attributes.company_extend.zip'}：" %>
-        <%= @company_extend.zip %>
-      </p>
-    </div>
-    <div class="split_content_right">
-      <p>
-        <%= label_tag "#{t 'attributes.company_extend.company_name'}：" %>
-        <%= @company_extend.company_name %>
-      </p>
-      <p>
-        <%= label_tag "#{t 'attributes.company_extend.mobile'}：" %>
-        <%= @company_extend.mobile %><br />
-      </p>
-      <p>
-        <%= label_tag "#{t :email}：" %>
-        <%= @company_extend.user.email %><br />
-      </p>
-      <p>
-        <%= label_tag "#{t 'attributes.company_extend.contact_post'}：" %>
-        <%= @company_extend.contact_post %><br />
-      </p>
-      <p>
-        <%= label_tag "#{t :role}：" %>
-        <%= @company_extend.user.role.name %>
-      </p>
-      <p>
-        <%= label_tag "#{t 'attributes.company_extend.sex'}：" %>
-        <%= format_sex @company_extend.sex %>
-      </p>
-      <p>
-        <%= label_tag "#{t :company_type}：" %>
-        <%= @company_extend.company_type.name %>
-      </p>
-      <p>
-        <%= label_tag "#{t :district}：" %>
-        <%= @company_extend.district.city.province.name %>&nbsp;
-        <%= @company_extend.district.city.name %>&nbsp;
-        <%= @company_extend.district.name %>
-      </p>
-      <p>
-        <%= label_tag "#{t 'attributes.company_extend.address'}：" %>
-        <%= @company_extend.address %>
-      </p>
-      <p>
-        <%= label_tag "#{t 'attributes.company_extend.fax'}：" %>
-        <%= @company_extend.fax %>
-      </p>
-    </div>
-    <div class="clear"></div>
-  </div>
-
-
+<div id="show_info">
+  <h1>企业会员信息查看</h1>
+  <ul>
+    <li>
+      <%= symbol_label  t 'attributes.company_extend.company_no' %>
+      <span class="red"><%= @company_extend.company_no %></span>
+    </li>
+    <li>
+      <%= symbol_label  t :login_no %>
+      <span><%= @company_extend.user.login_no %></span>
+    </li>
+    <li>
+      <%= symbol_label t 'attributes.company_extend.name' %>
+      <span><%= @company_extend.name %></span>
+    </li>
+    <li>
+      <%= symbol_label t 'attributes.company_extend.phone' %>
+      <span><%= @company_extend.phone %></span>
+    </li>
+    <li>
+      <%= symbol_label t 'attributes.company_extend.contact_dept' %>
+      <span><%= @company_extend.contact_dept %></span>
+    </li>
+    <li>
+      <%= symbol_label t :status %>
+      <span><%= format_user_status @company_extend.user.status %></span>
+    </li>
+    <li>
+      <%= symbol_label t 'activerecord.attributes.user.store_id' %>
+      <span><%= @company_extend.user.store.name %></span>
+    </li>
+    <li>
+      <%= symbol_label t :industry %>
+      <span><%= @company_extend.industry.name %></span>
+    </li>
+    <li>
+      <%= symbol_label t :company_scale %>
+      <span><%= get_company_scale_name @company_extend %></span>
+    </li>
+    <li>
+      <%= symbol_label t 'attributes.company_extend.web_address' %>
+      <span><%= @company_extend.web_address %></span>
+    </li>
+    <li>
+      <%= symbol_label t 'attributes.company_extend.zip' %>
+      <span><%= @company_extend.zip %></span>
+    </li>
+    <li>
+      <%= symbol_label t 'attributes.company_extend.company_name' %>
+      <span><%= @company_extend.company_name %></span>
+    </li>
+    <li>
+      <%= symbol_label t 'attributes.company_extend.mobile' %>
+      <span><%= @company_extend.mobile %></span>
+    </li>
+    <li>
+      <%= symbol_label t :email %>
+      <span><%= @company_extend.user.email %></span>
+    </li>
+    <li>
+      <%= symbol_label t 'attributes.company_extend.contact_post' %>
+      <span><%= @company_extend.contact_post %></span>
+    </li>
+    <li>
+      <%= symbol_label t :role %>
+      <span><%= @company_extend.user.role.name %></span>
+    </li>
+    <li>
+      <%= symbol_label t 'attributes.company_extend.sex' %>
+      <span><%= format_sex @company_extend.sex %></span>
+    </li>
+    <li>
+      <%= symbol_label t :company_type %>
+      <span><%= @company_extend.company_type.name %></span>
+    </li>
+    <li>
+      <%= symbol_label t :district %>
+      <span><%= @company_extend.district.city.province.name %></span>
+      <span><%= @company_extend.district.city.name %></span>
+      <span><%= @company_extend.district.name %></span>
+    </li>
+    <li>
+      <%= symbol_label t 'attributes.company_extend.address' %>
+      <span><%= @company_extend.address %></span>
+    </li>
+    <li>
+      <%= symbol_label t 'attributes.company_extend.fax' %>
+      <span><%= @company_extend.fax %></span>
+    </li>
+    <li class="margin_top_20">
+      <%= link_to "返回", admin_company_extends_path, :class => "left20" %>
+      <%= link_to "修改", edit_admin_company_extend_path(@company_extend)  if can? :update, CompanyExtend %>
+    </li>
+  </ul>
+</div>

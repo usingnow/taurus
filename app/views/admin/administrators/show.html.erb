@@ -1,29 +1,48 @@
-<%= t 'attributes.administrator.login_no' %>
-<%= @administrator.login_no %>
-
-<%= t 'attributes.administrator.status' %>
-<%= { 1 => "激活", 0 => "锁定" }[@administrator.status] %>
-
-<%= t 'attributes.administrator.email' %>
-<%= @administrator.email %>
-
-<%= t 'attributes.administrator.name' %>
-<%= @administrator.name %>
-
-<%= t 'attributes.administrator.address' %>
-<%= @administrator.address %>
-
-<%= t 'attributes.administrator.phone' %>
-<%= @administrator.phone %>
-
-<%= t 'attributes.administrator.fax' %>
-<%= @administrator.fax %>
-
-<%= t 'attributes.administrator.mobile' %>
-<%= @administrator.mobile %>
-
-<%= t 'attributes.administrator.zip' %>
-<%= @administrator.zip %>
+<div id="show_info">
+  <h1>员工账户信息查看</h1>
+  <ul>
+    <li>
+      <label class="label40"><%= t 'attributes.administrator.login_no' %></label>
+      <span><%= @administrator.login_no %></span>
+    </li>
+    <li>
+      <label class="label40"><%= t 'attributes.administrator.status' %></label>
+      <span><%= { 1 => "激活", 0 => "锁定" }[@administrator.status] %></span>
+    </li>
+    <li>
+      <label class="label40"><%= t 'attributes.administrator.email' %></label>
+      <span><%= @administrator.email %></span>
+    </li>
+    <li>
+      <label class="label40"><%= t 'attributes.administrator.name' %></label>
+      <span><%= @administrator.name %></span>
+    </li>
+    <li>
+      <label class="label40"><%= t 'attributes.administrator.address' %></label>
+      <span><%= @administrator.address %></span>
+    </li>
+    <li>
+      <label class="label40"><%= t 'attributes.administrator.phone' %></label>
+      <span><%= @administrator.phone %></span>
+    </li>
+    <li>
+      <label class="label40"><%= t 'attributes.administrator.fax' %></label>
+      <span><%= @administrator.fax %></span>
+    </li>
+    <li>
+      <label class="label40"><%= t 'attributes.administrator.mobile' %></label>
+      <span><%= @administrator.mobile %></span>
+    </li>
+    <li>
+      <label class="label40"><%= t 'attributes.administrator.zip' %></label>
+      <span><%= @administrator.zip %></span>
+    </li>
+    <li class="margin_top_20">
+      <%= link_to "返回", admin_administrators_path, :class => "left20" %>
+      <%= link_to "修改", edit_admin_administrator_path(@administrator) if can? :update, Administrator %>
+    </li>
+  </ul>
+</div>
 
 
 

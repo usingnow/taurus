@@ -9,6 +9,9 @@ class Product < ActiveRecord::Base
   validates :product_id, :name, :brand_id, :product_category_id, :unit, :specification, :delivery_days,
             :supplier_id, :brand_name, :product_category_name, :supplier_name, :presence => true
   validates_numericality_of :product_id, :only_integer => true
+  validates_numericality_of :cost_bef_tax, :cost_aft_tax, :assembling_fee_bef_tax, :assembling_fee_aft_tax,
+                            :installation_cost_bef_tax, :insatllation_cost_aft_tax, :maintenance_cost_bef_tax,
+                            :maintenance_cost_aft_tax
   validates_length_of :product_id, :in => 7..7
   validates_uniqueness_of :product_id
 

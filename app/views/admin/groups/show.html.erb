@@ -1,8 +1,29 @@
-<%= t 'attributes.group.number' %>
-<%= @group.number %>
+<div id="show_info">
+  <h1>员工组信息查看</h1>
+  <ul>
+    <li>
+      <label class="label40"><%= t 'attributes.group.number' %></label>
+      <span><%= @group.number %></span>
+    </li>
+    <li>
+      <label class="label40"><%= t 'attributes.group.name' %></label>
+      <span><%= @group.name %></span>
+    </li>
+    <li>
+      <label class="label40"><%= t 'attributes.group.desc' %></label>
+      <span><%= @group.desc %></span>
+    </li>
+    <li class="margin_top_20">
+      <%= link_to "返回", admin_groups_path, :class => "left20" %>
+      <%= link_to "修改", edit_admin_group_path(@group) if can? :update, Group %>
+    </li>
+  </ul>
+</div>
 
-<%= t 'attributes.group.name' %>
-<%= @group.name %>
 
-<%= t 'attributes.group.desc' %>
-<%= @group.desc %>
+
+
+
+
+
+

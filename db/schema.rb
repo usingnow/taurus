@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120409031927) do
+ActiveRecord::Schema.define(:version => 20120412102832) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -56,11 +56,16 @@ ActiveRecord::Schema.define(:version => 20120409031927) do
 
   create_table "back_order_skus", :force => true do |t|
     t.integer  "sku_id"
-    t.integer  "quantity",   :default => 1
+    t.integer  "quantity",         :default => 1
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.boolean  "is_need_install",  :default => false
+    t.boolean  "is_need_assemble", :default => false
   end
+
+  add_index "back_order_skus", ["sku_id"], :name => "index_back_order_skus_on_sku_id"
+  add_index "back_order_skus", ["user_id"], :name => "index_back_order_skus_on_user_id"
 
   create_table "banks", :force => true do |t|
     t.string   "number"
@@ -460,9 +465,9 @@ ActiveRecord::Schema.define(:version => 20120409031927) do
     t.integer  "sku_id"
     t.decimal  "unit_price",       :precision => 8, :scale => 2, :default => 0.0
     t.integer  "quantity",                                       :default => 1
-    t.integer  "is_need_install",                                :default => 0
+    t.boolean  "is_need_install",                                :default => false
     t.decimal  "install_cost",     :precision => 8, :scale => 2, :default => 0.0
-    t.integer  "is_need_assemble",                               :default => 0
+    t.boolean  "is_need_assemble",                               :default => false
     t.decimal  "assemble_cost",    :precision => 8, :scale => 2, :default => 0.0
     t.decimal  "other_cost",       :precision => 8, :scale => 2, :default => 0.0
     t.integer  "created_admin_id"
@@ -471,6 +476,11 @@ ActiveRecord::Schema.define(:version => 20120409031927) do
     t.datetime "updated_at"
     t.decimal  "sku_cost",         :precision => 8, :scale => 2, :default => 0.0
   end
+
+  add_index "order_details", ["created_admin_id"], :name => "index_order_details_on_created_admin_id"
+  add_index "order_details", ["order_id"], :name => "index_order_details_on_order_id"
+  add_index "order_details", ["sku_id"], :name => "index_order_details_on_sku_id"
+  add_index "order_details", ["updated_admin_id"], :name => "index_order_details_on_updated_admin_id"
 
   create_table "order_numbers", :force => true do |t|
     t.date     "date"
@@ -763,6 +773,17 @@ ActiveRecord::Schema.define(:version => 20120409031927) do
     t.decimal  "product_discount",    :precision => 8, :scale => 2, :default => 1.0
   end
 
+  create_table "promotion_gifts", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "sku_id"
+    t.integer  "amount",     :default => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "promotion_gifts", ["order_id"], :name => "index_promotion_gifts_on_order_id"
+  add_index "promotion_gifts", ["sku_id"], :name => "index_promotion_gifts_on_sku_id"
+
   create_table "promotion_member_temps", :force => true do |t|
     t.integer  "member_type"
     t.integer  "member_info"
@@ -814,6 +835,16 @@ ActiveRecord::Schema.define(:version => 20120409031927) do
 
   add_index "promotion_products", ["online_promotion_id"], :name => "index_promotion_products_on_online_promotion_id"
   add_index "promotion_products", ["product_info"], :name => "index_promotion_products_on_product_info"
+
+  create_table "promotions_in_orders", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "online_promotion_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "promotions_in_orders", ["online_promotion_id"], :name => "index_promotions_in_orders_on_online_promotion_id"
+  add_index "promotions_in_orders", ["order_id"], :name => "index_promotions_in_orders_on_order_id"
 
   create_table "provinces", :force => true do |t|
     t.string   "number"
@@ -1130,6 +1161,7 @@ ActiveRecord::Schema.define(:version => 20120409031927) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.integer  "points",                                :default => 0
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

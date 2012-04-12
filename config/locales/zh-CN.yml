@@ -245,6 +245,7 @@ zh-CN:
       company_introduction: "公司简介"
 
     company_extend:
+      company_no: "会员编号"
       company_name: "公司名称"
       industry_type_id: "行业类别"
       email: "邮箱"

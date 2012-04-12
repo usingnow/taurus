@@ -11,6 +11,9 @@ class Order < ActiveRecord::Base
   belongs_to :district, :class_name => "District", :foreign_key => "district_no"
   has_many :order_print_logs, :dependent => :destroy
   has_one :delivery_order
+  has_many :promotions_in_orders, :dependent => :destroy
+  has_many :online_promotions, :through => :promotions_in_orders
+  has_many :promotion_gifts, :dependent => :destroy
 
   attr_accessor :condition_type
 
@@ -44,12 +47,12 @@ class Order < ActiveRecord::Base
 
   #安装总价
   def total_install_cost
-    order_details.to_a.sum { |item| item.install_cost}
+    order_details.to_a.sum { |item| item.is_need_install ? item.install_cost : 0 }
   end
 
   #组装总价
   def total_assemble_cost
-    order_details.to_a.sum { |item| item.assemble_cost}
+    order_details.to_a.sum { |item| item.is_need_assemble ? item.assemble_cost : 0 }
   end
 
   #合计
@@ -60,6 +63,47 @@ class Order < ActiveRecord::Base
   #统计订单打印次数
   def order_print_sum(line_type)
     order_print_logs.count(:conditions => "line_type = #{line_type}")
+  end
+
+
+  def promotion_sku_price
+    order_details.to_a.sum { |item| item.promotion_sku_price }
+  end
+
+  def promotion_installation_cost
+    order_details.to_a.sum { |item| item.promotion_installation_cost }
+  end
+
+  def promotion_assembling_fee
+    order_details.to_a.sum { |item| item.promotion_assembling_fee }
+  end
+
+  def promotion_carriage_cost
+    promotion_content(:free_delivery) ? 0 : carriage_cost
+  end
+
+  def promotion_carriage_adjustment
+    promotion_content(:free_delivery) ? 0 : carriage_adjustment
+  end
+
+  def promotion_price
+    promotion_sku_price + promotion_installation_cost + promotion_assembling_fee + promotion_carriage_adjustment + other_cost
+  end
+
+  def price_no_carriage
+    total_sku_amount+total_install_cost+total_assemble_cost+other_cost
+  end
+
+  def admin_order_amount(options={})
+    if options[:sku_category_ids]
+      order_details.find_all { |c| options[:sku_category_ids].member?(c.sku.sku_category_id) }.sum { |c| c.quantity }
+    elsif options[:brand_ids]
+      order_details.find_all { |c| options[:brand_ids].member?(c.sku.brand_id) }.sum { |c| c.quantity }
+    elsif options[:sku_ids]
+      order_details.find_all { |c| options[:sku_ids].member?(c.sku_id) }.sum { |c| c.quantity }
+    else
+      order_details.sum(:quantity)
+    end
   end
 
 
@@ -80,4 +124,27 @@ class Order < ActiveRecord::Base
     def cancel
       condition_type == "3"
     end
+
+    def promotion_content(method)
+      result = {:promotion_gifts => [], :free_delivery => false}
+      case method
+      when :promotion_gifts
+        online_promotions.each do |o|
+          if o.sku_id
+            gift = result[:promotion_gifts].find { |g| g.sku_id == o.sku_id }
+            if gift
+              gift.amount += 1
+            else
+              result[:promotion_gifts] << PromotionGift.new(:sku_id => o.sku_id)
+            end
+          end
+        end
+      when :free_delivery
+        online_promotions.order_promotions.each do |p|
+          result[:free_delivery] = true if p.online_promotionable.free_delivery == true
+        end
+      end
+      result[method]
+    end
+
 end

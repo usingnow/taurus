@@ -180,7 +180,6 @@ div.middle_button {
   padding: 5px;
   background-color: #DDEEFF;
   input[type="radio"] {
-    float: left;
     width: 20px;}
   .short_input_text {
     width: 80px;}
@@ -408,9 +407,18 @@ p {
 }
 
 #show_info li{
-  min-height:30px;
+  min-height:25px;
   margin-top:3px;
   margin-bottom:3px;
+  span {
+    input[type=radio] {
+      float:left;
+    }
+  }
+}
+
+#show_info .label40{
+  width:40px
 }
 
 //end
@@ -420,8 +428,8 @@ p {
     list-style-type:none;
     padding:0;
     li{
-      min-height:20px;
-      line-height:20px;
+      min-height:30px;
+      line-height:30px;
       vertical-align: middle;
       label{
         line-height:20px;
