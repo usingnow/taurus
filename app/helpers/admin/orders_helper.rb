@@ -57,11 +57,7 @@ module Admin::OrdersHelper
 
   #格式话是否安装与组装
   def format_is_need(value)
-    if value == 1
-      "是"
-    else
-      "否"
-    end
+    format_boolean value
   end
 
   def format_invoice_type(value)

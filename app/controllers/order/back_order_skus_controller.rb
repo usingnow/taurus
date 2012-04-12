@@ -17,6 +17,7 @@ class Order::BackOrderSkusController < ApplicationController
     @back_order_sku = BackOrderSku.find(params[:id])
     @back_order_sku.update_attributes :quantity => params[:value]
     @back_order_skus = BackOrderSku.find_all_by_user_id(@back_order_sku.user_id)
+    render "operating"
   end
 
   def create
@@ -30,6 +31,7 @@ class Order::BackOrderSkusController < ApplicationController
     @back_order_sku.save
 
     @back_order_skus = BackOrderSku.find_all_by_user_id(params[:user_id])
+    render "operating"
   end
 
   def destroy
@@ -37,5 +39,22 @@ class Order::BackOrderSkusController < ApplicationController
     @back_order_sku = BackOrderSku.find(params[:id])
     @back_order_sku.destroy
     @back_order_skus = BackOrderSku.find_all_by_user_id(@back_order_sku.user_id)
+    render "operating"
+  end
+
+  def install
+    authorize! :create, Order
+    @back_order_sku = BackOrderSku.find(params[:id])
+    @back_order_sku.update_attribute(:is_need_install,params[:is_need_install])
+    @back_order_skus = BackOrderSku.find_all_by_user_id(@back_order_sku.user_id)
+    render "operating"
+  end
+
+  def assemble
+    authorize! :create, Order
+    @back_order_sku = BackOrderSku.find(params[:id])
+    @back_order_sku.update_attribute(:is_need_assemble,params[:is_need_assemble])
+    @back_order_skus = BackOrderSku.find_all_by_user_id(@back_order_sku.user_id)
+    render "operating"
   end
 end

@@ -35,11 +35,13 @@ class Order::BackOrdersController < ApplicationController
 
   def create
     authorize! :create, Order
+
+    @user = User.find(params[:user_id])
     #获得选择的商品
-    back_order_skus = BackOrderSku.find_all_by_user_id(params[:user_id])
+    back_order_skus = @user.back_order_skus
 
     #获得 此流程 的首站
-    inner_order_payment = InnerOrderPayment.find_by_user_id(params[:user_id])
+    inner_order_payment = @user.inner_order_payment
     station_procedureship = StationProcedureship.find_by_procedure_id_and_sequence(inner_order_payment.procedure_id,1)
 
 
@@ -133,9 +135,24 @@ class Order::BackOrdersController < ApplicationController
       end
       @order.carriage_adjustment = @order.carriage_cost
 
-      @order.save
-      create_order_details(back_order_skus,@order.id)
+      back_order_skus.each do |cart|
+        @order.order_details << OrderDetail.new(:sku_id => cart.sku_id, :unit_price => cart.sku.cost_aft_tax,
+                                                :quantity => cart.quantity, :is_need_install => cart.is_need_install,
+                                                :install_cost => cart.sku.installation_cost_aft_tax,
+                                                :is_need_assemble => cart.is_need_assemble,
+                                                :assemble_cost => cart.sku.assembling_fee_aft_tax,
+                                                :created_admin_id => current_administrator.id,
+                                                :updated_admin_id => current_administrator.id,
+                                                :sku_cost => cart.sku.sku_cost)
+      end
 
+      eval(params[:online_promotion_ids]).each do |o|
+        @order.promotions_in_orders << PromotionsInOrder.new(:online_promotion_id => o)
+      end
+      @user.admin_gifts.each do |g|
+        @order.promotion_gifts << PromotionGift.new(:sku_id => g.sku_id, :amount => g.amount)
+      end
+      @order.save
       BackOrderSku.delete_all(:user_id => params[:user_id])
     end
 

@@ -20,20 +20,34 @@
         <td><%= cart.sku.number %></td>
         <td><%= cart.sku.name %></td>
         <td><%= cart.sku.unit %></td>
-        <td><%= cart.sku.cost_aft_tax %></td>
+        <td><%= cart.promotion_unit_price %></td>
         <td><%= cart.quantity %></td>
-        <td><%= cart.sku.installation_cost_aft_tax %></td>
-        <td><%= cart.sku.assembling_fee_aft_tax %></td>
-        <td><%= cart.subtotal %></td>
+        <td><%= cart.promotion_installation_cost %></td>
+        <td><%= cart.promotion_assembling_fee %></td>
+        <td><%= cart.promotion_subtotal %></td>
         <td><%= cart.sku.available_skus(@user.store_id) %></td>
+      </tr>
+    <% end %>
+    <% @user.admin_gifts.each do |gift| %>
+      <tr class="<%= cycle("odd","even") %>">
+        <td>赠</td>
+        <td><%= gift.sku.number %></td>
+        <td><%= gift.sku.name %></td>
+        <td><%= gift.sku.unit %></td>
+        <td>0</td>
+        <td><%= gift.amount %></td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td><%= gift.sku.available_skus(@user.store_id) %></td>
       </tr>
     <% end %>
     <tr>
       <td colspan="11" align="right" id="total_amount">
-        运费：<%= number_to_currency @carriage_cost, :unit => "￥" %>,
-        安装费合计：<%= number_to_currency @back_order_skus.to_a.sum{ |cart| cart.sku.installation_cost_aft_tax }, :unit => "￥" %>,
-        组装费合计：<%= number_to_currency @back_order_skus.to_a.sum{ |cart| cart.sku.assembling_fee_aft_tax }, :unit => "￥" %>,
-        总计:<%= number_to_currency @back_order_skus.to_a.sum{ |sku| sku.subtotal }+@carriage_cost, :unit => "￥" %>
+        运费：<%= number_to_currency @user.admin_promo_carriage_cost, :unit => "￥" %>,
+        安装费合计：<%= number_to_currency @user.admin_promo_installation_cost, :unit => "￥" %>,
+        组装费合计：<%= number_to_currency @user.admin_promo_assembling_fee, :unit => "￥" %>,
+        总计:<%= number_to_currency @user.admin_promo_price+ @user.admin_promo_carriage_cost, :unit => "￥" %>
       </td>
     </tr>
   </tbody>
@@ -104,6 +118,7 @@
 <div class="middle_button">
   <%= form_tag order_back_orders_path do %>
     <%= hidden_field_tag 'user_id', @user.id %>
+    <%= hidden_field_tag :online_promotion_ids, @user.current_promotion_ids %>
     <input type="button" value="上一步" onclick="history.back()"/>
     <input type="submit" value="提交" />
   <% end %>

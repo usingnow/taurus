@@ -239,7 +239,12 @@ Ebiz::Application.routes.draw do
         post :preview
       end
     end
-    resources :back_order_skus
+    resources :back_order_skus do
+      member do
+        put :install
+        put :assemble
+      end
+    end
     resources :order_prints
     resources :front_orders do
       collection do

@@ -26,7 +26,7 @@
           <td>子订单-<%= i %></td>
           <td><%= @consignee_info.name %></td>
           <td><%= @temp_payment.procedure.display_name %></td>
-          <td><%= cny @cart.total_nds_amount %></td>
+          <td><%= cny @cart.promotion_total_nds_amount(current_user) %></td>
           <td><%= cny @cart.nds_carriage_cost(@consignee_info.district.city_no) %></td>
         </tr>
         <tr>
@@ -50,13 +50,13 @@
                 <tr class="<%= set_odd_even_class index+1 %>">
                   <td><%= nds.sku.number %></td>
                   <td><%= nds.sku.name %></td>
-                  <td><%= number_to_currency nds.sku.cost_aft_tax, :unit => "￥" %></td>
+                  <td><%= number_to_currency nds.promotion_unit_price(current_user), :unit => "￥" %></td>
                   <td><%= nds.quantity %></td>
                   <td><%= format_boolean nds.is_need_install %></td>
-                  <td><%= number_to_currency nds.sku.installation_cost_aft_tax, :unit => "￥" %></td>
+                  <td><%= number_to_currency nds.promotion_installation_cost(current_user), :unit => "￥" %></td>
                   <td><%= format_boolean nds.is_need_assemble %></td>
-                  <td><%= cny nds.sku.assembling_fee_aft_tax %></td>
-                  <td><%= cny nds.total_amount %></td>
+                  <td><%= cny nds.promotion_assembling_fee(current_user) %></td>
+                  <td><%= cny nds.promotion_subtotal(current_user) %></td>
                 </tr>
                 <% end %>
               </tbody>
@@ -120,13 +120,13 @@
                 <tr class="odd">
                   <td><%= ds.sku.number %></td>
                   <td><%= ds.sku.name %></td>
-                  <td><%= number_to_currency ds.sku.cost_aft_tax, :unit => "￥" %></td>
+                  <td><%= number_to_currency ds.promotion_unit_price(current_user), :unit => "￥" %></td>
                   <td><%= ds.quantity %></td>
                   <td><%= format_boolean ds.is_need_install %></td>
-                  <td><%= number_to_currency ds.sku.installation_cost_aft_tax, :unit => "￥" %></td>
+                  <td><%= number_to_currency ds.promotion_installation_cost(current_user), :unit => "￥" %></td>
                   <td><%= format_boolean ds.is_need_assemble %></td>
-                  <td><%= number_to_currency ds.sku.assembling_fee_aft_tax, :unit => "￥" %></td>
-                  <td><%= number_to_currency ds.total_amount, :unit => "￥" %></td>
+                  <td><%= number_to_currency ds.promotion_assembling_fee(current_user), :unit => "￥" %></td>
+                  <td><%= number_to_currency ds.promotion_subtotal(current_user), :unit => "￥" %></td>
                 </tr>
               </tbody>
             </table>
@@ -157,13 +157,13 @@
       <tr class="<%= set_odd_even_class index+1 %>">
         <td><%= nds.sku.number %></td>
         <td><%= nds.sku.name %></td>
-        <td><%= number_to_currency nds.sku.cost_aft_tax, :unit => "￥" %></td>
+        <td><%= number_to_currency nds.promotion_unit_price(current_user), :unit => "￥" %></td>
         <td><%= nds.quantity %></td>
         <td><%= format_boolean nds.is_need_install %></td>
-        <td><%= number_to_currency nds.sku.installation_cost_aft_tax, :unit => "￥" %></td>
+        <td><%= number_to_currency nds.promotion_installation_cost(current_user), :unit => "￥" %></td>
         <td><%= format_boolean nds.is_need_assemble %></td>
-        <td><%= number_to_currency nds.sku.assembling_fee_aft_tax, :unit => "￥" %></td>
-        <td><%= number_to_currency nds.total_amount, :unit => "￥" %></td>
+        <td><%= number_to_currency nds.promotion_assembling_fee(current_user), :unit => "￥" %></td>
+        <td><%= number_to_currency nds.promotion_subtotal(current_user), :unit => "￥" %></td>
       </tr>
       <% end %>
     </tbody>

@@ -7,7 +7,9 @@
       <th>单位</th>
       <th>单价</th>
       <th>数量</th>
+      <th>安装</th>
       <th>安装费用</th>
+      <th>组装</th>
       <th>组装费用</th>
       <th>合计</th>
       <th>最小可销售数量</th>
@@ -15,26 +17,7 @@
     </tr>
   </thead>
   <tbody id="back_order_skus">
-    <% @back_order_skus.each_with_index do |cart,index| %>
-      <tr class="<%= set_odd_even_class(index) %>" id="back_order_sku<%= cart.id %>">
-        <td><%= index+1 %></td>
-        <td><%= cart.sku.number %></td>
-        <td><%= cart.sku.name %></td>
-        <td><%= cart.sku.unit %></td>
-        <td><%= cart.sku.cost_aft_tax %></td>
-        <td><%= text_field_tag :quantity, cart.quantity, :size => 3, :class=> "back_order_sku_quantity", :id => "#{cart.id}" %></td>
-        <td><%= cart.sku.installation_cost_aft_tax %></td>
-        <td><%= cart.sku.assembling_fee_aft_tax %></td>
-        <td><%= cart.subtotal %></td>
-        <td><%= cart.sku.available_skus(@user.store_id) %></td>
-        <td><%= link_to "删除", order_back_order_sku_path(cart), :confirm => "确定删除?", :method => :delete, :remote => true %></td>
-      </tr>
-    <% end %>
-    <tr>
-      <td colspan="11" align="right" id="total_amount">
-        总计:<%= number_to_currency @back_order_skus.to_a.sum{ |sku| sku.subtotal }, :unit => "￥" %>
-      </td>
-    </tr>
+    <%= render "order/back_order_skus/line_items" %>
   </tbody>
 </table>
 

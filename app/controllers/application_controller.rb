@@ -138,15 +138,6 @@ class ApplicationController < ActionController::Base
       Instance.create(:procedure_id=>procedure_id,:station_id=>next_station_id)
     end
 
-    #批量添加订单详情
-    def create_order_details(inner_sku_carts,order_id)
-      line_items = []
-      inner_sku_carts.each do |cart|
-        line_items << {:order_id => order_id, :sku_id => cart.sku_id, :unit_price => cart.sku.cost_aft_tax,
-                       :quantity => cart.quantity, :sku_cost => cart.sku.sku_cost}
-      end
-      OrderDetail.create(line_items)
-    end
 
     #保存过站记录
     def save_station_track(hash)
