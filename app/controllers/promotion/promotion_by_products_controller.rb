@@ -4,7 +4,7 @@ class Promotion::PromotionByProductsController < ApplicationController
 
   def new
     @promotion_by_product = PromotionByProduct.new
-    @promotion_by_product.online_promotion = OnlinePromotion.new
+    @online_promotion = @promotion_by_product.build_online_promotion
   end
 
   def preview
