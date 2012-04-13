@@ -47,14 +47,13 @@
     <p class="p_1 clear">库存：</p>
     <p><%= get_sku_inventory(@sku) %></p>
     <p>（如果缺货，请咨询<em>400-630-5006</em>）</p>
-      <!--（已有999999人评价）-->
-        <!--<p class="p_1 clear">活动信息：</p>
-        <ul id="sku_details_promotion">
-          <li>促销项目描述九个字一促销项目描述九个字二促销项目描述九个字三促销项目描述九个字四</li>
-          <li>促销项目描述九个字一促销项目描述九个字二促销项目描述九个字三促销项目描述九个字四</li>
-          <li>促销项目描述九个字一促销项目描述九个字二促销项目描述九个字三促销项目描述九个字四</li>
-          <li>促销项目描述九个字一促销项目描述九个字二促销项目描述九个字三促销项目描述九个字四</li>
-        </ul>-->
+
+    <p class="p_1 clear">活动信息：</p>
+    <ul id="sku_details_promotion">
+      <% @online_promotions.each do |o| %>
+        <li><%= o.title[0,40] %></li>
+      <% end %>
+    </ul>
     <!-- Start with cart in the SKU_Details page -->
     <div id="sku_details_cart">
       <%= hidden_field_tag :sku_id, @sku.id %>

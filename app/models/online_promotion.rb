@@ -10,6 +10,7 @@ class OnlinePromotion < ActiveRecord::Base
 
   scope :progress_order_promotions, search(:status_eq => 1,:start_lt => Time.now, :end_gt => Time.now, :online_promotionable_type_eq => "PromotionByOrder").result
   scope :progress_product_promotions, search(:status_eq => 1,:start_lt => Time.now, :end_gt => Time.now, :online_promotionable_type_eq => "PromotionByProduct").result
+  scope :order_by_created_at, order("created_at desc")
 
   scope :product_promotions, search(:online_promotionable_type_eq => "PromotionByProduct").result
   scope :order_promotions, search(:online_promotionable_type_eq => "PromotionByOrder").result
