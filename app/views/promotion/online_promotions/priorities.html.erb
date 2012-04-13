@@ -2,7 +2,7 @@
   <h1>高优先级</h1>
 
   <%= link_to "添加", promotion_online_promotion_promotion_priorities_path(@online_promotion,:priorities => "high"),
-              :class => "add_priorities" %>
+              :class => "add_priorities"  if @online_promotion.status == 0 %>
 
   <table>
     <thead>
@@ -35,7 +35,7 @@
         <td><%= priority.high.updated_at %></td>
         <td><%= link_to t('admin.actions.delete.menu'),
                         promotion_online_promotion_promotion_priority_path(@online_promotion,priority),
-                        :confirm => t('admin.actions.delete.confirm'), :method => :delete, :class => "link" %></td>
+                        :confirm => t('admin.actions.delete.confirm'), :method => :delete, :class => "link"  if @online_promotion.status == 0 %></td>
       </tr>
     <% end %>
     </tbody>
@@ -45,7 +45,7 @@
   <h1>低优先级</h1>
 
   <%= link_to "添加", promotion_online_promotion_promotion_priorities_path(@online_promotion,:priorities => "low"),
-              :class => "add_priorities" %>
+              :class => "add_priorities"  if @online_promotion.status == 0 %>
 
   <table>
     <thead>
@@ -78,7 +78,7 @@
         <td><%= priority.low.updated_at %></td>
         <td><%= link_to t('admin.actions.delete.menu'),
                         promotion_online_promotion_promotion_priority_path(@online_promotion,priority),
-                        :confirm => t('admin.actions.delete.confirm'), :method => :delete, :class => "link" %></td>
+                        :confirm => t('admin.actions.delete.confirm'), :method => :delete, :class => "link"  if @online_promotion.status == 0 %></td>
       </tr>
     <% end %>
     </tbody>
