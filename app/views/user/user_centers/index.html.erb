@@ -28,7 +28,7 @@
           <td><%= order.created_at %></td>
           <td><%= order.name %></td>
           <td><%= order.instance.procedure.display_name %></td>
-          <td><em><%= number_to_currency order.total_amount, :unit => "￥" %></em></td>
+          <td><em><%= number_to_currency order.promotion_price, :unit => "￥" %></em></td>
           <td><%= order.instance.station.display_name %></td>
           <td><%= user_order_operating order %></td>
         </tr>

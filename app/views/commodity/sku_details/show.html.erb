@@ -48,19 +48,20 @@
     <p class="p_1 clear">库存：</p>
     <p><%= get_sku_inventory(@sku) %></p>
     <p>（如果缺货，请咨询<em>400-630-5006</em>）</p>
+    
     <p style="clear: both;">
       <% 5.times.each do |t| %>
         <%= radio_button_tag :sku_star, nil, (t+1 == @sku.average_rating ? true : false), :class => "star", :disabled => "disabled" %>
       <% end %>
      （已有<%= @sku.customer_ratings.count %>人评价）
     </p>
-        <!--<p class="p_1 clear">活动信息：</p>
-        <ul id="sku_details_promotion">
-          <li>促销项目描述九个字一促销项目描述九个字二促销项目描述九个字三促销项目描述九个字四</li>
-          <li>促销项目描述九个字一促销项目描述九个字二促销项目描述九个字三促销项目描述九个字四</li>
-          <li>促销项目描述九个字一促销项目描述九个字二促销项目描述九个字三促销项目描述九个字四</li>
-          <li>促销项目描述九个字一促销项目描述九个字二促销项目描述九个字三促销项目描述九个字四</li>
-        </ul>-->
+    
+    <p class="p_1 clear">活动信息：</p>
+    <ul id="sku_details_promotion">
+      <% @online_promotions.each do |o| %>
+        <li><%= o.title[0,40] %></li>
+      <% end %>
+    </ul>
     <!-- Start with cart in the SKU_Details page -->
     <div id="sku_details_cart">
       <%= hidden_field_tag :sku_id, @sku.id %>

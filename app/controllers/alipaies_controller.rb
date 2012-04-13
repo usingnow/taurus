@@ -9,7 +9,7 @@ class AlipaiesController < ApplicationController
       'out_trade_no' => @order.number,
       'subject' => '在线支付',
       'body' => '壹美壹家订单在线支付',
-      'price' => @order.total_amount.to_s,
+      'price' => @order.promotion_price.to_s,
       'quantity'=> 1.to_s,
       'payment_type' => '1',
       '_input_charset'=> 'utf-8',

@@ -42,6 +42,23 @@
       <td><%= detail.sku.available_skus(@order.user.store_id) %></td>
     </tr>
   <% end %>
+  <% @order.promotion_gifts.each do |gift| %>
+    <tr class="<%= cycle("odd","even") %>">
+      <td>赠</td>
+      <td><%= link_to gift.sku.number, commodity_admin_sku_path(gift.sku_id) %></td>
+      <td><%= gift.sku.name %></td>
+      <td><%= gift.sku.unit %></td>
+      <td>0</td>
+      <td><%= gift.amount %></td>
+      <td></td>
+      <td>0</td>
+      <td></td>
+      <td>0</td>
+      <td></td>
+      <td>0</td>
+      <td><%= gift.sku.available_skus(@order.user.store_id) %></td>
+    </tr>
+  <% end %>
 </table>
 <ul class="order_price_info">
   <li>

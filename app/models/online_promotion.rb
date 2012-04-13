@@ -10,6 +10,7 @@ class OnlinePromotion < ActiveRecord::Base
 
   scope :progress_order_promotions, search(:status_eq => 1,:start_lt => Time.now, :end_gt => Time.now, :online_promotionable_type_eq => "PromotionByOrder").result
   scope :progress_product_promotions, search(:status_eq => 1,:start_lt => Time.now, :end_gt => Time.now, :online_promotionable_type_eq => "PromotionByProduct").result
+  scope :order_by_created_at, order("created_at desc")
 
   scope :product_promotions, search(:online_promotionable_type_eq => "PromotionByProduct").result
   scope :order_promotions, search(:online_promotionable_type_eq => "PromotionByOrder").result
@@ -32,8 +33,10 @@ class OnlinePromotion < ActiveRecord::Base
           when 0
             if options[:site] == "admin_order"
               amount = options[:order].admin_order_amount
-            elsif options[:site] == "cart"
-              amount = options[:cart].total_items
+            elsif options[:site] == "cart_nds"
+              amount = options[:cart].total_nds_items
+            elsif options[:site] == "cart_ds"
+              amount = options[:cart_sku].quantity
             else
               amount = options[:user].admin_amount
             end
@@ -44,8 +47,10 @@ class OnlinePromotion < ActiveRecord::Base
             flag << ids.member?(poptions[:sku].sku_category_id.to_i)
             if options[:site] == "admin_order"
               amount = options[:order].admin_order_amount(:sku_category_ids => ids)
-            elsif options[:site] == "cart"
-              amount = options[:cart].total_items(:sku_category_ids => ids)
+            elsif options[:site] == "cart_nds"
+              amount = options[:cart].total_nds_items(:sku_category_ids => ids)
+            elsif options[:site] == "cart_ds"
+              amount = options[:cart_sku].quantity
             else
               amount = options[:user].admin_amount(:sku_category_ids => ids)
             end
@@ -55,8 +60,10 @@ class OnlinePromotion < ActiveRecord::Base
             flag << ids.member?(options[:sku].brand_id)
             if options[:site] == "admin_order"
               amount = options[:order].admin_order_amount(:brand_ids => ids)
-            elsif options[:site] == "cart"
-              amount = options[:cart].total_items(:brand_ids => ids)
+            elsif options[:site] == "cart_nds"
+              amount = options[:cart].total_nds_items(:brand_ids => ids)
+            elsif options[:site] == "cart_ds"
+              amount = options[:cart_sku].quantity
             else
               amount = options[:user].admin_amount(:brand_ids => ids)
             end
@@ -66,8 +73,10 @@ class OnlinePromotion < ActiveRecord::Base
             flag << ids.member?(options[:sku].id)
             if options[:site] == "admin_order"
               amount = options[:order].admin_order_amount(:sku_ids => ids)
-            elsif options[:site] == "cart"
-              amount = options[:cart].total_items(:sku_ids => ids)
+            elsif options[:site] == "cart_nds"
+              amount = options[:cart].total_nds_items(:sku_ids => ids)
+            elsif options[:site] == "cart_ds"
+              amount = options[:cart_sku].quantity
             else
               amount = options[:user].admin_amount(:sku_ids => ids)
             end
@@ -118,9 +127,13 @@ class OnlinePromotion < ActiveRecord::Base
       amount = options[:order].admin_order_amount
       price = options[:order].price_no_carriage
       procedure_id = options[:order].instance.procedure_id
-    elsif options[:site] == "cart"
-      amount = options[:cart].total_items
-      price = options[:cart].total_amount
+    elsif options[:site] == "cart_nds"
+      amount = options[:cart].total_nds_items
+      price = options[:cart].total_nds_amount
+      procedure_id = options[:user].inner_order_payment.procedure_id
+    elsif options[:site] == "cart_ds"
+      amount = options[:cart_sku].quantity
+      price = options[:cart_sku].subtotal
       procedure_id = options[:user].inner_order_payment.procedure_id
     else
       amount = options[:user].admin_amount
