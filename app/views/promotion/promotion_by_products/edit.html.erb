@@ -1,0 +1,5 @@
+<%= form_for @promotion_by_product, :url => promotion_promotion_by_product_path(@promotion_by_product), :html => { :method => :put } do |f| %>
+  <%= render :partial => "promotion/promotion_by_products/form", :locals => {:f => f} %>
+  <%= f.submit "保存" %>
+<% end %>
+<%= hidden_field_tag :online_promotion_id, @online_promotion.id %>

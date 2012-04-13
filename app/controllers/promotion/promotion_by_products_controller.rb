@@ -44,4 +44,40 @@ class Promotion::PromotionByProductsController < ApplicationController
       end
     end
   end
+
+  def update
+    @promotion_by_product = PromotionByProduct.find(params[:id])
+    @promotion_by_product.online_promotion.administrator_id = current_administrator.id
+    @online_promotion = @promotion_by_product.online_promotion
+    flag = false
+    PromotionByProduct.transaction do
+      if @promotion_by_product.update_attributes(params[:promotion_by_product])
+        if @promotion_by_product.online_promotion.member_type != 0
+          PromotionMember.destroy_all(:online_promotion_id => @promotion_by_product.online_promotion.id)
+          current_administrator.promotion_member_temps.find_all_by_member_type(@promotion_by_product.online_promotion.member_type).each do |temp|
+            PromotionMember.create(:member_info => temp.member_info, :online_promotion_id => @promotion_by_product.online_promotion.id)
+          end
+        end
+
+        if @promotion_by_product.products_selection != 0
+          PromotionProduct.destroy_all(:online_promotion_id => @promotion_by_product.online_promotion.id)
+          current_administrator.promotion_product_temps.find_all_by_products_selection(@promotion_by_product.products_selection).each do |temp|
+            PromotionProduct.create(:product_info => temp.selection_parameter, :online_promotion_id => @promotion_by_product.online_promotion.id)
+          end
+        end
+
+        PromotionProductTemp.destroy_all(:administrator_id => current_administrator.id)
+        PromotionMemberTemp.destroy_all(:administrator_id => current_administrator.id)
+        flag = true
+      else
+        flag = false
+      end
+    end
+
+    if flag
+      redirect_to promotion_online_promotion_path(@online_promotion)
+    else
+      render "edit"
+    end
+  end
 end

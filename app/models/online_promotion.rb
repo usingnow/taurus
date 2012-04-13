@@ -225,22 +225,6 @@ class OnlinePromotion < ActiveRecord::Base
     value
   end
 
-  def progress
-    case status
-    when 1
-      if Time.now < start
-        value = 1
-      elsif Time.now > self.end
-        value = 3
-      else
-        value = 2
-      end
-    else
-      value = 0
-    end
-    value
-  end
-
   validates_presence_of :code, :title, :promotion_type, :status, :start, :end, :description
   validates_uniqueness_of :code
   validates_presence_of :remarks, :if => Proc.new { current_step == "close" }

@@ -1,3 +1,6 @@
+#= require promotion/promotion_by_orders
+#= require promotion/promotion_by_products
+
 jQuery ->
   jQuery(".chose_sku").click ->
     window.opener.jQuery("#sku_id").val(jQuery(this).attr("data-id"))
@@ -11,3 +14,5 @@ jQuery ->
   jQuery(".add_priorities").click ->
     window.open(jQuery(this).attr("href"),'','height=600,width=800')
     false
+
+
