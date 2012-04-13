@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
   has_one :consignee_info, :dependent => :destroy
   has_many :favorites, :dependent => :destroy
   has_one :mail_sale, :dependent => :destroy
-  has_many :back_order_skus, :dependent => :destroy
   accepts_nested_attributes_for :person_extend
   accepts_nested_attributes_for :company_extend
   has_many :back_order_skus, :dependent => :destroy
@@ -160,6 +159,4 @@ class User < ActiveRecord::Base
       self.status = 1 unless self.status
       self.store_id = 1 unless self.store_id
     end
-
-
 end
