@@ -28,13 +28,26 @@
       <tr>
         <td><%= order_detail.sku.number %></td>
         <td><%= order_detail.sku.name %></td>
-        <td><em><%= number_to_currency order_detail.sku.cost_aft_tax, :unit => "￥" %></em></td>
+        <td><em><%= number_to_currency order_detail.promotion_unit_price, :unit => "￥" %></em></td>
         <td><%= order_detail.quantity %></td>
         <td><%= format_boolean order_detail.is_need_install %></td>
-        <td><em><%= number_to_currency order_detail.sku.installation_cost_aft_tax, :unit => "￥" %></em></td>
+        <td><em><%= number_to_currency order_detail.promotion_installation_cost, :unit => "￥" %></em></td>
         <td><%= format_boolean order_detail.is_need_assemble %></td>
-        <td><em><%= number_to_currency order_detail.sku.assembling_fee_aft_tax, :unit => "￥" %></em></td>
-        <td><em><%= number_to_currency order_detail.subtotal, :unit => "￥" %></em></td>
+        <td><em><%= number_to_currency order_detail.promotion_assembling_fee, :unit => "￥" %></em></td>
+        <td><em><%= number_to_currency order_detail.promotion_subtotal, :unit => "￥" %></em></td>
+      </tr>
+    <% end %>
+    <% @order.promotion_gifts.each do |gift| %>
+      <tr>
+        <td>赠品</td>
+        <td><%= gift.sku.name %></td>
+        <td><em><%= number_to_currency 0, :unit => "￥" %></em></td>
+        <td><%= gift.amount %></td>
+        <td></td>
+        <td><em><%= number_to_currency 0, :unit => "￥" %></em></td>
+        <td></td>
+        <td><em><%= number_to_currency 0, :unit => "￥" %></em></td>
+        <td><em><%= number_to_currency 0, :unit => "￥" %></em></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,22 +55,22 @@
     <tr>
       <td colspan="11">
         商品总价：
-        <i class="cny"><%= number_to_currency @order.total_sku_amount, :unit => "￥" %></i> +
+        <i class="cny"><%= number_to_currency @order.promotion_sku_price, :unit => "￥" %></i> +
         安装费：
-        <i class="cny"><%= number_to_currency @order.total_install_cost, :unit => "￥" %></i> +
+        <i class="cny"><%= number_to_currency @order.promotion_installation_cost, :unit => "￥" %></i> +
         组装费：
-        <i class="cny"><%= number_to_currency @order.total_assemble_cost, :unit => "￥" %></i> +
+        <i class="cny"><%= number_to_currency @order.promotion_assembling_fee, :unit => "￥" %></i> +
         其他费用：
         <i class="cny"><%= number_to_currency @order.other_cost, :unit => "￥" %></i>
       </td>
     </tr>
     <tr>
-      <td colspan="11">运费：<i class="cny"><%= number_to_currency @order.carriage_adjustment, :unit => "￥" %></i></td>
+      <td colspan="11">运费：<i class="cny"><%= number_to_currency @order.promotion_carriage_adjustment, :unit => "￥" %></i></td>
     </tr>
     <tr>
       <td colspan="11">
         <strong>应支付金额：</strong>
-        <i class="cny"><%= number_to_currency @order.total_amount, :unit => "￥" %></i>
+        <i class="cny"><%= number_to_currency @order.promotion_price, :unit => "￥" %></i>
       </td>
     </tr>
   </tfoot>

@@ -26,7 +26,7 @@
         <td><%= order.created_at %></td>
         <td><%= order.name %></td>
         <td><%= order.instance.procedure.display_name %></td>
-        <td><%= cny order.total_amount %></td>
+        <td><%= cny order.promotion_price %></td>
         <td><%= order.instance.station.display_name %></td>
         <td><%= user_order_operating order %></td>
       </tr>
@@ -37,7 +37,7 @@
       <td colspan="11">
         <strong>本次购物应支付金额：</strong>
         <strong>
-          <i><%= cny @orders.to_a.sum{ |order| order.total_amount} %></i>
+          <i><%= cny @orders.to_a.sum{ |order| order.promotion_price} %></i>
         </strong>元
       </td>
     </tr>

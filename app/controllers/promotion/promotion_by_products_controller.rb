@@ -23,18 +23,19 @@ class Promotion::PromotionByProductsController < ApplicationController
       @promotion_by_product.online_promotion.status = 0
       @promotion_by_product.online_promotion.current_step = "save"
       @promotion_by_product.online_promotion.administrator_id = current_administrator.id
-      if @promotion_by_product.products_selection != 0
-        current_administrator.promotion_product_temps.find_all_by_products_selection(@promotion_by_product.products_selection).each do |temp|
-          @promotion_by_product.online_promotion.promotion_products << PromotionProduct.new(:product_info => temp.selection_parameter)
-        end
-      end
       if @promotion_by_product.online_promotion.member_type != 0
         current_administrator.promotion_member_temps.find_all_by_member_type(@promotion_by_product.online_promotion.member_type).each do |temp|
-          @promotion_by_product.promotion_members << PromotionMember.new(:membler_info => temp.member_info)
+          @promotion_by_product.promotion_members << PromotionMember.new(:member_info => temp.member_info)
         end
       end
 
-      if @promotion_by_product.save
+      if @promotion_by_product.valid?
+        @promotion_by_product.save
+        if @promotion_by_product.products_selection != 0
+          current_administrator.promotion_product_temps.find_all_by_products_selection(@promotion_by_product.products_selection).each do |temp|
+            PromotionProduct.create(:product_info => temp.selection_parameter, :online_promotion_id => @promotion_by_product.online_promotion.id)
+          end
+        end
         PromotionProductTemp.destroy_all(:administrator_id => current_administrator.id)
         PromotionMemberTemp.destroy_all(:administrator_id => current_administrator.id)
         redirect_to promotion_online_promotions_url

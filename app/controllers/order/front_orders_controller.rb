@@ -47,8 +47,8 @@ class Order::FrontOrdersController < ApplicationController
 
 
       @carriage_cost = 0
-      @carriage_cost += @cart.nds_carriage_cost(@consignee_info.district.city_no) if @not_direct_sendings.any?
-      @carriage_cost += @direct_sendings.to_a.sum{ |ds| ds.ds_carriage_cost(@consignee_info.district_no)} if @direct_sendings.any?
+      @carriage_cost += @cart.promotion_nds_carriage_cost(@consignee_info.district.city_no,@user) if @not_direct_sendings.any?
+      @carriage_cost += @direct_sendings.to_a.sum{ |ds| ds.promotion_ds_carriage_cost(@consignee_info.district_no,@user)} if @direct_sendings.any?
 
 
       @order_remark = params[:order_remark]
@@ -127,6 +127,16 @@ class Order::FrontOrdersController < ApplicationController
                            :is_need_assemble => nds.is_need_assemble, :assemble_cost => nds.sku.assembling_fee_aft_tax }
           end
 
+          cart.nds_promotion_ids(user).each do |p|
+            PromotionsInOrder.create(:online_promotion_id => p,:order_id => order.id)
+          end
+
+          cart.nds_gifts(user).each do |g|
+            PromotionGift.create(:sku_id => g.sku_id, :amount => g.amount, :order_id => order.id)
+          end
+
+          user.update_attribute(:points,user.points+cart.promotion_nds_points(user))
+
           if OrderDetail.create(line_items)
             flag = true
           end
@@ -186,7 +196,17 @@ class Order::FrontOrdersController < ApplicationController
             else
               flag = false
             end
-          end
+
+            ds.ds_promotion_ids(user).each do |p|
+              PromotionsInOrder.create(:online_promotion_id => p,:order_id => order.id)
+            end
+
+            ds.ds_gifts(user).each do |g|
+              PromotionGift.create(:sku_id => g.sku_id, :amount => g.amount, :order_id => order.id)
+            end
+
+            user.update_attribute(:points,user.points+ds.promotion_ds_points(user))
+            end
 
         end
 

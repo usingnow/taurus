@@ -27,7 +27,7 @@
           <td><%= @consignee_info.name %></td>
           <td><%= @temp_payment.procedure.display_name %></td>
           <td><%= cny @cart.promotion_total_nds_amount(current_user) %></td>
-          <td><%= cny @cart.nds_carriage_cost(@consignee_info.district.city_no) %></td>
+          <td><%= cny @cart.promotion_nds_carriage_cost(@consignee_info.district.city_no,current_user) %></td>
         </tr>
         <tr>
           <td colspan="5">
@@ -46,7 +46,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% @not_direct_sendings.each_with_index do |nds,index| %>
+              <% @not_direct_sendings.each_with_index do |nds,index| %>
                 <tr class="<%= set_odd_even_class index+1 %>">
                   <td><%= nds.sku.number %></td>
                   <td><%= nds.sku.name %></td>
@@ -58,22 +58,35 @@
                   <td><%= cny nds.promotion_assembling_fee(current_user) %></td>
                   <td><%= cny nds.promotion_subtotal(current_user) %></td>
                 </tr>
-                <% end %>
+              <% end %>
+              <% @cart.nds_gifts(current_user).each_with_index do |gift,index| %>
+                <tr class="<%= set_odd_even_class index+1 %>">
+                  <td>赠品</td>
+                  <td><%= gift.sku.name %></td>
+                  <td>0</td>
+                  <td><%= gift.amount %></td>
+                  <td></td>
+                  <td>0</td>
+                  <td></td>
+                  <td>0</td>
+                  <td>0</td>
+                </tr>
+              <% end %>
               </tbody>
               <tfoot>
                 <tr>
                   <td colspan="11">
                     商品总价：
                     <i>
-                      <%= cny @cart.total_nds_sku_amount %>
+                      <%= cny @cart.promotion_nds_sku_amount(current_user) %>
                     </i>
                     元 + 安装费：
                     <i>
-                      <%= cny @cart.total_nds_installation_amount %>
+                      <%= cny @cart.promotion_total_nds_installation_amount(current_user) %>
                     </i>
                     元 + 组装费：
                     <i>
-                      <%= cny @cart.total_nds_assembling_amount %>
+                      <%= cny @cart.promotion_total_nds_assembling_amount(current_user) %>
                     </i>
                     元
                   </td>
@@ -82,7 +95,7 @@
                   <td colspan="11">
                     <strong>选购商品价格总计</strong>
                     （不包含运费）：
-                    <strong><i><%= cny @cart.total_nds_amount %></i></strong>
+                    <strong><i><%= cny @cart.promotion_total_nds_amount(current_user) %></i></strong>
                     元
                   </td>
                 </tr>
@@ -97,8 +110,8 @@
           <td>子订单-<%= i %></td>
           <td><%= @consignee_info.name %></td>
           <td><%= @temp_payment.procedure.display_name %></td>
-          <td><%= cny ds.total_amount %></td>
-          <td><%= cny ds.ds_carriage_cost(@consignee_info.district_no) %></td>
+          <td><%= cny ds.promotion_ds_subtotal(current_user) %></td>
+          <td><%= cny ds.promotion_ds_carriage_cost(@consignee_info.district_no,current_user) %></td>
         </tr>
         <tr>
           <td colspan="5">
@@ -120,14 +133,27 @@
                 <tr class="odd">
                   <td><%= ds.sku.number %></td>
                   <td><%= ds.sku.name %></td>
-                  <td><%= number_to_currency ds.promotion_unit_price(current_user), :unit => "￥" %></td>
+                  <td><%= number_to_currency ds.promotion_ds_unit_price(current_user), :unit => "￥" %></td>
                   <td><%= ds.quantity %></td>
                   <td><%= format_boolean ds.is_need_install %></td>
-                  <td><%= number_to_currency ds.promotion_installation_cost(current_user), :unit => "￥" %></td>
+                  <td><%= number_to_currency ds.promotion_ds_installation_cost(current_user), :unit => "￥" %></td>
                   <td><%= format_boolean ds.is_need_assemble %></td>
-                  <td><%= number_to_currency ds.promotion_assembling_fee(current_user), :unit => "￥" %></td>
-                  <td><%= number_to_currency ds.promotion_subtotal(current_user), :unit => "￥" %></td>
+                  <td><%= number_to_currency ds.promotion_ds_assembling_fee(current_user), :unit => "￥" %></td>
+                  <td><%= number_to_currency ds.promotion_ds_subtotal(current_user), :unit => "￥" %></td>
                 </tr>
+                <% ds.ds_gifts(current_user).each do |gift| %>
+                  <tr class="odd">
+                    <td>赠品</td>
+                    <td><%= gift.sku.name %></td>
+                    <td>0</td>
+                    <td><%= gift.amount %></td>
+                    <td></td>
+                    <td>0</td>
+                    <td></td>
+                    <td>0</td>
+                    <td>0</td>
+                  </tr>
+                <% end %>
               </tbody>
             </table>
           </td>
@@ -153,7 +179,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @not_direct_sendings.each_with_index do |nds,index| %>
+    <% @not_direct_sendings.each_with_index do |nds,index| %>
       <tr class="<%= set_odd_even_class index+1 %>">
         <td><%= nds.sku.number %></td>
         <td><%= nds.sku.name %></td>
@@ -165,22 +191,35 @@
         <td><%= number_to_currency nds.promotion_assembling_fee(current_user), :unit => "￥" %></td>
         <td><%= number_to_currency nds.promotion_subtotal(current_user), :unit => "￥" %></td>
       </tr>
-      <% end %>
+    <% end %>
+    <% @cart.nds_gifts(current_user).each_with_index do |gift,index| %>
+      <tr class="<%= set_odd_even_class index+1 %>">
+        <td>赠品</td>
+        <td><%= gift.sku.name %></td>
+        <td>0</td>
+        <td><%= gift.amount %></td>
+        <td></td>
+        <td>0</td>
+        <td></td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+    <% end %>
     </tbody>
     <tfoot>
       <tr>
         <td colspan="11">
           商品总价：
           <i>
-            <%= number_to_currency @cart.total_nds_sku_amount, :unit => "￥" %>
+            <%= cny @cart.promotion_nds_sku_amount(current_user) %>
           </i>
           元 + 安装费：
           <i>
-            <%= number_to_currency @cart.total_nds_installation_amount, :unit => "￥" %>
+            <%= cny @cart.promotion_total_nds_installation_amount(current_user) %>
           </i>
           元 + 组装费：
           <i>
-            <%= number_to_currency @cart.total_nds_assembling_amount, :unit => "￥" %>
+            <%= cny @cart.promotion_total_nds_assembling_amount(current_user) %>
           </i>
           元
         </td>
@@ -189,7 +228,7 @@
         <td colspan="11">
           <strong>选购商品价格总计</strong>
           （不包含运费）：
-          <strong><i><%= number_to_currency @cart.total_amount, :unit => "￥" %></i></strong>
+          <strong><i><%= number_to_currency @cart.promotion_total_nds_amount(current_user), :unit => "￥" %></i></strong>
           元
         </td>
       </tr>

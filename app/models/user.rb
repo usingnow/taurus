@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 
 
   attr_accessible :email, :login_no, :password, :password_confirmation, :remember_me, :status, :user_type, :role_id,
-                  :store_id, :person_extend_attributes, :company_extend_attributes
+                  :store_id, :person_extend_attributes, :company_extend_attributes, :points
 
   attr_accessor :password_confirmation, :email_confirmation, :index
 
