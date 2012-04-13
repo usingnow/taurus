@@ -17,20 +17,20 @@ jQuery ->
 
 
   if jQuery("#promotion_by_order_online_promotion_attributes_member_type").val() != "0"
-    jQuery("#promotion_by_order_online_promotion_attributes_member_type").after("<a href='#' id='set_member' class='link'>设置</a>")
+    jQuery("#promotion_by_order_online_promotion_attributes_member_type").after("<a href='#' id='order_set_member' class='link'>设置</a>")
 
   jQuery("#promotion_by_order_online_promotion_attributes_member_type").change ->
-    jQuery("#set_member").remove()
+    jQuery("#order_set_member").remove()
     if @value != "0"
-      jQuery(this).after("<a href='#' id='set_member' class='link'>设置</a>")
+      jQuery(this).after("<a href='#' id='order_set_member' class='link'>设置</a>")
 
 
-  jQuery("#set_member").live 'click',(event) ->
+  jQuery("#order_set_member").live 'click',(event) ->
     window.open('/promotion/promotion_member_temps?member_type='+jQuery("#promotion_by_order_online_promotion_attributes_member_type").val(),'','height=600,width=800')
 
-  jQuery("#set_sku").click ->
+  jQuery("#order_set_sku").click ->
     window.open('/promotion/online_promotions/search_skus','','height=600,width=800')
 
-  jQuery("#empty_sku").click ->
+  jQuery("#order_empty_sku").click ->
     jQuery("#sku_id").val("")
     jQuery("#sku_name").val("")

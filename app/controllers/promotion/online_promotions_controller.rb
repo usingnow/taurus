@@ -29,7 +29,8 @@ class Promotion::OnlinePromotionsController < ApplicationController
     end
 
     if @online_promotion.online_promotionable_type == "PromotionByOrder"
-      render "promotion/promotion_by_orders/show"
+      @promotion_by_order = @online_promotion.online_promotionable
+      render "promotion/promotion_by_orders/edit"
     else
       @promotion_by_product = @online_promotion.online_promotionable
 

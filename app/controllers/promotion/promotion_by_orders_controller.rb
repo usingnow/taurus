@@ -38,6 +38,33 @@ class Promotion::PromotionByOrdersController < ApplicationController
     end
   end
 
+  def update
+    @promotion_by_order = PromotionByOrder.find(params[:id])
+    @promotion_by_order.online_promotion.administrator_id = current_administrator.id
+    @online_promotion = @promotion_by_order.online_promotion
+    flag = false
+    PromotionByOrder.transaction do
+      if @promotion_by_order.update_attributes(params[:promotion_by_order])
+        if @promotion_by_order.online_promotion.member_type != 0
+          PromotionMember.destroy_all(:online_promotion_id => @promotion_by_order.online_promotion.id)
+          current_administrator.promotion_member_temps.find_all_by_member_type(@promotion_by_order.online_promotion.member_type).each do |temp|
+            PromotionMember.create(:member_info => temp.member_info, :online_promotion_id => @promotion_by_order.online_promotion.id)
+          end
+        end
 
+        PromotionProductTemp.destroy_all(:administrator_id => current_administrator.id)
+        PromotionMemberTemp.destroy_all(:administrator_id => current_administrator.id)
+        flag = true
+      else
+        flag = false
+      end
+    end
+
+    if flag
+      redirect_to promotion_online_promotion_path(@online_promotion)
+    else
+      render "edit"
+    end
+  end
 
 end
