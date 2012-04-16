@@ -1,36 +1,55 @@
-<%= t 'activerecord.attributes.user.login_no' %>
-<%= @person_extend.user.login_no %>
+<div id="show_info">
+  <ul>
+    <li>
+      <%= symbol_label t('activerecord.attributes.user.login_no') %>
+      <%= @person_extend.user.login_no %>
+    </li>
+    <li>
+      <%= symbol_label t('activerecord.attributes.user.status') %>
+      <%= { 0 => "锁定", 1 => "激活" }[@person_extend.user.status] %>
+    </li>
+    <li>
+      <%= symbol_label t('activerecord.attributes.user.role') %>
+      <%= @person_extend.user.role.name %>
+    </li>
+    <li>
+      <%= symbol_label t('activerecord.attributes.user.store_id') %>
+      <%= @person_extend.user.store.name %>
+      <hr />
+    </li>
+    <li>
+      <%= symbol_label t('attributes.person_extend.name') %>
+      <%= @person_extend.name %>
+    </li>
+    <li>
+      <%= symbol_label t('activerecord.attributes.user.email') %>
+      <%= @person_extend.user.email %>
+    </li>
+    <li>
+      <%= symbol_label t('attributes.person_extend.sex') %>
+      <%= { 0 => "女", 1 => "男" }[@person_extend.sex] %>
+    </li>
+    <li>
+      <%= symbol_label t('attributes.person_extend.birth') %>
+      <%= @person_extend.birth %>
+    </li>
+    <li>
+      <%= symbol_label t('attributes.person_extend.district_no') %>
+      <%= area @person_extend %>
+    </li>
+    <li>
+      <%= symbol_label t('attributes.person_extend.address') %>
+      <%= @person_extend.address %>
+    </li>
+    <li>
+      <%= symbol_label t('attributes.person_extend.phone') %>
+      <%= @person_extend.phone %>
+    </li>
+    <li>
+      <%= symbol_label t('attributes.person_extend.post') %>
+      <%= @person_extend.post %>
+    </li>
+  </ul>
+</div>
 
-<%= t 'activerecord.attributes.user.status' %>
-<%= { 0 => "锁定", 1 => "激活" }[@person_extend.user.status] %>
-
-<%= t 'activerecord.attributes.user.role' %>
-<%= @person_extend.user.role.name %>
-
-<%= t 'activerecord.attributes.user.store_id' %>
-<%= @person_extend.user.store.name %>
-
-<%= t 'activerecord.attributes.user.email' %>
-<%= @person_extend.user.email %>
-
-<%= t 'attributes.person_extend.name' %>
-<%= @person_extend.name %>
-
-<%= t 'attributes.person_extend.sex' %>
-<%= { 0 => "女", 1 => "男" }[@person_extend.sex] %>
-
-<%= t 'attributes.person_extend.birth' %>
-<%= @person_extend.birth %>
-
-<%= t 'attributes.person_extend.district_no' %>
-<%= area @person_extend %>
-
-<%= t 'attributes.person_extend.address' %>
-<%= @person_extend.address %>
-
-<%= t 'attributes.person_extend.phone' %>
-<%= @person_extend.phone %>
-
-<%= t 'attributes.person_extend.post' %>
-<%= @person_extend.post %>
 
