@@ -99,7 +99,7 @@
         <%= text_field_tag :sku_name, (@online_promotion.sku ? @online_promotion.sku.name : nil), :readonly => true %>
         <%= link_to "清空", "#", :id => "empty_sku", :class => "link" %>
         <%= link_to "设置", "#", :id => "set_sku", :class => "link" %>
-        <%= op_f.hidden_field :sku_id, :id => "sku_id" %>
+        <%= op_f.hidden_field :sku_id, :id => "order_sku_id" %>
       </li>
     </ul>
   </div>

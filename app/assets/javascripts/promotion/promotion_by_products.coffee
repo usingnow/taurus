@@ -43,5 +43,5 @@ jQuery ->
     window.open('/promotion/online_promotions/search_skus','','height=600,width=800')
 
   jQuery("#empty_sku").click ->
-    jQuery("#sku_id").val("")
+    jQuery("#order_sku_id").val("")
     jQuery("#sku_name").val("")

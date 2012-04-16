@@ -233,16 +233,9 @@ class OnlinePromotion < ActiveRecord::Base
   protected
     def member_exists?
       unless member_type == 0
-        if current_step == "preview"
-          count = PromotionMemberTemp.count(:conditions => "administrator_id = #{administrator_id} and member_type = #{member_type}")
-          if count == 0
-            errors.add(:member_type,"不能为空")
-          end
-        elsif current_step == "save"
-          count = promotion_members.count
-          if count == 0
-            errors.add(:member_type,"不能为空")
-          end
+        count = PromotionMemberTemp.count(:conditions => "administrator_id = #{administrator_id} and member_type = #{member_type}")
+        if count == 0
+          errors.add(:member_type,"不能为空")
         end
       end
     end
