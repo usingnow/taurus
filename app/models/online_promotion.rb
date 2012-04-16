@@ -85,7 +85,7 @@ class OnlinePromotion < ActiveRecord::Base
       end
 
       if p.min_member_point > 0 && options[:user]
-        flag << (p.online_promotionable.min_member_point < options[:user].points)
+        flag << (p.min_member_point < options[:user].points)
       end
       if p.sign_up_time_limit && options[:user]
         flag << ((p.member_sign_up_start.to_i..p.member_sign_up_end.to_i) === options[:user].created_at.to_i)
@@ -176,7 +176,7 @@ class OnlinePromotion < ActiveRecord::Base
         flag << (p.online_promotionable.purchase_amount_limit < options[:purchase_amount_limit])
       end
       if p.min_member_point > 0 && options[:user]
-        flag << (p.online_promotionable.min_member_point < options[:user].points)
+        flag << (p.min_member_point < options[:user].points)
       end
       if p.sign_up_time_limit && options[:user]
         flag << ((p.member_sign_up_start.to_i..p.member_sign_up_end.to_i) === options[:user].created_at.to_i)
