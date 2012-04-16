@@ -16,4 +16,5 @@ zh-CN:
         store_id: "仓库"
         number: "会员编号"
         name: "会员名称"
+        points: "积分"
 

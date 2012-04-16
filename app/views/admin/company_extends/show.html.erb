@@ -10,6 +10,10 @@
       <span><%= @company_extend.user.login_no %></span>
     </li>
     <li>
+      <%= symbol_label t('activerecord.attributes.user.points') %>
+      <%= @company_extend.user.points %>
+    </li>
+    <li>
       <%= symbol_label t 'attributes.company_extend.name' %>
       <span><%= @company_extend.name %></span>
     </li>
