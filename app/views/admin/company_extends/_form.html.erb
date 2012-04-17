@@ -29,6 +29,12 @@
           ******
         <% end %>
       </p>
+      <% if can? :points, CompanyExtend %>
+        <p>
+          <label><%= t 'activerecord.attributes.user.points' %><abbr title="required">*</abbr></label>
+          <%= f.text_field :points %>
+        </p>
+      <% end %>
     </div>
     <div class="clear"></div>
   </div>
