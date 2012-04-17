@@ -1,16 +1,10 @@
-<%= form_for @user, :url => admin_person_extends_path do |f| %>
+<%= form_for @user, :url => (@user.id ? admin_person_extend_path(@user) : admin_person_extends_path) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= t('activerecord.errors.template.header', :count => @user.errors.size+@person_extend.errors.size, :model => t('models.person_extend'))  %></h2>
-
+      <h2><%= t('activerecord.errors.template.header', :count => @user.errors.size, :model => t('models.person_extend'))  %></h2>
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
-      <% end %>
-      <% if @person_extend.errors.any? %>
-        <% @person_extend.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
       <% end %>
       </ul>
     </div>
@@ -22,7 +16,11 @@
         <%= f.text_field :login_no %><span class="red">*</span>
       <p>
         <%= label_tag t :password %>
-        <%= f.password_field :password %><span class="red">*</span>
+        <% if @user.id %>
+          ******
+        <% else %>
+          <%= f.password_field :password %><span class="red">*</span>
+        <% end %>
       </p>
       <p>
         <%= label_tag t :status %>
@@ -39,6 +37,12 @@
         <label>仓库</label>
         <%= f.select :store_id, Store.all.collect {|s| [ s.name, s.id ] } %><span class="red">*</span>
       </p>
+      <% if can? :points, PersonExtend %>
+        <p>
+          <label><%= t 'activerecord.attributes.user.points' %><abbr title="required">*</abbr></label>
+          <%= f.text_field :points %>
+        </p>
+      <% end %>
       <p>
         <%= label_tag t :email %>
         <%= f.email_field :email %><span class="red">*</span>

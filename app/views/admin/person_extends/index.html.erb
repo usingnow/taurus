@@ -41,6 +41,7 @@
       <th><%= t 'activerecord.attributes.user.role' %></th>
       <th><%= t 'activerecord.attributes.user.status' %></th>
       <th><%= t 'activerecord.attributes.user.store_id' %></th>
+      <th></th>
     </tr>
   </thead>
 <% @person_extends.each_with_index do |person,index| %>
@@ -53,6 +54,7 @@
     <td><%= person.user.role.name %></td>
     <td><%= format_user_status(person.user.status) %></td>
     <td><%= person.user.store.name %></td>
+    <td><%= link_to t("admin.actions.edit.menu"), edit_admin_person_extend_path(person.user_id) if can? :update, PersonExtend %></td>
   </tr>
 <% end %>
 </table>
