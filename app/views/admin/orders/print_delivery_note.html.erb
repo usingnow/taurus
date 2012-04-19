@@ -93,7 +93,7 @@
       合计<%= order.total_skus %>个商品，
       订单总金额<%= order.total_amount %>元
     </td>
-    <td><%= link_to '打印送货单', show_delivery_note_admin_orders_path(:order_id => order), {:target => "blank"} %></td>
+    <td><%= link_to '打印送货单', show_delivery_note_admin_order_path(order), {:target => "blank"} %></td>
   </tr>
   <tr class="gap">
     <td colspan="12" height="4"></td>

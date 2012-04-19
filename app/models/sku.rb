@@ -13,6 +13,7 @@ class Sku < ActiveRecord::Base
 
   CAN_ON_BE_HALF = { false => "否", true => "是" }
   CAN_RETURN = { false => "否", true => "是" }
+  SKU_TYPE = {1 => "在库品", 2 => "直送品", 3 => "非在库", 4 => "未定", 5 => "劳务费用"}
 
 
   #验证
