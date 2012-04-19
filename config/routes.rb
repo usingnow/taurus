@@ -111,13 +111,13 @@ Ebiz::Application.routes.draw do
         get  :pay_confirmation
         get  :print_delivery_note
         get  :relieve_retention
-        get  :show_delivery_note
         get  :sign_in
         get  :take_over
       end
       member do
         get  :take_over_logs
         get  :order_tracks
+        get  :show_delivery_note
       end
     end
     resources :order_details

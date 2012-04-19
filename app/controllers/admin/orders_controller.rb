@@ -313,8 +313,73 @@ class Admin::OrdersController < ApplicationController
   end
 
   def show_delivery_note
-    @order = Order.find(params[:order_id])
-    render :layout => false
+    @order = Order.find(params[:id])
+    pdf = Prawn::Document.new(:page_size => [630,397])
+    pdf.font "#{::Prawn::BASEDIR}/data/fonts/SimHei.ttf"
+
+    page = @order.order_details.size > 6 ? (@order.order_details.size-7)/10+2 : 1
+
+    page.times.each do |p|
+      pdf.draw_text "壹美壹家送货单", :size => 20, :at => [220,330]
+      pdf.image "app/assets/images/printLogo.jpg",:width => 40, :height => 40, :at => [0,350]
+      pdf.draw_text "轻松办公    快乐生活", :size => 10, :at => [50,316]
+
+      pdf.move_down 20
+      pdf.table([["订单编号：", @order.number, "订单批次：", @order.batch, "下单时间：", @order.created_at.to_s],
+                 ["订单类型：", Sku::SKU_TYPE[@order.order_details.last.sku.sku_type],
+                  "客户：",@order.user.name]], :cell_style => {:size => 8, :border_width => 0},
+                :column_widths => {1 => 150, 3 => 150})
+
+      data = [["#","订购编号","商品名称","规格型号","单位","数量"]]
+      i = 0
+      @order.order_details.limit(p == 0 ? 6 : 10).offset(p == 0 ? 0 : (6+(p-1)*10)).each_with_index do |item,index|
+        data << [p == 0 ? index+1 : index + 7 + (p - 1)*10,item.sku.number,item.sku.name,item.sku.specification+","+item.sku.model,item.sku.unit,item.quantity]
+        i = index
+      end
+      if p == 0
+        (5-i).times.each do
+          data << ["","","","","",""]
+        end
+      else
+        (9-i).times.each do
+          data << ["","","","","",""]
+        end
+      end
+      data << ["","","","合计金额",@order.total_amount.to_s,""]
+
+      pdf.table(data,:cell_style => {:size => 8 }, :column_widths => [20,50,280,108,60,30])
+
+      pdf.table([["收货人：", @order.name, "所属地区：", @order.district.address, "支付方式：", @order.instance.procedure.display_name],
+                 ["固定电话：", @order.phone, "手机：",@order.mobile],
+                 ["收货地址：", @order.address],
+                 ["客户备注：", @order.customer_note]],
+                :cell_style => {:size => 8, :border_width => 0}, :column_widths => {1 => 150, 3 => 150}) if p == 0
+
+      pdf.bounding_box([0, 30], :width => 630, :height => 150) do
+        pdf.table([[p == 0 ? "您对我们的物流服务：满意 □  一般 □  不满意 □" : "", "客户签字："]],
+                  :cell_style => {:size => 8, :border_width => 0}, :column_widths => {0 => 350})
+
+        pdf.table([["仓库确认：", "物流司机：", "出发时间：", "到达时间："]],
+                  :cell_style => {:size => 8, :border_width => 0}, :column_widths => {0 => 135, 1 => 135, 2 => 135, 3 => 135}) if p == 0
+      end
+
+
+      pdf.bounding_box([0, 0], :width => 630, :height => 150) do
+
+        pdf.table([["www.emehome.cn", "客服热线：400-630-5006", "宁波壹美壹家贸易有限公司", "页码：#{p+1}/#{page}"]],
+                :cell_style => {:size => 8, :border_width => 0}, :column_widths => {0 => 135, 1 => 135, 2 => 135, 3 => 135})
+      end
+
+      pdf.start_new_page if (p+1) < page
+    end
+
+
+
+    number = @order.number
+    FileUtils.makedirs "public/print_file/delivery/#{number}"
+
+    pdf.render_file "public/print_file/delivery/#{number}/#{Time.now.strftime("%Y%m%d%H%M%S")}.pdf"
+    send_data pdf.render, type: "application/pdf", disposition: "inline"
   end
 
   def take_over_logs

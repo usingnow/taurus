@@ -50,6 +50,14 @@ class OrderDetail < ActiveRecord::Base
     end
   end
 
+  def installation_cost
+    is_need_install ? install_cost : 0
+  end
+
+  def assembling_fee
+    is_need_assemble ? assemble_cost : 0
+  end
+
   def subtotal
     unit_price*quantity+installation_cost+assembling_fee
   end

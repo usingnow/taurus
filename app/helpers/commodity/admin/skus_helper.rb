@@ -1,7 +1,7 @@
 #encoding:UTF-8
 module Commodity::Admin::SkusHelper
   def format_sku_type(value)
-    format_value value, {1 => "在库品", 2 => "直送品", 3 => "非在库", 4 => "未定", 5 => "劳务费用"}
+    Sku::SKU_TYPE[value]
   end
 
   def format_sku_status(value)
