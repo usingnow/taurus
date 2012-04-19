@@ -314,7 +314,7 @@ class Admin::OrdersController < ApplicationController
 
   def show_delivery_note
     @order = Order.find(params[:id])
-    pdf = Prawn::Document.new(:page_size => [630,397])
+    pdf = Prawn::Document.new(:page_size => [630,397], :page_layout => :portrait)
     pdf.font "#{::Prawn::BASEDIR}/data/fonts/SimHei.ttf"
 
     page = @order.order_details.size > 6 ? (@order.order_details.size-7)/10+2 : 1

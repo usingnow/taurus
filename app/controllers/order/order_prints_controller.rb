@@ -8,7 +8,7 @@ class Order::OrderPrintsController < ApplicationController
   def show
     authorize! :print, Order
     @order = Order.find(params[:id])
-    pdf = Prawn::Document.new(:page_size => [630,397])
+    pdf = Prawn::Document.new(:page_size => [595,397], :page_layout => :portrait)
     pdf.font "#{::Prawn::BASEDIR}/data/fonts/SimHei.ttf"
 
     page = (@order.order_details.size-1)/10+1
@@ -40,7 +40,7 @@ class Order::OrderPrintsController < ApplicationController
       pdf.table([["其他费用：#{@order.other_cost}  运费：#{@order.promotion_carriage_adjustment}  合计金额：#{@order.promotion_price}"]],
                 :cell_style => {:size => 6, :align => :right }, :width => 550)
 
-      pdf.bounding_box([0, 0], :width => 630, :height => 150) do
+      pdf.bounding_box([0, 0], :width => 595, :height => 150) do
 
         pdf.table([["www.emehome.cn", "客服热线：400-630-5006", "宁波壹美壹家贸易有限公司", "页码：#{p+1}/#{page}"]],
                 :cell_style => {:size => 8, :border_width => 0}, :column_widths => {0 => 135, 1 => 135, 2 => 135, 3 => 135})
