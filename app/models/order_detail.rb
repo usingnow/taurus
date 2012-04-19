@@ -62,14 +62,6 @@ class OrderDetail < ActiveRecord::Base
     unit_price*quantity+installation_cost+assembling_fee
   end
 
-  def installation_cost
-    is_need_install ? install_cost : 0
-  end
-
-  def assembling_fee
-    is_need_assemble ? assemble_cost : 0
-  end
-
   def promotion_unit_price
     promotion_content(:product_discount)*unit_price
   end

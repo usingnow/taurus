@@ -345,9 +345,9 @@ class Admin::OrdersController < ApplicationController
           data << ["","","","","",""]
         end
       end
-      data << ["","","","合计金额",@order.total_amount.to_s,""]
 
       pdf.table(data,:cell_style => {:size => 8 }, :column_widths => [20,50,280,108,60,30])
+      pdf.table([["合计金额：#{@order.promotion_price.to_s}"]],:cell_style => {:size => 8, :align => :right}, :width => 548)
 
       pdf.table([["收货人：", @order.name, "所属地区：", @order.district.address, "支付方式：", @order.instance.procedure.display_name],
                  ["固定电话：", @order.phone, "手机：",@order.mobile],

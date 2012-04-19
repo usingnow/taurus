@@ -27,8 +27,8 @@ class Order::OrderPrintsController < ApplicationController
       i = 0
       @order.order_details.limit(10).offset(p*10).each_with_index do |item,index|
         data << [index + 1 + p*10, item.sku.number, item.sku.name, item.sku.products.last.product_id, item.sku.unit,
-                 item.sku.specification+","+item.sku.model, item.unit_price, item.quantity, item.installation_cost,
-                 item.assembling_fee, item.subtotal]
+                 item.sku.specification+","+item.sku.model, item.promotion_unit_price, item.quantity, item.promotion_installation_cost,
+                 item.promotion_assembling_fee, item.promotion_subtotal]
         i = index
       end
 
@@ -37,7 +37,7 @@ class Order::OrderPrintsController < ApplicationController
       end
 
       pdf.table(data,:cell_style => {:size => 6 }, :column_widths => [20,35,170,35,25,110,30,25,30,30,40])
-      pdf.table([["其他费用：#{@order.other_cost}  运费：#{@order.carriage_adjustment}  合计金额：#{@order.total_amount}"]],
+      pdf.table([["其他费用：#{@order.other_cost}  运费：#{@order.promotion_carriage_adjustment}  合计金额：#{@order.promotion_price}"]],
                 :cell_style => {:size => 6, :align => :right }, :width => 550)
 
       pdf.bounding_box([0, 0], :width => 630, :height => 150) do
