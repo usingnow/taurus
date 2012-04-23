@@ -1,0 +1,240 @@
+//= require order/front_orders
+
+#uc_menu_wrapper {
+  position: relative;
+  float: left;
+  width: 218px;
+  border: 1px solid #dddddd;
+  .menu_title {
+    padding: 0 0 0 4px;
+    width: 214px;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    color: #E73221;}
+  h2 {
+    background-image: url('/assets/templates/titlebar/bar_bg_1_30.png');}
+  h3 {
+    @extend .menu_title;
+    background-color: lighten(#E73221, 47%);
+    color: #E73221;}
+  li {
+    padding: 2px 0px;
+    font-size: 14px;
+    line-height: 20px;
+    vertical-align: middle;}}
+#uc_content_wrapper {
+  position: relative;
+  float: right;
+  width: 770px;
+  .small_font {
+    font-size: 12px;}
+  p {
+    min-height: 14px;
+    line-height: 14px;
+    vertical-align: middle;
+    font-size: 14px;
+    margin: 8px 0 0 0;}
+  .title {
+    padding: 0 0 0 4px;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    color: #E73221;}
+  h2 {
+    background-image: url('/assets/templates/titlebar/bar_bg_1_30.png');}
+  h3 {
+    line-height: 18px;
+    vertical-align: middle;
+    margin: 20px 0 0 0;
+    border-bottom: 1px dashed #DDDDDD;}
+  caption {
+    padding-left: 4px;}
+  #uc_welcome {
+    width: 760px;
+    height: 40px;
+    padding: 4px;
+    border: 1px solid #E73221;
+    background-color: lighten(#E73221, 45%);
+    p {
+      margin: 0px;
+      line-height: 40px;
+      vertical-align: center;
+      position: relative;
+      font-size: 14px;}
+    .p_l {
+      float: left;
+      color: #E73221;}
+    .p_r {
+      float: right;}}
+    .red {
+      color: #E73221;}}
+.nav {
+  margin: 4px 0 10px 0;
+  padding: 0 4px 0 4px;
+  width: 990px;
+  height: 28px;
+  line-height: 28px;
+  vertical-align: middle;
+  border: 1px solid #DDDDDD;}
+
+.p_t {
+  width: 100px;
+  float: left;
+  text-align: right;}
+
+#uc_comments {
+  margin: 4px 0 0 0;
+  width: 100%;
+  th {
+    min-width: 80px;}
+  td > em {
+    font-family: Arial Unicode MS, Tahoma, Verdana, Microsoft Yahei;
+    font-style: normal;}
+  td > a {
+    margin: 0px 3px;}
+  .even {
+    background-color: lighten(#E73221, 45%);}
+  thead {
+    background-image: url("/assets/templates/titlebar/bar_bg_1_30.png");}
+  td.content  {
+    text-align: left;}}
+#uc_points, #uc_fav, #uc_order_query {
+  @extend #uc_comments;
+  caption {
+    text-align: left;}}
+.total_points {
+  margin: 8px 0 0 0;
+  padding: 4px;
+  font-size: 16px;
+  border: 1px solid #999999;
+  backgournd-color: #dddddd;}
+
+#error_explanation {
+  position: relative;
+  float: top;
+  padding: 2px;
+  border: 1px solid #E73221;
+  color: #E73221;
+  background-color: lighten(#E73221, 45%);}
+
+.successful {
+  position: relative;
+  float: top;
+  padding: 2px;
+  border: 1px solid green;
+  color: green;
+  background-color: lighten(green, 65%);}
+
+#conditions {
+  float: left;
+  margin: 8px 0px;
+  padding: 4px;
+  border: 1px solid #E73221;
+  background-color: lighten(#E73221, 47%);
+  .right {
+    float: right;
+    margin-right: 40px;}
+  p {
+    display: block;
+    position: relative;
+    padding: 0 0 0 4px;
+    float: left;
+    line-height: 26px;
+    vertical-align: middle;
+    a {
+      padding-left: 4px;}
+    input.handler {
+      width: 142px;
+      height: 32px;
+      font-size: 16px;
+      color: #FFFFFF;
+      background-image: url('/assets/templates/btn_default.png');}
+    input.handler:hover {
+      background-image: url('/assets/templates/btn_default_hover.png');
+      cursor: pointer;}}}
+
+.order_sku_details {
+  caption {
+    margin: 0 0 0 0;
+    padding: 4px;
+    em {
+      color: #E73221;
+      margin-right: 40px;}}
+  caption.right{
+    text-align: right;}}
+#order_brief {
+  float: left;
+  width: 998px;
+  margin: 10px 0px;
+  border: 1px solid green;
+  background-color: lighten(green, 70%);
+  p {
+    float: left;
+    clear: right;
+    padding: 4px;
+    margin-right: 40px;
+    font-size: 16px;}}
+#order_info_review {
+  h2 {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    color: #E73221;
+    background-image: url('/assets/templates/titlebar/bar_bg_1_30.png');}}
+div.remit {
+  p {
+    float: left;
+    clear: both;
+    em {
+      color: #E73221;
+      font-size: 12px;
+      font-style: normal;
+      height: 25px;
+      line-height: 25px;
+      vertical-align: bottom;}
+    label {
+      display: block;
+      width: 100px;
+      height: 25px;
+      line-height: 25px;
+      vertical-align: middle;
+      text-align: right;
+      float: left;}
+    textarea {
+      border: 1px solid #DDDDDD;
+      width: 220px;}
+    textarea:focus {
+      background: #DDDDDD;}}}
+button.handler {
+  width: 140px;
+  height: 30px;
+  font-size: 16px;
+  color: #FFFFFF;
+  border: none;
+  background-image: url('/assets/templates/btn_default.png');}
+
+//用户中心按钮式样。
+button.handler:hover {
+  background-image: url('/assets/templates/btn_default_hover.png');
+  cursor: pointer;}
+input.handler {
+  width: 142px;
+  height: 32px;
+  font-size: 16px;
+  color: #FFFFFF;
+  background-image: url('/assets/templates/btn_default.png');}
+input.handler:hover {
+  background-image: url('/assets/templates/btn_default_hover.png');
+  cursor: pointer;}
+
+.sku_image {
+  border:0px;}
+
+.pagination {
+  float: right;
+  margin-top: 15px;
+  .current {
+    color: #E63221;
+    font-weight: bold;}}

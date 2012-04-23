@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ebiz</title>
+  <%= stylesheet_link_tag 'application' %>
+  <%= stylesheet_link_tag params[:controller] %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag params[:controller] %>
+  <%= csrf_meta_tag %>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('body').layout({
+          north__closable:false,
+          north__resizable:false
+      });
+
+      jQuery("table>tbody tr").live({
+        mouseenter:function(){
+          jQuery(this).addClass("highlight");
+        },
+        mouseleave:function(){
+          jQuery(this).removeClass("highlight");
+        }
+      });
+
+      jQuery(document).keydown(function(event) {
+        if (event.keyCode == 13) {
+          jQuery('form').each(function() {
+            event.preventDefault();
+          });
+        }
+      });
+
+      <%= yield(:ready) %> //动态加载js
+    });
+  </script>
+</head>
+<body>
+  <div class="ui-layout-north">
+    <div id="header">
+      <h1>壹美壹家后台管理系统</h1>
+      <p>
+        
+      </p>
+    </div>
+  </div>
+
+  <div class="ui-layout-center">
+    <div id="main_content">
+      <%= yield %>
+    </div>
+  </div>
+
+  <div class="ui-layout-west">
+    <div id="left_menu">
+      <%= raw functions %>
+    </div>
+  </div>
+</body>
+</html>
