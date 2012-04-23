@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120412102832) do
+ActiveRecord::Schema.define(:version => 20120424030801) do
 
   create_table "administrator_groupships", :force => true do |t|
     t.integer  "administrator_id"
@@ -45,14 +45,6 @@ ActiveRecord::Schema.define(:version => 20120412102832) do
 
   add_index "administrators", ["email"], :name => "index_administrators_on_email", :unique => true
   add_index "administrators", ["reset_password_token"], :name => "index_administrators_on_reset_password_token", :unique => true
-
-  create_table "announcements", :force => true do |t|
-    t.string   "title"
-    t.string   "internal_title"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "back_order_skus", :force => true do |t|
     t.integer  "sku_id"
@@ -330,20 +322,6 @@ ActiveRecord::Schema.define(:version => 20120412102832) do
     t.string   "desc"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "images", :force => true do |t|
-    t.integer  "page"
-    t.integer  "location"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text     "description"
-    t.integer  "line_type",          :default => 0
-    t.string   "href"
   end
 
   create_table "industries", :force => true do |t|
@@ -917,15 +895,6 @@ ActiveRecord::Schema.define(:version => 20120412102832) do
     t.integer  "level"
   end
 
-  create_table "sku_displays", :force => true do |t|
-    t.integer  "sku_id"
-    t.integer  "sequence"
-    t.integer  "page"
-    t.integer  "location"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "sku_images", :force => true do |t|
     t.integer  "sku_id"
     t.string   "name"
@@ -1004,17 +973,6 @@ ActiveRecord::Schema.define(:version => 20120412102832) do
     t.integer  "total_sale"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "slider_bars", :force => true do |t|
-    t.string   "name"
-    t.string   "href"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
   end
 
   create_table "station_procedureships", :force => true do |t|
@@ -1108,6 +1066,55 @@ ActiveRecord::Schema.define(:version => 20120412102832) do
     t.string   "description"
     t.datetime "updated_at"
     t.datetime "created_at"
+  end
+
+  create_table "taurus_announcements", :force => true do |t|
+    t.string   "title"
+    t.string   "internal_title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "taurus_images", :force => true do |t|
+    t.integer  "page"
+    t.integer  "location"
+    t.text     "description"
+    t.integer  "line_type",          :default => 0
+    t.string   "href"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taurus_images", ["location"], :name => "index_taurus_images_on_location"
+  add_index "taurus_images", ["page"], :name => "index_taurus_images_on_page"
+
+  create_table "taurus_sku_displays", :force => true do |t|
+    t.integer  "sku_id"
+    t.integer  "sequence"
+    t.integer  "page"
+    t.integer  "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taurus_sku_displays", ["location"], :name => "index_taurus_sku_displays_on_location"
+  add_index "taurus_sku_displays", ["page"], :name => "index_taurus_sku_displays_on_page"
+  add_index "taurus_sku_displays", ["sku_id"], :name => "index_taurus_sku_displays_on_sku_id"
+
+  create_table "taurus_slider_bars", :force => true do |t|
+    t.string   "name"
+    t.string   "href"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tracks", :force => true do |t|

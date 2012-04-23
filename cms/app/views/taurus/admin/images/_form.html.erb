@@ -1,6 +1,6 @@
-<%= simple_form_for([:content,@image]) do |f| %>
+<%= simple_form_for([:admin,@image]) do |f| %>
   <%= f.error_notification %>
-
+  
   <div class="attributes">
     <%= f.input :page do
       f.collection_select :page, @image.page_enum , :first, :second, :checked => 0
@@ -21,7 +21,7 @@
     <%= f.cktext_area :description, :toolbar=>'Full', :width=>'65%', :height=>'300px' %>
   </div>
 
-  <%= image_tag "/assets/content/images/homepage_cms.png", :class => "cms_layout_indicator", :id => "cms_image" %>
+  <%= image_tag "/assets/taurus/admin/images/homepage_cms.png", :class => "cms_layout_indicator", :id => "cms_image" %>
 
   <div class="actions">
     <%= f.button :submit %>

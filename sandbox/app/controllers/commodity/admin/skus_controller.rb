@@ -1,6 +1,6 @@
 class Commodity::Admin::SkusController < ApplicationController
   before_filter :authenticate_administrator!
-  authorize_resource
+  #authorize_resource
   skip_authorize_resource :only => :search
   def index
     @search = Sku.search(params[:q])

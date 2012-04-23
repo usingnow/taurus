@@ -1,0 +1,29 @@
+<%= form_for([:admin,@slider_bar],:html => {:multipart=>true}) do |f| %>
+  <% if @slider_bar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pick_up.errors.count, "error") %> prohibited this pick_up from being saved:</h2>
+
+      <ul>
+      <% @slider_bar.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label '名称' %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label '链接' %>
+    <%= f.text_field :href %>
+  </div>
+  <div class="field">
+    <%= f.label '图片' %>
+    <%= f.file_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

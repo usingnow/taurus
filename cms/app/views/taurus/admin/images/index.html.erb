@@ -1,6 +1,6 @@
 <h1>图片列表</h1>
 
-<%= search_form_for @search, :url => admin_images_path do |f| %>
+<%= search_form_for @search, :url => admin_images_path, :html => { :id => "image_search" } do |f| %>
   <%= f.hidden_field :page_eq %>
   <button type="button" value="" class="page_button">全部</button>
   <button type="button" value="0" class="page_button">首页</button>
@@ -20,8 +20,8 @@
   <thead>
     <tr>
       <th>#</th>
-      <th><%= t('activerecord.attributes.image.page') %></th>
-      <th><%= t 'activerecord.attributes.image.location' %></th>
+      <th><%= t('activerecord.attributes.taurus/image.page') %></th>
+      <th><%= t 'activerecord.attributes.taurus/image.location' %></th>
       <th></th>
       <th></th>
       <th></th>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  #mount Ckeditor::Engine => '/ckeditor'
+  mount Ckeditor::Engine => '/ckeditor'
   mount Taurus::Cms::Engine => '/'
 
 
@@ -200,7 +200,6 @@ Rails.application.routes.draw do
     resources :sku_details do
       resources :customer_ratings
     end
-    resources :sku_displays
   end
 
   namespace :content do
@@ -208,8 +207,6 @@ Rails.application.routes.draw do
       resources :announcements
       resources :images
     end
-    resources :announcements
-    resources :slider_bars
   end
 
   namespace :store do

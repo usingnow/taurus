@@ -1,0 +1,36 @@
+<h1>
+  <%= t 'admin.actions.index.title', :model => t('activerecord.models.sku_display') %>
+</h1>
+<%= form_tag admin_sku_displays_path, :method => :get, :id => "sku_display_search" do  %>
+  <%= hidden_field_tag :page %>
+  <%= sku_display_page_buttons  %>
+<% end %>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t 'activerecord.attributes.sku_display.page' %></th>
+      <th><%= t 'activerecord.attributes.sku_display.location' %></th>
+      <th><%= t 'activerecord.attributes.sku_display.current_quantity' %></th>
+      <th><%= t 'activerecord.attributes.sku_display.max_quantity' %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @page['locations'].each_with_index do |location,index| %>
+    <tr class="<%= cycle("odd","even") %>">
+      <td><%= index+1 %></td>
+      <td><%= @page['name'] %></td>
+      <td><%= location['name'] %></td>
+      <td><%= sum_sku_display_location_skus(@page['id'], location['id']) %></td>
+      <td><%= location['size'] %></td>
+      <td>
+        <%= link_to t('admin.actions.edit.menu'), Taurus::Cms::Engine.routes.url_helpers.new_admin_sku_display_path(:page_id => @page['id'], :location_id => location['id'], :'q[sku_category_number_start]' => location['category_no']) %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
