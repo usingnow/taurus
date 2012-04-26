@@ -27201,3 +27201,1505 @@ Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
 
 Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-04-25 17:06:46 +0800
 Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 15:04:37 +0800
+  Processing by Admin::HomeController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/back/sign_in" for 127.0.0.1 at 2012-04-26 15:04:38 +0800
+  Processing by Admin::Devise::SessionsController#new as HTML
+Rendered admin/devise/sessions/new.html.erb within layouts/devise (41.3ms)
+Completed 200 OK in 380ms (Views: 237.2ms | ActiveRecord: 19.8ms)
+
+
+Started GET "/assets/admin/devise/sessions.css.scss?body=1" for 127.0.0.1 at 2012-04-26 15:04:39 +0800
+Served asset /admin/devise/sessions.css.scss - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home/login01.png" for 127.0.0.1 at 2012-04-26 15:04:39 +0800
+Served asset /home/login01.png - 304 Not Modified (10ms)
+
+
+Started GET "/assets/admin/login.gif" for 127.0.0.1 at 2012-04-26 15:04:39 +0800
+Served asset /admin/login.gif - 304 Not Modified (8ms)
+
+
+Started GET "/assets/home/login02.png" for 127.0.0.1 at 2012-04-26 15:04:40 +0800
+Served asset /home/login02.png - 304 Not Modified (4ms)
+
+
+Started POST "/back/sign_in" for 127.0.0.1 at 2012-04-26 15:04:40 +0800
+  Processing by Admin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BN8vctFpAZd9fl2c9pweMBwc6XRV2iaWPmpnM2r6MeY=", "administrator"=>{"login_no"=>"root", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"登录"}
+  [1m[36mAdministrator Load (2.8ms)[0m  [1mSELECT `administrators`.* FROM `administrators` WHERE `administrators`.`login_no` = 'root' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (1.8ms)[0m  [1mUPDATE `administrators` SET `last_sign_in_at` = '2012-04-25 14:02:09', `current_sign_in_at` = '2012-04-26 15:04:41', `sign_in_count` = 169, `updated_at` = '2012-04-26 15:04:41' WHERE `administrators`.`id` = 1[0m
+  [1m[35m (11.5ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3002/admin
+Completed 302 Found in 573ms
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 15:04:41 +0800
+  Processing by Admin::HomeController#index as HTML
+  [1m[36mAdministrator Load (1.0ms)[0m  [1mSELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1[0m
+Rendered admin/home/index.html.erb within layouts/application (0.4ms)
+  [1m[35mComponent Load (0.8ms)[0m  SELECT `components`.* FROM `components` 
+  [1m[36mFunction Load (0.4ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 1[0m
+  [1m[35mOperating Load (0.5ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 10
+  [1m[36mGroup Load (0.5ms)[0m  [1mSELECT `groups`.* FROM `groups` INNER JOIN `administrator_groupships` ON `groups`.`id` = `administrator_groupships`.`group_id` WHERE `administrator_groupships`.`administrator_id` = 1[0m
+  [1m[35mPermission Load (3.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`group_id` = 23
+  [1m[36mOperating Load (0.8ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 11[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 12
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 13[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 14
+  [1m[36mOperating Load (0.8ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 15[0m
+  [1m[35mFunction Load (0.4ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 2
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 1[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 3
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 4[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 5
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 6[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 7
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 8[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 9
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 24[0m
+  [1m[35mFunction Load (0.3ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 3
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 16[0m
+  [1m[35mOperating Load (0.6ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 17
+  [1m[36mOperating Load (0.7ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 18[0m
+  [1m[35mOperating Load (0.5ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 28
+  [1m[36mOperating Load (0.5ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 33[0m
+  [1m[35mFunction Load (0.3ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 4
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 19[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 20
+  [1m[36mFunction Load (0.3ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 5[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 21
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 22[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 23
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 27[0m
+  [1m[35mFunction Load (0.3ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 6
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 25[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 29
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 30[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 31
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 7[0m
+  [1m[35mOperating Load (0.5ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 32
+Completed 200 OK in 841ms (Views: 673.1ms | ActiveRecord: 53.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-26 15:04:43 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-26 15:04:43 +0800
+Served asset /scaffold.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-26 15:04:43 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-26 15:04:43 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-26 15:04:43 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-26 15:04:43 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (19ms)
+
+
+Started GET "/assets/admin/home.css" for 127.0.0.1 at 2012-04-26 15:04:43 +0800
+Served asset /admin/home.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-26 15:04:43 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-26 15:04:43 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-26 15:04:43 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-26 15:04:43 +0800
+Served asset /jquery.js - 304 Not Modified (17ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-26 15:04:43 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-26 15:04:43 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/home.js" for 127.0.0.1 at 2012-04-26 15:04:43 +0800
+Served asset /admin/home.js - 404 Not Found (13ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-04-26 15:04:43 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (12ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 15:22:31 +0800
+
+ActionController::RoutingError (No route matches [GET] "/admin"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (42.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 15:23:36 +0800
+
+NameError (uninitialized constant Taurus::Core):
+  config/routes.rb:4:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (21.8ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 15:24:08 +0800
+  Processing by HomeController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+NameError (uninitialized constant HomeController::SliderBar):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (41.5ms)
+
+
+Started GET "/back/sign_in" for 127.0.0.1 at 2012-04-26 15:24:59 +0800
+  Processing by Admin::Devise::SessionsController#new as HTML
+  [1m[36mAdministrator Load (0.5ms)[0m  [1mSELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1[0m
+Redirected to http://127.0.0.1:3002/admin
+Completed 302 Found in 150ms
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 15:24:59 +0800
+  Processing by HomeController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+NameError (uninitialized constant HomeController::SliderBar):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 15:27:29 +0800
+
+ActionController::RoutingError (uninitialized constant ApplicationController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 15:32:08 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[35mAdministrator Load (0.4ms)[0m  SELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1
+Completed 500 Internal Server Error in 217ms
+
+ActionView::MissingTemplate (Missing template taurus/admin/home/index, taurus/base/index, application/index with {:handlers=>[:erb, :builder], :formats=>[:html], :locale=>[:"zh-CN", :"zh-CN"]}. Searched in:
+  * "/home/sean/projects/taurus/sandbox/app/views"
+  * "/home/sean/projects/taurus/core/app/views"
+  * "/home/sean/projects/taurus/cms/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/devise-1.5.3/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/ckeditor-3.7.0.rc2/app/views"
+):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (1.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 16:02:06 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[36mAdministrator Load (0.5ms)[0m  [1mSELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1[0m
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb (0.4ms)
+Completed 200 OK in 68ms (Views: 9.4ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 16:02:12 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[35mAdministrator Load (0.3ms)[0m  SELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb (0.0ms)
+Completed 200 OK in 58ms (Views: 8.0ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 16:38:13 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1mSELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1[0m
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb (0.1ms)
+Completed 200 OK in 69ms (Views: 10.5ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 16:38:14 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[35mAdministrator Load (0.3ms)[0m  SELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb (0.0ms)
+Completed 200 OK in 62ms (Views: 8.8ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 16:39:26 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1mSELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 70ms
+
+ActionView::MissingTemplate (Missing template layouts//taurus/layout/admin with {:handlers=>[:erb, :builder], :formats=>[:html], :locale=>[:"zh-CN", :"zh-CN"]}. Searched in:
+  * "/home/sean/projects/taurus/sandbox/app/views"
+  * "/home/sean/projects/taurus/core/app/views"
+  * "/home/sean/projects/taurus/cms/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/devise-1.5.3/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/ckeditor-3.7.0.rc2/app/views"
+):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 16:41:54 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[35mAdministrator Load (0.4ms)[0m  SELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1
+Completed 500 Internal Server Error in 76ms
+
+ActionView::MissingTemplate (Missing template layouts/taurus/layout/admin with {:handlers=>[:erb, :builder], :formats=>[:html], :locale=>[:"zh-CN", :"zh-CN"]}. Searched in:
+  * "/home/sean/projects/taurus/sandbox/app/views"
+  * "/home/sean/projects/taurus/core/app/views"
+  * "/home/sean/projects/taurus/cms/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/devise-1.5.3/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/ckeditor-3.7.0.rc2/app/views"
+):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 16:43:55 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[36mAdministrator Load (0.6ms)[0m  [1mSELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 432ms
+
+ActionView::MissingTemplate (Missing template layouts/taurus/layout/admin with {:handlers=>[:erb, :builder], :formats=>[:html], :locale=>[:"zh-CN", :"zh-CN"]}. Searched in:
+  * "/home/sean/projects/taurus/sandbox/app/views"
+  * "/home/sean/projects/taurus/core/app/views"
+  * "/home/sean/projects/taurus/cms/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/devise-1.5.3/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/ckeditor-3.7.0.rc2/app/views"
+):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (99.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 16:44:11 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[35mAdministrator Load (0.3ms)[0m  SELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1
+Completed 500 Internal Server Error in 129ms
+
+ActionView::MissingTemplate (Missing template layouts/taurus/layout/admin with {:handlers=>[:erb, :builder], :formats=>[:html], :locale=>[:"zh-CN", :"zh-CN"]}. Searched in:
+  * "/home/sean/projects/taurus/sandbox/app/views"
+  * "/home/sean/projects/taurus/core/app/views"
+  * "/home/sean/projects/taurus/cms/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/devise-1.5.3/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/ckeditor-3.7.0.rc2/app/views"
+):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 16:44:12 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1mSELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 130ms
+
+ActionView::MissingTemplate (Missing template layouts/taurus/layout/admin with {:handlers=>[:erb, :builder], :formats=>[:html], :locale=>[:"zh-CN", :"zh-CN"]}. Searched in:
+  * "/home/sean/projects/taurus/sandbox/app/views"
+  * "/home/sean/projects/taurus/core/app/views"
+  * "/home/sean/projects/taurus/cms/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/devise-1.5.3/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/ckeditor-3.7.0.rc2/app/views"
+):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 16:44:45 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[35mAdministrator Load (0.3ms)[0m  SELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1
+Completed 500 Internal Server Error in 68ms
+
+ActionView::MissingTemplate (Missing template layouts/taurus/layout/admin with {:handlers=>[:erb, :builder], :formats=>[:html], :locale=>[:"zh-CN", :"zh-CN"]}. Searched in:
+  * "/home/sean/projects/taurus/sandbox/app/views"
+  * "/home/sean/projects/taurus/core/app/views"
+  * "/home/sean/projects/taurus/cms/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/devise-1.5.3/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/ckeditor-3.7.0.rc2/app/views"
+):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 16:44:47 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1mSELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 59ms
+
+ActionView::MissingTemplate (Missing template layouts/taurus/layout/admin with {:handlers=>[:erb, :builder], :formats=>[:html], :locale=>[:"zh-CN", :"zh-CN"]}. Searched in:
+  * "/home/sean/projects/taurus/sandbox/app/views"
+  * "/home/sean/projects/taurus/core/app/views"
+  * "/home/sean/projects/taurus/cms/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/devise-1.5.3/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/ckeditor-3.7.0.rc2/app/views"
+):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 16:44:59 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[35mAdministrator Load (0.3ms)[0m  SELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1
+Completed 500 Internal Server Error in 61ms
+
+ActionView::MissingTemplate (Missing template layouts/admin with {:handlers=>[:erb, :builder], :formats=>[:html], :locale=>[:"zh-CN", :"zh-CN"]}. Searched in:
+  * "/home/sean/projects/taurus/sandbox/app/views"
+  * "/home/sean/projects/taurus/core/app/views"
+  * "/home/sean/projects/taurus/cms/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/devise-1.5.3/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/ckeditor-3.7.0.rc2/app/views"
+):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 16:45:40 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1mSELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1[0m
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within taurus/layouts/admin (0.4ms)
+Compiled application.css  (1900ms)  (pid 3461)
+Compiled jquery-laylout.css  (1ms)  (pid 3461)
+Compiled scaffold.css  (15ms)  (pid 3461)
+Compiled smoothness/jquery-ui-1.8.16.custom.css  (1ms)  (pid 3461)
+Compiled plugin/simple_form.css  (16ms)  (pid 3461)
+Compiled application.js  (12ms)  (pid 3461)
+Compiled jquery.js  (5ms)  (pid 3461)
+Compiled jquery_ujs.js  (1ms)  (pid 3461)
+Compiled jquery-ui-1.8.16.custom.min.js  (3ms)  (pid 3461)
+Compiled jquery.layout-latest.js  (3ms)  (pid 3461)
+Compiled autocomplete-rails.js  (1ms)  (pid 3461)
+  [1m[35mComponent Load (0.5ms)[0m  SELECT `components`.* FROM `components` 
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 1[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 10
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT `groups`.* FROM `groups` INNER JOIN `administrator_groupships` ON `groups`.`id` = `administrator_groupships`.`group_id` WHERE `administrator_groupships`.`administrator_id` = 1[0m
+  [1m[35mPermission Load (3.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`group_id` = 23
+  [1m[36mOperating Load (0.5ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 11[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 12
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 13[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 14
+  [1m[36mOperating Load (0.6ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 15[0m
+  [1m[35mFunction Load (0.8ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 2
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 1[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 3
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 4[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 5
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 6[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 7
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 8[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 9
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 24[0m
+  [1m[35mFunction Load (0.2ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 3
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 16[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 17
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 18[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 28
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 33[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 4
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 19[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 20
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 5[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 21
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 22[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 23
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 27[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 6
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 25[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 29
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 30[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 31
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 7[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 32
+Completed 200 OK in 2881ms (Views: 2796.5ms | ActiveRecord: 40.8ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-26 16:45:43 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-26 16:45:43 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-26 16:45:43 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (9ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-26 16:45:43 +0800
+Served asset /scaffold.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-26 16:45:43 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-26 16:45:43 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-26 16:45:43 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-26 16:45:43 +0800
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-26 16:45:43 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-26 16:45:43 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-26 16:45:43 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-26 16:45:43 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-26 16:45:43 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-26 16:45:43 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (10ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-04-26 16:45:43 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 16:45:50 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1mSELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1[0m
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+  [1m[35mComponent Load (0.6ms)[0m  SELECT `components`.* FROM `components` 
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 1[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 10
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT `groups`.* FROM `groups` INNER JOIN `administrator_groupships` ON `groups`.`id` = `administrator_groupships`.`group_id` WHERE `administrator_groupships`.`administrator_id` = 1[0m
+  [1m[35mPermission Load (3.4ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`group_id` = 23
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 11[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 12
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 13[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 14
+  [1m[36mOperating Load (0.6ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 15[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 2
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 1[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 3
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 4[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 5
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 6[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 7
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 8[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 9
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 24[0m
+  [1m[35mFunction Load (0.2ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 3
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 16[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 17
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 18[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 28
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 33[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 4
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 19[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 20
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 5[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 21
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 22[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 23
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 27[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 6
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 25[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 29
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 30[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 31
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 7[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 32
+Completed 200 OK in 326ms (Views: 248.1ms | ActiveRecord: 36.6ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-26 16:45:50 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-26 16:45:51 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-26 16:45:51 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-26 16:45:51 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-26 16:45:51 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-26 16:45:51 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (7ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-26 16:45:51 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-26 16:45:51 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-26 16:45:51 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-26 16:45:51 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-26 16:45:51 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-26 16:45:51 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-26 16:45:51 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-26 16:45:51 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (15ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-04-26 16:45:51 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/orders" for 127.0.0.1 at 2012-04-26 16:46:11 +0800
+
+LoadError (Expected /home/sean/projects/taurus/core/app/controllers/taurus/admin/orders_controller.rb to define Taurus::Admin::OrdersController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.9ms)
+
+
+Started GET "/admin/slider_bars" for 127.0.0.1 at 2012-04-26 16:46:20 +0800
+  Processing by Taurus::Admin::SliderBarsController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1mSELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1[0m
+  [1m[35mTaurus::SliderBar Load (0.7ms)[0m  SELECT `taurus_slider_bars`.* FROM `taurus_slider_bars` 
+Rendered /home/sean/projects/taurus/cms/app/views/taurus/admin/slider_bars/index.html.erb (2.1ms)
+Completed 200 OK in 127ms (Views: 10.7ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/admin/slider_bars" for 127.0.0.1 at 2012-04-26 16:47:14 +0800
+  Processing by Taurus::Admin::SliderBarsController#index as HTML
+  [1m[36mAdministrator Load (0.4ms)[0m  [1mSELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1[0m
+  [1m[35mTaurus::SliderBar Load (0.7ms)[0m  SELECT `taurus_slider_bars`.* FROM `taurus_slider_bars` 
+Rendered /home/sean/projects/taurus/cms/app/views/taurus/admin/slider_bars/index.html.erb (0.9ms)
+Completed 200 OK in 63ms (Views: 8.7ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/admin/slider_bars" for 127.0.0.1 at 2012-04-26 16:47:16 +0800
+  Processing by Taurus::Admin::SliderBarsController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1mSELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1[0m
+  [1m[35mTaurus::SliderBar Load (0.2ms)[0m  SELECT `taurus_slider_bars`.* FROM `taurus_slider_bars` 
+Rendered /home/sean/projects/taurus/cms/app/views/taurus/admin/slider_bars/index.html.erb (0.9ms)
+Completed 200 OK in 134ms (Views: 9.1ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/admin/announcements" for 127.0.0.1 at 2012-04-26 16:47:20 +0800
+  Processing by Taurus::Admin::AnnouncementsController#index as HTML
+  [1m[36mAdministrator Load (0.4ms)[0m  [1mSELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1[0m
+  [1m[35mTaurus::Announcement Load (0.9ms)[0m  SELECT `taurus_announcements`.* FROM `taurus_announcements` 
+Rendered /home/sean/projects/taurus/cms/app/views/taurus/admin/announcements/index.html.erb within /taurus/layouts/admin (2.2ms)
+  [1m[36mComponent Load (0.5ms)[0m  [1mSELECT `components`.* FROM `components` [0m
+  [1m[35mFunction Load (0.2ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 1
+  [1m[36mOperating Load (0.5ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 10[0m
+  [1m[35mGroup Load (0.1ms)[0m  SELECT `groups`.* FROM `groups` INNER JOIN `administrator_groupships` ON `groups`.`id` = `administrator_groupships`.`group_id` WHERE `administrator_groupships`.`administrator_id` = 1
+  [1m[36mPermission Load (3.3ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`group_id` = 23[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 11
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 12[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 13
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 14[0m
+  [1m[35mOperating Load (0.6ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 15
+  [1m[36mFunction Load (0.5ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 2[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 1
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 3[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 4
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 5[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 6
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 7[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 8
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 9[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 24
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 3[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 16
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 17[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 18
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 28[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 33
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 4[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 19
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 20[0m
+  [1m[35mFunction Load (0.2ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 5
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 21[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 22
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 23[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 27
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 6[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 25
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 29[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 30
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 31[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 7
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 32[0m
+Completed 200 OK in 445ms (Views: 274.4ms | ActiveRecord: 38.9ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-26 16:47:20 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-26 16:47:20 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-26 16:47:20 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-26 16:47:20 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-26 16:47:20 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/announcements.css" for 127.0.0.1 at 2012-04-26 16:47:20 +0800
+Served asset /taurus/admin/announcements.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/announcements.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.9ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-26 16:47:20 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-26 16:47:20 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-26 16:47:20 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-26 16:47:20 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-26 16:47:20 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-26 16:47:20 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-26 16:47:20 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/announcements.js" for 127.0.0.1 at 2012-04-26 16:47:20 +0800
+Served asset /taurus/admin/announcements.js - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/announcements.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-04-26 16:47:20 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/announcements" for 127.0.0.1 at 2012-04-26 16:55:25 +0800
+  Processing by Taurus::Admin::AnnouncementsController#index as HTML
+  [1m[35mAdministrator Load (0.9ms)[0m  SELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1
+  [1m[36mTaurus::Announcement Load (0.3ms)[0m  [1mSELECT `taurus_announcements`.* FROM `taurus_announcements` [0m
+Rendered /home/sean/projects/taurus/cms/app/views/taurus/admin/announcements/index.html.erb within /taurus/layouts/admin (0.8ms)
+  [1m[35mComponent Load (0.5ms)[0m  SELECT `components`.* FROM `components` 
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 1[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 10
+  [1m[36mGroup Load (0.3ms)[0m  [1mSELECT `groups`.* FROM `groups` INNER JOIN `administrator_groupships` ON `groups`.`id` = `administrator_groupships`.`group_id` WHERE `administrator_groupships`.`administrator_id` = 1[0m
+  [1m[35mPermission Load (3.0ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`group_id` = 23
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 11[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 12
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 13[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 14
+  [1m[36mOperating Load (0.6ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 15[0m
+  [1m[35mFunction Load (0.3ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 2
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 1[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 3
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 4[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 5
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 6[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 7
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 8[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 9
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 24[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 3
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 16[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 17
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 18[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 28
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 33[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 4
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 19[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 20
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 5[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 21
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 22[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 23
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 27[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 6
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 25[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 29
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 30[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 31
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 7[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 32
+Completed 200 OK in 470ms (Views: 264.9ms | ActiveRecord: 41.9ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-26 16:55:26 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-26 16:55:26 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-26 16:55:26 +0800
+Served asset /scaffold.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-26 16:55:26 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-26 16:55:26 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/announcements.css" for 127.0.0.1 at 2012-04-26 16:55:26 +0800
+Served asset /taurus/admin/announcements.css - 404 Not Found (26ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/announcements.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-26 16:55:26 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-26 16:55:26 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-26 16:55:26 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-26 16:55:26 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-26 16:55:26 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-26 16:55:26 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-26 16:55:26 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/announcements.js" for 127.0.0.1 at 2012-04-26 16:55:26 +0800
+Served asset /taurus/admin/announcements.js - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/announcements.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-04-26 16:55:27 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/slider_bars" for 127.0.0.1 at 2012-04-26 16:59:03 +0800
+  Processing by Taurus::Admin::SliderBarsController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1mSELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1[0m
+  [1m[35mTaurus::SliderBar Load (0.2ms)[0m  SELECT `taurus_slider_bars`.* FROM `taurus_slider_bars` 
+Rendered /home/sean/projects/taurus/cms/app/views/taurus/admin/slider_bars/index.html.erb within /taurus/layouts/admin (1.1ms)
+  [1m[36mComponent Load (0.5ms)[0m  [1mSELECT `components`.* FROM `components` [0m
+  [1m[35mFunction Load (0.3ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 1
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 10[0m
+  [1m[35mGroup Load (0.1ms)[0m  SELECT `groups`.* FROM `groups` INNER JOIN `administrator_groupships` ON `groups`.`id` = `administrator_groupships`.`group_id` WHERE `administrator_groupships`.`administrator_id` = 1
+  [1m[36mPermission Load (2.9ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`group_id` = 23[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 11
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 12[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 13
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 14[0m
+  [1m[35mOperating Load (0.5ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 15
+  [1m[36mFunction Load (0.3ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 2[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 1
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 3[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 4
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 5[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 6
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 7[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 8
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 9[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 24
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 3[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 16
+  [1m[36mOperating Load (0.6ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 17[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 18
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 28[0m
+  [1m[35mOperating Load (0.5ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 33
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 4[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 19
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 20[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 5
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 21[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 22
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 23[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 27
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 6[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 25
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 29[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 30
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 31[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 7
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 32[0m
+Completed 200 OK in 449ms (Views: 264.9ms | ActiveRecord: 41.3ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:04 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:04 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:04 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:04 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:04 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:04 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/slider_bars.css" for 127.0.0.1 at 2012-04-26 16:59:04 +0800
+Served asset /taurus/admin/slider_bars.css - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/slider_bars.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:04 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:04 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:04 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:04 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:04 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:04 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/slider_bars.js" for 127.0.0.1 at 2012-04-26 16:59:04 +0800
+Served asset /taurus/admin/slider_bars.js - 404 Not Found (15ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/slider_bars.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-04-26 16:59:04 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/images" for 127.0.0.1 at 2012-04-26 16:59:06 +0800
+  Processing by Taurus::Admin::ImagesController#index as HTML
+  [1m[35mAdministrator Load (0.3ms)[0m  SELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1
+  [1m[36mTaurus::Image Load (0.9ms)[0m  [1mSELECT `taurus_images`.* FROM `taurus_images` LIMIT 20 OFFSET 0[0m
+Rendered /home/sean/projects/taurus/cms/app/views/taurus/admin/images/index.html.erb within /taurus/layouts/admin (27.9ms)
+Compiled taurus/admin/images.css  (1ms)  (pid 3461)
+Compiled taurus/admin/images.js  (172ms)  (pid 3461)
+  [1m[35mComponent Load (0.7ms)[0m  SELECT `components`.* FROM `components` 
+  [1m[36mFunction Load (0.3ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 1[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 10
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT `groups`.* FROM `groups` INNER JOIN `administrator_groupships` ON `groups`.`id` = `administrator_groupships`.`group_id` WHERE `administrator_groupships`.`administrator_id` = 1[0m
+  [1m[35mPermission Load (3.0ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`group_id` = 23
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 11[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 12
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 13[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 14
+  [1m[36mOperating Load (0.6ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 15[0m
+  [1m[35mFunction Load (0.2ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 2
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 1[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 3
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 4[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 5
+  [1m[36mOperating Load (0.5ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 6[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 7
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 8[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 9
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 24[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 3
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 16[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 17
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 18[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 28
+  [1m[36mOperating Load (0.5ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 33[0m
+  [1m[35mFunction Load (0.2ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 4
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 19[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 20
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 5[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 21
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 22[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 23
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 27[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 6
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 25[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 29
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 30[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 31
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 7[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 32
+Completed 200 OK in 569ms (Views: 461.0ms | ActiveRecord: 43.7ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:07 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:07 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:07 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:07 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:07 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/images.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:07 +0800
+Served asset /taurus/admin/images.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:07 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:07 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:07 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:07 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:07 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:07 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:07 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/taurus/admin/images.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:07 +0800
+Served asset /taurus/admin/images.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-04-26 16:59:07 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/sku_displays" for 127.0.0.1 at 2012-04-26 16:59:10 +0800
+  Processing by Taurus::Admin::SkuDisplaysController#index as HTML
+  [1m[36mAdministrator Load (0.8ms)[0m  [1mSELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1[0m
+  [1m[35m (1.3ms)[0m  SELECT COUNT(*) FROM `taurus_sku_displays` WHERE (page = 0 and location = 0)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `taurus_sku_displays` WHERE (page = 0 and location = 1)[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `taurus_sku_displays` WHERE (page = 0 and location = 2)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `taurus_sku_displays` WHERE (page = 0 and location = 3)[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `taurus_sku_displays` WHERE (page = 0 and location = 4)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `taurus_sku_displays` WHERE (page = 0 and location = 5)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `taurus_sku_displays` WHERE (page = 0 and location = 6)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `taurus_sku_displays` WHERE (page = 0 and location = 7)[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `taurus_sku_displays` WHERE (page = 0 and location = 8)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `taurus_sku_displays` WHERE (page = 0 and location = 9)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `taurus_sku_displays` WHERE (page = 0 and location = 10)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `taurus_sku_displays` WHERE (page = 0 and location = 11)[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `taurus_sku_displays` WHERE (page = 0 and location = 12)
+Rendered /home/sean/projects/taurus/cms/app/views/taurus/admin/sku_displays/index.html.erb within /taurus/layouts/admin (214.3ms)
+Compiled taurus/admin/sku_displays.js  (5ms)  (pid 3461)
+  [1m[36mComponent Load (0.4ms)[0m  [1mSELECT `components`.* FROM `components` [0m
+  [1m[35mFunction Load (0.2ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 1
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 10[0m
+  [1m[35mGroup Load (0.1ms)[0m  SELECT `groups`.* FROM `groups` INNER JOIN `administrator_groupships` ON `groups`.`id` = `administrator_groupships`.`group_id` WHERE `administrator_groupships`.`administrator_id` = 1
+  [1m[36mPermission Load (3.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`group_id` = 23[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 11
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 12[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 13
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 14[0m
+  [1m[35mOperating Load (0.5ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 15
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 2[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 1
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 3[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 4
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 5[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 6
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 7[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 8
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 9[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 24
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 3[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 16
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 17[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 18
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 28[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 33
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 4[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 19
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 20[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 5
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 21[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 22
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 23[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 27
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 6[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 25
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 29[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 30
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 31[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 7
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 32[0m
+Completed 200 OK in 720ms (Views: 474.8ms | ActiveRecord: 42.6ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:11 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:11 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:11 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:11 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:11 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/sku_displays.css" for 127.0.0.1 at 2012-04-26 16:59:11 +0800
+Served asset /taurus/admin/sku_displays.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/sku_displays.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:11 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:11 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:11 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:11 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:11 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:11 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/sku_displays.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:11 +0800
+Served asset /taurus/admin/sku_displays.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:11 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-04-26 16:59:12 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/images" for 127.0.0.1 at 2012-04-26 16:59:14 +0800
+  Processing by Taurus::Admin::ImagesController#index as HTML
+  [1m[35mAdministrator Load (0.3ms)[0m  SELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1
+  [1m[36mTaurus::Image Load (0.4ms)[0m  [1mSELECT `taurus_images`.* FROM `taurus_images` LIMIT 20 OFFSET 0[0m
+Rendered /home/sean/projects/taurus/cms/app/views/taurus/admin/images/index.html.erb within /taurus/layouts/admin (21.8ms)
+  [1m[35mComponent Load (0.5ms)[0m  SELECT `components`.* FROM `components` 
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 1[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 10
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT `groups`.* FROM `groups` INNER JOIN `administrator_groupships` ON `groups`.`id` = `administrator_groupships`.`group_id` WHERE `administrator_groupships`.`administrator_id` = 1[0m
+  [1m[35mPermission Load (2.8ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`group_id` = 23
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 11[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 12
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 13[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 14
+  [1m[36mOperating Load (0.5ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 15[0m
+  [1m[35mFunction Load (0.2ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 2
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 1[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 3
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 4[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 5
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 6[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 7
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 8[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 9
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 24[0m
+  [1m[35mFunction Load (0.2ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 3
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 16[0m
+  [1m[35mOperating Load (0.6ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 17
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 18[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 28
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 33[0m
+  [1m[35mFunction Load (0.3ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 4
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 19[0m
+  [1m[35mOperating Load (0.5ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 20
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 5[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 21
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 22[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 23
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 27[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 6
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 25[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 29
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 30[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 31
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 7[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 32
+Completed 200 OK in 369ms (Views: 273.5ms | ActiveRecord: 41.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:15 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:15 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:15 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:15 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:15 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/images.css?body=1" for 127.0.0.1 at 2012-04-26 16:59:15 +0800
+Served asset /taurus/admin/images.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:15 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:15 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:15 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:15 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:15 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:15 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (14ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:15 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/images.js?body=1" for 127.0.0.1 at 2012-04-26 16:59:15 +0800
+Served asset /taurus/admin/images.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-04-26 16:59:15 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th_orange.gif" for 127.0.0.1 at 2012-04-26 17:21:29 +0800
+Served asset /admin/admin_bg_th_orange.gif - 304 Not Modified (13ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-26 17:21:31 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1mSELECT `administrators`.* FROM `administrators` WHERE `administrators`.`id` = 1 LIMIT 1[0m
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+  [1m[35mComponent Load (0.5ms)[0m  SELECT `components`.* FROM `components` 
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 1[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 10
+  [1m[36mGroup Load (0.1ms)[0m  [1mSELECT `groups`.* FROM `groups` INNER JOIN `administrator_groupships` ON `groups`.`id` = `administrator_groupships`.`group_id` WHERE `administrator_groupships`.`administrator_id` = 1[0m
+  [1m[35mPermission Load (2.7ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`group_id` = 23
+  [1m[36mOperating Load (0.5ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 11[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 12
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 13[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 14
+  [1m[36mOperating Load (0.5ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 15[0m
+  [1m[35mFunction Load (0.2ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 2
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 1[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 3
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 4[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 5
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 6[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 7
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 8[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 9
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 24[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 3
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 16[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 17
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 18[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 28
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 33[0m
+  [1m[35mFunction Load (0.3ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 4
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 19[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 20
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 5[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 21
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 22[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 23
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 27[0m
+  [1m[35mFunction Load (0.2ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 6
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 25[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 29
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 30[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 31
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 7[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 32
+Completed 200 OK in 348ms (Views: 257.4ms | ActiveRecord: 43.8ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-26 17:21:31 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-26 17:21:31 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-26 17:21:31 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-26 17:21:31 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-26 17:21:31 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-26 17:21:31 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.6ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-26 17:21:31 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-26 17:21:31 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-26 17:21:31 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-26 17:21:31 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-26 17:21:31 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-26 17:21:31 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-26 17:21:31 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-26 17:21:31 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-04-26 17:21:32 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)

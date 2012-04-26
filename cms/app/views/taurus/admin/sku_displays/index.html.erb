@@ -26,7 +26,7 @@
       <td><%= sum_sku_display_location_skus(@page['id'], location['id']) %></td>
       <td><%= location['size'] %></td>
       <td>
-        <%= link_to t('admin.actions.edit.menu'), Taurus::Cms::Engine.routes.url_helpers.new_admin_sku_display_path(:page_id => @page['id'], :location_id => location['id'], :'q[sku_category_number_start]' => location['category_no']) %>
+        <%= link_to t('admin.actions.edit.menu'), new_admin_sku_display_path(:page_id => @page['id'], :location_id => location['id'], :'q[sku_category_number_start]' => location['category_no']) %>
       </td>
     </tr>
   <% end %>

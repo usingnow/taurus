@@ -19,4 +19,5 @@ Gem::Specification.new do |s|
   s.homepage     = 'http://spreecommerce.com'
 
   s.add_dependency 'taurus_cms', version
+  s.add_dependency 'taurus_core', version
 end

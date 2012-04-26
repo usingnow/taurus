@@ -3,7 +3,7 @@ version = File.read(File.expand_path("../../TAURUS_VERSION", __FILE__)).strip
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
-  s.name        = 'taurus_cms'
+  s.name        = 'taurus_core'
   s.version     = version
   s.summary     = ''
   s.description = ''

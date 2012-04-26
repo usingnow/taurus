@@ -12,7 +12,9 @@ PATH
   specs:
     taurus (0.0.1)
       taurus_cms (= 0.0.1)
+      taurus_core (= 0.0.1)
     taurus_cms (0.0.1)
+    taurus_core (0.0.1)
 
 GEM
   remote: http://ruby.taobao.org/
