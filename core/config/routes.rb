@@ -1,9 +1,9 @@
 Taurus::Core::Engine.routes.draw do 
 	
 	devise_for :administrators,
-             :path => "back",
-             :controllers => { :sessions => "admin/devise/sessions",
-                               :registrations => "admin/devise/registrations"  }
+             :path => "admin",
+             :controllers => { :sessions => "taurus/admin/devise/sessions",
+                               :registrations => "taurus/admin/devise/registrations"  }
 
   devise_for :users,
              :path => "users",

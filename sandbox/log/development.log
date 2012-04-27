@@ -28703,3 +28703,2929 @@ Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_d
 
 Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-04-26 17:21:32 +0800
 Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 14:06:31 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Completed 401 Unauthorized in 143ms
+
+NoMethodError (undefined method `root_path' for #<Devise::FailureApp:0xac257e0>):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 14:07:03 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Completed 401 Unauthorized in 21ms
+
+NoMethodError (undefined method `root_path' for #<Devise::FailureApp:0xb0973c8>):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.4ms)
+
+
+Started GET "/back/signin" for 127.0.0.1 at 2012-04-27 14:07:20 +0800
+
+ActionController::RoutingError (No route matches [GET] "/back/signin"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/back/sign_in" for 127.0.0.1 at 2012-04-27 14:07:24 +0800
+
+ActionController::RoutingError (uninitialized constant Admin::Devise):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/back/sign_in" for 127.0.0.1 at 2012-04-27 14:08:15 +0800
+
+ActionController::RoutingError (uninitialized constant Admin::Devise):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (90.1ms)
+
+
+Started GET "/back/sign_in" for 127.0.0.1 at 2012-04-27 14:09:53 +0800
+
+ActionController::RoutingError (uninitialized constant Admin::Devise):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/back/sign_in" for 127.0.0.1 at 2012-04-27 14:09:55 +0800
+
+ActionController::RoutingError (uninitialized constant Admin::Devise):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/back/sign_in" for 127.0.0.1 at 2012-04-27 14:09:56 +0800
+
+ActionController::RoutingError (uninitialized constant Admin::Devise):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/back/sign_in" for 127.0.0.1 at 2012-04-27 14:09:56 +0800
+
+ActionController::RoutingError (uninitialized constant Admin::Devise):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/back/sign_in" for 127.0.0.1 at 2012-04-27 14:09:57 +0800
+
+ActionController::RoutingError (uninitialized constant Admin::Devise):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/back/sign_in" for 127.0.0.1 at 2012-04-27 14:10:37 +0800
+
+ActionController::RoutingError (uninitialized constant Admin::Devise):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/back/sign_in" for 127.0.0.1 at 2012-04-27 14:10:37 +0800
+
+ActionController::RoutingError (uninitialized constant Admin::Devise):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/back/sign_in" for 127.0.0.1 at 2012-04-27 14:29:00 +0800
+
+ActionController::RoutingError (uninitialized constant Admin::Devise):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (91.0ms)
+
+
+Started GET "/back/sign_in" for 127.0.0.1 at 2012-04-27 14:53:36 +0800
+
+ArgumentError (controller name should not start with a slash):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (22.8ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.3ms)
+
+
+Started GET "/back/sign_in" for 127.0.0.1 at 2012-04-27 14:58:32 +0800
+
+ActionController::RoutingError (No route matches [GET] "/back/sign_in"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 14:58:43 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+NoMethodError (undefined method `root_path' for #<Devise::FailureApp:0xb62bc30>):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 15:01:18 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.4ms)
+  [1m[36mComponent Load (0.7ms)[0m  [1mSELECT `components`.* FROM `components` [0m
+  [1m[35mFunction Load (0.2ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 1
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 10[0m
+Completed 500 Internal Server Error in 520ms
+
+ActionView::Template::Error (undefined method `groups' for nil:NilClass):
+    53: 
+    54:   <div class="ui-layout-west">
+    55:     <div id="left_menu">
+    56:       <%= raw functions %>
+    57:     </div>
+    58:   </div>
+    59: </body>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (79.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 15:05:27 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 200 OK in 58ms (Views: 57.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 15:05:27 +0800
+Served asset /jquery-laylout.css - 200 OK (3ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 15:05:27 +0800
+Served asset /scaffold.css - 200 OK (3ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 15:05:27 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 200 OK (5ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 15:05:27 +0800
+Served asset /plugin/simple_form.css - 200 OK (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 15:05:27 +0800
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 15:05:27 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:27 +0800
+Served asset /jquery_ujs.js - 200 OK (5ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:27 +0800
+Served asset /jquery.layout-latest.js - 200 OK (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:27 +0800
+Served asset /jquery.js - 200 OK (92ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:27 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 200 OK (3ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:27 +0800
+Served asset /autocomplete-rails.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:27 +0800
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 15:05:27 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:27 +0800
+Served asset /ckeditor/ckeditor.js - 200 OK (6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 15:05:44 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 200 OK in 57ms (Views: 57.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 15:05:44 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 15:05:44 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 15:05:44 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 15:05:44 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 15:05:44 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 15:05:44 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:44 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:44 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:44 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:44 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:44 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 15:05:44 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (21ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:44 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:44 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 15:05:53 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 200 OK in 57ms (Views: 56.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 15:05:53 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 15:05:53 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 15:05:53 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 15:05:53 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 15:05:53 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 15:05:53 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:53 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:53 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:53 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:54 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:54 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 15:05:54 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (13ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:54 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 15:05:54 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 15:09:43 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 200 OK in 87ms (Views: 86.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 15:09:43 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 15:09:43 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 15:09:43 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 15:09:43 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 15:09:43 +0800
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 15:09:43 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 15:09:43 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 15:09:43 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 15:09:43 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 15:09:43 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 15:09:43 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 15:09:43 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 15:09:43 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 15:09:43 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 15:09:49 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 200 OK in 133ms (Views: 132.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 15:09:49 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 15:09:49 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 15:09:49 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 15:09:49 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 15:09:49 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 15:09:49 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 15:09:49 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 15:09:49 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 15:09:49 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 15:09:49 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 15:09:49 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 15:09:49 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 15:09:49 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 15:09:49 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 15:10:04 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 200 OK in 58ms (Views: 57.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 15:10:04 +0800
+Served asset /jquery-laylout.css - 200 OK (1ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 15:10:04 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 15:10:04 +0800
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 15:10:04 +0800
+Served asset /plugin/simple_form.css - 200 OK (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 15:10:04 +0800
+Served asset /scaffold.css - 200 OK (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 15:10:04 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 15:10:04 +0800
+Served asset /ckeditor/ckeditor.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 15:10:05 +0800
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 15:10:05 +0800
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 15:10:05 +0800
+Served asset /jquery.layout-latest.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 15:10:05 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 200 OK (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 15:10:05 +0800
+Served asset /autocomplete-rails.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 15:10:05 +0800
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 15:10:05 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (10ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 15:27:27 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 200 OK in 66ms (Views: 65.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 15:27:28 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 15:27:28 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 15:27:28 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 15:27:28 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 15:27:28 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 15:27:28 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (22ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 15:27:28 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 15:27:28 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 15:27:28 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 15:27:28 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 15:27:28 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 15:27:28 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 15:27:28 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 15:27:28 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 15:28:55 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 200 OK in 57ms (Views: 56.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 15:28:55 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 15:28:55 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 15:28:55 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 15:28:55 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 15:28:55 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 15:28:55 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 15:28:55 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 15:28:55 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 15:28:55 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 15:28:55 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 15:28:55 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 15:28:55 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 15:28:55 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 15:28:55 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 15:47:40 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Completed 500 Internal Server Error in 1016ms
+
+NameError (undefined local variable or method `rules' for #<Taurus::Admin::HomeController:0xbd6742c>):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 15:47:52 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 200 OK in 63ms (Views: 61.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 15:47:53 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 15:47:53 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 15:47:53 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 15:47:53 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 15:47:53 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 15:47:53 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 15:47:53 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 15:47:53 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 15:47:53 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 15:47:53 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 15:47:53 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 15:47:53 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (18ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 15:47:53 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 15:47:53 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 15:52:28 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 200 OK in 60ms (Views: 59.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 15:52:28 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 15:52:28 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 15:52:28 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 15:52:28 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 15:52:28 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 15:52:28 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (10.1ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 15:52:29 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 15:52:29 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 15:52:29 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 15:52:29 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 15:52:29 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 15:52:29 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (15ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 15:52:29 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 15:52:29 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 15:55:25 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `ya2yaml' for "aaa":String):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 15:55:57 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (93.3ms)
+Completed 200 OK in 412ms (Views: 410.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 15:55:58 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 15:55:58 +0800
+Served asset /scaffold.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 15:55:58 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 15:55:58 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 15:55:58 +0800
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 15:55:58 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (10ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 15:55:58 +0800
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 15:55:58 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 15:55:58 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 15:55:58 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 15:55:58 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 15:55:58 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 15:55:58 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 15:55:58 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (7ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 15:57:58 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 200 OK in 64ms (Views: 63.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 15:57:58 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 15:57:58 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 15:57:58 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 15:57:58 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 15:57:58 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (9ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 15:57:58 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 15:57:58 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 15:57:58 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 15:57:58 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 15:57:58 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 15:57:58 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 15:57:58 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 15:57:58 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 15:57:58 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 15:58:41 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 200 OK in 62ms (Views: 59.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 15:58:41 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 15:58:41 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 15:58:41 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 15:58:41 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (13ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 15:58:41 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 15:58:41 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 15:58:41 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 15:58:41 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 15:58:41 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 15:58:41 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 15:58:41 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 15:58:41 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 15:58:41 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 15:58:41 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (151ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 16:01:48 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Completed 500 Internal Server Error in 9ms
+
+NameError (uninitialized constant Taurus::Admin::HomeController::Compents):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 16:02:10 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+NameError (uninitialized constant Taurus::Compents):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 16:04:11 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+NameError (uninitialized constant Taurus::Compents):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (3.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 16:04:12 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+NameError (uninitialized constant Taurus::Compents):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 16:05:22 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+NameError (uninitialized constant Taurus::Components):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 16:05:36 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Mysql2::Error: Table 'taurus_development.taurus_components' doesn't exist: SHOW FIELDS FROM `taurus_components`
+Completed 500 Internal Server Error in 9ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'taurus_development.taurus_components' doesn't exist: SHOW FIELDS FROM `taurus_components`):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 16:07:13 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[36mTaurus::Component Load (0.9ms)[0m  [1mSELECT `taurus_components`.* FROM `taurus_components` [0m
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 200 OK in 158ms (Views: 129.0ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 16:07:13 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 16:07:13 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 16:07:13 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 16:07:13 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 16:07:13 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 16:07:13 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (11ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 16:07:13 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 16:07:13 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 16:07:13 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 16:07:13 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 16:07:14 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 16:07:14 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 16:07:14 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 16:07:14 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 16:12:05 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[35mTaurus::Component Load (0.5ms)[0m  SELECT `taurus_components`.* FROM `taurus_components` 
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 200 OK in 97ms (Views: 72.6ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 16:12:06 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 16:12:06 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 16:12:06 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 16:12:06 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 16:12:06 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (11ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 16:12:06 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 16:12:06 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 16:12:06 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 16:12:06 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 16:12:06 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 16:12:06 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 16:12:06 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 16:12:06 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 16:12:06 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 16:15:53 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[36mTaurus::Component Load (0.6ms)[0m  [1mSELECT `taurus_components`.* FROM `taurus_components` [0m
+  [1m[35mFunction Load (0.2ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 1
+  [1m[36mFunction Load (0.3ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 2[0m
+  [1m[35mFunction Load (0.2ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 3
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 4[0m
+  [1m[35mFunction Load (0.2ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 5
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 6[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 7
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 200 OK in 382ms (Views: 55.7ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 16:15:53 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 16:15:53 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 16:15:53 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 16:15:53 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 16:15:53 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 16:15:53 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 16:15:53 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 16:15:53 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 16:15:53 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 16:15:53 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 16:15:53 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 16:15:53 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 16:15:53 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 16:15:53 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 16:16:53 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[36mTaurus::Component Load (0.5ms)[0m  [1mSELECT `taurus_components`.* FROM `taurus_components` [0m
+  [1m[35mFunction Load (0.3ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 1
+  [1m[36mFunction Load (0.4ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 2[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 3
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 4[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 5
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 6[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 7
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 200 OK in 175ms (Views: 127.1ms | ActiveRecord: 12.6ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 16:16:53 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 16:16:53 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 16:16:53 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 16:16:53 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 16:16:53 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 16:16:53 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 16:16:53 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 16:16:53 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 16:16:53 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 16:16:53 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 16:16:53 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 16:16:53 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 16:16:53 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 16:16:53 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 16:17:56 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[36mTaurus::Component Load (0.5ms)[0m  [1mSELECT `taurus_components`.* FROM `taurus_components` [0m
+  [1m[35mFunction Load (0.2ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 1
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 2[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 3
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 4[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 5
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 6[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 7
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 200 OK in 171ms (Views: 59.9ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 16:17:56 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 16:17:56 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 16:17:56 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 16:17:56 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 16:17:56 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 16:17:56 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 16:17:56 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 16:17:56 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 16:17:56 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 16:17:56 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 16:17:56 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 16:17:56 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (12ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 16:17:56 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 16:17:56 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 16:36:32 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[36mTaurus::Component Load (0.5ms)[0m  [1mSELECT `taurus_components`.* FROM `taurus_components` [0m
+  [1m[35mFunction Load (0.3ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 1
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 10[0m
+  [1m[35mOperating Load (1.6ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 11
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 12[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 13
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 14[0m
+  [1m[35mOperating Load (0.5ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 15
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 2[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 1
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 3[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 4
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 5[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 6
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 7[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 8
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 9[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 24
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 3[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 16
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 17[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 18
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 28[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 33
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 4[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 19
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 20[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 5
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 21[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 22
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 23[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 27
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 6[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 25
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 29[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 30
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 31[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 7
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 32[0m
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 200 OK in 212ms (Views: 119.4ms | ActiveRecord: 27.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 16:36:32 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 16:36:32 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 16:36:32 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 16:36:32 +0800
+Served asset /application.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 16:36:32 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (7ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 16:36:32 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 16:36:32 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 16:36:32 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 16:36:32 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 16:36:32 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 16:36:32 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 16:36:32 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 16:36:32 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 16:36:32 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 16:37:08 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[35mTaurus::Component Load (0.4ms)[0m  SELECT `taurus_components`.* FROM `taurus_components` 
+  [1m[36mFunction Load (0.2ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 1[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 10
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 11[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 12
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 13[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 14
+  [1m[36mOperating Load (0.5ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 15[0m
+  [1m[35mFunction Load (0.2ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 2
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 1[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 3
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 4[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 5
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 6[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 7
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 8[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 9
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 24[0m
+  [1m[35mFunction Load (0.2ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 3
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 16[0m
+  [1m[35mOperating Load (0.4ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 17
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 18[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 28
+  [1m[36mOperating Load (0.4ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 33[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 4
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 19[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 20
+  [1m[36mFunction Load (0.3ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 5[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 21
+  [1m[36mOperating Load (0.3ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 22[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 23
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 27[0m
+  [1m[35mFunction Load (0.1ms)[0m  SELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 6
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 25[0m
+  [1m[35mOperating Load (0.3ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 29
+  [1m[36mOperating Load (0.2ms)[0m  [1mSELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 30[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 31
+  [1m[36mFunction Load (0.1ms)[0m  [1mSELECT `functions`.* FROM `functions` WHERE `functions`.`component_id` = 7[0m
+  [1m[35mOperating Load (0.2ms)[0m  SELECT `operatings`.* FROM `operatings` WHERE `operatings`.`function_id` = 32
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 200 OK in 159ms (Views: 62.7ms | ActiveRecord: 23.1ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 16:37:08 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 16:37:08 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 16:37:08 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 16:37:08 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (11ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 16:37:08 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 16:37:08 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 16:37:08 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 16:37:08 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 16:37:08 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 16:37:08 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 16:37:08 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 16:37:08 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (11ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 16:37:08 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 16:37:08 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:07:15 +0800
+
+SyntaxError (/home/sean/projects/taurus/core/app/helpers/taurus/base_helper.rb:3: class/module name must be CONSTANT):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:09:55 +0800
+
+LoadError (Expected /home/sean/projects/taurus/core/app/controllers/taurus/home_controller.rb to define Taurus::HomeController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:11:28 +0800
+
+TypeError (superclass mismatch for class HomeController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:11:32 +0800
+
+TypeError (superclass mismatch for class HomeController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:11:33 +0800
+
+TypeError (superclass mismatch for class HomeController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:11:34 +0800
+
+TypeError (superclass mismatch for class HomeController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:11:34 +0800
+
+TypeError (superclass mismatch for class HomeController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.2ms)
+
+
+Started GET "/back/sign_in" for 127.0.0.1 at 2012-04-27 17:13:29 +0800
+
+ActionController::RoutingError (No route matches [GET] "/back/sign_in"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:15:15 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:15:18 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:15:44 +0800
+
+LoadError (Expected /home/sean/projects/taurus/core/app/controllers/taurus/home_controller.rb to define Taurus::HomeController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (19.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (61.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:16:02 +0800
+
+TypeError (superclass mismatch for class HomeController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:16:03 +0800
+
+TypeError (superclass mismatch for class HomeController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:16:04 +0800
+
+TypeError (superclass mismatch for class HomeController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:16:05 +0800
+
+TypeError (superclass mismatch for class HomeController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:17:00 +0800
+
+TypeError (superclass mismatch for class HomeController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:17:02 +0800
+
+TypeError (superclass mismatch for class HomeController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:17:06 +0800
+
+TypeError (superclass mismatch for class HomeController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:17:06 +0800
+
+TypeError (superclass mismatch for class HomeController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (70.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:17:25 +0800
+
+TypeError (superclass mismatch for class HomeController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:17:51 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.4ms)
+Completed 200 OK in 95ms (Views: 95.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 17:17:51 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (122ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 17:17:51 +0800
+Served asset /scaffold.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 17:17:51 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 17:17:51 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 17:17:51 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 17:17:51 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 17:17:51 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (11ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 17:17:51 +0800
+Served asset /jquery.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 17:17:51 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 17:17:51 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 17:17:52 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 17:17:52 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 17:17:52 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 17:17:52 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (30ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:19:42 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:19:48 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:19:48 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:19:49 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:19:49 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:19:49 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:20:10 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:20:11 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:20:25 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:20:25 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:20:26 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:20:27 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:20:27 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:20:27 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:20:27 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:20:28 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:21:12 +0800
+
+ActionController::RoutingError (undefined method `sub' for nil:NilClass):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:21:46 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 200 OK in 122ms (Views: 121.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 17:21:47 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 17:21:47 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 17:21:47 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 17:21:47 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 17:21:47 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 17:21:47 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 17:21:47 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 17:21:47 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 17:21:47 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 17:21:47 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 17:21:47 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 17:21:47 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 17:21:47 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 17:21:47 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:22:50 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 200 OK in 127ms (Views: 126.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 17:22:50 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 17:22:50 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 17:22:50 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 17:22:50 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 17:22:50 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 17:22:50 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 17:22:50 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 17:22:50 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 17:22:50 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 17:22:50 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 17:22:50 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 17:22:50 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 17:22:50 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (16ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 17:22:50 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:23:25 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 200 OK in 60ms (Views: 59.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 17:23:25 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 17:23:25 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 17:23:25 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 17:23:25 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 17:23:25 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 17:23:25 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 17:23:25 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 17:23:25 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 17:23:25 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 17:23:25 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 17:23:25 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 17:23:25 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 17:23:25 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 17:23:25 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (8ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:25:09 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 500 Internal Server Error in 212ms
+
+ActionView::Template::Error (No such file or directory - /home/sean/projects/taurus/sandbox/lib/taurus/data/functions.yml):
+    53: 
+    54:   <div class="ui-layout-west">
+    55:     <div id="left_menu">
+    56:       <%= functions %>
+    57:     </div>
+    58:   </div>
+    59: </body>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (4.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:29:51 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 500 Internal Server Error in 128ms
+
+ActionView::Template::Error (No such file or directory - /home/sean/projects/taurus/sandbox/taurus/lib/taurus/core/data/functions.yml):
+    53: 
+    54:   <div class="ui-layout-west">
+    55:     <div id="left_menu">
+    56:       <%= functions %>
+    57:     </div>
+    58:   </div>
+    59: </body>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:30:08 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 500 Internal Server Error in 125ms
+
+ActionView::Template::Error (No such file or directory - /home/sean/projects/taurus/sandbox/lib/taurus/core/data/functions.yml):
+    53: 
+    54:   <div class="ui-layout-west">
+    55:     <div id="left_menu">
+    56:       <%= functions %>
+    57:     </div>
+    58:   </div>
+    59: </body>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:30:18 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 500 Internal Server Error in 125ms
+
+ActionView::Template::Error (No such file or directory - lib/taurus/core/data/functions.yml):
+    53: 
+    54:   <div class="ui-layout-west">
+    55:     <div id="left_menu">
+    56:       <%= functions %>
+    57:     </div>
+    58:   </div>
+    59: </body>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:38:22 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 200 OK in 262ms (Views: 261.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 17:38:23 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 17:38:23 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 17:38:23 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 17:38:23 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 17:38:23 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (13ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 17:38:23 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 17:38:23 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 17:38:23 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 17:38:23 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 17:38:23 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (78ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 17:38:23 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 17:38:23 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 17:38:23 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 17:38:23 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:41:48 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 500 Internal Server Error in 75ms
+
+ActionView::Template::Error (uninitialized constant Taurus::Aaa):
+    53: 
+    54:   <div class="ui-layout-west">
+    55:     <div id="left_menu">
+    56:       <%= functions %>
+    57:     </div>
+    58:   </div>
+    59: </body>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (102.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:42:26 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 200 OK in 252ms (Views: 251.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 17:42:27 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 17:42:27 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 17:42:27 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 17:42:27 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 17:42:27 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 17:42:27 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 17:42:27 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 17:42:27 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 17:42:27 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 17:42:27 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 17:42:27 +0800
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 17:42:27 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 17:42:27 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 17:42:27 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:51:30 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 500 Internal Server Error in 243ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    53: 
+    54:   <div class="ui-layout-west">
+    55:     <div id="left_menu">
+    56:       <%= functions %>
+    57:     </div>
+    58:   </div>
+    59: </body>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:58:19 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 500 Internal Server Error in 230ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    53: 
+    54:   <div class="ui-layout-west">
+    55:     <div id="left_menu">
+    56:       <%= functions %>
+    57:     </div>
+    58:   </div>
+    59: </body>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (5.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:58:57 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 500 Internal Server Error in 267ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    53: 
+    54:   <div class="ui-layout-west">
+    55:     <div id="left_menu">
+    56:       <%= functions %>
+    57:     </div>
+    58:   </div>
+    59: </body>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (5.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 17:59:12 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 500 Internal Server Error in 242ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    53: 
+    54:   <div class="ui-layout-west">
+    55:     <div id="left_menu">
+    56:       <%= functions %>
+    57:     </div>
+    58:   </div>
+    59: </body>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 18:00:17 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 500 Internal Server Error in 237ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    53: 
+    54:   <div class="ui-layout-west">
+    55:     <div id="left_menu">
+    56:       <%= functions %>
+    57:     </div>
+    58:   </div>
+    59: </body>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (5.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 18:01:31 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 200 OK in 249ms (Views: 248.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 18:01:31 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 18:01:31 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 18:01:31 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 18:01:31 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 18:01:31 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 18:01:31 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 18:01:31 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 18:01:31 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 18:01:31 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 18:01:31 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 18:01:31 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 18:01:31 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 18:01:31 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 18:01:31 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-04-27 18:01:42 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 200 OK in 253ms (Views: 252.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-04-27 18:01:42 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-04-27 18:01:42 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-04-27 18:01:42 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 18:01:42 +0800
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-04-27 18:01:42 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (7ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-04-27 18:01:42 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-04-27 18:01:42 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 18:01:42 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-04-27 18:01:42 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-04-27 18:01:43 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-04-27 18:01:43 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-04-27 18:01:43 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 18:01:43 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 18:01:43 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-04-27 18:01:43 +0800
+Served asset /admin/admin_bg_th.gif - 200 OK (2ms)
