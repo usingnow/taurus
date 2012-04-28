@@ -50,7 +50,7 @@ module Taurus
     end
 
     def functions
-      data = YAML.load(File.open(Taurus::Core::Engine.root+"lib/taurus/core/data/functions.yml"))
+      data = Taurus::Function.all
       str = ""
       data.each do |com|
         fun_str = "<ul>"
@@ -61,6 +61,7 @@ module Taurus
         str += "<h3>#{com['name']}</h3>"+fun_str
       end
       str.html_safe
+      Taurus
     end
 
     def order_indicator_for(order)

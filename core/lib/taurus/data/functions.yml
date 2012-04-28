@@ -406,41 +406,6 @@
           name: '管理'
           action: ':create'
           subject_class: 'DeliveryOrder'
-- id: 6
-  name: '网站内容管理'
-  functions: 
-    - id: 25
-      name: '前台滑动广告'
-      url: '/admin/slider_bars'
-      operations: 
-        - id: 28
-          name: '管理'
-          action: ':manage'
-          subject_class: 'SliderBar'
-    - id: 29
-      name: '图片'
-      url: '/admin/images'
-      operations: 
-        - id: 43
-          name: '管理'
-          action: ':manage'
-          subject_class: 'Image'
-    - id: 30
-      name: '公告'
-      url: '/admin/announcements'
-      operations: 
-        - id: 44
-          name: '管理'
-          action: ':manage'
-          subject_class: 'Announcement'
-    - id: 31
-      name: '商品显示'
-      url: '/admin/sku_displays'
-      operations: 
-        - id: 45
-          name: '管理'
-          action: ':manage'
-          subject_class: 'SkuDisplay'
 - id: 7
   name: '促销'
   functions: 
