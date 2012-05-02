@@ -2,16 +2,12 @@
   <h1>员工账户信息查看</h1>
   <ul>
     <li>
-      <label class="label40"><%= t 'attributes.administrator.login_no' %></label>
-      <span><%= @administrator.login_no %></span>
+      <label class="label40"><%= t 'attributes.administrator.email' %></label>
+      <span><%= @administrator.email %></span>
     </li>
     <li>
       <label class="label40"><%= t 'attributes.administrator.status' %></label>
       <span><%= { 1 => "激活", 0 => "锁定" }[@administrator.status] %></span>
-    </li>
-    <li>
-      <label class="label40"><%= t 'attributes.administrator.email' %></label>
-      <span><%= @administrator.email %></span>
     </li>
     <li>
       <label class="label40"><%= t 'attributes.administrator.name' %></label>
@@ -35,11 +31,11 @@
     </li>
     <li>
       <label class="label40"><%= t 'attributes.administrator.zip' %></label>
-      <span><%= @administrator.zip %></span>
+      <span><%= @administrator.zip_code %></span>
     </li>
     <li class="margin_top_20">
       <%= link_to "返回", admin_administrators_path, :class => "left20" %>
-      <%= link_to "修改", edit_admin_administrator_path(@administrator) if can? :update, Administrator %>
+      <%= link_to "修改", edit_admin_administrator_path(@administrator) %>
     </li>
   </ul>
 </div>

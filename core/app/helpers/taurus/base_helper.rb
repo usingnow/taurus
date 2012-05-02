@@ -61,7 +61,6 @@ module Taurus
         str += "<h3>#{com['name']}</h3>"+fun_str
       end
       str.html_safe
-      Taurus
     end
 
     def order_indicator_for(order)

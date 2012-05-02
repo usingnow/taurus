@@ -1,6 +1,7 @@
 Taurus::Core::Engine.routes.draw do 
 	
-	devise_for :administrators,
+=begin
+devise_for :administrators,
              :path => "admin",
              :controllers => { :sessions => "taurus/admin/devise/sessions",
                                :registrations => "taurus/admin/devise/registrations"  }
@@ -51,7 +52,6 @@ Taurus::Core::Engine.routes.draw do
 
 
   namespace :admin do
-    resources :administrators
     resources :administrator_groupships
     resources :brands do
       get  :autocomplete_brand_chinese_name, :on => :collection
@@ -329,7 +329,7 @@ Taurus::Core::Engine.routes.draw do
   end
 
 
-
+=end
 
   root :to => 'home#index'
 

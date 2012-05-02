@@ -4,7 +4,7 @@
   <div class="attributes">
     <div class="split_content_left">
       <p>
-        <%= f.input :login_no %>
+        <%= f.input :email %>
       </p>
       <% if @administrator.id.nil? %>
         <p>
@@ -13,11 +13,8 @@
       <% end %>
       <p>
         <%= f.input :status do %>
-          <%= f.collection_radio :status, [[1, '激活'] ,[0, '锁定']], :first, :last, :checked => 1 %>
+          <%= f.collection_radio :status, [[true, '激活'] ,[false, '锁定']], :first, :last, :checked => true %>
         <% end %>
-      </p>
-      <p>
-        <%= f.input :email %>
       </p>
       <p>
         <%= f.input :name %>
@@ -35,7 +32,7 @@
         <%= f.input :mobile %>
       </p>
       <p>
-        <%= f.input :zip %>
+        <%= f.input :zip_code %>
       </p>
     </div>
     <div class="clear"></div>

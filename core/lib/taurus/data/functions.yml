@@ -117,81 +117,6 @@
 - id: 2
   name: '基础管理'
   functions: 
-    - id: 1
-      name: '员工账户维护'
-      url: '/admin/administrators'
-      operations: 
-        - id: 1
-          name: '查询'
-          action: ':read'
-          subject_class: 'Administrator'
-      operations: 
-        - id: 2
-          name: '管理'
-          action: '[:create,:update,:manage]'
-          subject_class: '[Administrator,AdministratorGroupship]'
-    - id: 3
-      name: '员工组维护'
-      url: '/admin/groups'
-      operations: 
-        - id: 5
-          name: '查询'
-          action: ':read'
-          subject_class: 'Group'
-      operations: 
-        - id: 58
-          name: '管理'
-          action: '[:create,:update]'
-          subject_class: 'Group'
-    - id: 4
-      name: '会员角色维护'
-      url: '/admin/roles'
-      operations: 
-        - id: 6
-          name: '查询'
-          action: ':read'
-          subject_class: 'Role'
-      operations: 
-        - id: 59
-          name: '管理'
-          action: '[:create,:update,:manage]'
-          subject_class: '[Role,ProcedureRoleship]'
-    - id: 5
-      name: '企业会员维护'
-      url: '/admin/company_extends'
-      operations: 
-        - id: 7
-          name: '查询'
-          action: ':read'
-          subject_class: 'CompanyExtend'
-      operations: 
-        - id: 60
-          name: '管理'
-          action: '[:create,:update]'
-          subject_class: 'CompanyExtend'
-      operations: 
-        - id: 80
-          name: '积分修改'
-          action: ':points'
-          subject_class: 'CompanyExtend'
-    - id: 6
-      name: '个人会员维护'
-      url: '/admin/person_extends'
-      operations: 
-        - id: 9
-          name: '查询'
-          action: ':read'
-          subject_class: 'PersonExtend'
-      operations: 
-        - id: 61
-          name: '管理'
-          action: '[:create,:update]'
-          subject_class: 'PersonExtend'
-      operations: 
-        - id: 81
-          name: '积分修改'
-          action: ':points'
-          subject_class: 'PersonExtend'
     - id: 7
       name: '销售订单流程维护'
       url: '/admin/procedures'
@@ -231,19 +156,6 @@
           name: '管理'
           action: '[:create,:update]'
           subject_class: 'StationProcedureship'
-    - id: 24
-      name: '员工组权限维护'
-      url: '/admin/permissions'
-      operations: 
-        - id: 4
-          name: '查询'
-          action: ':read'
-          subject_class: 'Permission'
-      operations: 
-        - id: 65
-          name: '管理'
-          action: '[:create,:procedure_create]'
-          subject_class: 'Permission'
 - id: 3
   name: '呼叫中心'
   functions: 

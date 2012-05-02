@@ -1,4 +1,4 @@
-Taurus::Cms::Engine.routes.draw do
+Taurus::Core::Engine.routes.draw do
   namespace :admin do
     resources :images do
     	collection do

@@ -1,0 +1,38 @@
+<h1>管理员列表</h1>
+
+<div class="grid_button">
+  <%= link_to '新建管理员', new_admin_administrator_path, :target => "_blank" %>
+</div>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('attributes.administrator.name') %></th>
+      <th><%= t('attributes.administrator.email') %></th>
+      <th><%= t('attributes.administrator.mobile') %></th>
+      <th><%= t('attributes.administrator.last_sign_in_at') %></th>
+      <th><%= t('attributes.administrator.status') %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @administrators.each_with_index do |admin,index| %>
+      <tr class="<%= cycle("odd","even") %>">
+        <td><%= index+1 %></td>
+        <td><%= link_to admin.name, admin_administrator_path(admin) %></td>
+        <td><%= admin.email %></td>
+        <td><%= admin.mobile %></td>
+        <td><%= admin.last_sign_in_at %></td>
+        <td><%= format_admin_status(admin.status) %></td>
+        <td><%= link_to '修改', edit_admin_administrator_path(admin)  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="7"><%= will_paginate @administrators %></td></tr>
+  </tfoot>
+</table>
+
+
+
