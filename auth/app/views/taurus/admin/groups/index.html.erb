@@ -1,0 +1,24 @@
+<h1>组列表</h1>
+<div class="grid_button">
+  <%= link_to '新增组', new_admin_group_path %>
+</div>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>名称</th>
+      <th>描述</th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @groups.each_with_index do |group,index| %>
+    <tr class="<%= cycle("odd","even") %>">
+      <td><%= index+1 %></td>
+      <td><%= group.name %></td>
+      <td><%= group.description %></td>
+      <td><%= link_to '修改', edit_admin_group_path(group) %></td>
+    </tr>
+  <% end %>
+</table>
+

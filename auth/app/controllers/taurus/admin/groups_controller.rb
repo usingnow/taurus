@@ -5,7 +5,8 @@ module Taurus
       #authorize_resource
 
       def index
-        @groups = Group.all
+        @search = Group.search(params[:q])
+        @groups = @search.result.paginate(:page => params[:page], :per_page => 20)
       end
 
       def show

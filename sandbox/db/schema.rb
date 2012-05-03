@@ -282,14 +282,6 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
     t.datetime "created_at"
   end
 
-  create_table "groups", :force => true do |t|
-    t.string   "number"
-    t.string   "name"
-    t.string   "desc"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "industries", :force => true do |t|
     t.string   "name"
     t.integer  "sequence"
@@ -819,15 +811,6 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
   add_index "purchase_orders", ["ordering_company_id"], :name => "index_purchase_orders_on_ordering_company_id"
   add_index "purchase_orders", ["supplier_id"], :name => "index_purchase_orders_on_supplier_id"
 
-  create_table "roles", :force => true do |t|
-    t.string   "number"
-    t.string   "name"
-    t.string   "description"
-    t.boolean  "is_reserve"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "serial_numbers", :force => true do |t|
     t.string   "name"
     t.string   "date"
@@ -1060,12 +1043,49 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
     t.datetime "updated_at"
   end
 
+  create_table "taurus_company_extends", :force => true do |t|
+    t.string   "number"
+    t.string   "name"
+    t.string   "web_address"
+    t.integer  "taurus_industry_id"
+    t.integer  "taurus_company_type_id"
+    t.integer  "taurus_company_scale_id"
+    t.integer  "taurus_district_id"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "zip_code"
+    t.string   "contact_name"
+    t.string   "contact_dept"
+    t.string   "contact_post"
+    t.string   "contact_mobile"
+    t.integer  "contact_sex"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taurus_company_extends", ["created_by"], :name => "index_taurus_company_extends_on_created_by"
+  add_index "taurus_company_extends", ["taurus_company_scale_id"], :name => "index_taurus_company_extends_on_taurus_company_scale_id"
+  add_index "taurus_company_extends", ["taurus_company_type_id"], :name => "index_taurus_company_extends_on_taurus_company_type_id"
+  add_index "taurus_company_extends", ["taurus_district_id"], :name => "index_taurus_company_extends_on_taurus_district_id"
+  add_index "taurus_company_extends", ["taurus_industry_id"], :name => "index_taurus_company_extends_on_taurus_industry_id"
+  add_index "taurus_company_extends", ["updated_by"], :name => "index_taurus_company_extends_on_updated_by"
+
   create_table "taurus_components", :force => true do |t|
     t.integer  "system_id"
     t.string   "name"
     t.string   "description"
     t.datetime "updated_at"
     t.datetime "created_at"
+  end
+
+  create_table "taurus_groups", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "taurus_images", :force => true do |t|
@@ -1085,8 +1105,16 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
   add_index "taurus_images", ["location"], :name => "index_taurus_images_on_location"
   add_index "taurus_images", ["page"], :name => "index_taurus_images_on_page"
 
+  create_table "taurus_roles", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.boolean  "is_reserved"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "taurus_sku_displays", :force => true do |t|
-    t.integer  "sku_id"
+    t.integer  "taurus_sku_id"
     t.integer  "sequence"
     t.integer  "page"
     t.integer  "location"
@@ -1096,7 +1124,7 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
 
   add_index "taurus_sku_displays", ["location"], :name => "index_taurus_sku_displays_on_location"
   add_index "taurus_sku_displays", ["page"], :name => "index_taurus_sku_displays_on_page"
-  add_index "taurus_sku_displays", ["sku_id"], :name => "index_taurus_sku_displays_on_sku_id"
+  add_index "taurus_sku_displays", ["taurus_sku_id"], :name => "index_taurus_sku_displays_on_taurus_sku_id"
 
   create_table "taurus_slider_bars", :force => true do |t|
     t.string   "name"
@@ -1108,6 +1136,36 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "taurus_users", :force => true do |t|
+    t.string   "email",                                 :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                         :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.integer  "taurus_userable_id"
+    t.string   "taurus_userable_type"
+    t.integer  "points"
+    t.integer  "taurus_store_id"
+    t.integer  "taurus_role_id"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taurus_users", ["confirmation_token"], :name => "index_taurus_users_on_confirmation_token", :unique => true
+  add_index "taurus_users", ["email"], :name => "index_taurus_users_on_email", :unique => true
+  add_index "taurus_users", ["reset_password_token"], :name => "index_taurus_users_on_reset_password_token", :unique => true
+  add_index "taurus_users", ["taurus_role_id"], :name => "index_taurus_users_on_taurus_role_id"
+  add_index "taurus_users", ["taurus_store_id"], :name => "index_taurus_users_on_taurus_store_id"
 
   create_table "tracks", :force => true do |t|
     t.integer  "instance_id"
@@ -1138,33 +1196,5 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "users", :force => true do |t|
-    t.string   "login_no"
-    t.integer  "role_id"
-    t.integer  "status"
-    t.integer  "user_type"
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "store_id"
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.integer  "points",                                :default => 0
-  end
-
-  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

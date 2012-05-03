@@ -1,0 +1,30 @@
+<h1>角色列表</h1>
+
+<div class="grid_button">
+  <%= link_to '新建', new_admin_role_path %>
+</div>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t 'attributes.role.name' %></th>
+      <th><%= t 'attributes.role.description' %></th>
+      <th><%= t 'attributes.role.is_reserve' %></th>
+      <th><%= t 'attributes.role.set_procedure_permission' %></th>
+      <th></th>
+    </tr>
+  </thead>
+<% @roles.each_with_index do |role,index| %>
+  <tr class="<%= cycle "odd", "even" %>">
+    <td><%= index+1 %></td>
+    <td><%= role.name %></td>
+    <td><%= role.description %></td>
+    <td><%= format_boolean(role.is_reserved) %></td>
+    <td></td>
+    <td><%= link_to '修改', edit_admin_role_path(role) %></td>
+  </tr>
+<% end %>
+</table>
+
+

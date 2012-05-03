@@ -36860,3 +36860,3584 @@ LoadError (Expected /home/sean/projects/taurus/core/app/controllers/taurus/admin
 Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
 Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
 Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.9ms)
+
+
+Started GET "/admin/groups" for 127.0.0.1 at 2012-05-03 11:15:49 +0800
+  Processing by Taurus::Admin::GroupsController#index as HTML
+  [1m[36mGroup Load (1.3ms)[0m  [1mSELECT `groups`.* FROM `groups` [0m
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/groups/index.html.erb within /taurus/layouts/admin (123.9ms)
+Completed 500 Internal Server Error in 145ms
+
+ActionView::Template::Error (undefined local variable or method `current_administrator' for #<Taurus::Admin::GroupsController:0xcf19bc0>):
+    1: <h1>组列表</h1>
+    2: <div class="grid_button">
+    3:   <%= link_to '新增组', new_admin_group_path if can? :create, Group %>
+    4: </div>
+    5: 
+    6: <table class="grid">
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.0ms)
+
+
+Started GET "/admin/groups" for 127.0.0.1 at 2012-05-03 11:18:20 +0800
+  Processing by Taurus::Admin::GroupsController#index as HTML
+Mysql2::Error: Table 'taurus_development.taurus_groups' doesn't exist: SHOW FIELDS FROM `taurus_groups`
+Completed 500 Internal Server Error in 4ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'taurus_development.taurus_groups' doesn't exist: SHOW FIELDS FROM `taurus_groups`):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.9ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateAdmins (20111205073327)
+Migrating to CreateProducts (20111205081958)
+Migrating to CreateSuppliers (20111214103454)
+Migrating to CreateBrands (20111215033756)
+Migrating to CreateProductCategories (20111215064446)
+Migrating to CreateSkuCategories (20111215083858)
+Migrating to CreateSkus (20111215094255)
+Migrating to CreateCkeditorAssets (20111215230248)
+Migrating to CreateSkuProductships (20111216025822)
+Migrating to CreateSkuImages (20111216064033)
+Migrating to CreateCarts (20111218131703)
+Migrating to CreateCartSkuships (20111218132337)
+Migrating to CreateOrders (20111218132615)
+Migrating to CreateUsers (20111219020710)
+Migrating to CreatePersonExtends (20111219022004)
+Migrating to CreateCompanyExtends (20111219072242)
+Migrating to CreateOrderDetails (20111220071204)
+Migrating to RemoveCreateTimeAndUpdateTimeToProduct (20111220085103)
+Migrating to ChangeActiveToSupplier (20111220133452)
+Migrating to ChangeActiveToBrand (20111220140856)
+Migrating to AddAttachmentImageToBrand (20111220154204)
+Migrating to RemoveImageUrlToBrand (20111220154343)
+Migrating to RenameTypeToSku (20111221021407)
+Migrating to AddAttachmentImageToSkuImage (20111221054445)
+Migrating to RemoveImageUrlToSkuImage (20111221054621)
+Migrating to CreateProcedures (20111222033703)
+Migrating to CreateStations (20111222070652)
+Migrating to CreateStationProcedureships (20111223023531)
+Migrating to CreateConditions (20111223060150)
+Migrating to CreateBusinessFunctions (20111223072754)
+Migrating to AlterStationProcedureship (20111223075625)
+Migrating to CreateInstances (20111224045815)
+Migrating to CreateTracks (20111224050357)
+Migrating to CreateOrderNumbers (20111225101346)
+Migrating to RenameTypeToUser (20111225111324)
+Migrating to AddTotalPriceToOrder (20111225125350)
+Migrating to AddConditionTypeAndActionToCondition (20111225170426)
+Migrating to CreateRoles (20111226025510)
+Migrating to CreateProcedureRoleships (20111226032745)
+Migrating to AddDisplayNameToCondition (20111226071101)
+Migrating to CreateOrderPays (20111227073259)
+Migrating to DropAdmins (20111228104607)
+Migrating to CreateAdministratorGroupships (20111228124309)
+Migrating to CreateEscs (20111229060701)
+Migrating to CreateEscCategories (20111229060918)
+Migrating to CreateEscReplies (20111229061813)
+Migrating to CreateSerialNumbers (20111229062633)
+Migrating to CreateProvinces (20111229101030)
+Migrating to CreateCities (20111229101819)
+Migrating to CreateDistricts (20111229101925)
+Migrating to CreateOrderingCompanies (20111229141349)
+Migrating to CreatePurchases (20111229141757)
+Migrating to CreateProductPurchaseships (20111229142541)
+Migrating to CreateStores (20111230055410)
+Migrating to CreateProductStoreships (20111230055615)
+Migrating to CreateStoreEntries (20111231034920)
+Migrating to CreateProductStoreEntryships (20111231035352)
+Migrating to CreateStoreEntryProductCarts (20120102033538)
+Migrating to AddSequenceAndLevelAndActiveToProductCategories (20120103042024)
+Migrating to AddCartTypeToStoreEntryProductCarts (20120103055754)
+Migrating to CreateBanks (20120103151847)
+Migrating to AddActiveToOrderingCompany (20120104081738)
+Migrating to CreateOrderTracks (20120105034824)
+Migrating to CreateOrderPrintLogs (20120105034953)
+Migrating to CreateOrderTakeLogs (20120105035201)
+Migrating to CreateRecAdds (20120105035917)
+Migrating to RenameTypeToProducts (20120105064238)
+Migrating to AlterSkuCategories (20120105071017)
+Migrating to CreateInnerSkuCarts (20120106031026)
+Migrating to CreateInnerOrderAddresses (20120106074923)
+Migrating to RenameAdministratorIdToInnerSkuCart (20120106080246)
+Migrating to CreateInnerOrderPayments (20120106081541)
+Migrating to RenameAdminIdToOrderTakeLog (20120107023809)
+Migrating to AlterOrderDetails (20120107053540)
+Migrating to AlterOrders (20120107061406)
+Migrating to ChangeQuantityToOrderDetails (20120108033202)
+Migrating to AddRoleIdToPersonExtends (20120108084727)
+Migrating to CreateUserNumbers (20120109032415)
+Migrating to AddDeviseToUsers (20120109034008)
+Migrating to AlterUsers (20120109034532)
+Migrating to AddRoleIdToCompanyExtends (20120109042003)
+Migrating to AlterCompanyExtends (20120109043457)
+Migrating to CreateIndustries (20120109063714)
+Migrating to CreateCompanyTypes (20120109065049)
+Migrating to CreateCompanyScales (20120109065158)
+Migrating to CreateOperatings (20120110022535)
+Migrating to CreatePermissions (20120110023026)
+Migrating to AlterPermissionsAndFunctions (20120110040800)
+Migrating to AddUrlToFunctions (20120110100817)
+Migrating to CreatePanicBuyings (20120112060437)
+Migrating to AddSalesReservedToProductStoreships (20120113160656)
+Migrating to CreateDeliveryOrders (20120114055714)
+Migrating to CreateProdDelOrdships (20120114060117)
+Migrating to AlterOrder (20120114065535)
+Migrating to AddNumberToDeliveryOrder (20120114071005)
+Migrating to AlterDefaultToSkus (20120115094227)
+Migrating to AlterOrderPrintLog (20120118112813)
+Migrating to AlterInnerSkuCarts (20120119075904)
+Migrating to AlterBackOrderSkus (20120119082050)
+Migrating to AlterCompanyExtendPersonExtendUsers (20120119154015)
+Migrating to AddStoreIdToUsers (20120124085914)
+Migrating to RemoveStoreIdFromOrders (20120124093824)
+Migrating to CreateDeliveryOrderCarts (20120124095530)
+Migrating to AlterDeliveryOrders (20120124114103)
+Migrating to UpdatePathToFunctions (20120125051731)
+Migrating to AddCarriageAdjustmentToOrders (20120131100638)
+Migrating to AddAdjustmentPermission (20120131124217)
+Migrating to CreateRailsAdminHistoriesTable (20120201091023)
+Migrating to AlterSkus (20120213092017)
+Migrating to DropPanicBuyings (20120213095112)
+Migrating to AlterCartSkuships (20120214061147)
+Migrating to CreateConsigneeInfos (20120215103033)
+Migrating to AlterRecAdds (20120216024555)
+Migrating to RemoveIndexToUserAddresses (20120220022156)
+Migrating to CreateSkuOnShelves (20120221071439)
+Migrating to CreateSkuBrowsingHistories (20120222074900)
+Migrating to RemoveEmailIndexToUsers (20120223151605)
+Migrating to CreateFavorites (20120225164312)
+Migrating to CreateMailSales (20120226124214)
+Migrating to CreateOrderOperUrls (20120228023926)
+Migrating to AlterStationProcedureships (20120228024009)
+Migrating to CreateBusFunStaProships (20120228062357)
+Migrating to AddLineTypeToOrderPrintLogs (20120307024910)
+Migrating to AlterUsersAndPersonExtendsAndCompanyExtends (20120307064005)
+Migrating to CreateSubscribes (20120307084434)
+Migrating to AddConfirmableToUser (20120308075155)
+Migrating to ChangePurchases (20120309085727)
+Migrating to ChangeProductProcedureships (20120311070339)
+Migrating to DropRailsAdminHistories (20120311100205)
+Migrating to CreateNumberCounters (20120312023536)
+Migrating to CreatePoProductTempLists (20120312082113)
+Migrating to AddPoTimeOfDeliveryToPurchaseOrders (20120312101543)
+Migrating to AddFaxAndSupplierIdToSuppliers (20120312121835)
+Migrating to RenamePurchaseIdToStoreEntries (20120313092244)
+Migrating to RemoveTotalPriceToOrders (20120315075243)
+Migrating to AddSkuCostToOrderDetails (20120316060619)
+Migrating to CreateProcedurePermissions (20120323091712)
+Migrating to AddActAndSubjectClassToConditions (20120323092202)
+Migrating to AlterProcedurePermissions (20120323111234)
+Migrating to AddDefaultToSkuProductships (20120326031048)
+Migrating to AddStorePositionToProductStoreships (20120327073012)
+Migrating to AddStoreInTypeToStoreEntries (20120327083607)
+Migrating to AddAdministratorIdToStoreEntries (20120327085226)
+Migrating to AddDeliveryTypeToDeliveryOrders (20120328061046)
+Migrating to AddDeRemarksToDeliveryOrders (20120330021018)
+Migrating to CreateOnlinePromotions (20120330092549)
+Migrating to CreatePromotionByProducts (20120330093924)
+Migrating to CreatePromotionByOrders (20120330112802)
+Migrating to AddPurchaseAmountLimitToPromotionByOrders (20120331101126)
+Migrating to ChangeColumnDefaultToProducts (20120401082248)
+Migrating to AddSignUpTimeLimitToOnlinePromotions (20120403033349)
+Migrating to ChangeDefaultToDiscountOnPromotionByOrders (20120403073237)
+Migrating to RenameProductIdToSkuIdOnOnlinePromotions (20120403075921)
+Migrating to AddProcedureIdToOnlinePromotions (20120403083533)
+Migrating to CreatePromotionMemberTemps (20120403091329)
+Migrating to AddIndexToCompanyExtendsAndPersonExtends (20120403130728)
+Migrating to CreatePromotionMembers (20120403171946)
+Migrating to AddProductDiscountToPromotionByProducts (20120404132017)
+Migrating to CreatePromotionProductTemps (20120404140354)
+Migrating to CreatePromotionProducts (20120405035924)
+Migrating to AddRemarksToOnlinePromotions (20120405130443)
+Migrating to CreateCustomerRatings (20120406053207)
+Migrating to AddVisibilityToCustomerRatings (20120408033123)
+Migrating to AlterTableForOrderDetails (20120408063055)
+Migrating to AlterTableForBackOrderSkus (20120408064153)
+Migrating to CreatePromotionPriorities (20120409031927)
+Migrating to AddPointsToUsers (20120411081345)
+Migrating to CreatePromotionGifts (20120412072345)
+Migrating to CreatePromotionsInOrders (20120412102832)
+Migrating to DeviseCreateTaurusAdministrators (20120423164001)
+Migrating to CreateTaurusGroups (20120423164002)
+  [1m[35m (34.9ms)[0m  CREATE TABLE `taurus_groups` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (10.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120423164002')[0m
+Migrating to CreateTaurusSliderBars (20120424010601)
+Migrating to CreateTaurusImages (20120424015901)
+Migrating to CreateTaurusAnnouncements (20120424030001)
+Migrating to CreateTaurusSkuDisplays (20120424030801)
+  [1m[35m (0.5ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+
+
+Started GET "/admin/groups" for 127.0.0.1 at 2012-05-03 11:33:54 +0800
+  Processing by Taurus::Admin::GroupsController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/groups/index.html.erb within /taurus/layouts/admin (5.1ms)
+Completed 500 Internal Server Error in 16ms
+
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::Group):
+    1: <h1>组列表</h1>
+    2: <div class="grid_button">
+    3:   <%= link_to '新增组', new_admin_group_path if can? :create, Group %>
+    4: </div>
+    5: 
+    6: <table class="grid">
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.7ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (72.3ms)
+
+
+Started GET "/admin/groups" for 127.0.0.1 at 2012-05-03 11:35:42 +0800
+  Processing by Taurus::Admin::GroupsController#index as HTML
+  [1m[35mTaurus::Group Load (0.4ms)[0m  SELECT `taurus_groups`.* FROM `taurus_groups` LIMIT 20 OFFSET 0
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/groups/index.html.erb within /taurus/layouts/admin (6.8ms)
+Completed 200 OK in 265ms (Views: 261.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/taurus/admin/groups.css" for 127.0.0.1 at 2012-05-03 11:35:42 +0800
+Served asset /taurus/admin/groups.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/groups.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 11:35:42 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 11:35:42 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 11:35:42 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 11:35:42 +0800
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 11:35:42 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/groups.js" for 127.0.0.1 at 2012-05-03 11:35:42 +0800
+Served asset /taurus/admin/groups.js - 404 Not Found (8ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/groups.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 11:35:43 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 11:35:43 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 11:35:43 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 11:35:43 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 11:35:43 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 11:35:43 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 11:35:43 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 11:35:43 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/groups" for 127.0.0.1 at 2012-05-03 11:36:27 +0800
+  Processing by Taurus::Admin::GroupsController#index as HTML
+  [1m[36mTaurus::Group Load (0.2ms)[0m  [1mSELECT `taurus_groups`.* FROM `taurus_groups` LIMIT 20 OFFSET 0[0m
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/groups/index.html.erb within /taurus/layouts/admin (6.0ms)
+Completed 200 OK in 260ms (Views: 256.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 11:36:27 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 11:36:27 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 11:36:27 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/groups.css" for 127.0.0.1 at 2012-05-03 11:36:27 +0800
+Served asset /taurus/admin/groups.css - 404 Not Found (9ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/groups.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 11:36:27 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 11:36:27 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 11:36:27 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 11:36:27 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 11:36:27 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 11:36:27 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 11:36:27 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/groups.js" for 127.0.0.1 at 2012-05-03 11:36:27 +0800
+Served asset /taurus/admin/groups.js - 404 Not Found (10ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/groups.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 11:36:27 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 11:36:27 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 11:36:28 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/groups/new" for 127.0.0.1 at 2012-05-03 11:36:31 +0800
+  Processing by Taurus::Admin::GroupsController#new as HTML
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/groups/_form.html.erb (16.6ms)
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/groups/new.html.erb within /taurus/layouts/admin (18.1ms)
+Completed 500 Internal Server Error in 27ms
+
+ActionView::Template::Error (undefined method `number' for #<Taurus::Group:0xceab238>):
+    4:   <div class="attributes">
+    5:     <div class="split_content_left">
+    6:       <p>
+    7:         <%= f.input :number %>
+    8:       </p>
+    9:       <p>
+    10:         <%= f.input :name %>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.5ms)
+
+
+Started GET "/admin/groups/new" for 127.0.0.1 at 2012-05-03 11:36:58 +0800
+  Processing by Taurus::Admin::GroupsController#new as HTML
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/groups/_form.html.erb (17.5ms)
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/groups/new.html.erb within /taurus/layouts/admin (18.5ms)
+Completed 500 Internal Server Error in 28ms
+
+ActionView::Template::Error (undefined method `descritpion' for #<Taurus::Group:0xcf06cdc>):
+    7:         <%= f.input :name %>
+    8:       </p>
+    9:       <p>
+    10:         <%= f.input :descritpion %>
+    11:       </p>
+    12:     </div>
+    13:     <div class="clear"></div>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (4.9ms)
+
+
+Started GET "/admin/groups/new" for 127.0.0.1 at 2012-05-03 11:37:08 +0800
+  Processing by Taurus::Admin::GroupsController#new as HTML
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/groups/_form.html.erb (17.7ms)
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/groups/new.html.erb within /taurus/layouts/admin (19.3ms)
+Completed 200 OK in 255ms (Views: 251.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 11:37:08 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 11:37:08 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 11:37:08 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/groups.css" for 127.0.0.1 at 2012-05-03 11:37:08 +0800
+Served asset /taurus/admin/groups.css - 404 Not Found (20ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/groups.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 11:37:08 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 11:37:08 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 11:37:08 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 11:37:08 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 11:37:08 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 11:37:08 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 11:37:08 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 11:37:08 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/groups.js" for 127.0.0.1 at 2012-05-03 11:37:08 +0800
+Served asset /taurus/admin/groups.js - 404 Not Found (7ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/groups.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 11:37:08 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 11:37:09 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started POST "/admin/groups" for 127.0.0.1 at 2012-05-03 11:37:23 +0800
+  Processing by Taurus::Admin::GroupsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SFllosp06xrO5ZlUrV4FHRQ75c3gKNFpNy3PsK85uks=", "group"=>{"name"=>"系统管理员组", "description"=>"系统管理员组"}, "commit"=>"新增Group"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 11ms
+
+NoMethodError (undefined method `number' for #<Taurus::Group:0xb3537ba0>):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.5ms)
+
+
+Started POST "/admin/groups" for 127.0.0.1 at 2012-05-03 11:38:10 +0800
+  Processing by Taurus::Admin::GroupsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SFllosp06xrO5ZlUrV4FHRQ75c3gKNFpNy3PsK85uks=", "group"=>{"name"=>"系统管理员组", "description"=>"系统管理员组"}, "commit"=>"新增Group"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `taurus_groups` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2012-05-03 11:38:11', '系统管理员组', '系统管理员组', '2012-05-03 11:38:11')[0m
+  [1m[35m (85.5ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3002/admin/groups
+Completed 302 Found in 101ms
+
+
+Started GET "/admin/groups" for 127.0.0.1 at 2012-05-03 11:38:11 +0800
+  Processing by Taurus::Admin::GroupsController#index as HTML
+  [1m[36mTaurus::Group Load (0.4ms)[0m  [1mSELECT `taurus_groups`.* FROM `taurus_groups` LIMIT 20 OFFSET 0[0m
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/groups/index.html.erb within /taurus/layouts/admin (17.6ms)
+Completed 200 OK in 254ms (Views: 247.8ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 11:38:11 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 11:38:11 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 11:38:11 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 11:38:11 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 11:38:11 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/groups.css" for 127.0.0.1 at 2012-05-03 11:38:11 +0800
+Served asset /taurus/admin/groups.css - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/groups.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:11 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:11 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:11 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:11 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:11 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:11 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/taurus/admin/groups.js" for 127.0.0.1 at 2012-05-03 11:38:11 +0800
+Served asset /taurus/admin/groups.js - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/groups.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:11 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 11:38:11 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/groups/1/edit" for 127.0.0.1 at 2012-05-03 11:38:15 +0800
+  Processing by Taurus::Admin::GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTaurus::Group Load (0.4ms)[0m  SELECT `taurus_groups`.* FROM `taurus_groups` WHERE `taurus_groups`.`id` = 1 LIMIT 1
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/groups/_form.html.erb (13.5ms)
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/groups/edit.html.erb within /taurus/layouts/admin (15.7ms)
+Completed 200 OK in 277ms (Views: 269.6ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 11:38:15 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 11:38:15 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 11:38:15 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 11:38:15 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 11:38:15 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/groups.css" for 127.0.0.1 at 2012-05-03 11:38:15 +0800
+Served asset /taurus/admin/groups.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/groups.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:15 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:15 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:15 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:15 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:15 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:15 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/groups.js" for 127.0.0.1 at 2012-05-03 11:38:15 +0800
+Served asset /taurus/admin/groups.js - 404 Not Found (9ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/groups.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:15 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 11:38:16 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started PUT "/admin/groups/1" for 127.0.0.1 at 2012-05-03 11:38:18 +0800
+  Processing by Taurus::Admin::GroupsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SFllosp06xrO5ZlUrV4FHRQ75c3gKNFpNy3PsK85uks=", "group"=>{"name"=>"系统管理员组", "description"=>"系统管理员组1"}, "commit"=>"更新Group", "id"=>"1"}
+  [1m[36mTaurus::Group Load (0.3ms)[0m  [1mSELECT `taurus_groups`.* FROM `taurus_groups` WHERE `taurus_groups`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mUPDATE `taurus_groups` SET `description` = '系统管理员组1', `updated_at` = '2012-05-03 11:38:18' WHERE `taurus_groups`.`id` = 1[0m
+  [1m[35m (9.5ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3002/admin/groups
+Completed 302 Found in 31ms
+
+
+Started GET "/admin/groups" for 127.0.0.1 at 2012-05-03 11:38:18 +0800
+  Processing by Taurus::Admin::GroupsController#index as HTML
+  [1m[36mTaurus::Group Load (0.4ms)[0m  [1mSELECT `taurus_groups`.* FROM `taurus_groups` LIMIT 20 OFFSET 0[0m
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/groups/index.html.erb within /taurus/layouts/admin (16.1ms)
+Completed 200 OK in 326ms (Views: 319.5ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 11:38:19 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 11:38:19 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 11:38:19 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 11:38:19 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 11:38:19 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/groups.css" for 127.0.0.1 at 2012-05-03 11:38:19 +0800
+Served asset /taurus/admin/groups.css - 404 Not Found (30ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/groups.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:19 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:19 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:19 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:19 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:19 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:19 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/groups.js" for 127.0.0.1 at 2012-05-03 11:38:19 +0800
+Served asset /taurus/admin/groups.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/groups.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 11:38:19 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 11:38:19 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/roles" for 127.0.0.1 at 2012-05-03 11:46:41 +0800
+
+ActionController::RoutingError (No route matches [GET] "/admin/roles"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/admin/roles" for 127.0.0.1 at 2012-05-03 12:07:41 +0800
+
+LoadError (Expected /home/sean/projects/taurus/auth/app/controllers/taurus/admin/roles_controller.rb to define Taurus::Admin::RolesController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.8ms)
+
+
+Started GET "/admin/roles" for 127.0.0.1 at 2012-05-03 12:09:55 +0800
+
+LoadError (Expected /home/sean/projects/taurus/auth/app/models/taurus/role.rb to define Taurus::Role):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.1ms)
+
+
+Started GET "/admin/roles" for 127.0.0.1 at 2012-05-03 12:10:36 +0800
+  Processing by Taurus::Admin::RolesController#index as HTML
+Mysql2::Error: Table 'taurus_development.taurus_roles' doesn't exist: SHOW FIELDS FROM `taurus_roles`
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/index.html.erb (105.5ms)
+Completed 500 Internal Server Error in 116ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<Taurus::Admin::RolesController:0xcf11e20>):
+    1: <h1>角色列表</h1>
+    2: 
+    3: <div class="grid_button">
+    4:   <%= link_to '新建', new_admin_role_path if can? :create, :Role %>
+    5: </div>
+    6: 
+    7: <table class="grid">
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.0ms)
+
+
+Started GET "/admin/roles" for 127.0.0.1 at 2012-05-03 12:11:08 +0800
+  Processing by Taurus::Admin::RolesController#index as HTML
+Mysql2::Error: Table 'taurus_development.taurus_roles' doesn't exist: SHOW FIELDS FROM `taurus_roles`
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/index.html.erb (60.1ms)
+Completed 500 Internal Server Error in 71ms
+
+ActionView::Template::Error (Mysql2::Error: Table 'taurus_development.taurus_roles' doesn't exist: SHOW FIELDS FROM `taurus_roles`):
+    16:       <th></th>
+    17:     </tr>
+    18:   </thead>
+    19: <% @roles.each_with_index do |role,index| %>
+    20:   <tr class="<%= set_odd_even_class index %>">
+    21:     <td><%= index+1 %></td>
+    22:     <td><%= link_to role.number, admin_role_path(role) %></td>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (5.1ms)
+  [1m[36m (0.7ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateAdmins (20111205073327)
+Migrating to CreateProducts (20111205081958)
+Migrating to CreateSuppliers (20111214103454)
+Migrating to CreateBrands (20111215033756)
+Migrating to CreateProductCategories (20111215064446)
+Migrating to CreateSkuCategories (20111215083858)
+Migrating to CreateSkus (20111215094255)
+Migrating to CreateCkeditorAssets (20111215230248)
+Migrating to CreateSkuProductships (20111216025822)
+Migrating to CreateSkuImages (20111216064033)
+Migrating to CreateCarts (20111218131703)
+Migrating to CreateCartSkuships (20111218132337)
+Migrating to CreateOrders (20111218132615)
+Migrating to CreateUsers (20111219020710)
+Migrating to CreatePersonExtends (20111219022004)
+Migrating to CreateCompanyExtends (20111219072242)
+Migrating to CreateOrderDetails (20111220071204)
+Migrating to RemoveCreateTimeAndUpdateTimeToProduct (20111220085103)
+Migrating to ChangeActiveToSupplier (20111220133452)
+Migrating to ChangeActiveToBrand (20111220140856)
+Migrating to AddAttachmentImageToBrand (20111220154204)
+Migrating to RemoveImageUrlToBrand (20111220154343)
+Migrating to RenameTypeToSku (20111221021407)
+Migrating to AddAttachmentImageToSkuImage (20111221054445)
+Migrating to RemoveImageUrlToSkuImage (20111221054621)
+Migrating to CreateProcedures (20111222033703)
+Migrating to CreateStations (20111222070652)
+Migrating to CreateStationProcedureships (20111223023531)
+Migrating to CreateConditions (20111223060150)
+Migrating to CreateBusinessFunctions (20111223072754)
+Migrating to AlterStationProcedureship (20111223075625)
+Migrating to CreateInstances (20111224045815)
+Migrating to CreateTracks (20111224050357)
+Migrating to CreateOrderNumbers (20111225101346)
+Migrating to RenameTypeToUser (20111225111324)
+Migrating to AddTotalPriceToOrder (20111225125350)
+Migrating to AddConditionTypeAndActionToCondition (20111225170426)
+Migrating to CreateProcedureRoleships (20111226032745)
+Migrating to AddDisplayNameToCondition (20111226071101)
+Migrating to CreateOrderPays (20111227073259)
+Migrating to DropAdmins (20111228104607)
+Migrating to CreateAdministratorGroupships (20111228124309)
+Migrating to CreateEscs (20111229060701)
+Migrating to CreateEscCategories (20111229060918)
+Migrating to CreateEscReplies (20111229061813)
+Migrating to CreateSerialNumbers (20111229062633)
+Migrating to CreateProvinces (20111229101030)
+Migrating to CreateCities (20111229101819)
+Migrating to CreateDistricts (20111229101925)
+Migrating to CreateOrderingCompanies (20111229141349)
+Migrating to CreatePurchases (20111229141757)
+Migrating to CreateProductPurchaseships (20111229142541)
+Migrating to CreateStores (20111230055410)
+Migrating to CreateProductStoreships (20111230055615)
+Migrating to CreateStoreEntries (20111231034920)
+Migrating to CreateProductStoreEntryships (20111231035352)
+Migrating to CreateStoreEntryProductCarts (20120102033538)
+Migrating to AddSequenceAndLevelAndActiveToProductCategories (20120103042024)
+Migrating to AddCartTypeToStoreEntryProductCarts (20120103055754)
+Migrating to CreateBanks (20120103151847)
+Migrating to AddActiveToOrderingCompany (20120104081738)
+Migrating to CreateOrderTracks (20120105034824)
+Migrating to CreateOrderPrintLogs (20120105034953)
+Migrating to CreateOrderTakeLogs (20120105035201)
+Migrating to CreateRecAdds (20120105035917)
+Migrating to RenameTypeToProducts (20120105064238)
+Migrating to AlterSkuCategories (20120105071017)
+Migrating to CreateInnerSkuCarts (20120106031026)
+Migrating to CreateInnerOrderAddresses (20120106074923)
+Migrating to RenameAdministratorIdToInnerSkuCart (20120106080246)
+Migrating to CreateInnerOrderPayments (20120106081541)
+Migrating to RenameAdminIdToOrderTakeLog (20120107023809)
+Migrating to AlterOrderDetails (20120107053540)
+Migrating to AlterOrders (20120107061406)
+Migrating to ChangeQuantityToOrderDetails (20120108033202)
+Migrating to AddRoleIdToPersonExtends (20120108084727)
+Migrating to CreateUserNumbers (20120109032415)
+Migrating to AddDeviseToUsers (20120109034008)
+Migrating to AlterUsers (20120109034532)
+Migrating to AddRoleIdToCompanyExtends (20120109042003)
+Migrating to AlterCompanyExtends (20120109043457)
+Migrating to CreateIndustries (20120109063714)
+Migrating to CreateCompanyTypes (20120109065049)
+Migrating to CreateCompanyScales (20120109065158)
+Migrating to CreateOperatings (20120110022535)
+Migrating to CreatePermissions (20120110023026)
+Migrating to AlterPermissionsAndFunctions (20120110040800)
+Migrating to AddUrlToFunctions (20120110100817)
+Migrating to CreatePanicBuyings (20120112060437)
+Migrating to AddSalesReservedToProductStoreships (20120113160656)
+Migrating to CreateDeliveryOrders (20120114055714)
+Migrating to CreateProdDelOrdships (20120114060117)
+Migrating to AlterOrder (20120114065535)
+Migrating to AddNumberToDeliveryOrder (20120114071005)
+Migrating to AlterDefaultToSkus (20120115094227)
+Migrating to AlterOrderPrintLog (20120118112813)
+Migrating to AlterInnerSkuCarts (20120119075904)
+Migrating to AlterBackOrderSkus (20120119082050)
+Migrating to AlterCompanyExtendPersonExtendUsers (20120119154015)
+Migrating to AddStoreIdToUsers (20120124085914)
+Migrating to RemoveStoreIdFromOrders (20120124093824)
+Migrating to CreateDeliveryOrderCarts (20120124095530)
+Migrating to AlterDeliveryOrders (20120124114103)
+Migrating to UpdatePathToFunctions (20120125051731)
+Migrating to AddCarriageAdjustmentToOrders (20120131100638)
+Migrating to AddAdjustmentPermission (20120131124217)
+Migrating to CreateRailsAdminHistoriesTable (20120201091023)
+Migrating to AlterSkus (20120213092017)
+Migrating to DropPanicBuyings (20120213095112)
+Migrating to AlterCartSkuships (20120214061147)
+Migrating to CreateConsigneeInfos (20120215103033)
+Migrating to AlterRecAdds (20120216024555)
+Migrating to RemoveIndexToUserAddresses (20120220022156)
+Migrating to CreateSkuOnShelves (20120221071439)
+Migrating to CreateSkuBrowsingHistories (20120222074900)
+Migrating to RemoveEmailIndexToUsers (20120223151605)
+Migrating to CreateFavorites (20120225164312)
+Migrating to CreateMailSales (20120226124214)
+Migrating to CreateOrderOperUrls (20120228023926)
+Migrating to AlterStationProcedureships (20120228024009)
+Migrating to CreateBusFunStaProships (20120228062357)
+Migrating to AddLineTypeToOrderPrintLogs (20120307024910)
+Migrating to AlterUsersAndPersonExtendsAndCompanyExtends (20120307064005)
+Migrating to CreateSubscribes (20120307084434)
+Migrating to AddConfirmableToUser (20120308075155)
+Migrating to ChangePurchases (20120309085727)
+Migrating to ChangeProductProcedureships (20120311070339)
+Migrating to DropRailsAdminHistories (20120311100205)
+Migrating to CreateNumberCounters (20120312023536)
+Migrating to CreatePoProductTempLists (20120312082113)
+Migrating to AddPoTimeOfDeliveryToPurchaseOrders (20120312101543)
+Migrating to AddFaxAndSupplierIdToSuppliers (20120312121835)
+Migrating to RenamePurchaseIdToStoreEntries (20120313092244)
+Migrating to RemoveTotalPriceToOrders (20120315075243)
+Migrating to AddSkuCostToOrderDetails (20120316060619)
+Migrating to CreateProcedurePermissions (20120323091712)
+Migrating to AddActAndSubjectClassToConditions (20120323092202)
+Migrating to AlterProcedurePermissions (20120323111234)
+Migrating to AddDefaultToSkuProductships (20120326031048)
+Migrating to AddStorePositionToProductStoreships (20120327073012)
+Migrating to AddStoreInTypeToStoreEntries (20120327083607)
+Migrating to AddAdministratorIdToStoreEntries (20120327085226)
+Migrating to AddDeliveryTypeToDeliveryOrders (20120328061046)
+Migrating to AddDeRemarksToDeliveryOrders (20120330021018)
+Migrating to CreateOnlinePromotions (20120330092549)
+Migrating to CreatePromotionByProducts (20120330093924)
+Migrating to CreatePromotionByOrders (20120330112802)
+Migrating to AddPurchaseAmountLimitToPromotionByOrders (20120331101126)
+Migrating to ChangeColumnDefaultToProducts (20120401082248)
+Migrating to AddSignUpTimeLimitToOnlinePromotions (20120403033349)
+Migrating to ChangeDefaultToDiscountOnPromotionByOrders (20120403073237)
+Migrating to RenameProductIdToSkuIdOnOnlinePromotions (20120403075921)
+Migrating to AddProcedureIdToOnlinePromotions (20120403083533)
+Migrating to CreatePromotionMemberTemps (20120403091329)
+Migrating to AddIndexToCompanyExtendsAndPersonExtends (20120403130728)
+Migrating to CreatePromotionMembers (20120403171946)
+Migrating to AddProductDiscountToPromotionByProducts (20120404132017)
+Migrating to CreatePromotionProductTemps (20120404140354)
+Migrating to CreatePromotionProducts (20120405035924)
+Migrating to AddRemarksToOnlinePromotions (20120405130443)
+Migrating to CreateCustomerRatings (20120406053207)
+Migrating to AddVisibilityToCustomerRatings (20120408033123)
+Migrating to AlterTableForOrderDetails (20120408063055)
+Migrating to AlterTableForBackOrderSkus (20120408064153)
+Migrating to CreatePromotionPriorities (20120409031927)
+Migrating to AddPointsToUsers (20120411081345)
+Migrating to CreatePromotionGifts (20120412072345)
+Migrating to CreatePromotionsInOrders (20120412102832)
+Migrating to DeviseCreateTaurusAdministrators (20120423164001)
+Migrating to CreateTaurusGroups (20120423164002)
+Migrating to CreateTaurusRoles (20120423164003)
+  [1m[35m (24.9ms)[0m  CREATE TABLE `taurus_roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (2.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120423164003')[0m
+Migrating to CreateTaurusSliderBars (20120424010601)
+Migrating to CreateTaurusImages (20120424015901)
+Migrating to CreateTaurusAnnouncements (20120424030001)
+Migrating to CreateTaurusSkuDisplays (20120424030801)
+  [1m[35m (0.4ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+
+
+Started GET "/admin/roles" for 127.0.0.1 at 2012-05-03 12:21:28 +0800
+  Processing by Taurus::Admin::RolesController#index as HTML
+  [1m[35mTaurus::Role Load (0.5ms)[0m  SELECT `taurus_roles`.* FROM `taurus_roles` LIMIT 20 OFFSET 0
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/index.html.erb (2.9ms)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/roles" for 127.0.0.1 at 2012-05-03 12:21:54 +0800
+  Processing by Taurus::Admin::RolesController#index as HTML
+  [1m[36mTaurus::Role Load (0.2ms)[0m  [1mSELECT `taurus_roles`.* FROM `taurus_roles` LIMIT 20 OFFSET 0[0m
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/index.html.erb within /taurus/layouts/admin (4.3ms)
+Completed 200 OK in 244ms (Views: 240.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 12:21:55 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 12:21:55 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 12:21:55 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 12:21:55 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 12:21:55 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 12:21:55 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 12:21:55 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 12:21:55 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 12:21:55 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/roles.css" for 127.0.0.1 at 2012-05-03 12:21:55 +0800
+Served asset /taurus/admin/roles.css - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/roles.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 12:21:55 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 12:21:55 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 12:21:55 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/roles.js" for 127.0.0.1 at 2012-05-03 12:21:55 +0800
+Served asset /taurus/admin/roles.js - 404 Not Found (8ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/roles.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 12:21:55 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (1ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[35m (0.1ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Migrating to CreateTaurusSkuDisplays (20120424030801)
+  [1m[36m (80.4ms)[0m  [1mDROP INDEX `index_taurus_sku_displays_on_location` ON `taurus_sku_displays`[0m
+  [1m[35m (29.2ms)[0m  DROP INDEX `index_taurus_sku_displays_on_page` ON `taurus_sku_displays`
+  [1m[36m (48.4ms)[0m  [1mDROP INDEX `index_taurus_sku_displays_on_sku_id` ON `taurus_sku_displays`[0m
+  [1m[35m (3.7ms)[0m  DROP TABLE `taurus_sku_displays`
+  [1m[36m (2.8ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20120424030801'[0m
+  [1m[35m (0.6ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[35m (0.1ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Migrating to CreateTaurusAnnouncements (20120424030001)
+  [1m[36m (8.4ms)[0m  [1mDROP TABLE `taurus_announcements`[0m
+  [1m[35m (8.1ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20120424030001'
+Migrating to CreateTaurusImages (20120424015901)
+  [1m[36m (46.7ms)[0m  [1mDROP INDEX `index_taurus_images_on_location` ON `taurus_images`[0m
+  [1m[35m (44.7ms)[0m  DROP INDEX `index_taurus_images_on_page` ON `taurus_images`
+  [1m[36m (13.4ms)[0m  [1mDROP TABLE `taurus_images`[0m
+  [1m[35m (9.0ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20120424015901'
+Migrating to CreateTaurusSliderBars (20120424010601)
+  [1m[36m (3.6ms)[0m  [1mDROP TABLE `taurus_slider_bars`[0m
+  [1m[35m (2.5ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20120424010601'
+Migrating to CreateTaurusRoles (20120423164003)
+  [1m[36m (3.2ms)[0m  [1mDROP TABLE `taurus_roles`[0m
+  [1m[35m (0.8ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20120423164003'
+Migrating to CreateTaurusGroups (20120423164002)
+  [1m[36m (12.1ms)[0m  [1mDROP TABLE `taurus_groups`[0m
+  [1m[35m (2.0ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20120423164002'
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[36m (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateAdmins (20111205073327)
+Migrating to CreateProducts (20111205081958)
+Migrating to CreateSuppliers (20111214103454)
+Migrating to CreateBrands (20111215033756)
+Migrating to CreateProductCategories (20111215064446)
+Migrating to CreateSkuCategories (20111215083858)
+Migrating to CreateSkus (20111215094255)
+Migrating to CreateCkeditorAssets (20111215230248)
+Migrating to CreateSkuProductships (20111216025822)
+Migrating to CreateSkuImages (20111216064033)
+Migrating to CreateCarts (20111218131703)
+Migrating to CreateCartSkuships (20111218132337)
+Migrating to CreateOrders (20111218132615)
+Migrating to CreateUsers (20111219020710)
+Migrating to CreatePersonExtends (20111219022004)
+Migrating to CreateCompanyExtends (20111219072242)
+Migrating to CreateOrderDetails (20111220071204)
+Migrating to RemoveCreateTimeAndUpdateTimeToProduct (20111220085103)
+Migrating to ChangeActiveToSupplier (20111220133452)
+Migrating to ChangeActiveToBrand (20111220140856)
+Migrating to AddAttachmentImageToBrand (20111220154204)
+Migrating to RemoveImageUrlToBrand (20111220154343)
+Migrating to RenameTypeToSku (20111221021407)
+Migrating to AddAttachmentImageToSkuImage (20111221054445)
+Migrating to RemoveImageUrlToSkuImage (20111221054621)
+Migrating to CreateProcedures (20111222033703)
+Migrating to CreateStations (20111222070652)
+Migrating to CreateStationProcedureships (20111223023531)
+Migrating to CreateConditions (20111223060150)
+Migrating to CreateBusinessFunctions (20111223072754)
+Migrating to AlterStationProcedureship (20111223075625)
+Migrating to CreateInstances (20111224045815)
+Migrating to CreateTracks (20111224050357)
+Migrating to CreateOrderNumbers (20111225101346)
+Migrating to RenameTypeToUser (20111225111324)
+Migrating to AddTotalPriceToOrder (20111225125350)
+Migrating to AddConditionTypeAndActionToCondition (20111225170426)
+Migrating to CreateProcedureRoleships (20111226032745)
+Migrating to AddDisplayNameToCondition (20111226071101)
+Migrating to CreateOrderPays (20111227073259)
+Migrating to DropAdmins (20111228104607)
+Migrating to CreateAdministratorGroupships (20111228124309)
+Migrating to CreateEscs (20111229060701)
+Migrating to CreateEscCategories (20111229060918)
+Migrating to CreateEscReplies (20111229061813)
+Migrating to CreateSerialNumbers (20111229062633)
+Migrating to CreateProvinces (20111229101030)
+Migrating to CreateCities (20111229101819)
+Migrating to CreateDistricts (20111229101925)
+Migrating to CreateOrderingCompanies (20111229141349)
+Migrating to CreatePurchases (20111229141757)
+Migrating to CreateProductPurchaseships (20111229142541)
+Migrating to CreateStores (20111230055410)
+Migrating to CreateProductStoreships (20111230055615)
+Migrating to CreateStoreEntries (20111231034920)
+Migrating to CreateProductStoreEntryships (20111231035352)
+Migrating to CreateStoreEntryProductCarts (20120102033538)
+Migrating to AddSequenceAndLevelAndActiveToProductCategories (20120103042024)
+Migrating to AddCartTypeToStoreEntryProductCarts (20120103055754)
+Migrating to CreateBanks (20120103151847)
+Migrating to AddActiveToOrderingCompany (20120104081738)
+Migrating to CreateOrderTracks (20120105034824)
+Migrating to CreateOrderPrintLogs (20120105034953)
+Migrating to CreateOrderTakeLogs (20120105035201)
+Migrating to CreateRecAdds (20120105035917)
+Migrating to RenameTypeToProducts (20120105064238)
+Migrating to AlterSkuCategories (20120105071017)
+Migrating to CreateInnerSkuCarts (20120106031026)
+Migrating to CreateInnerOrderAddresses (20120106074923)
+Migrating to RenameAdministratorIdToInnerSkuCart (20120106080246)
+Migrating to CreateInnerOrderPayments (20120106081541)
+Migrating to RenameAdminIdToOrderTakeLog (20120107023809)
+Migrating to AlterOrderDetails (20120107053540)
+Migrating to AlterOrders (20120107061406)
+Migrating to ChangeQuantityToOrderDetails (20120108033202)
+Migrating to AddRoleIdToPersonExtends (20120108084727)
+Migrating to CreateUserNumbers (20120109032415)
+Migrating to AddDeviseToUsers (20120109034008)
+Migrating to AlterUsers (20120109034532)
+Migrating to AddRoleIdToCompanyExtends (20120109042003)
+Migrating to AlterCompanyExtends (20120109043457)
+Migrating to CreateIndustries (20120109063714)
+Migrating to CreateCompanyTypes (20120109065049)
+Migrating to CreateCompanyScales (20120109065158)
+Migrating to CreateOperatings (20120110022535)
+Migrating to CreatePermissions (20120110023026)
+Migrating to AlterPermissionsAndFunctions (20120110040800)
+Migrating to AddUrlToFunctions (20120110100817)
+Migrating to CreatePanicBuyings (20120112060437)
+Migrating to AddSalesReservedToProductStoreships (20120113160656)
+Migrating to CreateDeliveryOrders (20120114055714)
+Migrating to CreateProdDelOrdships (20120114060117)
+Migrating to AlterOrder (20120114065535)
+Migrating to AddNumberToDeliveryOrder (20120114071005)
+Migrating to AlterDefaultToSkus (20120115094227)
+Migrating to AlterOrderPrintLog (20120118112813)
+Migrating to AlterInnerSkuCarts (20120119075904)
+Migrating to AlterBackOrderSkus (20120119082050)
+Migrating to AlterCompanyExtendPersonExtendUsers (20120119154015)
+Migrating to AddStoreIdToUsers (20120124085914)
+Migrating to RemoveStoreIdFromOrders (20120124093824)
+Migrating to CreateDeliveryOrderCarts (20120124095530)
+Migrating to AlterDeliveryOrders (20120124114103)
+Migrating to UpdatePathToFunctions (20120125051731)
+Migrating to AddCarriageAdjustmentToOrders (20120131100638)
+Migrating to AddAdjustmentPermission (20120131124217)
+Migrating to CreateRailsAdminHistoriesTable (20120201091023)
+Migrating to AlterSkus (20120213092017)
+Migrating to DropPanicBuyings (20120213095112)
+Migrating to AlterCartSkuships (20120214061147)
+Migrating to CreateConsigneeInfos (20120215103033)
+Migrating to AlterRecAdds (20120216024555)
+Migrating to RemoveIndexToUserAddresses (20120220022156)
+Migrating to CreateSkuOnShelves (20120221071439)
+Migrating to CreateSkuBrowsingHistories (20120222074900)
+Migrating to RemoveEmailIndexToUsers (20120223151605)
+Migrating to CreateFavorites (20120225164312)
+Migrating to CreateMailSales (20120226124214)
+Migrating to CreateOrderOperUrls (20120228023926)
+Migrating to AlterStationProcedureships (20120228024009)
+Migrating to CreateBusFunStaProships (20120228062357)
+Migrating to AddLineTypeToOrderPrintLogs (20120307024910)
+Migrating to AlterUsersAndPersonExtendsAndCompanyExtends (20120307064005)
+Migrating to CreateSubscribes (20120307084434)
+Migrating to AddConfirmableToUser (20120308075155)
+Migrating to ChangePurchases (20120309085727)
+Migrating to ChangeProductProcedureships (20120311070339)
+Migrating to DropRailsAdminHistories (20120311100205)
+Migrating to CreateNumberCounters (20120312023536)
+Migrating to CreatePoProductTempLists (20120312082113)
+Migrating to AddPoTimeOfDeliveryToPurchaseOrders (20120312101543)
+Migrating to AddFaxAndSupplierIdToSuppliers (20120312121835)
+Migrating to RenamePurchaseIdToStoreEntries (20120313092244)
+Migrating to RemoveTotalPriceToOrders (20120315075243)
+Migrating to AddSkuCostToOrderDetails (20120316060619)
+Migrating to CreateProcedurePermissions (20120323091712)
+Migrating to AddActAndSubjectClassToConditions (20120323092202)
+Migrating to AlterProcedurePermissions (20120323111234)
+Migrating to AddDefaultToSkuProductships (20120326031048)
+Migrating to AddStorePositionToProductStoreships (20120327073012)
+Migrating to AddStoreInTypeToStoreEntries (20120327083607)
+Migrating to AddAdministratorIdToStoreEntries (20120327085226)
+Migrating to AddDeliveryTypeToDeliveryOrders (20120328061046)
+Migrating to AddDeRemarksToDeliveryOrders (20120330021018)
+Migrating to CreateOnlinePromotions (20120330092549)
+Migrating to CreatePromotionByProducts (20120330093924)
+Migrating to CreatePromotionByOrders (20120330112802)
+Migrating to AddPurchaseAmountLimitToPromotionByOrders (20120331101126)
+Migrating to ChangeColumnDefaultToProducts (20120401082248)
+Migrating to AddSignUpTimeLimitToOnlinePromotions (20120403033349)
+Migrating to ChangeDefaultToDiscountOnPromotionByOrders (20120403073237)
+Migrating to RenameProductIdToSkuIdOnOnlinePromotions (20120403075921)
+Migrating to AddProcedureIdToOnlinePromotions (20120403083533)
+Migrating to CreatePromotionMemberTemps (20120403091329)
+Migrating to AddIndexToCompanyExtendsAndPersonExtends (20120403130728)
+Migrating to CreatePromotionMembers (20120403171946)
+Migrating to AddProductDiscountToPromotionByProducts (20120404132017)
+Migrating to CreatePromotionProductTemps (20120404140354)
+Migrating to CreatePromotionProducts (20120405035924)
+Migrating to AddRemarksToOnlinePromotions (20120405130443)
+Migrating to CreateCustomerRatings (20120406053207)
+Migrating to AddVisibilityToCustomerRatings (20120408033123)
+Migrating to AlterTableForOrderDetails (20120408063055)
+Migrating to AlterTableForBackOrderSkus (20120408064153)
+Migrating to CreatePromotionPriorities (20120409031927)
+Migrating to AddPointsToUsers (20120411081345)
+Migrating to CreatePromotionGifts (20120412072345)
+Migrating to CreatePromotionsInOrders (20120412102832)
+Migrating to DeviseCreateTaurusAdministrators (20120423164001)
+Migrating to CreateTaurusGroups (20120423164002)
+  [1m[35m (30.8ms)[0m  CREATE TABLE `taurus_groups` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (10.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120423164002')[0m
+Migrating to CreateTaurusRoles (20120423164003)
+  [1m[35m (33.8ms)[0m  CREATE TABLE `taurus_roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `is_reserve` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (11.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120423164003')[0m
+Migrating to CreateTaurusSliderBars (20120424010601)
+  [1m[35m (34.2ms)[0m  CREATE TABLE `taurus_slider_bars` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `href` varchar(255), `image_file_name` varchar(255), `image_content_type` varchar(255), `image_file_size` int(11), `image_updated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (10.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120424010601')[0m
+Migrating to CreateTaurusImages (20120424015901)
+  [1m[35m (14.6ms)[0m  CREATE TABLE `taurus_images` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `page` int(11), `location` int(11), `description` text, `line_type` int(11) DEFAULT 0, `href` varchar(255), `image_file_name` varchar(255), `image_content_type` varchar(255), `image_file_size` int(11), `image_updated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (39.4ms)[0m  [1mCREATE INDEX `index_taurus_images_on_page` ON `taurus_images` (`page`)[0m
+  [1m[35m (30.3ms)[0m  CREATE INDEX `index_taurus_images_on_location` ON `taurus_images` (`location`)
+  [1m[36m (10.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120424015901')[0m
+Migrating to CreateTaurusAnnouncements (20120424030001)
+  [1m[35m (17.3ms)[0m  CREATE TABLE `taurus_announcements` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `internal_title` varchar(255), `description` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (6.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120424030001')[0m
+Migrating to CreateTaurusSkuDisplays (20120424030801)
+  [1m[35m (19.5ms)[0m  CREATE TABLE `taurus_sku_displays` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `sku_id` int(11), `sequence` int(11), `page` int(11), `location` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (42.0ms)[0m  [1mCREATE INDEX `index_taurus_sku_displays_on_sku_id` ON `taurus_sku_displays` (`sku_id`)[0m
+  [1m[35m (50.0ms)[0m  CREATE INDEX `index_taurus_sku_displays_on_page` ON `taurus_sku_displays` (`page`)
+  [1m[36m (44.8ms)[0m  [1mCREATE INDEX `index_taurus_sku_displays_on_location` ON `taurus_sku_displays` (`location`)[0m
+  [1m[35m (8.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20120424030801')
+  [1m[36m (0.5ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+
+
+Started GET "/admin/roles" for 127.0.0.1 at 2012-05-03 13:32:37 +0800
+  Processing by Taurus::Admin::RolesController#index as HTML
+  [1m[35mTaurus::Role Load (0.4ms)[0m  SELECT `taurus_roles`.* FROM `taurus_roles` LIMIT 20 OFFSET 0
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/index.html.erb within /taurus/layouts/admin (7.8ms)
+Completed 200 OK in 264ms (Views: 258.7ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 13:32:38 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 13:32:38 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 13:32:38 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 13:32:38 +0800
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/taurus/admin/roles.css" for 127.0.0.1 at 2012-05-03 13:32:38 +0800
+Served asset /taurus/admin/roles.css - 404 Not Found (10ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/roles.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 13:32:38 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 13:32:38 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 13:32:38 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 13:32:38 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 13:32:38 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 13:32:38 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/roles.js" for 127.0.0.1 at 2012-05-03 13:32:38 +0800
+Served asset /taurus/admin/roles.js - 404 Not Found (8ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/roles.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 13:32:38 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 13:32:38 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 13:32:39 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/roles/new" for 127.0.0.1 at 2012-05-03 13:32:43 +0800
+  Processing by Taurus::Admin::RolesController#new as HTML
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/_form.html.erb (20.8ms)
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/new.html.erb within /taurus/layouts/admin (25.6ms)
+Completed 500 Internal Server Error in 43ms
+
+ActionView::Template::Error (undefined method `number' for #<Taurus::Role:0xd126bc0>):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :number %><br />
+    16:     <%= f.text_field :number %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :name %><br />
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (5.7ms)
+
+
+Started GET "/admin/roles/new" for 127.0.0.1 at 2012-05-03 13:35:14 +0800
+  Processing by Taurus::Admin::RolesController#new as HTML
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/_form.html.erb (15.6ms)
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/new.html.erb within /taurus/layouts/admin (17.2ms)
+Completed 200 OK in 265ms (Views: 261.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 13:35:15 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 13:35:15 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/roles.css" for 127.0.0.1 at 2012-05-03 13:35:15 +0800
+Served asset /taurus/admin/roles.css - 404 Not Found (17ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/roles.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 13:35:15 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 13:35:15 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 13:35:15 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 13:35:15 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 13:35:15 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 13:35:15 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 13:35:15 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/roles.js" for 127.0.0.1 at 2012-05-03 13:35:15 +0800
+Served asset /taurus/admin/roles.js - 404 Not Found (13ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/roles.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 13:35:15 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 13:35:15 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 13:35:15 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 13:35:15 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started POST "/admin/roles" for 127.0.0.1 at 2012-05-03 13:36:19 +0800
+  Processing by Taurus::Admin::RolesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SFllosp06xrO5ZlUrV4FHRQ75c3gKNFpNy3PsK85uks=", "role"=>{"name"=>"测试", "description"=>"测试", "is_reserve"=>"1"}, "commit"=>"新增Role"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `taurus_roles` (`created_at`, `description`, `is_reserve`, `name`, `updated_at`) VALUES ('2012-05-03 13:36:20', '测试', 1, '测试', '2012-05-03 13:36:20')
+  [1m[36m (4.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3002/admin/roles/1
+Completed 302 Found in 24ms
+
+
+Started GET "/admin/roles/1" for 127.0.0.1 at 2012-05-03 13:36:20 +0800
+  Processing by Taurus::Admin::RolesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTaurus::Role Load (0.6ms)[0m  SELECT `taurus_roles`.* FROM `taurus_roles` WHERE `taurus_roles`.`id` = 1 LIMIT 1
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/show.html.erb within /taurus/layouts/admin (8.6ms)
+Completed 500 Internal Server Error in 29ms
+
+ActionView::Template::Error (undefined method `number' for #<Taurus::Role:0xceabe2c>):
+    3:   <ul>
+    4:     <li>
+    5:       <label><%= t 'attributes.role.number' %></label>
+    6:       <span><%= @role.number %></span>
+    7:     </li>
+    8:     <li>
+    9:       <label><%= t 'attributes.role.name' %></label>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.2ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[35m (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Migrating to CreateTaurusSkuDisplays (20120424030801)
+  [1m[36m (46.8ms)[0m  [1mDROP INDEX `index_taurus_sku_displays_on_location` ON `taurus_sku_displays`[0m
+  [1m[35m (42.8ms)[0m  DROP INDEX `index_taurus_sku_displays_on_page` ON `taurus_sku_displays`
+  [1m[36m (28.9ms)[0m  [1mDROP INDEX `index_taurus_sku_displays_on_sku_id` ON `taurus_sku_displays`[0m
+  [1m[35m (4.1ms)[0m  DROP TABLE `taurus_sku_displays`
+  [1m[36m (2.6ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20120424030801'[0m
+Migrating to CreateTaurusAnnouncements (20120424030001)
+  [1m[35m (3.3ms)[0m  DROP TABLE `taurus_announcements`
+  [1m[36m (7.2ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20120424030001'[0m
+Migrating to CreateTaurusImages (20120424015901)
+  [1m[35m (44.4ms)[0m  DROP INDEX `index_taurus_images_on_location` ON `taurus_images`
+  [1m[36m (41.8ms)[0m  [1mDROP INDEX `index_taurus_images_on_page` ON `taurus_images`[0m
+  [1m[35m (7.3ms)[0m  DROP TABLE `taurus_images`
+  [1m[36m (2.0ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20120424015901'[0m
+Migrating to CreateTaurusSliderBars (20120424010601)
+  [1m[35m (9.7ms)[0m  DROP TABLE `taurus_slider_bars`
+  [1m[36m (10.6ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20120424010601'[0m
+Migrating to CreateTaurusRoles (20120423164003)
+  [1m[35m (11.4ms)[0m  DROP TABLE `taurus_roles`
+  [1m[36m (2.6ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20120423164003'[0m
+  [1m[35m (0.4ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateAdmins (20111205073327)
+Migrating to CreateProducts (20111205081958)
+Migrating to CreateSuppliers (20111214103454)
+Migrating to CreateBrands (20111215033756)
+Migrating to CreateProductCategories (20111215064446)
+Migrating to CreateSkuCategories (20111215083858)
+Migrating to CreateSkus (20111215094255)
+Migrating to CreateCkeditorAssets (20111215230248)
+Migrating to CreateSkuProductships (20111216025822)
+Migrating to CreateSkuImages (20111216064033)
+Migrating to CreateCarts (20111218131703)
+Migrating to CreateCartSkuships (20111218132337)
+Migrating to CreateOrders (20111218132615)
+Migrating to CreateUsers (20111219020710)
+Migrating to CreatePersonExtends (20111219022004)
+Migrating to CreateCompanyExtends (20111219072242)
+Migrating to CreateOrderDetails (20111220071204)
+Migrating to RemoveCreateTimeAndUpdateTimeToProduct (20111220085103)
+Migrating to ChangeActiveToSupplier (20111220133452)
+Migrating to ChangeActiveToBrand (20111220140856)
+Migrating to AddAttachmentImageToBrand (20111220154204)
+Migrating to RemoveImageUrlToBrand (20111220154343)
+Migrating to RenameTypeToSku (20111221021407)
+Migrating to AddAttachmentImageToSkuImage (20111221054445)
+Migrating to RemoveImageUrlToSkuImage (20111221054621)
+Migrating to CreateProcedures (20111222033703)
+Migrating to CreateStations (20111222070652)
+Migrating to CreateStationProcedureships (20111223023531)
+Migrating to CreateConditions (20111223060150)
+Migrating to CreateBusinessFunctions (20111223072754)
+Migrating to AlterStationProcedureship (20111223075625)
+Migrating to CreateInstances (20111224045815)
+Migrating to CreateTracks (20111224050357)
+Migrating to CreateOrderNumbers (20111225101346)
+Migrating to RenameTypeToUser (20111225111324)
+Migrating to AddTotalPriceToOrder (20111225125350)
+Migrating to AddConditionTypeAndActionToCondition (20111225170426)
+Migrating to CreateProcedureRoleships (20111226032745)
+Migrating to AddDisplayNameToCondition (20111226071101)
+Migrating to CreateOrderPays (20111227073259)
+Migrating to DropAdmins (20111228104607)
+Migrating to CreateAdministratorGroupships (20111228124309)
+Migrating to CreateEscs (20111229060701)
+Migrating to CreateEscCategories (20111229060918)
+Migrating to CreateEscReplies (20111229061813)
+Migrating to CreateSerialNumbers (20111229062633)
+Migrating to CreateProvinces (20111229101030)
+Migrating to CreateCities (20111229101819)
+Migrating to CreateDistricts (20111229101925)
+Migrating to CreateOrderingCompanies (20111229141349)
+Migrating to CreatePurchases (20111229141757)
+Migrating to CreateProductPurchaseships (20111229142541)
+Migrating to CreateStores (20111230055410)
+Migrating to CreateProductStoreships (20111230055615)
+Migrating to CreateStoreEntries (20111231034920)
+Migrating to CreateProductStoreEntryships (20111231035352)
+Migrating to CreateStoreEntryProductCarts (20120102033538)
+Migrating to AddSequenceAndLevelAndActiveToProductCategories (20120103042024)
+Migrating to AddCartTypeToStoreEntryProductCarts (20120103055754)
+Migrating to CreateBanks (20120103151847)
+Migrating to AddActiveToOrderingCompany (20120104081738)
+Migrating to CreateOrderTracks (20120105034824)
+Migrating to CreateOrderPrintLogs (20120105034953)
+Migrating to CreateOrderTakeLogs (20120105035201)
+Migrating to CreateRecAdds (20120105035917)
+Migrating to RenameTypeToProducts (20120105064238)
+Migrating to AlterSkuCategories (20120105071017)
+Migrating to CreateInnerSkuCarts (20120106031026)
+Migrating to CreateInnerOrderAddresses (20120106074923)
+Migrating to RenameAdministratorIdToInnerSkuCart (20120106080246)
+Migrating to CreateInnerOrderPayments (20120106081541)
+Migrating to RenameAdminIdToOrderTakeLog (20120107023809)
+Migrating to AlterOrderDetails (20120107053540)
+Migrating to AlterOrders (20120107061406)
+Migrating to ChangeQuantityToOrderDetails (20120108033202)
+Migrating to AddRoleIdToPersonExtends (20120108084727)
+Migrating to CreateUserNumbers (20120109032415)
+Migrating to AddDeviseToUsers (20120109034008)
+Migrating to AlterUsers (20120109034532)
+Migrating to AddRoleIdToCompanyExtends (20120109042003)
+Migrating to AlterCompanyExtends (20120109043457)
+Migrating to CreateIndustries (20120109063714)
+Migrating to CreateCompanyTypes (20120109065049)
+Migrating to CreateCompanyScales (20120109065158)
+Migrating to CreateOperatings (20120110022535)
+Migrating to CreatePermissions (20120110023026)
+Migrating to AlterPermissionsAndFunctions (20120110040800)
+Migrating to AddUrlToFunctions (20120110100817)
+Migrating to CreatePanicBuyings (20120112060437)
+Migrating to AddSalesReservedToProductStoreships (20120113160656)
+Migrating to CreateDeliveryOrders (20120114055714)
+Migrating to CreateProdDelOrdships (20120114060117)
+Migrating to AlterOrder (20120114065535)
+Migrating to AddNumberToDeliveryOrder (20120114071005)
+Migrating to AlterDefaultToSkus (20120115094227)
+Migrating to AlterOrderPrintLog (20120118112813)
+Migrating to AlterInnerSkuCarts (20120119075904)
+Migrating to AlterBackOrderSkus (20120119082050)
+Migrating to AlterCompanyExtendPersonExtendUsers (20120119154015)
+Migrating to AddStoreIdToUsers (20120124085914)
+Migrating to RemoveStoreIdFromOrders (20120124093824)
+Migrating to CreateDeliveryOrderCarts (20120124095530)
+Migrating to AlterDeliveryOrders (20120124114103)
+Migrating to UpdatePathToFunctions (20120125051731)
+Migrating to AddCarriageAdjustmentToOrders (20120131100638)
+Migrating to AddAdjustmentPermission (20120131124217)
+Migrating to CreateRailsAdminHistoriesTable (20120201091023)
+Migrating to AlterSkus (20120213092017)
+Migrating to DropPanicBuyings (20120213095112)
+Migrating to AlterCartSkuships (20120214061147)
+Migrating to CreateConsigneeInfos (20120215103033)
+Migrating to AlterRecAdds (20120216024555)
+Migrating to RemoveIndexToUserAddresses (20120220022156)
+Migrating to CreateSkuOnShelves (20120221071439)
+Migrating to CreateSkuBrowsingHistories (20120222074900)
+Migrating to RemoveEmailIndexToUsers (20120223151605)
+Migrating to CreateFavorites (20120225164312)
+Migrating to CreateMailSales (20120226124214)
+Migrating to CreateOrderOperUrls (20120228023926)
+Migrating to AlterStationProcedureships (20120228024009)
+Migrating to CreateBusFunStaProships (20120228062357)
+Migrating to AddLineTypeToOrderPrintLogs (20120307024910)
+Migrating to AlterUsersAndPersonExtendsAndCompanyExtends (20120307064005)
+Migrating to CreateSubscribes (20120307084434)
+Migrating to AddConfirmableToUser (20120308075155)
+Migrating to ChangePurchases (20120309085727)
+Migrating to ChangeProductProcedureships (20120311070339)
+Migrating to DropRailsAdminHistories (20120311100205)
+Migrating to CreateNumberCounters (20120312023536)
+Migrating to CreatePoProductTempLists (20120312082113)
+Migrating to AddPoTimeOfDeliveryToPurchaseOrders (20120312101543)
+Migrating to AddFaxAndSupplierIdToSuppliers (20120312121835)
+Migrating to RenamePurchaseIdToStoreEntries (20120313092244)
+Migrating to RemoveTotalPriceToOrders (20120315075243)
+Migrating to AddSkuCostToOrderDetails (20120316060619)
+Migrating to CreateProcedurePermissions (20120323091712)
+Migrating to AddActAndSubjectClassToConditions (20120323092202)
+Migrating to AlterProcedurePermissions (20120323111234)
+Migrating to AddDefaultToSkuProductships (20120326031048)
+Migrating to AddStorePositionToProductStoreships (20120327073012)
+Migrating to AddStoreInTypeToStoreEntries (20120327083607)
+Migrating to AddAdministratorIdToStoreEntries (20120327085226)
+Migrating to AddDeliveryTypeToDeliveryOrders (20120328061046)
+Migrating to AddDeRemarksToDeliveryOrders (20120330021018)
+Migrating to CreateOnlinePromotions (20120330092549)
+Migrating to CreatePromotionByProducts (20120330093924)
+Migrating to CreatePromotionByOrders (20120330112802)
+Migrating to AddPurchaseAmountLimitToPromotionByOrders (20120331101126)
+Migrating to ChangeColumnDefaultToProducts (20120401082248)
+Migrating to AddSignUpTimeLimitToOnlinePromotions (20120403033349)
+Migrating to ChangeDefaultToDiscountOnPromotionByOrders (20120403073237)
+Migrating to RenameProductIdToSkuIdOnOnlinePromotions (20120403075921)
+Migrating to AddProcedureIdToOnlinePromotions (20120403083533)
+Migrating to CreatePromotionMemberTemps (20120403091329)
+Migrating to AddIndexToCompanyExtendsAndPersonExtends (20120403130728)
+Migrating to CreatePromotionMembers (20120403171946)
+Migrating to AddProductDiscountToPromotionByProducts (20120404132017)
+Migrating to CreatePromotionProductTemps (20120404140354)
+Migrating to CreatePromotionProducts (20120405035924)
+Migrating to AddRemarksToOnlinePromotions (20120405130443)
+Migrating to CreateCustomerRatings (20120406053207)
+Migrating to AddVisibilityToCustomerRatings (20120408033123)
+Migrating to AlterTableForOrderDetails (20120408063055)
+Migrating to AlterTableForBackOrderSkus (20120408064153)
+Migrating to CreatePromotionPriorities (20120409031927)
+Migrating to AddPointsToUsers (20120411081345)
+Migrating to CreatePromotionGifts (20120412072345)
+Migrating to CreatePromotionsInOrders (20120412102832)
+Migrating to DeviseCreateTaurusAdministrators (20120423164001)
+Migrating to CreateTaurusGroups (20120423164002)
+Migrating to CreateTaurusRoles (20120423164003)
+  [1m[35m (23.3ms)[0m  CREATE TABLE `taurus_roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `is_reserved` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (1.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120423164003')[0m
+Migrating to CreateTaurusSliderBars (20120424010601)
+  [1m[35m (18.8ms)[0m  CREATE TABLE `taurus_slider_bars` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `href` varchar(255), `image_file_name` varchar(255), `image_content_type` varchar(255), `image_file_size` int(11), `image_updated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120424010601')[0m
+Migrating to CreateTaurusImages (20120424015901)
+  [1m[35m (18.3ms)[0m  CREATE TABLE `taurus_images` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `page` int(11), `location` int(11), `description` text, `line_type` int(11) DEFAULT 0, `href` varchar(255), `image_file_name` varchar(255), `image_content_type` varchar(255), `image_file_size` int(11), `image_updated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (72.0ms)[0m  [1mCREATE INDEX `index_taurus_images_on_page` ON `taurus_images` (`page`)[0m
+  [1m[35m (50.5ms)[0m  CREATE INDEX `index_taurus_images_on_location` ON `taurus_images` (`location`)
+  [1m[36m (6.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120424015901')[0m
+Migrating to CreateTaurusAnnouncements (20120424030001)
+  [1m[35m (11.7ms)[0m  CREATE TABLE `taurus_announcements` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `internal_title` varchar(255), `description` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (7.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120424030001')[0m
+Migrating to CreateTaurusSkuDisplays (20120424030801)
+  [1m[35m (17.5ms)[0m  CREATE TABLE `taurus_sku_displays` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `sku_id` int(11), `sequence` int(11), `page` int(11), `location` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (35.2ms)[0m  [1mCREATE INDEX `index_taurus_sku_displays_on_sku_id` ON `taurus_sku_displays` (`sku_id`)[0m
+  [1m[35m (53.9ms)[0m  CREATE INDEX `index_taurus_sku_displays_on_page` ON `taurus_sku_displays` (`page`)
+  [1m[36m (40.6ms)[0m  [1mCREATE INDEX `index_taurus_sku_displays_on_location` ON `taurus_sku_displays` (`location`)[0m
+  [1m[35m (11.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20120424030801')
+  [1m[36m (0.4ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+
+
+Started GET "/admin/roles/1" for 127.0.0.1 at 2012-05-03 14:04:59 +0800
+  Processing by Taurus::Admin::RolesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTaurus::Role Load (0.4ms)[0m  [1mSELECT `taurus_roles`.* FROM `taurus_roles` WHERE `taurus_roles`.`id` = 1 LIMIT 1[0m
+Completed 404 Not Found in 8ms
+
+ActiveRecord::RecordNotFound (Couldn't find Taurus::Role with id=1):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.5ms)
+
+
+Started GET "/admin/roles/new" for 127.0.0.1 at 2012-05-03 14:05:06 +0800
+  Processing by Taurus::Admin::RolesController#new as HTML
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/_form.html.erb (11.8ms)
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/new.html.erb within /taurus/layouts/admin (12.8ms)
+Completed 500 Internal Server Error in 21ms
+
+ActionView::Template::Error (undefined method `is_reserve' for #<Taurus::Role:0xd11f6a4>):
+    21:   </div>
+    22:   <div class="field">
+    23:     <%= f.label :is_reserve %><br />
+    24:     <%= f.check_box :is_reserve %>
+    25:   </div>
+    26:   <div class="actions">
+    27:     <%= f.submit %>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (4.9ms)
+
+
+Started GET "/admin/roles/new" for 127.0.0.1 at 2012-05-03 14:05:15 +0800
+  Processing by Taurus::Admin::RolesController#new as HTML
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/_form.html.erb (68.4ms)
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/new.html.erb within /taurus/layouts/admin (69.8ms)
+Completed 200 OK in 341ms (Views: 335.7ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:15 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:15 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/roles.css" for 127.0.0.1 at 2012-05-03 14:05:15 +0800
+Served asset /taurus/admin/roles.css - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/roles.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:15 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:15 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:15 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:15 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:15 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:15 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:15 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:15 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:15 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/roles.js" for 127.0.0.1 at 2012-05-03 14:05:15 +0800
+Served asset /taurus/admin/roles.js - 404 Not Found (18ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/roles.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:16 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 14:05:16 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started POST "/admin/roles" for 127.0.0.1 at 2012-05-03 14:05:24 +0800
+  Processing by Taurus::Admin::RolesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SFllosp06xrO5ZlUrV4FHRQ75c3gKNFpNy3PsK85uks=", "role"=>{"name"=>"测试", "description"=>"测试", "is_reserved"=>"1"}, "commit"=>"新增Role"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `taurus_roles` (`created_at`, `description`, `is_reserved`, `name`, `updated_at`) VALUES ('2012-05-03 14:05:25', '测试', 1, '测试', '2012-05-03 14:05:25')[0m
+  [1m[35m (10.0ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3002/admin/roles/1
+Completed 302 Found in 98ms
+
+
+Started GET "/admin/roles/1" for 127.0.0.1 at 2012-05-03 14:05:25 +0800
+  Processing by Taurus::Admin::RolesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTaurus::Role Load (0.4ms)[0m  [1mSELECT `taurus_roles`.* FROM `taurus_roles` WHERE `taurus_roles`.`id` = 1 LIMIT 1[0m
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/show.html.erb within /taurus/layouts/admin (10.1ms)
+Completed 200 OK in 274ms (Views: 262.9ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:25 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:25 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:25 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:25 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:25 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/roles.css" for 127.0.0.1 at 2012-05-03 14:05:25 +0800
+Served asset /taurus/admin/roles.css - 404 Not Found (20ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/roles.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.9ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:25 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:25 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:25 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:25 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:25 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:25 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:25 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/roles.js" for 127.0.0.1 at 2012-05-03 14:05:25 +0800
+Served asset /taurus/admin/roles.js - 404 Not Found (183ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/roles.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 14:05:25 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (1ms)
+
+
+Started GET "/admin/roles/1/edit" for 127.0.0.1 at 2012-05-03 14:05:30 +0800
+  Processing by Taurus::Admin::RolesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTaurus::Role Load (0.2ms)[0m  SELECT `taurus_roles`.* FROM `taurus_roles` WHERE `taurus_roles`.`id` = 1 LIMIT 1
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/_form.html.erb (9.5ms)
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/edit.html.erb within /taurus/layouts/admin (12.2ms)
+Completed 200 OK in 244ms (Views: 238.3ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:30 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:30 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:30 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:30 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/roles.css" for 127.0.0.1 at 2012-05-03 14:05:30 +0800
+Served asset /taurus/admin/roles.css - 404 Not Found (12ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/roles.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:30 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:30 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:30 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:30 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:30 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:30 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:30 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/roles.js" for 127.0.0.1 at 2012-05-03 14:05:30 +0800
+Served asset /taurus/admin/roles.js - 404 Not Found (131ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/roles.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:30 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 14:05:30 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started PUT "/admin/roles/1" for 127.0.0.1 at 2012-05-03 14:05:32 +0800
+  Processing by Taurus::Admin::RolesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SFllosp06xrO5ZlUrV4FHRQ75c3gKNFpNy3PsK85uks=", "role"=>{"name"=>"测试", "description"=>"测试1", "is_reserved"=>"1"}, "commit"=>"更新Role", "id"=>"1"}
+  [1m[36mTaurus::Role Load (0.2ms)[0m  [1mSELECT `taurus_roles`.* FROM `taurus_roles` WHERE `taurus_roles`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mUPDATE `taurus_roles` SET `description` = '测试1', `updated_at` = '2012-05-03 14:05:32' WHERE `taurus_roles`.`id` = 1[0m
+  [1m[35m (10.1ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3002/admin/roles/1
+Completed 302 Found in 32ms
+
+
+Started GET "/admin/roles/1" for 127.0.0.1 at 2012-05-03 14:05:32 +0800
+  Processing by Taurus::Admin::RolesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTaurus::Role Load (0.6ms)[0m  [1mSELECT `taurus_roles`.* FROM `taurus_roles` WHERE `taurus_roles`.`id` = 1 LIMIT 1[0m
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/show.html.erb within /taurus/layouts/admin (9.1ms)
+Completed 200 OK in 265ms (Views: 254.9ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:33 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:33 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:33 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:33 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 14:05:33 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/roles.css" for 127.0.0.1 at 2012-05-03 14:05:33 +0800
+Served asset /taurus/admin/roles.css - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/roles.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:33 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:33 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:33 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:33 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:33 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:33 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/roles.js" for 127.0.0.1 at 2012-05-03 14:05:33 +0800
+Served asset /taurus/admin/roles.js - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/roles.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 14:05:33 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 14:05:33 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/roles" for 127.0.0.1 at 2012-05-03 14:05:34 +0800
+  Processing by Taurus::Admin::RolesController#index as HTML
+  [1m[35mTaurus::Role Load (0.4ms)[0m  SELECT `taurus_roles`.* FROM `taurus_roles` LIMIT 20 OFFSET 0
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/index.html.erb within /taurus/layouts/admin (16.0ms)
+Completed 500 Internal Server Error in 27ms
+
+ActionView::Template::Error (undefined method `is_reserve' for #<Taurus::Role:0xd0b1e60>):
+    20:     <td><%= index+1 %></td>
+    21:     <td><%= role.name %></td>
+    22:     <td><%= role.description %></td>
+    23:     <td><%= format_boolean(role.is_reserve) %></td>
+    24:     <td><%= link_to '设置启动流程权限', new_admin_procedure_roleship_path(:id=>role) if can? :manage, ProcedureRoleship%></td>
+    25:     <td><%= link_to '修改', edit_admin_role_path(role) if can? :update, Role %></td>
+    26:   </tr>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.0ms)
+
+
+Started GET "/admin/roles" for 127.0.0.1 at 2012-05-03 14:05:54 +0800
+  Processing by Taurus::Admin::RolesController#index as HTML
+  [1m[36mTaurus::Role Load (0.2ms)[0m  [1mSELECT `taurus_roles`.* FROM `taurus_roles` LIMIT 20 OFFSET 0[0m
+  [1m[35mTaurus::Role Load (0.5ms)[0m  SELECT `taurus_roles`.* FROM `taurus_roles` 
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/index.html.erb within /taurus/layouts/admin (218.9ms)
+Completed 500 Internal Server Error in 229ms
+
+ActionView::Template::Error (undefined method `new_admin_procedure_roleship_path' for #<#<Class:0xd12a5a4>:0xd128100>):
+    21:     <td><%= role.name %></td>
+    22:     <td><%= role.description %></td>
+    23:     <td><%= format_boolean(role.is_reserved) %></td>
+    24:     <td><%= link_to '设置启动流程权限', new_admin_procedure_roleship_path(:id=>role) %></td>
+    25:     <td><%= link_to '修改', edit_admin_role_path(role) %></td>
+    26:   </tr>
+    27: <% end %>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.0ms)
+
+
+Started GET "/admin/roles" for 127.0.0.1 at 2012-05-03 14:06:08 +0800
+  Processing by Taurus::Admin::RolesController#index as HTML
+  [1m[36mTaurus::Role Load (0.2ms)[0m  [1mSELECT `taurus_roles`.* FROM `taurus_roles` LIMIT 20 OFFSET 0[0m
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/index.html.erb within /taurus/layouts/admin (14.9ms)
+Completed 200 OK in 256ms (Views: 251.2ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 14:06:08 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 14:06:08 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 14:06:08 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/roles.css" for 127.0.0.1 at 2012-05-03 14:06:08 +0800
+Served asset /taurus/admin/roles.css - 404 Not Found (9ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/roles.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 14:06:08 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 14:06:08 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 14:06:08 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 14:06:08 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 14:06:08 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 14:06:08 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 14:06:08 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 14:06:09 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/roles.js" for 127.0.0.1 at 2012-05-03 14:06:09 +0800
+Served asset /taurus/admin/roles.js - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/roles.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 14:06:09 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 14:06:09 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/roles/new" for 127.0.0.1 at 2012-05-03 14:07:55 +0800
+  Processing by Taurus::Admin::RolesController#new as HTML
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/_form.html.erb (11.9ms)
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/roles/new.html.erb within /taurus/layouts/admin (13.4ms)
+Completed 200 OK in 246ms (Views: 242.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 14:07:56 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 14:07:56 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 14:07:56 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 14:07:56 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 14:07:56 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/roles.css" for 127.0.0.1 at 2012-05-03 14:07:56 +0800
+Served asset /taurus/admin/roles.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/roles.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 14:07:56 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 14:07:56 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 14:07:56 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 14:07:56 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 14:07:56 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 14:07:56 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 14:07:56 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/roles.js" for 127.0.0.1 at 2012-05-03 14:07:56 +0800
+Served asset /taurus/admin/roles.js - 404 Not Found (15ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/roles.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 14:07:56 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/company_extends" for 127.0.0.1 at 2012-05-03 14:07:59 +0800
+
+ActionController::RoutingError (No route matches [GET] "/admin/company_extends"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/admin/company_extends" for 127.0.0.1 at 2012-05-03 14:13:05 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#index as HTML
+Mysql2::Error: Table 'taurus_development.taurus_company_extends' doesn't exist: SHOW FIELDS FROM `taurus_company_extends`
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/index.html.erb within /taurus/layouts/admin (7.2ms)
+Completed 500 Internal Server Error in 18ms
+
+ActionView::Template::Error (Mysql2::Error: Table 'taurus_development.taurus_company_extends' doesn't exist: SHOW FIELDS FROM `taurus_company_extends`):
+    4:   <%= search_form_for [:admin,@search] do |f| %>
+    5:     <div class="split_content_left">
+    6:       <p>
+    7:         <%= f.label '编号' %>
+    8:         <%= f.text_field :company_no_cont %>
+    9:       </p>
+    10:       <p>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (4.8ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[35m (0.1ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Migrating to CreateTaurusSkuDisplays (20120424030801)
+  [1m[36m (27.2ms)[0m  [1mDROP INDEX `index_taurus_sku_displays_on_location` ON `taurus_sku_displays`[0m
+  [1m[35m (49.9ms)[0m  DROP INDEX `index_taurus_sku_displays_on_page` ON `taurus_sku_displays`
+  [1m[36m (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[35m (0.1ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Migrating to CreateTaurusSkuDisplays (20120424030801)
+  [1m[36m (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[35m (0.1ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Migrating to CreateTaurusSkuDisplays (20120424030801)
+  [1m[36m (41.3ms)[0m  [1mDROP INDEX `index_taurus_sku_displays_on_sku_id` ON `taurus_sku_displays`[0m
+  [1m[35m (11.5ms)[0m  DROP TABLE `taurus_sku_displays`
+  [1m[36m (2.4ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20120424030801'[0m
+Migrating to CreateTaurusAnnouncements (20120424030001)
+  [1m[35m (2.6ms)[0m  DROP TABLE `taurus_announcements`
+  [1m[36m (1.9ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20120424030001'[0m
+Migrating to CreateTaurusImages (20120424015901)
+  [1m[35m (30.9ms)[0m  DROP INDEX `index_taurus_images_on_location` ON `taurus_images`
+  [1m[36m (35.3ms)[0m  [1mDROP INDEX `index_taurus_images_on_page` ON `taurus_images`[0m
+  [1m[35m (11.0ms)[0m  DROP TABLE `taurus_images`
+  [1m[36m (2.3ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20120424015901'[0m
+Migrating to CreateTaurusSliderBars (20120424010601)
+  [1m[35m (2.3ms)[0m  DROP TABLE `taurus_slider_bars`
+  [1m[36m (1.6ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20120424010601'[0m
+Migrating to CreateTaurusCompanyExtends (20120423170845)
+Migrating to DeviseCreateTaurusUsers (20120423170501)
+  [1m[35m (0.3ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[35m (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Migrating to CreateTaurusRoles (20120423164003)
+  [1m[36m (3.1ms)[0m  [1mDROP TABLE `taurus_roles`[0m
+  [1m[35m (11.3ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20120423164003'
+Migrating to CreateTaurusGroups (20120423164002)
+  [1m[36m (4.7ms)[0m  [1mDROP TABLE `taurus_groups`[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20120423164002'
+Migrating to DeviseCreateTaurusAdministrators (20120423164001)
+  [1m[36m (7.4ms)[0m  [1mDROP TABLE `taurus_administrators`[0m
+  [1m[35m (6.9ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20120423164001'
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[36m (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateAdmins (20111205073327)
+Migrating to CreateProducts (20111205081958)
+Migrating to CreateSuppliers (20111214103454)
+Migrating to CreateBrands (20111215033756)
+Migrating to CreateProductCategories (20111215064446)
+Migrating to CreateSkuCategories (20111215083858)
+Migrating to CreateSkus (20111215094255)
+Migrating to CreateCkeditorAssets (20111215230248)
+Migrating to CreateSkuProductships (20111216025822)
+Migrating to CreateSkuImages (20111216064033)
+Migrating to CreateCarts (20111218131703)
+Migrating to CreateCartSkuships (20111218132337)
+Migrating to CreateOrders (20111218132615)
+Migrating to CreatePersonExtends (20111219022004)
+Migrating to CreateOrderDetails (20111220071204)
+Migrating to RemoveCreateTimeAndUpdateTimeToProduct (20111220085103)
+Migrating to ChangeActiveToSupplier (20111220133452)
+Migrating to ChangeActiveToBrand (20111220140856)
+Migrating to AddAttachmentImageToBrand (20111220154204)
+Migrating to RemoveImageUrlToBrand (20111220154343)
+Migrating to RenameTypeToSku (20111221021407)
+Migrating to AddAttachmentImageToSkuImage (20111221054445)
+Migrating to RemoveImageUrlToSkuImage (20111221054621)
+Migrating to CreateProcedures (20111222033703)
+Migrating to CreateStations (20111222070652)
+Migrating to CreateStationProcedureships (20111223023531)
+Migrating to CreateConditions (20111223060150)
+Migrating to CreateBusinessFunctions (20111223072754)
+Migrating to AlterStationProcedureship (20111223075625)
+Migrating to CreateInstances (20111224045815)
+Migrating to CreateTracks (20111224050357)
+Migrating to CreateOrderNumbers (20111225101346)
+Migrating to AddTotalPriceToOrder (20111225125350)
+Migrating to AddConditionTypeAndActionToCondition (20111225170426)
+Migrating to CreateProcedureRoleships (20111226032745)
+Migrating to AddDisplayNameToCondition (20111226071101)
+Migrating to CreateOrderPays (20111227073259)
+Migrating to DropAdmins (20111228104607)
+Migrating to CreateAdministratorGroupships (20111228124309)
+Migrating to CreateEscs (20111229060701)
+Migrating to CreateEscCategories (20111229060918)
+Migrating to CreateEscReplies (20111229061813)
+Migrating to CreateSerialNumbers (20111229062633)
+Migrating to CreateProvinces (20111229101030)
+Migrating to CreateCities (20111229101819)
+Migrating to CreateDistricts (20111229101925)
+Migrating to CreateOrderingCompanies (20111229141349)
+Migrating to CreatePurchases (20111229141757)
+Migrating to CreateProductPurchaseships (20111229142541)
+Migrating to CreateStores (20111230055410)
+Migrating to CreateProductStoreships (20111230055615)
+Migrating to CreateStoreEntries (20111231034920)
+Migrating to CreateProductStoreEntryships (20111231035352)
+Migrating to CreateStoreEntryProductCarts (20120102033538)
+Migrating to AddSequenceAndLevelAndActiveToProductCategories (20120103042024)
+Migrating to AddCartTypeToStoreEntryProductCarts (20120103055754)
+Migrating to CreateBanks (20120103151847)
+Migrating to AddActiveToOrderingCompany (20120104081738)
+Migrating to CreateOrderTracks (20120105034824)
+Migrating to CreateOrderPrintLogs (20120105034953)
+Migrating to CreateOrderTakeLogs (20120105035201)
+Migrating to CreateRecAdds (20120105035917)
+Migrating to RenameTypeToProducts (20120105064238)
+Migrating to AlterSkuCategories (20120105071017)
+Migrating to CreateInnerSkuCarts (20120106031026)
+Migrating to CreateInnerOrderAddresses (20120106074923)
+Migrating to RenameAdministratorIdToInnerSkuCart (20120106080246)
+Migrating to CreateInnerOrderPayments (20120106081541)
+Migrating to RenameAdminIdToOrderTakeLog (20120107023809)
+Migrating to AlterOrderDetails (20120107053540)
+Migrating to AlterOrders (20120107061406)
+Migrating to ChangeQuantityToOrderDetails (20120108033202)
+Migrating to AddRoleIdToPersonExtends (20120108084727)
+Migrating to CreateUserNumbers (20120109032415)
+Migrating to AlterUsers (20120109034532)
+  [1m[35m (0.5ms)[0m  ALTER TABLE `users` DROP `password`
+Mysql2::Error: Table 'taurus_development.users' doesn't exist: ALTER TABLE `users` DROP `password`
+  [1m[36m (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateAdmins (20111205073327)
+Migrating to CreateProducts (20111205081958)
+Migrating to CreateSuppliers (20111214103454)
+Migrating to CreateBrands (20111215033756)
+Migrating to CreateProductCategories (20111215064446)
+Migrating to CreateSkuCategories (20111215083858)
+Migrating to CreateSkus (20111215094255)
+Migrating to CreateCkeditorAssets (20111215230248)
+Migrating to CreateSkuProductships (20111216025822)
+Migrating to CreateSkuImages (20111216064033)
+Migrating to CreateCarts (20111218131703)
+Migrating to CreateCartSkuships (20111218132337)
+Migrating to CreateOrders (20111218132615)
+Migrating to CreatePersonExtends (20111219022004)
+Migrating to CreateOrderDetails (20111220071204)
+Migrating to RemoveCreateTimeAndUpdateTimeToProduct (20111220085103)
+Migrating to ChangeActiveToSupplier (20111220133452)
+Migrating to ChangeActiveToBrand (20111220140856)
+Migrating to AddAttachmentImageToBrand (20111220154204)
+Migrating to RemoveImageUrlToBrand (20111220154343)
+Migrating to RenameTypeToSku (20111221021407)
+Migrating to AddAttachmentImageToSkuImage (20111221054445)
+Migrating to RemoveImageUrlToSkuImage (20111221054621)
+Migrating to CreateProcedures (20111222033703)
+Migrating to CreateStations (20111222070652)
+Migrating to CreateStationProcedureships (20111223023531)
+Migrating to CreateConditions (20111223060150)
+Migrating to CreateBusinessFunctions (20111223072754)
+Migrating to AlterStationProcedureship (20111223075625)
+Migrating to CreateInstances (20111224045815)
+Migrating to CreateTracks (20111224050357)
+Migrating to CreateOrderNumbers (20111225101346)
+Migrating to AddTotalPriceToOrder (20111225125350)
+Migrating to AddConditionTypeAndActionToCondition (20111225170426)
+Migrating to CreateProcedureRoleships (20111226032745)
+Migrating to AddDisplayNameToCondition (20111226071101)
+Migrating to CreateOrderPays (20111227073259)
+Migrating to DropAdmins (20111228104607)
+Migrating to CreateAdministratorGroupships (20111228124309)
+Migrating to CreateEscs (20111229060701)
+Migrating to CreateEscCategories (20111229060918)
+Migrating to CreateEscReplies (20111229061813)
+Migrating to CreateSerialNumbers (20111229062633)
+Migrating to CreateProvinces (20111229101030)
+Migrating to CreateCities (20111229101819)
+Migrating to CreateDistricts (20111229101925)
+Migrating to CreateOrderingCompanies (20111229141349)
+Migrating to CreatePurchases (20111229141757)
+Migrating to CreateProductPurchaseships (20111229142541)
+Migrating to CreateStores (20111230055410)
+Migrating to CreateProductStoreships (20111230055615)
+Migrating to CreateStoreEntries (20111231034920)
+Migrating to CreateProductStoreEntryships (20111231035352)
+Migrating to CreateStoreEntryProductCarts (20120102033538)
+Migrating to AddSequenceAndLevelAndActiveToProductCategories (20120103042024)
+Migrating to AddCartTypeToStoreEntryProductCarts (20120103055754)
+Migrating to CreateBanks (20120103151847)
+Migrating to AddActiveToOrderingCompany (20120104081738)
+Migrating to CreateOrderTracks (20120105034824)
+Migrating to CreateOrderPrintLogs (20120105034953)
+Migrating to CreateOrderTakeLogs (20120105035201)
+Migrating to CreateRecAdds (20120105035917)
+Migrating to RenameTypeToProducts (20120105064238)
+Migrating to AlterSkuCategories (20120105071017)
+Migrating to CreateInnerSkuCarts (20120106031026)
+Migrating to CreateInnerOrderAddresses (20120106074923)
+Migrating to RenameAdministratorIdToInnerSkuCart (20120106080246)
+Migrating to CreateInnerOrderPayments (20120106081541)
+Migrating to RenameAdminIdToOrderTakeLog (20120107023809)
+Migrating to AlterOrderDetails (20120107053540)
+Migrating to AlterOrders (20120107061406)
+Migrating to ChangeQuantityToOrderDetails (20120108033202)
+Migrating to AddRoleIdToPersonExtends (20120108084727)
+Migrating to CreateUserNumbers (20120109032415)
+Migrating to CreateIndustries (20120109063714)
+Migrating to CreateCompanyTypes (20120109065049)
+Migrating to CreateCompanyScales (20120109065158)
+Migrating to CreateOperatings (20120110022535)
+Migrating to CreatePermissions (20120110023026)
+Migrating to AlterPermissionsAndFunctions (20120110040800)
+Migrating to AddUrlToFunctions (20120110100817)
+Migrating to CreatePanicBuyings (20120112060437)
+Migrating to AddSalesReservedToProductStoreships (20120113160656)
+Migrating to CreateDeliveryOrders (20120114055714)
+Migrating to CreateProdDelOrdships (20120114060117)
+Migrating to AlterOrder (20120114065535)
+Migrating to AddNumberToDeliveryOrder (20120114071005)
+Migrating to AlterDefaultToSkus (20120115094227)
+Migrating to AlterOrderPrintLog (20120118112813)
+Migrating to AlterInnerSkuCarts (20120119075904)
+Migrating to AlterBackOrderSkus (20120119082050)
+Migrating to RemoveStoreIdFromOrders (20120124093824)
+Migrating to CreateDeliveryOrderCarts (20120124095530)
+Migrating to AlterDeliveryOrders (20120124114103)
+Migrating to UpdatePathToFunctions (20120125051731)
+Migrating to AddCarriageAdjustmentToOrders (20120131100638)
+Migrating to AddAdjustmentPermission (20120131124217)
+Migrating to CreateRailsAdminHistoriesTable (20120201091023)
+Migrating to AlterSkus (20120213092017)
+Migrating to DropPanicBuyings (20120213095112)
+Migrating to AlterCartSkuships (20120214061147)
+Migrating to CreateConsigneeInfos (20120215103033)
+Migrating to AlterRecAdds (20120216024555)
+Migrating to RemoveIndexToUserAddresses (20120220022156)
+Migrating to CreateSkuOnShelves (20120221071439)
+Migrating to CreateSkuBrowsingHistories (20120222074900)
+Migrating to CreateFavorites (20120225164312)
+Migrating to CreateMailSales (20120226124214)
+Migrating to CreateOrderOperUrls (20120228023926)
+Migrating to AlterStationProcedureships (20120228024009)
+Migrating to CreateBusFunStaProships (20120228062357)
+Migrating to AddLineTypeToOrderPrintLogs (20120307024910)
+Migrating to CreateSubscribes (20120307084434)
+Migrating to ChangePurchases (20120309085727)
+Migrating to ChangeProductProcedureships (20120311070339)
+Migrating to DropRailsAdminHistories (20120311100205)
+Migrating to CreateNumberCounters (20120312023536)
+Migrating to CreatePoProductTempLists (20120312082113)
+Migrating to AddPoTimeOfDeliveryToPurchaseOrders (20120312101543)
+Migrating to AddFaxAndSupplierIdToSuppliers (20120312121835)
+Migrating to RenamePurchaseIdToStoreEntries (20120313092244)
+Migrating to RemoveTotalPriceToOrders (20120315075243)
+Migrating to AddSkuCostToOrderDetails (20120316060619)
+Migrating to CreateProcedurePermissions (20120323091712)
+Migrating to AddActAndSubjectClassToConditions (20120323092202)
+Migrating to AlterProcedurePermissions (20120323111234)
+Migrating to AddDefaultToSkuProductships (20120326031048)
+Migrating to AddStorePositionToProductStoreships (20120327073012)
+Migrating to AddStoreInTypeToStoreEntries (20120327083607)
+Migrating to AddAdministratorIdToStoreEntries (20120327085226)
+Migrating to AddDeliveryTypeToDeliveryOrders (20120328061046)
+Migrating to AddDeRemarksToDeliveryOrders (20120330021018)
+Migrating to CreateOnlinePromotions (20120330092549)
+Migrating to CreatePromotionByProducts (20120330093924)
+Migrating to CreatePromotionByOrders (20120330112802)
+Migrating to AddPurchaseAmountLimitToPromotionByOrders (20120331101126)
+Migrating to ChangeColumnDefaultToProducts (20120401082248)
+Migrating to AddSignUpTimeLimitToOnlinePromotions (20120403033349)
+Migrating to ChangeDefaultToDiscountOnPromotionByOrders (20120403073237)
+Migrating to RenameProductIdToSkuIdOnOnlinePromotions (20120403075921)
+Migrating to AddProcedureIdToOnlinePromotions (20120403083533)
+Migrating to CreatePromotionMemberTemps (20120403091329)
+Migrating to CreatePromotionMembers (20120403171946)
+Migrating to AddProductDiscountToPromotionByProducts (20120404132017)
+Migrating to CreatePromotionProductTemps (20120404140354)
+Migrating to CreatePromotionProducts (20120405035924)
+Migrating to AddRemarksToOnlinePromotions (20120405130443)
+Migrating to CreateCustomerRatings (20120406053207)
+Migrating to AddVisibilityToCustomerRatings (20120408033123)
+Migrating to AlterTableForOrderDetails (20120408063055)
+Migrating to AlterTableForBackOrderSkus (20120408064153)
+Migrating to CreatePromotionPriorities (20120409031927)
+Migrating to CreatePromotionGifts (20120412072345)
+Migrating to CreatePromotionsInOrders (20120412102832)
+Migrating to DeviseCreateTaurusAdministrators (20120423164001)
+  [1m[35m (18.1ms)[0m  CREATE TABLE `taurus_administrators` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(128) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `status` tinyint(1), `name` varchar(255), `phone` varchar(255), `mobile` varchar(255), `fax` varchar(255), `zip_code` varchar(255), `address` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (23.4ms)[0m  [1mCREATE UNIQUE INDEX `index_taurus_administrators_on_email` ON `taurus_administrators` (`email`)[0m
+  [1m[35m (55.8ms)[0m  CREATE UNIQUE INDEX `index_taurus_administrators_on_reset_password_token` ON `taurus_administrators` (`reset_password_token`)
+  [1m[36m (11.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120423164001')[0m
+Migrating to CreateTaurusGroups (20120423164002)
+  [1m[35m (9.1ms)[0m  CREATE TABLE `taurus_groups` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120423164002')[0m
+Migrating to CreateTaurusRoles (20120423164003)
+  [1m[35m (9.5ms)[0m  CREATE TABLE `taurus_roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `is_reserved` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (7.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120423164003')[0m
+Migrating to DeviseCreateTaurusUsers (20120423170501)
+  [1m[35m (13.9ms)[0m  CREATE TABLE `taurus_users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(128) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `confirmation_token` varchar(255), `confirmed_at` datetime, `confirmation_sent_at` datetime, `taurus_userable_id` int(11), `taurus_userable_type` varchar(255), `points` int(11), `taurus_store_id` int(11), `taurus_role_id` int(11), `status` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (42.9ms)[0m  [1mCREATE UNIQUE INDEX `index_taurus_users_on_email` ON `taurus_users` (`email`)[0m
+  [1m[35m (31.4ms)[0m  CREATE UNIQUE INDEX `index_taurus_users_on_reset_password_token` ON `taurus_users` (`reset_password_token`)
+  [1m[36m (40.4ms)[0m  [1mCREATE UNIQUE INDEX `index_taurus_users_on_confirmation_token` ON `taurus_users` (`confirmation_token`)[0m
+  [1m[35m (43.3ms)[0m  CREATE INDEX `index_taurus_users_on_taurus_store_id` ON `taurus_users` (`taurus_store_id`)
+  [1m[36m (41.9ms)[0m  [1mCREATE INDEX `index_taurus_users_on_taurus_role_id` ON `taurus_users` (`taurus_role_id`)[0m
+  [1m[35m (6.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20120423170501')
+Migrating to CreateTaurusCompanyExtends (20120423170845)
+  [1m[36m (22.3ms)[0m  [1mCREATE TABLE `taurus_company_extends` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `number` varchar(255), `name` varchar(255), `web_address` varchar(255), `taurus_industry_id` int(11), `taurus_company_type_id` int(11), `taurus_company_scale_id` int(11), `taurus_district_id` int(11), `address` varchar(255), `phone` varchar(255), `fax` varchar(255), `zip_code` varchar(255), `contact_name` varchar(255), `contact_dept` varchar(255), `contact_post` varchar(255), `contact_mobile` varchar(255), `contact_sex` int(11), `created_by` int(11), `updated_by` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (58.7ms)[0m  CREATE INDEX `index_taurus_company_extends_on_taurus_industry_id` ON `taurus_company_extends` (`taurus_industry_id`)
+  [1m[36m (58.9ms)[0m  [1mCREATE INDEX `index_taurus_company_extends_on_taurus_company_type_id` ON `taurus_company_extends` (`taurus_company_type_id`)[0m
+  [1m[35m (57.8ms)[0m  CREATE INDEX `index_taurus_company_extends_on_taurus_company_scale_id` ON `taurus_company_extends` (`taurus_company_scale_id`)
+  [1m[36m (25.4ms)[0m  [1mCREATE INDEX `index_taurus_company_extends_on_taurus_district_id` ON `taurus_company_extends` (`taurus_district_id`)[0m
+  [1m[35m (55.4ms)[0m  CREATE INDEX `index_taurus_company_extends_on_created_by` ON `taurus_company_extends` (`created_by`)
+  [1m[36m (54.5ms)[0m  [1mCREATE INDEX `index_taurus_company_extends_on_updated_by` ON `taurus_company_extends` (`updated_by`)[0m
+  [1m[35m (10.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20120423170845')
+Migrating to CreateTaurusSliderBars (20120424010601)
+  [1m[36m (14.6ms)[0m  [1mCREATE TABLE `taurus_slider_bars` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `href` varchar(255), `image_file_name` varchar(255), `image_content_type` varchar(255), `image_file_size` int(11), `image_updated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (10.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20120424010601')
+Migrating to CreateTaurusImages (20120424015901)
+  [1m[36m (25.1ms)[0m  [1mCREATE TABLE `taurus_images` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `page` int(11), `location` int(11), `description` text, `line_type` int(11) DEFAULT 0, `href` varchar(255), `image_file_name` varchar(255), `image_content_type` varchar(255), `image_file_size` int(11), `image_updated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (34.4ms)[0m  CREATE INDEX `index_taurus_images_on_page` ON `taurus_images` (`page`)
+  [1m[36m (35.6ms)[0m  [1mCREATE INDEX `index_taurus_images_on_location` ON `taurus_images` (`location`)[0m
+  [1m[35m (9.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20120424015901')
+Migrating to CreateTaurusAnnouncements (20120424030001)
+  [1m[36m (22.9ms)[0m  [1mCREATE TABLE `taurus_announcements` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `internal_title` varchar(255), `description` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (8.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20120424030001')
+Migrating to CreateTaurusSkuDisplays (20120424030801)
+  [1m[36m (22.5ms)[0m  [1mCREATE TABLE `taurus_sku_displays` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `taurus_sku_id` int(11), `sequence` int(11), `page` int(11), `location` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.4ms)[0m  CREATE INDEX `index_taurus_sku_displays_on_sku_id` ON `taurus_sku_displays` (`sku_id`)
+Mysql2::Error: Key column 'sku_id' doesn't exist in table: CREATE  INDEX `index_taurus_sku_displays_on_sku_id` ON `taurus_sku_displays` (`sku_id`)
+  [1m[36m (0.5ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateAdmins (20111205073327)
+Migrating to CreateProducts (20111205081958)
+Migrating to CreateSuppliers (20111214103454)
+Migrating to CreateBrands (20111215033756)
+Migrating to CreateProductCategories (20111215064446)
+Migrating to CreateSkuCategories (20111215083858)
+Migrating to CreateSkus (20111215094255)
+Migrating to CreateCkeditorAssets (20111215230248)
+Migrating to CreateSkuProductships (20111216025822)
+Migrating to CreateSkuImages (20111216064033)
+Migrating to CreateCarts (20111218131703)
+Migrating to CreateCartSkuships (20111218132337)
+Migrating to CreateOrders (20111218132615)
+Migrating to CreatePersonExtends (20111219022004)
+Migrating to CreateOrderDetails (20111220071204)
+Migrating to RemoveCreateTimeAndUpdateTimeToProduct (20111220085103)
+Migrating to ChangeActiveToSupplier (20111220133452)
+Migrating to ChangeActiveToBrand (20111220140856)
+Migrating to AddAttachmentImageToBrand (20111220154204)
+Migrating to RemoveImageUrlToBrand (20111220154343)
+Migrating to RenameTypeToSku (20111221021407)
+Migrating to AddAttachmentImageToSkuImage (20111221054445)
+Migrating to RemoveImageUrlToSkuImage (20111221054621)
+Migrating to CreateProcedures (20111222033703)
+Migrating to CreateStations (20111222070652)
+Migrating to CreateStationProcedureships (20111223023531)
+Migrating to CreateConditions (20111223060150)
+Migrating to CreateBusinessFunctions (20111223072754)
+Migrating to AlterStationProcedureship (20111223075625)
+Migrating to CreateInstances (20111224045815)
+Migrating to CreateTracks (20111224050357)
+Migrating to CreateOrderNumbers (20111225101346)
+Migrating to AddTotalPriceToOrder (20111225125350)
+Migrating to AddConditionTypeAndActionToCondition (20111225170426)
+Migrating to CreateProcedureRoleships (20111226032745)
+Migrating to AddDisplayNameToCondition (20111226071101)
+Migrating to CreateOrderPays (20111227073259)
+Migrating to DropAdmins (20111228104607)
+Migrating to CreateAdministratorGroupships (20111228124309)
+Migrating to CreateEscs (20111229060701)
+Migrating to CreateEscCategories (20111229060918)
+Migrating to CreateEscReplies (20111229061813)
+Migrating to CreateSerialNumbers (20111229062633)
+Migrating to CreateProvinces (20111229101030)
+Migrating to CreateCities (20111229101819)
+Migrating to CreateDistricts (20111229101925)
+Migrating to CreateOrderingCompanies (20111229141349)
+Migrating to CreatePurchases (20111229141757)
+Migrating to CreateProductPurchaseships (20111229142541)
+Migrating to CreateStores (20111230055410)
+Migrating to CreateProductStoreships (20111230055615)
+Migrating to CreateStoreEntries (20111231034920)
+Migrating to CreateProductStoreEntryships (20111231035352)
+Migrating to CreateStoreEntryProductCarts (20120102033538)
+Migrating to AddSequenceAndLevelAndActiveToProductCategories (20120103042024)
+Migrating to AddCartTypeToStoreEntryProductCarts (20120103055754)
+Migrating to CreateBanks (20120103151847)
+Migrating to AddActiveToOrderingCompany (20120104081738)
+Migrating to CreateOrderTracks (20120105034824)
+Migrating to CreateOrderPrintLogs (20120105034953)
+Migrating to CreateOrderTakeLogs (20120105035201)
+Migrating to CreateRecAdds (20120105035917)
+Migrating to RenameTypeToProducts (20120105064238)
+Migrating to AlterSkuCategories (20120105071017)
+Migrating to CreateInnerSkuCarts (20120106031026)
+Migrating to CreateInnerOrderAddresses (20120106074923)
+Migrating to RenameAdministratorIdToInnerSkuCart (20120106080246)
+Migrating to CreateInnerOrderPayments (20120106081541)
+Migrating to RenameAdminIdToOrderTakeLog (20120107023809)
+Migrating to AlterOrderDetails (20120107053540)
+Migrating to AlterOrders (20120107061406)
+Migrating to ChangeQuantityToOrderDetails (20120108033202)
+Migrating to AddRoleIdToPersonExtends (20120108084727)
+Migrating to CreateUserNumbers (20120109032415)
+Migrating to CreateIndustries (20120109063714)
+Migrating to CreateCompanyTypes (20120109065049)
+Migrating to CreateCompanyScales (20120109065158)
+Migrating to CreateOperatings (20120110022535)
+Migrating to CreatePermissions (20120110023026)
+Migrating to AlterPermissionsAndFunctions (20120110040800)
+Migrating to AddUrlToFunctions (20120110100817)
+Migrating to CreatePanicBuyings (20120112060437)
+Migrating to AddSalesReservedToProductStoreships (20120113160656)
+Migrating to CreateDeliveryOrders (20120114055714)
+Migrating to CreateProdDelOrdships (20120114060117)
+Migrating to AlterOrder (20120114065535)
+Migrating to AddNumberToDeliveryOrder (20120114071005)
+Migrating to AlterDefaultToSkus (20120115094227)
+Migrating to AlterOrderPrintLog (20120118112813)
+Migrating to AlterInnerSkuCarts (20120119075904)
+Migrating to AlterBackOrderSkus (20120119082050)
+Migrating to RemoveStoreIdFromOrders (20120124093824)
+Migrating to CreateDeliveryOrderCarts (20120124095530)
+Migrating to AlterDeliveryOrders (20120124114103)
+Migrating to UpdatePathToFunctions (20120125051731)
+Migrating to AddCarriageAdjustmentToOrders (20120131100638)
+Migrating to AddAdjustmentPermission (20120131124217)
+Migrating to CreateRailsAdminHistoriesTable (20120201091023)
+Migrating to AlterSkus (20120213092017)
+Migrating to DropPanicBuyings (20120213095112)
+Migrating to AlterCartSkuships (20120214061147)
+Migrating to CreateConsigneeInfos (20120215103033)
+Migrating to AlterRecAdds (20120216024555)
+Migrating to RemoveIndexToUserAddresses (20120220022156)
+Migrating to CreateSkuOnShelves (20120221071439)
+Migrating to CreateSkuBrowsingHistories (20120222074900)
+Migrating to CreateFavorites (20120225164312)
+Migrating to CreateMailSales (20120226124214)
+Migrating to CreateOrderOperUrls (20120228023926)
+Migrating to AlterStationProcedureships (20120228024009)
+Migrating to CreateBusFunStaProships (20120228062357)
+Migrating to AddLineTypeToOrderPrintLogs (20120307024910)
+Migrating to CreateSubscribes (20120307084434)
+Migrating to ChangePurchases (20120309085727)
+Migrating to ChangeProductProcedureships (20120311070339)
+Migrating to DropRailsAdminHistories (20120311100205)
+Migrating to CreateNumberCounters (20120312023536)
+Migrating to CreatePoProductTempLists (20120312082113)
+Migrating to AddPoTimeOfDeliveryToPurchaseOrders (20120312101543)
+Migrating to AddFaxAndSupplierIdToSuppliers (20120312121835)
+Migrating to RenamePurchaseIdToStoreEntries (20120313092244)
+Migrating to RemoveTotalPriceToOrders (20120315075243)
+Migrating to AddSkuCostToOrderDetails (20120316060619)
+Migrating to CreateProcedurePermissions (20120323091712)
+Migrating to AddActAndSubjectClassToConditions (20120323092202)
+Migrating to AlterProcedurePermissions (20120323111234)
+Migrating to AddDefaultToSkuProductships (20120326031048)
+Migrating to AddStorePositionToProductStoreships (20120327073012)
+Migrating to AddStoreInTypeToStoreEntries (20120327083607)
+Migrating to AddAdministratorIdToStoreEntries (20120327085226)
+Migrating to AddDeliveryTypeToDeliveryOrders (20120328061046)
+Migrating to AddDeRemarksToDeliveryOrders (20120330021018)
+Migrating to CreateOnlinePromotions (20120330092549)
+Migrating to CreatePromotionByProducts (20120330093924)
+Migrating to CreatePromotionByOrders (20120330112802)
+Migrating to AddPurchaseAmountLimitToPromotionByOrders (20120331101126)
+Migrating to ChangeColumnDefaultToProducts (20120401082248)
+Migrating to AddSignUpTimeLimitToOnlinePromotions (20120403033349)
+Migrating to ChangeDefaultToDiscountOnPromotionByOrders (20120403073237)
+Migrating to RenameProductIdToSkuIdOnOnlinePromotions (20120403075921)
+Migrating to AddProcedureIdToOnlinePromotions (20120403083533)
+Migrating to CreatePromotionMemberTemps (20120403091329)
+Migrating to CreatePromotionMembers (20120403171946)
+Migrating to AddProductDiscountToPromotionByProducts (20120404132017)
+Migrating to CreatePromotionProductTemps (20120404140354)
+Migrating to CreatePromotionProducts (20120405035924)
+Migrating to AddRemarksToOnlinePromotions (20120405130443)
+Migrating to CreateCustomerRatings (20120406053207)
+Migrating to AddVisibilityToCustomerRatings (20120408033123)
+Migrating to AlterTableForOrderDetails (20120408063055)
+Migrating to AlterTableForBackOrderSkus (20120408064153)
+Migrating to CreatePromotionPriorities (20120409031927)
+Migrating to CreatePromotionGifts (20120412072345)
+Migrating to CreatePromotionsInOrders (20120412102832)
+Migrating to DeviseCreateTaurusAdministrators (20120423164001)
+Migrating to CreateTaurusGroups (20120423164002)
+Migrating to CreateTaurusRoles (20120423164003)
+Migrating to DeviseCreateTaurusUsers (20120423170501)
+Migrating to CreateTaurusCompanyExtends (20120423170845)
+Migrating to CreateTaurusSliderBars (20120424010601)
+Migrating to CreateTaurusImages (20120424015901)
+Migrating to CreateTaurusAnnouncements (20120424030001)
+Migrating to CreateTaurusSkuDisplays (20120424030801)
+  [1m[35m (0.4ms)[0m  CREATE TABLE `taurus_sku_displays` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `taurus_sku_id` int(11), `sequence` int(11), `page` int(11), `location` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+Mysql2::Error: Table 'taurus_sku_displays' already exists: CREATE TABLE `taurus_sku_displays` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `taurus_sku_id` int(11), `sequence` int(11), `page` int(11), `location` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateAdmins (20111205073327)
+Migrating to CreateProducts (20111205081958)
+Migrating to CreateSuppliers (20111214103454)
+Migrating to CreateBrands (20111215033756)
+Migrating to CreateProductCategories (20111215064446)
+Migrating to CreateSkuCategories (20111215083858)
+Migrating to CreateSkus (20111215094255)
+Migrating to CreateCkeditorAssets (20111215230248)
+Migrating to CreateSkuProductships (20111216025822)
+Migrating to CreateSkuImages (20111216064033)
+Migrating to CreateCarts (20111218131703)
+Migrating to CreateCartSkuships (20111218132337)
+Migrating to CreateOrders (20111218132615)
+Migrating to CreatePersonExtends (20111219022004)
+Migrating to CreateOrderDetails (20111220071204)
+Migrating to RemoveCreateTimeAndUpdateTimeToProduct (20111220085103)
+Migrating to ChangeActiveToSupplier (20111220133452)
+Migrating to ChangeActiveToBrand (20111220140856)
+Migrating to AddAttachmentImageToBrand (20111220154204)
+Migrating to RemoveImageUrlToBrand (20111220154343)
+Migrating to RenameTypeToSku (20111221021407)
+Migrating to AddAttachmentImageToSkuImage (20111221054445)
+Migrating to RemoveImageUrlToSkuImage (20111221054621)
+Migrating to CreateProcedures (20111222033703)
+Migrating to CreateStations (20111222070652)
+Migrating to CreateStationProcedureships (20111223023531)
+Migrating to CreateConditions (20111223060150)
+Migrating to CreateBusinessFunctions (20111223072754)
+Migrating to AlterStationProcedureship (20111223075625)
+Migrating to CreateInstances (20111224045815)
+Migrating to CreateTracks (20111224050357)
+Migrating to CreateOrderNumbers (20111225101346)
+Migrating to AddTotalPriceToOrder (20111225125350)
+Migrating to AddConditionTypeAndActionToCondition (20111225170426)
+Migrating to CreateProcedureRoleships (20111226032745)
+Migrating to AddDisplayNameToCondition (20111226071101)
+Migrating to CreateOrderPays (20111227073259)
+Migrating to DropAdmins (20111228104607)
+Migrating to CreateAdministratorGroupships (20111228124309)
+Migrating to CreateEscs (20111229060701)
+Migrating to CreateEscCategories (20111229060918)
+Migrating to CreateEscReplies (20111229061813)
+Migrating to CreateSerialNumbers (20111229062633)
+Migrating to CreateProvinces (20111229101030)
+Migrating to CreateCities (20111229101819)
+Migrating to CreateDistricts (20111229101925)
+Migrating to CreateOrderingCompanies (20111229141349)
+Migrating to CreatePurchases (20111229141757)
+Migrating to CreateProductPurchaseships (20111229142541)
+Migrating to CreateStores (20111230055410)
+Migrating to CreateProductStoreships (20111230055615)
+Migrating to CreateStoreEntries (20111231034920)
+Migrating to CreateProductStoreEntryships (20111231035352)
+Migrating to CreateStoreEntryProductCarts (20120102033538)
+Migrating to AddSequenceAndLevelAndActiveToProductCategories (20120103042024)
+Migrating to AddCartTypeToStoreEntryProductCarts (20120103055754)
+Migrating to CreateBanks (20120103151847)
+Migrating to AddActiveToOrderingCompany (20120104081738)
+Migrating to CreateOrderTracks (20120105034824)
+Migrating to CreateOrderPrintLogs (20120105034953)
+Migrating to CreateOrderTakeLogs (20120105035201)
+Migrating to CreateRecAdds (20120105035917)
+Migrating to RenameTypeToProducts (20120105064238)
+Migrating to AlterSkuCategories (20120105071017)
+Migrating to CreateInnerSkuCarts (20120106031026)
+Migrating to CreateInnerOrderAddresses (20120106074923)
+Migrating to RenameAdministratorIdToInnerSkuCart (20120106080246)
+Migrating to CreateInnerOrderPayments (20120106081541)
+Migrating to RenameAdminIdToOrderTakeLog (20120107023809)
+Migrating to AlterOrderDetails (20120107053540)
+Migrating to AlterOrders (20120107061406)
+Migrating to ChangeQuantityToOrderDetails (20120108033202)
+Migrating to AddRoleIdToPersonExtends (20120108084727)
+Migrating to CreateUserNumbers (20120109032415)
+Migrating to CreateIndustries (20120109063714)
+Migrating to CreateCompanyTypes (20120109065049)
+Migrating to CreateCompanyScales (20120109065158)
+Migrating to CreateOperatings (20120110022535)
+Migrating to CreatePermissions (20120110023026)
+Migrating to AlterPermissionsAndFunctions (20120110040800)
+Migrating to AddUrlToFunctions (20120110100817)
+Migrating to CreatePanicBuyings (20120112060437)
+Migrating to AddSalesReservedToProductStoreships (20120113160656)
+Migrating to CreateDeliveryOrders (20120114055714)
+Migrating to CreateProdDelOrdships (20120114060117)
+Migrating to AlterOrder (20120114065535)
+Migrating to AddNumberToDeliveryOrder (20120114071005)
+Migrating to AlterDefaultToSkus (20120115094227)
+Migrating to AlterOrderPrintLog (20120118112813)
+Migrating to AlterInnerSkuCarts (20120119075904)
+Migrating to AlterBackOrderSkus (20120119082050)
+Migrating to RemoveStoreIdFromOrders (20120124093824)
+Migrating to CreateDeliveryOrderCarts (20120124095530)
+Migrating to AlterDeliveryOrders (20120124114103)
+Migrating to UpdatePathToFunctions (20120125051731)
+Migrating to AddCarriageAdjustmentToOrders (20120131100638)
+Migrating to AddAdjustmentPermission (20120131124217)
+Migrating to CreateRailsAdminHistoriesTable (20120201091023)
+Migrating to AlterSkus (20120213092017)
+Migrating to DropPanicBuyings (20120213095112)
+Migrating to AlterCartSkuships (20120214061147)
+Migrating to CreateConsigneeInfos (20120215103033)
+Migrating to AlterRecAdds (20120216024555)
+Migrating to RemoveIndexToUserAddresses (20120220022156)
+Migrating to CreateSkuOnShelves (20120221071439)
+Migrating to CreateSkuBrowsingHistories (20120222074900)
+Migrating to CreateFavorites (20120225164312)
+Migrating to CreateMailSales (20120226124214)
+Migrating to CreateOrderOperUrls (20120228023926)
+Migrating to AlterStationProcedureships (20120228024009)
+Migrating to CreateBusFunStaProships (20120228062357)
+Migrating to AddLineTypeToOrderPrintLogs (20120307024910)
+Migrating to CreateSubscribes (20120307084434)
+Migrating to ChangePurchases (20120309085727)
+Migrating to ChangeProductProcedureships (20120311070339)
+Migrating to DropRailsAdminHistories (20120311100205)
+Migrating to CreateNumberCounters (20120312023536)
+Migrating to CreatePoProductTempLists (20120312082113)
+Migrating to AddPoTimeOfDeliveryToPurchaseOrders (20120312101543)
+Migrating to AddFaxAndSupplierIdToSuppliers (20120312121835)
+Migrating to RenamePurchaseIdToStoreEntries (20120313092244)
+Migrating to RemoveTotalPriceToOrders (20120315075243)
+Migrating to AddSkuCostToOrderDetails (20120316060619)
+Migrating to CreateProcedurePermissions (20120323091712)
+Migrating to AddActAndSubjectClassToConditions (20120323092202)
+Migrating to AlterProcedurePermissions (20120323111234)
+Migrating to AddDefaultToSkuProductships (20120326031048)
+Migrating to AddStorePositionToProductStoreships (20120327073012)
+Migrating to AddStoreInTypeToStoreEntries (20120327083607)
+Migrating to AddAdministratorIdToStoreEntries (20120327085226)
+Migrating to AddDeliveryTypeToDeliveryOrders (20120328061046)
+Migrating to AddDeRemarksToDeliveryOrders (20120330021018)
+Migrating to CreateOnlinePromotions (20120330092549)
+Migrating to CreatePromotionByProducts (20120330093924)
+Migrating to CreatePromotionByOrders (20120330112802)
+Migrating to AddPurchaseAmountLimitToPromotionByOrders (20120331101126)
+Migrating to ChangeColumnDefaultToProducts (20120401082248)
+Migrating to AddSignUpTimeLimitToOnlinePromotions (20120403033349)
+Migrating to ChangeDefaultToDiscountOnPromotionByOrders (20120403073237)
+Migrating to RenameProductIdToSkuIdOnOnlinePromotions (20120403075921)
+Migrating to AddProcedureIdToOnlinePromotions (20120403083533)
+Migrating to CreatePromotionMemberTemps (20120403091329)
+Migrating to CreatePromotionMembers (20120403171946)
+Migrating to AddProductDiscountToPromotionByProducts (20120404132017)
+Migrating to CreatePromotionProductTemps (20120404140354)
+Migrating to CreatePromotionProducts (20120405035924)
+Migrating to AddRemarksToOnlinePromotions (20120405130443)
+Migrating to CreateCustomerRatings (20120406053207)
+Migrating to AddVisibilityToCustomerRatings (20120408033123)
+Migrating to AlterTableForOrderDetails (20120408063055)
+Migrating to AlterTableForBackOrderSkus (20120408064153)
+Migrating to CreatePromotionPriorities (20120409031927)
+Migrating to CreatePromotionGifts (20120412072345)
+Migrating to CreatePromotionsInOrders (20120412102832)
+Migrating to DeviseCreateTaurusAdministrators (20120423164001)
+Migrating to CreateTaurusGroups (20120423164002)
+Migrating to CreateTaurusRoles (20120423164003)
+Migrating to DeviseCreateTaurusUsers (20120423170501)
+Migrating to CreateTaurusCompanyExtends (20120423170845)
+Migrating to CreateTaurusSliderBars (20120424010601)
+Migrating to CreateTaurusImages (20120424015901)
+Migrating to CreateTaurusAnnouncements (20120424030001)
+Migrating to CreateTaurusSkuDisplays (20120424030801)
+  [1m[35m (32.2ms)[0m  CREATE TABLE `taurus_sku_displays` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `taurus_sku_id` int(11), `sequence` int(11), `page` int(11), `location` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (59.7ms)[0m  [1mCREATE INDEX `index_taurus_sku_displays_on_taurus_sku_id` ON `taurus_sku_displays` (`taurus_sku_id`)[0m
+  [1m[35m (25.6ms)[0m  CREATE INDEX `index_taurus_sku_displays_on_page` ON `taurus_sku_displays` (`page`)
+  [1m[36m (37.4ms)[0m  [1mCREATE INDEX `index_taurus_sku_displays_on_location` ON `taurus_sku_displays` (`location`)[0m
+  [1m[35m (3.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20120424030801')
+  [1m[36m (0.4ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+
+
+Started GET "/admin/company_extends" for 127.0.0.1 at 2012-05-03 15:20:11 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#index as HTML
+  [1m[35mTaurus::CompanyExtend Load (0.5ms)[0m  SELECT `taurus_company_extends`.* FROM `taurus_company_extends` 
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/index.html.erb within /taurus/layouts/admin (24.2ms)
+Completed 500 Internal Server Error in 35ms
+
+ActionView::Template::Error (undefined method `company_no_cont' for #<Ransack::Search:0xcf17c94>):
+    5:     <div class="split_content_left">
+    6:       <p>
+    7:         <%= f.label '编号' %>
+    8:         <%= f.text_field :company_no_cont %>
+    9:       </p>
+    10:       <p>
+    11:         <%= f.label '企业名称' %>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.5ms)
+
+
+Started GET "/admin/company_extends" for 127.0.0.1 at 2012-05-03 15:21:25 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#index as HTML
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/index.html.erb within /taurus/layouts/admin (147.2ms)
+Completed 500 Internal Server Error in 158ms
+
+ActionView::Template::Error (Expected /home/sean/projects/taurus/auth/app/models/taurus/user.rb to define Taurus::User):
+    15:     <div class="split_content_right">
+    16:       <p>
+    17:         <%= f.label '帐号' %>
+    18:         <%= f.text_field :user_login_no_cont %>
+    19:       </p>
+    20:       <p>
+    21:         <label>&nbsp;</label>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.0ms)
+
+
+Started GET "/admin/company_extends" for 127.0.0.1 at 2012-05-03 15:22:18 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#index as HTML
+  [1m[36mTaurus::CompanyExtend Load (0.2ms)[0m  [1mSELECT `taurus_company_extends`.* FROM `taurus_company_extends` [0m
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/index.html.erb within /taurus/layouts/admin (85.5ms)
+Completed 500 Internal Server Error in 94ms
+
+ActionView::Template::Error (undefined method `user_login_no_cont' for #<Ransack::Search:0xd0ca0a0>):
+    15:     <div class="split_content_right">
+    16:       <p>
+    17:         <%= f.label '帐号' %>
+    18:         <%= f.text_field :user_login_no_cont %>
+    19:       </p>
+    20:       <p>
+    21:         <label>&nbsp;</label>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (5.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-05-03 15:35:40 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.5ms)
+Completed 200 OK in 267ms (Views: 266.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 15:35:40 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 15:35:40 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 15:35:40 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 15:35:40 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 15:35:40 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 15:35:40 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 15:35:40 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-05-03 15:35:40 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (32ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 15:35:40 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 15:35:40 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 15:35:40 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 15:35:40 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 15:35:40 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-05-03 15:35:40 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (23ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 15:35:41 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/company_extends" for 127.0.0.1 at 2012-05-03 15:35:44 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#index as HTML
+  [1m[35mTaurus::CompanyExtend Load (0.2ms)[0m  SELECT `taurus_company_extends`.* FROM `taurus_company_extends` 
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/index.html.erb within /taurus/layouts/admin (141.1ms)
+Completed 500 Internal Server Error in 150ms
+
+ActionView::Template::Error (undefined method `user_login_no_cont' for #<Ransack::Search:0xcf21780>):
+    15:     <div class="split_content_right">
+    16:       <p>
+    17:         <%= f.label '帐号' %>
+    18:         <%= f.text_field :user_login_no_cont %>
+    19:       </p>
+    20:       <p>
+    21:         <label>&nbsp;</label>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (4.8ms)
+
+
+Started GET "/admin/company_extends" for 127.0.0.1 at 2012-05-03 15:43:14 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#index as HTML
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/index.html.erb within /taurus/layouts/admin (123.0ms)
+Completed 500 Internal Server Error in 134ms
+
+ActionView::Template::Error (No association found for name `person_extend'. Has it been defined yet?):
+    15:     <div class="split_content_right">
+    16:       <p>
+    17:         <%= f.label '帐号' %>
+    18:         <%= f.text_field :user_login_no_cont %>
+    19:       </p>
+    20:       <p>
+    21:         <label>&nbsp;</label>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.6ms)
+
+
+Started GET "/admin/company_extends" for 127.0.0.1 at 2012-05-03 15:45:11 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#index as HTML
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/index.html.erb within /taurus/layouts/admin (102.3ms)
+Completed 500 Internal Server Error in 116ms
+
+ActionView::Template::Error (No association found for name `person_extend'. Has it been defined yet?):
+    15:     <div class="split_content_right">
+    16:       <p>
+    17:         <%= f.label '邮箱' %>
+    18:         <%= f.text_field :user_email_cont %>
+    19:       </p>
+    20:       <p>
+    21:         <label>&nbsp;</label>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (5.3ms)
+
+
+Started GET "/admin/company_extends" for 127.0.0.1 at 2012-05-03 15:49:19 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#index as HTML
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/index.html.erb within /taurus/layouts/admin (97.7ms)
+Completed 500 Internal Server Error in 112ms
+
+ActionView::Template::Error (No association found for name `person_extend'. Has it been defined yet?):
+    15:     <div class="split_content_right">
+    16:       <p>
+    17:         <%= f.label '邮箱' %>
+    18:         <%= f.text_field :user_email_cont %>
+    19:       </p>
+    20:       <p>
+    21:         <label>&nbsp;</label>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.0ms)
+
+
+Started GET "/admin/company_extends" for 127.0.0.1 at 2012-05-03 15:49:21 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#index as HTML
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/index.html.erb within /taurus/layouts/admin (39.3ms)
+Completed 500 Internal Server Error in 50ms
+
+ActionView::Template::Error (No association found for name `person_extend'. Has it been defined yet?):
+    15:     <div class="split_content_right">
+    16:       <p>
+    17:         <%= f.label '邮箱' %>
+    18:         <%= f.text_field :user_email_cont %>
+    19:       </p>
+    20:       <p>
+    21:         <label>&nbsp;</label>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.3ms)
+
+
+Started GET "/admin/company_extends" for 127.0.0.1 at 2012-05-03 15:50:59 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#index as HTML
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/index.html.erb within /taurus/layouts/admin (62.2ms)
+Completed 500 Internal Server Error in 72ms
+
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::CompanyExtend):
+    27: </div>
+    28: 
+    29: <div class="grid_button">
+    30:   <%= link_to '新增企业会员', new_admin_company_extend_path if can? :create, CompanyExtend %>
+    31: </div>
+    32: 
+    33: <table class="grid">
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (5.2ms)
+
+
+Started GET "/admin/company_extends" for 127.0.0.1 at 2012-05-03 15:51:42 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#index as HTML
+  [1m[36mTaurus::CompanyExtend Load (1.1ms)[0m  [1mSELECT `taurus_company_extends`.* FROM `taurus_company_extends` LIMIT 20 OFFSET 0[0m
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/index.html.erb within /taurus/layouts/admin (62.4ms)
+Completed 200 OK in 331ms (Views: 324.5ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 15:51:42 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/company_extends.css" for 127.0.0.1 at 2012-05-03 15:51:42 +0800
+Served asset /taurus/admin/company_extends.css - 404 Not Found (148ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/company_extends.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 15:51:42 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 15:51:42 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 15:51:42 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 15:51:42 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 15:51:42 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 15:51:42 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 15:51:42 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 15:51:42 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 15:51:42 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 15:51:42 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/company_extends.js" for 127.0.0.1 at 2012-05-03 15:51:42 +0800
+Served asset /taurus/admin/company_extends.js - 404 Not Found (19ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/company_extends.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 15:51:42 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 15:51:43 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (19ms)
+
+
+Started GET "/assets/admin/admin_bg_th_orange.gif" for 127.0.0.1 at 2012-05-03 15:51:46 +0800
+Served asset /admin/admin_bg_th_orange.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/company_extends?utf8=%E2%9C%93&q%5Bnumber_cont%5D=&q%5Bname_cont%5D=&q%5Buser_email_cont%5D=&commit=%E6%9F%A5%E8%AF%A2" for 127.0.0.1 at 2012-05-03 15:51:47 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"number_cont"=>"", "name_cont"=>"", "user_email_cont"=>""}, "commit"=>"查询"}
+  [1m[35mTaurus::CompanyExtend Load (1.3ms)[0m  SELECT `taurus_company_extends`.* FROM `taurus_company_extends` LEFT OUTER JOIN `taurus_users` ON `taurus_users`.`userable_id` = `taurus_company_extends`.`id` AND `taurus_users`.`userable_type` = 'Taurus::CompanyExtend' LIMIT 20 OFFSET 0
+Mysql2::Error: Unknown column 'taurus_users.userable_id' in 'on clause': SELECT  `taurus_company_extends`.* FROM `taurus_company_extends` LEFT OUTER JOIN `taurus_users` ON `taurus_users`.`userable_id` = `taurus_company_extends`.`id` AND `taurus_users`.`userable_type` = 'Taurus::CompanyExtend' LIMIT 20 OFFSET 0
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/index.html.erb within /taurus/layouts/admin (41.9ms)
+Completed 500 Internal Server Error in 157ms
+
+ActionView::Template::Error (Mysql2::Error: Unknown column 'taurus_users.userable_id' in 'on clause': SELECT  `taurus_company_extends`.* FROM `taurus_company_extends` LEFT OUTER JOIN `taurus_users` ON `taurus_users`.`userable_id` = `taurus_company_extends`.`id` AND `taurus_users`.`userable_type` = 'Taurus::CompanyExtend' LIMIT 20 OFFSET 0):
+    44:       <th></th>
+    45:     </tr>
+    46:   </thead>
+    47: <% @company_extends.each_with_index do |company_extend,index| %>
+    48:   <tr class="<%= set_odd_even_class index %>">
+    49:     <td><%= index+1 %></td>
+    50:     <td><%= link_to company_extend.company_no, admin_company_extend_path(company_extend) %></td>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.1ms)
+
+
+Started GET "/assets/admin/admin_bg_th_orange.gif" for 127.0.0.1 at 2012-05-03 15:54:27 +0800
+Served asset /admin/admin_bg_th_orange.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/company_extends?utf8=%E2%9C%93&q%5Bnumber_cont%5D=&q%5Bname_cont%5D=&q%5Buser_email_cont%5D=&commit=%E6%9F%A5%E8%AF%A2" for 127.0.0.1 at 2012-05-03 15:54:32 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"number_cont"=>"", "name_cont"=>"", "user_email_cont"=>""}, "commit"=>"查询"}
+  [1m[36mTaurus::CompanyExtend Load (1.9ms)[0m  [1mSELECT `taurus_company_extends`.* FROM `taurus_company_extends` LEFT OUTER JOIN `taurus_users` ON `taurus_users`.`taurus_userable_id` = `taurus_company_extends`.`id` AND `taurus_users`.`taurus_userable_type` = 'Taurus::CompanyExtend' LIMIT 20 OFFSET 0[0m
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/index.html.erb within /taurus/layouts/admin (27.1ms)
+Completed 200 OK in 376ms (Views: 317.9ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 15:54:33 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 15:54:33 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 15:54:33 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/company_extends.css" for 127.0.0.1 at 2012-05-03 15:54:33 +0800
+Served asset /taurus/admin/company_extends.css - 404 Not Found (18ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/company_extends.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 15:54:33 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 15:54:33 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 15:54:33 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 15:54:33 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 15:54:33 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 15:54:33 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/company_extends.js" for 127.0.0.1 at 2012-05-03 15:54:33 +0800
+Served asset /taurus/admin/company_extends.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/company_extends.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 15:54:33 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 15:54:33 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 15:54:33 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 15:54:33 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th_orange.gif" for 127.0.0.1 at 2012-05-03 15:54:38 +0800
+Served asset /admin/admin_bg_th_orange.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/company_extends/new" for 127.0.0.1 at 2012-05-03 15:54:48 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#new as HTML
+Mysql2::Error: Table 'taurus_development.users' doesn't exist: SHOW FIELDS FROM `users`
+Completed 500 Internal Server Error in 2ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'taurus_development.users' doesn't exist: SHOW FIELDS FROM `users`):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.4ms)
+
+
+Started GET "/assets/admin/admin_bg_th_orange.gif" for 127.0.0.1 at 2012-05-03 15:54:55 +0800
+Served asset /admin/admin_bg_th_orange.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/company_extends/new" for 127.0.0.1 at 2012-05-03 15:54:56 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#new as HTML
+Mysql2::Error: Table 'taurus_development.users' doesn't exist: SHOW FIELDS FROM `users`
+Completed 500 Internal Server Error in 2ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'taurus_development.users' doesn't exist: SHOW FIELDS FROM `users`):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.8ms)
+
+
+Started GET "/admin/company_extends?utf8=%E2%9C%93&q%5Bnumber_cont%5D=&q%5Bname_cont%5D=&q%5Buser_email_cont%5D=&commit=%E6%9F%A5%E8%AF%A2" for 127.0.0.1 at 2012-05-03 16:12:26 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"number_cont"=>"", "name_cont"=>"", "user_email_cont"=>""}, "commit"=>"查询"}
+  [1m[35mTaurus::CompanyExtend Load (0.7ms)[0m  SELECT `taurus_company_extends`.* FROM `taurus_company_extends` LEFT OUTER JOIN `taurus_users` ON `taurus_users`.`taurus_userable_id` = `taurus_company_extends`.`id` AND `taurus_users`.`taurus_userable_type` = 'Taurus::CompanyExtend' LIMIT 20 OFFSET 0
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/index.html.erb within /taurus/layouts/admin (25.3ms)
+Completed 200 OK in 357ms (Views: 293.7ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 16:12:26 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 16:12:26 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 16:12:26 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 16:12:26 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 16:12:26 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 16:12:26 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 16:12:26 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 16:12:27 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 16:12:27 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 16:12:27 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 16:12:27 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 16:12:27 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 16:12:27 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/company_extends/new" for 127.0.0.1 at 2012-05-03 16:12:28 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#new as HTML
+Mysql2::Error: Table 'taurus_development.roles' doesn't exist: SHOW FIELDS FROM `roles`
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/_form.html.erb (31.1ms)
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/new.html.erb within /taurus/layouts/admin (32.7ms)
+Completed 500 Internal Server Error in 42ms
+
+ActionView::Template::Error (Mysql2::Error: Table 'taurus_development.roles' doesn't exist: SHOW FIELDS FROM `roles`):
+    29:         </p>
+    30:         <p>
+    31:           <%= label_tag t :role %>
+    32:           <%= u_f.select :role_id, Role.all.collect{ |r| [r.name, r.id] } %><span class="red">*</span>
+    33:         </p>
+    34:         <p>
+    35:           <label>仓库</label>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.4ms)
+
+
+Started GET "/admin/company_extends/new" for 127.0.0.1 at 2012-05-03 16:14:00 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#new as HTML
+  [1m[36mTaurus::Role Load (0.6ms)[0m  [1mSELECT `taurus_roles`.* FROM `taurus_roles` [0m
+  [1m[35mStore Load (0.7ms)[0m  SELECT `stores`.* FROM `stores` 
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/_form.html.erb (71.7ms)
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/new.html.erb within /taurus/layouts/admin (72.7ms)
+Completed 500 Internal Server Error in 81ms
+
+ActionView::Template::Error (undefined method `store_id' for #<Taurus::CompanyExtend:0xd03ca0c>):
+    33:         </p>
+    34:         <p>
+    35:           <label>仓库</label>
+    36:           <%= f.select :store_id, Store.all.collect {|s| [ s.name, s.id ] } %><span class="red">*</span>
+    37:         </p>
+    38:         <%= f.fields_for :company_extend do |c| %>
+    39:           <p>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.5ms)

@@ -1,0 +1,19 @@
+<%= simple_form_for([:admin,@group]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="attributes">
+    <div class="split_content_left">
+      <p>
+        <%= f.input :name %>
+      </p>
+      <p>
+        <%= f.input :description %>
+      </p>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
