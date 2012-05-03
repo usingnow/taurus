@@ -39,3 +39,6 @@ group :test do
   gem 'factory_girl_rails','1.4.0' #测试夹具
   gem 'spork', '~> 0.9.0.rc' #测试加速
 end
+
+#安装Bootstrap
+gem "twitter-bootstrap-rails"

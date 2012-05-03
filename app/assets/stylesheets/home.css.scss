@@ -1,4 +1,4 @@
-@import "public";
+//@import "public";
 
 //Main Menu style
 #main_menu_wrapper {
@@ -47,7 +47,7 @@
 	color:#ffffff;
 	font-size:15px;
 	display:block;
-	background-color: $bg_red;
+	background-color: #E73227;
 	z-index:1000;
 }
 #main_menu div a {
@@ -233,7 +233,7 @@
       vertical-align: middle;
       text-align: center;}
     p.red {
-      color: $text_red;}}}
+      color: #e73221;}}}
 //Side Bar style in Home/main
 #slider_bar {
 	position: relative;
@@ -328,39 +328,39 @@
     color: #FFFFFF;}}
 
 //Slider Style in Homepage.
-
-.container, .container img {
-    height: 250px;
-    width: 550px;}
-.container {
-    border: 0 solid #999999;}
-.container img {
-    border: 0 none;}
-.num {
-    left: 1px;
-    padding: 0;
-    position: absolute;
-    top: 252px;
-    li {
-      background: #dddddd;
-      color: #E60013;
-      cursor: pointer;
-      float: left;
-      font-size: 12px;
-      height: 26px;
-      line-height: 22px;
-      vertical-align: middle;
-      list-style: none outside none;
-      margin: 0;
-      text-align: center;
-      width: 110px;}
-    li.on {
-      border: 0 none;
-      font-size: 12px;
-      height: 26px;
-      line-height: 22px;
-      width: 110px;
-      font-weight: bold;}}
+.home_slider {
+  .container, .container img {
+      height: 250px;
+      width: 550px;}
+  .container {
+      border: 0 solid #999999;}
+  .container img {
+      border: 0 none;}
+  .num {
+      left: 1px;
+      padding: 0;
+      position: absolute;
+      top: 252px;
+      li {
+        background: #dddddd;
+        color: #E60013;
+        cursor: pointer;
+        float: left;
+        font-size: 12px;
+        height: 26px;
+        line-height: 22px;
+        vertical-align: middle;
+        list-style: none outside none;
+        margin: 0;
+        text-align: center;
+        width: 110px;}
+      li.on {
+        border: 0 none;
+        font-size: 12px;
+        height: 26px;
+        line-height: 22px;
+        width: 110px;
+        font-weight: bold;}}}
 
 //New SKU recommendation.
 #panic_buying {
