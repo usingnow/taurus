@@ -70,7 +70,7 @@ module ApplicationHelper
   def functions
     str = ""
     Component.all.each do |com|
-      fun_str = "<ul>"
+      fun_str = ""
       com_flag = false
       com.functions.each do |fun|
         flag = false
@@ -89,9 +89,8 @@ module ApplicationHelper
           com_flag = true
         end
       end
-      fun_str += "</ul>"
       if com_flag == true
-        str += "<h3>#{com.name}</h3>"+fun_str
+        str += "<ul id='admin-main-functionality' class='nav nav-list'><li class='nav-header'>#{com.name}</li><li class='divider'></li>"+fun_str+"</ul>"
       end
     end
     str
