@@ -1,6 +1,6 @@
 <div class="form-actions">
   <%= link_to "<i class='icon-edit'></i> 修改".html_safe, edit_admin_group_path(@group), :class => "btn btn-primary" if can? :update, Group %>
-  <%= link_to "<i class='icon-arrow-left'></i> 返回".html_safe, admin_groups_path, :class => "btn" %>
+  <%= link_to "<i class='icon-arrow-left'></i> 返回".html_safe, admin_groups_path, :class => "btn pull-right" %>
 </div>
 
 <form class="form-horizontal">
