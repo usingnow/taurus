@@ -1,48 +1,25 @@
-<%= simple_form_for([:admin,@administrator]) do |f| %>
+<%= simple_form_for([:admin,@administrator], :html => {:class => 'form-horizontal'}) do |f| %>
   <%= f.error_notification %>
+  <fieldset>
+    <%= f.input :login_no %>
+    <% if @administrator.id.nil? %>
+      <%= f.input :password %>
+    <% end %>
+    <%= f.input :status do %>
+      <%= f.collection_radio :status, [[1, '激活'] ,[0, '锁定']], :first, :last, :checked => 1 %>
+    <% end %>
+    <%= f.input :email %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :phone %>
+    <%= f.input :fax %>
+    <%= f.input :mobile %>
+    <%= f.input :zip %>
 
-  <div class="attributes">
-    <div class="split_content_left">
-      <p>
-        <%= f.input :login_no %>
-      </p>
-      <% if @administrator.id.nil? %>
-        <p>
-          <%= f.input :password %>
-        </p>
-      <% end %>
-      <p>
-        <%= f.input :status do %>
-          <%= f.collection_radio :status, [[1, '激活'] ,[0, '锁定']], :first, :last, :checked => 1 %>
-        <% end %>
-      </p>
-      <p>
-        <%= f.input :email %>
-      </p>
-      <p>
-        <%= f.input :name %>
-      </p>
-      <p>
-         <%= f.input :address %>
-      </p>
-      <p>
-         <%= f.input :phone %>
-      </p>
-      <p>
-        <%= f.input :fax %>
-      </p>
-      <p>
-        <%= f.input :mobile %>
-      </p>
-      <p>
-        <%= f.input :zip %>
-      </p>
+    <div class="form-actions">
+      <%= f.button :submit, :class => "btn btn-primary" %>
     </div>
-    <div class="clear"></div>
-  </div>
-  <div class="actions">
-    <%= f.button :submit %>
-  </div>
+  </fieldset>
 <% end %>
 
 

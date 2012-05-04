@@ -14,9 +14,9 @@ module Admin::AdministratorGroupshipsHelper
      end
 
      if flag == true
-       result += "<div class='field'><input type='checkbox' name='group_id[]' checked='checked' value='#{group.id}'/>#{group.name}</div>"
+       result += "<label class='checkbox'><input type='checkbox' name='group_id[]' checked='checked' value='#{group.id}'/>#{group.name}</label>"
      else
-       result += "<div class='field'><input type='checkbox' name='group_id[]' value='#{group.id}'/>#{group.name}</div>"
+       result += "<label class='checkbox'><input type='checkbox' name='group_id[]' value='#{group.id}'/>#{group.name}</label>"
      end
    end
 
