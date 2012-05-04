@@ -1,48 +1,73 @@
-<div id="show_info">
-  <h1>员工账户信息查看</h1>
-  <ul>
-    <li>
-      <label class="label40"><%= t 'attributes.administrator.login_no' %></label>
-      <span><%= @administrator.login_no %></span>
-    </li>
-    <li>
-      <label class="label40"><%= t 'attributes.administrator.status' %></label>
-      <span><%= { 1 => "激活", 0 => "锁定" }[@administrator.status] %></span>
-    </li>
-    <li>
-      <label class="label40"><%= t 'attributes.administrator.email' %></label>
-      <span><%= @administrator.email %></span>
-    </li>
-    <li>
-      <label class="label40"><%= t 'attributes.administrator.name' %></label>
-      <span><%= @administrator.name %></span>
-    </li>
-    <li>
-      <label class="label40"><%= t 'attributes.administrator.address' %></label>
-      <span><%= @administrator.address %></span>
-    </li>
-    <li>
-      <label class="label40"><%= t 'attributes.administrator.phone' %></label>
-      <span><%= @administrator.phone %></span>
-    </li>
-    <li>
-      <label class="label40"><%= t 'attributes.administrator.fax' %></label>
-      <span><%= @administrator.fax %></span>
-    </li>
-    <li>
-      <label class="label40"><%= t 'attributes.administrator.mobile' %></label>
-      <span><%= @administrator.mobile %></span>
-    </li>
-    <li>
-      <label class="label40"><%= t 'attributes.administrator.zip' %></label>
-      <span><%= @administrator.zip %></span>
-    </li>
-    <li class="margin_top_20">
-      <%= link_to "返回", admin_administrators_path, :class => "left20" %>
-      <%= link_to "修改", edit_admin_administrator_path(@administrator) if can? :update, Administrator %>
-    </li>
-  </ul>
+<div class="form-actions">
+  <%= link_to "<i class='icon-edit'></i> 修改".html_safe, edit_admin_administrator_path(@administrator), :class => "btn btn-primary" if can? :update, Administrator %>
+  <%= link_to "<i class='icon-arrow-left'></i> 返回".html_safe, admin_administrators_path, :class => "btn pull-right" %>
 </div>
+
+<form class="form-horizontal">
+  <fieldset>
+    <div class="control-group">
+      <label class="control-label"><%= t 'attributes.administrator.login_no' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @administrator.login_no %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'attributes.administrator.status' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= { 1 => "激活", 0 => "锁定" }[@administrator.status] %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'attributes.administrator.email' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @administrator.email %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'attributes.administrator.name' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @administrator.name %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'attributes.administrator.address' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @administrator.address %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'attributes.administrator.phone' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @administrator.phone %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'attributes.administrator.fax' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @administrator.fax %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'attributes.administrator.mobile' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @administrator.mobile %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'attributes.administrator.zip' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @administrator.zip %></span>
+      </div>
+    </div>
+    <!-- 需要能够列出所属管理组
+    <div class="control-group">
+      <label class="control-label">所属管理员组</label>
+      <div class="controls">
+      </div>
+    </div>
+    -->
+  </fieldset>
+</form>
 
 
 
