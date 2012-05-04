@@ -21,4 +21,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'taurus_core', version
   s.add_dependency 'taurus_cms', version
   s.add_dependency 'taurus_auth', version
+  s.add_dependency 'taurus_warehouse', version
 end

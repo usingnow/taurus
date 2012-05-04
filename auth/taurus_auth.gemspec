@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.description = ''
 
   s.required_ruby_version = '>= 1.8.7'
-  s.author      = '张翔宇'
-  s.email       = 'xiangyu.zhang@usingnow.com'
+  s.author      = ''
+  s.email       = ''
   s.homepage    = ''
 
   s.files        = Dir['README', 'LICENSE', 'app/**/*', 'config/**/*', 'lib/**/*', 'db/**/*']

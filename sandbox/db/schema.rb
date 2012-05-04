@@ -978,13 +978,6 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
     t.integer  "cart_type"
   end
 
-  create_table "stores", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "subscribes", :force => true do |t|
     t.string   "email"
     t.datetime "created_at"
@@ -1137,6 +1130,13 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
     t.datetime "updated_at"
   end
 
+  create_table "taurus_stores", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "taurus_users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
@@ -1156,7 +1156,7 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
     t.integer  "points"
     t.integer  "taurus_store_id"
     t.integer  "taurus_role_id"
-    t.integer  "status"
+    t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

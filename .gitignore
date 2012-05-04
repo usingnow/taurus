@@ -1,14 +1,3 @@
 .bundle
-db/*.sqlite3
-log/*.log
-tmp/
 .idea/*
-
-paperclip_assets/
-ckeditor_assets/
-config/database.yml
-public/system/
-public/assets/
-public/print_file/
-
 **/spec/dummy

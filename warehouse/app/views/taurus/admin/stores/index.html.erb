@@ -1,0 +1,29 @@
+<h1>仓库列表</h1>
+
+<div class="grid_button">
+  <%= link_to '新增仓库', new_admin_store_path %>
+</div>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>名称</th>
+      <th>描述</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+<% @stores.each_with_index do |store,index| %>
+  <tr class="<%= cycle "odd", "even" %>">
+    <td><%= index+1 %></td>
+    <td><%= store.name %></td>
+    <td><%= store.description %></td>
+    <td><%= link_to '详情', admin_store_path(store) %></td>
+    <td><%= link_to '修改', edit_admin_store_path(store) %></td>
+  </tr>
+<% end %>
+</table>
+
+

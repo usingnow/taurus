@@ -40441,3 +40441,2345 @@ ActionView::Template::Error (undefined method `store_id' for #<Taurus::CompanyEx
 Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.5ms)
 Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
 Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.5ms)
+
+
+Started GET "/admin/company_extends?utf8=%E2%9C%93&q%5Bnumber_cont%5D=&q%5Bname_cont%5D=&q%5Buser_email_cont%5D=&commit=%E6%9F%A5%E8%AF%A2" for 127.0.0.1 at 2012-05-03 16:18:37 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"number_cont"=>"", "name_cont"=>"", "user_email_cont"=>""}, "commit"=>"查询"}
+  [1m[36mTaurus::CompanyExtend Load (0.9ms)[0m  [1mSELECT `taurus_company_extends`.* FROM `taurus_company_extends` LEFT OUTER JOIN `taurus_users` ON `taurus_users`.`taurus_userable_id` = `taurus_company_extends`.`id` AND `taurus_users`.`taurus_userable_type` = 'Taurus::CompanyExtend' LIMIT 20 OFFSET 0[0m
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/index.html.erb within /taurus/layouts/admin (102.4ms)
+Completed 200 OK in 414ms (Views: 359.0ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 16:18:37 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 16:18:37 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 16:18:37 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 16:18:37 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 16:18:37 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 16:18:37 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 16:18:37 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 16:18:37 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 16:18:37 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 16:18:37 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 16:18:37 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 16:18:37 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 16:18:38 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/" for 127.0.0.1 at 2012-05-03 16:34:11 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (39.2ms)
+Completed 200 OK in 554ms (Views: 554.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 16:34:12 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (18ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 16:34:12 +0800
+Served asset /scaffold.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 16:34:12 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 16:34:12 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 16:34:12 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-05-03 16:34:12 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (29ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 16:34:12 +0800
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 16:34:12 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 16:34:12 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 16:34:12 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 16:34:12 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 16:34:12 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 16:34:12 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-05-03 16:34:12 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (8ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 16:34:12 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (3ms)
+
+
+Started GET "/admin/" for 127.0.0.1 at 2012-05-03 16:35:39 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 200 OK in 257ms (Views: 255.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-03 16:35:39 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-03 16:35:39 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-03 16:35:39 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-03 16:35:39 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-03 16:35:39 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-05-03 16:35:39 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-03 16:35:39 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-03 16:35:39 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-03 16:35:39 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-03 16:35:39 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-03 16:35:39 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-03 16:35:39 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-05-03 16:35:39 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-03 16:35:39 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-03 16:35:40 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-03 16:35:45 +0800
+
+ActionController::RoutingError (No route matches [GET] "/admin/stores"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-03 16:37:22 +0800
+
+LoadError (Expected /home/sean/projects/taurus/core/app/controllers/taurus/admin/stores_controller.rb to define Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.3ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-03 18:13:02 +0800
+
+LoadError (Expected /home/sean/projects/taurus/core/app/controllers/taurus/admin/stores_controller.rb to define Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.1ms)
+
+
+Started GET "/admin/" for 127.0.0.1 at 2012-05-04 10:52:41 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 200 OK in 232ms (Views: 231.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 10:52:41 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 10:52:41 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 10:52:41 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 10:52:41 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 10:52:41 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 10:52:42 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 10:52:42 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 10:52:42 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 10:52:42 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 10:52:42 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 10:52:42 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 10:52:42 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 10:52:42 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 10:52:44 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:47:38 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.7ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:47:40 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:47:40 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:47:40 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:47:40 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:47:41 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:47:58 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:47:59 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:48:00 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:48:00 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:48:00 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:48:00 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:48:00 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:48:01 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:48:01 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:48:02 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:48:02 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:48:02 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:48:02 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin/" for 127.0.0.1 at 2012-05-04 11:48:20 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 200 OK in 234ms (Views: 233.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 11:48:20 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 11:48:20 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 11:48:20 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 11:48:20 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 11:48:20 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 11:48:20 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 11:48:20 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 11:48:20 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 11:48:20 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 11:48:20 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 11:48:20 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 11:48:20 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 11:48:20 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:48:22 +0800
+
+ActionController::RoutingError (uninitialized constant Taurus::Admin::StoresController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:51:33 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `all' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (43.4ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:52:39 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `all' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.7ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:52:41 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `all' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.8ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:52:42 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `all' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.7ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:52:43 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `all' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.8ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:52:43 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `all' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.8ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:52:44 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `all' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.5ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:52:45 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `all' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.3ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:52:45 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `all' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.3ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:52:46 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `all' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.0ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:52:46 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `all' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.6ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:53:13 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `all' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (48.3ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:53:14 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `all' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.8ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:54:17 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.4ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:54:18 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.5ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:54:19 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.5ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:54:19 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.4ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:54:19 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.8ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:54:20 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 48ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.6ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:55:09 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.2ms)
+
+
+Started GET "/admin/administrators" for 127.0.0.1 at 2012-05-04 11:55:14 +0800
+  Processing by Taurus::Admin::AdministratorsController#index as HTML
+  [1m[36mTaurus::Administrator Load (1.6ms)[0m  [1mSELECT `taurus_administrators`.* FROM `taurus_administrators` LIMIT 20 OFFSET 0[0m
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/administrators/index.html.erb within /taurus/layouts/admin (7.7ms)
+Completed 200 OK in 347ms (Views: 305.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 11:55:15 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (26ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 11:55:15 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 11:55:15 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 11:55:15 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 11:55:15 +0800
+Served asset /scaffold.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/taurus/admin/administrators.css" for 127.0.0.1 at 2012-05-04 11:55:15 +0800
+Served asset /taurus/admin/administrators.css - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/administrators.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 11:55:15 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (16ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 11:55:15 +0800
+Served asset /jquery.js - 304 Not Modified (25ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 11:55:16 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (20ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 11:55:16 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (101ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 11:55:16 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 11:55:16 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 11:55:16 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/administrators.js" for 127.0.0.1 at 2012-05-04 11:55:16 +0800
+Served asset /taurus/admin/administrators.js - 404 Not Found (23ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/administrators.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 11:55:16 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (3ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:55:18 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.8ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:57:27 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (50.1ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:57:59 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.9ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:58:00 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.8ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:58:01 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.2ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:58:01 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.6ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:58:01 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.8ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:58:02 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.8ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:58:02 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.2ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:58:02 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (55.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (59.1ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 11:58:02 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-05-04 13:32:47 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (88.1ms)
+Completed 200 OK in 636ms (Views: 635.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 13:32:48 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 13:32:48 +0800
+Served asset /scaffold.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 13:32:48 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 13:32:48 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-05-04 13:32:48 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (9ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 13:32:48 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 13:32:48 +0800
+Served asset /jquery.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 13:32:48 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (29ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 13:32:48 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 13:32:48 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-05-04 13:32:48 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 13:32:48 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (63ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 13:32:48 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 13:32:48 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 13:32:48 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-05-04 13:51:36 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 200 OK in 226ms (Views: 225.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 13:51:36 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 13:51:36 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 13:51:37 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 13:51:37 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-05-04 13:51:37 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 13:51:37 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 13:51:37 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 13:51:37 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 13:51:37 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 13:51:37 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 13:51:37 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 13:51:37 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 13:51:37 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-05-04 13:51:37 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (8ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 13:51:37 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 13:51:38 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.1ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 13:55:20 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.4ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 13:56:38 +0800
+
+ActionController::RoutingError (No route matches [GET] "/admin/stores"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 13:56:50 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Rendered /home/sean/projects/taurus/store/app/views/taurus/admin/stores/index.html.erb within /taurus/layouts/admin (252.8ms)
+Completed 500 Internal Server Error in 306ms
+
+ActionView::Template::Error (undefined local variable or method `current_administrator' for #<Taurus::Admin::StoresController:0xc96b2dc>):
+    1: <h1>仓库列表</h1>
+    2: 
+    3: <div class="grid_button">
+    4:   <%= link_to '新增仓库', new_admin_store_path if can? :create, Store %>
+    5: </div>
+    6: 
+    7: <table class="grid">
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (4.9ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 13:58:49 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.1ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 13:59:34 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.5ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:00:21 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+  [1m[36mTaurus::User Load (3.0ms)[0m  [1mSELECT `taurus_users`.* FROM `taurus_users` [0m
+  [1m[35mTaurus::User Load (0.6ms)[0m  SELECT `taurus_users`.* FROM `taurus_users` LIMIT 20 OFFSET 0
+Rendered /home/sean/projects/taurus/store/app/views/taurus/admin/stores/index.html.erb within /taurus/layouts/admin (240.2ms)
+Completed 500 Internal Server Error in 770ms
+
+ActionView::Template::Error (undefined local variable or method `current_administrator' for #<Taurus::Admin::StoresController:0xbdb8b74>):
+    1: <h1>仓库列表</h1>
+    2: 
+    3: <div class="grid_button">
+    4:   <%= link_to '新增仓库', new_admin_store_path if can? :create, Store %>
+    5: </div>
+    6: 
+    7: <table class="grid">
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (5.9ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:00:36 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.2ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:03:45 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.0ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:03:46 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.4ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:03:46 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.5ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:03:46 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.5ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:03:47 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (60.1ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:03:47 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.9ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:03:47 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.2ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:03:47 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.1ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:03:47 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.6ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:04:25 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+  [1m[36mTaurus::Group Load (0.4ms)[0m  [1mSELECT `taurus_groups`.* FROM `taurus_groups` [0m
+  [1m[35mTaurus::Group Load (0.4ms)[0m  SELECT `taurus_groups`.* FROM `taurus_groups` LIMIT 20 OFFSET 0
+Rendered /home/sean/projects/taurus/store/app/views/taurus/admin/stores/index.html.erb within /taurus/layouts/admin (185.0ms)
+Completed 500 Internal Server Error in 198ms
+
+ActionView::Template::Error (undefined local variable or method `current_administrator' for #<Taurus::Admin::StoresController:0xca2c6f8>):
+    1: <h1>仓库列表</h1>
+    2: 
+    3: <div class="grid_button">
+    4:   <%= link_to '新增仓库', new_admin_store_path if can? :create, Store %>
+    5: </div>
+    6: 
+    7: <table class="grid">
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (5.1ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:04:40 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.8ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.1ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:07:48 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Mysql2::Error: Table 'taurus_development.taurus_warehouses' doesn't exist: SHOW FIELDS FROM `taurus_warehouses`
+Rendered /home/sean/projects/taurus/store/app/views/taurus/admin/stores/index.html.erb within /taurus/layouts/admin (113.4ms)
+Completed 500 Internal Server Error in 127ms
+
+ActionView::Template::Error (undefined local variable or method `current_administrator' for #<Taurus::Admin::StoresController:0xb3b337c0>):
+    1: <h1>仓库列表</h1>
+    2: 
+    3: <div class="grid_button">
+    4:   <%= link_to '新增仓库', new_admin_store_path if can? :create, Store %>
+    5: </div>
+    6: 
+    7: <table class="grid">
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (5.6ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:09:50 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.3ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:27:03 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (41.2ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:27:05 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-05-04 14:27:08 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.4ms)
+Completed 200 OK in 297ms (Views: 296.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 14:27:09 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 14:27:09 +0800
+Served asset /scaffold.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 14:27:09 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 14:27:09 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 14:27:09 +0800
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 14:27:09 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 14:27:09 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (14ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 14:27:09 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 14:27:09 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 14:27:09 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 14:27:09 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 14:27:09 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 14:27:09 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (2ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:27:10 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.0ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:27:26 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.2ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:27:26 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-05-04 14:27:28 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.0ms)
+Completed 200 OK in 214ms (Views: 213.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 14:27:29 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 14:27:29 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 14:27:29 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 14:27:29 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 14:27:29 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 14:27:29 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 14:27:29 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 14:27:29 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 14:27:29 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 14:27:29 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 14:27:29 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 14:27:29 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 14:27:29 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/administrators" for 127.0.0.1 at 2012-05-04 14:28:25 +0800
+  Processing by Taurus::Admin::AdministratorsController#index as HTML
+  [1m[36mTaurus::Administrator Load (0.7ms)[0m  [1mSELECT `taurus_administrators`.* FROM `taurus_administrators` LIMIT 20 OFFSET 0[0m
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/administrators/index.html.erb within /taurus/layouts/admin (55.3ms)
+Completed 200 OK in 311ms (Views: 264.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 14:28:26 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 14:28:26 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 14:28:26 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 14:28:26 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 14:28:26 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/administrators.css" for 127.0.0.1 at 2012-05-04 14:28:26 +0800
+Served asset /taurus/admin/administrators.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/administrators.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 14:28:26 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 14:28:26 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 14:28:26 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 14:28:26 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 14:28:26 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 14:28:26 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/administrators.js" for 127.0.0.1 at 2012-05-04 14:28:26 +0800
+Served asset /taurus/admin/administrators.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/administrators.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 14:28:26 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 14:28:27 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/administrators" for 127.0.0.1 at 2012-05-04 14:28:48 +0800
+  Processing by Taurus::Admin::AdministratorsController#index as HTML
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `search' for Taurus::Store:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.8ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:30:55 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Mysql2::Error: Table 'taurus_development.taurus_stores' doesn't exist: SHOW FIELDS FROM `taurus_stores`
+Rendered /home/sean/projects/taurus/warehouse/app/views/taurus/admin/stores/index.html.erb within /taurus/layouts/admin (290.4ms)
+Completed 500 Internal Server Error in 529ms
+
+ActionView::Template::Error (undefined local variable or method `current_administrator' for #<Taurus::Admin::StoresController:0xc186350>):
+    1: <h1>仓库列表</h1>
+    2: 
+    3: <div class="grid_button">
+    4:   <%= link_to '新增仓库', new_admin_store_path if can? :create, Store %>
+    5: </div>
+    6: 
+    7: <table class="grid">
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (5.0ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:31:33 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for Taurus::Warehouse:Module):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.5ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:31:42 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 7ms
+
+NameError (uninitialized constant Taurus::Admin::StoresController::Store11):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.5ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:31:44 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Completed 500 Internal Server Error in 7ms
+
+NameError (uninitialized constant Taurus::Admin::StoresController::Store11):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.3ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:31:51 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Mysql2::Error: Table 'taurus_development.taurus_stores' doesn't exist: SHOW FIELDS FROM `taurus_stores`
+Rendered /home/sean/projects/taurus/warehouse/app/views/taurus/admin/stores/index.html.erb within /taurus/layouts/admin (104.1ms)
+Completed 500 Internal Server Error in 113ms
+
+ActionView::Template::Error (undefined local variable or method `current_administrator' for #<Taurus::Admin::StoresController:0xc296dbc>):
+    1: <h1>仓库列表</h1>
+    2: 
+    3: <div class="grid_button">
+    4:   <%= link_to '新增仓库', new_admin_store_path if can? :create, Store %>
+    5: </div>
+    6: 
+    7: <table class="grid">
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (4.9ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:32:41 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+Mysql2::Error: Table 'taurus_development.taurus_stores' doesn't exist: SHOW FIELDS FROM `taurus_stores`
+Rendered /home/sean/projects/taurus/warehouse/app/views/taurus/admin/stores/index.html.erb within /taurus/layouts/admin (3.3ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (Mysql2::Error: Table 'taurus_development.taurus_stores' doesn't exist: SHOW FIELDS FROM `taurus_stores`):
+    15:     </tr>
+    16:   </thead>
+    17: 
+    18: <% @stores.each_with_index do |store,index| %>
+    19:   <tr class="<%= cycle "odd", "even" %>">
+    20:     <td><%= index+1 %></td>
+    21:     <td><%= store.name %></td>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (4.4ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateAdmins (20111205073327)
+Migrating to CreateProducts (20111205081958)
+Migrating to CreateSuppliers (20111214103454)
+Migrating to CreateBrands (20111215033756)
+Migrating to CreateProductCategories (20111215064446)
+Migrating to CreateSkuCategories (20111215083858)
+Migrating to CreateSkus (20111215094255)
+Migrating to CreateCkeditorAssets (20111215230248)
+Migrating to CreateSkuProductships (20111216025822)
+Migrating to CreateSkuImages (20111216064033)
+Migrating to CreateCarts (20111218131703)
+Migrating to CreateCartSkuships (20111218132337)
+Migrating to CreateOrders (20111218132615)
+Migrating to CreatePersonExtends (20111219022004)
+Migrating to CreateOrderDetails (20111220071204)
+Migrating to RemoveCreateTimeAndUpdateTimeToProduct (20111220085103)
+Migrating to ChangeActiveToSupplier (20111220133452)
+Migrating to ChangeActiveToBrand (20111220140856)
+Migrating to AddAttachmentImageToBrand (20111220154204)
+Migrating to RemoveImageUrlToBrand (20111220154343)
+Migrating to RenameTypeToSku (20111221021407)
+Migrating to AddAttachmentImageToSkuImage (20111221054445)
+Migrating to RemoveImageUrlToSkuImage (20111221054621)
+Migrating to CreateProcedures (20111222033703)
+Migrating to CreateStations (20111222070652)
+Migrating to CreateStationProcedureships (20111223023531)
+Migrating to CreateConditions (20111223060150)
+Migrating to CreateBusinessFunctions (20111223072754)
+Migrating to AlterStationProcedureship (20111223075625)
+Migrating to CreateInstances (20111224045815)
+Migrating to CreateTracks (20111224050357)
+Migrating to CreateOrderNumbers (20111225101346)
+Migrating to AddTotalPriceToOrder (20111225125350)
+Migrating to AddConditionTypeAndActionToCondition (20111225170426)
+Migrating to CreateProcedureRoleships (20111226032745)
+Migrating to AddDisplayNameToCondition (20111226071101)
+Migrating to CreateOrderPays (20111227073259)
+Migrating to DropAdmins (20111228104607)
+Migrating to CreateAdministratorGroupships (20111228124309)
+Migrating to CreateEscs (20111229060701)
+Migrating to CreateEscCategories (20111229060918)
+Migrating to CreateEscReplies (20111229061813)
+Migrating to CreateSerialNumbers (20111229062633)
+Migrating to CreateProvinces (20111229101030)
+Migrating to CreateCities (20111229101819)
+Migrating to CreateDistricts (20111229101925)
+Migrating to CreateOrderingCompanies (20111229141349)
+Migrating to CreatePurchases (20111229141757)
+Migrating to CreateProductPurchaseships (20111229142541)
+Migrating to CreateProductStoreships (20111230055615)
+Migrating to CreateStoreEntries (20111231034920)
+Migrating to CreateProductStoreEntryships (20111231035352)
+Migrating to CreateStoreEntryProductCarts (20120102033538)
+Migrating to AddSequenceAndLevelAndActiveToProductCategories (20120103042024)
+Migrating to AddCartTypeToStoreEntryProductCarts (20120103055754)
+Migrating to CreateBanks (20120103151847)
+Migrating to AddActiveToOrderingCompany (20120104081738)
+Migrating to CreateOrderTracks (20120105034824)
+Migrating to CreateOrderPrintLogs (20120105034953)
+Migrating to CreateOrderTakeLogs (20120105035201)
+Migrating to CreateRecAdds (20120105035917)
+Migrating to RenameTypeToProducts (20120105064238)
+Migrating to AlterSkuCategories (20120105071017)
+Migrating to CreateInnerSkuCarts (20120106031026)
+Migrating to CreateInnerOrderAddresses (20120106074923)
+Migrating to RenameAdministratorIdToInnerSkuCart (20120106080246)
+Migrating to CreateInnerOrderPayments (20120106081541)
+Migrating to RenameAdminIdToOrderTakeLog (20120107023809)
+Migrating to AlterOrderDetails (20120107053540)
+Migrating to AlterOrders (20120107061406)
+Migrating to ChangeQuantityToOrderDetails (20120108033202)
+Migrating to AddRoleIdToPersonExtends (20120108084727)
+Migrating to CreateUserNumbers (20120109032415)
+Migrating to CreateIndustries (20120109063714)
+Migrating to CreateCompanyTypes (20120109065049)
+Migrating to CreateCompanyScales (20120109065158)
+Migrating to CreateOperatings (20120110022535)
+Migrating to CreatePermissions (20120110023026)
+Migrating to AlterPermissionsAndFunctions (20120110040800)
+Migrating to AddUrlToFunctions (20120110100817)
+Migrating to CreatePanicBuyings (20120112060437)
+Migrating to AddSalesReservedToProductStoreships (20120113160656)
+Migrating to CreateDeliveryOrders (20120114055714)
+Migrating to CreateProdDelOrdships (20120114060117)
+Migrating to AlterOrder (20120114065535)
+Migrating to AddNumberToDeliveryOrder (20120114071005)
+Migrating to AlterDefaultToSkus (20120115094227)
+Migrating to AlterOrderPrintLog (20120118112813)
+Migrating to AlterInnerSkuCarts (20120119075904)
+Migrating to AlterBackOrderSkus (20120119082050)
+Migrating to RemoveStoreIdFromOrders (20120124093824)
+Migrating to CreateDeliveryOrderCarts (20120124095530)
+Migrating to AlterDeliveryOrders (20120124114103)
+Migrating to UpdatePathToFunctions (20120125051731)
+Migrating to AddCarriageAdjustmentToOrders (20120131100638)
+Migrating to AddAdjustmentPermission (20120131124217)
+Migrating to CreateRailsAdminHistoriesTable (20120201091023)
+Migrating to AlterSkus (20120213092017)
+Migrating to DropPanicBuyings (20120213095112)
+Migrating to AlterCartSkuships (20120214061147)
+Migrating to CreateConsigneeInfos (20120215103033)
+Migrating to AlterRecAdds (20120216024555)
+Migrating to RemoveIndexToUserAddresses (20120220022156)
+Migrating to CreateSkuOnShelves (20120221071439)
+Migrating to CreateSkuBrowsingHistories (20120222074900)
+Migrating to CreateFavorites (20120225164312)
+Migrating to CreateMailSales (20120226124214)
+Migrating to CreateOrderOperUrls (20120228023926)
+Migrating to AlterStationProcedureships (20120228024009)
+Migrating to CreateBusFunStaProships (20120228062357)
+Migrating to AddLineTypeToOrderPrintLogs (20120307024910)
+Migrating to CreateSubscribes (20120307084434)
+Migrating to ChangePurchases (20120309085727)
+Migrating to ChangeProductProcedureships (20120311070339)
+Migrating to DropRailsAdminHistories (20120311100205)
+Migrating to CreateNumberCounters (20120312023536)
+Migrating to CreatePoProductTempLists (20120312082113)
+Migrating to AddPoTimeOfDeliveryToPurchaseOrders (20120312101543)
+Migrating to AddFaxAndSupplierIdToSuppliers (20120312121835)
+Migrating to RenamePurchaseIdToStoreEntries (20120313092244)
+Migrating to RemoveTotalPriceToOrders (20120315075243)
+Migrating to AddSkuCostToOrderDetails (20120316060619)
+Migrating to CreateProcedurePermissions (20120323091712)
+Migrating to AddActAndSubjectClassToConditions (20120323092202)
+Migrating to AlterProcedurePermissions (20120323111234)
+Migrating to AddDefaultToSkuProductships (20120326031048)
+Migrating to AddStorePositionToProductStoreships (20120327073012)
+Migrating to AddStoreInTypeToStoreEntries (20120327083607)
+Migrating to AddAdministratorIdToStoreEntries (20120327085226)
+Migrating to AddDeliveryTypeToDeliveryOrders (20120328061046)
+Migrating to AddDeRemarksToDeliveryOrders (20120330021018)
+Migrating to CreateOnlinePromotions (20120330092549)
+Migrating to CreatePromotionByProducts (20120330093924)
+Migrating to CreatePromotionByOrders (20120330112802)
+Migrating to AddPurchaseAmountLimitToPromotionByOrders (20120331101126)
+Migrating to ChangeColumnDefaultToProducts (20120401082248)
+Migrating to AddSignUpTimeLimitToOnlinePromotions (20120403033349)
+Migrating to ChangeDefaultToDiscountOnPromotionByOrders (20120403073237)
+Migrating to RenameProductIdToSkuIdOnOnlinePromotions (20120403075921)
+Migrating to AddProcedureIdToOnlinePromotions (20120403083533)
+Migrating to CreatePromotionMemberTemps (20120403091329)
+Migrating to CreatePromotionMembers (20120403171946)
+Migrating to AddProductDiscountToPromotionByProducts (20120404132017)
+Migrating to CreatePromotionProductTemps (20120404140354)
+Migrating to CreatePromotionProducts (20120405035924)
+Migrating to AddRemarksToOnlinePromotions (20120405130443)
+Migrating to CreateCustomerRatings (20120406053207)
+Migrating to AddVisibilityToCustomerRatings (20120408033123)
+Migrating to AlterTableForOrderDetails (20120408063055)
+Migrating to AlterTableForBackOrderSkus (20120408064153)
+Migrating to CreatePromotionPriorities (20120409031927)
+Migrating to CreatePromotionGifts (20120412072345)
+Migrating to CreatePromotionsInOrders (20120412102832)
+Migrating to DeviseCreateTaurusAdministrators (20120423164001)
+Migrating to CreateTaurusGroups (20120423164002)
+Migrating to CreateTaurusRoles (20120423164003)
+Migrating to CreateTaurusStores (20120423170420)
+  [1m[35m (38.5ms)[0m  CREATE TABLE `taurus_stores` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (9.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120423170420')[0m
+Migrating to DeviseCreateTaurusUsers (20120423170501)
+Migrating to CreateTaurusCompanyExtends (20120423170845)
+Migrating to CreateTaurusSliderBars (20120424010601)
+Migrating to CreateTaurusImages (20120424015901)
+Migrating to CreateTaurusAnnouncements (20120424030001)
+Migrating to CreateTaurusSkuDisplays (20120424030801)
+  [1m[35m (0.4ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:43:26 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+  [1m[36mTaurus::Store Load (0.6ms)[0m  [1mSELECT `taurus_stores`.* FROM `taurus_stores` LIMIT 20 OFFSET 0[0m
+Rendered /home/sean/projects/taurus/warehouse/app/views/taurus/admin/stores/index.html.erb within /taurus/layouts/admin (4.4ms)
+Completed 200 OK in 299ms (Views: 296.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 14:43:27 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 14:43:27 +0800
+Served asset /scaffold.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 14:43:27 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 14:43:27 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 14:43:27 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/taurus/admin/stores.css" for 127.0.0.1 at 2012-05-04 14:43:27 +0800
+Served asset /taurus/admin/stores.css - 404 Not Found (10ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/stores.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 14:43:27 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 14:43:27 +0800
+Served asset /jquery.js - 304 Not Modified (74ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 14:43:27 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 14:43:27 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 14:43:27 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 14:43:27 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 14:43:27 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/stores.js" for 127.0.0.1 at 2012-05-04 14:43:27 +0800
+Served asset /taurus/admin/stores.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/stores.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 14:43:27 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (4ms)
+
+
+Started GET "/admin/stores/new" for 127.0.0.1 at 2012-05-04 14:43:31 +0800
+  Processing by Taurus::Admin::StoresController#new as HTML
+Rendered /home/sean/projects/taurus/warehouse/app/views/taurus/admin/stores/_form.html.erb (47.1ms)
+Rendered /home/sean/projects/taurus/warehouse/app/views/taurus/admin/stores/new.html.erb within /taurus/layouts/admin (127.5ms)
+Completed 200 OK in 371ms (Views: 368.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 14:43:32 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 14:43:32 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 14:43:32 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 14:43:32 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 14:43:32 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/stores.css" for 127.0.0.1 at 2012-05-04 14:43:32 +0800
+Served asset /taurus/admin/stores.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/stores.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 14:43:32 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 14:43:32 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 14:43:32 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 14:43:32 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 14:43:32 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 14:43:32 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 14:43:32 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/stores.js" for 127.0.0.1 at 2012-05-04 14:43:32 +0800
+Served asset /taurus/admin/stores.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/stores.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 14:43:32 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th_orange.gif" for 127.0.0.1 at 2012-05-04 14:44:12 +0800
+Served asset /admin/admin_bg_th_orange.gif - 304 Not Modified (5ms)
+
+
+Started POST "/admin/stores" for 127.0.0.1 at 2012-05-04 14:44:12 +0800
+  Processing by Taurus::Admin::StoresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PFTztzMdNUQkzK4GKrJJ99JgeMAnpG0zCJKzWjyiQ4A=", "store"=>{"name"=>"测试仓库", "description"=>"测试"}, "commit"=>"新增Store"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `taurus_stores` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2012-05-04 14:44:12', '测试', '测试仓库', '2012-05-04 14:44:12')[0m
+  [1m[35m (7.8ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3002/admin/stores/1
+Completed 302 Found in 137ms
+
+
+Started GET "/admin/stores/1" for 127.0.0.1 at 2012-05-04 14:44:12 +0800
+  Processing by Taurus::Admin::StoresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTaurus::Store Load (0.5ms)[0m  [1mSELECT `taurus_stores`.* FROM `taurus_stores` WHERE `taurus_stores`.`id` = 1 LIMIT 1[0m
+Rendered /home/sean/projects/taurus/warehouse/app/views/taurus/admin/stores/show.html.erb within /taurus/layouts/admin (5.8ms)
+Completed 200 OK in 225ms (Views: 218.2ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 14:44:13 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 14:44:13 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 14:44:13 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:13 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:13 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:13 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:13 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 14:44:13 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:13 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/stores.css" for 127.0.0.1 at 2012-05-04 14:44:13 +0800
+Served asset /taurus/admin/stores.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/stores.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:13 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:13 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/taurus/admin/stores.js" for 127.0.0.1 at 2012-05-04 14:44:13 +0800
+Served asset /taurus/admin/stores.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/stores.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 14:44:13 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 14:44:13 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/stores" for 127.0.0.1 at 2012-05-04 14:44:31 +0800
+  Processing by Taurus::Admin::StoresController#index as HTML
+  [1m[35mTaurus::Store Load (0.5ms)[0m  SELECT `taurus_stores`.* FROM `taurus_stores` LIMIT 20 OFFSET 0
+Rendered /home/sean/projects/taurus/warehouse/app/views/taurus/admin/stores/index.html.erb within /taurus/layouts/admin (14.4ms)
+Completed 200 OK in 262ms (Views: 255.2ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 14:44:31 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 14:44:31 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 14:44:31 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 14:44:31 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 14:44:31 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/stores.css" for 127.0.0.1 at 2012-05-04 14:44:31 +0800
+Served asset /taurus/admin/stores.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/stores.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:32 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:32 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:32 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:32 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:32 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/stores.js" for 127.0.0.1 at 2012-05-04 14:44:32 +0800
+Served asset /taurus/admin/stores.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/stores.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:32 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:32 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 14:44:32 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/stores/1" for 127.0.0.1 at 2012-05-04 14:44:36 +0800
+  Processing by Taurus::Admin::StoresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTaurus::Store Load (0.3ms)[0m  [1mSELECT `taurus_stores`.* FROM `taurus_stores` WHERE `taurus_stores`.`id` = 1 LIMIT 1[0m
+Rendered /home/sean/projects/taurus/warehouse/app/views/taurus/admin/stores/show.html.erb within /taurus/layouts/admin (4.5ms)
+Completed 200 OK in 249ms (Views: 242.4ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 14:44:37 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 14:44:37 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 14:44:37 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 14:44:37 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 14:44:37 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/stores.css" for 127.0.0.1 at 2012-05-04 14:44:37 +0800
+Served asset /taurus/admin/stores.css - 404 Not Found (28ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/stores.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:37 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:37 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:37 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:37 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:37 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:37 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 14:44:37 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/stores.js" for 127.0.0.1 at 2012-05-04 14:44:37 +0800
+Served asset /taurus/admin/stores.js - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/stores.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 14:44:37 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
