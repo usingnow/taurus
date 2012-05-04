@@ -25,7 +25,7 @@ gem 'devise','1.5.3' # 登录验证
 gem "cancan", "1.6.7" #权限
 gem 'will_paginate', '3.0.2' #分页
 gem "ransack", :git => "git://github.com/ernie/ransack.git" #高级搜索
-gem "simple_form", "1.5.2" #表单
+gem "simple_form", "2.0.2" #表单
 gem 'rails3-jquery-autocomplete' #自动完成
 gem 'jquery-rails', '1.0.19'
 
