@@ -42,3 +42,4 @@ end
 
 #安装Bootstrap
 gem "twitter-bootstrap-rails"
+gem "will_paginate-bootstrap"
