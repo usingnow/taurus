@@ -1,22 +1,11 @@
-<%= simple_form_for([:admin,@group]) do |f| %>
+<%= simple_form_for([:admin,@group], :html => { :class => 'form-horizontal'}) do |f| %>
   <%= f.error_notification %>
-
-  <div class="attributes">
-    <div class="split_content_left">
-      <p>
-        <%= f.input :number %>
-      </p>
-      <p>
-        <%= f.input :name %>
-      </p>
-      <p>
-        <%= f.input :desc %>
-      </p>
+  <fieldset>
+    <%= f.input :number %>
+    <%= f.input :name %>
+    <%= f.input :desc %>
+    <div class="form-actions">
+      <%= f.button :submit, :class => "btn btn-primary" %>
     </div>
-    <div class="clear"></div>
-  </div>
-
-  <div class="actions">
-    <%= f.button :submit %>
-  </div>
+  </fieldset>
 <% end %>

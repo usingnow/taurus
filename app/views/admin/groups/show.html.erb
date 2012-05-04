@@ -1,24 +1,30 @@
-<div id="show_info">
-  <h1>员工组信息查看</h1>
-  <ul>
-    <li>
-      <label class="label40"><%= t 'attributes.group.number' %></label>
-      <span><%= @group.number %></span>
-    </li>
-    <li>
-      <label class="label40"><%= t 'attributes.group.name' %></label>
-      <span><%= @group.name %></span>
-    </li>
-    <li>
-      <label class="label40"><%= t 'attributes.group.desc' %></label>
-      <span><%= @group.desc %></span>
-    </li>
-    <li class="margin_top_20">
-      <%= link_to "返回", admin_groups_path, :class => "left20" %>
-      <%= link_to "修改", edit_admin_group_path(@group) if can? :update, Group %>
-    </li>
-  </ul>
+<div class="form-actions">
+  <%= link_to "<i class='icon-edit'></i> 修改".html_safe, edit_admin_group_path(@group), :class => "btn btn-primary" if can? :update, Group %>
+  <%= link_to "<i class='icon-arrow-left'></i> 返回".html_safe, admin_groups_path, :class => "btn" %>
 </div>
+
+<form class="form-horizontal">
+  <fieldset>
+    <div class="control-group">
+      <label class="control-label"><%= t 'attributes.group.number' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @group.number %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'attributes.group.name' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @group.name %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'attributes.group.desc' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @group.desc %></span>
+      </div>
+    </div>
+  </fieldset>
+</form>
 
 
 

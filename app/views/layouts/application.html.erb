@@ -3,7 +3,7 @@
 <head>
   <title>Ebiz</title>
   <%= stylesheet_link_tag 'application', :media => "all" %>
-  <%= stylesheet_link_tag params[:controller] %>
+  <%= stylesheet_link_tag params[:controller], :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag params[:controller] %>
   <%= csrf_meta_tag %>

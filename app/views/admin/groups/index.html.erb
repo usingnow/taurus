@@ -1,25 +1,27 @@
-<h1>组列表</h1>
-<div class="grid_button">
-  <%= link_to '新增组', new_admin_group_path if can? :create, Group %>
+<div class="form-actions">
+  <%= link_to '新增组', new_admin_group_path, :class => "btn btn-primary" if can? :create, Group %>
 </div>
 
-<table class="grid">
+<table class="table table-striped trk--table-font-large">
   <thead>
     <tr>
       <th>#</th>
       <th>用户组代码</th>
       <th>名称</th>
       <th>描述</th>
-      <th></th>
+      <th>操作</th>
     </tr>
   </thead>
   <% @groups.each_with_index do |group,index| %>
-    <tr class="<%= set_odd_even_class index %>">
+    <tr>
       <td><%= index+1 %></td>
       <td><%= link_to group.number, admin_group_path(group) %></td>
       <td><%= group.name %></td>
       <td><%= group.desc %></td>
-      <td><%= link_to '修改', edit_admin_group_path(group) if can? :update, :Group %></td>
+      <td>
+        <%= link_to "修改", edit_admin_group_path(group), :class => "btn btn-primary trk-btn-short" if can? :update, Group %>
+        <a href="#" class="btn btn-danger trk-btn-short">删除</a>
+      </td>
     </tr>
   <% end %>
 </table>
