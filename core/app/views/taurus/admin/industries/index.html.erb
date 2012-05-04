@@ -1,0 +1,25 @@
+<div class="grid_button">
+  <%= link_to '新增行业', new_admin_industry_path %>
+</div>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>名称</th>
+      <th>顺序</th>
+      <th></th>
+    </tr>
+  </thead>
+  
+<% @industries.each_with_index do |industry,index| %>
+  <tr class="<%= cycle "odd", "even" %>">
+    <td><%= index+1 %></td>
+    <td><%= industry.name %></td>
+    <td><%= industry.sequence %></td>
+    <td><%= link_to '修改', edit_admin_industry_path(industry) %></td>
+  </tr>
+<% end %>
+</table>
+
+

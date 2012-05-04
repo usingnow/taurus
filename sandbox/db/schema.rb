@@ -1098,6 +1098,13 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
   add_index "taurus_images", ["location"], :name => "index_taurus_images_on_location"
   add_index "taurus_images", ["page"], :name => "index_taurus_images_on_page"
 
+  create_table "taurus_industries", :force => true do |t|
+    t.string   "name"
+    t.integer  "sequence"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "taurus_roles", :force => true do |t|
     t.string   "name"
     t.string   "description"

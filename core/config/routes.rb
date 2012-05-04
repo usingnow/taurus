@@ -1,4 +1,7 @@
 Taurus::Core::Engine.routes.draw do 
+  namespace :admin do 
+    resources :industries
+  end
 	
 =begin
 devise_for :administrators,

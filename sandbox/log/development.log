@@ -42783,3 +42783,1872 @@ Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_d
 
 Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 14:44:37 +0800
 Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/company_extends" for 127.0.0.1 at 2012-05-04 14:54:29 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#index as HTML
+  [1m[35mTaurus::CompanyExtend Load (0.7ms)[0m  SELECT `taurus_company_extends`.* FROM `taurus_company_extends` LIMIT 20 OFFSET 0
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/index.html.erb within /taurus/layouts/admin (457.3ms)
+Completed 200 OK in 674ms (Views: 666.7ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 14:54:30 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 14:54:30 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 14:54:30 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/company_extends.css" for 127.0.0.1 at 2012-05-04 14:54:30 +0800
+Served asset /taurus/admin/company_extends.css - 404 Not Found (16ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/company_extends.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 14:54:30 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 14:54:30 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 14:54:30 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 14:54:30 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 14:54:30 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 14:54:30 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 14:54:30 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/company_extends.js" for 127.0.0.1 at 2012-05-04 14:54:30 +0800
+Served asset /taurus/admin/company_extends.js - 404 Not Found (7ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/company_extends.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 14:54:30 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 14:54:30 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 14:54:30 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/company_extends/new" for 127.0.0.1 at 2012-05-04 14:54:32 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#new as HTML
+  [1m[36mTaurus::Role Load (0.3ms)[0m  [1mSELECT `taurus_roles`.* FROM `taurus_roles` [0m
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/_form.html.erb (125.8ms)
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/new.html.erb within /taurus/layouts/admin (128.2ms)
+Completed 500 Internal Server Error in 138ms
+
+ActionView::Template::Error (undefined method `all' for Store:Module):
+    33:         </p>
+    34:         <p>
+    35:           <label>仓库</label>
+    36:           <%= f.select :store_id, Store.all.collect {|s| [ s.name, s.id ] } %><span class="red">*</span>
+    37:         </p>
+    38:         <%= f.fields_for :company_extend do |c| %>
+    39:           <p>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.6ms)
+
+
+Started GET "/admin/company_extends/new" for 127.0.0.1 at 2012-05-04 14:56:59 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#new as HTML
+  [1m[35mTaurus::Role Load (0.2ms)[0m  SELECT `taurus_roles`.* FROM `taurus_roles` 
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/_form.html.erb (42.3ms)
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/new.html.erb within /taurus/layouts/admin (43.8ms)
+Completed 500 Internal Server Error in 104ms
+
+ActionView::Template::Error (undefined method `all' for Store:Module):
+    33:         </p>
+    34:         <p>
+    35:           <label>仓库</label>
+    36:           <%= f.select :store_id, Store.all.collect {|s| [ s.name, s.id ] } %><span class="red">*</span>
+    37:         </p>
+    38:         <%= f.fields_for :company_extend do |c| %>
+    39:           <p>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.0ms)
+
+
+Started GET "/admin/company_extends/new" for 127.0.0.1 at 2012-05-04 14:57:47 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#new as HTML
+  [1m[36mTaurus::Role Load (0.2ms)[0m  [1mSELECT `taurus_roles`.* FROM `taurus_roles` [0m
+  [1m[35mTaurus::Store Load (0.6ms)[0m  SELECT `taurus_stores`.* FROM `taurus_stores` 
+  [1m[36mIndustry Load (0.5ms)[0m  [1mSELECT `industries`.* FROM `industries` [0m
+  [1m[35mCompanyType Load (0.4ms)[0m  SELECT `company_types`.* FROM `company_types` 
+  [1m[36mCompanyScale Load (0.3ms)[0m  [1mSELECT `company_scales`.* FROM `company_scales` [0m
+  [1m[35mDistrict Load (1.5ms)[0m  SELECT `districts`.* FROM `districts` WHERE (number = '330201') LIMIT 1
+  [1m[36mCity Load (0.8ms)[0m  [1mSELECT `cities`.* FROM `cities` WHERE `cities`.`number` = 330200 LIMIT 1[0m
+  [1m[35mProvince Load (0.4ms)[0m  SELECT `provinces`.* FROM `provinces` WHERE `provinces`.`number` = 330000 LIMIT 1
+  [1m[36mCity Load (1.2ms)[0m  [1mSELECT `cities`.* FROM `cities` WHERE `cities`.`province_no` = 330000[0m
+  [1m[35mDistrict Load (3.2ms)[0m  SELECT `districts`.* FROM `districts` WHERE `districts`.`city_no` = 330200
+  [1m[36mProvince Load (0.4ms)[0m  [1mSELECT `provinces`.* FROM `provinces` [0m
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/_form.html.erb (518.6ms)
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/new.html.erb within /taurus/layouts/admin (519.9ms)
+Completed 500 Internal Server Error in 530ms
+
+ActionView::Template::Error (undefined method `email' for #<Taurus::CompanyExtend:0xc2e7190>):
+    72:           </p>
+    73:           <p>
+    74:             <%= label_tag t :email %>
+    75:             <%= f.text_field :email %><span class="red">*</span>
+    76:           </p>
+    77:           <p>
+    78:             <%= label_tag t 'attributes.company_extend.web_address' %>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.0ms)
+
+
+Started GET "/admin/company_extends/new" for 127.0.0.1 at 2012-05-04 15:01:52 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#new as HTML
+ERROR: compiling __home_sean_projects_taurus_auth_app_views_taurus_admin_company_extends__form_html_erb__370877156_101979120 RAISED /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/_form.html.erb:132: syntax error, unexpected keyword_ensure, expecting $end
+Function body:           def __home_sean_projects_taurus_auth_app_views_taurus_admin_company_extends__form_html_erb__370877156_101979120(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "taurus/admin/company_extends/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.append=  form_for [:admin, @company_extend] do |f| @output_buffer.safe_concat('
+');@output_buffer.safe_concat('  ');@output_buffer.append= ( error_messages @company_extend );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  ');@output_buffer.append=  f.fields_for :user do |u_f| @output_buffer.safe_concat('
+');@output_buffer.safe_concat('    <div class="attributes">
+      <div class="split_content_right">
+        <p>
+          ');@output_buffer.append= ( label_tag t :password );@output_buffer.safe_concat('
+');           if @company_extend.id.nil? 
+@output_buffer.safe_concat('            ');@output_buffer.append= ( u_f.password_field :password );@output_buffer.safe_concat('<span class="red">*</span>
+');           else 
+@output_buffer.safe_concat('            ******
+');           end 
+@output_buffer.safe_concat('        </p>
+        <p>
+          <label>');@output_buffer.append= ( t 'activerecord.attributes.user.points' );@output_buffer.safe_concat('<abbr title="required">*</abbr></label>
+          ');@output_buffer.append= ( u_f.text_field :points );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('        </p>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="attributes">
+      <div class="split_content_left">
+        <p>
+          ');@output_buffer.append= ( label_tag t :status );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('          ');@output_buffer.append= ( u_f.radio_button :status, 'false', :class => "radio" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('          ');@output_buffer.append= ( t :lock );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('          ');@output_buffer.append= ( u_f.radio_button :status, 'true', :class => "radio", :checked => true );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('          ');@output_buffer.append= ( t :active );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('        </p>
+        <p>
+          ');@output_buffer.append= ( label_tag t :role );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('          ');@output_buffer.append= ( u_f.select :taurus_role_id, Taurus::Role.all.collect{ |r| [r.name, r.id] } );@output_buffer.safe_concat('<span class="red">*</span>
+        </p>
+        <p>
+          <label>仓库</label>
+          ');@output_buffer.append= ( u_f.select :taurus_store_id, Taurus::Store.all.collect {|s| [ s.name, s.id ] } );@output_buffer.safe_concat('<span class="red">*</span>
+        </p>
+        <p>
+          ');@output_buffer.append= ( label_tag t 'attributes.company_extend.company_name' );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('          ');@output_buffer.append= ( f.text_field :name );@output_buffer.safe_concat('<span class="red">*</span>
+        </p>
+        <p>
+          ');@output_buffer.append= ( label_tag t :industry );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('          ');@output_buffer.append= ( f.select :taurus_industry_id, Taurus::Industry.all.collect{ |p| [p.name, p.id]} );@output_buffer.safe_concat('<span class="red">*</span>
+        </p>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+      <div class="attributes">
+        <div class="split_content_left">
+          <p>
+            ');@output_buffer.append= ( label_tag t :company_type );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('            ');@output_buffer.append= ( c.select :company_type_id, CompanyType.all.collect{ |p| [p.name, p.id]} );@output_buffer.safe_concat('<span class="red">*</span>
+          </p>
+        </div>
+        <div class="split_content_right">
+          <p>
+             ');@output_buffer.append= ( label_tag t :company_scale );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('             ');@output_buffer.append= ( c.select :company_scale_id, CompanyScale.all.collect{ |p| [p.name, p.id]},{:include_blank => "-请选择-"} );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('          </p>
+        </div>
+        <div class="split_content_left_long">
+          <p>
+            ');@output_buffer.append= ( label_tag t :district );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('            ');@output_buffer.append= ( raw address nil, 'user[company_extend_attributes]' );@output_buffer.safe_concat('<span class="red">*</span>
+          </p>
+          <p>
+            ');@output_buffer.append= ( label_tag t 'attributes.company_extend.address' );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('            ');@output_buffer.append= ( c.text_field :address );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('          </p>
+          <p>
+            ');@output_buffer.append= ( label_tag t :email );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('            ');@output_buffer.append= ( f.text_field :email );@output_buffer.safe_concat('<span class="red">*</span>
+          </p>
+          <p>
+            ');@output_buffer.append= ( label_tag t 'attributes.company_extend.web_address' );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('            ');@output_buffer.append= ( c.text_field :web_address );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('          </p>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="attributes">
+        <div class="split_content_left">
+          <p>
+            ');@output_buffer.append= ( label_tag t 'attributes.company_extend.name' );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('            ');@output_buffer.append= ( c.text_field :name );@output_buffer.safe_concat('<span class="red">*</span>
+          </p>
+          <p>
+            ');@output_buffer.append= ( label_tag t 'attributes.company_extend.contact_dept' );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('            ');@output_buffer.append= ( c.text_field :contact_dept );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('          </p>
+          <p>
+            ');@output_buffer.append= ( label_tag t 'attributes.company_extend.phone' );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('            ');@output_buffer.append= ( c.text_field :phone );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('          </p>
+          <p>
+            ');@output_buffer.append= ( label_tag t 'attributes.company_extend.mobile' );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('            ');@output_buffer.append= ( c.text_field :mobile );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('          </p>
+        </div>
+        <div class="split_content_right">
+          <p>
+            ');@output_buffer.append= ( label_tag t 'attributes.company_extend.sex' );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('            ');@output_buffer.append= ( c.radio_button :sex, '0', :class => "radio" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('            女
+            ');@output_buffer.append= ( c.radio_button :sex, '1', :class => "radio", :checked => true );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('            男
+          </p>
+          <p>
+            ');@output_buffer.append= ( label_tag t 'attributes.company_extend.contact_post' );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('            ');@output_buffer.append= ( c.text_field :contact_post );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('          </p>
+          <p>
+            ');@output_buffer.append= ( label_tag t 'attributes.company_extend.fax' );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('            ');@output_buffer.append= ( c.text_field :fax );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('          </p>
+          <p>
+            ');@output_buffer.append= ( label_tag t 'attributes.company_extend.zip' );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('            ');@output_buffer.append= ( c.text_field :zip );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('          </p>
+');         end 
+@output_buffer.safe_concat('      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="actions">
+      ');@output_buffer.append= ( f.submit '保存' );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('    </div>
+');   end   
+ end 
+@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/template.rb:309:in `module_eval'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/template.rb:309:in `compile'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/template.rb:217:in `compile!'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/template.rb:170:in `block in render'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/notifications.rb:55:in `instrument'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/template.rb:169:in `render'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/partial_renderer.rb:256:in `render_partial'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/partial_renderer.rb:228:in `block (2 levels) in render'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/abstract_renderer.rb:33:in `block in instrument'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/notifications.rb:53:in `block in instrument'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/notifications.rb:53:in `instrument'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/abstract_renderer.rb:33:in `instrument'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/partial_renderer.rb:227:in `block in render'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/abstract_renderer.rb:22:in `wrap_formats'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/partial_renderer.rb:219:in `render'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/renderer.rb:41:in `render_partial'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/helpers/rendering_helper.rb:27:in `render'
+/home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/new.html.erb:3:in `__home_sean_projects_taurus_auth_app_views_taurus_admin_company_extends_new_html_erb__373630499_101316090'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/template.rb:171:in `block in render'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/notifications.rb:55:in `instrument'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/template.rb:169:in `render'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:40:in `block (2 levels) in render_template'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/abstract_renderer.rb:33:in `block in instrument'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/notifications.rb:53:in `block in instrument'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/notifications.rb:53:in `instrument'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/abstract_renderer.rb:33:in `instrument'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:39:in `block in render_template'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:47:in `render_with_layout'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:38:in `render_template'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:12:in `block in render'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/abstract_renderer.rb:22:in `wrap_formats'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/template_renderer.rb:9:in `render'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/renderer.rb:36:in `render_template'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_view/renderer/renderer.rb:17:in `render'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/abstract_controller/rendering.rb:120:in `_render_template'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_controller/metal/streaming.rb:250:in `_render_template'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/abstract_controller/rendering.rb:114:in `render_to_body'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_controller/metal/renderers.rb:30:in `render_to_body'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_controller/metal/compatibility.rb:43:in `render_to_body'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/abstract_controller/rendering.rb:99:in `render'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_controller/metal/rendering.rb:16:in `render'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/home/sean/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/benchmark.rb:310:in `realtime'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activerecord-3.1.3/lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/abstract_controller/base.rb:167:in `process_action'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:416:in `_run__208792681__process_action__475373162__callbacks'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:386:in `_run_process_action_callbacks'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/notifications.rb:53:in `block in instrument'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/notifications.rb:53:in `instrument'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_controller/metal/params_wrapper.rb:201:in `process_action'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activerecord-3.1.3/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/abstract_controller/base.rb:121:in `process'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/abstract_controller/rendering.rb:45:in `process'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_controller/metal.rb:193:in `dispatch'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_controller/metal.rb:236:in `block in action'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/routing/route_set.rb:65:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/routing/route_set.rb:29:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:152:in `block in call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:96:in `block in recognize'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:95:in `recognize'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:141:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/routing/route_set.rb:532:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/railties-3.1.3/lib/rails/engine.rb:456:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/railties-3.1.3/lib/rails/railtie/configurable.rb:30:in `method_missing'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-mount-0.8.3/lib/rack/mount/prefix.rb:26:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:152:in `block in call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:96:in `block in recognize'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:82:in `optimized_each'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:95:in `recognize'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:141:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/routing/route_set.rb:532:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/warden-1.1.1/lib/warden/manager.rb:35:in `block in call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/warden-1.1.1/lib/warden/manager.rb:34:in `catch'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/warden-1.1.1/lib/warden/manager.rb:34:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-1.3.6/lib/rack/etag.rb:23:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-1.3.6/lib/rack/conditionalget.rb:25:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/head.rb:14:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/flash.rb:247:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-1.3.6/lib/rack/session/abstract/id.rb:195:in `context'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-1.3.6/lib/rack/session/abstract/id.rb:190:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/cookies.rb:331:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activerecord-3.1.3/lib/active_record/query_cache.rb:64:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activerecord-3.1.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:477:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:392:in `_run_call_callbacks'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/reloader.rb:68:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-1.3.6/lib/rack/sendfile.rb:101:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/railties-3.1.3/lib/rails/rack/logger.rb:13:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-1.3.6/lib/rack/methodoverride.rb:24:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-1.3.6/lib/rack/runtime.rb:17:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.1.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-1.3.6/lib/rack/lock.rb:15:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/static.rb:53:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/railties-3.1.3/lib/rails/engine.rb:456:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-1.3.6/lib/rack/content_length.rb:14:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/railties-3.1.3/lib/rails/rack/log_tailer.rb:14:in `call'
+/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/rack-1.3.6/lib/rack/handler/webrick.rb:59:in `service'
+/home/sean/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/home/sean/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/home/sean/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/_form.html.erb (2.9ms)
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/new.html.erb within /taurus/layouts/admin (4.0ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (/home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/_form.html.erb:132: syntax error, unexpected keyword_ensure, expecting $end):
+    129:   <% end %>  
+    130: <% end %>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (4.8ms)
+
+
+Started GET "/admin/company_extends/new" for 127.0.0.1 at 2012-05-04 15:02:54 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#new as HTML
+  [1m[35mTaurus::Role Load (0.2ms)[0m  SELECT `taurus_roles`.* FROM `taurus_roles` 
+  [1m[36mTaurus::Store Load (0.2ms)[0m  [1mSELECT `taurus_stores`.* FROM `taurus_stores` [0m
+  [1m[35mIndustry Load (0.3ms)[0m  SELECT `industries`.* FROM `industries` 
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/_form.html.erb (274.9ms)
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/new.html.erb within /taurus/layouts/admin (276.2ms)
+Completed 500 Internal Server Error in 285ms
+
+ActionView::Template::Error (undefined local variable or method `c' for #<#<Class:0xc34c068>:0xc342e14>):
+    51:       <div class="split_content_left">
+    52:         <p>
+    53:           <%= label_tag t :company_type %>
+    54:           <%= c.select :company_type_id, CompanyType.all.collect{ |p| [p.name, p.id]} %><span class="red">*</span>
+    55:         </p>
+    56:       </div>
+    57:       <div class="split_content_right">
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.6ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-05-04 15:21:15 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (1.0ms)
+Completed 200 OK in 269ms (Views: 268.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 15:21:15 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 15:21:15 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 15:21:15 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (14ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 15:21:15 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 15:21:15 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-05-04 15:21:15 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (23ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 15:21:15 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 15:21:15 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 15:21:15 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 15:21:15 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 15:21:15 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 15:21:15 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 15:21:15 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-05-04 15:21:15 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (12ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 15:21:16 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/company_extends" for 127.0.0.1 at 2012-05-04 15:25:25 +0800
+  Processing by Taurus::Admin::CompanyExtendsController#index as HTML
+  [1m[36mTaurus::CompanyExtend Load (0.2ms)[0m  [1mSELECT `taurus_company_extends`.* FROM `taurus_company_extends` LIMIT 20 OFFSET 0[0m
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/company_extends/index.html.erb within /taurus/layouts/admin (71.2ms)
+Completed 200 OK in 411ms (Views: 405.7ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 15:25:26 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 15:25:26 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 15:25:26 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 15:25:26 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 15:25:26 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 15:25:26 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 15:25:26 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 15:25:26 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 15:25:26 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 15:25:26 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 15:25:26 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 15:25:26 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 15:25:26 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-05-04 16:07:21 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.1ms)
+Completed 200 OK in 354ms (Views: 353.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 16:07:22 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 16:07:22 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 16:07:22 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 16:07:22 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 16:07:22 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-05-04 16:07:22 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (10ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 16:07:22 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 16:07:22 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 16:07:22 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 16:07:22 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 16:07:22 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 16:07:22 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-05-04 16:07:22 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (7ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (6.5ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 16:07:22 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 16:07:23 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-05-04 16:07:54 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (1.1ms)
+Completed 200 OK in 265ms (Views: 264.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 16:07:55 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 16:07:55 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 16:07:55 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 16:07:55 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 16:07:55 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-05-04 16:07:55 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (11ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 16:07:55 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 16:07:55 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 16:07:55 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 16:07:55 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 16:07:55 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 16:07:55 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-05-04 16:07:55 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (7ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 16:07:55 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 16:07:55 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-05-04 16:08:02 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (1.3ms)
+Completed 200 OK in 265ms (Views: 265.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 16:08:02 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 16:08:02 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 16:08:02 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-05-04 16:08:02 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (9ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 16:08:02 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 16:08:02 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:02 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:02 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:02 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:03 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:03 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:03 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-05-04 16:08:03 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (21ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:03 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 16:08:03 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-05-04 16:08:16 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (1.0ms)
+Completed 200 OK in 247ms (Views: 247.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 16:08:16 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 16:08:16 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 16:08:16 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 16:08:16 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-05-04 16:08:16 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (20ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 16:08:16 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:16 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:16 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:16 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:16 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:16 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:16 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-05-04 16:08:16 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:16 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 16:08:17 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-05-04 16:08:22 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (1.3ms)
+Completed 200 OK in 238ms (Views: 237.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 16:08:23 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 16:08:23 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 16:08:23 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 16:08:23 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 16:08:23 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-05-04 16:08:23 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (9ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:23 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:23 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:23 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:23 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:23 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:23 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-05-04 16:08:23 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (9ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 16:08:23 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 16:08:23 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (1ms)
+
+
+Started GET "/admin/industry" for 127.0.0.1 at 2012-05-04 16:23:04 +0800
+
+ActionController::RoutingError (No route matches [GET] "/admin/industry"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (4.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-05-04 16:23:19 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (0.9ms)
+Completed 200 OK in 246ms (Views: 245.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 16:23:20 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 16:23:20 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 16:23:20 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 16:23:20 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 16:23:20 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 16:23:20 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 16:23:20 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 16:23:20 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 16:23:20 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 16:23:20 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 16:23:20 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 16:23:20 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 16:23:20 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/industries" for 127.0.0.1 at 2012-05-04 16:23:22 +0800
+
+ActionController::RoutingError (uninitialized constant Tuaurs::Admin::BaseController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/admin/industries" for 127.0.0.1 at 2012-05-04 16:24:49 +0800
+
+ActionController::RoutingError (uninitialized constant Tuaurs::Admin::BaseController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/industries" for 127.0.0.1 at 2012-05-04 16:24:50 +0800
+
+ActionController::RoutingError (uninitialized constant Tuaurs::Admin::BaseController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/admin/industries" for 127.0.0.1 at 2012-05-04 16:24:50 +0800
+
+ActionController::RoutingError (uninitialized constant Tuaurs::Admin::BaseController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin/industries" for 127.0.0.1 at 2012-05-04 16:24:50 +0800
+
+ActionController::RoutingError (uninitialized constant Tuaurs::Admin::BaseController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/industries" for 127.0.0.1 at 2012-05-04 16:24:50 +0800
+
+ActionController::RoutingError (uninitialized constant Tuaurs::Admin::BaseController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin/industries" for 127.0.0.1 at 2012-05-04 16:24:51 +0800
+
+ActionController::RoutingError (uninitialized constant Tuaurs::Admin::BaseController):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/industries" for 127.0.0.1 at 2012-05-04 16:25:08 +0800
+  Processing by Taurus::Admin::IndustriesController#index as HTML
+Completed 500 Internal Server Error in 14ms
+
+ActionView::MissingTemplate (Missing template taurus/admin/industries/index, taurus/admin/base/index, taurus/base/index, application/index with {:handlers=>[:erb, :builder], :formats=>[:html], :locale=>[:"zh-CN", :"zh-CN"]}. Searched in:
+  * "/home/sean/projects/taurus/sandbox/app/views"
+  * "/home/sean/projects/taurus/warehouse/app/views"
+  * "/home/sean/projects/taurus/auth/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/devise-1.5.3/app/views"
+  * "/home/sean/projects/taurus/cms/app/views"
+  * "/home/sean/projects/taurus/core/app/views"
+  * "/home/sean/.rvm/gems/ruby-1.9.2-p290/gems/ckeditor-3.7.0.rc2/app/views"
+):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.6ms)
+  [1m[36m (0.8ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateAdmins (20111205073327)
+Migrating to CreateProducts (20111205081958)
+Migrating to CreateSuppliers (20111214103454)
+Migrating to CreateBrands (20111215033756)
+Migrating to CreateProductCategories (20111215064446)
+Migrating to CreateSkuCategories (20111215083858)
+Migrating to CreateSkus (20111215094255)
+Migrating to CreateCkeditorAssets (20111215230248)
+Migrating to CreateSkuProductships (20111216025822)
+Migrating to CreateSkuImages (20111216064033)
+Migrating to CreateCarts (20111218131703)
+Migrating to CreateCartSkuships (20111218132337)
+Migrating to CreateOrders (20111218132615)
+Migrating to CreatePersonExtends (20111219022004)
+Migrating to CreateOrderDetails (20111220071204)
+Migrating to RemoveCreateTimeAndUpdateTimeToProduct (20111220085103)
+Migrating to ChangeActiveToSupplier (20111220133452)
+Migrating to ChangeActiveToBrand (20111220140856)
+Migrating to AddAttachmentImageToBrand (20111220154204)
+Migrating to RemoveImageUrlToBrand (20111220154343)
+Migrating to RenameTypeToSku (20111221021407)
+Migrating to AddAttachmentImageToSkuImage (20111221054445)
+Migrating to RemoveImageUrlToSkuImage (20111221054621)
+Migrating to CreateProcedures (20111222033703)
+Migrating to CreateStations (20111222070652)
+Migrating to CreateStationProcedureships (20111223023531)
+Migrating to CreateConditions (20111223060150)
+Migrating to CreateBusinessFunctions (20111223072754)
+Migrating to AlterStationProcedureship (20111223075625)
+Migrating to CreateInstances (20111224045815)
+Migrating to CreateTracks (20111224050357)
+Migrating to CreateOrderNumbers (20111225101346)
+Migrating to AddTotalPriceToOrder (20111225125350)
+Migrating to AddConditionTypeAndActionToCondition (20111225170426)
+Migrating to CreateProcedureRoleships (20111226032745)
+Migrating to AddDisplayNameToCondition (20111226071101)
+Migrating to CreateOrderPays (20111227073259)
+Migrating to DropAdmins (20111228104607)
+Migrating to CreateAdministratorGroupships (20111228124309)
+Migrating to CreateEscs (20111229060701)
+Migrating to CreateEscCategories (20111229060918)
+Migrating to CreateEscReplies (20111229061813)
+Migrating to CreateSerialNumbers (20111229062633)
+Migrating to CreateProvinces (20111229101030)
+Migrating to CreateCities (20111229101819)
+Migrating to CreateDistricts (20111229101925)
+Migrating to CreateOrderingCompanies (20111229141349)
+Migrating to CreatePurchases (20111229141757)
+Migrating to CreateProductPurchaseships (20111229142541)
+Migrating to CreateProductStoreships (20111230055615)
+Migrating to CreateStoreEntries (20111231034920)
+Migrating to CreateProductStoreEntryships (20111231035352)
+Migrating to CreateStoreEntryProductCarts (20120102033538)
+Migrating to AddSequenceAndLevelAndActiveToProductCategories (20120103042024)
+Migrating to AddCartTypeToStoreEntryProductCarts (20120103055754)
+Migrating to CreateBanks (20120103151847)
+Migrating to AddActiveToOrderingCompany (20120104081738)
+Migrating to CreateOrderTracks (20120105034824)
+Migrating to CreateOrderPrintLogs (20120105034953)
+Migrating to CreateOrderTakeLogs (20120105035201)
+Migrating to CreateRecAdds (20120105035917)
+Migrating to RenameTypeToProducts (20120105064238)
+Migrating to AlterSkuCategories (20120105071017)
+Migrating to CreateInnerSkuCarts (20120106031026)
+Migrating to CreateInnerOrderAddresses (20120106074923)
+Migrating to RenameAdministratorIdToInnerSkuCart (20120106080246)
+Migrating to CreateInnerOrderPayments (20120106081541)
+Migrating to RenameAdminIdToOrderTakeLog (20120107023809)
+Migrating to AlterOrderDetails (20120107053540)
+Migrating to AlterOrders (20120107061406)
+Migrating to ChangeQuantityToOrderDetails (20120108033202)
+Migrating to AddRoleIdToPersonExtends (20120108084727)
+Migrating to CreateUserNumbers (20120109032415)
+Migrating to CreateCompanyTypes (20120109065049)
+Migrating to CreateCompanyScales (20120109065158)
+Migrating to CreateOperatings (20120110022535)
+Migrating to CreatePermissions (20120110023026)
+Migrating to AlterPermissionsAndFunctions (20120110040800)
+Migrating to AddUrlToFunctions (20120110100817)
+Migrating to CreatePanicBuyings (20120112060437)
+Migrating to AddSalesReservedToProductStoreships (20120113160656)
+Migrating to CreateDeliveryOrders (20120114055714)
+Migrating to CreateProdDelOrdships (20120114060117)
+Migrating to AlterOrder (20120114065535)
+Migrating to AddNumberToDeliveryOrder (20120114071005)
+Migrating to AlterDefaultToSkus (20120115094227)
+Migrating to AlterOrderPrintLog (20120118112813)
+Migrating to AlterInnerSkuCarts (20120119075904)
+Migrating to AlterBackOrderSkus (20120119082050)
+Migrating to RemoveStoreIdFromOrders (20120124093824)
+Migrating to CreateDeliveryOrderCarts (20120124095530)
+Migrating to AlterDeliveryOrders (20120124114103)
+Migrating to UpdatePathToFunctions (20120125051731)
+Migrating to AddCarriageAdjustmentToOrders (20120131100638)
+Migrating to AddAdjustmentPermission (20120131124217)
+Migrating to CreateRailsAdminHistoriesTable (20120201091023)
+Migrating to AlterSkus (20120213092017)
+Migrating to DropPanicBuyings (20120213095112)
+Migrating to AlterCartSkuships (20120214061147)
+Migrating to CreateConsigneeInfos (20120215103033)
+Migrating to AlterRecAdds (20120216024555)
+Migrating to RemoveIndexToUserAddresses (20120220022156)
+Migrating to CreateSkuOnShelves (20120221071439)
+Migrating to CreateSkuBrowsingHistories (20120222074900)
+Migrating to CreateFavorites (20120225164312)
+Migrating to CreateMailSales (20120226124214)
+Migrating to CreateOrderOperUrls (20120228023926)
+Migrating to AlterStationProcedureships (20120228024009)
+Migrating to CreateBusFunStaProships (20120228062357)
+Migrating to AddLineTypeToOrderPrintLogs (20120307024910)
+Migrating to CreateSubscribes (20120307084434)
+Migrating to ChangePurchases (20120309085727)
+Migrating to ChangeProductProcedureships (20120311070339)
+Migrating to DropRailsAdminHistories (20120311100205)
+Migrating to CreateNumberCounters (20120312023536)
+Migrating to CreatePoProductTempLists (20120312082113)
+Migrating to AddPoTimeOfDeliveryToPurchaseOrders (20120312101543)
+Migrating to AddFaxAndSupplierIdToSuppliers (20120312121835)
+Migrating to RenamePurchaseIdToStoreEntries (20120313092244)
+Migrating to RemoveTotalPriceToOrders (20120315075243)
+Migrating to AddSkuCostToOrderDetails (20120316060619)
+Migrating to CreateProcedurePermissions (20120323091712)
+Migrating to AddActAndSubjectClassToConditions (20120323092202)
+Migrating to AlterProcedurePermissions (20120323111234)
+Migrating to AddDefaultToSkuProductships (20120326031048)
+Migrating to AddStorePositionToProductStoreships (20120327073012)
+Migrating to AddStoreInTypeToStoreEntries (20120327083607)
+Migrating to AddAdministratorIdToStoreEntries (20120327085226)
+Migrating to AddDeliveryTypeToDeliveryOrders (20120328061046)
+Migrating to AddDeRemarksToDeliveryOrders (20120330021018)
+Migrating to CreateOnlinePromotions (20120330092549)
+Migrating to CreatePromotionByProducts (20120330093924)
+Migrating to CreatePromotionByOrders (20120330112802)
+Migrating to AddPurchaseAmountLimitToPromotionByOrders (20120331101126)
+Migrating to ChangeColumnDefaultToProducts (20120401082248)
+Migrating to AddSignUpTimeLimitToOnlinePromotions (20120403033349)
+Migrating to ChangeDefaultToDiscountOnPromotionByOrders (20120403073237)
+Migrating to RenameProductIdToSkuIdOnOnlinePromotions (20120403075921)
+Migrating to AddProcedureIdToOnlinePromotions (20120403083533)
+Migrating to CreatePromotionMemberTemps (20120403091329)
+Migrating to CreatePromotionMembers (20120403171946)
+Migrating to AddProductDiscountToPromotionByProducts (20120404132017)
+Migrating to CreatePromotionProductTemps (20120404140354)
+Migrating to CreatePromotionProducts (20120405035924)
+Migrating to AddRemarksToOnlinePromotions (20120405130443)
+Migrating to CreateCustomerRatings (20120406053207)
+Migrating to AddVisibilityToCustomerRatings (20120408033123)
+Migrating to AlterTableForOrderDetails (20120408063055)
+Migrating to AlterTableForBackOrderSkus (20120408064153)
+Migrating to CreatePromotionPriorities (20120409031927)
+Migrating to CreatePromotionGifts (20120412072345)
+Migrating to CreatePromotionsInOrders (20120412102832)
+Migrating to DeviseCreateTaurusAdministrators (20120423164001)
+Migrating to CreateTaurusGroups (20120423164002)
+Migrating to CreateTaurusRoles (20120423164003)
+Migrating to CreateTaurusIndustries (20120423164506)
+  [1m[35m (26.1ms)[0m  CREATE TABLE `taurus_industries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `sequence` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (10.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120423164506')[0m
+Migrating to CreateTaurusStores (20120423170420)
+Migrating to DeviseCreateTaurusUsers (20120423170501)
+Migrating to CreateTaurusCompanyExtends (20120423170845)
+Migrating to CreateTaurusSliderBars (20120424010601)
+Migrating to CreateTaurusImages (20120424015901)
+Migrating to CreateTaurusAnnouncements (20120424030001)
+Migrating to CreateTaurusSkuDisplays (20120424030801)
+  [1m[35m (0.3ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+
+
+Started GET "/admin/industries" for 127.0.0.1 at 2012-05-04 16:48:00 +0800
+  Processing by Taurus::Admin::IndustriesController#index as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/industries/index.html.erb within /taurus/layouts/admin (3.7ms)
+Completed 500 Internal Server Error in 16ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each_with_index):
+    13:     </tr>
+    14:   </thead>
+    15: 
+    16: <% @stores.each_with_index do |store,index| %>
+    17:   <tr class="<%= cycle "odd", "even" %>">
+    18:     <td><%= index+1 %></td>
+    19:     <td><%= store.name %></td>
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (68.0ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (75.3ms)
+
+
+Started GET "/admin/industries" for 127.0.0.1 at 2012-05-04 16:50:13 +0800
+  Processing by Taurus::Admin::IndustriesController#index as HTML
+  [1m[35mTaurus::Industry Load (0.6ms)[0m  SELECT `taurus_industries`.* FROM `taurus_industries` LIMIT 20 OFFSET 0
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/industries/index.html.erb within /taurus/layouts/admin (5.5ms)
+Completed 200 OK in 256ms (Views: 252.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 16:50:14 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 16:50:14 +0800
+Served asset /scaffold.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 16:50:14 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 16:50:14 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 16:50:14 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/industries.css" for 127.0.0.1 at 2012-05-04 16:50:14 +0800
+Served asset /taurus/admin/industries.css - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/industries.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 16:50:14 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 16:50:14 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/industries.js" for 127.0.0.1 at 2012-05-04 16:50:14 +0800
+Served asset /taurus/admin/industries.js - 404 Not Found (96ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/industries.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 16:50:14 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 16:50:14 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 16:50:14 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 16:50:14 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 16:50:14 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 16:50:14 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/industries" for 127.0.0.1 at 2012-05-04 17:14:49 +0800
+  Processing by Taurus::Admin::IndustriesController#index as HTML
+  [1m[36mTaurus::Industry Load (0.2ms)[0m  [1mSELECT `taurus_industries`.* FROM `taurus_industries` LIMIT 20 OFFSET 0[0m
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/industries/index.html.erb within /taurus/layouts/admin (5.7ms)
+Completed 200 OK in 257ms (Views: 252.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 17:14:49 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 17:14:49 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 17:14:49 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 17:14:49 +0800
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 17:14:49 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 17:14:49 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 17:14:49 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/industries.css" for 127.0.0.1 at 2012-05-04 17:14:49 +0800
+Served asset /taurus/admin/industries.css - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/industries.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 17:14:49 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 17:14:49 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 17:14:49 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 17:14:49 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 17:14:49 +0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/taurus/admin/industries.js" for 127.0.0.1 at 2012-05-04 17:14:49 +0800
+Served asset /taurus/admin/industries.js - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/industries.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 17:14:50 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/industries" for 127.0.0.1 at 2012-05-04 17:50:32 +0800
+  Processing by Taurus::Admin::IndustriesController#index as HTML
+  [1m[35mTaurus::Industry Load (0.2ms)[0m  SELECT `taurus_industries`.* FROM `taurus_industries` LIMIT 20 OFFSET 0
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/industries/index.html.erb within /taurus/layouts/admin (5.3ms)
+Completed 200 OK in 318ms (Views: 314.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:32 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:32 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:32 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/industries.css" for 127.0.0.1 at 2012-05-04 17:50:32 +0800
+Served asset /taurus/admin/industries.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/industries.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:32 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:32 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:32 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:32 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:32 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:32 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:32 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:32 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:32 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/industries.js" for 127.0.0.1 at 2012-05-04 17:50:32 +0800
+Served asset /taurus/admin/industries.js - 404 Not Found (18ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/industries.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 17:50:33 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/industries/new" for 127.0.0.1 at 2012-05-04 17:50:35 +0800
+  Processing by Taurus::Admin::IndustriesController#new as HTML
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/industries/_form.html.erb (56.6ms)
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/industries/new.html.erb within /taurus/layouts/admin (61.3ms)
+Completed 200 OK in 303ms (Views: 297.4ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:35 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:35 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:35 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:35 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:35 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/industries.css" for 127.0.0.1 at 2012-05-04 17:50:35 +0800
+Served asset /taurus/admin/industries.css - 404 Not Found (9ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/industries.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:35 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:35 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:35 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:35 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:35 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:35 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:35 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/industries.js" for 127.0.0.1 at 2012-05-04 17:50:35 +0800
+Served asset /taurus/admin/industries.js - 404 Not Found (16ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/industries.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (7.1ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 17:50:35 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th_orange.gif" for 127.0.0.1 at 2012-05-04 17:50:36 +0800
+Served asset /admin/admin_bg_th_orange.gif - 304 Not Modified (0ms)
+
+
+Started POST "/admin/industries" for 127.0.0.1 at 2012-05-04 17:50:49 +0800
+  Processing by Taurus::Admin::IndustriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uBFJzsPwuaAfoUKoNYjawCw27DRH55OmtRyOeAJy7S8=", "industry"=>{"name"=>"特殊他", "sequence"=>"1"}, "commit"=>"新增Industry"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO `taurus_industries` (`created_at`, `name`, `sequence`, `updated_at`) VALUES ('2012-05-04 17:50:49', '特殊他', 1, '2012-05-04 17:50:49')
+  [1m[36m (8.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3002/admin/industries
+Completed 302 Found in 27ms
+
+
+Started GET "/admin/industries" for 127.0.0.1 at 2012-05-04 17:50:49 +0800
+  Processing by Taurus::Admin::IndustriesController#index as HTML
+  [1m[35mTaurus::Industry Load (0.6ms)[0m  SELECT `taurus_industries`.* FROM `taurus_industries` LIMIT 20 OFFSET 0
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/industries/index.html.erb within /taurus/layouts/admin (14.8ms)
+Completed 200 OK in 254ms (Views: 248.1ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:49 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:50 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:50 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:50 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:50 +0800
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/taurus/admin/industries.css" for 127.0.0.1 at 2012-05-04 17:50:50 +0800
+Served asset /taurus/admin/industries.css - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/industries.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:50 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:50 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:50 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:50 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:50 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:50 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/industries.js" for 127.0.0.1 at 2012-05-04 17:50:50 +0800
+Served asset /taurus/admin/industries.js - 404 Not Found (12ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/industries.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (6.9ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:50 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 17:50:50 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin/industries/1/edit" for 127.0.0.1 at 2012-05-04 17:50:53 +0800
+  Processing by Taurus::Admin::IndustriesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTaurus::Industry Load (1.1ms)[0m  [1mSELECT `taurus_industries`.* FROM `taurus_industries` WHERE `taurus_industries`.`id` = 1 LIMIT 1[0m
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/industries/_form.html.erb (21.2ms)
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/industries/edit.html.erb within /taurus/layouts/admin (24.4ms)
+Completed 200 OK in 312ms (Views: 301.3ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:53 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:53 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:53 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:53 +0800
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:53 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/industries.css" for 127.0.0.1 at 2012-05-04 17:50:53 +0800
+Served asset /taurus/admin/industries.css - 404 Not Found (11ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/industries.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:53 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:53 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:53 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:53 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:53 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:53 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:53 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/industries.js" for 127.0.0.1 at 2012-05-04 17:50:53 +0800
+Served asset /taurus/admin/industries.js - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/industries.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 17:50:54 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th_orange.gif" for 127.0.0.1 at 2012-05-04 17:50:56 +0800
+Served asset /admin/admin_bg_th_orange.gif - 304 Not Modified (0ms)
+
+
+Started PUT "/admin/industries/1" for 127.0.0.1 at 2012-05-04 17:50:56 +0800
+  Processing by Taurus::Admin::IndustriesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uBFJzsPwuaAfoUKoNYjawCw27DRH55OmtRyOeAJy7S8=", "industry"=>{"name"=>"特殊他1", "sequence"=>"3"}, "commit"=>"更新Industry", "id"=>"1"}
+  [1m[35mTaurus::Industry Load (0.4ms)[0m  SELECT `taurus_industries`.* FROM `taurus_industries` WHERE `taurus_industries`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  UPDATE `taurus_industries` SET `name` = '特殊他1', `sequence` = 3, `updated_at` = '2012-05-04 17:50:56' WHERE `taurus_industries`.`id` = 1
+  [1m[36m (10.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3002/admin/industries
+Completed 302 Found in 31ms
+
+
+Started GET "/admin/industries" for 127.0.0.1 at 2012-05-04 17:50:56 +0800
+  Processing by Taurus::Admin::IndustriesController#index as HTML
+  [1m[35mTaurus::Industry Load (0.4ms)[0m  SELECT `taurus_industries`.* FROM `taurus_industries` LIMIT 20 OFFSET 0
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/industries/index.html.erb within /taurus/layouts/admin (14.3ms)
+Completed 200 OK in 257ms (Views: 251.4ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/assets/jquery-laylout.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:57 +0800
+Served asset /jquery-laylout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:57 +0800
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.16.custom.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:57 +0800
+Served asset /smoothness/jquery-ui-1.8.16.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/plugin/simple_form.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:57 +0800
+Served asset /plugin/simple_form.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-04 17:50:57 +0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/industries.css" for 127.0.0.1 at 2012-05-04 17:50:57 +0800
+Served asset /taurus/admin/industries.css - 404 Not Found (9ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/industries.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:57 +0800
+Served asset /ckeditor/ckeditor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:57 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:57 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:57 +0800
+Served asset /jquery-ui-1.8.16.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.layout-latest.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:57 +0800
+Served asset /jquery.layout-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/industries.js" for 127.0.0.1 at 2012-05-04 17:50:57 +0800
+Served asset /taurus/admin/industries.js - 404 Not Found (14ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/industries.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:57 +0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2012-05-04 17:50:57 +0800
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/admin_bg_th.gif" for 127.0.0.1 at 2012-05-04 17:50:57 +0800
+Served asset /admin/admin_bg_th.gif - 304 Not Modified (0ms)

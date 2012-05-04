@@ -114,9 +114,17 @@
           name: '相册管理'
           action: '[:create,:update,:destroy]'
           subject_class: 'SkuImage'
-- id: 2
+- id: 02
   name: '基础管理'
-  functions: 
+  functions:
+    - id: 0201
+      name: '行业信息管理'
+      url: '/admin/industries'
+      operations: 
+        - id: 020101
+          name: '查询'
+          action: ':read'
+          subject_class: 'Industry' 
     - id: 7
       name: '销售订单流程维护'
       url: '/admin/procedures'
