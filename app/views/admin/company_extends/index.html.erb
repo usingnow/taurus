@@ -1,36 +1,15 @@
-<h1>企业会员列表</h1>
-
-<div class="attributes">
-  <%= search_form_for [:admin,@search] do |f| %>
-    <div class="split_content_left">
-      <p>
-        <%= f.label '编号' %>
-        <%= f.text_field :company_no_cont %>
-      </p>
-      <p>
-        <%= f.label '企业名称' %>
-        <%= f.text_field :company_name_cont %>
-      </p>
-    </div>
-    <div class="split_content_right">
-      <p>
-        <%= f.label '帐号' %>
-        <%= f.text_field :user_login_no_cont %>
-      </p>
-      <p>
-        <label>&nbsp;</label>
-        <%= f.submit '查询'%>
-      </p>
-    </div>
-    <div class="clear"></div>
+<div class="form-actions">
+  <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
+    <%= f.text_field :company_no_cont, :placeholder => "编号", :class => "trk-non-inline-margin" %>
+    <%= f.text_field :company_name_cont, :placeholder => "企业名称", :class => "trk-non-inline-margin" %>
+    <%= f.text_field :user_login_no_cont, :placeholder => "帐号", :class => "trk-non-inline-margin" %>
+    <%= f.submit "查询", :class => "btn btn-primary" %>
   <% end %>
+  <hr />
+  <%= link_to "<i class='icon-plus-sign'></i> 新增企业会员".html_safe, new_admin_company_extend_path, :class => "btn btn-primary" if can? :create, CompanyExtend %>
 </div>
 
-<div class="grid_button">
-  <%= link_to '新增企业会员', new_admin_company_extend_path if can? :create, CompanyExtend %>
-</div>
-
-<table class="grid">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>
@@ -41,7 +20,7 @@
       <th>所属组</th>
       <th>账号状态</th>
       <th>仓库</th>
-      <th></th>
+      <th>操作</th>
     </tr>
   </thead>
 <% @company_extends.each_with_index do |company_extend,index| %>
@@ -54,10 +33,10 @@
     <td><%= company_extend.user.role.name %></td>
     <td><%= format_user_status company_extend.user.status %></td>
     <td><%= company_extend.user.store.name %></td>
-    <td><%= link_to t('admin.actions.edit.menu'), edit_admin_company_extend_path(company_extend.user_id) if can? :update, CompanyExtend %></td>
+    <td><%= link_to t('admin.actions.edit.menu'), edit_admin_company_extend_path(company_extend.user_id), :class => "btn btn-primary trk-btn-short" if can? :update, CompanyExtend %></td>
   </tr>
 <% end %>
 </table>
 
-<%= will_paginate @company_extends %>
+<%= will_paginate @company_extends, :renderer => BootstrapPagination::Rails%>
 
