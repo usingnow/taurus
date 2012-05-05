@@ -1,4 +1,4 @@
-<%= form_for([:admin,@role]) do |f| %>
+<%= simple_form_for([:admin,@role], :html => {:class => "form-horizontal"}) do |f| %>
   <% if @role.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@role.errors.count, "error") %> prohibited this role from being saved:</h2>
@@ -10,24 +10,11 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :number %><br />
-    <%= f.text_field :number %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :is_reserve %><br />
-    <%= f.check_box :is_reserve %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <%= f.input :number %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :is_reserve %>
+  <div class="form-actions">
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
 <% end %>

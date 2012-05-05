@@ -1,4 +1,4 @@
-<%= form_for([:admin,@procedure_roleship]) do |f| %>
+<%= simple_form_for([:admin,@procedure_roleship], :html => {:class =>"form-horizontal"}) do |f| %>
   <% if @procedure_roleship.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@procedure_roleship.errors.count, "error") %> prohibited this procedure_roleship from being saved:</h2>
@@ -12,10 +12,14 @@
   <% end %>
 
   <%= hidden_field_tag :role_id, @role_id %>
+  <div class="control-group">
+    <label id="trk-admin-group-setting-name" class="control-label alert alert-info" for="group_id[]">显示当前组名</label>
+    <div class="controls">
+      <%=raw procedure_role(@procedure_roleships) %>
+    </div>
+  </div>
 
-  <%=raw procedure_role(@procedure_roleships) %>
-
-    <div class="actions">
-    <%= f.submit '确定'%>
+  <div class="form-actions">
+    <%= f.submit '保存', :class => "btn btn-primary" %>
   </div>
 <% end %>

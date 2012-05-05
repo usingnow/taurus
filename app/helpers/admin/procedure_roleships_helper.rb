@@ -15,9 +15,9 @@ module Admin::ProcedureRoleshipsHelper
      end
 
      if flag == true
-       result += "<div class='field'><input type='checkbox' name='procedure_id[]' checked='checked' value='#{procedure.id}'/>#{procedure.name}</div>"
+       result += "<label class='checkbox'><input type='checkbox' name='procedure_id[]' checked='checked' value='#{procedure.id}'/>#{procedure.name}</label>"
      else
-       result += "<div class='field'><input type='checkbox' name='procedure_id[]' value='#{procedure.id}'/>#{procedure.name}</div>"
+       result += "<label class='checkbox'><input type='checkbox' name='procedure_id[]' value='#{procedure.id}'/>#{procedure.name}</label>"
      end
    end
 

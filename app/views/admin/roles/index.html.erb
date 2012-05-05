@@ -1,10 +1,8 @@
-<h1>角色列表</h1>
-
-<div class="grid_button">
-  <%= link_to '新建', new_admin_role_path if can? :create, :Role %>
+<div class="form-actions">
+  <%= link_to "<i class='icon-plus-sign'></i> 新建员工角色".html_safe, new_admin_role_path, :class => "btn btn-primary" if can? :create, Role %>
 </div>
 
-<table class="grid">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>
@@ -12,8 +10,7 @@
       <th><%= t 'attributes.role.name' %></th>
       <th><%= t 'attributes.role.description' %></th>
       <th><%= t 'attributes.role.is_reserve' %></th>
-      <th><%= t 'attributes.role.set_procedure_permission' %></th>
-      <th></th>
+      <th>操作</th>
     </tr>
   </thead>
 <% @roles.each_with_index do |role,index| %>
@@ -23,8 +20,10 @@
     <td><%= role.name %></td>
     <td><%= role.description %></td>
     <td><%= format_boolean(role.is_reserve) %></td>
-    <td><%= link_to '设置启动流程权限', new_admin_procedure_roleship_path(:id=>role) if can? :manage, ProcedureRoleship%></td>
-    <td><%= link_to '修改', edit_admin_role_path(role) if can? :update, Role %></td>
+    <td>
+      <%= link_to '设置启动流程权限', new_admin_procedure_roleship_path(:id=>role), :class => "btn btn-primary trk-btn-short" if can? :manage, ProcedureRoleship%>
+      <%= link_to '修改', edit_admin_role_path(role), :class => "btn btn-primary trk-btn-short" if can? :update, Role %>
+    </td>
   </tr>
 <% end %>
 </table>
