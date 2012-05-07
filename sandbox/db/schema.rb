@@ -282,13 +282,6 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
     t.datetime "created_at"
   end
 
-  create_table "industries", :force => true do |t|
-    t.string   "name"
-    t.integer  "sequence"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "inner_order_addresses", :force => true do |t|
     t.string   "name"
     t.string   "district_no"
@@ -1065,6 +1058,13 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
   add_index "taurus_company_extends", ["taurus_district_id"], :name => "index_taurus_company_extends_on_taurus_district_id"
   add_index "taurus_company_extends", ["taurus_industry_id"], :name => "index_taurus_company_extends_on_taurus_industry_id"
   add_index "taurus_company_extends", ["updated_by"], :name => "index_taurus_company_extends_on_updated_by"
+
+  create_table "taurus_company_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "sequence"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "taurus_components", :force => true do |t|
     t.integer  "system_id"

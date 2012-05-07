@@ -118,13 +118,21 @@
   name: '基础管理'
   functions:
     - id: 0201
-      name: '行业信息管理'
+      name: '行业类别管理'
       url: '/admin/industries'
       operations: 
         - id: 020101
           name: '查询'
           action: ':read'
           subject_class: 'Industry' 
+    - id: 0202
+      name: '企业类型管理'
+      url: '/admin/company_types'
+      operations: 
+        - id: 020201
+          name: '查询'
+          action: ':read'
+          subject_class: 'CompanyType'       
     - id: 7
       name: '销售订单流程维护'
       url: '/admin/procedures'

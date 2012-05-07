@@ -1,0 +1,28 @@
+<div class="grid_button">
+  <%= link_to '新增企业类型', new_admin_company_type_path %>
+</div>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>名称</th>
+      <th>顺序</th>
+      <th></th>
+    </tr>
+  </thead>
+  
+<% @company_types.each_with_index do |company_type,index| %>
+  <tr class="<%= cycle "odd", "even" %>">
+    <td><%= index+1 %></td>
+    <td><%= company_type.name %></td>
+    <td><%= company_type.sequence %></td>
+    <td><%= link_to '修改', edit_admin_company_type_path(company_type) %></td>
+  </tr>
+<% end %>
+<tfoot>
+  <tr><td colspan="4"><%= will_paginate @company_types %></td></tr>
+</tfoot>
+</table>
+
+
