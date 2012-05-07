@@ -5,6 +5,6 @@ module Taurus
 	  has_many :procedures, :through => :procedure_roleships
 	  scope :reserved, where(:is_reserved => true)
     
-    validates_presence_of :name, :is_reserved
+    validates_presence_of :name
 	end
 end

@@ -22,11 +22,9 @@ module Taurus
       end
 
       def create
-        @user = User.new params[:user]
-        @user.user_type = 2
+        @company_extend = CompanyExtend.new params[:company_extend]
 
-        if @user.save
-          @user.update_attribute(:confirmed_at, Time.now)
+        if @company_extend.save
           redirect_to admin_company_extends_url
         else
           render :action => "new"

@@ -143,13 +143,6 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
 
   add_index "company_extends", ["user_id"], :name => "index_company_extends_on_user_id"
 
-  create_table "company_scales", :force => true do |t|
-    t.string   "name"
-    t.integer  "sequence"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "conditions", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -1022,6 +1015,18 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
     t.datetime "updated_at"
   end
 
+  create_table "taurus_cities", :force => true do |t|
+    t.integer  "taurus_province_id"
+    t.string   "name"
+    t.string   "number"
+    t.decimal  "free_shipping_limit", :precision => 8, :scale => 2
+    t.decimal  "shipping_fee",        :precision => 8, :scale => 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taurus_cities", ["taurus_province_id"], :name => "index_taurus_cities_on_taurus_province_id"
+
   create_table "taurus_company_extends", :force => true do |t|
     t.string   "number"
     t.string   "name"
@@ -1074,6 +1079,18 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
     t.datetime "created_at"
   end
 
+  create_table "taurus_districts", :force => true do |t|
+    t.integer  "taurus_city_id"
+    t.string   "name"
+    t.string   "number"
+    t.decimal  "free_shipping_limit", :precision => 8, :scale => 2
+    t.decimal  "shipping_fee",        :precision => 8, :scale => 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taurus_districts", ["taurus_city_id"], :name => "index_taurus_districts_on_taurus_city_id"
+
   create_table "taurus_groups", :force => true do |t|
     t.string   "name"
     t.string   "description"
@@ -1101,6 +1118,15 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
   create_table "taurus_industries", :force => true do |t|
     t.string   "name"
     t.integer  "sequence"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "taurus_provinces", :force => true do |t|
+    t.string   "number"
+    t.string   "name"
+    t.decimal  "free_shipping_limit", :precision => 8, :scale => 2
+    t.decimal  "shipping_fee",        :precision => 8, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end

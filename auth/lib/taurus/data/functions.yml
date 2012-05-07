@@ -2,7 +2,7 @@
   name: '权限认证管理'
   functions: 
     - id: 0801
-      name: '员工账户维护'
+      name: '员工账户管理'
       url: '/admin/administrators'
       operations: 
         - id: 080101
@@ -15,7 +15,7 @@
           action: '[:create,:update,:manage]'
           subject_class: '[Administrator,AdministratorGroupship]'
     - id: 0802
-      name: '员工组维护'
+      name: '员工组管理'
       url: '/admin/groups'
       operations: 
         - id: 080201
@@ -28,7 +28,7 @@
           action: '[:create,:update]'
           subject_class: 'Group'
     - id: 0803
-      name: '会员角色维护'
+      name: '会员角色管理'
       url: '/admin/roles'
       operations: 
         - id: 080301
@@ -41,7 +41,7 @@
           action: '[:create,:update,:manage]'
           subject_class: '[Role,ProcedureRoleship]'
     - id: 0804
-      name: '企业会员维护'
+      name: '企业会员管理'
       url: '/admin/company_extends'
       operations: 
         - id: 080401
@@ -59,7 +59,7 @@
           action: ':points'
           subject_class: 'CompanyExtend'
     - id: 0805
-      name: '个人会员维护'
+      name: '个人会员管理'
       url: '/admin/person_extends'
       operations: 
         - id: 080501
@@ -77,7 +77,7 @@
           action: ':points'
           subject_class: 'PersonExtend'
     - id: 0806
-      name: '员工组权限维护'
+      name: '员工组权限管理'
       url: '/admin/permissions'
       operations: 
         - id: 080601
