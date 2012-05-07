@@ -1,0 +1,6 @@
+<%= simple_form_for([:admin, @company_scale])  do |f| %>
+	<%= f.error_notification %>
+	<%= f.input :name %>
+	<%= f.input :sequence %>
+	<%= f.button :submit %>
+<% end %>

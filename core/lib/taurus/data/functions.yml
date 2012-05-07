@@ -132,7 +132,15 @@
         - id: 020201
           name: '查询'
           action: ':read'
-          subject_class: 'CompanyType'       
+          subject_class: 'CompanyType'
+    - id: 0203
+      name: '企业规模管理'
+      url: '/admin/company_scales'
+      operations: 
+        - id: 020301
+          name: '查询'
+          action: ':read'
+          subject_class: 'CompanyScale'              
     - id: 7
       name: '销售订单流程维护'
       url: '/admin/procedures'

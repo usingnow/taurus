@@ -2,6 +2,7 @@ Taurus::Core::Engine.routes.draw do
   namespace :admin do 
     resources :industries
     resources :company_types
+    resources :company_scales
   end
 	
 =begin

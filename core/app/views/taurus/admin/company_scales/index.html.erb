@@ -1,0 +1,25 @@
+<div class="grid_button">
+  <%= link_to '新增规模', new_admin_company_scale_path %>
+</div>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>名称</th>
+      <th>顺序</th>
+      <th></th>
+    </tr>
+  </thead>
+  
+<% @company_scales.each_with_index do |company_scale,index| %>
+  <tr class="<%= cycle "odd", "even" %>">
+    <td><%= index+1 %></td>
+    <td><%= company_scale.name %></td>
+    <td><%= company_scale.sequence %></td>
+    <td><%= link_to '修改', edit_admin_company_scale_path(company_scale) %></td>
+  </tr>
+<% end %>
+</table>
+
+
