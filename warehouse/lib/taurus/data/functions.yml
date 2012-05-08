@@ -1,0 +1,50 @@
+- id: 05
+  name: '库管'
+  functions: 
+    - id: 0501
+      name: '仓库信息维护'
+      url: '/admin/stores'
+      operations: 
+        - id: 050101
+          name: '查询'
+          action: ':read'
+          subject_class: 'Store'
+      operations: 
+        - id: 050102
+          name: '管理'
+          action: '[:create,:update,:destroy]'
+          subject_class: 'Store'
+    - id: 0502
+      name: '入库单'
+      url: '/admin/store_entries'
+      operations: 
+        - id: 050201
+          name: '查询'
+          action: ':read'
+          subject_class: 'StoreEntry'
+      operations: 
+        - id: 050202
+          name: '管理'
+          action: '[:create,:update]'
+          subject_class: 'StoreEntry'
+    - id: 0503
+      name: '库存查看'
+      url: '/admin/product_storeships'
+      operations: 
+        - id: 050301
+          name: '查询'
+          action: ':read'
+          subject_class: 'ProductStoreship'
+    - id: 0504
+      name: '出库单'
+      url: '/store/delivery_orders'
+      operations: 
+        - id: 050401
+          name: '查询'
+          action: ':read'
+          subject_class: 'DeliveryOrder'
+      operations: 
+        - id: 050402
+          name: '管理'
+          action: ':create'
+          subject_class: 'DeliveryOrder'

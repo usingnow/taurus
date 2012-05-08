@@ -1,0 +1,150 @@
+<div id="alert"><%= alert %></div>
+<div id="sku_details_wrapper">
+  <p class="sku_details_nav">您的位置：
+    <a href="/sandbox/app/assets/javascripts">首页</a> >>
+    <%=raw current_category_site %>
+    <%= @sku.name %>
+  </p>
+  <h1><%= @sku.name %></h1>
+  <div id="sku_details_picture">
+    <a href="<%= @sku.main_img(:style => :normal) %>" class="jqzoom" rel='gal1' title="<%= @sku.name %>">
+      <%= image_tag @sku.main_img(:style => :s400), :width => "400px", :height => "400px", :title => "#{@sku.name}" %>
+    </a>
+    <div id="controller_pane">
+      <div id="controller_handler_center">
+        <ul id="sku_carousel" class="h_ul jcarousel-skin-tango">
+          <% @sku.sku_images.each_with_index do |sku_image,index| %>
+            <li class="h_li h_padding_5">
+              <a <% if index == 0 %> class="zoomThumbActive" <% end %> href='javascript:void(0);'
+                 rel="{gallery: 'gal1', smallimage: '<%= sku_image.image.url(:s400) %>',largeimage: '<%= sku_image.image.url(:normal) %>'}">
+                <%= image_tag sku_image.image.url(:s50), :width => "50px", :height => "50px" %>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="sku_basic_info">
+    <p class="ad"><%= @sku.advertisement %></p>
+    <p class="p_1">商品编号：</p>
+    <p class="p_2"><%= @sku.number %></p>
+    <p class="p_3">商品型号：</p>
+    <p class="p_4"><%= @sku.model %></p>
+    <p class="p_5">品牌：</p>
+    <p class="p_6"><%= @sku.brand.chinese_name %></p>
+    <p class="p_1">颜色：</p>
+    <p class="p_2"><%= @sku.color %></p>
+    <p class="p_3">尺寸：</p>
+    <p class="p_4"><%= @sku.size %></p>
+    <p class="p_5">销售单位：</p>
+    <p class="p_6"><%= @sku.unit %></p>
+    <p class="p_1">市场价格：</p>
+    <p class="p_2"><strong><%= grey_cny @sku.market_price %></strong></p>
+    <p class="p_3">商品价格：</p>
+    <p class="p_4"><strong><%= cny @sku.cost_aft_tax %></strong></p>
+    <!--<p class="p_5">优惠价格：</p>
+    <p class="p_6"><strong></strong></p>-->
+    <p class="p_1 clear">库存：</p>
+    <p><%= get_sku_inventory(@sku) %></p>
+    <p>（如果缺货，请咨询<em>400-630-5006</em>）</p>
+    
+    <p style="clear: both;">
+      <% 5.times.each do |t| %>
+        <%= radio_button_tag :sku_star, nil, (t+1 == @sku.average_rating ? true : false), :class => "star", :disabled => "disabled" %>
+      <% end %>
+     （已有<%= @sku.customer_ratings.count %>人评价）
+    </p>
+    
+    <p class="p_1 clear">活动信息：</p>
+    <ul id="sku_details_promotion">
+      <% @online_promotions.each do |o| %>
+        <li><%= o.title[0,40] %></li>
+      <% end %>
+    </ul>
+    <!-- Start with cart in the SKU_Details page -->
+    <div id="sku_details_cart">
+      <%= hidden_field_tag :sku_id, @sku.id %>
+      <label>订购数量：</label>
+      <button id="minus" type="button">-</button>
+      <%= text_field_tag :quantity, 1, :id => "sku_quantity" %>
+      <button id="plus" type="button">+</button>
+      <div></div>
+      <% if @sku.status == 1 %>
+        <input type="button" class="add_to_cart" id="add_to_cart" value="添加到购物车"/>
+      <% else %>
+        <input type="button" class="add_to_cart_grey" value="添加到购物车"/>
+      <% end %>
+      <button id="add_to_favorite" class="add_to_fav">收藏</button>
+    </div>
+    <!--添加购物车成功信息 开始-->
+    <div id="add_successful">
+    </div>
+    <!--添加购物车成功信息 结束-->
+  </div>
+  <div id="sku_information" class="sku_long">
+    <h3>商品介绍</h3>
+    <%=raw @sku.description %>
+  </div>
+  <div id="sku_browser_history" class="sku_long">
+    <h3>浏览过的商品</h3>
+    <ul>
+      <% @sku_browsing_histories.each do |history| %>
+        <li>
+          <p>
+            <%= link_to (image_tag history.sku.main_img, :width => "120px", :height => "120px;"),
+                        commodity_sku_detail_path(history.sku_id), :class => "white", :target => "_blank" %>
+          </p>
+          <p class="overflow_text">
+            <%= link_to history.sku.name, commodity_sku_detail_path(history.sku_id), :target => "_blank" %>
+          </p>
+          <!--<p>市场价：&yen;99999.00</p>-->
+          <p>
+            <em class="cny"><%= cny history.sku.cost_aft_tax %></em>
+          </p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div id="sku_comments" class="sku_long">
+    <h3>商品评论</h3>
+    <% @sku.customer_ratings.index_display.each do |rating| %>
+      <div class="item">
+        <div class="topic">
+          <span>
+            <% 5.times.each do |t| %>
+              <%= radio_button_tag :"star#{rating.id}", nil, (t+1 == rating.rating ? true : false), :class => "star", :disabled => "disabled" %>
+            <% end %>
+          </span>
+          <span class="date"><%= rating.created_at %></span>
+        </div>
+        <div class="content">
+           <%= rating.comment %>
+        </div>
+        <% if rating.reply %>
+          <div class="reply">
+            <span>客服回复：</span>
+            <span>
+              <%= rating.reply %>
+            </span>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <%= form_for @customer_rating, :url => commodity_sku_detail_customer_ratings_path(@sku), :html => {:class => "comment_form"} do |f| %>
+        <%= f.radio_button :rating, 1, :class => "star required" %>
+        <%= f.radio_button :rating, 2, :class => "star" %>
+        <%= f.radio_button :rating, 3, :class => "star" %>
+        <%= f.radio_button :rating, 4, :class => "star" %>
+        <%= f.radio_button :rating, 5, :class => "star", :checked => true %>
+        <span class="comment_info">（请选择您的评分）</span>
+        <%= f.text_area :comment, :cols => 80, :rows => 5, :class => "comment_textarea" %>
+        <%= f.submit "提交", :class => "comment_submit" %>
+      <% end %>
+    <% else %>
+      <%= link_to "评论请先登录", new_user_session_path %>
+    <% end %>
+  </div>
+</div>

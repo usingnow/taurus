@@ -1,0 +1,13 @@
+<%= simple_form_for([:admin,@role], :html => {:class => 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+  
+  <fieldset>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :is_reserved, :as => :boolean %>
+
+    <div class="form-actions">
+      <%= f.button :submit, :class => "btn btn-primary" %>
+    </div>
+  </fieldset>
+<% end %>

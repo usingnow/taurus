@@ -1,0 +1,473 @@
+zh-CN:
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%b%d日"
+      long: "%Y年%b%d日"
+    day_names:
+      - 星期日
+      - 星期一
+      - 星期二
+      - 星期三
+      - 星期四
+      - 星期五
+      - 星期六
+    abbr_day_names:
+      - 日
+      - 一
+      - 二
+      - 三
+      - 四
+      - 五
+      - 六
+    month_names:
+      - ~
+      - 一月
+      - 二月
+      - 三月
+      - 四月
+      - 五月
+      - 六月
+      - 七月
+      - 八月
+      - 九月
+      - 十月
+      - 十一月
+      - 十二月
+    abbr_month_names:
+      - ~
+      - 1月
+      - 2月
+      - 3月
+      - 4月
+      - 5月
+      - 6月
+      - 7月
+      - 8月
+      - 9月
+      - 10月
+      - 11月
+      - 12月
+    order:
+      - :year
+      - :month
+      - :day
+
+  time:
+    formats:
+      default: "%Y年%b%d日 %A %H:%M:%S %Z"
+      short: "%b%d日 %H:%M"
+      long: "%Y年%b%d日 %H:%M"
+    am: "上午"
+    pm: "下午"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "半分钟"
+      less_than_x_seconds:
+        one: "不到一秒"
+        other: "不到 %{count} 秒"
+      x_seconds:
+        one: "一秒"
+        other: "%{count} 秒"
+      less_than_x_minutes:
+        one: "不到一分钟"
+        other: "不到 %{count} 分钟"
+      x_minutes:
+        one: "一分钟"
+        other: "%{count} 分钟"
+      about_x_hours:
+        one: "大约一小时"
+        other: "大约 %{count} 小时"
+      x_days:
+        one: "一天"
+        other: "%{count} 天"
+      about_x_months:
+        one: "大约一个月"
+        other: "大约 %{count} 个月"
+      x_months:
+        one: "一个月"
+        other: "%{count} 个月"
+      about_x_years:
+        one: "大约一年"
+        other: "大约 %{count} 年"
+      over_x_years:
+        one: "一年多"
+        other: "%{count} 年多"
+      almost_x_years:
+        one:   "接近一年"
+        other: "接近 %{count} 年"
+    prompts:
+      year:   "年"
+      month:  "月"
+      day:    "日"
+      hour:   "时"
+      minute: "分"
+      second: "秒"
+
+  number:
+    format:
+      separator: "."
+      delimiter: ","
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false
+    currency:
+      format:
+        format: "%u %n"
+        unit: "CN¥"
+        separator: "."
+        delimiter: ","
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: false
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "千" # 10^3 kilo
+          million: "百万" # 10^6 mega
+          billion: "十亿" # 10^9 giga
+          trillion: "兆" # 10^12 tera
+          quadrillion: "千兆" # 10^15 peta
+          # 10^18 exa, 10^21 zetta, 10^24 yotta
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " 和 "
+      last_word_connector: ", 和 "
+    select:
+      prompt: "请选择"
+
+  errors:
+    format: "%{attribute} %{message}"
+    messages: &errors_messages
+      inclusion: "不包含于列表中"
+      exclusion: "是保留关键字"
+      invalid: "是无效的"
+      confirmation: "与确认值不匹配"
+      accepted: "必须是可被接受的"
+      empty: "不能留空"
+      blank: "不能为空字符"
+      email: "格式错误"
+      too_long: "过长（最长为 %{count} 个字符）"
+      too_short: "过短（最短为 %{count} 个字符）"
+      wrong_length: "长度非法（必须为 %{count} 个字符）"
+      not_a_number: "不是数字"
+      not_an_integer: "必须是整数"
+      greater_than: "必须大于 %{count}"
+      greater_than_or_equal_to: "必须大于或等于 %{count}"
+      equal_to: "必须等于 %{count}"
+      less_than: "必须小于 %{count}"
+      less_than_or_equal_to: "必须小于或等于 %{count}"
+      odd: "必须为单数"
+      even: "必须为双数"
+      taken: "已经被使用"
+      record_invalid: "验证失败: %{errors}"
+    template: &errors_template
+      header:
+        one: "有 1 个错误发生导致「%{model}」无法被保存。"
+        default: "有如下错误发生,请查看。"
+        other: "有 %{count} 个错误发生导致「%{model}」无法被保存。"
+      body: "如下字段出现错误："
+
+  models: &models
+    brand: "品牌"
+    company_extend: "企业会员"
+    delivery_order: "出库单"
+    esc: "升级单"
+    person_extend: "个人会员"
+    panic_buying: "疯狂抢购"
+    procedure: "流程"
+    product: "素材商品"
+    product_category: "素材商品分类"
+    sku_productship: "媒体商品组成"
+    sku_image: "媒体商品相册"
+    station: "站别"
+    station_procedureship: "流程规则"
+
+
+  attributes: &attributes
+    brand:
+      chinese_name: "中文名称"
+      english_name: "英文名称"
+      pinyin: "拼音"
+      web_address: "网址"
+      image: "图片"
+      active: "状态"
+      create_by: "创建者"
+      update_by: "更新者"
+      updated_at: "更新时间"
+      company_name: "公司名称"
+      company_introduction: "公司简介"
+
+    company_extend:
+      company_no: "会员编号"
+      company_name: "公司名称"
+      industry_type_id: "行业类别"
+      email: "邮箱"
+      district_no: "公司所属地"
+      address: "公司详细地址"
+      company_type_id: "公司性质"
+      company_scale_id: "公司规模"
+      web_address: "公司网址"
+      name: "联系人姓名"
+      phone: "电话"
+      mobile: "手机"
+      sex: "性别"
+      contact_dept: "联系人部门"
+      contact_post: "联系人职位"
+      fax: "传真"
+      zip: "邮编"
+
+      #扩展属性
+      email_confirmation: "确认邮箱"
+
+    delivery_order:
+      store_id: "仓库"
+      line_type: "出库方式"
+
+    esc:
+      number: "编号"
+      esc_category_id: "类型"
+      user_id: "会员登录名"
+      status: "状态"
+      order_id: "订单编号"
+      not_registration_user_info: "非注册会员信息"
+      user_other_info: "会员其他信息"
+      title: "标题"
+      description: "详细内容"
+
+    product:
+      product_id: "素材商品编号"
+      name: "素材商品名"
+      cost_bef_tax: "税前成本"
+      cost_aft_tax: "税后成本"
+      brand_id: "品牌ID"
+      brand_name: "品牌名称"
+      supplier_name: "供应商名称"
+      product_category_id: "素材商品分类id"
+      product_category_name: "素材分类名称"
+      unit:  "库存单位"
+      specification: "素材商品规格"
+      delivery_days: "供应商交货日数"
+      type: "商品类型区分"
+      model: "素材商品型号"
+      size: "素材商品尺寸"
+      delivery_descprition: "交货描述"
+      description: "素材商品描述"
+      color: "素材商品颜色"
+      can_on_behalf: "代购品区分"
+      barcode: "素材商品条码"
+
+      #供应商、产地、质保、保修、附属品信息
+      supplier_id: "供应商id"
+      manufacturer: "生产厂家"
+      have_shelf_life: "是否有质保期"
+      shelf_life: "质保期(天)"
+      have_wanrranty: "是否有保修期"
+      wanrranty: "保修期"
+      wanrranty_description: "保修期描述"
+      origin: "原产地"
+      appendant: "附属品"
+      is_green: "绿色环保产品"
+
+      #素材商品组装、安装、维修费用信息
+      is_assembling_required: "是否需要组装"
+      assembling_fee_bef_tax: "税前组装费"
+      assembling_fee_aft_tax: "税后组装费"
+      is_maintanable: "是否可维修商品"
+      maintenance_cost_bef_tax: "税前维护手续费"
+      maintenance_cost_aft_tax: "税后维护手续费"
+      is_installation_required: "安装区分"
+      installation_cost_bef_tax: "税前安装费用"
+      insatllation_cost_aft_tax: "税后安装费用"
+
+      #素材商品管理相关记录
+      created_by: "创建人"
+      updated_by: "更新人"
+      updated_at: "更新时间"
+
+      #扩展属性
+      product_list: "素材商品列表"
+      brand_chinese_name: "品牌中文名称"
+
+    product_category:
+      parent_id: "父ID"
+      number: "编号"
+      name: "名称"
+      description: "描述"
+      create_by: "创建者"
+      update_by: "更新者"
+      updated_at: "更新时间"
+
+
+    sku_productship:
+      product_id: "素材商品ID"
+      package_num: "包装数量"
+      package_name: "包装名称"
+      sales_bef_tax: "销售价格(税前)"
+      sales_aft_tax: "销售价格(税后)"
+      is_main: "是否主商品"
+
+    sku_image:
+      name: "图片名称"
+      image_description: "图片描述"
+      is_main: "是否主图片"
+      sort: "显示顺序"
+      image: "图片"
+
+    person_extend:
+      name: "真实姓名"
+      email: "邮箱"
+      person_no: "会员编号"
+      role: "角色"
+      sex: "性别"
+      birth: "出生日期"
+      district_no: "所属地区"
+      phone: "联系电话"
+      address: "联系地址"
+      post: "邮政编码"
+
+
+      #扩展属性
+      email_confirmation: "确认邮箱"
+
+
+
+    procedure:
+      id: "流程ID"
+      name: "流程名称"
+      display_name: "显示名称"
+      active: "是否启用"
+      sequence: "次序"
+
+    station:
+      id: "站别ID"
+      name: "站别名称"
+      display_name: "显示名称"
+      condition_function: "条件函数"
+      business_function: "逻辑函数"
+      station_type: "站点类型"
+      sequence: "次序"
+      safe_quantity: "安全数量"
+
+    station_procedureship:
+      station_id: "当前站"
+      condition_id: "过站参数"
+      next_station_id: "下一站"
+      business_function_id: "业务函数"
+      procedure_id: "流程名称"
+      order_oper_url: "操作地址"
+      target: "打开页面方式"
+      width: "宽度"
+      height: "高度"
+      sequence: "次序"
+      sub_sequence: "子次序"
+      active: "启用该规则"
+
+    order_pay:
+      buyer_alipay_no: "买家支付宝帐号"
+      alipay_no: "支付宝交易号"
+      alipay_price: "支付宝交易金额"
+      remittance_no: "交易流水号"
+      status: "支付状态"
+      province_no: "汇出地"
+      alipay_date: "汇款日期"
+      pay_bank: "交易行名"
+      price: "付款金额"
+      remitter: "汇款人姓名"
+      bank_id: "汇入银行"
+      note: "汇款备注"
+
+    inner_order_address:
+      mobile: "手机"
+
+    online_promotion:
+      code: "活动编号"
+      title: "活动名称"
+      online_promotionable_type: "活动范围"
+      promotion_type: "活动类型"
+      start: "开始时间"
+      end: "结束时间"
+      description: "活动说明"
+      min_member_point: "用户最小积分"
+      sign_up_time_limit: "用户注册日期"
+      member_sign_up_start: "起始日期"
+      member_sign_up_end: "结束日期"
+      member_type: "会员范围"
+      order_channel: "订单方式"
+      procedure_id: "付款方式"
+      promotion_members: "特定会员"
+      free_installation: "免除安装费"
+      free_assembling: "免除组装费"
+      points_promotion_method: "积分奖励"
+      sku_id: "礼品"
+      status: "活动状态"
+
+
+  helpers:
+    select:
+      prompt: "请选择"
+    submit:
+      create: "新增%{model}"
+      update: "更新%{model}"
+      submit: "储存%{model}"
+
+  #will_paginate
+  will_paginate:
+    previous_label: "上一页"
+    next_label: "下一页"
+    page_gap: "&hellip;"
+
+
+  admin:
+    misc:
+      remove: "删除"
+      add_new: "添加"
+      search: "查询"
+      preview: "%{model}预览"
+      submit: "提交"
+      save: "保存"
+      operation: "操作"
+      back: "返回"
+    actions:
+      index:
+        title: "%{model}列表"
+      show:
+        title: "%{model} '%{object_label}'明细"
+        menu: "显示"
+      new:
+        title: "新建%{model}"
+        menu: "新建"
+      edit:
+        title: "修改%{model}"
+        menu: "修改"
+      delete:
+        title: "删除%{model_label} '%{object_label}'"
+        menu: "删除"
+        confirm: "确定删除？"
+

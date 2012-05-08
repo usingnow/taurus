@@ -1,0 +1,19 @@
+zh-CN:
+  activerecord:
+    models:
+      taurus/image: "图片"
+      taurus/announcement: "公告"
+    attributes:
+      taurus/image:
+        page: "页面"
+        location: "位置"
+        image: "图片"
+        line_type: "内容类型"
+        href: "链接地址"
+
+      taurus/announcement:
+        title: "短标题"
+        internal_title: "长标题"
+        description: "内容"  
+
+

@@ -1,0 +1,33 @@
+<%= simple_form_for([:admin,@image]) do |f| %>
+  <%= f.error_notification %>
+  
+  <div class="attributes">
+    <%= f.input :page do
+      f.collection_select :page, @image.page_enum , :first, :second, :checked => 0
+    end %>
+    <%= f.input :location do %>
+      <%= f.collection_select :location, @image.location_enum(0) , :first, :second, :checked => 0 %>
+      <em  class="instruction">请参照右图设置位置 --> </em>
+    <% end %>
+
+    <%= f.input :image %>
+    <%= f.input :line_type do
+      f.collection_radio :line_type, @image.line_type_enum, :first, :last, :checked => 0
+    end%>
+
+    <%= f.input :href, :hint => "如：http://www.google.com" %>
+
+
+    <%= f.cktext_area :description, :toolbar=>'Full', :width=>'65%', :height=>'300px' %>
+  </div>
+
+  <%= image_tag "/assets/taurus/admin/images/homepage_cms.png", :class => "cms_layout_indicator", :id => "cms_image" %>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+
+

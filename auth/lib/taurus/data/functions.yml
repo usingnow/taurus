@@ -1,0 +1,91 @@
+- id: 08
+  name: '权限认证管理'
+  functions: 
+    - id: 0801
+      name: '员工账户管理'
+      url: '/admin/administrators'
+      operations: 
+        - id: 080101
+          name: '查询'
+          action: ':read'
+          subject_class: 'Administrator'
+      operations: 
+        - id: 080102
+          name: '管理'
+          action: '[:create,:update,:manage]'
+          subject_class: '[Administrator,AdministratorGroupship]'
+    - id: 0802
+      name: '员工组管理'
+      url: '/admin/groups'
+      operations: 
+        - id: 080201
+          name: '查询'
+          action: ':read'
+          subject_class: 'Group'
+      operations: 
+        - id: 080202
+          name: '管理'
+          action: '[:create,:update]'
+          subject_class: 'Group'
+    - id: 0803
+      name: '会员角色管理'
+      url: '/admin/roles'
+      operations: 
+        - id: 080301
+          name: '查询'
+          action: ':read'
+          subject_class: 'Role'
+      operations: 
+        - id: 080302
+          name: '管理'
+          action: '[:create,:update,:manage]'
+          subject_class: '[Role,ProcedureRoleship]'
+    - id: 0804
+      name: '企业会员管理'
+      url: '/admin/company_extends'
+      operations: 
+        - id: 080401
+          name: '查询'
+          action: ':read'
+          subject_class: 'CompanyExtend'
+      operations: 
+        - id: 080402
+          name: '管理'
+          action: '[:create,:update]'
+          subject_class: 'CompanyExtend'
+      operations: 
+        - id: 080403
+          name: '积分修改'
+          action: ':points'
+          subject_class: 'CompanyExtend'
+    - id: 0805
+      name: '个人会员管理'
+      url: '/admin/person_extends'
+      operations: 
+        - id: 080501
+          name: '查询'
+          action: ':read'
+          subject_class: 'PersonExtend'
+      operations: 
+        - id: 080502
+          name: '管理'
+          action: '[:create,:update]'
+          subject_class: 'PersonExtend'
+      operations: 
+        - id: 080503
+          name: '积分修改'
+          action: ':points'
+          subject_class: 'PersonExtend'
+    - id: 0806
+      name: '员工组权限管理'
+      url: '/admin/permissions'
+      operations: 
+        - id: 080601
+          name: '查询'
+          action: ':read'
+          subject_class: 'Permission'
+      operations: 
+        - id: 080602
+          name: '管理'
+          action: '[:create,:procedure_create]'
+          subject_class: 'Permission'

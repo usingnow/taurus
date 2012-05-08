@@ -1,0 +1,23 @@
+<%= simple_form_for([:admin,@administrator], :html => {:class => 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+
+  <fieldset>
+    <%= f.input :email %>
+    <%= f.input :password if @administrator.id.nil? %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :phone %>
+    <%= f.input :fax %>
+    <%= f.input :mobile %>
+    <%= f.input :zip_code %>
+    <%= f.input :status, :as => :boolean %>
+
+    <div class="form-actions">
+      <%= f.button :submit, :class => "btn btn-primary" %>
+    </div>
+  </fieldset>
+<% end %>
+
+
+
+

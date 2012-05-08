@@ -1,0 +1,305 @@
+- id: 1
+  name: '商品管理'
+  functions: 
+    - id: 10
+      name: '供应商信息'
+      url: '/admin/suppliers'
+      operations: 
+        - id: 13
+          name: '查询'
+          action: ':read'
+          subject_class: 'Supplier'
+      operations: 
+        - id: 46
+          name: '管理'
+          action: '[:create,:update]'
+          subject_class: 'Supplier'
+    - id: 11
+      name: '品牌信息'
+      url: '/admin/brands'
+      operations: 
+        - id: 14
+          name: '查询'
+          action: ':read'
+          subject_class: 'Brand'
+      operations: 
+        - id: 48
+          name: '管理'
+          action: '[:create,:update]'
+          subject_class: 'Brand'
+    - id: 12
+      name: '素材商品分类'
+      url: '/admin/product_categories'
+      operations: 
+        - id: 15
+          name: '查询'
+          action: ':read'
+          subject_class: 'ProductCategory'
+      operations: 
+        - id: 49
+          name: '管理'
+          action: '[:create,:update]'
+          subject_class: 'ProductCategory'
+    - id: 13
+      name: '素材商品'
+      url: '/admin/products'
+      operations: 
+        - id: 16
+          name: '查询'
+          action: ':read'
+          subject_class: 'Product'
+      operations: 
+        - id: 50
+          name: '管理'
+          action: '[:create,:update]'
+          subject_class: 'Product'
+    - id: 14
+      name: '媒体商品分类'
+      url: '/admin/sku_categories'
+      operations: 
+        - id: 17
+          name: '查询'
+          action: ':read'
+          subject_class: 'SkuCategory'
+      operations: 
+        - id: 51
+          name: '管理'
+          action: '[:create,:update]'
+          subject_class: 'SkuCategory'
+    - id: 15
+      name: '媒体商品'
+      url: '/commodity/admin/skus'
+      operations: 
+        - id: 18
+          name: '查询'
+          action: ':read'
+          subject_class: 'Sku'
+      operations: 
+        - id: 52
+          name: '管理'
+          action: '[:create,:update,:manage]'
+          subject_class: '[Sku,SkuProductship]'
+      operations: 
+        - id: 53
+          name: '销售状态'
+          action: ':update_status'
+          subject_class: 'Sku'
+      operations: 
+        - id: 54
+          name: '上架查询'
+          action: ':read'
+          subject_class: 'SkuOnShelf'
+      operations: 
+        - id: 55
+          name: '上架时间添加'
+          action: ':create'
+          subject_class: 'SkuOnShelf'
+      operations: 
+        - id: 56
+          name: '上架状态修改'
+          action: ':update'
+          subject_class: 'SkuOnShelf'
+      operations: 
+        - id: 57
+          name: '上架时间删除'
+          action: ':destroy'
+          subject_class: 'SkuOnShelf'
+      operations: 
+        - id: 67
+          name: '相册查看'
+          action: ':read'
+          subject_class: 'SkuImage'
+      operations: 
+        - id: 68
+          name: '相册管理'
+          action: '[:create,:update,:destroy]'
+          subject_class: 'SkuImage'
+- id: 02
+  name: '基础管理'
+  functions:
+    - id: 0201
+      name: '行业类别管理'
+      url: '/admin/industries'
+      operations: 
+        - id: 020101
+          name: '查询'
+          action: ':read'
+          subject_class: 'Industry' 
+    - id: 0202
+      name: '企业类型管理'
+      url: '/admin/company_types'
+      operations: 
+        - id: 020201
+          name: '查询'
+          action: ':read'
+          subject_class: 'CompanyType'
+    - id: 0203
+      name: '企业规模管理'
+      url: '/admin/company_scales'
+      operations: 
+        - id: 020301
+          name: '查询'
+          action: ':read'
+          subject_class: 'CompanyScale'              
+    - id: 7
+      name: '销售订单流程维护'
+      url: '/admin/procedures'
+      operations: 
+        - id: 10
+          name: '查询'
+          action: ':read'
+          subject_class: 'Procedure'
+      operations: 
+        - id: 62
+          name: '管理'
+          action: '[:create,:update]'
+          subject_class: 'Procedure'
+    - id: 8
+      name: '销售订单站别维护'
+      url: '/admin/stations'
+      operations: 
+        - id: 11
+          name: '查询'
+          action: ':read'
+          subject_class: 'Station'
+      operations: 
+        - id: 63
+          name: '管理'
+          action: '[:create,:update]'
+          subject_class: 'Station'
+    - id: 9
+      name: '销售订单规则维护'
+      url: '/admin/station_procedureships'
+      operations: 
+        - id: 26
+          name: '查询'
+          action: ':read'
+          subject_class: 'StationProcedureship'
+      operations: 
+        - id: 64
+          name: '管理'
+          action: '[:create,:update]'
+          subject_class: 'StationProcedureship'
+- id: 3
+  name: '呼叫中心'
+  functions: 
+    - id: 16
+      name: '升级单管理'
+      url: '/admin/escs'
+      operations: 
+        - id: 19
+          name: '管理'
+          action: ':manage'
+          subject_class: 'Esc'
+    - id: 17
+      name: '在线订单'
+      url: '/admin/orders'
+      operations: 
+        - id: 20
+          name: '查询'
+          action: '[:read,:order_tracks,:take_over_logs]'
+          subject_class: 'Order'
+      operations: 
+        - id: 40
+          name: '增加'
+          action: ':create'
+          subject_class: 'Order'
+      operations: 
+        - id: 41
+          name: '调整运费'
+          action: ':carriage_adjustment'
+          subject_class: 'Order'
+      operations: 
+        - id: 42
+          name: '其他费用'
+          action: ':other_cost'
+          subject_class: 'Order'
+      operations: 
+        - id: 66
+          name: '接管'
+          action: ':take_over'
+          subject_class: 'Order'
+    - id: 18
+      name: '订单查询'
+      url: '/admin/orders/all'
+      operations: 
+        - id: 27
+          name: '查询'
+          action: '[:all,:read,:order_tracks,:take_over_logs]'
+          subject_class: 'Order'
+    - id: 28
+      name: '打印送货单'
+      url: '/admin/orders/print_delivery_note'
+      operations: 
+        - id: 33
+          name: '打印送货单'
+          action: '[:print_delivery_note,:show_delivery_note]'
+          subject_class: 'Order'
+    - id: 33
+      name: '评论管理'
+      url: '/admin/customer_ratings'
+      operations: 
+        - id: 76
+          name: '查询'
+          action: ':read'
+          subject_class: 'CustomerRating'
+      operations: 
+        - id: 77
+          name: '回复'
+          action: ':update'
+          subject_class: 'CustomerRating'
+      operations: 
+        - id: 78
+          name: '删除'
+          action: ':destroy'
+          subject_class: 'CustomerRating'
+      operations: 
+        - id: 79
+          name: '关闭前台显示'
+          action: ':close'
+          subject_class: 'CustomerRating'
+- id: 4
+  name: '采购'
+  functions: 
+    - id: 19
+      name: '可订购公司信息'
+      url: '/admin/ordering_companies'
+      operations: 
+        - id: 21
+          name: '查询'
+          action: ':read'
+          subject_class: 'OrderingCompany'
+      operations: 
+        - id: 69
+          name: '管理'
+          action: '[:create,:update,:destroy]'
+          subject_class: 'OrderingCompany'
+    - id: 20
+      name: '采购单'
+      url: '/purchase/purchase_orders'
+      operations: 
+        - id: 22
+          name: '查询'
+          action: ':read'
+          subject_class: 'PurchaseOrder'
+      operations: 
+        - id: 70
+          name: '管理'
+          action: '[:create,:check_supplier_id,:preview,:search_products,:update,:released_edit,:released_update,:destroy,:search_products_edit,:release]'
+          subject_class: 'PurchaseOrder'
+      operations: 
+        - id: 71
+          name: '打印'
+          action: ':print'
+          subject_class: 'PurchaseOrder'
+- id: 7
+  name: '促销'
+  functions: 
+    - id: 32
+      name: '促销活动'
+      url: '/promotion/online_promotions'
+      operations: 
+        - id: 75
+          name: '查询'
+          action: ':read'
+          subject_class: 'OnlinePromotion'

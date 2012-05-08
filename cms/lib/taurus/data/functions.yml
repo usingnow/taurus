@@ -1,0 +1,35 @@
+- id: 06
+  name: '网站内容管理'
+  functions: 
+    - id: 0601
+      name: '前台滑动广告'
+      url: '/admin/slider_bars'
+      operations: 
+        - id: 060101
+          name: '管理'
+          action: ':manage'
+          subject_class: 'SliderBar'
+    - id: 0602
+      name: '图片'
+      url: '/admin/images'
+      operations: 
+        - id: 060201
+          name: '管理'
+          action: ':manage'
+          subject_class: 'Image'
+    - id: 0603
+      name: '公告'
+      url: '/admin/announcements'
+      operations: 
+        - id: 060301
+          name: '管理'
+          action: ':manage'
+          subject_class: 'Announcement'
+    - id: 0604
+      name: '商品显示'
+      url: '/admin/sku_displays'
+      operations: 
+        - id: 060401
+          name: '管理'
+          action: ':manage'
+          subject_class: 'SkuDisplay'

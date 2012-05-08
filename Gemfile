@@ -1,6 +1,6 @@
-source 'http://ruby.taobao.org'
-source 'http://rubygems.org'
+eval(File.read(File.dirname(__FILE__) + '/common_taurus_dependencies.rb'))
 
+<<<<<<< HEAD
 gem 'rails', '3.1.3'
 gem 'mysql2', '~>0.3.10'
 
@@ -43,3 +43,6 @@ end
 #安装Bootstrap
 gem "twitter-bootstrap-rails"
 gem "will_paginate-bootstrap"
+=======
+gemspec
+>>>>>>> refs/remotes/origin/refactoring

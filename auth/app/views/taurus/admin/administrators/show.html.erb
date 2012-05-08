@@ -1,0 +1,69 @@
+<div class="form-actions">
+  <%= link_to "<i class='icon-edit'></i> #{t('admin.actions.edit.menu')}".html_safe, edit_admin_administrator_path(@administrator), :class => "btn btn-primary" %>
+  <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_administrators_path, :class => "btn pull-right" %>
+</div>
+
+<form class="form-horizontal">
+  <fieldset>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/administrator.email' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @administrator.email %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/administrator.name' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @administrator.name %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/administrator.address' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @administrator.address %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/administrator.phone' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @administrator.phone %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/administrator.fax' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @administrator.fax %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/administrator.mobile' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @administrator.mobile %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/administrator.zip_code' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @administrator.zip_code %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/administrator.status' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= format_admin_status(@administrator.status) %></span>
+      </div>
+    </div>
+    <!-- 需要能够列出所属管理组
+    <div class="control-group">
+      <label class="control-label">所属管理员组</label>
+      <div class="controls">
+      </div>
+    </div>
+    -->
+  </fieldset>
+</form>
+
+
+
+
+

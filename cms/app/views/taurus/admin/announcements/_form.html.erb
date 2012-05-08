@@ -1,0 +1,17 @@
+<%= simple_form_for([:admin,@announcement]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="attributes">
+    <%= f.input :title, :input_html => { :class => "title", :maxlength => "14"} %>
+    <%= f.input :internal_title, :input_html => { :class => "title"}  %>
+    <%= f.cktext_area :description, :toolbar=>'Full', :width=>'auto', :height=>'200px' %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+
+
