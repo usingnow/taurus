@@ -1,3 +1,5 @@
-<h1>新增组</h1>
-<%= render "form" %>
-<%= link_to '返回', admin_groups_path %>
+<div class="form-actions">
+  <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_groups_path, :class => "btn pull-right" %>
+</div>
+
+<%= render 'form' %>

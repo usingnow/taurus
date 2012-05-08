@@ -51,16 +51,17 @@ module Taurus
 
     def functions
       data = Taurus::Function.all
-      str = ""
+      fun_str = ""
       data.each do |com|
-        fun_str = "<ul>"
-        com['functions'].each do |fun|
-          fun_str += "<li>#{link_to fun['name'], fun['url']}</li>"
+        com['functions'].each_with_index do |fun,index|
+          if index == 0
+            fun_str += content_tag(:li, com['name'], :class => "nav-header")
+            fun_str += content_tag(:li, '', :class => 'divider')
+          end
+          fun_str += content_tag(:li, (link_to fun['name'], fun['url']))    
         end
-        fun_str += "</ul>"
-        str += "<h3>#{com['name']}</h3>"+fun_str
       end
-      str.html_safe
+      content_tag(:ul, fun_str.html_safe, :id => 'admin-main-functionality', :class => 'nav nav-list')
     end
 
     def order_indicator_for(order)

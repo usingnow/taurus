@@ -1,36 +1,32 @@
-<h1>管理员列表</h1>
-
-<div class="grid_button">
-  <%= link_to '新建管理员', new_admin_administrator_path, :target => "_blank" %>
+<div class="form-actions">
+  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/administrator'))}".html_safe, new_admin_administrator_path, :target => "_blank", :class => "btn btn-primary" %>
 </div>
 
-<table class="grid">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>
-      <th><%= t('attributes.administrator.name') %></th>
-      <th><%= t('attributes.administrator.email') %></th>
-      <th><%= t('attributes.administrator.mobile') %></th>
-      <th><%= t('attributes.administrator.last_sign_in_at') %></th>
-      <th><%= t('attributes.administrator.status') %></th>
-      <th></th>
+      <th><%= t('activerecord.attributes.taurus/administrator.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/administrator.email') %></th>
+      <th><%= t('activerecord.attributes.taurus/administrator.last_sign_in_at') %></th>
+      <th><%= t('activerecord.attributes.taurus/administrator.status') %></th>
+      <th><%= t('admin.misc.operation') %></th>
     </tr>
   </thead>
   <tbody>
     <% @administrators.each_with_index do |admin,index| %>
-      <tr class="<%= cycle("odd","even") %>">
+      <tr>
         <td><%= index+1 %></td>
         <td><%= link_to admin.name, admin_administrator_path(admin) %></td>
         <td><%= admin.email %></td>
-        <td><%= admin.mobile %></td>
         <td><%= admin.last_sign_in_at %></td>
         <td><%= format_admin_status(admin.status) %></td>
-        <td><%= link_to '修改', edit_admin_administrator_path(admin)  %></td>
+        <td><%= link_to t('admin.actions.edit.menu'), edit_admin_administrator_path(admin), :class => "btn btn-primary trk-btn-short" %></td>
       </tr>
     <% end %>
   </tbody>
   <tfoot>
-    <tr><td colspan="7"><%= will_paginate @administrators %></td></tr>
+    <tr><td colspan="7"><%= will_paginate @administrators, :renderer => BootstrapPagination::Rails %></td></tr>
   </tfoot>
 </table>
 

@@ -1,15 +1,14 @@
-<h1>组列表</h1>
-<div class="grid_button">
-  <%= link_to '新增组', new_admin_group_path %>
+<div class="form-actions">
+  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/group'))}".html_safe, new_admin_group_path, :target => "_blank", :class => "btn btn-primary" %>
 </div>
 
-<table class="grid">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>
-      <th>名称</th>
-      <th>描述</th>
-      <th></th>
+      <th><%= t('activerecord.attributes.taurus/group.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/group.description') %></th>
+      <th><%= t('admin.misc.operation') %></th>
     </tr>
   </thead>
   <% @groups.each_with_index do |group,index| %>
@@ -17,8 +16,11 @@
       <td><%= index+1 %></td>
       <td><%= group.name %></td>
       <td><%= group.description %></td>
-      <td><%= link_to '修改', edit_admin_group_path(group) %></td>
+      <td><%= link_to t('admin.actions.edit.menu'), edit_admin_group_path(group), :class => "btn btn-primary trk-btn-short" %></td>
     </tr>
   <% end %>
+  <tfoot>
+    <tr><td colspan="4"><%= will_paginate @groups, :renderer => BootstrapPagination::Rails %></td></tr>
+  </tfoot>
 </table>
 

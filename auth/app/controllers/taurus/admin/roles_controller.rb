@@ -29,12 +29,10 @@ module Taurus
       def create
         @role = Role.new(params[:role])
 
-        respond_to do |format|
-          if @role.save
-            format.html { redirect_to([:admin,@role], :notice => 'Role was successfully created.') }
-          else
-            format.html { render :action => "new" }
-          end
+        if @role.save
+          redirect_to admin_roles_url
+        else
+          render :action => "new"
         end
       end
 
@@ -43,14 +41,10 @@ module Taurus
       def update
         @role = Role.find(params[:id])
 
-        respond_to do |format|
-          if @role.update_attributes(params[:role])
-            format.html { redirect_to([:admin,@role], :notice => 'Role was successfully updated.') }
-            format.xml  { head :ok }
-          else
-            format.html { render :action => "edit" }
-            format.xml  { render :xml => @role.errors, :status => :unprocessable_entity }
-          end
+        if @role.update_attributes(params[:role])
+          redirect_to admin_roles_url
+        else
+          render :action => "edit"
         end
       end
     end

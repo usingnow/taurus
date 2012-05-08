@@ -1,30 +1,31 @@
-<h1>角色列表</h1>
-
-<div class="grid_button">
-  <%= link_to '新建', new_admin_role_path %>
+<div class="form-actions">
+  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/role'))}".html_safe, new_admin_role_path, :target => "_blank", :class => "btn btn-primary" %>
 </div>
 
-<table class="grid">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>
-      <th><%= t 'attributes.role.name' %></th>
-      <th><%= t 'attributes.role.description' %></th>
-      <th><%= t 'attributes.role.is_reserve' %></th>
-      <th><%= t 'attributes.role.set_procedure_permission' %></th>
-      <th></th>
+      <th><%= t('activerecord.attributes.taurus/role.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/role.description') %></th>
+      <th><%= t('activerecord.attributes.taurus/role.is_reserved') %></th>
+      <th><%= t('activerecord.attributes.taurus/role.set_procedure_permission') %></th>
+      <th><%= t('admin.misc.operation') %></th>
     </tr>
   </thead>
-<% @roles.each_with_index do |role,index| %>
-  <tr class="<%= cycle "odd", "even" %>">
-    <td><%= index+1 %></td>
-    <td><%= role.name %></td>
-    <td><%= role.description %></td>
-    <td><%= format_boolean(role.is_reserved) %></td>
-    <td></td>
-    <td><%= link_to '修改', edit_admin_role_path(role) %></td>
-  </tr>
-<% end %>
+  <% @roles.each_with_index do |role,index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= role.name %></td>
+      <td><%= role.description %></td>
+      <td><%= format_boolean(role.is_reserved) %></td>
+      <td></td>
+      <td><%= link_to t('admin.actions.edit.menu'), edit_admin_role_path(role), :class => "btn btn-primary trk-btn-short" %></td>
+    </tr>
+  <% end %>
+  <tfoot>
+    <tr><td colspan="6"><%= will_paginate @roles, :renderer => BootstrapPagination::Rails %></td></tr>
+  </tfoot>
 </table>
 
 

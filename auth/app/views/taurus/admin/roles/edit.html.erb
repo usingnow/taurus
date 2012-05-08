@@ -1,6 +1,5 @@
-<h1>角色修改</h1>
+<div class="form-actions">
+  <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_roles_path, :class => "btn pull-right" %>
+</div>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', [:admin,@role] %> |
-<%= link_to 'Back', admin_roles_path %>

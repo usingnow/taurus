@@ -1,29 +1,13 @@
-<%= form_for([:admin,@role]) do |f| %>
-  <% if @role.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@role.errors.count, "error") %> prohibited this role from being saved:</h2>
+<%= simple_form_for([:admin,@role], :html => {:class => 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+  
+  <fieldset>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :is_reserved, :as => :boolean %>
 
-      <ul>
-      <% @role.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <div class="form-actions">
+      <%= f.button :submit, :class => "btn btn-primary" %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :is_reserved %><br />
-    <%= f.check_box :is_reserved %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  </fieldset>
 <% end %>
