@@ -1,3 +1,7 @@
-<h1><%= t 'admin.actions.edit.title', :model => t('models.company_extend') %></h1>
+<div class="form-actions">
+  <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_company_extends_path, :class => "btn pull-right" %>
+</div>
 
 <%= render 'form' %>
+
+

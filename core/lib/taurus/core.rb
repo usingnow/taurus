@@ -1,3 +1,4 @@
+require 'rails/all'
 require 'jquery-rails'
 require 'ransack'
 require 'will_paginate'

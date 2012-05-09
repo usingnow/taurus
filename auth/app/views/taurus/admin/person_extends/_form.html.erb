@@ -1,89 +1,20 @@
-<%= form_for @user, :url => (@user.id ? admin_person_extend_path(@user) : admin_person_extends_path) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= t('activerecord.errors.template.header', :count => @user.errors.size, :model => t('models.person_extend'))  %></h2>
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="attributes">
-    <div class="split_content_left">
-      <p>
-        <%= label_tag t :login_no %>
-        <%= f.text_field :login_no %><span class="red">*</span>
-      <p>
-        <%= label_tag t :password %>
-        <% if @user.id %>
-          ******
-        <% else %>
-          <%= f.password_field :password %><span class="red">*</span>
-        <% end %>
-      </p>
-      <p>
-        <%= label_tag t :status %>
-        <%= f.radio_button :status, '0', :class => "radio" %>
-        <%= t :lock %>
-        <%= f.radio_button :status, '1', :class => "radio", :checked => true %>
-        <%= t :active %>
-      </p>
-      <p>
-        <%= label_tag t 'attributes.person_extend.role' %>
-        <%= f.select :role_id, Role.all.collect {|r| [ r.name, r.id ] } %><span class="red">*</span>
-      </p>
-      <p>
-        <label>仓库</label>
-        <%= f.select :store_id, Store.all.collect {|s| [ s.name, s.id ] } %><span class="red">*</span>
-      </p>
-      <% if can? :points, PersonExtend %>
-        <p>
-          <label><%= t 'activerecord.attributes.user.points' %><abbr title="required">*</abbr></label>
-          <%= f.text_field :points %>
-        </p>
-      <% end %>
-      <p>
-        <%= label_tag t :email %>
-        <%= f.email_field :email %><span class="red">*</span>
-      </p>
-      <%= f.fields_for :person_extend do |p| %>
-        <p>
-          <%= label_tag t 'attributes.person_extend.name' %>
-          <%= p.text_field :name %><span class="red">*</span>
-        </p>
-        <p>
-          <%= label_tag t 'attributes.person_extend.sex' %>
-          <%= p.radio_button :sex, '0', :class => "radio" %>
-          女
-          <%= p.radio_button :sex, '1', :class => "radio", :checked => true %>
-          男
-        </p>
-        <p>
-          <%= label_tag t 'attributes.person_extend.birth' %>
-          <%= p.date_select :birth, {:include_blank => true} %>
-        </p>
-        <p>
-          <%= label_tag t 'attributes.person_extend.district_no' %>
-          <%= raw address nil,'user[person_extend_attributes]' %><span class="red">*</span>
-        </p>
-        <p>
-          <%= label_tag '联系地址：' %>
-          <%= p.text_field :address %><span class="red">*</span>
-        </p>
-        <p>
-          <%= label_tag '联系电话：' %>
-          <%= p.phone_field :phone %><span class="red">*</span>
-        </p>
-        <p>
-          <%= label_tag '邮政编码：' %>
-          <%= p.text_field :post %>
-        </p>
-      <% end %>
-    </div>
-    <div class="clear"></div>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= simple_form_for [:admin, @person_extend], :html => {:class => 'form-horizontal'} do |f| %>
+  <%= f.error_notification %>
+  <%= f.simple_fields_for :user do |u_f| %>
+    <fieldset>
+      <%= render :partial => "taurus/admin/users/form", :locals => {:u_f => u_f, :object => @person_extend} %>
+      <%= f.input :name %>
+      <%= f.input :sex, :collection => Taurus::PersonExtend::SEX, :label_method => :second, 
+                  :value_method => :first, :item_wrapper_class => 'inline', :checked => 1, 
+                  :as => :radio_buttons %>
+      <%= f.input :birth, :as => :date %>   
+      <%= f.input :district_id %>   
+      <%= f.input :address %>     
+      <%= f.input :phone %> 
+      <%= f.input :zip_code %>
+      <div class="form-actions">
+        <%= f.button :submit, :class => "btn btn-primary" %>
+      </div>
+    </fieldset>
+  <% end %>  
 <% end %>

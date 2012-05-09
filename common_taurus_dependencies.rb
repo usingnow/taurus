@@ -5,7 +5,6 @@ source 'http://ruby.taobao.org'
 #source 'http://rubygems.org'
 
 gem 'mysql2', '~>0.3.10'
-
 gem 'rake','0.9.2.2'
 
 # Windows下不用安装以下两包。

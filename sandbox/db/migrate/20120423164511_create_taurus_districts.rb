@@ -1,7 +1,7 @@
 class CreateTaurusDistricts < ActiveRecord::Migration
   def change
     create_table :taurus_districts do |t|
-      t.integer :taurus_city_id
+      t.integer :city_id
       t.string :name
       t.string :number
       t.decimal :free_shipping_limit, :precision => 8, :scale => 2
@@ -9,6 +9,6 @@ class CreateTaurusDistricts < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :taurus_districts, :taurus_city_id
+    add_index :taurus_districts, :city_id
   end
 end

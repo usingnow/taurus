@@ -1,1 +1,7 @@
-<%= render "form" %>
+<div class="form-actions">
+  <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_person_extends_path, :class => "btn pull-right" %>
+</div>
+
+<%= render 'form' %>
+
+

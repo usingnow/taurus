@@ -196,10 +196,8 @@ zh-CN:
 
   models: &models
     brand: "品牌"
-    company_extend: "企业会员"
     delivery_order: "出库单"
     esc: "升级单"
-    person_extend: "个人会员"
     panic_buying: "疯狂抢购"
     procedure: "流程"
     product: "素材商品"
@@ -223,28 +221,6 @@ zh-CN:
       updated_at: "更新时间"
       company_name: "公司名称"
       company_introduction: "公司简介"
-
-    company_extend:
-      company_no: "会员编号"
-      company_name: "公司名称"
-      industry_type_id: "行业类别"
-      email: "邮箱"
-      district_no: "公司所属地"
-      address: "公司详细地址"
-      company_type_id: "公司性质"
-      company_scale_id: "公司规模"
-      web_address: "公司网址"
-      name: "联系人姓名"
-      phone: "电话"
-      mobile: "手机"
-      sex: "性别"
-      contact_dept: "联系人部门"
-      contact_post: "联系人职位"
-      fax: "传真"
-      zip: "邮编"
-
-      #扩展属性
-      email_confirmation: "确认邮箱"
 
     delivery_order:
       store_id: "仓库"
@@ -339,24 +315,6 @@ zh-CN:
       is_main: "是否主图片"
       sort: "显示顺序"
       image: "图片"
-
-    person_extend:
-      name: "真实姓名"
-      email: "邮箱"
-      person_no: "会员编号"
-      role: "角色"
-      sex: "性别"
-      birth: "出生日期"
-      district_no: "所属地区"
-      phone: "联系电话"
-      address: "联系地址"
-      post: "邮政编码"
-
-
-      #扩展属性
-      email_confirmation: "确认邮箱"
-
-
 
     procedure:
       id: "流程ID"

@@ -88,17 +88,6 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
     t.datetime "updated_at"
   end
 
-  create_table "cities", :force => true do |t|
-    t.integer  "province_no"
-    t.string   "name"
-    t.string   "number"
-    t.decimal  "free_shipping_limit", :precision => 10, :scale => 0
-    t.decimal  "precision",           :precision => 10, :scale => 0
-    t.decimal  "shipping_fee",        :precision => 10, :scale => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                                 :null => false
     t.string   "data_content_type"
@@ -116,32 +105,6 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "fk_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_assetable_type"
   add_index "ckeditor_assets", ["user_id"], :name => "fk_user"
-
-  create_table "company_extends", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "company_no"
-    t.integer  "industry_id"
-    t.integer  "company_type_id"
-    t.string   "district_no"
-    t.integer  "company_scale_id"
-    t.string   "company_name"
-    t.string   "contact_dept"
-    t.string   "contact_post"
-    t.string   "web_address"
-    t.integer  "sex"
-    t.string   "name"
-    t.string   "address"
-    t.string   "phone"
-    t.string   "fax"
-    t.string   "mobile"
-    t.string   "zip"
-    t.string   "created_by"
-    t.string   "updated_by"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "company_extends", ["user_id"], :name => "index_company_extends_on_user_id"
 
   create_table "conditions", :force => true do |t|
     t.string   "name"
@@ -207,17 +170,6 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
     t.datetime "delivery_date"
     t.integer  "delivery_type",    :default => 0
     t.text     "de_remarks"
-  end
-
-  create_table "districts", :force => true do |t|
-    t.integer  "city_no"
-    t.string   "name"
-    t.string   "number"
-    t.decimal  "free_shipping_limit", :precision => 10, :scale => 0
-    t.decimal  "precision",           :precision => 10, :scale => 0
-    t.decimal  "shipping_fee",        :precision => 10, :scale => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "esc_categories", :force => true do |t|
@@ -514,24 +466,6 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
     t.datetime "created_at"
   end
 
-  create_table "person_extends", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "person_no"
-    t.string   "name"
-    t.integer  "sex"
-    t.date     "birth"
-    t.string   "district_no"
-    t.string   "phone"
-    t.string   "address"
-    t.string   "post"
-    t.string   "created_by"
-    t.string   "updated_by"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "person_extends", ["user_id"], :name => "index_person_extends_on_user_id"
-
   create_table "po_product_lists", :force => true do |t|
     t.integer  "product_id"
     t.integer  "purchase_order_id"
@@ -760,16 +694,6 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
 
   add_index "promotions_in_orders", ["online_promotion_id"], :name => "index_promotions_in_orders_on_online_promotion_id"
   add_index "promotions_in_orders", ["order_id"], :name => "index_promotions_in_orders_on_order_id"
-
-  create_table "provinces", :force => true do |t|
-    t.string   "number"
-    t.string   "name"
-    t.decimal  "free_shipping_limit", :precision => 8,  :scale => 2
-    t.decimal  "shipping_fee",        :precision => 10, :scale => 0
-    t.decimal  "precision",           :precision => 10, :scale => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "purchase_orders", :force => true do |t|
     t.string   "po_id"
@@ -1016,7 +940,7 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
   end
 
   create_table "taurus_cities", :force => true do |t|
-    t.integer  "taurus_province_id"
+    t.integer  "province_id"
     t.string   "name"
     t.string   "number"
     t.decimal  "free_shipping_limit", :precision => 8, :scale => 2
@@ -1025,16 +949,16 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
     t.datetime "updated_at"
   end
 
-  add_index "taurus_cities", ["taurus_province_id"], :name => "index_taurus_cities_on_taurus_province_id"
+  add_index "taurus_cities", ["province_id"], :name => "index_taurus_cities_on_province_id"
 
   create_table "taurus_company_extends", :force => true do |t|
     t.string   "number"
     t.string   "name"
     t.string   "web_address"
-    t.integer  "taurus_industry_id"
-    t.integer  "taurus_company_type_id"
-    t.integer  "taurus_company_scale_id"
-    t.integer  "taurus_district_id"
+    t.integer  "industry_id"
+    t.integer  "company_type_id"
+    t.integer  "company_scale_id"
+    t.integer  "district_id"
     t.string   "address"
     t.string   "phone"
     t.string   "fax"
@@ -1050,11 +974,11 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
     t.datetime "updated_at"
   end
 
+  add_index "taurus_company_extends", ["company_scale_id"], :name => "index_taurus_company_extends_on_company_scale_id"
+  add_index "taurus_company_extends", ["company_type_id"], :name => "index_taurus_company_extends_on_company_type_id"
   add_index "taurus_company_extends", ["created_by"], :name => "index_taurus_company_extends_on_created_by"
-  add_index "taurus_company_extends", ["taurus_company_scale_id"], :name => "index_taurus_company_extends_on_taurus_company_scale_id"
-  add_index "taurus_company_extends", ["taurus_company_type_id"], :name => "index_taurus_company_extends_on_taurus_company_type_id"
-  add_index "taurus_company_extends", ["taurus_district_id"], :name => "index_taurus_company_extends_on_taurus_district_id"
-  add_index "taurus_company_extends", ["taurus_industry_id"], :name => "index_taurus_company_extends_on_taurus_industry_id"
+  add_index "taurus_company_extends", ["district_id"], :name => "index_taurus_company_extends_on_district_id"
+  add_index "taurus_company_extends", ["industry_id"], :name => "index_taurus_company_extends_on_industry_id"
   add_index "taurus_company_extends", ["updated_by"], :name => "index_taurus_company_extends_on_updated_by"
 
   create_table "taurus_company_scales", :force => true do |t|
@@ -1080,7 +1004,7 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
   end
 
   create_table "taurus_districts", :force => true do |t|
-    t.integer  "taurus_city_id"
+    t.integer  "city_id"
     t.string   "name"
     t.string   "number"
     t.decimal  "free_shipping_limit", :precision => 8, :scale => 2
@@ -1089,7 +1013,7 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
     t.datetime "updated_at"
   end
 
-  add_index "taurus_districts", ["taurus_city_id"], :name => "index_taurus_districts_on_taurus_city_id"
+  add_index "taurus_districts", ["city_id"], :name => "index_taurus_districts_on_city_id"
 
   create_table "taurus_groups", :force => true do |t|
     t.string   "name"
@@ -1122,6 +1046,25 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
     t.datetime "updated_at"
   end
 
+  create_table "taurus_person_extends", :force => true do |t|
+    t.string   "number"
+    t.string   "name"
+    t.integer  "sex"
+    t.date     "birth"
+    t.integer  "district_id"
+    t.string   "phone"
+    t.string   "address"
+    t.string   "zip_code"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taurus_person_extends", ["created_by"], :name => "index_taurus_person_extends_on_created_by"
+  add_index "taurus_person_extends", ["district_id"], :name => "index_taurus_person_extends_on_district_id"
+  add_index "taurus_person_extends", ["updated_by"], :name => "index_taurus_person_extends_on_updated_by"
+
   create_table "taurus_provinces", :force => true do |t|
     t.string   "number"
     t.string   "name"
@@ -1140,7 +1083,7 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
   end
 
   create_table "taurus_sku_displays", :force => true do |t|
-    t.integer  "taurus_sku_id"
+    t.integer  "sku_id"
     t.integer  "sequence"
     t.integer  "page"
     t.integer  "location"
@@ -1150,7 +1093,7 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
 
   add_index "taurus_sku_displays", ["location"], :name => "index_taurus_sku_displays_on_location"
   add_index "taurus_sku_displays", ["page"], :name => "index_taurus_sku_displays_on_page"
-  add_index "taurus_sku_displays", ["taurus_sku_id"], :name => "index_taurus_sku_displays_on_taurus_sku_id"
+  add_index "taurus_sku_displays", ["sku_id"], :name => "index_taurus_sku_displays_on_sku_id"
 
   create_table "taurus_slider_bars", :force => true do |t|
     t.string   "name"
@@ -1187,8 +1130,8 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
     t.integer  "taurus_userable_id"
     t.string   "taurus_userable_type"
     t.integer  "points"
-    t.integer  "taurus_store_id"
-    t.integer  "taurus_role_id"
+    t.integer  "store_id"
+    t.integer  "role_id"
     t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -1197,8 +1140,8 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
   add_index "taurus_users", ["confirmation_token"], :name => "index_taurus_users_on_confirmation_token", :unique => true
   add_index "taurus_users", ["email"], :name => "index_taurus_users_on_email", :unique => true
   add_index "taurus_users", ["reset_password_token"], :name => "index_taurus_users_on_reset_password_token", :unique => true
-  add_index "taurus_users", ["taurus_role_id"], :name => "index_taurus_users_on_taurus_role_id"
-  add_index "taurus_users", ["taurus_store_id"], :name => "index_taurus_users_on_taurus_store_id"
+  add_index "taurus_users", ["role_id"], :name => "index_taurus_users_on_role_id"
+  add_index "taurus_users", ["store_id"], :name => "index_taurus_users_on_store_id"
 
   create_table "tracks", :force => true do |t|
     t.integer  "instance_id"

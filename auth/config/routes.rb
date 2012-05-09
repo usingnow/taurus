@@ -4,5 +4,6 @@ Taurus::Core::Engine.routes.draw do
     resources :groups
     resources :roles
     resources :company_extends
+    resources :person_extends
   end
 end

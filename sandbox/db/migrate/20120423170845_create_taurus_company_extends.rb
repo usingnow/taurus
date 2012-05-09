@@ -5,10 +5,10 @@ class CreateTaurusCompanyExtends < ActiveRecord::Migration
       t.string :name
 
       t.string :web_address
-      t.integer :taurus_industry_id
-      t.integer :taurus_company_type_id
-      t.integer :taurus_company_scale_id
-      t.integer :taurus_district_id
+      t.integer :industry_id
+      t.integer :company_type_id
+      t.integer :company_scale_id
+      t.integer :district_id
       t.string :address
       t.string :phone
       t.string :fax
@@ -26,10 +26,10 @@ class CreateTaurusCompanyExtends < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :taurus_company_extends, :taurus_industry_id
-    add_index :taurus_company_extends, :taurus_company_type_id
-    add_index :taurus_company_extends, :taurus_company_scale_id
-    add_index :taurus_company_extends, :taurus_district_id
+    add_index :taurus_company_extends, :industry_id
+    add_index :taurus_company_extends, :company_type_id
+    add_index :taurus_company_extends, :company_scale_id
+    add_index :taurus_company_extends, :district_id
     add_index :taurus_company_extends, :created_by
     add_index :taurus_company_extends, :updated_by
   end

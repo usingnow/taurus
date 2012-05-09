@@ -15,10 +15,11 @@ module Taurus
 
       def new
         @company_extend = CompanyExtend.new
+        @company_extend.user = User.new
       end
 
       def edit
-        @user = User.find(params[:id])
+        @company_extend = CompanyExtend.find(params[:id])
       end
 
       def create
@@ -32,9 +33,9 @@ module Taurus
       end
 
       def update
-        @user = User.find(params[:id])
+        @company_extend = CompanyExtend.find(params[:id])
 
-        if @user.update_attributes(params[:user])
+        if @company_extend.update_attributes(params[:company_extend])
           redirect_to admin_company_extends_path
         else
           render :action => "edit"

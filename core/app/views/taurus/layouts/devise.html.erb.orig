@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ebiz</title>
+  <%= stylesheet_link_tag 'application', :medmia => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+     <%= yield %>
+</body>
+</html>

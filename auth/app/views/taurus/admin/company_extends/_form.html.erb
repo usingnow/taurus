@@ -1,129 +1,29 @@
-<%= form_for [:admin, @company_extend] do |f| %>
-  <%= error_messages @company_extend %>
-  <%= f.fields_for :user do |u_f| %>
-    <div class="attributes">
-      <div class="split_content_right">
-        <p>
-          <%= label_tag t :email %>
-          <%= u_f.text_field :email %><span class="red">*</span>
-        </p>
-        <p>
-          <%= label_tag t :password %>
-          <% if @company_extend.id.nil? %>
-            <%= u_f.password_field :password %><span class="red">*</span>
-          <% else %>
-            ******
-          <% end %>
-        </p>
-        <p>
-          <label><%= t 'activerecord.attributes.user.points' %><abbr title="required">*</abbr></label>
-          <%= u_f.text_field :points %>
-        </p>
-      </div>
-      <div class="clear"></div>
-    </div>
-    <div class="attributes">
-      <div class="split_content_left">
-        <p>
-          <%= label_tag t :status %>
-          <%= u_f.radio_button :status, 'false', :class => "radio" %>
-          <%= t :lock %>
-          <%= u_f.radio_button :status, 'true', :class => "radio", :checked => true %>
-          <%= t :active %>
-        </p>
-        <p>
-          <%= label_tag t :role %>
-          <%= u_f.select :taurus_role_id, Taurus::Role.all.collect{ |r| [r.name, r.id] } %><span class="red">*</span>
-        </p>
-        <p>
-          <label>仓库</label>
-          <%= u_f.select :taurus_store_id, Taurus::Store.all.collect {|s| [ s.name, s.id ] } %><span class="red">*</span>
-        </p>
-        <p>
-          <%= label_tag t 'attributes.company_extend.company_name' %>
-          <%= f.text_field :name %><span class="red">*</span>
-        </p>
-        <p>
-          <%= label_tag t :industry %>
-          <%= f.select :taurus_industry_id, Taurus::Industry.all.collect{ |p| [p.name, p.id]} %><span class="red">*</span>
-        </p>
-      </div>
-      <div class="clear"></div>
-    </div>
+<%= simple_form_for [:admin, @company_extend], :html => {:class => 'form-horizontal'} do |f| %>
+  <%= f.error_notification %>
+  <%= f.simple_fields_for :user do |u_f| %>
+    <fieldset>
+      <%= render :partial => "taurus/admin/users/form", :locals => {:u_f => u_f, :object => @company_extend} %>
+      <%= f.input :name %>
+      <%= f.association :industry %>
+      <%= f.association :company_type %>        
+      <%= f.association :company_scale %> 
+      <%= f.input :district_id %>  
+      <%= f.input :address %>                
+      <%= f.input :web_address %>        
+      <%= f.input :contact_name %> 
+      <%= f.input :contact_dept %>
+      <%= f.input :phone %>
+      <%= f.input :contact_mobile %>
+      <%= f.input :contact_sex, :collection => Taurus::CompanyExtend::SEX, :label_method => :second, 
+                  :value_method => :first, :item_wrapper_class => 'inline', :checked => 1, 
+                  :as => :radio_buttons %>
+      <%= f.input :contact_post %>
+      <%= f.input :fax %>
+      <%= f.input :zip_code %>
 
-    <div class="attributes">
-      <div class="split_content_left">
-        <p>
-          <%= label_tag t :company_type %>
-          <%= f.select :taurus_company_type_id, Taurus::CompanyType.all.collect{ |p| [p.name, p.id]} %><span class="red">*</span>
-        </p>
+      <div class="form-actions">
+        <%= f.button :submit, :class => "btn btn-primary" %>
       </div>
-      <div class="split_content_right">
-        <p>
-           <%= label_tag t :company_scale %>
-           <%= f.select :taurus_company_scale_id, Taurus::CompanyScale.all.collect{ |p| [p.name, p.id]},{:include_blank => "-请选择-"} %>
-        </p>
-      </div>
-      <div class="split_content_left_long">
-        <p>
-          <%= label_tag t :taurus_district_id %>
-          <%= f.text_field :taurus_district_id %><span class="red">*</span>
-        </p>
-        <p>
-          <%= label_tag t 'attributes.company_extend.address' %>
-          <%= f.text_field :address %>
-        </p>
-        <p>
-          <%= label_tag t 'attributes.company_extend.web_address' %>
-          <%= f.text_field :web_address %>
-        </p>
-      </div>
-      <div class="clear"></div>
-    </div>
-    <div class="attributes">
-      <div class="split_content_left">
-        <p>
-          <%= label_tag t 'attributes.company_extend.name' %>
-          <%= f.text_field :contact_name %><span class="red">*</span>
-        </p>
-        <p>
-          <%= label_tag t 'attributes.company_extend.contact_dept' %>
-          <%= f.text_field :contact_dept %>
-        </p>
-        <p>
-          <%= label_tag t 'attributes.company_extend.phone' %>
-          <%= f.text_field :phone %>
-        </p>
-        <p>
-          <%= label_tag t 'attributes.company_extend.mobile' %>
-          <%= f.text_field :contact_mobile %>
-        </p>
-      </div>
-      <div class="split_content_right">
-        <p>
-          <%= label_tag t 'attributes.company_extend.sex' %>
-          <%= f.radio_button :contact_sex, '0', :class => "radio" %>
-          女
-          <%= f.radio_button :contact_sex, '1', :class => "radio", :checked => true %>
-          男
-        </p>
-        <p>
-          <%= label_tag t 'attributes.company_extend.contact_post' %>
-          <%= f.text_field :contact_post %>
-        </p>
-        <p>
-          <%= label_tag t 'attributes.company_extend.fax' %>
-          <%= f.text_field :fax %>
-        </p>
-        <p>
-          <%= label_tag t 'attributes.company_extend.zip' %>
-          <%= f.text_field :zip_code %>
-        </p>
-      </div>
-      <div class="clear"></div>
-    </div>
-    <div class="actions">
-      <%= f.submit '保存' %>
-    </div>
+    </fieldset>
   <% end %>  
 <% end %>
