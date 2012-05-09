@@ -2,9 +2,10 @@
 module Taurus
   class User < ActiveRecord::Base
     belongs_to :taurus_userable, :polymorphic => true, :dependent => :destroy
-    has_one :consignee_info, :dependent => :destroy
     belongs_to :role
     belongs_to :store
+
+    has_one :consignee_info, :dependent => :destroy
     has_many :orders, :dependent => :destroy
     has_many :user_addresses, :dependent => :destroy
     has_one :consignee_info, :dependent => :destroy
@@ -13,22 +14,17 @@ module Taurus
     has_many :back_order_skus, :dependent => :destroy
     has_one :inner_order_payment, :dependent => :destroy
     has_one :inner_order_address, :dependent => :destroy
-    before_validation :default_values
 
 
-    devise :database_authenticatable, :registerable, :confirmable,
-           :recoverable, :rememberable, :trackable, :validatable
+    devise :database_authenticatable, :registerable, :timeoutable,
+           :recoverable, :rememberable, :trackable, :validatable, :timeout_in => 150.minutes
 
 
 
-    attr_accessible :email, :login_no, :password, :password_confirmation, :remember_me, :status, :user_type, :role_id,
+    attr_accessible :email, :password, :password_confirmation, :remember_me, :status, :role_id,
                     :store_id, :points
 
-    attr_accessor :password_confirmation, :email_confirmation, :index
-
-    validates_presence_of :login_no
-    validates_numericality_of :role_id, :status, :store_id, :only_integer => true
-    validates_uniqueness_of :login_no
+    validates_presence_of :email, :points, :role_id, :store_id
 
     def name
       if user_type == 1
@@ -152,10 +148,5 @@ module Taurus
         OnlinePromotion.current_order_promotions(OnlinePromotion.progress_order_promotions,order_options)
       end
 
-      def default_values
-        self.role_id = 2 unless self.role_id
-        self.status = 1 unless self.status
-        self.store_id = 1 unless self.store_id
-      end
   end
 end  

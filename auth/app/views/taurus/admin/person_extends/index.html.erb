@@ -1,63 +1,42 @@
-<h1>个人会员列表</h1>
-
-<div class="attributes">
-  <%= search_form_for [:admin,@search] do |f| %>
-    <div class="split_content_left">
-      <p>
-        <%= f.label '编号' %>
-        <%= f.text_field :person_no_cont %>
-      </p>
-      <p>
-        <%= f.label '姓名' %>
-        <%= f.text_field :name_cont %>
-      </p>
-    </div>
-    <div class="split_content_right">
-      <p>
-        <%= f.label '帐号' %>
-        <%= f.text_field :user_login_no_cont %>
-      </p>
-      <p>
-        <label>&nbsp;</label>
-        <%= f.submit '查询'%>
-      </p>
-    </div>
-    <div class="clear"></div>
+<div class="form-actions">
+  <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
+    <%= f.text_field :number_cont, :placeholder => t('activerecord.attributes.taurus/person_extend.number'), :class => "trk-non-inline-margin" %>
+    <%= f.text_field :name_cont, :placeholder => t('activerecord.attributes.taurus/person_extend.name'), :class => "trk-non-inline-margin" %>
+    <%= f.text_field :user_email_cont, :placeholder => t('activerecord.attributes.taurus/user.email'), :class => "trk-non-inline-margin" %>
+    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
   <% end %>
+  <hr />
+  <%= link_to "<i class='icon-plus-sign'></i> #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/person_extend'))}".html_safe, new_admin_person_extend_path, :class => "btn btn-primary" %>
 </div>
 
-<div class="grid_button">
-  <%= link_to '新增个人会员', new_admin_person_extend_path if can? :create, PersonExtend %>
-</div>
-
-<table class="grid">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>
-      <th><%= t 'attributes.person_extend.person_no' %></th>
-      <th><%= t 'activerecord.attributes.user.login_no' %></th>
-      <th><%= t 'attributes.person_extend.name' %></th>
-      <th><%= t 'activerecord.attributes.user.created_at' %></th>
-      <th><%= t 'activerecord.attributes.user.role' %></th>
-      <th><%= t 'activerecord.attributes.user.status' %></th>
-      <th><%= t 'activerecord.attributes.user.store_id' %></th>
-      <th></th>
+      <th><%= t('activerecord.attributes.taurus/person_extend.number') %></th>
+      <th><%= t('activerecord.attributes.taurus/user.email') %></th>
+      <th><%= t('activerecord.attributes.taurus/person_extend.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/user.created_at') %></th>
+      <th><%= t('activerecord.attributes.taurus/user.role') %></th>
+      <th><%= t('activerecord.attributes.taurus/user.status') %></th>
+      <th><%= t('activerecord.attributes.taurus/user.store') %></th>
+      <th><%= t('admin.misc.operation') %></th>
     </tr>
   </thead>
-<% @person_extends.each_with_index do |person,index| %>
-  <tr class="<%= set_odd_even_class index %>">
-    <td><%= index+1 %></td>
-    <td><%= link_to person.person_no, admin_person_extend_path(person) %></td>
-    <td><%= person.user.login_no %></td>
-    <td><%= person.name %></td>
-    <td><%= person.created_at %></td>
-    <td><%= person.user.role.name %></td>
-    <td><%= format_user_status(person.user.status) %></td>
-    <td><%= person.user.store.name %></td>
-    <td><%= link_to t("admin.actions.edit.menu"), edit_admin_person_extend_path(person.user_id) if can? :update, PersonExtend %></td>
-  </tr>
-<% end %>
+  <% @person_extends.each_with_index do |person,index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= link_to person.number, admin_person_extend_path(person) %></td>
+      <td><%= person.user.email %></td>
+      <td><%= person.name %></td>
+      <td><%= person.created_at %></td>
+      <td><%= person.user.role.name %></td>
+      <td><%= format_boolean(person.user.status) %></td>
+      <td><%= person.user.store.name %></td>
+      <td><%= link_to t("admin.actions.edit.menu"), edit_admin_person_extend_path(person), :class => "btn btn-primary trk-btn-short" %></td>
+    </tr>
+  <% end %>
+    <tfoot>
+      <tr><td colspan='9'><%= will_paginate @person_extends, :renderer => BootstrapPagination::Rails %></td></tr>
+    </tfoot>
 </table>
-
-<%= will_paginate @person_extends %>
-
