@@ -9914,3 +9914,397 @@ Served asset /taurus/admin.js - 304 Not Modified (2ms)
 
 Started GET "/assets/fontawesome-webfont.woff" for 127.0.0.1 at 2012-05-09 18:27:59 +0800
 Served asset /fontawesome-webfont.woff - 304 Not Modified (0ms)
+
+
+Started POST "/admin/sign_in" for 127.0.0.1 at 2012-05-09 18:38:28 +0800
+  Processing by Taurus::Admin::AdminSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TqZ3Tdxe8QmiW+00OGLhkQ8Rz9TTe2P8yWC3xZL+Ws8=", "administrator"=>{"email"=>"root@usingnow.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"登录"}
+  [1m[36mTaurus::Administrator Load (0.6ms)[0m  [1mSELECT `taurus_administrators`.* FROM `taurus_administrators` WHERE `taurus_administrators`.`email` = 'root@usingnow.com' LIMIT 1[0m
+Completed 401 Unauthorized in 312ms
+  Processing by Taurus::Admin::AdminSessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TqZ3Tdxe8QmiW+00OGLhkQ8Rz9TTe2P8yWC3xZL+Ws8=", "administrator"=>{"email"=>"root@usingnow.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"登录"}
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/admin_sessions/new.html.erb within /taurus/layouts/devise (89.2ms)
+Completed 200 OK in 445ms (Views: 309.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/taurus/admin.css?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /taurus/admin.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/taurus/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /taurus/bootstrap_and_overrides.css - 304 Not Modified (23ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (14ms)
+
+
+Started GET "/assets/taurus/simple_from.css?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /taurus/simple_from.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (66ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (26ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (25ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/taurus/admin.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /taurus/admin.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/fontawesome-webfont.woff" for 127.0.0.1 at 2012-05-09 18:38:29 +0800
+Served asset /fontawesome-webfont.woff - 304 Not Modified (10ms)
+
+
+Started POST "/admin/sign_in" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+  Processing by Taurus::Admin::AdminSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TqZ3Tdxe8QmiW+00OGLhkQ8Rz9TTe2P8yWC3xZL+Ws8=", "administrator"=>{"email"=>"root@usingnow.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"登录"}
+  [1m[35mTaurus::Administrator Load (0.3ms)[0m  SELECT `taurus_administrators`.* FROM `taurus_administrators` WHERE `taurus_administrators`.`email` = 'root@usingnow.com' LIMIT 1
+Completed 401 Unauthorized in 170ms
+  Processing by Taurus::Admin::AdminSessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TqZ3Tdxe8QmiW+00OGLhkQ8Rz9TTe2P8yWC3xZL+Ws8=", "administrator"=>{"email"=>"root@usingnow.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"登录"}
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/admin_sessions/new.html.erb within /taurus/layouts/devise (3.2ms)
+Completed 200 OK in 160ms (Views: 25.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/taurus/admin.css?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /taurus/admin.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/taurus/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /taurus/bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/simple_from.css?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /taurus/simple_from.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /taurus/admin.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/fontawesome-webfont.woff" for 127.0.0.1 at 2012-05-09 18:38:32 +0800
+Served asset /fontawesome-webfont.woff - 304 Not Modified (0ms)
+
+
+Started POST "/admin/sign_in" for 127.0.0.1 at 2012-05-09 18:38:36 +0800
+  Processing by Taurus::Admin::AdminSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TqZ3Tdxe8QmiW+00OGLhkQ8Rz9TTe2P8yWC3xZL+Ws8=", "administrator"=>{"email"=>"root@usingnow.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"登录"}
+  [1m[36mTaurus::Administrator Load (0.3ms)[0m  [1mSELECT `taurus_administrators`.* FROM `taurus_administrators` WHERE `taurus_administrators`.`email` = 'root@usingnow.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mUPDATE `taurus_administrators` SET `last_sign_in_at` = '2012-05-09 18:22:25', `current_sign_in_at` = '2012-05-09 18:38:36', `sign_in_count` = 6, `updated_at` = '2012-05-09 18:38:36' WHERE `taurus_administrators`.`id` = 1[0m
+  [1m[35m (10.0ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3002/admin
+Completed 302 Found in 448ms
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+  Processing by Taurus::Admin::HomeController#index as HTML
+  [1m[36mTaurus::Administrator Load (0.6ms)[0m  [1mSELECT `taurus_administrators`.* FROM `taurus_administrators` WHERE `taurus_administrators`.`id` = 1 LIMIT 1[0m
+Rendered /home/sean/projects/taurus/core/app/views/taurus/admin/home/index.html.erb within /taurus/layouts/admin (1.5ms)
+Completed 200 OK in 327ms (Views: 223.6ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/assets/taurus/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /taurus/bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/simple_from.css?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /taurus/simple_from.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin/home.css" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /taurus/admin/home.css - 404 Not Found (10ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.css"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/taurus/admin.css?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /taurus/admin.css - 304 Not Modified (75ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /taurus/admin.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/taurus/admin/home.js" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /taurus/admin/home.js - 404 Not Found (14ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/taurus/admin/home.js"):
+  
+
+Rendered /home/sean/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/fontawesome-webfont.woff" for 127.0.0.1 at 2012-05-09 18:38:37 +0800
+Served asset /fontawesome-webfont.woff - 304 Not Modified (0ms)
+
+
+Started DELETE "/admin/sign_out" for 127.0.0.1 at 2012-05-09 18:38:38 +0800
+  Processing by Taurus::Admin::AdminSessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"TqZ3Tdxe8QmiW+00OGLhkQ8Rz9TTe2P8yWC3xZL+Ws8="}
+  [1m[35mTaurus::Administrator Load (0.3ms)[0m  SELECT `taurus_administrators`.* FROM `taurus_administrators` WHERE `taurus_administrators`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://127.0.0.1:3002/admin/sign_in
+Completed 302 Found in 125ms
+
+
+Started GET "/admin/sign_in" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+  Processing by Taurus::Admin::AdminSessionsController#new as HTML
+Rendered /home/sean/projects/taurus/auth/app/views/taurus/admin/admin_sessions/new.html.erb within /taurus/layouts/devise (4.5ms)
+Completed 200 OK in 127ms (Views: 30.6ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/assets/taurus/admin.css?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /taurus/admin.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/taurus/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /taurus/bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/simple_from.css?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /taurus/simple_from.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/taurus/admin.js?body=1" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /taurus/admin.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/fontawesome-webfont.woff" for 127.0.0.1 at 2012-05-09 18:38:39 +0800
+Served asset /fontawesome-webfont.woff - 304 Not Modified (0ms)

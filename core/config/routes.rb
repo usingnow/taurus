@@ -331,6 +331,7 @@ Taurus::Core::Engine.routes.draw do
 
 =end
 
+
   match '/admin', :to => 'admin/home#index'
 	
 end
