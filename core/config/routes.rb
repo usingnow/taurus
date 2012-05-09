@@ -6,11 +6,6 @@ Taurus::Core::Engine.routes.draw do
   end
 	
 =begin
-devise_for :administrators,
-             :path => "admin",
-             :controllers => { :sessions => "taurus/admin/devise/sessions",
-                               :registrations => "taurus/admin/devise/registrations"  }
-
   devise_for :users,
              :path => "users",
              :controllers => { :sessions => "user/sessions",
@@ -336,8 +331,6 @@ devise_for :administrators,
 
 =end
 
-  root :to => 'home#index'
-
-  match '/admin', :to => 'admin/home#index', :as => :admin
+  match '/admin', :to => 'admin/home#index'
 	
 end

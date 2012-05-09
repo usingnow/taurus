@@ -1,3 +1,4 @@
+require 'taurus_core'
 require 'devise'
 require 'cancan'
 

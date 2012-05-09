@@ -1,5 +1,7 @@
 eval(File.read(File.dirname(__FILE__) + '/../common_taurus_dependencies.rb'))
 
+gem 'taurus_core', :path => '../core'
+
 gemspec
 
 

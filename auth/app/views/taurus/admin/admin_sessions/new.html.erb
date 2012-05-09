@@ -29,9 +29,9 @@
       </div>
     </div>
     <div class="span3">
-      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "well"}) do |f| %>
-          <%= f.label :login_no %>
-          <%= f.text_field :login_no %>
+      <%= form_for(resource, :as => resource_name, :url => administrator_session_path, :html => {:class => "well"}) do |f| %>
+          <%= f.label :email %>
+          <%= f.text_field :email %>
 
           <%= f.label :password %>
           <%= f.password_field :password %>

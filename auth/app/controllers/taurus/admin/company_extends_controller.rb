@@ -1,7 +1,7 @@
 module Taurus
   module Admin
     class CompanyExtendsController < BaseController
-      #before_filter :authenticate_administrator!
+      before_filter :authenticate_administrator!
       #authorize_resource
 
       def index
