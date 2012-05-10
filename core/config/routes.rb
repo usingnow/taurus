@@ -1,4 +1,11 @@
 Taurus::Core::Engine.routes.draw do 
+  resources :areas do 
+    collection do 
+      get :cities
+      get :districts
+    end
+  end    
+
   namespace :admin do 
     resources :industries
     resources :company_types

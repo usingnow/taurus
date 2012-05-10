@@ -1,7 +1,6 @@
 module Taurus
   module Admin
     class CompanyExtendsController < BaseController
-      before_filter :authenticate_administrator!
       #authorize_resource
 
       def index
@@ -18,12 +17,9 @@ module Taurus
         @company_extend.user = User.new
       end
 
-      def edit
-        @company_extend = CompanyExtend.find(params[:id])
-      end
-
       def create
         @company_extend = CompanyExtend.new params[:company_extend]
+        @company_extend.created_by = current_administrator.id
 
         if @company_extend.save
           redirect_to admin_company_extends_url
@@ -32,8 +28,13 @@ module Taurus
         end
       end
 
+      def edit
+        @company_extend = CompanyExtend.find(params[:id])
+      end
+
       def update
         @company_extend = CompanyExtend.find(params[:id])
+        @company_extend.updated_by = current_administrator.id
 
         if @company_extend.update_attributes(params[:company_extend])
           redirect_to admin_company_extends_path

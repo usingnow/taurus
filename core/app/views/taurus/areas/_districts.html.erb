@@ -1,0 +1,4 @@
+<option>--请选择区--</option>
+<% @districts.each do |district| %>
+  <option value="<%= district.id %>"><%= district.name %></option>
+<% end %>

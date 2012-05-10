@@ -9,46 +9,6 @@ module Taurus
       Province.all(:order=>'number').collect{|item|[item.name,item.number]}.insert(0,["请选择..",nil])
     end
 
-    def address(district,model)
-      province_no = ''
-      city_no     = ''
-      district_no = ''
-      cities      = []
-      districts   = []
-
-      if district.nil?
-        district = District.ningbo.first
-      end
-
-      province    = district.city.province
-      province_no = province.number
-      cities      = province.cities.collect{ |c| [c.name, c.number]}
-      city_no     = district.city.number
-      districts   = district.city.districts.collect{ |d| [d.name, d.number]}
-      district_no = district.number
-
-      str = "#{select :province, :number, Province.all.collect{ |p| [p.name,p.number] },{:include_blank => "-请选择-",
-                      :selected => province_no},
-                      {:onchange=>"jQuery.ajax({ type: 'get',
-                                                 url:'/admin/cities/ajax',
-                                                 data: 'province_no='+this.value,
-                                                 success: function(msg){
-                                                   jQuery('#city_number').html(msg);
-                                                   jQuery('##{model}_district_no').html('<option value=>-请选择-</option>');
-                                                 }});", :required => "required"} }
-              #{select :city, :number, cities,{:include_blank => "-请选择-", :selected => city_no},
-                       { :onchange => "jQuery.ajax({ type:'get',
-                                       url: '/admin/districts/ajax',
-                                       data: 'city_no='+this.value,
-                                       success: function(msg){
-                                        jQuery('##{model}_district_no').html(msg);
-                                       }});", :required => "required"} }
-
-              #{select model.to_sym, :district_no, districts, {:include_blank => "-请选择-", :selected => district_no},
-                       :required => "required"}"
-      str
-    end
-
     def functions
       data = Taurus::Function.all
       fun_str = ""
