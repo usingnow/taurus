@@ -1,3 +1,9 @@
 .bundle
 .idea/*
 **/spec/dummy
+
+sandbox/tmp/*
+sandbox/log/*
+sandbox/.sass-cache/*
+
+

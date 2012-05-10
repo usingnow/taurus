@@ -3,11 +3,13 @@ module Taurus
   class PersonExtend < ActiveRecord::Base
     has_one :user, :as => :taurus_userable, :dependent => :destroy
     accepts_nested_attributes_for :user
+    belongs_to :district
     before_create :insert_number
 
     SEX = { 0 => "女", 1 => "男" }
 
-    validates_presence_of :name, :address, :phone, :district_id
+    validates_presence_of :name, :address, :phone, :district_id, :created_by
+    validates_presence_of :updated_by, :on => :update
 
     protected
     def insert_number
