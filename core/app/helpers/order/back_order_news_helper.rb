@@ -1,3 +1,0 @@
-module Order::BackOrderNewsHelper
-
-end

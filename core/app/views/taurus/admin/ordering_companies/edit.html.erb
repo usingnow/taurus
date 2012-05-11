@@ -1,8 +1,0 @@
-<h1>修改订货公司</h1>
-
-<%= render 'form' %>
-
-<% if can? :read, OrderingCompany %>
-  <%= link_to t('admin.actions.show.menu'), [:admin,@ordering_company] %>
-  <%= link_to '返回', admin_ordering_companies_path %>
-<% end %>

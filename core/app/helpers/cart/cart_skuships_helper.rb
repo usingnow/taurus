@@ -1,2 +1,0 @@
-module Cart::CartSkushipsHelper
-end

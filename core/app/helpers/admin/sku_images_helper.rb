@@ -1,2 +1,0 @@
-module Admin::SkuImagesHelper
-end
