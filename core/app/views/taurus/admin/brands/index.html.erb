@@ -1,0 +1,36 @@
+<div class="form-actions">
+  <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
+    <%= f.text_field :chinese_name_cont, :placeholder => t('activerecord.attributes.taurus/brand.chinese_name'), :class => "trk-non-inline-margin" %>
+    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
+  <% end %>
+  <hr />
+  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/brand'))}".html_safe, new_admin_brand_path, :target => "_blank", :class => "btn btn-primary" %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('activerecord.attributes.taurus/brand.chinese_name') %></th>
+      <th><%= t('activerecord.attributes.taurus/brand.english_name') %></th>
+      <th><%= t('activerecord.attributes.taurus/brand.company_name') %></th>
+      <th><%= t('activerecord.attributes.taurus/brand.updated_at') %></th>
+      <th><%= t('admin.misc.operation') %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @brands.each_with_index do |brand,index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= link_to brand.chinese_name, admin_brand_path(brand) %></td>
+      <td><%= brand.english_name %></td>
+      <td><%= brand.company_name %></td>
+      <td><%= brand.updated_at %></td>
+      <td><%= link_to t('admin.actions.edit.menu'), edit_admin_brand_path(brand), :class => "btn btn-primary" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan='6'><%= will_paginate @brands, :renderer => BootstrapPagination::Rails %></td></tr>
+  </tfoot>
+</table>

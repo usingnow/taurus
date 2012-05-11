@@ -14,16 +14,16 @@
           name: '管理'
           action: '[:create,:update]'
           subject_class: 'Supplier'
-    - id: 11
-      name: '品牌信息'
+    - id: 0102
+      name: '品牌管理'
       url: '/admin/brands'
       operations: 
-        - id: 14
+        - id: 010201
           name: '查询'
           action: ':read'
           subject_class: 'Brand'
       operations: 
-        - id: 48
+        - id: 010202
           name: '管理'
           action: '[:create,:update]'
           subject_class: 'Brand'

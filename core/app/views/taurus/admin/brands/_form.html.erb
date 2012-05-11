@@ -1,0 +1,18 @@
+<%= simple_form_for([:admin,@brand],:html => {:multipart=>true, :class => 'form-horizontal'})  do |f| %>
+  <%= f.error_notification %>
+  
+  <fieldset>
+    <%= f.input :chinese_name %>
+    <%= f.input :english_name %>
+    <%= f.input :pinyin %>
+    <%= f.input :web_address %>
+    <%= f.input :company_name %>
+    <%= f.input :company_description, :input_html => { :rows => 5 } %>
+    <%= f.input :image %>
+    <%= f.input :status %>
+
+    <div class="form-actions">
+      <%= f.button :submit, :class => "btn btn-primary" %>
+    </div>
+  </fieldset>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120510062805) do
+ActiveRecord::Schema.define(:version => 20120511040003) do
 
   create_table "taurus_administrators", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -42,6 +42,24 @@ ActiveRecord::Schema.define(:version => 20120510062805) do
     t.string   "title"
     t.string   "internal_title"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "taurus_brands", :force => true do |t|
+    t.string   "chinese_name"
+    t.string   "english_name"
+    t.string   "pinyin"
+    t.string   "web_address"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "company_name"
+    t.text     "company_description"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
