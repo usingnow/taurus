@@ -1,51 +1,33 @@
-<h1>供应商列表</h1>
-
-<div class="attributes">
-  <%= search_form_for [:admin,@search] do |f| %>
-    <div class="split_content_left">
-      <p>
-        <%= f.label '名称' %>
-        <%= f.text_field :name_cont %>
-      </p>
-    </div>
-    <div class="split_content_right">
-      <p>
-        <label>&nbsp;</label>
-        <%= f.submit '查询'%>
-      </p>
-    </div>
-    <div class="clear"></div>
+<div class="form-actions">
+  <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
+    <%= f.text_field :name_cont, :placeholder => t('activerecord.attributes.taurus/supplier.name'), :class => "trk-non-inline-margin" %>
+    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
   <% end %>
+  <hr />
+  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/supplier'))}".html_safe, new_admin_supplier_path, :target => "_blank", :class => "btn btn-primary" %>
 </div>
 
-<div class="grid_button">
-  <%= link_to '新增供应商', new_admin_supplier_path, :target => "_blank"  if can? :create, Supplier %>
-</div>
 
-<table class="grid">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>
-      <th>供应商编号</th>
-      <th><%= t('activerecord.attributes.supplier.name') %></th>
-      <th><%= t('activerecord.attributes.supplier.input_person') %></th>
-      <th><%= t('activerecord.attributes.supplier.updated_at') %></th>
-      <th></th>
-      <th></th>
+      <th><%= t('activerecord.attributes.taurus/supplier.number') %></th>
+      <th><%= t('activerecord.attributes.taurus/supplier.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/supplier.updated_at') %></th>
+      <th><%= t('admin.misc.operation') %></th>
    </tr>
   </thead>
-<% @suppliers.each_with_index do |supplier,index| %>
-  <tr class="<%= set_odd_even_class index %>">
-    <td><%= index+1 %></td>
-    <td><%= supplier.supplier_id %></td>
-    <td><%= supplier.name %></td>
-    <td><%= supplier.input_person %></td>
-    <td><%= supplier.updated_at %></td>
-    <td><%= link_to t('admin.actions.show.menu'), admin_supplier_path(supplier) %></td>
-    <td><%= link_to t('admin.actions.edit.menu'), edit_admin_supplier_path(supplier) if can? :update, Supplier %></td>
-  </tr>
-<% end %>
+  <% @suppliers.each_with_index do |supplier,index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= link_to supplier.number, admin_supplier_path(supplier) %></td>
+      <td><%= supplier.name %></td>
+      <td><%= supplier.updated_at %></td>
+      <td><%= link_to t('admin.actions.edit.menu'), edit_admin_supplier_path(supplier), :class => "btn btn-primary trk-btn-short" %></td>
+    </tr>
+  <% end %>
+  <tfoot>
+    <tr><td colspan='5'><%= will_paginate @suppliers, :renderer => BootstrapPagination::Rails %></td></tr>
+  </tfoot>
 </table>
-
-<%= will_paginate @suppliers %>
-

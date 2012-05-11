@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120424030801) do
+ActiveRecord::Schema.define(:version => 20120510062805) do
 
   create_table "taurus_administrators", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -216,6 +216,21 @@ ActiveRecord::Schema.define(:version => 20120424030801) do
   create_table "taurus_stores", :force => true do |t|
     t.string   "name"
     t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "taurus_suppliers", :force => true do |t|
+    t.string   "number"
+    t.string   "name"
+    t.string   "contact_name"
+    t.string   "contact_phone"
+    t.string   "terms_of_exchange"
+    t.string   "delivery"
+    t.string   "level"
+    t.boolean  "status"
+    t.integer  "created_by"
+    t.integer  "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

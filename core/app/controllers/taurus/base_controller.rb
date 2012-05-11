@@ -1,5 +1,6 @@
 #encoding:UTF-8
 class Taurus::BaseController < ApplicationController
+=begin  
   private
     #CanCan
     def current_ability
@@ -208,4 +209,5 @@ class Taurus::BaseController < ApplicationController
         "未知错误"
       end
     end
+=end    
 end

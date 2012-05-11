@@ -1,16 +1,16 @@
-- id: 1
+- id: 01
   name: '商品管理'
   functions: 
-    - id: 10
-      name: '供应商信息'
+    - id: 0101
+      name: '供应商管理'
       url: '/admin/suppliers'
       operations: 
-        - id: 13
+        - id: 010101
           name: '查询'
           action: ':read'
           subject_class: 'Supplier'
       operations: 
-        - id: 46
+        - id: 010102
           name: '管理'
           action: '[:create,:update]'
           subject_class: 'Supplier'

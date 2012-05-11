@@ -18,17 +18,20 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'rails3-jquery-autocomplete' #自动完成
+#自动完成
+gem 'rails3-jquery-autocomplete' 
 
 #pdf打印
 gem 'prawn', '0.12.0'
 
 
 group :test do
-  gem "rspec"
+	gem "rspec"
   gem "rspec-rails"
-  gem 'factory_girl_rails','1.4.0' #测试夹具
-  gem 'spork', '~> 0.9.0.rc' #测试加速
+  gem 'factory_girl_rails','1.4.0' 
+  gem 'spork', '~> 0.9.0.rc'
+  gem 'ffaker'
+  gem 'shoulda-matchers', '~> 1.0.0'
 end
 
 gemspec

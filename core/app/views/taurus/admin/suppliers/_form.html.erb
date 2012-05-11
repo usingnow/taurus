@@ -1,59 +1,18 @@
-<%= form_for([:admin,@supplier]) do |f| %>
-  <% if @supplier.errors.any? %>
-    <div id="error_explanation">
-      <h2><%=I18n.t('activerecord.errors.template.header', :count => @supplier.errors.size, :model => I18n.t('models.supplier'))%></h2>
+<%= simple_form_for([:admin,@supplier], :html => {:class => 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% @supplier.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <fieldset>
+    <%= f.input :number %>
+    <%= f.input :name %>
+    <%= f.input :contact_name %>
+    <%= f.input :contact_phone %>
+    <%= f.input :terms_of_exchange %>
+    <%= f.input :delivery %>
+    <%= f.input :level %>
+    <%= f.input :status, :as => :boolean %>
+    
+    <div class="form-actions">
+      <%= f.button :submit, :class => "btn btn-primary" %>
     </div>
-  <% end %>
-
-  <div class="field margin_left_40">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <span class="red">*</span>
-  </div>
-  <div class="field margin_left_40">
-    <%= f.label :input_person %>
-    <%= f.text_field :input_person %>
-    <span class="red">*</span>
-  </div>
-  <div class="field margin_left_40">
-    <%= f.label :contact_name %>
-    <%= f.text_field :contact_name %>
-  </div>
-  <div class="field margin_left_40">
-    <%= f.label :contact_way %>
-    <%= f.text_field :contact_way %>
-  </div>
-  <div class="field margin_left_40">
-    <%= f.label :terms_of_exchange %>
-    <%= f.text_field :terms_of_exchange %>
-  </div>
-  <div class="field margin_left_40">
-    <%= f.label :delivery %>
-    <%= f.text_field :delivery %>
-  </div>
-  <div class="field margin_left_40">
-    <%= f.label :level %>
-    <%= f.text_field :level %>
-  </div>
-  <div class="field margin_left_40">
-    <%= f.label :active %>
-    <%= f.radio_button :active, '0',%>
-    <%= f.label '关闭' %>
-    <% if @supplier.id.nil? %>
-      <%= f.radio_button :active, '1', :checked => true  %>
-    <% else %>
-      <%= f.radio_button :active, '1' %>
-    <% end %>
-    <%= f.label '激活' %>
-  </div>
-  <br />
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  </fieldset>
 <% end %>

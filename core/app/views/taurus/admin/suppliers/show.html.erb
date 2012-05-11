@@ -1,46 +1,57 @@
-<div id="show_info">
-  <h1>供应商信息</h1>
-  <ul>
-    <li>
-        <label>供应商编号：</label>
-        <span class="red"><%= @supplier.supplier_id %></span>
-    </li>
-    <li>
-        <label>供应商名称：</label>
-        <span><%= @supplier.name %></span>
-    </li>
-    <li>
-        <label>登陆者姓名：</label>
-        <span><%= @supplier.input_person %></span>
-    </li>
-    <li>
-        <label>联系人：</label>
-        <span><%= @supplier.contact_name %></span>
-    </li>
-    <li>
-        <label>联系方式：</label>
-        <span><%= @supplier.contact_way %></span>
-    </li>
-    <li>
-        <label>交易条件：</label>
-        <span><%= @supplier.terms_of_exchange %></span>
-    </li>
-    <li>
-        <label>交货期：</label>
-        <span><%= @supplier.delivery %></span>
-    </li>
-    <li>
-        <label>级别：</label>
-        <span><%= @supplier.level %></span>
-    </li>
-    <li>
-        <label>状态：</label>
-        <span><%= Supplier::ACTIVE[@supplier.active] %></span>
-    </li>
-
-    <li class="margin_top_20">
-      <%= link_to "返回", admin_suppliers_path, :class => "left20" %>
-      <%= link_to "修改", edit_admin_supplier_path(@supplier) if can? :update, Supplier %>
-    </li>
-  </ul>
+<div class="form-actions">
+  <%= link_to "<i class='icon-edit'></i> #{t('admin.actions.edit.menu')}".html_safe, edit_admin_supplier_path(@supplier), :class => "btn btn-primary" %>
+  <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_suppliers_path, :class => "btn pull-right" %>
 </div>
+
+<form class="form-horizontal">
+  <fieldset>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/supplier.number' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @supplier.number %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/supplier.name' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @supplier.name %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/supplier.contact_name' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @supplier.contact_name %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/supplier.contact_phone' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @supplier.contact_phone %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/supplier.terms_of_exchange' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @supplier.terms_of_exchange %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/supplier.delivery' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @supplier.delivery %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/supplier.level' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @supplier.level %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/supplier.status' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= format_boolean(@supplier.status) %></span>
+      </div>
+    </div>
+  </fieldset>
+</form>
