@@ -27,16 +27,16 @@
           name: '管理'
           action: '[:create,:update]'
           subject_class: 'Brand'
-    - id: 12
-      name: '素材商品分类'
+    - id: 0103
+      name: '素材商品分类管理'
       url: '/admin/product_categories'
       operations: 
-        - id: 15
+        - id: 010301
           name: '查询'
           action: ':read'
           subject_class: 'ProductCategory'
       operations: 
-        - id: 49
+        - id: 010302
           name: '管理'
           action: '[:create,:update]'
           subject_class: 'ProductCategory'

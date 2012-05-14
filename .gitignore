@@ -1,6 +1,7 @@
 .bundle
 .idea/*
 **/spec/dummy
+**/.bundle
 
 sandbox/tmp/*
 sandbox/log/*

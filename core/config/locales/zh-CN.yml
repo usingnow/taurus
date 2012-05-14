@@ -200,7 +200,6 @@ zh-CN:
     panic_buying: "疯狂抢购"
     procedure: "流程"
     product: "素材商品"
-    product_category: "素材商品分类"
     sku_productship: "媒体商品组成"
     sku_image: "媒体商品相册"
     station: "站别"
@@ -265,15 +264,6 @@ zh-CN:
       #扩展属性
       product_list: "素材商品列表"
       brand_chinese_name: "品牌中文名称"
-
-    product_category:
-      parent_id: "父ID"
-      number: "编号"
-      name: "名称"
-      description: "描述"
-      create_by: "创建者"
-      update_by: "更新者"
-      updated_at: "更新时间"
 
 
     sku_productship:
@@ -365,6 +355,7 @@ zh-CN:
     models:
       taurus/supplier: "供应商"
       taurus/brand: "品牌"
+      taurus/product_category: "素材商品分类"
     attributes:
       taurus/supplier:
         number: "供应商编号"
@@ -391,6 +382,15 @@ zh-CN:
         updated_at: "更新时间"
         company_name: "公司名称"
         company_description: "公司简介"
+      taurus/product_category:
+        parent_id: "父分类"
+        number: "素材商品分类编号"
+        name: "素材商品分类名称"
+        description: "描述"
+        sequence: "排序"
+        status: "激活"
+        updated_at: "更新时间"  
+
 
   helpers:
     select:

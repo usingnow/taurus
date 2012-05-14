@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120511040003) do
+ActiveRecord::Schema.define(:version => 20120514103630) do
 
   create_table "taurus_administrators", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -189,6 +189,17 @@ ActiveRecord::Schema.define(:version => 20120511040003) do
   add_index "taurus_person_extends", ["created_by"], :name => "index_taurus_person_extends_on_created_by"
   add_index "taurus_person_extends", ["district_id"], :name => "index_taurus_person_extends_on_district_id"
   add_index "taurus_person_extends", ["updated_by"], :name => "index_taurus_person_extends_on_updated_by"
+
+  create_table "taurus_product_categories", :force => true do |t|
+    t.integer  "parent_id"
+    t.string   "number"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "sequence",    :default => 0
+    t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "taurus_provinces", :force => true do |t|
     t.string   "number"
