@@ -5,6 +5,7 @@ PATH
       taurus_auth (= 0.0.1)
       taurus_cms (= 0.0.1)
       taurus_core (= 0.0.1)
+      taurus_sample (= 0.0.1)
       taurus_warehouse (= 0.0.1)
     taurus_auth (0.0.1)
       cancan (= 1.6.7)
@@ -22,6 +23,7 @@ PATH
       twitter-bootstrap-rails (= 2.0.6)
       will_paginate (= 3.0.3)
       will_paginate-bootstrap (= 0.2.0)
+    taurus_sample (0.0.1)
     taurus_warehouse (0.0.1)
       taurus_core (= 0.0.1)
 

@@ -1,0 +1,13 @@
+<%
+1.upto(100) do |i|
+%>
+administrator_<%= i %>:
+  email: <%= Faker::Internet.email %>
+  status: true
+  name: <%= Faker::NameCN.name %>
+  phone: <%= Faker.numerify('########') %>
+  mobile: <%= Faker.numerify('13#########') %>
+  fax: <%= Faker.numerify('########') %>
+  zip_code: <%= Faker.numerify('######') %>
+  address: "上海市浦东新区世纪大道<%= i %>号"
+<% end %>
