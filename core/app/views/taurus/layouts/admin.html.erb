@@ -47,15 +47,7 @@
   </div>
 
   <div class="container">
-    <ul class="breadcrumb breakcrumb-admin-home">
-      <li>
-        <%= link_to "首页", admin_home_index_path %> <span class="divider">/</span>
-      </li>
-      <li>
-        <a href="#">Library</a> <span class="divider">/</span>
-      </li>
-      <li class="active">Data</li>
-    </ul>
+    <%=raw breadcrumb %>
     <div class="row">
       <% if session[:component]["functions"] %>
         <div class="span2 show-grid">

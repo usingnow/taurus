@@ -34,6 +34,29 @@ module Taurus
       content_tag(:ul, fun_str.html_safe, :id => 'admin-main-functionality', :class => 'nav nav-list')
     end
 
+    def breadcrumb
+      li = content_tag(:li, "#{link_to "首页", "/admin"} #{content_tag(:span, "/", :class => "divider")}".html_safe )
+      
+      component, function = {}, {}
+      if request.fullpath.gsub('//', '/') == "/admin"
+        li << content_tag(:li, "控制台".html_safe )
+      else
+        Taurus::Function.all.each do |com|
+          com["functions"].each do |fun|
+            if request.fullpath.gsub('//', '/').starts_with?(fun["url"]) && fun["url"] != "/admin"
+              function = fun
+              component = com
+              break
+            end  
+          end
+        end
+        li << content_tag(:li, "#{link_to component["name"], component["url"]} #{content_tag(:span, "/", :class => "divider")}".html_safe )
+        li << content_tag(:li, "#{link_to function["name"], function["url"]}".html_safe )
+      end  
+      
+      content_tag(:ul, li.html_safe, :class => "breadcrumb breakcrumb-admin-home")
+    end  
+
     def cny(price)
       content_tag(:em, (number_to_currency price, :unit => "￥"), :class => "cny")
     end

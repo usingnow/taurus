@@ -306,5 +306,14 @@
           subject_class: 'OnlinePromotion'
 - id: '09'
   name: '控制台'
-  url: '/admin'
+  url: '/admin/functions?id=09'
   sequence: 10 
+  functions:
+    - id: '0901'
+      name: '控制台'
+      url: '/admin'
+      operations: 
+        - id: '090101'
+          name: '查询'
+          action: ':read'
+          subject_class: 'Home'

@@ -1,5 +1,5 @@
 - id: '08'
-  name: '权限认证管理'
+  name: '权限认证'
   url: '/admin/functions?id=08'
   sequence: 4
   functions: 
