@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120515035156) do
+ActiveRecord::Schema.define(:version => 20120515072630) do
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -136,6 +136,16 @@ ActiveRecord::Schema.define(:version => 20120515035156) do
     t.string   "description"
     t.datetime "updated_at"
     t.datetime "created_at"
+  end
+
+  create_table "taurus_custom_properties", :force => true do |t|
+    t.integer  "product_category_id"
+    t.string   "name"
+    t.integer  "property_type",       :default => 0
+    t.string   "remarks"
+    t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "taurus_districts", :force => true do |t|

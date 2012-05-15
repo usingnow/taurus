@@ -1,5 +1,6 @@
 module Taurus
   class ProductCategory < ActiveRecord::Base
+  	has_many :custom_properties
     scope :tops, where(:parent_id => nil)
 
     def self.seconds(params_id)

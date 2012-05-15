@@ -356,6 +356,7 @@ zh-CN:
       taurus/supplier: "供应商"
       taurus/brand: "品牌"
       taurus/product_category: "商品分类"
+      taurus/custom_property: "自定义属性"
     attributes:
       taurus/supplier:
         number: "供应商编号"
@@ -390,6 +391,13 @@ zh-CN:
         sequence: "排序"
         status: "激活"
         updated_at: "更新时间"  
+        custom_property: "自定义属性"
+      taurus/custom_property: 
+        product_category_id: "商品分类"
+        name: "属性名称"
+        property_type: "属性类型"
+        remarks: "备注"
+        status: "激活"
 
 
   helpers:

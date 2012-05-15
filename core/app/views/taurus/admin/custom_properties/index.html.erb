@@ -1,0 +1,33 @@
+<div class="form-actions">
+  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/custom_property'))}".html_safe, new_admin_product_category_custom_property_path, :class => "btn btn-primary" %>
+</div>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('activerecord.attributes.taurus/custom_property.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/custom_property.property_type') %></th>
+      <th><%= t('activerecord.attributes.taurus/custom_property.status') %></th>
+      <th><%= t('admin.misc.operation') %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @custom_properties.each_with_index do |custom_property,index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= link_to custom_property.name, admin_product_category_custom_property_path(custom_property.product_category_id, custom_property) %></td>
+      <td><%= format_property_type custom_property.property_type %></td>
+      <td><%= format_boolean custom_property.status %></td>
+      <td>
+        <%= link_to t('admin.actions.edit.menu'), edit_admin_product_category_custom_property_path(custom_property.product_category_id, custom_property), :class => "btn btn-primary" %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan='6'><%= will_paginate @custom_properties, :renderer => BootstrapPagination::Rails %></td></tr>
+  </tfoot>
+</table>
+ 

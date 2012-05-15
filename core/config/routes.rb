@@ -19,7 +19,8 @@ Taurus::Core::Engine.routes.draw do
         get :seconds
         get :thirds
       end
-    end  
+      resources :custom_properties
+    end
   end
 
   match '/admin', :to => 'admin/home#index'

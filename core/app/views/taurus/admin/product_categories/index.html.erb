@@ -33,7 +33,10 @@
             <td><%= link_to product_category.number, admin_product_category_path(product_category) %></td>
             <td><%= product_category.name %></td>
             <td><%= format_boolean product_category.status %></td>
-            <td><%= link_to t('admin.actions.edit.menu'), edit_admin_product_category_path(product_category), :class => "btn btn-primary" %></td>
+            <td>
+              <%= link_to t('admin.actions.edit.menu'), edit_admin_product_category_path(product_category), :class => "btn btn-primary" %>
+              <%= link_to t('activerecord.attributes.taurus/product_category.custom_property'), admin_product_category_custom_properties_path(product_category), :class => "btn btn-primary" %>
+            </td>
           </tr>
         <% end %>
         </tbody>
