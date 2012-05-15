@@ -1,42 +1,44 @@
-- id: 01
+- id: '01'
   name: '商品管理'
+  url: "/admin/functions?id=01"
+  sequence: 9
   functions: 
-    - id: 0101
+    - id: '0101'
       name: '供应商管理'
       url: '/admin/suppliers'
       operations: 
-        - id: 010101
+        - id: '010101'
           name: '查询'
           action: ':read'
           subject_class: 'Supplier'
       operations: 
-        - id: 010102
+        - id: '010102'
           name: '管理'
           action: '[:create,:update]'
           subject_class: 'Supplier'
-    - id: 0102
+    - id: '0102'
       name: '品牌管理'
       url: '/admin/brands'
       operations: 
-        - id: 010201
+        - id: '010201'
           name: '查询'
           action: ':read'
           subject_class: 'Brand'
       operations: 
-        - id: 010202
+        - id: '010202'
           name: '管理'
           action: '[:create,:update]'
           subject_class: 'Brand'
-    - id: 0103
+    - id: '0103'
       name: '素材商品分类管理'
       url: '/admin/product_categories'
       operations: 
-        - id: 010301
+        - id: '010301'
           name: '查询'
           action: ':read'
           subject_class: 'ProductCategory'
       operations: 
-        - id: 010302
+        - id: '010302'
           name: '管理'
           action: '[:create,:update]'
           subject_class: 'ProductCategory'
@@ -114,8 +116,10 @@
           name: '相册管理'
           action: '[:create,:update,:destroy]'
           subject_class: 'SkuImage'
-- id: 02
-  name: '基础管理'
+- id: '02'
+  name: '系统设置'
+  url: '/admin/functions?id=02'
+  sequence: 0
   functions:
     - id: 0201
       name: '行业类别管理'
@@ -180,18 +184,12 @@
           name: '管理'
           action: '[:create,:update]'
           subject_class: 'StationProcedureship'
-- id: 3
-  name: '呼叫中心'
+- id: '03'
+  name: '订单'
+  url: '/admin/functions?id=03'
+  sequence: 8
   functions: 
-    - id: 16
-      name: '升级单管理'
-      url: '/admin/escs'
-      operations: 
-        - id: 19
-          name: '管理'
-          action: ':manage'
-          subject_class: 'Esc'
-    - id: 17
+    - id: '0301'
       name: '在线订单'
       url: '/admin/orders'
       operations: 
@@ -258,8 +256,10 @@
           name: '关闭前台显示'
           action: ':close'
           subject_class: 'CustomerRating'
-- id: 4
+- id: '04'
   name: '采购'
+  url: '/admin/functions?id=04'
+  sequence: 6
   functions: 
     - id: 19
       name: '可订购公司信息'
@@ -292,8 +292,9 @@
           name: '打印'
           action: ':print'
           subject_class: 'PurchaseOrder'
-- id: 7
+- id: '07'
   name: '促销'
+  sequence: 5
   functions: 
     - id: 32
       name: '促销活动'
@@ -303,3 +304,7 @@
           name: '查询'
           action: ':read'
           subject_class: 'OnlinePromotion'
+- id: '09'
+  name: '控制台'
+  url: '/admin'
+  sequence: 10 

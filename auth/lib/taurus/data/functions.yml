@@ -1,5 +1,7 @@
-- id: 08
+- id: '08'
   name: '权限认证管理'
+  url: '/admin/functions?id=08'
+  sequence: 4
   functions: 
     - id: 0801
       name: '员工账户管理'

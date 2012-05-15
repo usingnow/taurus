@@ -7,6 +7,8 @@ Taurus::Core::Engine.routes.draw do
   end    
 
   namespace :admin do 
+    resources :home
+    resources :functions
     resources :industries
     resources :company_types
     resources :company_scales

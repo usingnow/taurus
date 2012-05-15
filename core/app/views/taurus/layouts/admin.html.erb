@@ -32,17 +32,9 @@
         </a>
         <a class="brand" href="#">采恪电子商务管理平台</a>
         <div class="nav-collapse">
-          <ul class="nav">
-            <li class="active"><a href="#">控制台</a></li>
-            <li><a href="#">商品管理</a></li>
-            <li><a href="#">订单</a></li>
-            <li><a href="#">仓库</a></li>
-            <li><a href="#">采购</a></li>
-            <li><a href="#">前台设置</a></li>
-            <li><a href="#">系统设置</a></li>
-          </ul>
+          <%=raw components %>
           <ul class="nav pull-right">
-            <li  class="active">
+            <li class="active">
               <a href="#"><i class="icon-user"></i><%= current_administrator.name %></a>
             </li>
             <li>
@@ -57,7 +49,7 @@
   <div class="container">
     <ul class="breadcrumb breakcrumb-admin-home">
       <li>
-        <a href="#">Home</a> <span class="divider">/</span>
+        <%= link_to "首页", admin_home_index_path %> <span class="divider">/</span>
       </li>
       <li>
         <a href="#">Library</a> <span class="divider">/</span>
@@ -65,9 +57,11 @@
       <li class="active">Data</li>
     </ul>
     <div class="row">
-      <div class="span2 show-grid">
-        <%=raw functions %>
-      </div>
+      <% if session[:component]["functions"] %>
+        <div class="span2 show-grid">
+          <%=raw functions %>
+        </div>
+      <% end %>
       <div class="span10">
         <%= yield %>
       </div>

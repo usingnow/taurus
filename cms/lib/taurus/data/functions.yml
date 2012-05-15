@@ -1,5 +1,7 @@
-- id: 06
-  name: '网站内容管理'
+- id: '06'
+  name: '前台设置'
+  url: '/admin/functions?id=06'
+  sequence: 2
   functions: 
     - id: 0601
       name: '前台滑动广告'

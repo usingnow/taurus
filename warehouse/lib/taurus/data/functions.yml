@@ -1,11 +1,13 @@
-- id: 05
-  name: '库管'
+- id: '05'
+  name: '仓库'
+  url: '/admin/functions?id=05'
+  sequence: 7
   functions: 
-    - id: 0501
+    - id: '0501'
       name: '仓库信息维护'
       url: '/admin/stores'
       operations: 
-        - id: 050101
+        - id: '050101'
           name: '查询'
           action: ':read'
           subject_class: 'Store'
