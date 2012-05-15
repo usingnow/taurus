@@ -2,7 +2,7 @@ module Taurus
 	module Admin
 		class FunctionsController < BaseController
       def index
-        com = Function.component(params[:id])
+        com = Function.component(params[:id] ||= "09")
         session[:component] = com
         redirect_to(com["functions"].first["url"])
       end

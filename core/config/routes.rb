@@ -23,6 +23,7 @@ Taurus::Core::Engine.routes.draw do
     end
   end
 
-  match '/admin', :to => 'admin/home#index'
+  match '/admin', :to => 'admin/functions#index' 
+
 	
 end

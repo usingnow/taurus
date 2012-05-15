@@ -298,7 +298,7 @@
   functions:
     - id: '0901'
       name: '控制台'
-      url: '/admin'
+      url: '/admin/home'
       operations: 
         - id: '090101'
           name: '查询'

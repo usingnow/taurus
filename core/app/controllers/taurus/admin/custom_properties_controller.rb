@@ -3,7 +3,8 @@ module Taurus
 		class CustomPropertiesController < BaseController
 			helper "taurus/custom_properties"
 	    def index
-        @search = CustomProperty.search(params[:q])
+	    	@product_category = ProductCategory.find(params[:product_category_id])
+        @search = @product_category.custom_properties.search(params[:q])
         @custom_properties = @search.result.paginate(:page => params[:page], :per_page => 20)
 	    end
 
