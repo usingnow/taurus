@@ -1,6 +1,8 @@
 module Taurus
 	module Admin
 		class ProductCategoriesController < BaseController
+			helper "taurus/product_categories"
+
 			def index
         @search = ProductCategory.search(params[:q])
         @product_categories = @search.result.paginate(:page => params[:page], :per_page => 20)
@@ -43,6 +45,23 @@ module Taurus
 				@product_category.destroy
 			  redirect_to(admin_product_categories_url)
 			end  
+      
+      #第二级分类
+			def seconds
+				@second_categories = ProductCategory.seconds(params[:id])
+				params[:q] = { :parent_id_eq => params[:id]}
+				index
+				render :action => "index"
+			end
+
+      #第三级分类
+			def thirds
+        @second_categories = ProductCategory.seconds(ProductCategory.find(params[:id]).parent_id)
+        @second_category_id = params[:id]
+				params[:q] = { :parent_id_eq => params[:id]}
+				index
+				render :action => "index"
+			end
 		end
 	end
 end

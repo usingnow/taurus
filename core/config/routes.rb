@@ -14,7 +14,12 @@ Taurus::Core::Engine.routes.draw do
     resources :company_scales
     resources :suppliers
     resources :brands
-    resources :product_categories
+    resources :product_categories do
+      member do
+        get :seconds
+        get :thirds
+      end
+    end  
   end
 
   match '/admin', :to => 'admin/home#index'

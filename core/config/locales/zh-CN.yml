@@ -355,7 +355,7 @@ zh-CN:
     models:
       taurus/supplier: "供应商"
       taurus/brand: "品牌"
-      taurus/product_category: "素材商品分类"
+      taurus/product_category: "商品分类"
     attributes:
       taurus/supplier:
         number: "供应商编号"

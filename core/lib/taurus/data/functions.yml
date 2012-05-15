@@ -30,7 +30,7 @@
           action: '[:create,:update]'
           subject_class: 'Brand'
     - id: '0103'
-      name: '素材商品分类管理'
+      name: '商品分类管理'
       url: '/admin/product_categories'
       operations: 
         - id: '010301'
@@ -42,8 +42,8 @@
           name: '管理'
           action: '[:create,:update]'
           subject_class: 'ProductCategory'
-    - id: 13
-      name: '素材商品'
+    - id: '0104'
+      name: 'SKU管理'
       url: '/admin/products'
       operations: 
         - id: 16
@@ -55,21 +55,8 @@
           name: '管理'
           action: '[:create,:update]'
           subject_class: 'Product'
-    - id: 14
-      name: '媒体商品分类'
-      url: '/admin/sku_categories'
-      operations: 
-        - id: 17
-          name: '查询'
-          action: ':read'
-          subject_class: 'SkuCategory'
-      operations: 
-        - id: 51
-          name: '管理'
-          action: '[:create,:update]'
-          subject_class: 'SkuCategory'
-    - id: 15
-      name: '媒体商品'
+    - id: '0105'
+      name: '销售商品管理'
       url: '/commodity/admin/skus'
       operations: 
         - id: 18
