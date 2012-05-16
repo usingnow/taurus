@@ -21,6 +21,16 @@ Taurus::Core::Engine.routes.draw do
       end
       resources :custom_properties
     end
+    resources :skus do 
+       collection do
+         get :autocomplete_product_category_name
+         get :autocomplete_brand_chinese_name 
+         get :autocomplete_supplier_name
+       end
+       member do
+         get :clone
+       end
+    end
   end
 
   match '/admin', :to => 'admin/functions#index' 

@@ -1,0 +1,37 @@
+<div class="form-actions">
+  <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
+    <%= f.text_field :number_cont, :placeholder => t('activerecord.attributes.taurus/sku.number'), :class => "trk-non-inline-margin" %>
+    <%= f.text_field :name_cont, :placeholder => t('activerecord.attributes.taurus/sku.name'), :class => "trk-non-inline-margin" %>
+    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
+  <% end %>
+  <hr />
+  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/sku'))}".html_safe, new_admin_sku_path, :class => "btn btn-primary" %>
+</div>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('activerecord.attributes.taurus/sku.number') %></th>
+      <th><%= t('activerecord.attributes.taurus/sku.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/sku.product_category_id') %></th>
+      <th><%= t('admin.misc.operation') %></th>
+   </tr>
+  </thead>
+  <% @skus.each_with_index do |sku,index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= link_to sku.number, admin_sku_path(sku) %></td>
+      <td><%= sku.name %></td>
+      <td><%= sku.product_category.name %></td>
+      <td>
+        <%= link_to t('admin.actions.edit.menu'), edit_admin_sku_path(sku), :class => "btn btn-primary trk-btn-short" %>
+        <%= link_to t('admin.misc.clone'), clone_admin_sku_path(sku), :class => "btn btn-primary trk-btn-short" %>
+      </td>
+    </tr>
+  <% end %>
+  <tfoot>
+    <tr><td colspan='5'><%= will_paginate @skus, :renderer => BootstrapPagination::Rails %></td></tr>
+  </tfoot>
+</table>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120515072630) do
+ActiveRecord::Schema.define(:version => 20120516102930) do
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -250,6 +250,31 @@ ActiveRecord::Schema.define(:version => 20120515072630) do
   add_index "taurus_sku_displays", ["location"], :name => "index_taurus_sku_displays_on_location"
   add_index "taurus_sku_displays", ["page"], :name => "index_taurus_sku_displays_on_page"
   add_index "taurus_sku_displays", ["sku_id"], :name => "index_taurus_sku_displays_on_sku_id"
+
+  create_table "taurus_skus", :force => true do |t|
+    t.string   "number"
+    t.string   "name"
+    t.integer  "product_category_id"
+    t.integer  "brand_id"
+    t.integer  "supplier_id"
+    t.string   "place_of_origin"
+    t.string   "unit"
+    t.string   "model"
+    t.string   "specifications"
+    t.string   "dimensions"
+    t.decimal  "cost_before_tax",     :precision => 8,  :scale => 2, :default => 0.0
+    t.decimal  "cost_after_tax",      :precision => 8,  :scale => 2, :default => 0.0
+    t.decimal  "weight",              :precision => 10, :scale => 3, :default => 0.0
+    t.integer  "delivery_days",                                      :default => 0
+    t.string   "delivery_notice"
+    t.text     "remarks"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taurus_skus", ["brand_id"], :name => "index_taurus_skus_on_brand_id"
+  add_index "taurus_skus", ["product_category_id"], :name => "index_taurus_skus_on_product_category_id"
+  add_index "taurus_skus", ["supplier_id"], :name => "index_taurus_skus_on_supplier_id"
 
   create_table "taurus_slider_bars", :force => true do |t|
     t.string   "name"

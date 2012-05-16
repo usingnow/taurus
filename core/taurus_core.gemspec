@@ -27,4 +27,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'simple_form', '2.0.2'
   s.add_dependency 'twitter-bootstrap-rails', '2.0.6'
   s.add_dependency 'will_paginate-bootstrap', '0.2.0'
+  s.add_dependency 'rails3-jquery-autocomplete'
 end

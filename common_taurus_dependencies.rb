@@ -18,9 +18,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-#自动完成
-gem 'rails3-jquery-autocomplete' 
-
 #pdf打印
 gem 'prawn', '0.12.0'
 

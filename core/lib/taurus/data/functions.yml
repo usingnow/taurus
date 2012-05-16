@@ -44,17 +44,17 @@
           subject_class: 'ProductCategory'
     - id: '0104'
       name: 'SKU管理'
-      url: '/admin/products'
+      url: '/admin/skus'
       operations: 
-        - id: 16
+        - id: '010401'
           name: '查询'
           action: ':read'
-          subject_class: 'Product'
+          subject_class: 'Sku'
       operations: 
-        - id: 50
+        - id: '010402'
           name: '管理'
           action: '[:create,:update]'
-          subject_class: 'Product'
+          subject_class: 'Sku'
     - id: '0105'
       name: '销售商品管理'
       url: '/commodity/admin/skus'

@@ -199,7 +199,6 @@ zh-CN:
     esc: "升级单"
     panic_buying: "疯狂抢购"
     procedure: "流程"
-    product: "素材商品"
     sku_productship: "媒体商品组成"
     sku_image: "媒体商品相册"
     station: "站别"
@@ -210,61 +209,6 @@ zh-CN:
     delivery_order:
       store_id: "仓库"
       line_type: "出库方式"
-
-    product:
-      product_id: "素材商品编号"
-      name: "素材商品名"
-      cost_bef_tax: "税前成本"
-      cost_aft_tax: "税后成本"
-      brand_id: "品牌ID"
-      brand_name: "品牌名称"
-      supplier_name: "供应商名称"
-      product_category_id: "素材商品分类id"
-      product_category_name: "素材分类名称"
-      unit:  "库存单位"
-      specification: "素材商品规格"
-      delivery_days: "供应商交货日数"
-      type: "商品类型区分"
-      model: "素材商品型号"
-      size: "素材商品尺寸"
-      delivery_descprition: "交货描述"
-      description: "素材商品描述"
-      color: "素材商品颜色"
-      can_on_behalf: "代购品区分"
-      barcode: "素材商品条码"
-
-      #供应商、产地、质保、保修、附属品信息
-      supplier_id: "供应商id"
-      manufacturer: "生产厂家"
-      have_shelf_life: "是否有质保期"
-      shelf_life: "质保期(天)"
-      have_wanrranty: "是否有保修期"
-      wanrranty: "保修期"
-      wanrranty_description: "保修期描述"
-      origin: "原产地"
-      appendant: "附属品"
-      is_green: "绿色环保产品"
-
-      #素材商品组装、安装、维修费用信息
-      is_assembling_required: "是否需要组装"
-      assembling_fee_bef_tax: "税前组装费"
-      assembling_fee_aft_tax: "税后组装费"
-      is_maintanable: "是否可维修商品"
-      maintenance_cost_bef_tax: "税前维护手续费"
-      maintenance_cost_aft_tax: "税后维护手续费"
-      is_installation_required: "安装区分"
-      installation_cost_bef_tax: "税前安装费用"
-      insatllation_cost_aft_tax: "税后安装费用"
-
-      #素材商品管理相关记录
-      created_by: "创建人"
-      updated_by: "更新人"
-      updated_at: "更新时间"
-
-      #扩展属性
-      product_list: "素材商品列表"
-      brand_chinese_name: "品牌中文名称"
-
 
     sku_productship:
       product_id: "素材商品ID"
@@ -357,6 +301,7 @@ zh-CN:
       taurus/brand: "品牌"
       taurus/product_category: "商品分类"
       taurus/custom_property: "自定义属性"
+      taurus/sku: "SKU"
     attributes:
       taurus/supplier:
         number: "供应商编号"
@@ -398,7 +343,26 @@ zh-CN:
         property_type: "属性类型"
         remarks: "备注"
         status: "激活"
-
+      taurus/sku:
+        number: "SKU编号"
+        name: "SKU名称"
+        product_category_name: "商品分类"
+        product_category_id: "商品分类"
+        brand_chinese_name: "品牌中文名"
+        brand_id: "品牌"
+        supplier_name: "供应商"
+        supplier_id: "供应商"
+        place_of_origin: "产地"
+        unit: "单位"
+        model: "型号"
+        specifications: "规格"
+        dimensions: "尺寸"
+        weight: "重量(公斤)"
+        cost_before_tax: "税前成本"
+        cost_after_tax: "税后成本"
+        delivery_days: "备货天数"
+        delivery_notice: "备货说明"
+        remarks: "备注"
 
   helpers:
     select:
@@ -425,6 +389,7 @@ zh-CN:
       save: "保存"
       operation: "操作"
       back: "返回"
+      clone: "克隆"
     actions:
       index:
         title: "%{model}列表"
