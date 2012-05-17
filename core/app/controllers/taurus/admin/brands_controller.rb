@@ -37,7 +37,7 @@ module Taurus
 		    if @brand.update_attributes(params[:brand])
 		    	redirect_to admin_brands_url
 		    else
-		    	render :action => "new"
+		    	render :action => "edit"
 		    end
 		  end
 

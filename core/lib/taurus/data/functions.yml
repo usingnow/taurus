@@ -57,17 +57,17 @@
           subject_class: 'Sku'
     - id: '0105'
       name: '销售商品管理'
-      url: '/commodity/admin/skus'
+      url: '/admin/products'
       operations: 
-        - id: 18
+        - id: '010501'
           name: '查询'
           action: ':read'
-          subject_class: 'Sku'
+          subject_class: 'Product'
       operations: 
-        - id: 52
+        - id: '010502'
           name: '管理'
-          action: '[:create,:update,:manage]'
-          subject_class: '[Sku,SkuProductship]'
+          action: '[:create,:update]'
+          subject_class: 'Product'
       operations: 
         - id: 53
           name: '销售状态'

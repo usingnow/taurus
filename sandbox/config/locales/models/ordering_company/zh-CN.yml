@@ -1,9 +1,0 @@
-zh-CN:
-  activerecord:
-    models:
-      ordering_company: "订货公司"
-    attributes:
-      ordering_company:
-        name: "名称"
-        address: "地址"
-        phone: "电话"

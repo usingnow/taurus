@@ -1,0 +1,16 @@
+<%= render :partial => "taurus/admin/shared/product_tabs", :locals => { :current => "custom_properties" } %>
+
+<%= simple_form_for(@product, :url => admin_product_custom_property_values_path(@product), :html => {:class => 'form-horizontal', :method => :post}) do |f| %>
+  <%= f.error_notification %>
+
+  <fieldset>
+    <%=raw custom_property_values(f) %>
+
+    <div class="form-actions">
+      <%= f.button :submit, :class => "btn btn-primary" %>
+    </div>
+  </fieldset>
+<% end %>
+
+
+

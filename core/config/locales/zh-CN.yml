@@ -194,106 +194,6 @@ zh-CN:
         other: "有 %{count} 个错误发生导致「%{model}」无法被保存。"
       body: "如下字段出现错误："
 
-  models: &models
-    delivery_order: "出库单"
-    esc: "升级单"
-    panic_buying: "疯狂抢购"
-    procedure: "流程"
-    sku_productship: "媒体商品组成"
-    sku_image: "媒体商品相册"
-    station: "站别"
-    station_procedureship: "流程规则"
-
-
-  attributes: &attributes
-    delivery_order:
-      store_id: "仓库"
-      line_type: "出库方式"
-
-    sku_productship:
-      product_id: "素材商品ID"
-      package_num: "包装数量"
-      package_name: "包装名称"
-      sales_bef_tax: "销售价格(税前)"
-      sales_aft_tax: "销售价格(税后)"
-      is_main: "是否主商品"
-
-    sku_image:
-      name: "图片名称"
-      image_description: "图片描述"
-      is_main: "是否主图片"
-      sort: "显示顺序"
-      image: "图片"
-
-    procedure:
-      id: "流程ID"
-      name: "流程名称"
-      display_name: "显示名称"
-      active: "是否启用"
-      sequence: "次序"
-
-    station:
-      id: "站别ID"
-      name: "站别名称"
-      display_name: "显示名称"
-      condition_function: "条件函数"
-      business_function: "逻辑函数"
-      station_type: "站点类型"
-      sequence: "次序"
-      safe_quantity: "安全数量"
-
-    station_procedureship:
-      station_id: "当前站"
-      condition_id: "过站参数"
-      next_station_id: "下一站"
-      business_function_id: "业务函数"
-      procedure_id: "流程名称"
-      order_oper_url: "操作地址"
-      target: "打开页面方式"
-      width: "宽度"
-      height: "高度"
-      sequence: "次序"
-      sub_sequence: "子次序"
-      active: "启用该规则"
-
-    order_pay:
-      buyer_alipay_no: "买家支付宝帐号"
-      alipay_no: "支付宝交易号"
-      alipay_price: "支付宝交易金额"
-      remittance_no: "交易流水号"
-      status: "支付状态"
-      province_no: "汇出地"
-      alipay_date: "汇款日期"
-      pay_bank: "交易行名"
-      price: "付款金额"
-      remitter: "汇款人姓名"
-      bank_id: "汇入银行"
-      note: "汇款备注"
-
-    inner_order_address:
-      mobile: "手机"
-
-    online_promotion:
-      code: "活动编号"
-      title: "活动名称"
-      online_promotionable_type: "活动范围"
-      promotion_type: "活动类型"
-      start: "开始时间"
-      end: "结束时间"
-      description: "活动说明"
-      min_member_point: "用户最小积分"
-      sign_up_time_limit: "用户注册日期"
-      member_sign_up_start: "起始日期"
-      member_sign_up_end: "结束日期"
-      member_type: "会员范围"
-      order_channel: "订单方式"
-      procedure_id: "付款方式"
-      promotion_members: "特定会员"
-      free_installation: "免除安装费"
-      free_assembling: "免除组装费"
-      points_promotion_method: "积分奖励"
-      sku_id: "礼品"
-      status: "活动状态"
 
   activerecord:
     models:
@@ -302,6 +202,9 @@ zh-CN:
       taurus/product_category: "商品分类"
       taurus/custom_property: "自定义属性"
       taurus/sku: "SKU"
+      taurus/product: "销售商品"
+      taurus/product_sku_line_item: "销售商品SKU"
+      taurus/product_image: "销售商品图片"
     attributes:
       taurus/supplier:
         number: "供应商编号"
@@ -357,12 +260,36 @@ zh-CN:
         model: "型号"
         specifications: "规格"
         dimensions: "尺寸"
-        weight: "重量(公斤)"
+        weight: "重量（公斤）"
         cost_before_tax: "税前成本"
         cost_after_tax: "税后成本"
         delivery_days: "备货天数"
         delivery_notice: "备货说明"
         remarks: "备注"
+      taurus/product:
+        number: "销售商品编号"
+        name: "销售商品名称"
+        product_category_name: "商品分类"
+        product_category_id: "商品分类"
+        place_of_origin: "产地"
+        unit: "单位"
+        manufacturer: "生产企业"
+        market_price: "市场价"
+        tax: "税率"
+        price_after_tax: "税后售价" 
+        weight: "重量（公斤）"
+        description: "介绍"
+        sales_starts_at: "开始销售时间"
+        sales_ends_at: "结束销售时间"
+        sales_status: "销售时间是否启用"
+        if_shown_on_web: "是否上架"
+      taurus/product_sku_line_item: 
+        sku_amount: "SKU数量"
+        sku_name: "SKU名称"
+      taurus/product_image:
+        image: "图片"
+        is_main: "是否主图片"
+        updated_at: "更新时间"
 
   helpers:
     select:

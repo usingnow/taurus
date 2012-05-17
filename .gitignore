@@ -6,5 +6,6 @@
 sandbox/tmp/*
 sandbox/log/*
 sandbox/.sass-cache/*
+sandbox/db/schema.rb
 
 

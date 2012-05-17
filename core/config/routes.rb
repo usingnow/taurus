@@ -31,6 +31,22 @@ Taurus::Core::Engine.routes.draw do
          get :clone
        end
     end
+    resources :products do
+      get :autocomplete_product_category_name, :on => :collection
+      member do
+        get :edit_sales_status
+        put :update_sales_status
+      end
+      resources :custom_property_values
+      resources :product_sku_line_items do 
+        get :autocomplete_sku_name, :on => :collection
+        member do
+          get :show_sku
+          get :add_product_sku
+        end
+      end
+      resources :product_images
+    end
   end
 
   match '/admin', :to => 'admin/functions#index' 
