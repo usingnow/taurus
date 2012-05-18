@@ -7,21 +7,19 @@ module Taurus
       #个人用户注册
       def new
         @person_extend = PersonExtend.new
-        resource = build_resource({})
-        respond_with resource
+        @person_extend.user = User.new
       end
 
       def create
-        @person_extend = PersonExtend.new params[:person_extend]
-        @person_extend.user.status = true
-        @person_extend.user.role_id = 1
+        params[:person_extend][:user_attributes] = params[:person_extend][:user_attributes].merge(:role_id => 1)
 
+        @person_extend = PersonExtend.new params[:person_extend]
 
         if @person_extend.save
           if @person_extend.user.active_for_authentication?
             set_flash_message :notice, :signed_up if is_navigational_format?
             sign_in(resource_name, @person_extend.user)
-            respond_with resource, :location => after_sign_up_path_for(@person_extend.user)
+            respond_with resource, :location => index_home_index_url
           else
             set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
             expire_session_data_after_sign_in!

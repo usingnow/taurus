@@ -10,7 +10,7 @@ module Taurus
 
 
 
-    attr_accessible :email, :password, :password_confirmation, :remember_me, :status, :role_id,
+    attr_accessible :email, :password, :password_confirmation, :remember_me, :role_id,
                     :points
 
     validates_presence_of :email, :role_id

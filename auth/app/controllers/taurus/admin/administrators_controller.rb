@@ -2,8 +2,6 @@
 module Taurus
   module Admin
     class AdministratorsController < BaseController
-      #before_filter :authenticate_administrator!
-      #authorize_resource
       helper 'taurus/administrators'
 
       def index

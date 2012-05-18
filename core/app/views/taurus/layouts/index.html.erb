@@ -21,10 +21,10 @@
         <div class="nav-collapse">
           <ul class="nav pull-right">
             <li class="active">
-              <a href="#"><i class="icon-user"></i></a>
+              <a href="#"><i class="icon-user"></i><%= current_user.taurus_userable.name %></a>
             </li>
             <li>
-              <%= link_to '退出', destroy_administrator_session_path, :method => :delete %>
+              <%= link_to '退出', destroy_user_session_path, :method => :delete %>
             </li>
           </ul>
         </div>

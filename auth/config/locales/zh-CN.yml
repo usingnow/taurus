@@ -37,9 +37,6 @@ zh-CN:
         points: "积分" 
         role_id: "会员角色"
         role: "会员角色"
-        store_id: "仓库"
-        store: "仓库"
-        status: "激活"
         created_at: "注册时间"
       taurus/company_extend:
         number: "企业会员编号"

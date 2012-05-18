@@ -1,5 +1,3 @@
-#encoding:UTF-8
-
 Taurus::Administrator.create(
 	:id => 1,
 	:email => "root@usingnow.com",

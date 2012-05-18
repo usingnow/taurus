@@ -8,8 +8,7 @@ module Taurus
 
     SEX = { 0 => "女", 1 => "男" }
 
-    validates_presence_of :name, :address, :phone, :district_id, :created_by
-    validates_presence_of :updated_by, :on => :update
+    validates_presence_of :name, :address, :phone, :district_id
 
     protected
     def insert_number

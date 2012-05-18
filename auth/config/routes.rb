@@ -1,4 +1,4 @@
-Taurus::Core::Engine.routes.prepend do
+Taurus::Core::Engine.routes.draw do
   namespace :admin do
     resources :administrators
     resources :groups

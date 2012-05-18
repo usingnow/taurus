@@ -11,8 +11,7 @@ module Taurus
 
     SEX = { 0 => "女", 1 => "男" }
 
-    validates_presence_of :name, :district_id, :contact_name, :industry_id, :company_type_id, :created_by
-    validates_presence_of :updated_by, :on => :update
+    validates_presence_of :name, :district_id, :contact_name, :industry_id, :company_type_id
     validates_uniqueness_of :name
 
     protected

@@ -18,8 +18,6 @@
       <th><%= t('activerecord.attributes.taurus/person_extend.name') %></th>
       <th><%= t('activerecord.attributes.taurus/user.created_at') %></th>
       <th><%= t('activerecord.attributes.taurus/user.role') %></th>
-      <th><%= t('activerecord.attributes.taurus/user.status') %></th>
-      <th><%= t('activerecord.attributes.taurus/user.store') %></th>
       <th><%= t('admin.misc.operation') %></th>
     </tr>
   </thead>
@@ -31,8 +29,6 @@
       <td><%= person.name %></td>
       <td><%= person.created_at %></td>
       <td><%= person.user.role.name %></td>
-      <td><%= format_boolean(person.user.status) %></td>
-      <td><%= person.user.store.name %></td>
       <td><%= link_to t("admin.actions.edit.menu"), edit_admin_person_extend_path(person), :class => "btn btn-primary trk-btn-short" %></td>
     </tr>
   <% end %>

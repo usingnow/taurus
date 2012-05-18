@@ -1,7 +1,7 @@
-<%= simple_form_for(@person_extend, :as => resource_name, :url => user_registration_path, 
+<%= simple_form_for(@person_extend, :url => user_registration_path, 
                     :html => {:class => 'form-horizontal'}) do |f| %>
   <%= f.error_notification %>
-  <%= f.simple_fields_for resource do |u_f| %>
+  <%= f.simple_fields_for :user do |u_f| %>
     <fieldset>
       <%= render :partial => "form", :locals => {:u_f => u_f} %>
       <%= f.input :name %>
@@ -14,7 +14,7 @@
       <%= f.input :phone %> 
       <%= f.input :zip_code %>
       <div class="form-actions">
-        <%= f.button :submit, :class => "btn btn-primary" %>
+        <%= f.button :submit, :value => "注册", :class => "btn btn-primary" %>
       </div>
     </fieldset>
   <% end %>  
