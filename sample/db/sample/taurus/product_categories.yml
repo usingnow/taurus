@@ -1,0 +1,490 @@
+product_categories_1:
+  id: 1
+  parent_id: 
+  name: '图书音像'
+  description: '图书音像'
+  sequence: 0
+  status: true
+product_categories_2:
+  id: 2
+  parent_id: 
+  name: '家用电器'
+  description: ''
+  sequence: 1
+  status: true
+product_categories_3:
+  id: 3
+  parent_id: 
+  name: '手机数码'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_4:
+  id: 4
+  parent_id: 
+  name: '电脑、办公'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_5:
+  id: 5
+  parent_id: 
+  name: '家居家装、厨具'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_6:
+  id: 6
+  parent_id: 
+  name: '服饰鞋帽'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_7:
+  id: 7
+  parent_id: 
+  name: '个护化妆'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_8:
+  id: 8
+  parent_id: 
+  name: '礼品首饰'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_9:
+  id: 9
+  parent_id: 
+  name: '运动健康'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_10:
+  id: 10
+  parent_id: 
+  name: '汽车用品'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_11:
+  id: 11
+  parent_id: 
+  name: '母婴、玩具乐器'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_12:
+  id: 12
+  parent_id: 
+  name: '食品饮料、保健食品'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_13:
+  id: 13
+  parent_id: 1
+  name: '电子书刊'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_14:
+  id: 14
+  parent_id: 1
+  name: '音像'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_15:
+  id: 15
+  parent_id: 1
+  name: '英文原版'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_16:
+  id: 16
+  parent_id: 1
+  name: '文艺'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_17:
+  id: 17
+  parent_id: 1
+  name: '少儿'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_18:
+  id: 18
+  parent_id: 1
+  name: '人文社科'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_19:
+  id: 19
+  parent_id: 
+  name: '经管励志'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_20:
+  id: 20
+  parent_id: 1
+  name: '生活'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_21:
+  id: 21
+  parent_id: 1
+  name: '科技'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_22:
+  id: 22
+  parent_id: 1
+  name: '教育'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_23:
+  id: 23
+  parent_id: 1
+  name: '其他'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_24:
+  id: 24
+  parent_id: 13
+  name: '电子书'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_25:
+  id: 25
+  parent_id: 13
+  name: '网络原创'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_26:
+  id: 26
+  parent_id: 13
+  name: '数学杂志'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_27:
+  id: 27
+  parent_id: 13
+  name: '多媒体图书'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_28:
+  id: 28
+  parent_id: 14
+  name: '音乐'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_29:
+  id: 29
+  parent_id: 14
+  name: '影视'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_30:
+  id: 30
+  parent_id: 14
+  name: '教育音像'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_31:
+  id: 31
+  parent_id: 15
+  name: '英文原版首页'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_32:
+  id: 32
+  parent_id: 15
+  name: '少儿'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_33:
+  id: 33
+  parent_id: 15
+  name: '商业投资'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_34:
+  id: 34
+  parent_id: 15
+  name: '英语学习与考试'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_35:
+  id: 35
+  parent_id: 15
+  name: '小说'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_36:
+  id: 36
+  parent_id: 2
+  name: '大家电'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_37:
+  id: 37
+  parent_id: 2
+  name: '生活电器'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_38:
+  id: 38
+  parent_id: 2
+  name: '厨房电器'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_39:
+  id: 39
+  parent_id: 2
+  name: '个人护理'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_40:
+  id: 40
+  parent_id: 
+  name: '健康电器'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_41:
+  id: 41
+  parent_id: 2
+  name: '五金电器'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_42:
+  id: 42
+  parent_id: 36
+  name: '空调'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_43:
+  id: 43
+  parent_id: 36
+  name: '平板电视'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_44:
+  id: 44
+  parent_id: 36
+  name: '冰箱'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_45:
+  id: 45
+  parent_id: 36
+  name: '洗衣机'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_46:
+  id: 46
+  parent_id: 36
+  name: '家庭影院'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_47:
+  id: 47
+  parent_id: 36
+  name: 'DVD'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_48:
+  id: 48
+  parent_id: 36
+  name: '迷你音响'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_49:
+  id: 49
+  parent_id: 36
+  name: '烟机/灶具'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_50:
+  id: 50
+  parent_id: 36
+  name: '热水器'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_51:
+  id: 51
+  parent_id: 36
+  name: '消毒柜/洗碗机'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_52:
+  id: 52
+  parent_id: 36
+  name: '酒柜/冷柜'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_53:
+  id: 53
+  parent_id: 36
+  name: '家电配件'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_54:
+  id: 54
+  parent_id: 37
+  name: '电风扇'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_55:
+  id: 55
+  parent_id: 37
+  name: '冷风扇'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_56:
+  id: 56
+  parent_id: 37
+  name: '净化器'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_57:
+  id: 57
+  parent_id: 37
+  name: '吸尘器'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_58:
+  id: 58
+  parent_id: 37
+  name: '净水设备'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_59:
+  id: 59
+  parent_id: 37
+  name: '饮水机'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_60:
+  id: 60
+  parent_id: 37
+  name: '挂烫机'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_61:
+  id: 61
+  parent_id: 37
+  name: '电话机'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_62:
+  id: 62
+  parent_id: 37
+  name: '插座'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_63:
+  id: 63
+  parent_id: 37
+  name: '收录/音机'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_64:
+  id: 64
+  parent_id: 37
+  name: '加湿器'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_65:
+  id: 65
+  parent_id: 37
+  name: '除湿/干衣机'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_66:
+  id: 66
+  parent_id: 37
+  name: '电熨斗'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_67:
+  id: 67
+  parent_id: 37
+  name: '清洁机'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_68:
+  id: 68
+  parent_id: 37
+  name: '电池'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_69:
+  id: 69
+  parent_id: 37
+  name: '取暖电器'
+  description: ''
+  sequence: 0
+  status: true
+product_categories_70:
+  id: 70
+  parent_id: 37
+  name: '其他生活电器'
+  description: ''
+  sequence: 0
+  status: true

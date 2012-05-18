@@ -1,0 +1,2415 @@
+city_1:
+  id: 1
+  province_id: 1
+  number: '110100'
+  name: '市辖区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_2:
+  id: 2
+  province_id: 1
+  number: '110200'
+  name: '县'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_3:
+  id: 3
+  province_id: 2
+  number: '120100'
+  name: '市辖区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_4:
+  id: 4
+  province_id: 2
+  number: '120200'
+  name: '县'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_5:
+  id: 5
+  province_id: 3
+  number: '130100'
+  name: '石家庄市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_6:
+  id: 6
+  province_id: 3
+  number: '130200'
+  name: '唐山市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_7:
+  id: 7
+  province_id: 3
+  number: '130300'
+  name: '秦皇岛市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_8:
+  id: 8
+  province_id: 3
+  number: '130400'
+  name: '邯郸市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_9:
+  id: 9
+  province_id: 3
+  number: '130500'
+  name: '邢台市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_10:
+  id: 10
+  province_id: 3
+  number: '130600'
+  name: '保定市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_11:
+  id: 11
+  province_id: 3
+  number: '130700'
+  name: '张家口市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_12:
+  id: 12
+  province_id: 3
+  number: '130800'
+  name: '承德市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_13:
+  id: 13
+  province_id: 3
+  number: '130900'
+  name: '沧州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_14:
+  id: 14
+  province_id: 3
+  number: '131000'
+  name: '廊坊市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_15:
+  id: 15
+  province_id: 3
+  number: '131100'
+  name: '衡水市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_16:
+  id: 16
+  province_id: 4
+  number: '140100'
+  name: '太原市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_17:
+  id: 17
+  province_id: 4
+  number: '140200'
+  name: '大同市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_18:
+  id: 18
+  province_id: 4
+  number: '140300'
+  name: '阳泉市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_19:
+  id: 19
+  province_id: 4
+  number: '140400'
+  name: '长治市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_20:
+  id: 20
+  province_id: 4
+  number: '140500'
+  name: '晋城市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_21:
+  id: 21
+  province_id: 4
+  number: '140600'
+  name: '朔州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_22:
+  id: 22
+  province_id: 4
+  number: '140700'
+  name: '晋中市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_23:
+  id: 23
+  province_id: 4
+  number: '140800'
+  name: '运城市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_24:
+  id: 24
+  province_id: 4
+  number: '140900'
+  name: '忻州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_25:
+  id: 25
+  province_id: 4
+  number: '141000'
+  name: '临汾市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_26:
+  id: 26
+  province_id: 4
+  number: '141100'
+  name: '吕梁市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_27:
+  id: 27
+  province_id: 5
+  number: '150100'
+  name: '呼和浩特市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_28:
+  id: 28
+  province_id: 5
+  number: '150200'
+  name: '包头市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_29:
+  id: 29
+  province_id: 5
+  number: '150300'
+  name: '乌海市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_30:
+  id: 30
+  province_id: 5
+  number: '150400'
+  name: '赤峰市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_31:
+  id: 31
+  province_id: 5
+  number: '150500'
+  name: '通辽市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_32:
+  id: 32
+  province_id: 5
+  number: '150600'
+  name: '鄂尔多斯市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_33:
+  id: 33
+  province_id: 5
+  number: '150700'
+  name: '呼伦贝尔市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_34:
+  id: 34
+  province_id: 5
+  number: '150800'
+  name: '巴彦淖尔市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_35:
+  id: 35
+  province_id: 5
+  number: '150900'
+  name: '乌兰察布市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_36:
+  id: 36
+  province_id: 5
+  number: '152200'
+  name: '兴安盟'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_37:
+  id: 37
+  province_id: 5
+  number: '152500'
+  name: '锡林郭勒盟'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_38:
+  id: 38
+  province_id: 5
+  number: '152900'
+  name: '阿拉善盟'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_39:
+  id: 39
+  province_id: 6
+  number: '210100'
+  name: '沈阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_40:
+  id: 40
+  province_id: 6
+  number: '210200'
+  name: '大连市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_41:
+  id: 41
+  province_id: 6
+  number: '210300'
+  name: '鞍山市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_42:
+  id: 42
+  province_id: 6
+  number: '210400'
+  name: '抚顺市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_43:
+  id: 43
+  province_id: 6
+  number: '210500'
+  name: '本溪市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_44:
+  id: 44
+  province_id: 6
+  number: '210600'
+  name: '丹东市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_45:
+  id: 45
+  province_id: 6
+  number: '210700'
+  name: '锦州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_46:
+  id: 46
+  province_id: 6
+  number: '210800'
+  name: '营口市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_47:
+  id: 47
+  province_id: 6
+  number: '210900'
+  name: '阜新市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_48:
+  id: 48
+  province_id: 6
+  number: '211000'
+  name: '辽阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_49:
+  id: 49
+  province_id: 6
+  number: '211100'
+  name: '盘锦市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_50:
+  id: 50
+  province_id: 6
+  number: '211200'
+  name: '铁岭市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_51:
+  id: 51
+  province_id: 6
+  number: '211300'
+  name: '朝阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_52:
+  id: 52
+  province_id: 6
+  number: '211400'
+  name: '葫芦岛市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_53:
+  id: 53
+  province_id: 7
+  number: '220100'
+  name: '长春市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_54:
+  id: 54
+  province_id: 7
+  number: '220200'
+  name: '吉林市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_55:
+  id: 55
+  province_id: 7
+  number: '220300'
+  name: '四平市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_56:
+  id: 56
+  province_id: 7
+  number: '220400'
+  name: '辽源市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_57:
+  id: 57
+  province_id: 7
+  number: '220500'
+  name: '通化市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_58:
+  id: 58
+  province_id: 7
+  number: '220600'
+  name: '白山市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_59:
+  id: 59
+  province_id: 7
+  number: '220700'
+  name: '松原市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_60:
+  id: 60
+  province_id: 7
+  number: '220800'
+  name: '白城市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_61:
+  id: 61
+  province_id: 7
+  number: '222400'
+  name: '延边朝鲜族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_62:
+  id: 62
+  province_id: 8
+  number: '230100'
+  name: '哈尔滨市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_63:
+  id: 63
+  province_id: 8
+  number: '230200'
+  name: '齐齐哈尔市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_64:
+  id: 64
+  province_id: 8
+  number: '230300'
+  name: '鸡西市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_65:
+  id: 65
+  province_id: 8
+  number: '230400'
+  name: '鹤岗市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_66:
+  id: 66
+  province_id: 8
+  number: '230500'
+  name: '双鸭山市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_67:
+  id: 67
+  province_id: 8
+  number: '230600'
+  name: '大庆市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_68:
+  id: 68
+  province_id: 8
+  number: '230700'
+  name: '伊春市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_69:
+  id: 69
+  province_id: 8
+  number: '230800'
+  name: '佳木斯市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_70:
+  id: 70
+  province_id: 8
+  number: '230900'
+  name: '七台河市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_71:
+  id: 71
+  province_id: 8
+  number: '231000'
+  name: '牡丹江市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_72:
+  id: 72
+  province_id: 8
+  number: '231100'
+  name: '黑河市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_73:
+  id: 73
+  province_id: 8
+  number: '231200'
+  name: '绥化市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_74:
+  id: 74
+  province_id: 8
+  number: '232700'
+  name: '大兴安岭地区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_75:
+  id: 75
+  province_id: 9
+  number: '310100'
+  name: '市辖区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_76:
+  id: 76
+  province_id: 9
+  number: '310200'
+  name: '县'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_77:
+  id: 77
+  province_id: 10
+  number: '320100'
+  name: '南京市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_78:
+  id: 78
+  province_id: 10
+  number: '320200'
+  name: '无锡市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_79:
+  id: 79
+  province_id: 10
+  number: '320300'
+  name: '徐州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_80:
+  id: 80
+  province_id: 10
+  number: '320400'
+  name: '常州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_81:
+  id: 81
+  province_id: 10
+  number: '320500'
+  name: '苏州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_82:
+  id: 82
+  province_id: 10
+  number: '320600'
+  name: '南通市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_83:
+  id: 83
+  province_id: 10
+  number: '320700'
+  name: '连云港市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_84:
+  id: 84
+  province_id: 10
+  number: '320800'
+  name: '淮安市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_85:
+  id: 85
+  province_id: 10
+  number: '320900'
+  name: '盐城市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_86:
+  id: 86
+  province_id: 10
+  number: '321000'
+  name: '扬州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_87:
+  id: 87
+  province_id: 10
+  number: '321100'
+  name: '镇江市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_88:
+  id: 88
+  province_id: 10
+  number: '321200'
+  name: '泰州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_89:
+  id: 89
+  province_id: 10
+  number: '321300'
+  name: '宿迁市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_90:
+  id: 90
+  province_id: 11
+  number: '330100'
+  name: '杭州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_91:
+  id: 91
+  province_id: 11
+  number: '330200'
+  name: '宁波市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_92:
+  id: 92
+  province_id: 11
+  number: '330300'
+  name: '温州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_93:
+  id: 93
+  province_id: 11
+  number: '330400'
+  name: '嘉兴市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_94:
+  id: 94
+  province_id: 11
+  number: '330500'
+  name: '湖州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_95:
+  id: 95
+  province_id: 11
+  number: '330600'
+  name: '绍兴市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_96:
+  id: 96
+  province_id: 11
+  number: '330700'
+  name: '金华市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_97:
+  id: 97
+  province_id: 11
+  number: '330800'
+  name: '衢州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_98:
+  id: 98
+  province_id: 11
+  number: '330900'
+  name: '舟山市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_99:
+  id: 99
+  province_id: 11
+  number: '331000'
+  name: '台州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_100:
+  id: 100
+  province_id: 11
+  number: '331100'
+  name: '丽水市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_101:
+  id: 101
+  province_id: 12
+  number: '340100'
+  name: '合肥市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_102:
+  id: 102
+  province_id: 12
+  number: '340200'
+  name: '芜湖市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_103:
+  id: 103
+  province_id: 12
+  number: '340300'
+  name: '蚌埠市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_104:
+  id: 104
+  province_id: 12
+  number: '340400'
+  name: '淮南市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_105:
+  id: 105
+  province_id: 12
+  number: '340500'
+  name: '马鞍山市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_106:
+  id: 106
+  province_id: 12
+  number: '340600'
+  name: '淮北市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_107:
+  id: 107
+  province_id: 12
+  number: '340700'
+  name: '铜陵市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_108:
+  id: 108
+  province_id: 12
+  number: '340800'
+  name: '安庆市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_109:
+  id: 109
+  province_id: 12
+  number: '341000'
+  name: '黄山市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_110:
+  id: 110
+  province_id: 12
+  number: '341100'
+  name: '滁州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_111:
+  id: 111
+  province_id: 12
+  number: '341200'
+  name: '阜阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_112:
+  id: 112
+  province_id: 12
+  number: '341300'
+  name: '宿州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_113:
+  id: 113
+  province_id: 12
+  number: '341400'
+  name: '巢湖市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_114:
+  id: 114
+  province_id: 12
+  number: '341500'
+  name: '六安市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_115:
+  id: 115
+  province_id: 12
+  number: '341600'
+  name: '亳州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_116:
+  id: 116
+  province_id: 12
+  number: '341700'
+  name: '池州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_117:
+  id: 117
+  province_id: 12
+  number: '341800'
+  name: '宣城市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_118:
+  id: 118
+  province_id: 13
+  number: '350100'
+  name: '福州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_119:
+  id: 119
+  province_id: 13
+  number: '350200'
+  name: '厦门市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_120:
+  id: 120
+  province_id: 13
+  number: '350300'
+  name: '莆田市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_121:
+  id: 121
+  province_id: 13
+  number: '350400'
+  name: '三明市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_122:
+  id: 122
+  province_id: 13
+  number: '350500'
+  name: '泉州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_123:
+  id: 123
+  province_id: 13
+  number: '350600'
+  name: '漳州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_124:
+  id: 124
+  province_id: 13
+  number: '350700'
+  name: '南平市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_125:
+  id: 125
+  province_id: 13
+  number: '350800'
+  name: '龙岩市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_126:
+  id: 126
+  province_id: 13
+  number: '350900'
+  name: '宁德市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_127:
+  id: 127
+  province_id: 14
+  number: '360100'
+  name: '南昌市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_128:
+  id: 128
+  province_id: 14
+  number: '360200'
+  name: '景德镇市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_129:
+  id: 129
+  province_id: 14
+  number: '360300'
+  name: '萍乡市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_130:
+  id: 130
+  province_id: 14
+  number: '360400'
+  name: '九江市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_131:
+  id: 131
+  province_id: 14
+  number: '360500'
+  name: '新余市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_132:
+  id: 132
+  province_id: 14
+  number: '360600'
+  name: '鹰潭市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_133:
+  id: 133
+  province_id: 14
+  number: '360700'
+  name: '赣州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_134:
+  id: 134
+  province_id: 14
+  number: '360800'
+  name: '吉安市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_135:
+  id: 135
+  province_id: 14
+  number: '360900'
+  name: '宜春市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_136:
+  id: 136
+  province_id: 14
+  number: '361000'
+  name: '抚州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_137:
+  id: 137
+  province_id: 14
+  number: '361100'
+  name: '上饶市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_138:
+  id: 138
+  province_id: 15
+  number: '370100'
+  name: '济南市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_139:
+  id: 139
+  province_id: 15
+  number: '370200'
+  name: '青岛市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_140:
+  id: 140
+  province_id: 15
+  number: '370300'
+  name: '淄博市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_141:
+  id: 141
+  province_id: 15
+  number: '370400'
+  name: '枣庄市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_142:
+  id: 142
+  province_id: 15
+  number: '370500'
+  name: '东营市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_143:
+  id: 143
+  province_id: 15
+  number: '370600'
+  name: '烟台市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_144:
+  id: 144
+  province_id: 15
+  number: '370700'
+  name: '潍坊市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_145:
+  id: 145
+  province_id: 15
+  number: '370800'
+  name: '济宁市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_146:
+  id: 146
+  province_id: 15
+  number: '370900'
+  name: '泰安市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_147:
+  id: 147
+  province_id: 15
+  number: '371000'
+  name: '威海市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_148:
+  id: 148
+  province_id: 15
+  number: '371100'
+  name: '日照市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_149:
+  id: 149
+  province_id: 15
+  number: '371200'
+  name: '莱芜市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_150:
+  id: 150
+  province_id: 15
+  number: '371300'
+  name: '临沂市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_151:
+  id: 151
+  province_id: 15
+  number: '371400'
+  name: '德州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_152:
+  id: 152
+  province_id: 15
+  number: '371500'
+  name: '聊城市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_153:
+  id: 153
+  province_id: 15
+  number: '371600'
+  name: '滨州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_154:
+  id: 154
+  province_id: 15
+  number: '371700'
+  name: '荷泽市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_155:
+  id: 155
+  province_id: 16
+  number: '410100'
+  name: '郑州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_156:
+  id: 156
+  province_id: 16
+  number: '410200'
+  name: '开封市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_157:
+  id: 157
+  province_id: 16
+  number: '410300'
+  name: '洛阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_158:
+  id: 158
+  province_id: 16
+  number: '410400'
+  name: '平顶山市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_159:
+  id: 159
+  province_id: 16
+  number: '410500'
+  name: '安阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_160:
+  id: 160
+  province_id: 16
+  number: '410600'
+  name: '鹤壁市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_161:
+  id: 161
+  province_id: 16
+  number: '410700'
+  name: '新乡市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_162:
+  id: 162
+  province_id: 16
+  number: '410800'
+  name: '焦作市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_163:
+  id: 163
+  province_id: 16
+  number: '410900'
+  name: '濮阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_164:
+  id: 164
+  province_id: 16
+  number: '411000'
+  name: '许昌市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_165:
+  id: 165
+  province_id: 16
+  number: '411100'
+  name: '漯河市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_166:
+  id: 166
+  province_id: 16
+  number: '411200'
+  name: '三门峡市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_167:
+  id: 167
+  province_id: 16
+  number: '411300'
+  name: '南阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_168:
+  id: 168
+  province_id: 16
+  number: '411400'
+  name: '商丘市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_169:
+  id: 169
+  province_id: 16
+  number: '411500'
+  name: '信阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_170:
+  id: 170
+  province_id: 16
+  number: '411600'
+  name: '周口市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_171:
+  id: 171
+  province_id: 16
+  number: '411700'
+  name: '驻马店市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_172:
+  id: 172
+  province_id: 17
+  number: '420100'
+  name: '武汉市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_173:
+  id: 173
+  province_id: 17
+  number: '420200'
+  name: '黄石市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_174:
+  id: 174
+  province_id: 17
+  number: '420300'
+  name: '十堰市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_175:
+  id: 175
+  province_id: 17
+  number: '420500'
+  name: '宜昌市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_176:
+  id: 176
+  province_id: 17
+  number: '420600'
+  name: '襄樊市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_177:
+  id: 177
+  province_id: 17
+  number: '420700'
+  name: '鄂州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_178:
+  id: 178
+  province_id: 17
+  number: '420800'
+  name: '荆门市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_179:
+  id: 179
+  province_id: 17
+  number: '420900'
+  name: '孝感市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_180:
+  id: 180
+  province_id: 17
+  number: '421000'
+  name: '荆州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_181:
+  id: 181
+  province_id: 17
+  number: '421100'
+  name: '黄冈市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_182:
+  id: 182
+  province_id: 17
+  number: '421200'
+  name: '咸宁市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_183:
+  id: 183
+  province_id: 17
+  number: '421300'
+  name: '随州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_184:
+  id: 184
+  province_id: 17
+  number: '422800'
+  name: '恩施土家族苗族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_185:
+  id: 185
+  province_id: 17
+  number: '429000'
+  name: '省直辖行政单位'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_186:
+  id: 186
+  province_id: 18
+  number: '430100'
+  name: '长沙市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_187:
+  id: 187
+  province_id: 18
+  number: '430200'
+  name: '株洲市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_188:
+  id: 188
+  province_id: 18
+  number: '430300'
+  name: '湘潭市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_189:
+  id: 189
+  province_id: 18
+  number: '430400'
+  name: '衡阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_190:
+  id: 190
+  province_id: 18
+  number: '430500'
+  name: '邵阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_191:
+  id: 191
+  province_id: 18
+  number: '430600'
+  name: '岳阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_192:
+  id: 192
+  province_id: 18
+  number: '430700'
+  name: '常德市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_193:
+  id: 193
+  province_id: 18
+  number: '430800'
+  name: '张家界市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_194:
+  id: 194
+  province_id: 18
+  number: '430900'
+  name: '益阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_195:
+  id: 195
+  province_id: 18
+  number: '431000'
+  name: '郴州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_196:
+  id: 196
+  province_id: 18
+  number: '431100'
+  name: '永州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_197:
+  id: 197
+  province_id: 18
+  number: '431200'
+  name: '怀化市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_198:
+  id: 198
+  province_id: 18
+  number: '431300'
+  name: '娄底市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_199:
+  id: 199
+  province_id: 18
+  number: '433100'
+  name: '湘西土家族苗族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_200:
+  id: 200
+  province_id: 19
+  number: '440100'
+  name: '广州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_201:
+  id: 201
+  province_id: 19
+  number: '440200'
+  name: '韶关市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_202:
+  id: 202
+  province_id: 19
+  number: '440300'
+  name: '深圳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_203:
+  id: 203
+  province_id: 19
+  number: '440400'
+  name: '珠海市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_204:
+  id: 204
+  province_id: 19
+  number: '440500'
+  name: '汕头市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_205:
+  id: 205
+  province_id: 19
+  number: '440600'
+  name: '佛山市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_206:
+  id: 206
+  province_id: 19
+  number: '440700'
+  name: '江门市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_207:
+  id: 207
+  province_id: 19
+  number: '440800'
+  name: '湛江市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_208:
+  id: 208
+  province_id: 19
+  number: '440900'
+  name: '茂名市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_209:
+  id: 209
+  province_id: 19
+  number: '441200'
+  name: '肇庆市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_210:
+  id: 210
+  province_id: 19
+  number: '441300'
+  name: '惠州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_211:
+  id: 211
+  province_id: 19
+  number: '441400'
+  name: '梅州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_212:
+  id: 212
+  province_id: 19
+  number: '441500'
+  name: '汕尾市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_213:
+  id: 213
+  province_id: 19
+  number: '441600'
+  name: '河源市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_214:
+  id: 214
+  province_id: 19
+  number: '441700'
+  name: '阳江市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_215:
+  id: 215
+  province_id: 19
+  number: '441800'
+  name: '清远市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_216:
+  id: 216
+  province_id: 19
+  number: '441900'
+  name: '东莞市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_217:
+  id: 217
+  province_id: 19
+  number: '442000'
+  name: '中山市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_218:
+  id: 218
+  province_id: 19
+  number: '445100'
+  name: '潮州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_219:
+  id: 219
+  province_id: 19
+  number: '445200'
+  name: '揭阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_220:
+  id: 220
+  province_id: 19
+  number: '445300'
+  name: '云浮市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_221:
+  id: 221
+  province_id: 20
+  number: '450100'
+  name: '南宁市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_222:
+  id: 222
+  province_id: 20
+  number: '450200'
+  name: '柳州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_223:
+  id: 223
+  province_id: 20
+  number: '450300'
+  name: '桂林市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_224:
+  id: 224
+  province_id: 20
+  number: '450400'
+  name: '梧州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_225:
+  id: 225
+  province_id: 20
+  number: '450500'
+  name: '北海市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_226:
+  id: 226
+  province_id: 20
+  number: '450600'
+  name: '防城港市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_227:
+  id: 227
+  province_id: 20
+  number: '450700'
+  name: '钦州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_228:
+  id: 228
+  province_id: 20
+  number: '450800'
+  name: '贵港市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_229:
+  id: 229
+  province_id: 20
+  number: '450900'
+  name: '玉林市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_230:
+  id: 230
+  province_id: 20
+  number: '451000'
+  name: '百色市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_231:
+  id: 231
+  province_id: 20
+  number: '451100'
+  name: '贺州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_232:
+  id: 232
+  province_id: 20
+  number: '451200'
+  name: '河池市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_233:
+  id: 233
+  province_id: 20
+  number: '451300'
+  name: '来宾市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_234:
+  id: 234
+  province_id: 20
+  number: '451400'
+  name: '崇左市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_235:
+  id: 235
+  province_id: 21
+  number: '460100'
+  name: '海口市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_236:
+  id: 236
+  province_id: 21
+  number: '460200'
+  name: '三亚市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_237:
+  id: 237
+  province_id: 21
+  number: '469000'
+  name: '省直辖县级行政单位'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_238:
+  id: 238
+  province_id: 22
+  number: '500100'
+  name: '市辖区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_239:
+  id: 239
+  province_id: 22
+  number: '500200'
+  name: '县'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_240:
+  id: 240
+  province_id: 22
+  number: '500300'
+  name: '市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_241:
+  id: 241
+  province_id: 23
+  number: '510100'
+  name: '成都市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_242:
+  id: 242
+  province_id: 23
+  number: '510300'
+  name: '自贡市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_243:
+  id: 243
+  province_id: 23
+  number: '510400'
+  name: '攀枝花市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_244:
+  id: 244
+  province_id: 23
+  number: '510500'
+  name: '泸州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_245:
+  id: 245
+  province_id: 23
+  number: '510600'
+  name: '德阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_246:
+  id: 246
+  province_id: 23
+  number: '510700'
+  name: '绵阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_247:
+  id: 247
+  province_id: 23
+  number: '510800'
+  name: '广元市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_248:
+  id: 248
+  province_id: 23
+  number: '510900'
+  name: '遂宁市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_249:
+  id: 249
+  province_id: 23
+  number: '511000'
+  name: '内江市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_250:
+  id: 250
+  province_id: 23
+  number: '511100'
+  name: '乐山市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_251:
+  id: 251
+  province_id: 23
+  number: '511300'
+  name: '南充市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_252:
+  id: 252
+  province_id: 23
+  number: '511400'
+  name: '眉山市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_253:
+  id: 253
+  province_id: 23
+  number: '511500'
+  name: '宜宾市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_254:
+  id: 254
+  province_id: 23
+  number: '511600'
+  name: '广安市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_255:
+  id: 255
+  province_id: 23
+  number: '511700'
+  name: '达州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_256:
+  id: 256
+  province_id: 23
+  number: '511800'
+  name: '雅安市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_257:
+  id: 257
+  province_id: 23
+  number: '511900'
+  name: '巴中市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_258:
+  id: 258
+  province_id: 23
+  number: '512000'
+  name: '资阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_259:
+  id: 259
+  province_id: 23
+  number: '513200'
+  name: '阿坝藏族羌族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_260:
+  id: 260
+  province_id: 23
+  number: '513300'
+  name: '甘孜藏族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_261:
+  id: 261
+  province_id: 23
+  number: '513400'
+  name: '凉山彝族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_262:
+  id: 262
+  province_id: 24
+  number: '520100'
+  name: '贵阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_263:
+  id: 263
+  province_id: 24
+  number: '520200'
+  name: '六盘水市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_264:
+  id: 264
+  province_id: 24
+  number: '520300'
+  name: '遵义市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_265:
+  id: 265
+  province_id: 24
+  number: '520400'
+  name: '安顺市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_266:
+  id: 266
+  province_id: 24
+  number: '522200'
+  name: '铜仁地区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_267:
+  id: 267
+  province_id: 24
+  number: '522300'
+  name: '黔西南布依族苗族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_268:
+  id: 268
+  province_id: 24
+  number: '522400'
+  name: '毕节地区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_269:
+  id: 269
+  province_id: 24
+  number: '522600'
+  name: '黔东南苗族侗族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_270:
+  id: 270
+  province_id: 24
+  number: '522700'
+  name: '黔南布依族苗族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_271:
+  id: 271
+  province_id: 25
+  number: '530100'
+  name: '昆明市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_272:
+  id: 272
+  province_id: 25
+  number: '530300'
+  name: '曲靖市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_273:
+  id: 273
+  province_id: 25
+  number: '530400'
+  name: '玉溪市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_274:
+  id: 274
+  province_id: 25
+  number: '530500'
+  name: '保山市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_275:
+  id: 275
+  province_id: 25
+  number: '530600'
+  name: '昭通市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_276:
+  id: 276
+  province_id: 25
+  number: '530700'
+  name: '丽江市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_277:
+  id: 277
+  province_id: 25
+  number: '530800'
+  name: '思茅市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_278:
+  id: 278
+  province_id: 25
+  number: '530900'
+  name: '临沧市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_279:
+  id: 279
+  province_id: 25
+  number: '532300'
+  name: '楚雄彝族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_280:
+  id: 280
+  province_id: 25
+  number: '532500'
+  name: '红河哈尼族彝族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_281:
+  id: 281
+  province_id: 25
+  number: '532600'
+  name: '文山壮族苗族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_282:
+  id: 282
+  province_id: 25
+  number: '532800'
+  name: '西双版纳傣族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_283:
+  id: 283
+  province_id: 25
+  number: '532900'
+  name: '大理白族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_284:
+  id: 284
+  province_id: 25
+  number: '533100'
+  name: '德宏傣族景颇族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_285:
+  id: 285
+  province_id: 25
+  number: '533300'
+  name: '怒江傈僳族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_286:
+  id: 286
+  province_id: 25
+  number: '533400'
+  name: '迪庆藏族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_287:
+  id: 287
+  province_id: 26
+  number: '540100'
+  name: '拉萨市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_288:
+  id: 288
+  province_id: 26
+  number: '542100'
+  name: '昌都地区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_289:
+  id: 289
+  province_id: 26
+  number: '542200'
+  name: '山南地区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_290:
+  id: 290
+  province_id: 26
+  number: '542300'
+  name: '日喀则地区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_291:
+  id: 291
+  province_id: 26
+  number: '542400'
+  name: '那曲地区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_292:
+  id: 292
+  province_id: 26
+  number: '542500'
+  name: '阿里地区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_293:
+  id: 293
+  province_id: 26
+  number: '542600'
+  name: '林芝地区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_294:
+  id: 294
+  province_id: 27
+  number: '610100'
+  name: '西安市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_295:
+  id: 295
+  province_id: 27
+  number: '610200'
+  name: '铜川市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_296:
+  id: 296
+  province_id: 27
+  number: '610300'
+  name: '宝鸡市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_297:
+  id: 297
+  province_id: 27
+  number: '610400'
+  name: '咸阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_298:
+  id: 298
+  province_id: 27
+  number: '610500'
+  name: '渭南市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_299:
+  id: 299
+  province_id: 27
+  number: '610600'
+  name: '延安市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_300:
+  id: 300
+  province_id: 27
+  number: '610700'
+  name: '汉中市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_301:
+  id: 301
+  province_id: 27
+  number: '610800'
+  name: '榆林市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_302:
+  id: 302
+  province_id: 27
+  number: '610900'
+  name: '安康市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_303:
+  id: 303
+  province_id: 27
+  number: '611000'
+  name: '商洛市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_304:
+  id: 304
+  province_id: 28
+  number: '620100'
+  name: '兰州市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_305:
+  id: 305
+  province_id: 28
+  number: '620200'
+  name: '嘉峪关市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_306:
+  id: 306
+  province_id: 28
+  number: '620300'
+  name: '金昌市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_307:
+  id: 307
+  province_id: 28
+  number: '620400'
+  name: '白银市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_308:
+  id: 308
+  province_id: 28
+  number: '620500'
+  name: '天水市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_309:
+  id: 309
+  province_id: 28
+  number: '620600'
+  name: '武威市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_310:
+  id: 310
+  province_id: 28
+  number: '620700'
+  name: '张掖市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_311:
+  id: 311
+  province_id: 28
+  number: '620800'
+  name: '平凉市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_312:
+  id: 312
+  province_id: 28
+  number: '620900'
+  name: '酒泉市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_313:
+  id: 313
+  province_id: 28
+  number: '621000'
+  name: '庆阳市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_314:
+  id: 314
+  province_id: 28
+  number: '621100'
+  name: '定西市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_315:
+  id: 315
+  province_id: 28
+  number: '621200'
+  name: '陇南市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_316:
+  id: 316
+  province_id: 28
+  number: '622900'
+  name: '临夏回族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_317:
+  id: 317
+  province_id: 28
+  number: '623000'
+  name: '甘南藏族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_318:
+  id: 318
+  province_id: 29
+  number: '630100'
+  name: '西宁市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_319:
+  id: 319
+  province_id: 29
+  number: '632100'
+  name: '海东地区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_320:
+  id: 320
+  province_id: 29
+  number: '632200'
+  name: '海北藏族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_321:
+  id: 321
+  province_id: 29
+  number: '632300'
+  name: '黄南藏族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_322:
+  id: 322
+  province_id: 29
+  number: '632500'
+  name: '海南藏族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_323:
+  id: 323
+  province_id: 29
+  number: '632600'
+  name: '果洛藏族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_324:
+  id: 324
+  province_id: 29
+  number: '632700'
+  name: '玉树藏族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_325:
+  id: 325
+  province_id: 29
+  number: '632800'
+  name: '海西蒙古族藏族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_326:
+  id: 326
+  province_id: 30
+  number: '640100'
+  name: '银川市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_327:
+  id: 327
+  province_id: 30
+  number: '640200'
+  name: '石嘴山市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_328:
+  id: 328
+  province_id: 30
+  number: '640300'
+  name: '吴忠市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_329:
+  id: 329
+  province_id: 30
+  number: '640400'
+  name: '固原市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_330:
+  id: 330
+  province_id: 30
+  number: '640500'
+  name: '中卫市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_331:
+  id: 331
+  province_id: 31
+  number: '650100'
+  name: '乌鲁木齐市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_332:
+  id: 332
+  province_id: 31
+  number: '650200'
+  name: '克拉玛依市'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_333:
+  id: 333
+  province_id: 31
+  number: '652100'
+  name: '吐鲁番地区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_334:
+  id: 334
+  province_id: 31
+  number: '652200'
+  name: '哈密地区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_335:
+  id: 335
+  province_id: 31
+  number: '652300'
+  name: '昌吉回族自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_336:
+  id: 336
+  province_id: 31
+  number: '652700'
+  name: '博尔塔拉蒙古自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_337:
+  id: 337
+  province_id: 31
+  number: '652800'
+  name: '巴音郭楞蒙古自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_338:
+  id: 338
+  province_id: 31
+  number: '652900'
+  name: '阿克苏地区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_339:
+  id: 339
+  province_id: 31
+  number: '653000'
+  name: '克孜勒苏柯尔克孜自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_340:
+  id: 340
+  province_id: 31
+  number: '653100'
+  name: '喀什地区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_341:
+  id: 341
+  province_id: 31
+  number: '653200'
+  name: '和田地区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_342:
+  id: 342
+  province_id: 31
+  number: '654000'
+  name: '伊犁哈萨克自治州'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_343:
+  id: 343
+  province_id: 31
+  number: '654200'
+  name: '塔城地区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_344:
+  id: 344
+  province_id: 31
+  number: '654300'
+  name: '阿勒泰地区'
+  free_shipping_limit: ''
+  shipping_fee: ''
+city_345:
+  id: 345
+  province_id: 31
+  number: '659000'
+  name: '省直辖行政单位'
+  free_shipping_limit: ''
+  shipping_fee: ''

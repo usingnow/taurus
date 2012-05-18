@@ -41,10 +41,8 @@ class DeviseCreateTaurusUsers < ActiveRecord::Migration
 
       t.integer :taurus_userable_id
       t.string  :taurus_userable_type
-      t.integer :points
-      t.integer :store_id
+      t.integer :points, :default => 0
       t.integer :role_id
-      t.boolean :status
 
       t.timestamps
     end
@@ -55,7 +53,6 @@ class DeviseCreateTaurusUsers < ActiveRecord::Migration
     # add_index :taurus_users, :unlock_token,         :unique => true
     # add_index :taurus_users, :authentication_token, :unique => true
     
-    add_index :taurus_users, :store_id
     add_index :taurus_users, :role_id
   end
 end

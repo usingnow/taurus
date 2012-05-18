@@ -3,3 +3,4 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
 Taurus::Auth::Engine.load_seed if defined?(Taurus::Auth)
+Taurus::Core::Engine.load_seed if defined?(Taurus::Core)

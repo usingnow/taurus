@@ -1,0 +1,13 @@
+role_1:
+  id: 1
+  name: "普通会员"
+  description: ""
+  is_reserved: false
+  role_type: 0
+
+role_2:
+  id: 2
+  name: "黑名单"
+  description: ""
+  is_reserved: true
+  role_type: 1

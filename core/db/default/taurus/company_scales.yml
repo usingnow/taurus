@@ -1,0 +1,16 @@
+company_scale_1:
+  id: 1
+  name: '1~10人'
+  sequence: 1
+company_scale_2:
+  id: 2
+  name: '10~50人'
+  sequence: 2
+company_scale_3:
+  id: 3
+  name: '50~200人'
+  sequence: 3
+company_scale_4:
+  id: 4
+  name: '1000人以上'
+  sequence: 4

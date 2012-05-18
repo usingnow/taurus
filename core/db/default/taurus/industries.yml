@@ -1,0 +1,224 @@
+industry_1:
+  id: 1
+  name: '计算机软件'
+  sequence: 1
+industry_2:
+  id: 2
+  name: '计算机硬件'
+  sequence: 2
+industry_3:
+  id: 3
+  name: '计算机服务(系统、数据服务、维修)'
+  sequence: 3
+industry_4:
+  id: 4
+  name: '通信/电信/网络设备'
+  sequence: 4
+industry_5:
+  id: 5
+  name: '通信/电信运营、增值服务'
+  sequence: 5
+industry_6:
+  id: 6
+  name: '互联网/电子商务'
+  sequence: 6
+industry_7:
+  id: 7
+  name: '网络游戏'
+  sequence: 7
+industry_8:
+  id: 8
+  name: '电子技术/半导体/集成电路'
+  sequence: 8
+industry_9:
+  id: 9
+  name: '仪器仪表/工业自动化'
+  sequence: 9
+industry_10:
+  id: 10
+  name: '会计/审计'
+  sequence: 10
+industry_11:
+  id: 11
+  name: '金融/投资/证券'
+  sequence: 11
+industry_12:
+  id: 12
+  name: '银行'
+  sequence: 12
+industry_13:
+  id: 13
+  name: '保险'
+  sequence: 13
+industry_14:
+  id: 14
+  name: '贸易/进出口'
+  sequence: 14
+industry_15:
+  id: 15
+  name: '批发/零售'
+  sequence: 15
+industry_16:
+  id: 16
+  name: '快速消费品(食品、饮料、化妆品)'
+  sequence: 16
+industry_17:
+  id: 17
+  name: '服装/纺织/皮革'
+  sequence: 17
+industry_18:
+  id: 18
+  name: '家电/家电/工艺品/玩具'
+  sequence: 18
+industry_19:
+  id: 19
+  name: '办公用品及设备'
+  sequence: 19
+industry_20:
+  id: 20
+  name: '机械/设备/重工'
+  sequence: 20
+industry_21:
+  id: 21
+  name: '汽车及零配件'
+  sequence: 21
+industry_22:
+  id: 22
+  name: '制药/生物工程'
+  sequence: 22
+industry_23:
+  id: 23
+  name: '医疗/护理/保健/卫生'
+  sequence: 23
+industry_24:
+  id: 24
+  name: '医疗设备/器械'
+  sequence: 24
+industry_25:
+  id: 25
+  name: '广告'
+  sequence: 25
+industry_26:
+  id: 26
+  name: '公关/市场推销/展会'
+  sequence: 26
+industry_27:
+  id: 27
+  name: '影视/媒体/艺术'
+  sequence: 27
+industry_28:
+  id: 28
+  name: '文字媒体/出版'
+  sequence: 28
+industry_29:
+  id: 29
+  name: '印刷/包装'
+  sequence: 29
+industry_30:
+  id: 30
+  name: '房地产开发'
+  sequence: 30
+industry_31:
+  id: 31
+  name: '建筑与工程'
+  sequence: 31
+industry_32:
+  id: 32
+  name: '家居/室内/装潢'
+  sequence: 32
+industry_33:
+  id: 33
+  name: '物业管理/商业中心'
+  sequence: 33
+industry_34:
+  id: 34
+  name: '中介服务'
+  sequence: 34
+industry_35:
+  id: 35
+  name: '专业服务(咨询、人力资源)'
+  sequence: 35
+industry_36:
+  id: 36
+  name: '检测、认证'
+  sequence: 36
+industry_37:
+  id: 37
+  name: '法律'
+  sequence: 37
+industry_38:
+  id: 38
+  name: '教育培训'
+  sequence: 38
+industry_39:
+  id: 39
+  name: '学术/科研'
+  sequence: 39
+industry_40:
+  id: 40
+  name: '餐饮业'
+  sequence: 40
+industry_41:
+  id: 41
+  name: '酒店/旅游'
+  sequence: 41
+industry_42:
+  id: 42
+  name: '娱乐/休闲/体育'
+  sequence: 42
+industry_43:
+  id: 43
+  name: '美容/保健'
+  sequence: 43
+industry_44:
+  id: 44
+  name: '生活服务'
+  sequence: 44
+industry_45:
+  id: 45
+  name: '交通/运输/物流'
+  sequence: 45
+industry_46:
+  id: 46
+  name: '航天/航空'
+  sequence: 46
+industry_47:
+  id: 47
+  name: '石油/化工/矿产'
+  sequence: 47
+industry_48:
+  id: 48
+  name: '采掘业/冶炼'
+  sequence: 48
+industry_49:
+  id: 49
+  name: '电力/水利'
+  sequence: 49
+industry_50:
+  id: 50
+  name: '原材料和加工'
+  sequence: 50
+industry_51:
+  id: 51
+  name: '政府'
+  sequence: 51
+industry_52:
+  id: 52
+  name: '非盈利机构'
+  sequence: 52
+industry_53:
+  id: 53
+  name: '环保'
+  sequence: 53
+industry_54:
+  id: 54
+  name: '农业/渔业/林业'
+  sequence: 54
+industry_55:
+  id: 55
+  name: '多元化业务集团'
+  sequence: 55
+industry_56:
+  id: 56
+  name: '其他行业'
+  sequence: 56

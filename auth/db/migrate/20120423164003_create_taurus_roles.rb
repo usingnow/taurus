@@ -4,8 +4,11 @@ class CreateTaurusRoles < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.boolean :is_reserved
+      t.integer :role_type, :default => 0
 
       t.timestamps
     end
+
+
   end
 end

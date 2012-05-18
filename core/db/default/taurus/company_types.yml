@@ -1,0 +1,28 @@
+company_type_1:
+  id: 1
+  name: '国有企业'
+  sequence: 1
+company_type_2:
+  id: 2
+  name: '民营企业'
+  sequence: 2
+company_type_3:
+  id: 3
+  name: '三资企业'
+  sequence: 3
+company_type_4:
+  id: 4
+  name: '私营企业'
+  sequence: 4
+company_type_5:
+  id: 5
+  name: '事业单位'
+  sequence: 5
+company_type_6:
+  id: 6
+  name: '社会团体'
+  sequence: 6
+company_type_7:
+  id: 7
+  name: '国家机关'
+  sequence: 7

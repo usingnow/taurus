@@ -1,6 +1,7 @@
 #encoding:UTF-8
 
 Taurus::Administrator.create(
+	:id => 1,
 	:email => "root@usingnow.com",
 	:password => "123456",
 	:status => true,
@@ -11,3 +12,9 @@ Taurus::Administrator.create(
   :zip_code => "100000",
   :address => "address"
 )
+
+default_path = File.join(File.dirname(__FILE__), 'default')
+
+Rake::Task['db:load_dir'].reenable
+Rake::Task['db:load_dir'].invoke(default_path)
+

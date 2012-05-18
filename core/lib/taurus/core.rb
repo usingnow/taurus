@@ -12,7 +12,9 @@ require 'rails3-jquery-autocomplete'
 
 module Taurus
   module Core
-    
+    def self.config(&block)
+	    yield(Taurus::Config)
+	  end
   end
 end
 require 'taurus/core/engine'

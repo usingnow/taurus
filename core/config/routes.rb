@@ -49,7 +49,12 @@ Taurus::Core::Engine.routes.draw do
     end
   end
 
-  match '/admin', :to => 'admin/functions#index' 
+  namespace :index do 
+    resources :home
+  end
+
+  match '/admin', :to => 'admin/functions#index'
+  root :to => 'index/home#index' 
 
 	
 end
