@@ -1,0 +1,33 @@
+<%= simple_form_for(@company_extend, :url => index_company_sign_up_path, 
+                    :html => {:class => 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+  <%= f.simple_fields_for :user do |u_f| %>
+    <fieldset>
+      <%= render :partial => "form", :locals => {:u_f => u_f} %>
+      <%= f.input :name %>
+      <%= f.association :industry %>
+      <%= f.association :company_type %>        
+      <%= f.association :company_scale %> 
+      <%= f.input :district_id, :as => :area %>  
+      <%= f.input :address %>                
+      <%= f.input :web_address %>        
+      <%= f.input :contact_name %> 
+      <%= f.input :contact_dept %>
+      <%= f.input :phone %>
+      <%= f.input :contact_mobile %>
+      <%= f.input :contact_sex, :collection => Taurus::CompanyExtend::SEX, :label_method => :second, 
+                  :value_method => :first, :item_wrapper_class => 'inline', :checked => 1, 
+                  :as => :radio_buttons %>
+      <%= f.input :contact_post %>
+      <%= f.input :fax %>
+      <%= f.input :zip_code %>
+      <div class="form-actions">
+        <%= f.button :submit, :value => "注册", :class => "btn btn-primary" %>
+      </div>
+    </fieldset>
+  <% end %>  
+<% end %>
+
+
+
+

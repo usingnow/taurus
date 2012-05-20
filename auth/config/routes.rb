@@ -15,6 +15,15 @@ Taurus::Core::Engine.routes.draw do
 
   devise_for :user,
              :class_name => 'Taurus::User',
-             :controllers => { :registrations => 'taurus/index/user_registrations'},
-             :path => "index"           
+             :controllers => { 
+               :registrations => 'taurus/index/user_registrations',
+               :sessions => 'taurus/index/user_sessions'
+             },
+             :path => "index"
+
+  devise_scope :user do
+    get '/index/company_sign_up' => 'index/user_registrations#new_company'
+    post '/index/company_sign_up' => 'index/user_registrations#create_company'
+  end            
+
 end

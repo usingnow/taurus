@@ -32,32 +32,29 @@ module Taurus
       end
 
       #企业用户注册
-      def personal
-        resource = build_resource({})
-        resource.build_person_extend
-        respond_with_navigational(resource){ render_with_scope :personal }
+      def new_company
+        @company_extend = CompanyExtend.new
+        @company_extend.user = User.new
       end
 
-      def create_personal
-        build_resource
+      def create_company
+        params[:company_extend][:user_attributes] = params[:company_extend][:user_attributes].merge(:role_id => 1)
 
-        resource.user_type = 1
+        @company_extend = CompanyExtend.new params[:company_extend]
 
-        if resource.save
-          if resource.active_for_authentication?
+        if @company_extend.save
+          if @company_extend.user.active_for_authentication?
             set_flash_message :notice, :signed_up if is_navigational_format?
-            sign_in(resource_name, resource)
-            respond_with resource, :location => after_sign_up_path_for(resource)
+            sign_in(resource_name, @company_extend.user)
+            respond_with resource, :location => index_home_index_url
           else
-            set_flash_message :notice, :inactive_signed_up, :reason => inactive_reason(resource) if is_navigational_format?
+            set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
             expire_session_data_after_sign_in!
             respond_with resource, :location => after_inactive_sign_up_path_for(resource)
           end
-          resource.update_attribute(:confirmed_at, Time.now)
         else
-          clean_up_passwords(resource)
-          resource.build_person_extend
-          respond_with_navigational(resource) { render_with_scope :personal }
+          clean_up_passwords @company_extend
+          render :action => "new_company"
         end
       end
     end
