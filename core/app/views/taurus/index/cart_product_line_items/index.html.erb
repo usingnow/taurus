@@ -1,0 +1,30 @@
+<%= link_to "返回首页", index_home_index_path, :class => "btn btn-primary trk-btn-short" %>
+
+<%= simple_form_for @cart, :url => index_cart_product_line_item_path(@cart), :method => :put do |f| %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('activerecord.attributes.taurus/product.number') %></th>
+      <th><%= t('activerecord.attributes.taurus/product.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/cart_product_line_item.product_amount') %></th>
+      <th><%= t('admin.misc.operation') %></th>
+   </tr>
+  </thead>
+  <% @cart.cart_product_line_items.each_with_index do |line_item,index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= line_item.product.number %></td>
+      <td><%= line_item.product.name %></td>
+      <td><%= text_field_tag :"product_amount[#{line_item.id}]", line_item.product_amount, :type => "number", :step => "1" %></td>
+      <td>
+        <%= link_to "删除", index_cart_product_line_item_path(line_item), 
+                    :method => :delete, :confirm => t('admin.actions.delete.confirm'),
+                    :class => "btn btn-primary trk-btn-short" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+  <%= f.button :submit, :value => "更新", :class => "btn btn-primary" %>
+<% end %>

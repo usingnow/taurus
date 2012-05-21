@@ -2,6 +2,7 @@
 .idea/*
 **/spec/dummy
 **/.bundle
+doc
 
 sandbox/tmp/*
 sandbox/log/*

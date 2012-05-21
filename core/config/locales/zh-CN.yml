@@ -290,6 +290,8 @@ zh-CN:
         image: "图片"
         is_main: "是否主图片"
         updated_at: "更新时间"
+      taurus/cart_product_line_item:
+        product_amount: "商品数量"  
 
   helpers:
     select:

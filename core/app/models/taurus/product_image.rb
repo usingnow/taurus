@@ -6,6 +6,7 @@ module Taurus
 	                    :path => ":rails_root/public/taurus/product_images/:id/:style/:basename.:extension",
 	                    :styles => { :normal => "800x800#", :s400 => "400x400#", :s120 => "120x120#", :s50 => "50x50#" }
 	
+    belongs_to :product
     before_save :check_is_main
 
 

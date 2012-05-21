@@ -11,14 +11,7 @@ class Taurus::BaseController < ApplicationController
       render :text => "访问被拒绝！"
     end
 
-    #获得购物车
-    def current_cart
-      Cart.find(session[:cart_id])
-    rescue ActiveRecord::RecordNotFound
-      cart =  Cart.create
-      session[:cart_id] = cart.id
-      cart
-    end
+   
 
     #获得最前流程
     def current_procedure(id)

@@ -1,2 +1,26 @@
 <%= link_to "个人用户注册", new_user_registration_path %>
 <%= link_to "企业用户注册", index_company_sign_up_path %>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('activerecord.attributes.taurus/product.number') %></th>
+      <th><%= t('activerecord.attributes.taurus/product.name') %></th>
+      <th><%= t('admin.misc.operation') %></th>
+   </tr>
+  </thead>
+  <% @products.each_with_index do |product,index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= product.number %></td>
+      <td><%= product.name %></td>
+      <td>
+        <%= link_to "加入购物车", index_cart_product_line_items_path(:product_id => product.id), 
+                    :method => :post, :class => "btn btn-primary trk-btn-short" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+

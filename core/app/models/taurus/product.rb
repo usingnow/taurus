@@ -2,9 +2,15 @@
 module Taurus
   class Product < ActiveRecord::Base
   	belongs_to :product_category
-  	has_many :custom_property_values
-  	has_many :product_sku_line_items
-  	has_many :product_images
+  	has_many :custom_property_values, :dependent => :destroy
+  	has_many :product_sku_line_items, :dependent => :destroy
+  	has_many :product_images, :dependent => :destroy
+    has_many :cart_product_line_items, :dependent => :destroy
+
+    scope :selling, search(
+      :if_shown_on_web_eq => true, :sales_status_eq => true,
+      :sales_starts_at_lt => Time.now, :sales_ends_at_gt => Time.now
+    ).result
 
   	attr_accessor :product_category_name, :current_step
 

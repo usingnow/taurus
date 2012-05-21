@@ -1,6 +1,9 @@
 module Taurus
   class ProductCategory < ActiveRecord::Base
-  	has_many :custom_properties
+  	has_many :custom_properties, :dependent => :destroy
+  	has_many :skus, :dependent => :destroy
+  	has_many :products, :dependent => :destroy
+  	
     scope :tops, where(:parent_id => nil)
 
     def self.seconds(params_id)
