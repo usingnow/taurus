@@ -205,6 +205,7 @@ zh-CN:
       taurus/product: "销售商品"
       taurus/product_sku_line_item: "销售商品SKU"
       taurus/product_image: "销售商品图片"
+      taurus/order: "订单"
     attributes:
       taurus/supplier:
         number: "供应商编号"
@@ -292,6 +293,12 @@ zh-CN:
         updated_at: "更新时间"
       taurus/cart_product_line_item:
         product_amount: "商品数量"  
+      taurus/order_delivery:
+        attention: "收货人"
+        district_id: "地区"
+        address: "地址"
+        telephone: "固定电话"
+        mobile: "移动电话"
 
   helpers:
     select:

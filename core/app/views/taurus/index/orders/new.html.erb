@@ -1,0 +1,17 @@
+<%= simple_form_for([:index,@order],:html => {:class => 'form-horizontal'})  do |f| %>
+  <%= f.error_notification %>
+  
+  <fieldset>
+    <%= f.fields_for :order_delivery do |d_f| %>
+      <%= d_f.input :attention %>
+      <%= d_f.input :district_id, :as => :area %>
+      <%= d_f.input :address %>
+      <%= d_f.input :telephone %>
+      <%= d_f.input :mobile %>
+    <% end %>
+
+    <div class="form-actions">
+      <%= f.button :submit, :class => "btn btn-primary" %>
+    </div>
+  </fieldset>
+<% end %>

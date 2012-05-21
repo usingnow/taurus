@@ -57,7 +57,7 @@ module Taurus
       content_tag(:ul, li.html_safe, :class => "breadcrumb breakcrumb-admin-home")
     end  
 
-    def cny(price)
+    def format_price(price)
       content_tag(:em, (number_to_currency price, :unit => "￥"), :class => "cny")
     end
 

@@ -52,6 +52,11 @@ Taurus::Core::Engine.routes.draw do
   namespace :index do 
     resources :home
     resources :cart_product_line_items
+    resources :orders do
+      resources :order_product_line_items
+      resources :order_payments
+      resources :order_deliveries
+    end
   end
 
   match '/admin', :to => 'admin/functions#index'

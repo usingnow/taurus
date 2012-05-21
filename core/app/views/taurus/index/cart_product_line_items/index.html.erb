@@ -8,6 +8,8 @@
       <th><%= t('activerecord.attributes.taurus/product.number') %></th>
       <th><%= t('activerecord.attributes.taurus/product.name') %></th>
       <th><%= t('activerecord.attributes.taurus/cart_product_line_item.product_amount') %></th>
+      <th>单价</th>
+      <th>小计</th>
       <th><%= t('admin.misc.operation') %></th>
    </tr>
   </thead>
@@ -17,6 +19,8 @@
       <td><%= line_item.product.number %></td>
       <td><%= line_item.product.name %></td>
       <td><%= text_field_tag :"product_amount[#{line_item.id}]", line_item.product_amount, :type => "number", :step => "1" %></td>
+      <td><%= format_price line_item.product.price_after_tax %></td>
+      <td><%= format_price line_item.subtotal %></td>
       <td>
         <%= link_to "删除", index_cart_product_line_item_path(line_item), 
                     :method => :delete, :confirm => t('admin.actions.delete.confirm'),
@@ -27,4 +31,5 @@
 </table>
 
   <%= f.button :submit, :value => "更新", :class => "btn btn-primary" %>
+  <%= link_to "结算", new_index_order_path, :class => "btn btn-primary" %>
 <% end %>
