@@ -47,10 +47,10 @@
 
   <% end %>
 
-  
+  <%= f.input :remarks_by_customer %>
 
   <div class="form-actions">
     <%= link_to "返回购物车", index_cart_product_line_items_path, :class => "btn btn-primary" %>
-    <%= f.button :submit, :value => "预览", :class => "btn btn-primary" %>
+    <%= f.button :submit, :value => "预览", :name => "preview_button", :class => "btn btn-primary" %>
   </div>
 </fieldset>

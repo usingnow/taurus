@@ -292,7 +292,9 @@ zh-CN:
         is_main: "是否主图片"
         updated_at: "更新时间"
       taurus/cart_product_line_item:
-        product_amount: "商品数量"  
+        product_amount: "商品数量" 
+      taurus/order:
+        remarks_by_customer: "备注"       
       taurus/order_delivery:
         attention: "收货人"
         district_id: "地区"

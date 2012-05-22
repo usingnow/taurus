@@ -88,9 +88,16 @@
     </div>
   <% end %>
 
+  <div class="control-group">
+    <label class="control-label"><%= t 'activerecord.attributes.taurus/order.remarks_by_customer' %></label>
+    <div class="controls">
+      <span class="uneditable-input"><%= @order.remarks_by_customer %></span>
+    </div>
+  </div>
+
   <div class="form-actions">
     <%= f.button :submit, :value => "返回修改", :name => "back_button", :class => "btn btn-primary" %>
-    <%= f.button :submit, :value => "提交订单", :name => "commit_order", :class => "btn btn-primary" %>
+    <%= f.button :submit, :value => "提交订单", :name => "commit_button", :class => "btn btn-primary" %>
   </div>
 
 </fieldset>
