@@ -1,0 +1,10 @@
+payment_method_1:
+  id: 1
+  name: "在线支付"
+  description: ""
+  status: true
+payment_method_2:
+  id: 2
+  name: "货到付款"
+  description: ""
+  status: true

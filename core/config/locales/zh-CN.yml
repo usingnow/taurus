@@ -299,6 +299,17 @@ zh-CN:
         address: "地址"
         telephone: "固定电话"
         mobile: "移动电话"
+      taurus/order_payment:
+        payment_method_id: "支付方式"
+        payment_method: "支付方式"
+        receipt_type: "发票类型"
+        receipt_title: "发票抬头"
+        bank_name: "开户银行"
+        company_name: "开户名称"
+        bank_account: "银行账号"
+        vat_number: "增值税登记号"
+        registered_telephone: "注册电话"
+        registered_address: "注册地址"
 
   helpers:
     select:
