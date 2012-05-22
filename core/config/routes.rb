@@ -47,6 +47,7 @@ Taurus::Core::Engine.routes.draw do
       end
       resources :product_images
     end
+    resources :orders    
   end
 
   namespace :index do 

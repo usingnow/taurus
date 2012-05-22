@@ -294,6 +294,10 @@ zh-CN:
       taurus/cart_product_line_item:
         product_amount: "商品数量" 
       taurus/order:
+        number: "订单编号"
+        customer_name: "客户名称"
+        total_payment: "总金额"
+        created_at: "下单时间"
         remarks_by_customer: "备注"       
       taurus/order_delivery:
         attention: "收货人"
