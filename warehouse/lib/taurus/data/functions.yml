@@ -3,19 +3,14 @@
   url: '/admin/functions?id=05'
   sequence: 7
   functions: 
-    - id: '0501'
-      name: '仓库信息维护'
-      url: '/admin/stores'
+    - id: 0501
+      name: '库存查看'
+      url: '/admin/store_sku_line_items'
       operations: 
-        - id: '050101'
+        - id: 050101
           name: '查询'
           action: ':read'
-          subject_class: 'Store'
-      operations: 
-        - id: 050102
-          name: '管理'
-          action: '[:create,:update,:destroy]'
-          subject_class: 'Store'
+          subject_class: 'StoreSkuLineItem'
     - id: 0502
       name: '入库单'
       url: '/admin/store_entries'
@@ -30,23 +25,15 @@
           action: '[:create,:update]'
           subject_class: 'StoreEntry'
     - id: 0503
-      name: '库存查看'
-      url: '/admin/product_storeships'
+      name: '出库单'
+      url: '/store/delivery_orders'
       operations: 
         - id: 050301
           name: '查询'
           action: ':read'
-          subject_class: 'ProductStoreship'
-    - id: 0504
-      name: '出库单'
-      url: '/store/delivery_orders'
-      operations: 
-        - id: 050401
-          name: '查询'
-          action: ':read'
           subject_class: 'DeliveryOrder'
       operations: 
-        - id: 050402
+        - id: 050302
           name: '管理'
           action: ':create'
           subject_class: 'DeliveryOrder'

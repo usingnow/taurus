@@ -1,0 +1,10 @@
+zh-CN:
+  activerecord:
+    models:
+      taurus/store_sku_line_item: "库存"
+    attributes:
+      taurus/store_sku_line_item:
+        reserved: "销售预留"
+        out_of_stock: "缺货"
+        available: "可销售"
+        in_stock: "库存"

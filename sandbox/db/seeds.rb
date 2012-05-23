@@ -4,3 +4,4 @@
 
 Taurus::Auth::Engine.load_seed if defined?(Taurus::Auth)
 Taurus::Core::Engine.load_seed if defined?(Taurus::Core)
+Taurus::Warehouse::Engine.load_seed if defined?(Taurus::Warehouse)
