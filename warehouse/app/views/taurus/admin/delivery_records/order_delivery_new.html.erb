@@ -1,0 +1,90 @@
+<%= simple_form_for(
+      @delivery_record, :url => order_delivery_create_admin_delivery_record_path(@order),
+      :html => {:class => 'form-horizontal'}
+    )  do |f| %>
+  <%= f.error_notification %>
+  <%= error_messages(@delivery_record) %>
+  
+  
+  <fieldset>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/order.number' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @order.number %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/order.created_at' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @order.created_at %></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/order.customer_name' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @order.customer_name %></span>
+      </div>
+    </div>
+
+    <%= f.input :delivery_type, :collection => Taurus::DeliveryRecord::DELIVERY_TYPE, 
+                :label_method => :second, :value_method => :first, :include_blank => false, 
+                :as => :select %>
+
+    <div id="delivery_content">
+      <%= f.input :courier, :required => true %>
+      <%= f.input :courier_number, :required => true %>
+      <%= f.input :delivery_date, :required => true %>
+    </div>
+
+    <%= f.input :remarks %>
+
+    <script type="text/javascript">
+      $("#delivery_record_delivery_type").change(function(){
+        if($(this).val() == "0"){
+          $("#delivery_content").html("<%= j(
+            (f.input :courier, :required => true)+
+            (f.input :courier_number, :required => true)+
+            (f.input :delivery_date, :required => true)
+          ) %>");
+        }else if($(this).val() == "1"){
+          $("#delivery_content").html("<%= j(
+            (f.input :delivery_name, :required => true)+
+            (f.input :delivery_date, :required => true)
+          ) %>");
+        }else{
+          $("#delivery_content").html("<%= j(
+            (f.input :customer_name, :required => true)+
+            (f.input :customer_phone, :required => true)+
+            (f.input :pick_up_date, :required => true)
+          ) %>");
+        }
+      });
+    </script>            
+
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th><%= t('activerecord.attributes.taurus/sku.number') %></th>
+          <th><%= t('activerecord.attributes.taurus/sku.name') %></th>
+          <th><%= t('activerecord.attributes.taurus/delivery_record_sku_line_item.sku_amount') %></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @line_items.each_with_index do |line_item,index| %>
+        <tr>
+          <td><%= index+1 %></td>
+          <td><%= line_item.sku.number %></td>
+          <td><%= line_item.sku.name %></td>
+          <td><%= line_item.sku_amount %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <div class="form-actions">
+      <%= f.button :submit, :class => "btn btn-primary" %>
+    </div>
+  </fieldset>
+<% end %>

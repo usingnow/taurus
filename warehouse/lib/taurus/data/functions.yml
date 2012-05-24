@@ -4,7 +4,7 @@
   sequence: 7
   functions: 
     - id: '0501'
-      name: '库存查看'
+      name: '库存管理'
       url: '/admin/store_sku_line_items'
       operations: 
         - id: '050101'
@@ -12,7 +12,7 @@
           action: ':read'
           subject_class: 'StoreSkuLineItem'
     - id: '0502'
-      name: '补货入库'
+      name: '入库管理'
       url: '/admin/store_entries'
       operations: 
         - id: '050201'
@@ -25,15 +25,29 @@
           action: '[:create,:update]'
           subject_class: 'StoreEntry'
     - id: '0503'
-      name: '出库单'
-      url: '/store/delivery_orders'
+      name: '出库管理'
+      url: '/admin/delivery_records'
       operations: 
         - id: '050301'
           name: '查询'
           action: ':read'
-          subject_class: 'DeliveryOrder'
+          subject_class: 'DeliveryRecord'
       operations: 
         - id: '050302'
           name: '管理'
           action: ':create'
-          subject_class: 'DeliveryOrder'
+          subject_class: 'DeliveryRecord'
+
+    - id: '0504'
+      name: '订单出库'
+      url: '/admin/delivery_records/orders'
+      operations: 
+        - id: '050401'
+          name: '查询'
+          action: ':orders'
+          subject_class: 'DeliveryRecord'
+      operations: 
+        - id: '050402'
+          name: '管理'
+          action: ':orders'
+          subject_class: 'DeliveryRecord'

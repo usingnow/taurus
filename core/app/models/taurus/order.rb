@@ -5,11 +5,11 @@ module Taurus
 
     STATE = { 
       "start" => "开始", "reserved" => "订单处理中", "waiting_for_payment" => "等待付款",
-      "account_paid" => "已付款"
+      "delivering" => "正在拣货出库", "product_delivered" => "等待签收", "completed" => "完成"
     }
     EVENT = {
       :relieve_reserved => "解除保留", :confirm_online_payment => "确认在线付款", 
-      :online_payment => "在线支付"
+      :online_payment => "在线支付", :sign => "签收"
     }
 
   	has_one :order_payment, :dependent => :destroy
@@ -26,6 +26,8 @@ module Taurus
     after_create :add_reserved_amount
     
     validates_presence_of :user_id, :customer_name, :total_payment
+
+    scope :available_deliveries, where(:state => "delivering")
     
     # 多步骤表单
     def current_step  
@@ -43,15 +45,15 @@ module Taurus
       end
 
       event :online_payment do
-        transition :from => :waiting_for_payment, :to => :account_paid
+        transition :from => :waiting_for_payment, :to => :delivering
       end
 
       event :confirm_online_payment do
-        transition :from => :waiting_for_payment, :to => :account_paid
+        transition :from => :waiting_for_payment, :to => :delivering
       end
 
       event :product_delivery do
-        transition :from => :account_paid, :to => :product_delivered
+        transition :from => :delivering, :to => :product_delivered
       end
 
       event :sign do
@@ -72,17 +74,22 @@ module Taurus
 
     protected
     def default_value
-      self.number = Array.new(9){rand(9)}.join
+      self.number = "O" + Array.new(9){rand(9)}.join
     end
 
     def available_stock?
       attributes = Array.new
       order_product_line_items.each do |product_line_item|
         product_line_item.product.product_sku_line_items.each do |sku_line_item|
-          attributes << {
-            :sku_id => sku_line_item.sku_id, 
-            :sku_amount => sku_line_item.sku_amount*product_line_item.product_amount
-          }
+          attribute = attributes.find { |attr| attr[:sku_id] == sku_line_item.sku_id}
+          if attribute
+            attribute[:sku_amount] += sku_line_item.sku_amount*product_line_item.product_amount
+          else
+            attributes << {
+              :sku_id => sku_line_item.sku_id, 
+              :sku_amount => sku_line_item.sku_amount*product_line_item.product_amount
+            }
+          end
         end
       end
       !StoreSkuLineItem.available?(attributes)

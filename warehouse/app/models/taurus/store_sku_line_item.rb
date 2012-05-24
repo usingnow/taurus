@@ -5,6 +5,8 @@ module Taurus
 		belongs_to :sku
 
     validates_uniqueness_of :sku_id
+    validates_numericality_of :reserved, :in_stock, :only_integer => true, :greater_than => -1
+
 		# 判断可销售数量是否足够 返回boolean
     # Examples
     #
@@ -25,6 +27,10 @@ module Taurus
       end
       result
 		end
+
+    def available?(sku_amount)
+      available > sku_amount
+    end
 
 		def out_of_stock
       (in_stock - reserved) < 0 ? (in_stock - reserved) * -1 : 0

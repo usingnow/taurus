@@ -61,6 +61,7 @@ Taurus::Core::Engine.routes.draw do
     resources :orders do
       member do 
         get :online_payment
+        get :sign
       end
       resources :order_product_line_items
       resources :order_payments

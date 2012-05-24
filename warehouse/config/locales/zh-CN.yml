@@ -2,9 +2,23 @@ zh-CN:
   activerecord:
     models:
       taurus/store_sku_line_item: "库存"
+      taurus/delivery_record: "出库记录"
     attributes:
       taurus/store_sku_line_item:
         reserved: "销售预留"
         out_of_stock: "缺货"
         available: "可销售"
         in_stock: "库存"
+      taurus/delivery_record:
+        order_id: "订单" 
+        delivery_type: "出库方式"
+        courier: "快递公司"
+        courier_number: "运单号"
+        delivery_date: "送货日期"
+        delivery_name: "送货人"
+        customer_name: "客户名称"
+        customer_phone: "客户电话"
+        pick_up_date: "提货日期"
+        remarks: "备注"
+      taurus/delivery_record_sku_line_item:
+        sku_amount: "数量"         
