@@ -1,8 +1,8 @@
 module Taurus
   class Sku < ActiveRecord::Base
     belongs_to :product_category
-	belongs_to :brand
-	belongs_to :supplier
+  	belongs_to :brand
+  	belongs_to :supplier
     has_one :store_sku_line_item
 
     after_create :add_to_store
@@ -22,10 +22,10 @@ module Taurus
     	supplier ? supplier.name : nil
     end
 
-	validates_presence_of :number, :name, :product_category_name, :product_category_id, 
-												:brand_chinese_name, :brand_id, :supplier_name, :supplier_id, :weight
-	validates_numericality_of :weight, :cost_before_tax, :cost_after_tax, :delivery_days		
-	validates_uniqueness_of :number		
+  	validates_presence_of :number, :name, :product_category_name, :product_category_id, 
+  												:brand_chinese_name, :brand_id, :supplier_name, :supplier_id, :weight
+  	validates_numericality_of :weight, :cost_before_tax, :cost_after_tax, :delivery_days		
+  	validates_uniqueness_of :number		
 
     protected
     def add_to_store

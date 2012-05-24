@@ -21,7 +21,8 @@
         <div class="nav-collapse">
           <ul class="nav pull-right">
             <% if current_user %>
-              <li class="active">
+              <li><%= link_to "用户中心", index_user_centers_path %></li>
+              <li> 
                 <a href="#"><i class="icon-user"></i><%= current_user.taurus_userable.name %></a>
               </li>
               <li>

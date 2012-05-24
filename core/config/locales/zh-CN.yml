@@ -298,6 +298,7 @@ zh-CN:
         customer_name: "客户名称"
         total_payment: "总金额"
         created_at: "下单时间"
+        state: "订单状态"
         remarks_by_customer: "备注"       
       taurus/order_delivery:
         attention: "收货人"

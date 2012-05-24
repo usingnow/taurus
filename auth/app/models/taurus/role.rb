@@ -7,5 +7,6 @@ module Taurus
 	  scope :reserved, where(:is_reserved => true)
     
     validates_presence_of :name
+
 	end
 end

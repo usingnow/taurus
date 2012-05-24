@@ -3,6 +3,7 @@ module Taurus
   class User < ActiveRecord::Base
     belongs_to :taurus_userable, :polymorphic => true, :dependent => :destroy
     belongs_to :role
+    has_many :orders
 
 
     devise :database_authenticatable, :registerable, :timeoutable,

@@ -47,17 +47,26 @@ Taurus::Core::Engine.routes.draw do
       end
       resources :product_images
     end
-    resources :orders    
+    resources :orders do
+      member do 
+        get :relieve_reserved
+        get :confirm_online_payment
+      end
+    end
   end
 
   namespace :index do 
     resources :home
     resources :cart_product_line_items
     resources :orders do
+      member do 
+        get :online_payment
+      end
       resources :order_product_line_items
       resources :order_payments
       resources :order_deliveries
     end
+    resources :user_centers
   end
 
   match '/admin', :to => 'admin/functions#index'

@@ -28,4 +28,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'twitter-bootstrap-rails', '2.0.6'
   s.add_dependency 'will_paginate-bootstrap', '0.2.0'
   s.add_dependency 'rails3-jquery-autocomplete'
+  s.add_dependency 'state_machine', '= 1.1.2'
 end

@@ -21,12 +21,12 @@
   <% @orders.each_with_index do |order,index| %>
     <tr>
       <td><%= index+1 %></td>
-      <td><%= link_to order.number, admin_order_path(order) %></td>
+      <td><%= link_to order.number, index_order_path(order) %></td>
       <td><%= order.customer_name %></td>
       <td><%= format_price order.total_payment %></td>
       <td><%= format_order_state order.state %></td>
       <td><%= order.created_at %></td>
-      <td><%= order_operations(order) %></td>
+      <td><%= order_customer_operations(order) %></td>
     </tr>
   <% end %>
   </tbody>
