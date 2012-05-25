@@ -146,7 +146,7 @@
   sequence: 8
   functions: 
     - id: '0301'
-      name: '在线订单'
+      name: '待处理订单'
       url: '/admin/orders'
       operations: 
         - id: 20
@@ -174,44 +174,13 @@
           action: ':take_over'
           subject_class: 'Order'
     - id: 18
-      name: '订单查询'
+      name: '全部订单'
       url: '/admin/orders/all'
       operations: 
         - id: 27
           name: '查询'
           action: '[:all,:read,:order_tracks,:take_over_logs]'
           subject_class: 'Order'
-    - id: 28
-      name: '打印送货单'
-      url: '/admin/orders/print_delivery_note'
-      operations: 
-        - id: 33
-          name: '打印送货单'
-          action: '[:print_delivery_note,:show_delivery_note]'
-          subject_class: 'Order'
-    - id: 33
-      name: '评论管理'
-      url: '/admin/customer_ratings'
-      operations: 
-        - id: 76
-          name: '查询'
-          action: ':read'
-          subject_class: 'CustomerRating'
-      operations: 
-        - id: 77
-          name: '回复'
-          action: ':update'
-          subject_class: 'CustomerRating'
-      operations: 
-        - id: 78
-          name: '删除'
-          action: ':destroy'
-          subject_class: 'CustomerRating'
-      operations: 
-        - id: 79
-          name: '关闭前台显示'
-          action: ':close'
-          subject_class: 'CustomerRating'
 - id: '07'
   name: '促销活动'
   sequence: 5
