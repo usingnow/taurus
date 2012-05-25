@@ -64,6 +64,10 @@ Taurus::Core::Engine.routes.draw do
         get :online_payment
         get :sign
       end
+      collection do 
+        get :online_payment_notify
+        get :online_payment_done
+      end
       resources :order_product_line_items
       resources :order_payments
       resources :order_deliveries

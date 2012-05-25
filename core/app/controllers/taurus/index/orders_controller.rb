@@ -1,3 +1,4 @@
+#encoding:UTF-8
 module Taurus
 	module Index
 		class OrdersController < BaseController
@@ -51,6 +52,40 @@ module Taurus
         redirect_to(index_user_centers_url)
       end
 
+      def online_payment
+        @alipay = Alipay.first
+
+        if @alipay
+          @order = current_user.orders.find(params[:id])
+
+          parameters = @alipay.parameters(@order, online_payment_notify_index_orders_url,
+                                          online_payment_done_index_orders_url)
+
+          sign = Digest::MD5.hexdigest(CGI.unescape(parameters.to_query) + 
+                 "tyyq0r9bmoerl5e89k3v4megsufqkujm")
+          gateway = 'https://www.alipay.com/cooperate/gateway.do?'
+          redirect_to gateway + parameters.to_query + '&sign=' + sign + '&sign_type=MD5'
+        else
+          redirect_to :back
+        end
+      end
+
+      def online_payment_notify
+        render :text => '成功'
+      end
+
+      def online_payment_done
+        @order = current_user.orders.find_by_number(params[:out_trade_no])
+        
+        if params[:trade_status] == "TRADE_SUCCESS"
+          @order.online_payment
+          
+          redirect_to index_user_centers_path
+        else
+          render :text => "支付失败"
+        end
+      end
+        
 		end
 	end
 end
