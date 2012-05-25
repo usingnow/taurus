@@ -104,9 +104,9 @@
           action: '[:create,:update,:destroy]'
           subject_class: 'SkuImage'
 - id: '02'
-  name: '系统设置'
+  name: '基础信息设置'
   url: '/admin/functions?id=02'
-  sequence: 0
+  sequence: 1
   functions:
     - id: '0201'
       name: '行业类别管理'
@@ -213,7 +213,7 @@
           action: ':close'
           subject_class: 'CustomerRating'
 - id: '07'
-  name: '促销'
+  name: '促销活动'
   sequence: 5
   functions: 
     - id: 32

@@ -1,5 +1,5 @@
 - id: '05'
-  name: '仓库'
+  name: '进货出货'
   url: '/admin/functions?id=05'
   sequence: 7
   functions: 
