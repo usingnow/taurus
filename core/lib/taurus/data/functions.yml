@@ -109,7 +109,7 @@
   sequence: 1
   functions:
     - id: '0201'
-      name: '行业类别管理'
+      name: '行业类别'
       url: '/admin/industries'
       operations: 
         - id: '020101'
@@ -117,7 +117,7 @@
           action: ':read'
           subject_class: 'Industry' 
     - id: '0202'
-      name: '企业类型管理'
+      name: '企业类型'
       url: '/admin/company_types'
       operations: 
         - id: '020201'
@@ -125,18 +125,34 @@
           action: ':read'
           subject_class: 'CompanyType'
     - id: '0203'
-      name: '企业规模管理'
+      name: '企业规模'
       url: '/admin/company_scales'
       operations: 
         - id: '020301'
           name: '查询'
           action: ':read'
-          subject_class: 'CompanyScale' 
+          subject_class: 'CompanyScale'
     - id: '0204'
-      name: '支付宝管理'
-      url: '/admin/alipays'
+      name: '地区运费'
+      url: '/admin/1'
       operations: 
         - id: '020401'
+          name: '查询'
+          action: ':read'
+          subject_class: ''
+    - id: '0205'
+      name: '订单流程'
+      url: '/admin/2'
+      operations: 
+        - id: '020501'
+          name: '查询'
+          action: ':read'
+          subject_class: ''       
+    - id: '0206'
+      name: '支付宝'
+      url: '/admin/alipays'
+      operations: 
+        - id: '020601'
           name: '管理'
           action: ':manage'
           subject_class: 'Alipay'                     
