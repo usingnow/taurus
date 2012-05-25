@@ -11,6 +11,11 @@ Taurus::Core::Engine.routes.draw do
         post :order_delivery_create
       end
 	  end
-
+    resources :replenishment_records do 
+      collection do 
+        get :autocomplete_supplier_name
+        get :autocomplete_sku_name
+      end
+    end
 	end
 end

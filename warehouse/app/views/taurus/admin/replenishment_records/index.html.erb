@@ -1,0 +1,28 @@
+<div class="form-actions">
+  <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
+    <%= f.text_field :number_cont, :placeholder => t('activerecord.attributes.taurus/replenishment_record.number'), :class => "trk-non-inline-margin" %>
+    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
+  <% end %>
+  <hr />
+  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/replenishment_record'))}".html_safe, new_admin_replenishment_record_path, :class => "btn btn-primary" %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('activerecord.attributes.taurus/replenishment_record.number') %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @replenishment_records.each_with_index do |replenishment_record,index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= replenishment_record.number %></td>
+    </tr>
+  <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan='6'><%= will_paginate @replenishment_records, :renderer => BootstrapPagination::Rails %></td></tr>
+  </tfoot>
+</table>

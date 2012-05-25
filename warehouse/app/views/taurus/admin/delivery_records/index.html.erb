@@ -1,0 +1,26 @@
+<div class="form-actions">
+  <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
+    <%= f.text_field :number_cont, :placeholder => t('activerecord.attributes.taurus/delivery_record.number'), :class => "trk-non-inline-margin" %>
+    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
+  <% end %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('activerecord.attributes.taurus/delivery_record.number') %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @delivery_records.each_with_index do |delivery_record,index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= delivery_record.number %></td>
+    </tr>
+  <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan='6'><%= will_paginate @delivery_records, :renderer => BootstrapPagination::Rails %></td></tr>
+  </tfoot>
+</table>

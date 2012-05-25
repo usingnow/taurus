@@ -15,7 +15,7 @@
 		  </thead>
 		  <tbody id="line_items">
         <% @product.product_sku_line_items.each_with_index do |line_item,index| %>
-			    <tr data-sku_id="<%= line_item.sku.id %>">
+			    <tr class='sku_line_item' data-sku_id="<%= line_item.sku.id %>">
 			      <td><%= line_item.sku.number %></td>
 			      <td><%= line_item.sku.name %></td>
 			      <td>

@@ -45,6 +45,12 @@ module Taurus
         end
 			end
 
+      def sign
+        @order = current_user.orders.find(params[:id])
+        @order.sign
+        redirect_to(index_user_centers_url)
+      end
+
 		end
 	end
 end

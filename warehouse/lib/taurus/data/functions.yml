@@ -12,8 +12,8 @@
           action: ':read'
           subject_class: 'StoreSkuLineItem'
     - id: '0502'
-      name: '入库管理'
-      url: '/admin/store_entries'
+      name: '补货管理'
+      url: '/admin/replenishment_records'
       operations: 
         - id: '050201'
           name: '查询'
@@ -37,7 +37,6 @@
           name: '管理'
           action: ':create'
           subject_class: 'DeliveryRecord'
-
     - id: '0504'
       name: '订单出库'
       url: '/admin/delivery_records/orders'

@@ -243,42 +243,6 @@
           name: '关闭前台显示'
           action: ':close'
           subject_class: 'CustomerRating'
-- id: '04'
-  name: '采购'
-  url: '/admin/functions?id=04'
-  sequence: 6
-  functions: 
-    - id: 19
-      name: '可订购公司信息'
-      url: '/admin/ordering_companies'
-      operations: 
-        - id: 21
-          name: '查询'
-          action: ':read'
-          subject_class: 'OrderingCompany'
-      operations: 
-        - id: 69
-          name: '管理'
-          action: '[:create,:update,:destroy]'
-          subject_class: 'OrderingCompany'
-    - id: 20
-      name: '采购单'
-      url: '/purchase/purchase_orders'
-      operations: 
-        - id: 22
-          name: '查询'
-          action: ':read'
-          subject_class: 'PurchaseOrder'
-      operations: 
-        - id: 70
-          name: '管理'
-          action: '[:create,:check_supplier_id,:preview,:search_products,:update,:released_edit,:released_update,:destroy,:search_products_edit,:release]'
-          subject_class: 'PurchaseOrder'
-      operations: 
-        - id: 71
-          name: '打印'
-          action: ':print'
-          subject_class: 'PurchaseOrder'
 - id: '07'
   name: '促销'
   sequence: 5

@@ -12,8 +12,6 @@ module Taurus
 		has_many :delivery_record_sku_line_items, :dependent => :destroy
 
 		before_validation :default_value, :on => :create
-		after_create :order_delivery_deduct_stock
-
 
 		validates_presence_of :number, :store_id, :delivery_record_type, :delivery_type, :administrator_id
 		validates_uniqueness_of :number
@@ -37,16 +35,6 @@ module Taurus
         unless line_item.sku.store_sku_line_item.available?(line_item.sku_amount)
           errors.add("$stock#{line_item.sku.name}(#{line_item.sku.number})", "库存不足")
         end
-      end
-    end
-    
-    # 订单出库减库存
-    def order_delivery_deduct_stock
-      delivery_record_sku_line_items.each do |line_item|
-        line_item.sku.store_sku_line_item.update_attributes(
-          :reserved => line_item.sku.store_sku_line_item.reserved - line_item.sku_amount,
-          :in_stock => line_item.sku.store_sku_line_item.in_stock - line_item.sku_amount
-        )
       end
     end
 	end
