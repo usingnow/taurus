@@ -199,13 +199,14 @@
           subject_class: 'Order'
 - id: '07'
   name: '促销活动'
+  url: '/admin/functions?id=07'
   sequence: 5
   functions: 
-    - id: 32
-      name: '促销活动'
-      url: '/promotion/online_promotions'
+    - id: '0701'
+      name: '全部促销活动'
+      url: '/admin/online_promotions'
       operations: 
-        - id: 75
+        - id: '070101'
           name: '查询'
           action: ':read'
           subject_class: 'OnlinePromotion'
