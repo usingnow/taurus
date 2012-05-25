@@ -53,6 +53,7 @@ Taurus::Core::Engine.routes.draw do
         get :confirm_online_payment
       end
     end
+    resources :alipays
   end
 
   namespace :index do 

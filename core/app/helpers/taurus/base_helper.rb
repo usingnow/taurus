@@ -65,6 +65,8 @@ module Taurus
       content_tag(:em, (number_to_currency price, :unit => "￥"), :class => "grey_cny")
     end
 
-    
+    def success
+      content_tag :div, flash[:notice], :class => "alert alert-success" if flash[:notice]
+    end
   end
 end

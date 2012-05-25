@@ -21,11 +21,12 @@ module Taurus
     has_many :product_sku_line_items, :through => :products
     belongs_to :user
 
-    before_create :default_value
+    before_validation :generate_order_number, :on => :create
     after_create :judge_reserved
     after_create :add_reserved_amount
     
     validates_presence_of :user_id, :customer_name, :total_payment
+    validates_uniqueness_of :number
 
     scope :available_deliveries, where(:state => "delivering")
     
@@ -73,7 +74,7 @@ module Taurus
     end
 
     protected
-    def default_value
+    def generate_order_number
       self.number = "O" + Array.new(9){rand(9)}.join
     end
 

@@ -194,6 +194,8 @@ zh-CN:
         other: "有 %{count} 个错误发生导致「%{model}」无法被保存。"
       body: "如下字段出现错误："
 
+  successfully_updated: "更新成功!"
+
 
   activerecord:
     models:
@@ -206,6 +208,7 @@ zh-CN:
       taurus/product_sku_line_item: "销售商品SKU"
       taurus/product_image: "销售商品图片"
       taurus/order: "订单"
+      taurus/alipay: "支付宝"
     attributes:
       taurus/supplier:
         number: "供应商编号"
@@ -317,6 +320,11 @@ zh-CN:
         vat_number: "增值税登记号"
         registered_telephone: "注册电话"
         registered_address: "注册地址"
+      taurus/alipay:
+        partner: "合作伙伴ID"
+        seller_email: "签约支付宝账号"
+        subject: "标题"
+        body: "备注"
 
   helpers:
     select:

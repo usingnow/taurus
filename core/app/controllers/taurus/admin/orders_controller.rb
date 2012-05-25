@@ -4,6 +4,7 @@ module Taurus
 			helper "taurus/orders"
 		  def index
 		  	@search = Order.search(params[:q])
+		  	@search.sorts = "updated_at desc"
 		  	@orders = @search.result.paginate(:page => params[:page], :per_page => 20)
 		  end
 

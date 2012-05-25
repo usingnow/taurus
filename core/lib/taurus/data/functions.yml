@@ -108,69 +108,38 @@
   url: '/admin/functions?id=02'
   sequence: 0
   functions:
-    - id: 0201
+    - id: '0201'
       name: '行业类别管理'
       url: '/admin/industries'
       operations: 
-        - id: 020101
+        - id: '020101'
           name: '查询'
           action: ':read'
           subject_class: 'Industry' 
-    - id: 0202
+    - id: '0202'
       name: '企业类型管理'
       url: '/admin/company_types'
       operations: 
-        - id: 020201
+        - id: '020201'
           name: '查询'
           action: ':read'
           subject_class: 'CompanyType'
-    - id: 0203
+    - id: '0203'
       name: '企业规模管理'
       url: '/admin/company_scales'
       operations: 
-        - id: 020301
+        - id: '020301'
           name: '查询'
           action: ':read'
-          subject_class: 'CompanyScale'              
-    - id: 7
-      name: '销售订单流程维护'
-      url: '/admin/procedures'
+          subject_class: 'CompanyScale' 
+    - id: '0204'
+      name: '支付宝管理'
+      url: '/admin/alipays'
       operations: 
-        - id: 10
-          name: '查询'
-          action: ':read'
-          subject_class: 'Procedure'
-      operations: 
-        - id: 62
+        - id: '020401'
           name: '管理'
-          action: '[:create,:update]'
-          subject_class: 'Procedure'
-    - id: 8
-      name: '销售订单站别维护'
-      url: '/admin/stations'
-      operations: 
-        - id: 11
-          name: '查询'
-          action: ':read'
-          subject_class: 'Station'
-      operations: 
-        - id: 63
-          name: '管理'
-          action: '[:create,:update]'
-          subject_class: 'Station'
-    - id: 9
-      name: '销售订单规则维护'
-      url: '/admin/station_procedureships'
-      operations: 
-        - id: 26
-          name: '查询'
-          action: ':read'
-          subject_class: 'StationProcedureship'
-      operations: 
-        - id: 64
-          name: '管理'
-          action: '[:create,:update]'
-          subject_class: 'StationProcedureship'
+          action: ':manage'
+          subject_class: 'Alipay'                     
 - id: '03'
   name: '订单'
   url: '/admin/functions?id=03'

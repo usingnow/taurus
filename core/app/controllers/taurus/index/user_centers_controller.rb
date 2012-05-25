@@ -6,7 +6,12 @@ module Taurus
 
 			def index
 				@search = current_user.orders.search(params[:q])
+				@search.sorts = "updated_at desc"
 				@orders = @search.result.paginate(:page => params[:page], :per_page => 20)
+      end
+
+      def online_payment
+
       end
 		end
 	end	
