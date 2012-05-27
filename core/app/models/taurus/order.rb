@@ -38,7 +38,9 @@ module Taurus
     state_machine :initial => :start do
       event :judge_reserved do
         transition :from => :start, :to => :reserved, :if => :reserved?
-        transition :from => :start, :to => :waiting_for_payment
+        transition :from => :start, :to => :waiting_for_payment, 
+                   :if => Proc.new{ |order| order.order_payment.payment_method_id == 1 }
+        transition :from => :start, :to => :delivering
       end
 
       event :relieve_reserved do

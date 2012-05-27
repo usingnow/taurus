@@ -39,7 +39,7 @@ module Taurus
 
         if @delivery_record.save
           @order.product_delivery
-          redirect_to(orders_admin_delivery_orders_path)
+          redirect_to(orders_admin_delivery_records_path)
         else
           render :action => :order_delivery_new
         end
