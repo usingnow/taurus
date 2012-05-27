@@ -3,6 +3,8 @@ module Taurus
   	has_many :custom_properties, :dependent => :destroy
   	has_many :skus, :dependent => :destroy
   	has_many :products, :dependent => :destroy
+    belongs_to :parent, :class_name => "ProductCategory", :foreign_key => "parent_id"
+    has_many :children, :class_name => "ProductCategory", :foreign_key => "parent_id"
   	
     scope :tops, where(:parent_id => nil)
 

@@ -48,7 +48,7 @@ module Taurus
       
       #第二级分类
 			def seconds
-				@second_categories = ProductCategory.seconds(params[:id])
+				@product_category = ProductCategory.find(params[:id])
 				params[:q] = { :parent_id_eq => params[:id]}
 				index
 				render :action => "index"
@@ -56,7 +56,7 @@ module Taurus
 
       #第三级分类
 			def thirds
-        @second_categories = ProductCategory.seconds(ProductCategory.find(params[:id]).parent_id)
+        @product_category = ProductCategory.find(params[:id]).parent
         @second_category_id = params[:id]
 				params[:q] = { :parent_id_eq => params[:id]}
 				index

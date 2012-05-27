@@ -6,44 +6,40 @@
   <% end %>
   <hr />
   <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/product_category'))}".html_safe, new_admin_product_category_path, :target => "_blank", :class => "btn btn-primary" %>
+  <hr />
+  <%=raw top_product_categories %>
 </div>
 
-<div class="container">
-  <%=raw product_category_breadcrumb %>
-  <div class="row">
-    <div class="span2 show-grid">
-      <%=raw top_product_categories %>
-    </div>
-    <%=raw second_product_categories %>
-    <div class="span10">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th><%= t('activerecord.attributes.taurus/product_category.number') %></th>
-            <th><%= t('activerecord.attributes.taurus/product_category.name') %></th>
-            <th><%= t('activerecord.attributes.taurus/product_category.status') %></th>
-            <th><%= t('admin.misc.operation') %></th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @product_categories.each_with_index do |product_category,index| %>
-          <tr>
-            <td><%= index+1 %></td>
-            <td><%= link_to product_category.number, admin_product_category_path(product_category) %></td>
-            <td><%= product_category.name %></td>
-            <td><%= format_boolean product_category.status %></td>
-            <td>
-              <%= link_to t('admin.actions.edit.menu'), edit_admin_product_category_path(product_category), :class => "btn btn-primary" %>
-              <%= link_to t('activerecord.attributes.taurus/product_category.custom_property'), admin_product_category_custom_properties_path(product_category), :class => "btn btn-primary" %>
-            </td>
-          </tr>
-        <% end %>
-        </tbody>
-        <tfoot>
-          <tr><td colspan='6'><%= will_paginate @product_categories, :renderer => BootstrapPagination::Rails %></td></tr>
-        </tfoot>
-      </table>
-    </div>
+<div class="row">
+  <%=raw second_product_categories %>
+  <div class="<%= @product_category ? "span8" : "span10" %>">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th><%= t('activerecord.attributes.taurus/product_category.number') %></th>
+          <th><%= t('activerecord.attributes.taurus/product_category.name') %></th>
+          <th><%= t('activerecord.attributes.taurus/product_category.status') %></th>
+          <th><%= t('admin.misc.operation') %></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @product_categories.each_with_index do |product_category,index| %>
+        <tr>
+          <td><%= index+1 %></td>
+          <td><%= link_to product_category.number, admin_product_category_path(product_category) %></td>
+          <td><%= product_category.name %></td>
+          <td><%= format_boolean product_category.status %></td>
+          <td>
+            <%= link_to t('admin.actions.edit.menu'), edit_admin_product_category_path(product_category), :class => "btn btn-primary" %>
+            <%= link_to t('activerecord.attributes.taurus/product_category.custom_property'), admin_product_category_custom_properties_path(product_category), :class => "btn btn-primary" %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+      <tfoot>
+        <tr><td colspan='6'><%= will_paginate @product_categories, :renderer => BootstrapPagination::Rails %></td></tr>
+      </tfoot>
+    </table>
   </div>
 </div>
