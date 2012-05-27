@@ -1,3 +1,4 @@
+#encoding:UTF-8
 module Taurus
 	module Admin
 		class ProductCategoriesController < BaseController
@@ -14,6 +15,13 @@ module Taurus
 
 			def new 
 				@product_category = ProductCategory.new
+				if params[:parent_id]
+					@parent = ProductCategory.find(params[:parent_id])
+					@product_category.parent_id = @parent.id
+					@product_category.parent_name = @parent.name
+				else
+					@product_category.parent_name = "无"
+				end	
 			end
 
 			def create

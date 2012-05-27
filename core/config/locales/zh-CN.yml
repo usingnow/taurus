@@ -236,6 +236,7 @@ zh-CN:
         company_name: "公司名称"
         company_description: "公司简介"
       taurus/product_category:
+        parent_name: "父分类"
         parent_id: "父分类"
         number: "素材商品分类编号"
         name: "素材商品分类名称"

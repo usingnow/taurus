@@ -1,5 +1,7 @@
 module Taurus
   class ProductCategory < ActiveRecord::Base
+    attr_accessor :parent_name
+
   	has_many :custom_properties, :dependent => :destroy
   	has_many :skus, :dependent => :destroy
   	has_many :products, :dependent => :destroy
