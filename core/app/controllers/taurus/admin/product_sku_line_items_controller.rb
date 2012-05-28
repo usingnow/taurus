@@ -8,6 +8,10 @@ module Taurus
 		    @product_sku_line_item = ProductSkuLineItem.new
 		  end
 
+		  def show
+        @product = Product.find(params[:product_id])
+		  end
+
 		  def show_sku
         @sku = Sku.find(params[:id])
 		  end

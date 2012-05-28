@@ -68,5 +68,7 @@ module Taurus
     def success
       content_tag :div, flash[:notice], :class => "alert alert-success" if flash[:notice]
     end
+
+    
   end
 end

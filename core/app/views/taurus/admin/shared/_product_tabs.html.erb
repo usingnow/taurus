@@ -1,21 +1,22 @@
 <div class="form-actions">
+  <%= link_to "<i class='icon-edit'></i> #{t('admin.actions.edit.menu')}".html_safe, edit_admin_product_path(@product), :class => "btn btn-primary" if type == "show" %>
   <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_products_path, :class => "btn pull-right" %>
 </div>
 
 <ul class="nav nav-tabs">
   <li <%== 'class="active"' if current == "details" %>>
-    <%= link_to "商品基本信息", edit_admin_product_path(@product) %>
+    <%= link_to "商品基本信息", type == "show" ? admin_product_path(@product) : edit_admin_product_path(@product) %>
   </li>
   <li <%== 'class="active"' if current == "custom_properties" %>>
-  	<%= link_to "自定义属性", admin_product_custom_property_values_path(@product) %>
+  	<%= link_to "自定义属性", type == "show" ? admin_product_custom_property_value_path(@product,0) : admin_product_custom_property_values_path(@product) %>
   </li>
   <li <%== 'class="active"' if current == "SKUS" %>>
-  	<%= link_to "SKU", admin_product_product_sku_line_items_path(@product) %>
+  	<%= link_to "SKU", type == "show" ? admin_product_product_sku_line_item_path(@product,0) : admin_product_product_sku_line_items_path(@product) %>
   </li>
   <li <%== 'class="active"' if current == "images" %>>
-  	<%= link_to "图片", admin_product_product_images_path(@product) %>
+  	<%= link_to "图片", type == "show" ? admin_product_product_image_path(@product,0) : admin_product_product_images_path(@product) %>
   </li>
   <li <%== 'class="active"' if current == "sales" %>>
-    <%= link_to "销售状态", edit_sales_status_admin_product_path(@product) %>
+    <%= link_to "销售状态", type == "show" ? show_sales_status_admin_product_path(@product) : edit_sales_status_admin_product_path(@product) %>
   </li>
 </ul>

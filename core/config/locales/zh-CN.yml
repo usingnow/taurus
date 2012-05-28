@@ -351,8 +351,8 @@ zh-CN:
       submit: "提交"
       save: "保存"
       operation: "操作"
-      back: "返回"
-      clone: "克隆"
+      back: "返回功能首页"
+      clone: "复制"
     actions:
       index:
         title: "%{model}列表"

@@ -1,0 +1,22 @@
+<%= render :partial => "taurus/admin/shared/product_tabs", :locals => { :current => "images", :type => "show" } %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+    	<th>#</th>
+      <th><%= t('activerecord.attributes.taurus/product_image.image') %></th>
+      <th><%= t('activerecord.attributes.taurus/product_image.is_main') %></th>
+      <th><%= t('activerecord.attributes.taurus/product_image.updated_at') %></th>
+   </tr>
+  </thead>
+  <tbody>
+    <% @product.product_images.each_with_index do |product_image,index| %>
+	    <tr>
+	    	<td><%= index+1 %></td>
+	      <td><%= image_tag product_image.image.url(:s50) %></td>
+	      <td><%= format_boolean product_image.is_main %></td>
+	      <td><%= product_image.updated_at %></td>
+	    </tr>
+	  <% end %>
+  </tbody>
+</table>

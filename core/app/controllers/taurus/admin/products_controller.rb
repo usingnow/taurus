@@ -9,7 +9,11 @@ module Taurus
 		  end
 
 		  def show
-		    @brand = Brand.find(params[:id])
+		    @product = Product.find(params[:id])
+		  end
+
+		  def show_sales_status
+        @product = Product.find(params[:id])
 		  end
 
 		  def new

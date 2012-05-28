@@ -1,0 +1,20 @@
+<%= render :partial => "taurus/admin/shared/product_tabs", :locals => { :current => "SKUS", :type => "show" } %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t('activerecord.attributes.taurus/sku.number') %></th>
+      <th><%= t('activerecord.attributes.taurus/sku.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/product_sku_line_item.sku_amount') %></th>
+   </tr>
+  </thead>
+  <tbody id="line_items">
+    <% @product.product_sku_line_items.each_with_index do |line_item,index| %>
+	    <tr>
+	      <td><%= line_item.sku.number %></td>
+	      <td><%= line_item.sku.name %></td>
+	      <td><%= line_item.sku_amount %></td>
+	    </tr>
+	  <% end %>
+  </tbody>
+</table>

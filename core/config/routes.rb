@@ -34,6 +34,7 @@ Taurus::Core::Engine.routes.draw do
     resources :products do
       get :autocomplete_product_category_name, :on => :collection
       member do
+        get :show_sales_status
         get :edit_sales_status
         put :update_sales_status
       end

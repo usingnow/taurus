@@ -7,6 +7,10 @@ module Taurus
         @product_image = ProductImage.new
       end
 
+      def show
+        @product = Product.find(params[:product_id])
+      end
+
       def create
         @product = Product.find(params[:product_id])
         @product.product_images.build(params[:product_image])

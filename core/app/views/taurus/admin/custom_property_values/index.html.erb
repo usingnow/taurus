@@ -1,4 +1,4 @@
-<%= render :partial => "taurus/admin/shared/product_tabs", :locals => { :current => "custom_properties" } %>
+<%= render :partial => "taurus/admin/shared/product_tabs", :locals => { :current => "custom_properties", :type => "edit" } %>
 
 <%= simple_form_for(@product, :url => admin_product_custom_property_values_path(@product), :html => {:class => 'form-horizontal', :method => :post}) do |f| %>
   <%= f.error_notification %>

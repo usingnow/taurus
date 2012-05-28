@@ -1,4 +1,4 @@
-<%= render :partial => "taurus/admin/shared/product_tabs", :locals => { :current => "sales" } %>
+<%= render :partial => "taurus/admin/shared/product_tabs", :locals => { :current => "sales", :type => "edit" } %>
 
 <%= simple_form_for(@product, :url => update_sales_status_admin_product_path(@product), :html => {:class => 'form-horizontal'}) do |f| %>
   <%= f.error_notification %>

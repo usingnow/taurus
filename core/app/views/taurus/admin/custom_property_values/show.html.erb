@@ -1,0 +1,10 @@
+<%= render :partial => "taurus/admin/shared/product_tabs", :locals => { :current => "custom_properties", :type => "show" } %>
+
+<%= simple_form_for(@product, :url => "#", :html => {:class => 'form-horizontal'}) do |f| %>
+  <fieldset>
+    <%=raw custom_property_values(f, true) %>
+  </fieldset>
+<% end %>
+
+
+
