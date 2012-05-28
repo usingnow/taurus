@@ -77,7 +77,7 @@ Taurus::Core::Engine.routes.draw do
     resources :user_centers
   end
 
-  match '/admin', :to => 'admin/functions#index'
+  match '/admin', :to => 'admin/home#index'
   root :to => 'index/home#index' 
 
 	

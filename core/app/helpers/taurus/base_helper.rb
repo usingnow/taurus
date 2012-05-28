@@ -35,28 +35,23 @@ module Taurus
     end
 
     def breadcrumb
-=begin
       li = content_tag(:li, "#{link_to "首页", "/admin"} #{content_tag(:span, "/", :class => "divider")}".html_safe )
       
-      component, function = {}, {}
-      if request.fullpath.gsub('//', '/') == "/admin"
-        li << content_tag(:li, "控制台".html_safe )
-      else
+      if request.fullpath.gsub('//', '/') != "/admin"
         Taurus::Function.all.each do |com|
-          com["functions"].each do |fun|
-            if request.fullpath.gsub('//', '/').starts_with?(fun["url"]) && fun["url"] != "/admin"
-              function = fun
-              component = com
-              break
-            end  
+          if request.fullpath.gsub('//', '/').starts_with?(com["url"])
+            li << content_tag(:li, "#{link_to com["name"], com["url"]} #{content_tag(:span, "/", :class => "divider")}".html_safe )
+            
+            com["functions"].each do |fun|
+              if request.fullpath.gsub('//', '/').starts_with?(fun["url"])
+                li << content_tag(:li, "#{link_to fun["name"], fun["url"]}".html_safe )  
+                break
+              end  
+            end if com["functions"]
           end
         end
-        li << content_tag(:li, "#{link_to component["name"], component["url"]} #{content_tag(:span, "/", :class => "divider")}".html_safe )
-        li << content_tag(:li, "#{link_to function["name"], function["url"]}".html_safe )
-      end  
-      
+      end
       content_tag(:ul, li.html_safe, :class => "breadcrumb breakcrumb-admin-home")
-=end
     end  
 
     def format_price(price)
@@ -82,7 +77,8 @@ module Taurus
             return com 
           end
         end if com['functions']
-      end
+      end if request.fullpath.gsub('//', '/') != "/admin"
+      Hash.new
     end
 
   end
