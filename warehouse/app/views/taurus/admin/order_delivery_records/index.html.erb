@@ -26,7 +26,7 @@
       <td><%= format_price order.total_payment %></td>
       <td><%= format_order_state order.state %></td>
       <td><%= order.created_at %></td>
-      <td><%= link_to "拣货出库", order_delivery_new_admin_delivery_record_path(order), :class => "btn btn-primary trk-btn-short" %></td>
+      <td><%= link_to "拣货出库", new_admin_order_delivery_record_path(:order_id => order), :class => "btn btn-primary trk-btn-short" %></td>
     </tr>
   <% end %>
   </tbody>

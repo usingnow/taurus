@@ -44,8 +44,7 @@ module Taurus
 
 			def clone
         templete = Sku.find(params[:id])
-        templete.number = nil
-
+        
         @sku = Sku.new(templete.attributes)
 
         render :action => "new"

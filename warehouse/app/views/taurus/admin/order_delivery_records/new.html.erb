@@ -1,5 +1,4 @@
-<%= simple_form_for(
-      @delivery_record, :url => order_delivery_create_admin_delivery_record_path(@order),
+<%= simple_form_for(@delivery_record, :url => admin_order_delivery_records_path,
       :html => {:class => 'form-horizontal'}
     )  do |f| %>
   <%= f.error_notification %>
@@ -25,7 +24,7 @@
         <span class="uneditable-input"><%= @order.customer_name %></span>
       </div>
     </div>
-
+    <%= f.input :order_id, :as => :hidden %>
     <%= f.input :delivery_type, :collection => Taurus::DeliveryRecord::DELIVERY_TYPE, 
                 :label_method => :second, :value_method => :first, :include_blank => false, 
                 :as => :select %>

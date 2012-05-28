@@ -1,6 +1,6 @@
 - id: '06'
   name: '前台设置'
-  url: '/admin/functions?id=06'
+  url: '/admin/slider_bars'
   sequence: 2
   functions: 
     - id: 0601

@@ -55,6 +55,7 @@ Taurus::Core::Engine.routes.draw do
       end
     end
     resources :alipays
+    resources :my_pages
   end
 
   namespace :index do 

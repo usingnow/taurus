@@ -1,6 +1,6 @@
 - id: '01'
   name: '商品管理'
-  url: "/admin/functions?id=01"
+  url: "/admin/products"
   sequence: 9
   functions: 
     - id: '0101'
@@ -105,7 +105,7 @@
           subject_class: 'SkuImage'
 - id: '02'
   name: '基础信息设置'
-  url: '/admin/functions?id=02'
+  url: '/admin/industries'
   sequence: 1
   functions:
     - id: '0201'
@@ -158,7 +158,7 @@
           subject_class: 'Alipay'                     
 - id: '03'
   name: '订单'
-  url: '/admin/functions?id=03'
+  url: '/admin/orders'
   sequence: 8
   functions: 
     - id: '0301'
@@ -197,29 +197,20 @@
           name: '查询'
           action: '[:all,:read,:order_tracks,:take_over_logs]'
           subject_class: 'Order'
-- id: '07'
-  name: '促销活动'
-  url: '/admin/functions?id=07'
-  sequence: 5
-  functions: 
-    - id: '0701'
-      name: '全部促销活动'
-      url: '/admin/online_promotions'
-      operations: 
-        - id: '070101'
-          name: '查询'
-          action: ':read'
-          subject_class: 'OnlinePromotion'
+#- id: '07'
+#  name: '促销活动'
+#  url: '/admin/functions?id=07'
+#  sequence: 5
+#  functions: 
+#    - id: '0701'
+#      name: '全部促销活动'
+#      url: '/admin/online_promotions'
+#     operations: 
+#       - id: '070101'
+#          name: '查询'
+#          action: ':read'
+#          subject_class: 'OnlinePromotion'
 - id: '09'
   name: '控制台'
-  url: '/admin/functions?id=09'
+  url: '/admin/my_pages'
   sequence: 10 
-  functions:
-    - id: '0901'
-      name: '控制台'
-      url: '/admin/home'
-      operations: 
-        - id: '090101'
-          name: '查询'
-          action: ':read'
-          subject_class: 'Home'

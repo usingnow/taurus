@@ -9,20 +9,20 @@ module Taurus
       coms = Taurus::Function.all.sort_by{ |c| -c["sequence"] }
       li = ''
       coms.each do |com|
-        if session[:component]["id"] == com["id"]
+        if component["id"] == com["id"]
           li << content_tag(:li, (link_to com["name"], com["url"]), :class => "active")
         else
           li << content_tag(:li, (link_to com["name"], com["url"]))
-        end  
+        end
       end
       content_tag(:ul, li.html_safe, :class => "nav")    
     end
 
     def functions
       fun_str = ""
-      session[:component]['functions'].each_with_index do |fun,index|
+      component['functions'].each_with_index do |fun,index|
         if index == 0
-          fun_str += content_tag(:li, session[:component]['name'], :class => "nav-header")
+          fun_str += content_tag(:li, component['name'], :class => "nav-header")
           fun_str += content_tag(:li, '', :class => 'divider')
         end
         if request.fullpath.gsub('//', '/').starts_with?(fun["url"])
@@ -30,11 +30,12 @@ module Taurus
         else  
           fun_str += content_tag(:li, (link_to fun['name'], fun['url'])) 
         end     
-      end
+      end if component['functions']
       content_tag(:ul, fun_str.html_safe, :id => 'admin-main-functionality', :class => 'nav nav-list')
     end
 
     def breadcrumb
+=begin
       li = content_tag(:li, "#{link_to "首页", "/admin"} #{content_tag(:span, "/", :class => "divider")}".html_safe )
       
       component, function = {}, {}
@@ -55,6 +56,7 @@ module Taurus
       end  
       
       content_tag(:ul, li.html_safe, :class => "breadcrumb breakcrumb-admin-home")
+=end
     end  
 
     def format_price(price)
@@ -69,6 +71,19 @@ module Taurus
       content_tag :div, flash[:notice], :class => "alert alert-success" if flash[:notice]
     end
 
-    
+    protected
+    def component
+      Function.all.each do |com|
+        if request.fullpath.gsub('//', '/').starts_with?(com["url"])
+          return com 
+        end
+        com['functions'].each do |fun|
+          if request.fullpath.gsub('//', '/').starts_with?(fun["url"])
+            return com 
+          end
+        end if com['functions']
+      end
+    end
+
   end
 end

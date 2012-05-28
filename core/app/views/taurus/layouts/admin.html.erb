@@ -49,11 +49,9 @@
   <div class="container">
     <%=raw breadcrumb %>
     <div class="row">
-      <% if session[:component]["functions"] %>
-        <div class="span2 show-grid">
-          <%=raw functions %>
-        </div>
-      <% end %>
+      <div class="span2 show-grid">
+        <%=raw functions %>
+      </div>
       <div class="span10">
         <%= yield %>
       </div>

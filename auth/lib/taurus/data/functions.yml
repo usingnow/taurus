@@ -1,6 +1,6 @@
 - id: '08'
   name: '权限管理'
-  url: '/admin/functions?id=08'
+  url: '/admin/company_extends'
   sequence: 0
   functions:
     - id: '0804'

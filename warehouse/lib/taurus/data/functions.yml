@@ -1,6 +1,6 @@
 - id: '05'
   name: '进货出货'
-  url: '/admin/functions?id=05'
+  url: '/admin/store_sku_line_items'
   sequence: 7
   functions: 
     - id: '0501'
@@ -39,7 +39,7 @@
           subject_class: 'DeliveryRecord'
     - id: '0504'
       name: '订单出货'
-      url: '/admin/delivery_records/orders'
+      url: '/admin/order_delivery_records'
       operations: 
         - id: '050401'
           name: '查询'
