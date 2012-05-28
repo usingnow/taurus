@@ -1,6 +1,9 @@
-<%= link_to "个人用户注册", new_user_registration_path %>
-<%= link_to "企业用户注册", index_company_sign_up_path %>
-
+<div class="form-actions">
+  <%= search_form_for @search, :url => root_path, :class => "form-inline" do |f| %>
+    <%= f.text_field :number_or_name_cont, :placeholder => "#{t('activerecord.attributes.taurus/product.number')}或#{t('activerecord.attributes.taurus/product.name')}", :class => "trk-non-inline-margin" %>
+    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
+  <% end %>
+</div>
 
 <table class="table table-striped">
   <thead>

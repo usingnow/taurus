@@ -2,7 +2,8 @@ module Taurus
 	module Index
 		class HomeController < BaseController
 			def index
-				@products = Product.selling
+				@search = Product.search(params[:q])
+				@products = @search.result.selling
       end
 		end
 	end	

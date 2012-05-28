@@ -7,10 +7,8 @@ module Taurus
   	has_many :product_images, :dependent => :destroy
     has_many :cart_product_line_items, :dependent => :destroy
 
-    scope :selling, search(
-      :if_shown_on_web_eq => true, :sales_status_eq => true,
-      :sales_starts_at_lt => Time.now, :sales_ends_at_gt => Time.now
-    ).result
+    scope :selling, where("if_shown_on_web = 1 and sales_status = 1 and sales_starts_at < '#{Time.now}'
+                           and sales_ends_at > '#{Time.now}'")
 
   	attr_accessor :product_category_name, :current_step
 
@@ -25,11 +23,11 @@ module Taurus
 
     protected
     def greater_than_now
-      errors.add(:sales_starts_at, "开始销售时间必须大于当前时间") if sales_starts_at.to_i < Time.now.to_i
+      errors.add(:sales_starts_at, "开始销售时间必须晚于当前时间") if sales_starts_at.to_i < Time.now.to_i
     end
 
     def less_than_now
-      errors.add(:sales_ends_at, "结束销售时间必须大于开始销售时间") if sales_starts_at.to_i > sales_ends_at.to_i
+      errors.add(:sales_ends_at, "结束销售时间必须晚于开始销售时间") if sales_starts_at.to_i > sales_ends_at.to_i
     end
 
     def must_have_sku
