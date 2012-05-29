@@ -81,6 +81,7 @@ Taurus::Core::Engine.routes.draw do
   end
 
   match '/admin', :to => 'admin/home#index'
+  match '/admin/all_orders', :to => 'admin/orders#all'
   root :to => 'index/home#index' 
 
 	

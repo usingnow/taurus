@@ -39,15 +39,19 @@ module Taurus
       
       if request.fullpath.gsub('//', '/') != "/admin"
         Taurus::Function.all.each do |com|
-          if request.fullpath.gsub('//', '/').starts_with?(com["url"])
-            li << content_tag(:li, "#{link_to com["name"], com["url"]} #{content_tag(:span, "/", :class => "divider")}".html_safe )
-            
+          if com["functions"]
             com["functions"].each do |fun|
               if request.fullpath.gsub('//', '/').starts_with?(fun["url"])
+                li << content_tag(:li, "#{link_to com["name"], com["url"]} #{content_tag(:span, "/", :class => "divider")}".html_safe )
                 li << content_tag(:li, "#{link_to fun["name"], fun["url"]}".html_safe )  
                 break
               end  
-            end if com["functions"]
+            end
+          else
+            if request.fullpath.gsub('//', '/').starts_with?(com["url"])
+              li << content_tag(:li, "#{link_to com["name"], com["url"]} #{content_tag(:span, "/", :class => "divider")}".html_safe )
+              break
+            end 
           end
         end
       end

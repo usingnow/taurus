@@ -191,7 +191,7 @@
           subject_class: 'Order'
     - id: 18
       name: '全部订单'
-      url: '/admin/orders/all'
+      url: '/admin/all_orders'
       operations: 
         - id: 27
           name: '查询'
