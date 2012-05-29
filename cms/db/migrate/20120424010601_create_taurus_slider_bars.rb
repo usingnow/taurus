@@ -3,6 +3,7 @@ class CreateTaurusSliderBars < ActiveRecord::Migration
     create_table :taurus_slider_bars, :force => true do |t|
 	    t.string   :name
 	    t.string   :href
+	    t.string   :description
 	    t.string   :image_file_name
 	    t.string   :image_content_type
 	    t.integer  :image_file_size

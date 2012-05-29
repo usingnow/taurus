@@ -1,32 +1,34 @@
-<h1>
-  <%= t 'admin.actions.index.title', :model => t('activerecord.models.slider_bar') %>
-</h1>
-
-<div class="grid_button">
-  <%= link_to '添加', new_admin_slider_bar_path %>
+<div class="form-actions">
+  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/slider_bar'))}".html_safe, new_admin_slider_bar_path,  :class => "btn btn-primary" %>
 </div>
 
-<table class="grid">
+<%= flash_messages %>
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>
-      <th><%= t 'activerecord.attributes.slider_bar.name' %></th>
-      <th><%= t 'activerecord.attributes.slider_bar.href' %></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th><%= t('activerecord.attributes.taurus/slider_bar.image') %></th>
+      <th><%= t('activerecord.attributes.taurus/slider_bar.name') %></th>
+      <th><%= t('admin.misc.operation') %></th>
     </tr>
   </thead>
-<% @slider_bars.each_with_index do |bar,index| %>
-  <tr class="<%= set_odd_even_class index %>">
-    <td><%= index+1 %></td>
-    <td><%= bar.name %></td>
-    <td><%= bar.href %></td>
-    <td><%= link_to t('admin.actions.show.menu'), admin_slider_bar_path(bar) %></td>
-    <td><%= link_to t('admin.actions.edit.menu'), edit_admin_slider_bar_path(bar) %></td>
-    <td><%= link_to t('admin.actions.delete.menu'), admin_slider_bar_path(bar), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <tbody>
+    <% @slider_bars.each_with_index do |slider_bar,index| %>
+      <tr>
+        <td><%= index+1 %></td>
+        <td><%= link_to image_tag(slider_bar.image.url(:small)), admin_slider_bar_path(slider_bar) %></td>
+        <td><%= slider_bar.name %></td>
+        <td>
+          <%= link_to t('admin.actions.edit.menu'), edit_admin_slider_bar_path(slider_bar), 
+                      :class => "btn btn-primary trk-btn-short" %>
+          <%= link_to t('admin.actions.delete.menu'), admin_slider_bar_path(slider_bar), 
+                      :confirm => t('admin.actions.delete.confirm'), :method => :delete, 
+                      :class => "btn btn-primary trk-btn-short" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 

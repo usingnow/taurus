@@ -1,29 +1,19 @@
-<%= form_for([:admin,@slider_bar],:html => {:multipart=>true}) do |f| %>
-  <% if @slider_bar.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pick_up.errors.count, "error") %> prohibited this pick_up from being saved:</h2>
+<div class="form-actions">
+  <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_slider_bars_path, :class => "btn pull-right" %>
+</div>
 
-      <ul>
-      <% @slider_bar.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= simple_form_for([:admin,@slider_bar],:html => {:multipart=>true, :class => 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+  
+  <fieldset>
+    <%= f.input :name %>
+    <%= f.input :href %>
+    <%= f.input :description %>
+    <%= f.input :image_file_name do
+      f.file_field :image
+    end %>
+    <div class="form-actions">
+      <%= f.button :submit, :class => "btn btn-primary" %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label '名称' %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label '链接' %>
-    <%= f.text_field :href %>
-  </div>
-  <div class="field">
-    <%= f.label '图片' %>
-    <%= f.file_field :image %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  </fieldset>
 <% end %>

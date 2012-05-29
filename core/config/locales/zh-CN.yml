@@ -194,7 +194,10 @@ zh-CN:
         other: "有 %{count} 个错误发生导致「%{model}」无法被保存。"
       body: "如下字段出现错误："
 
-  successfully_updated: "更新成功!"
+  successfully_created: "创建成功！"
+  successfully_updated: "更新成功！"
+  successfully_destroyed: "删除成功！"
+  failure_destroyed: "删除失败！"
 
 
   activerecord:

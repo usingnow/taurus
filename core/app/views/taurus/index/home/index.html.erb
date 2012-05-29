@@ -1,3 +1,22 @@
+<div id="slider_bar" class="carousel">
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <% @slider_bars.each_with_index do |slider_bar,index| %>
+      <div class="<%= index == 0 ? "active item" : "item" %>">
+        <%= image_tag slider_bar.image.url(:normal) %>
+        <div class="carousel-caption">
+          <h4><%= slider_bar.name %></h4>
+          <p><%= slider_bar.description %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#slider_bar" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#slider_bar" data-slide="next">&rsaquo;</a>
+</div>
+
+
 <div class="form-actions">
   <%= search_form_for @search, :url => root_path, :class => "form-inline" do |f| %>
     <%= f.text_field :number_or_name_cont, :placeholder => "#{t('activerecord.attributes.taurus/product.number')}或#{t('activerecord.attributes.taurus/product.name')}", :class => "trk-non-inline-margin" %>

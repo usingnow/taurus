@@ -3,6 +3,7 @@ zh-CN:
     models:
       taurus/image: "图片"
       taurus/announcement: "公告"
+      taurus/slider_bar: "滑动广告"
     attributes:
       taurus/image:
         page: "页面"
@@ -10,10 +11,15 @@ zh-CN:
         image: "图片"
         line_type: "内容类型"
         href: "链接地址"
-
       taurus/announcement:
         title: "短标题"
         internal_title: "长标题"
         description: "内容"  
+      taurus/slider_bar:
+        name: "标题"
+        description: "描述"
+        href: "链接"
+        image: "图片"
+        image_file_name: "图片"
 
 

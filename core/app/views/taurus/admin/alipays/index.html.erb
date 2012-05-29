@@ -1,6 +1,6 @@
 <%= simple_form_for([:admin,@alipay],:html => {:class => 'form-horizontal'})  do |f| %>
   <%= f.error_notification %>
-  <%= success %>
+  <%= flash_messages %>
   
   <fieldset>
     <%= f.input :partner %>
