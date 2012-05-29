@@ -53,6 +53,9 @@ Taurus::Core::Engine.routes.draw do
         get :relieve_reserved
         get :confirm_online_payment
       end
+      collection do
+        get :all
+      end
     end
     resources :alipays
     resources :my_pages

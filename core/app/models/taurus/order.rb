@@ -29,6 +29,7 @@ module Taurus
     validates_uniqueness_of :number
 
     scope :available_deliveries, where(:state => "delivering")
+    scope :processing, where("state != 'completed'")
     
     # 多步骤表单
     def current_step  
