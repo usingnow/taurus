@@ -3,7 +3,7 @@ module Taurus
 	  has_attached_file :image,
 	                    :url  => "/taurus/slider_bars/:id/:style/:basename.:extension",
 	                    :path => ":rails_root/public/taurus/slider_bars/:id/:style/:basename.:extension",
-	                    :styles => { :normal => "600x350#", :small => "50x29#" }
+	                    :styles => { :normal => "770x430#", :small => "77x43#" }
 
 	  scope :display, limit(5)
 

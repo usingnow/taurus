@@ -3,7 +3,7 @@ module Taurus
 		class HomeController < BaseController
 			def index
 				@search = Product.search(params[:q])
-				@products = @search.result.selling
+				@products = Product.selling.displays
 				@slider_bars = SliderBar.display
       end
 		end

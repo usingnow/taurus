@@ -1,0 +1,36 @@
+<div class="form-actions">
+  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/product_display'))}".html_safe, new_admin_product_display_path,  :class => "btn btn-primary" %>
+</div>
+
+<%= flash_messages %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('activerecord.attributes.taurus/product.number') %></th>
+      <th><%= t('activerecord.attributes.taurus/product.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/product_display.sequence') %></th>
+      <th><%= t('admin.misc.operation') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @product_displays.each_with_index do |product_display,index| %>
+      <tr>
+        <td><%= index+1 %></td>
+        <td><%= product_display.product.number %></td>
+        <td><%= product_display.product.name %></td>
+        <td><%= product_display.sequence %></td>
+        <td>
+          <%= link_to t('admin.actions.edit.menu'), edit_admin_product_display_path(product_display), 
+                      :class => "btn btn-primary trk-btn-short" %>
+          <%= link_to t('admin.actions.delete.menu'), admin_product_display_path(product_display), 
+                      :confirm => t('admin.actions.delete.confirm'), :method => :delete, 
+                      :class => "btn btn-primary trk-btn-short" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

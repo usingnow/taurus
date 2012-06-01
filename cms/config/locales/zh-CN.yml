@@ -4,6 +4,7 @@ zh-CN:
       taurus/image: "图片"
       taurus/announcement: "公告"
       taurus/slider_bar: "滑动广告"
+      taurus/product_display: "展示商品"
     attributes:
       taurus/image:
         page: "页面"
@@ -21,5 +22,8 @@ zh-CN:
         href: "链接"
         image: "图片"
         image_file_name: "图片"
+      taurus/product_display:
+        sequence: "顺序"
+        product_name: "销售商品名称"
 
 

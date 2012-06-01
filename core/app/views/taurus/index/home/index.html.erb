@@ -1,48 +1,74 @@
-<div id="slider_bar" class="carousel">
-  <!-- Carousel items -->
-  <div class="carousel-inner">
-    <% @slider_bars.each_with_index do |slider_bar,index| %>
-      <div class="<%= index == 0 ? "active item" : "item" %>">
-        <%= image_tag slider_bar.image.url(:normal) %>
-        <div class="carousel-caption">
-          <h4><%= slider_bar.name %></h4>
-          <p><%= slider_bar.description %></p>
-        </div>
+<div class="row">
+  <div class="span8">
+    <div id="slider_bar" class="carousel">
+      <div class="carousel-inner">
+        <% @slider_bars.each_with_index do |slider_bar,index| %>
+          <div class="<%= index == 0 ? "active item" : "item" %>">
+            <%= image_tag slider_bar.image.url(:normal) %>
+            <div class="carousel-caption">
+              <h4><%= slider_bar.name %></h4>
+              <p><%= slider_bar.description %></p>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+      <a class="carousel-control left" href="#slider_bar" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#slider_bar" data-slide="next">&rsaquo;</a>
+    </div>
   </div>
-  <!-- Carousel nav -->
-  <a class="carousel-control left" href="#slider_bar" data-slide="prev">&lsaquo;</a>
-  <a class="carousel-control right" href="#slider_bar" data-slide="next">&rsaquo;</a>
+
+  <div class="span4 show-grid">
+     
+  </div>
+</div>
+
+<div class="row">
+  <div class="span12">
+    <ul class="thumbnails">
+      <% @products.each do |product| %>
+        <li class="span3">
+          <div class="thumbnail">
+            <%= image_tag product.main_image %>
+            <div class="caption">
+              <h5><%= product.name %></h5>
+              <p></p>
+              <p>
+                <a href="#" class="btn btn-primary">Action</a> 
+                <a href="#" class="btn">Action</a>
+              </p>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
 
-<div class="form-actions">
-  <%= search_form_for @search, :url => root_path, :class => "form-inline" do |f| %>
-    <%= f.text_field :number_or_name_cont, :placeholder => "#{t('activerecord.attributes.taurus/product.number')}或#{t('activerecord.attributes.taurus/product.name')}", :class => "trk-non-inline-margin" %>
-    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
-  <% end %>
-</div>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th><%= t('activerecord.attributes.taurus/product.number') %></th>
-      <th><%= t('activerecord.attributes.taurus/product.name') %></th>
-      <th><%= t('admin.misc.operation') %></th>
-   </tr>
-  </thead>
-  <% @products.each_with_index do |product,index| %>
-    <tr>
-      <td><%= index+1 %></td>
-      <td><%= product.number %></td>
-      <td><%= product.name %></td>
-      <td>
-        <%= link_to "加入购物车", index_cart_product_line_items_path(:product_id => product.id), 
-                    :method => :post, :class => "btn btn-primary trk-btn-short" %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<footer class="footer">
+  <p class="pull-right"><a href="#">Back to top</a></p>
+  <p>
+    Designed and built with all the love in the world 
+    <a href="http://twitter.com/twitter" target="_blank">@twitter</a> 
+    by 
+    <a href="http://twitter.com/mdo" target="_blank">@mdo</a> 
+    and 
+    <a href="http://twitter.com/fat" target="_blank">@fat</a>
+    .
+  </p>
+  <p>
+    Code licensed under the
+     <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>
+     . Documentation licensed under 
+     <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>
+     .
+   </p>
+  <p>
+    Icons from 
+    <a href="http://glyphicons.com">Glyphicons Free</a>
+    , licensed under 
+    <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>
+    .
+  </p>
+</footer>
 

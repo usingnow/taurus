@@ -1,0 +1,15 @@
+<%= simple_form_for [:admin, @product_display], :html => { :class => "form-horizontal" } do |f| %>
+  <%= f.error_notification %>
+
+  <fieldset>
+    <%= f.input :product_name, :url => autocomplete_product_name_admin_product_displays_path, 
+                :input_html => { :id_element => '#product_display_product_id' }, :as => :autocomplete %>
+
+    <%= f.input :product_id, :as => :hidden %>
+    <%= f.input :sequence %>
+    
+    <div class="form-acitons">
+      <%= f.button :submit, :class => "btn btn-primary" %>
+    </div>
+  </fieldset>
+<% end %>

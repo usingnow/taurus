@@ -6,9 +6,11 @@ module Taurus
   	has_many :product_sku_line_items, :dependent => :destroy
   	has_many :product_images, :dependent => :destroy
     has_many :cart_product_line_items, :dependent => :destroy
+    has_many :product_displays
 
     scope :selling, where("if_shown_on_web = 1 and sales_status = 1 and sales_starts_at < '#{Time.now}'
                            and sales_ends_at > '#{Time.now}'")
+    scope :displays, joins(:product_displays).order("taurus_product_displays.sequence DESC")
 
   	attr_accessor :product_category_name, :current_step
 
@@ -20,6 +22,11 @@ module Taurus
   
     validate :greater_than_now, :less_than_now, :must_have_sku,
              :if => Proc.new { current_step == "sales_status" }
+
+
+    def main_image(style = :small)
+      product_images.main.last.image.url(style)
+    end
 
     protected
     def greater_than_now
