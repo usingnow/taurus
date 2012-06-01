@@ -8,4 +8,8 @@
 
 $(function(){
 	$('input, textarea').placeholder();
+
+	$('.ui-autocomplete-input').live('click', function(){ 
+		$('.ui-autocomplete').attr("class", "typeahead dropdown-menu");
+	});
 });

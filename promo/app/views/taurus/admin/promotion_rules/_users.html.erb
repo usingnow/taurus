@@ -1,0 +1,24 @@
+<div class="alert alert-info">
+  <button class="close" data-dismiss="alert" data-id="<%= object.id %>">×</button>
+
+  <table class="table table-striped">
+	  <thead>
+	    <tr>
+	      <th><%= t('activerecord.attributes.taurus/user.email') %></th>
+	      <th><%= t('activerecord.attributes.taurus/user.name') %></th>
+	    </tr>
+	  </thead>
+	  <tbody id="user_list">
+      
+	  </tbody>
+	</table>
+
+  <div class="control-group string required">
+  	<label class="string required control-label">
+  		<%= object.rule_type_name %>
+  	</label>
+		<div class="controls">
+			<%= autocomplete_field_tag 'email', '', autocomplete_user_email_admin_promotions_path %>
+		</div>
+	</div>
+</div>

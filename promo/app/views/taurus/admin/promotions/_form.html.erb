@@ -1,0 +1,19 @@
+<div class="form-actions">
+  <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_promotions_path, :class => "btn pull-right" %>
+</div>
+
+<%= simple_form_for [:admin, @promotion], :html => {:class => 'form-horizontal'} do |f| %>
+  <%= f.error_notification %>
+
+  <fieldset>
+  	<%= f.input :name %>
+  	<%= f.input :event_name, :collection => Taurus::Promotion::EVENT_NAME, :label_method => :second, :value_method => :first, :include_blank => false, :as => :select %>
+  	<%= f.input :description %>
+  	<%= f.input :usage_limit %>
+  	<%= f.input :starts_at %>
+  	<%= f.input :expires_at %>
+    <div class="form-actions">
+    	<%= f.button :submit, :class => "btn btn-primary" %>
+    </div>
+  </fieldset>
+<% end %>

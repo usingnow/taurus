@@ -1,0 +1,13 @@
+- id: '07'
+  name: '促销活动'
+  url: '/admin/promotions'
+  sequence: 5
+  functions: 
+    - id: '0701'
+      name: '全部促销活动'
+      url: '/admin/promotions'
+      operations: 
+        - id: '070101'
+          name: '查询'
+          action: ':read'
+          subject_class: 'Promotion'

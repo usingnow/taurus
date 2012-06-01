@@ -1,0 +1,31 @@
+<div class="form-actions">
+  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/promotion'))}".html_safe, new_admin_promotion_path, :class => "btn btn-primary" %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('activerecord.attributes.taurus/promotion.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/promotion.description') %></th>
+      <th><%= t('activerecord.attributes.taurus/promotion.usage_limit') %></th>
+      <th><%= t('activerecord.attributes.taurus/promotion.expires_at') %></th>
+      <th><%= t('admin.misc.operation') %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @promotions.each_with_index do |promotion,index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= promotion.name %></td>
+      <td><%= promotion.description %></td>
+      <td><%= promotion.usage_limit %></td>
+      <td><%= promotion.expires_at %></td>
+      <td><%= link_to t('admin.actions.edit.menu'), edit_admin_promotion_path(promotion), :class => "btn btn-primary trk-btn-short" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan='6'><%= will_paginate @promotions, :renderer => BootstrapPagination::Rails %></td></tr>
+  </tfoot>
+</table>

@@ -197,19 +197,6 @@
           name: '查询'
           action: '[:all,:read,:order_tracks,:take_over_logs]'
           subject_class: 'Order'
-#- id: '07'
-#  name: '促销活动'
-#  url: '/admin/functions?id=07'
-#  sequence: 5
-#  functions: 
-#    - id: '0701'
-#      name: '全部促销活动'
-#      url: '/admin/online_promotions'
-#     operations: 
-#       - id: '070101'
-#          name: '查询'
-#          action: ':read'
-#          subject_class: 'OnlinePromotion'
 - id: '09'
   name: '控制台'
   url: '/admin/my_pages'

@@ -1,0 +1,20 @@
+<%= simple_form_for [:admin, @promotion], :html => {:class => 'form-horizontal'} do |f| %>
+  <%= f.error_notification %>
+
+  <fieldset>
+    <%= f.input :rule do %>
+      <%= f.collection_select :rule, @promotion.surplus_of_rule, :first, :second, :include_blank => false %>
+      <button type="button" id="add_rule_to_promotion">添加</button>
+    <% end %>
+    
+    <div id="rule_list">
+      <% @promotion.promotion_rules.each do |promotion_rule| %>
+         <%= render :partial => "taurus/admin/promotion_rules/#{promotion_rule.rule_type}", :locals => {:object => promotion_rule} %>
+      <% end %>
+    </div>
+
+    <div class="form-actions">
+    	<%= f.button :submit, :class => "btn btn-primary" %>
+    </div>
+  </fieldset>
+<% end %>
