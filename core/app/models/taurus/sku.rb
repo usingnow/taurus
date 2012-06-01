@@ -5,6 +5,7 @@ module Taurus
   	belongs_to :supplier
     has_one :store_sku_line_item
 
+    before_validation :default_value
     after_create :add_to_store
 
 
@@ -30,6 +31,10 @@ module Taurus
     protected
     def add_to_store
       StoreSkuLineItem.create(:store_id => 1, :sku_id => self.id)
+    end
+
+    def default_value
+      self.number = "SKU" + Array.new(9) { rand(9) }.join
     end							
   end
 end
