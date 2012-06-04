@@ -1,0 +1,2 @@
+jQuery("#action_list").append("<%= j(render :partial => @promotion_action.action_type, :locals => {:object => @promotion_action}) %>");
+jQuery("#promotion_action").find("option:selected").remove();

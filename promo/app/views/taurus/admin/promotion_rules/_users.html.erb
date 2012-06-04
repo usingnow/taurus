@@ -1,5 +1,5 @@
 <div class="alert alert-info">
-  <button class="close" data-dismiss="alert" data-id="<%= object.id %>">×</button>
+  <button class="close rule_close" data-dismiss="alert" data-id="<%= object.id %>">×</button>
 
   <table class="table table-striped">
 	  <thead>
@@ -9,7 +9,15 @@
 	    </tr>
 	  </thead>
 	  <tbody id="user_list">
-      
+      <% object.promotion_rule_users.each do |promotion_rule_user| %>
+        <tr>
+		      <td>
+		      	<%= promotion_rule_user.user.email %>
+		      	<%= hidden_field_tag :'user_id[]', promotion_rule_user.user_id %>
+		      </td>
+		      <td><%= promotion_rule_user.user.taurus_userable.name %></td>
+		    </tr>
+      <% end %>
 	  </tbody>
 	</table>
 

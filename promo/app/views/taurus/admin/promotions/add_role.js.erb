@@ -1,0 +1,1 @@
+jQuery("#role_list").append("<tr><td><%= @role.name %><%= j(hidden_field_tag :'role_id[]', @role.id) %></td><td><%= @role.description %></td></tr>");

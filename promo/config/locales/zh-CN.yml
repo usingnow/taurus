@@ -10,3 +10,5 @@ zh-CN:
         usage_limit: "使用次数"
         starts_at: "开始时间"
         expires_at: "结束时间"
+        rule: "优惠规则"
+        action: "优惠内容"

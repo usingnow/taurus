@@ -1,1 +1,1 @@
-jQuery("#user_list").append("<tr><td><%= @user.email %></td><td><%= @user.taurus_userable.name %></td></tr>");
+jQuery("#user_list").append("<tr><td><%= @user.email %><%= j(hidden_field_tag :'user_id[]', @user.id) %></td><td><%= @user.taurus_userable.name %></td></tr>");
