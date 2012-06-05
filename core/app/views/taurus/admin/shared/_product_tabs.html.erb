@@ -1,4 +1,4 @@
-<div class="form-actions">
+<div class="well">
   <%= link_to "<i class='icon-edit'></i> #{t('admin.actions.edit.menu')}".html_safe, edit_admin_product_path(@product), :class => "btn btn-primary" if type == "show" %>
   <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_products_path, :class => "btn pull-right" %>
 </div>
