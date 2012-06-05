@@ -1,59 +1,25 @@
-<div id="show_info">
-  <ul>
-    <li>
-      <%= symbol_label t('activerecord.attributes.user.login_no') %>
-      <%= @person_extend.user.login_no %>
-    </li>
-    <li>
-      <%= symbol_label t('activerecord.attributes.user.status') %>
-      <%= { 0 => "锁定", 1 => "激活" }[@person_extend.user.status] %>
-    </li>
-    <li>
-      <%= symbol_label t('activerecord.attributes.user.role') %>
-      <%= @person_extend.user.role.name %>
-    </li>
-    <li>
-      <%= symbol_label t('activerecord.attributes.user.store_id') %>
-      <%= @person_extend.user.store.name %>
-    </li>
-    <li>
-      <%= symbol_label t('activerecord.attributes.user.points') %>
-      <%= @person_extend.user.points %>
-      <hr />
-    </li>
-    <li>
-      <%= symbol_label t('attributes.person_extend.name') %>
-      <%= @person_extend.name %>
-    </li>
-    <li>
-      <%= symbol_label t('activerecord.attributes.user.email') %>
-      <%= @person_extend.user.email %>
-    </li>
-    <li>
-      <%= symbol_label t('attributes.person_extend.sex') %>
-      <%= { 0 => "女", 1 => "男" }[@person_extend.sex] %>
-    </li>
-    <li>
-      <%= symbol_label t('attributes.person_extend.birth') %>
-      <%= @person_extend.birth %>
-    </li>
-    <li>
-      <%= symbol_label t('attributes.person_extend.district_no') %>
-      <%= area @person_extend %>
-    </li>
-    <li>
-      <%= symbol_label t('attributes.person_extend.address') %>
-      <%= @person_extend.address %>
-    </li>
-    <li>
-      <%= symbol_label t('attributes.person_extend.phone') %>
-      <%= @person_extend.phone %>
-    </li>
-    <li>
-      <%= symbol_label t('attributes.person_extend.post') %>
-      <%= @person_extend.post %>
-    </li>
-  </ul>
+<div class="well">
+  <%= link_to "<i class='icon-edit'></i> #{t('admin.actions.edit.menu')}".html_safe, edit_admin_person_extend_path(@person_extend), :class => "btn btn-primary" %>
+  <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_person_extends_path, :class => "btn pull-right" %>
 </div>
 
+<%= flash_messages %>
 
+<%= simple_form_for @person_extend, :url => "#", :html => {:class => 'form-horizontal'} do |f| %>
+  <%= f.simple_fields_for :user do |u_f| %>
+    <fieldset>
+      <%= u_f.input :email, :disabled => true %>
+      <%= u_f.input :points, :disabled => true %>
+      <%= u_f.association :role, :disabled => true %>
+      <%= f.input :name, :disabled => true %>
+      <%= f.input :sex, :collection => Taurus::PersonExtend::SEX, :label_method => :second, 
+                  :value_method => :first, :item_wrapper_class => 'inline', :checked => 1, 
+                  :as => :radio_buttons, :disabled => true %>
+      <%= f.input :birth, :as => :date, :disabled => true %>   
+      <%= f.input :district_id, :as => :area, :disabled => true %>   
+      <%= f.input :address, :disabled => true %>     
+      <%= f.input :phone, :disabled => true %> 
+      <%= f.input :zip_code, :disabled => true %>
+    </fieldset>
+  <% end %>  
+<% end %>

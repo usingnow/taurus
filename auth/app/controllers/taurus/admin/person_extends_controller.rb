@@ -17,7 +17,8 @@ module Taurus
         @person_extend = PersonExtend.new params[:person_extend]
         @person_extend.created_by = current_administrator.id
         if @person_extend.save
-          redirect_to admin_person_extends_url
+          flash[:success] = I18n.t(:successfully_created)
+          redirect_to admin_person_extend_url(@person_extend)
         else
           render :action => "new"
         end
@@ -32,7 +33,8 @@ module Taurus
         @person_extend.updated_by = current_administrator.id
         
         if @person_extend.update_attributes(params[:person_extend])
-          redirect_to admin_person_extends_url
+          flash[:success] = I18n.t(:successfully_updated)
+          redirect_to admin_person_extend_url(@person_extend)
         else
           render :action => "edit"
         end
