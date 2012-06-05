@@ -55,7 +55,7 @@ module Taurus
 				else
           flash[:error] = I18n.t(:failure_destroyed)
 				end
-			  redirect_to(admin_product_categories_url)
+			  redirect_to(:back)
 			end  
       
       #第二级分类
