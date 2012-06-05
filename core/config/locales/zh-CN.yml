@@ -342,6 +342,8 @@ zh-CN:
       clone: "复制"
       custom_property:
         belongs_to: "所属分类"
+      company_extend:
+        phone_hint: "固话与手机选填一项"
     actions:
       index:
         title: "%{model}列表"

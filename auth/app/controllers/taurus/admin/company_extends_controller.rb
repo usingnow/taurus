@@ -22,7 +22,7 @@ module Taurus
         @company_extend.created_by = current_administrator.id
 
         if @company_extend.save
-          redirect_to admin_company_extends_url
+          redirect_to admin_company_extend_url(@company_extend), :success => I18n.t(:successfully_created)
         else
           render :action => "new"
         end
@@ -37,7 +37,7 @@ module Taurus
         @company_extend.updated_by = current_administrator.id
 
         if @company_extend.update_attributes(params[:company_extend])
-          redirect_to admin_company_extends_path
+          redirect_to admin_company_extend_url(@company_extend), :success => I18n.t(:successfully_updated)
         else
           render :action => "edit"
         end

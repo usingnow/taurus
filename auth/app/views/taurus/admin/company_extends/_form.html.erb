@@ -12,7 +12,7 @@
       <%= f.input :web_address %>        
       <%= f.input :contact_name %> 
       <%= f.input :contact_dept %>
-      <%= f.input :phone %>
+      <%= f.input :phone, :hint => t('admin.misc.company_extend.phone_hint') %>
       <%= f.input :contact_mobile %>
       <%= f.input :contact_sex, :collection => Taurus::CompanyExtend::SEX, :label_method => :second, 
                   :value_method => :first, :item_wrapper_class => 'inline', :checked => 1, 

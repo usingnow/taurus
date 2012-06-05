@@ -3,10 +3,10 @@ class AreaInput < SimpleForm::Inputs::Base
   def input
     provinces = Taurus::Province.all
 
-    province_options = '<option>--请选择省--</option>'
-    city_options = '<option>--请选择市--</option>'
+    province_options = '<option value>--请选择省--</option>'
+    city_options = '<option value>--请选择市--</option>'
     collection = []
-    if @builder.object.send(attribute_name.to_sym)
+    if @builder.object.send(attribute_name)
       provinces.each do |province| 
       	if @builder.object.district.city.province_id == province.id
 	    		province_options << "<option value=\"#{province.id}\" selected=\"selected\">#{province.name}</option>"
@@ -27,10 +27,13 @@ class AreaInput < SimpleForm::Inputs::Base
 	    	province_options << "<option value=\"#{province.id}\">#{province.name}</option>"
 	    end	
   	end
-  	"<select id='province_id'>#{province_options}</select> " +
-  	"<select id='city_id'>#{city_options}</select> " +
+
+    input_options.merge!(:include_blank => "--请选择区--")
+    input_html_options.merge!(:id => "district_id")
+  	"<select id='province_id' #{input_options[:disabled] ? "disabled='disabled'" : ""}>#{province_options}</select> " +
+  	"<select id='city_id' #{input_options[:disabled] ? "disabled='disabled'" : ""}>#{city_options}</select> " +
   	@builder.collection_select(
-  		attribute_name, collection, :id, :name, {:include_blank => "--请选择区--"}, {:id => "district_id"}
+  		attribute_name, collection, :id, :name, input_options, input_html_options
   	)
   end
 end

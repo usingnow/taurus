@@ -3,8 +3,8 @@ require 'taurus/core/custom_fixtures'
 
 namespace :db do
   desc %q{Loads a specified fixture file:
-For .yml/.csv use rake db:load_file[taurus/filename.yml,/absolute/path/to/parent/]
-For .rb       use rake db:load_file[/absolute/path/to/sample/filename.rb]}
+          For .yml/.csv use rake db:load_file[taurus/filename.yml,/absolute/path/to/parent/]
+          For .rb       use rake db:load_file[/absolute/path/to/sample/filename.rb]}
 
   task :load_file , [:file, :dir] => :environment do |t, args|
     file = Pathname.new(args.file)
