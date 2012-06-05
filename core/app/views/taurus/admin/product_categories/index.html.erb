@@ -13,6 +13,8 @@
   <%=raw top_product_categories %>
 </div>
 
+<%= flash_messages %>
+
 <div class="row">
   <%=raw second_product_categories %>
   <div class="<%= @product_category ? "span8" : "span10" %>">
@@ -36,8 +38,14 @@
           <td><%= format_boolean product_category.status %></td>
           <td><%= format_boolean product_category.custom_property? %></td>
           <td>
-            <%= link_to t('admin.actions.edit.menu'), edit_admin_product_category_path(product_category), :class => "btn btn-primary" %>
+            <%= link_to t('admin.actions.edit.menu'), edit_admin_product_category_path(product_category), 
+                        :class => "btn btn-primary" %>
+
             <%= link_to t('activerecord.attributes.taurus/product_category.custom_property'), admin_product_category_custom_properties_path(product_category), :class => "btn btn-primary" %>
+
+            <%= link_to t('admin.actions.delete.menu'), admin_product_category_path(product_category), 
+                        :confirm => t('admin.actions.delete.confirm'), :method => :delete,
+                        :class => "btn btn-primary" %>
           </td>
         </tr>
       <% end %>

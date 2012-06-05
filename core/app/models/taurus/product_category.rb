@@ -2,11 +2,13 @@ module Taurus
   class ProductCategory < ActiveRecord::Base
     attr_accessor :parent_name
 
-  	has_many :custom_properties, :dependent => :destroy
-  	has_many :skus, :dependent => :destroy
-  	has_many :products, :dependent => :destroy
+  	has_many :custom_properties
+  	has_many :skus
+  	has_many :products
     belongs_to :parent, :class_name => "ProductCategory", :foreign_key => "parent_id"
     has_many :children, :class_name => "ProductCategory", :foreign_key => "parent_id"
+
+    before_destroy :destroy_validate
   	
     scope :tops, where(:parent_id => nil)
 
@@ -20,5 +22,12 @@ module Taurus
     def custom_property?
       custom_properties.size > 0 ? true : false
     end
+
+
+    def destroy_validate
+      [:children, :skus, :products, :custom_properties].map do |relation|
+        return false if self.send(relation).size > 0
+      end   
+    end  
   end
 end

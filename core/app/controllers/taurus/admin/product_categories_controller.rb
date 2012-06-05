@@ -50,7 +50,11 @@ module Taurus
 			
 			def destroy
 				@product_category = ProductCategory.find(params[:id])
-				@product_category.destroy
+				if @product_category.destroy
+					flash[:success] = I18n.t(:successfully_destroyed)
+				else
+          flash[:error] = I18n.t(:failure_destroyed)
+				end
 			  redirect_to(admin_product_categories_url)
 			end  
       

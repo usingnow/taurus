@@ -44,7 +44,7 @@ module Taurus
         @product_display = ProductDisplay.find(params[:id])
 
         if @product_display.destroy
-          flash[:notice] = t('successfully_destroyed')
+          flash[:success] = t('successfully_destroyed')
         else
           flash[:alert] = t('failure_destroyed')
         end

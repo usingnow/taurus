@@ -41,7 +41,7 @@ module Taurus
       def destroy
         @slider_bar = SliderBar.find(params[:id])
         if @slider_bar.destroy
-          flash[:notice] = I18n.t(:successfully_destroyed)
+          flash[:success] = I18n.t(:successfully_destroyed)
         else
           flash[:error] = I18n.t(:failure_destroyed)
         end

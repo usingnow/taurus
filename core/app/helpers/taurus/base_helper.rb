@@ -67,9 +67,9 @@ module Taurus
     end
 
     def flash_messages
-      [:notice, :error].map do |msg_type|
+      [:success, :error].map do |msg_type|
         if flash[msg_type]
-          content_tag :div, flash[msg_type], :class => "alert alert-success"
+          content_tag :div, flash[msg_type], :class => "alert alert-#{msg_type.to_s}"
         else
           ''
         end
