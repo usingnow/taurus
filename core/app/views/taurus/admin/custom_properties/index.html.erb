@@ -1,7 +1,10 @@
 <div class="form-actions">
-  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/custom_property'))}".html_safe, new_admin_product_category_custom_property_path, :class => "btn btn-primary" %>
-</div>
+  <%= link_to "#{content_tag(:i, '', :class => 'icon-eye-open')} #{@product_category.name}".html_safe, admin_product_category_path(@product_category), :class => "btn btn-info" %>
 
+  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/custom_property'))}".html_safe, new_admin_product_category_custom_property_path, :class => "btn btn-primary" %>
+  
+  <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_product_categories_path, :class => "btn pull-right" %>
+</div>
 
 <table class="table table-striped">
   <thead>

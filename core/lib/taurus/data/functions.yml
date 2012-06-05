@@ -197,7 +197,3 @@
           name: '查询'
           action: '[:all,:read,:order_tracks,:take_over_logs]'
           subject_class: 'Order'
-- id: '09'
-  name: '控制台'
-  url: '/admin/my_pages'
-  sequence: 10 

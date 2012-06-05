@@ -330,20 +330,6 @@ zh-CN:
         subject: "标题"
         body: "备注"
 
-  helpers:
-    select:
-      prompt: "请选择"
-    submit:
-      create: "新增%{model}"
-      update: "更新%{model}"
-      submit: "储存%{model}"
-
-  #will_paginate
-  will_paginate:
-    previous_label: "上一页"
-    next_label: "下一页"
-    page_gap: "&hellip;"
-
 
   admin:
     misc:
@@ -356,6 +342,8 @@ zh-CN:
       operation: "操作"
       back: "返回功能首页"
       clone: "复制"
+      custom_property:
+        belongs_to: "所属分类"
     actions:
       index:
         title: "%{model}列表"
@@ -372,4 +360,18 @@ zh-CN:
         title: "删除%{model_label} '%{object_label}'"
         menu: "删除"
         confirm: "确定删除？"
+
+  helpers:
+      select:
+        prompt: "请选择"
+      submit:
+        create: "新增%{model}"
+        update: "更新%{model}"
+        submit: "储存%{model}"
+
+  #will_paginate
+  will_paginate:
+    previous_label: "上一页"
+    next_label: "下一页"
+    page_gap: "&hellip;"        
 
