@@ -1,0 +1,36 @@
+en:
+  activerecord:
+    models:
+      taurus/store_sku_line_item: "Stock"
+      taurus/delivery_record: "Delivery Record"
+      taurus/replenishment_record: "Replenishment Record"
+      taurus/replenishment_record_sku_line_item: "Replenishment SKU"
+    attributes:
+      taurus/store_sku_line_item:
+        reserved: "Reserved for Sales"
+        out_of_stock: "Out of Stock"
+        available: "Available for Sales"
+        in_stock: "In Stock"
+      taurus/delivery_record:
+        number: "Delivery Number"
+        order_id: "Order Number"
+        delivery_type: "Purpose"
+        courier: "Courier"
+        courier_number: "Courier Number"
+        delivery_date: "Delivery date"
+        delivery_name: "Delivered by"
+        customer_name: "Customer Name"
+        customer_phone: "Phone"
+        pick_up_date: "Pick up Date"
+        remarks: "Remarks"
+      taurus/delivery_record_sku_line_item:
+        sku_amount: "SKU Amount"
+      taurus/replenishment_record:
+        number: "Replenishment Number"
+        supplier_name: "Supplier"
+        replenishment_type: "Purpose"
+        remarks: "Remarks"
+        sku_name: "SKU Name"
+        sku_amount: "Amount"
+      taurus/replenishment_record_sku_line_item:
+        sku_amount: "Amount"

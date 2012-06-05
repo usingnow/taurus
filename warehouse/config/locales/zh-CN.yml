@@ -13,7 +13,7 @@ zh-CN:
         in_stock: "库存"
       taurus/delivery_record:
         number: "出库单编号"
-        order_id: "订单" 
+        order_id: "订单"
         delivery_type: "出库方式"
         courier: "快递公司"
         courier_number: "运单号"
@@ -24,13 +24,13 @@ zh-CN:
         pick_up_date: "提货日期"
         remarks: "备注"
       taurus/delivery_record_sku_line_item:
-        sku_amount: "数量"   
+        sku_amount: "数量"
       taurus/replenishment_record:
         number: "补货单编号"
-        supplier_name: "供应商"  
+        supplier_name: "供应商"
         replenishment_type: "补货类型"
         remarks: "备注"
         sku_name: "SKU名称"
         sku_amount: "SKU数量"
       taurus/replenishment_record_sku_line_item:
-        sku_amount: "数量"      
+        sku_amount: "数量"
