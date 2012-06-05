@@ -16,5 +16,9 @@ module Taurus
 
   	validates_presence_of :name, :number
   	validates_uniqueness_of :number
+
+    def custom_property?
+      custom_properties.size > 0 ? true : false
+    end
   end
 end

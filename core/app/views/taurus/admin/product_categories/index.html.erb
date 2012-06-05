@@ -1,4 +1,4 @@
-<div class="form-actions">
+<div class="well">
   <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
     <%= f.text_field :number_cont, :placeholder => t('activerecord.attributes.taurus/product_category.number'), :class => "trk-non-inline-margin" %>
     <%= f.text_field :name_cont, :placeholder => t('activerecord.attributes.taurus/product_category.name'), :class => "trk-non-inline-margin" %>
@@ -23,6 +23,7 @@
           <th><%= t('activerecord.attributes.taurus/product_category.number') %></th>
           <th><%= t('activerecord.attributes.taurus/product_category.name') %></th>
           <th><%= t('activerecord.attributes.taurus/product_category.status') %></th>
+          <th><%= t('activerecord.attributes.taurus/product_category.custom_property') %></th>
           <th><%= t('admin.misc.operation') %></th>
         </tr>
       </thead>
@@ -33,6 +34,7 @@
           <td><%= link_to product_category.number, admin_product_category_path(product_category) %></td>
           <td><%= product_category.name %></td>
           <td><%= format_boolean product_category.status %></td>
+          <td><%= format_boolean product_category.custom_property? %></td>
           <td>
             <%= link_to t('admin.actions.edit.menu'), edit_admin_product_category_path(product_category), :class => "btn btn-primary" %>
             <%= link_to t('activerecord.attributes.taurus/product_category.custom_property'), admin_product_category_custom_properties_path(product_category), :class => "btn btn-primary" %>
