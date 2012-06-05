@@ -241,8 +241,8 @@ zh-CN:
       taurus/product_category:
         parent_name: "父分类"
         parent_id: "父分类"
-        number: "素材商品分类编号"
-        name: "素材商品分类名称"
+        number: "商品分类编号"
+        name: "商品分类名称"
         description: "描述"
         sequence: "排序"
         status: "激活"
