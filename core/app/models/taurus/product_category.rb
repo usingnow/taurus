@@ -9,6 +9,7 @@ module Taurus
     has_many :children, :class_name => "ProductCategory", :foreign_key => "parent_id"
 
     before_destroy :destroy_validate
+    before_save :default_value
   	
     scope :tops, where(:parent_id => nil)
 
@@ -23,11 +24,15 @@ module Taurus
       custom_properties.size > 0 ? true : false
     end
 
-
+    protected
     def destroy_validate
       [:children, :skus, :products, :custom_properties].map do |relation|
         return false if self.send(relation).size > 0
       end   
     end  
+
+    def default_value
+      self.parent_id = nil if parent_name.blank?
+    end
   end
 end

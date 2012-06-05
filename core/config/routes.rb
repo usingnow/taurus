@@ -15,6 +15,7 @@ Taurus::Core::Engine.routes.draw do
     resources :suppliers
     resources :brands
     resources :product_categories do
+      get :autocomplete_product_category_name, :on => :collection
       member do
         get :seconds
         get :thirds

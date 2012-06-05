@@ -3,8 +3,16 @@
   <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_product_categories_path, :class => "btn pull-right" %>
 </div>
 
+<%= flash_messages %>
+
 <form class="form-horizontal">
   <fieldset>
+    <div class="control-group">
+      <label class="control-label"><%= t 'activerecord.attributes.taurus/product_category.parent_name' %></label>
+      <div class="controls">
+        <span class="uneditable-input"><%= @product_category.parent_name %></span>
+      </div>
+    </div>
     <div class="control-group">
       <label class="control-label"><%= t 'activerecord.attributes.taurus/product_category.number' %></label>
       <div class="controls">
