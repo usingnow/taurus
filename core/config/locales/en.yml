@@ -1,0 +1,180 @@
+en:
+  successfully_created: "Item created successfully！"
+  successfully_updated: "Item updated successfully！"
+  successfully_destroyed: "Item deleted successfully！"
+  failure_destroyed: "Failed to delete the item！"
+
+
+  activerecord:
+    models:
+      taurus/supplier: "Supplier"
+      taurus/brand: "Brand"
+      taurus/product_category: "Product Category"
+      taurus/custom_property: "Custom Properties"
+      taurus/sku: "SKU"
+      taurus/product: "Product"
+      taurus/product_sku_line_item: "SKU in Product"
+      taurus/product_image: "Image"
+      taurus/order: "Order"
+      taurus/alipay: "Alipay"
+    attributes:
+      taurus/supplier:
+        number: "Supplier Number"
+        name: "Supplier"
+        contact_name: "Contact Person"
+        contact_phone: "Phone"
+        fax: "Fax"
+        terms_of_exchange: "交易条件"
+        delivery: "交货天数"
+        level: "级别"
+        status: "Active"
+        created_by: "Created by"
+        updated_by: "Updated by"
+        updated_at: "Updated at"
+      taurus/brand:
+        chinese_name: "Brand in CN"
+        english_name: "Brand in EN"
+        pinyin: "Chinese Pinyin"
+        web_address: "Web"
+        image: "Image"
+        status: "Active"
+        created_by: "Created by"
+        updated_by: "Updated by"
+        updated_at: "Updated at"
+        company_name: "Company"
+        company_description: "Company Description"
+      taurus/product_category:
+        parent_name: "Parent Category"
+        parent_id: "Parent Category Number"
+        number: "Category Number"
+        name: "Category Name"
+        description: "Description"
+        sequence: "Sequence"
+        status: "Active"
+        updated_at: "Update at"
+        custom_property: "Custom Properties"
+      taurus/custom_property: 
+        product_category_id: "Product Category Number"
+        name: "Property"
+        property_type: "Type"
+        remarks: "Remarks"
+        status: "Active"
+      taurus/sku:
+        number: "SKU Number"
+        name: "SKU"
+        product_category_name: "Product Category"
+        product_category_id: "Product Category Number"
+        brand_chinese_name: "Brand"
+        brand_id: "Brand"
+        supplier_name: "Supplier"
+        supplier_id: "Supplier"
+        place_of_origin: "Place of Origin"
+        unit: "Unit"
+        model: "Model"
+        specifications: "Specifications"
+        dimensions: "Dimensions"
+        weight: "Weight (kg)"
+        cost_before_tax: "Cost before tax"
+        cost_after_tax: "Cost after tax"
+        delivery_days: "Days for Procurement"
+        delivery_notice: "Notice for Procurement"
+        remarks: "Remarks"
+      taurus/product:
+        number: "Product Number"
+        name: "Product"
+        product_category_name: "Product Category"
+        product_category_id: "Product Category Number"
+        place_of_origin: "Place of Origin"
+        unit: "Unit"
+        manufacturer: "Manufacturer"
+        market_price: "Market Price"
+        tax: "Tax Rate"
+        price_after_tax: "Price after Tax"
+        weight: "Weight (kg)"
+        description: "Description"
+        sales_starts_at: "Sales Starts at"
+        sales_ends_at: "Sales Ends at"
+        sales_status: "If use the sales period above"
+        if_shown_on_web: "If shown on web"
+      taurus/product_sku_line_item: 
+        sku_amount: "SKU Amount"
+        sku_name: "SKU Name"
+      taurus/product_image:
+        image: "Image"
+        is_main: "If main image"
+        updated_at: "updated at"
+      taurus/cart_product_line_item:
+        product_amount: "Product Amount"
+      taurus/order:
+        number: "Order Number"
+        customer_name: "Customer Name"
+        total_payment: "Total Payment"
+        created_at: "Created at"
+        state: "Order Status"
+        remarks_by_customer: "Remarks by Customer"
+      taurus/order_delivery:
+        attention: "Attention"
+        district_id: "Country/State/City"
+        address: "Address"
+        telephone: "Phone"
+        mobile: "Mobile"
+      taurus/order_payment:
+        payment_method_id: "Payment Method"
+        payment_method: "Payment Method"
+        receipt_type: "Receipt Information"
+        receipt_title: "Receipt Title"
+        bank_name: "Bank"
+        company_name: "Company Name"
+        bank_account: "Bank Account"
+        vat_number: "VAT number"
+        registered_telephone: "Registered Telephone"
+        registered_address: "Registered Address"
+      taurus/alipay:
+        partner: "Partner ID"
+        seller_email: "Seller's Mail"
+        subject: "Title"
+        body: "Remarks"
+
+  helpers:
+    select:
+      prompt: "Please choose:"
+    submit:
+      create: "Create%{model}"
+      update: "Update%{model}"
+      submit: "Submit%{model}"
+
+  #will_paginate
+  will_paginate:
+    previous_label: "Previous"
+    next_label: "Next"
+    page_gap: "&hellip;"
+
+
+  admin:
+    misc:
+      remove: "Delete"
+      add_new: "Add"
+      search: "Search"
+      preview: "%{model}Preview"
+      submit: "Submit"
+      save: "Save"
+      operation: "Actions"
+      back: "Back to Homepage"
+      clone: "Clone"
+    actions:
+      index:
+        title: "%{model}list"
+      show:
+        title: "%{model} '%{object_label}'details"
+        menu: "Show"
+      new:
+        title: "New %{model}"
+        menu: "New"
+      edit:
+        title: "Edit%{model}"
+        menu: "Edit"
+      delete:
+        title: "Delete%{model_label} '%{object_label}'"
+        menu: "Delete"
+        confirm: "Are you sure to delete the item？"
+

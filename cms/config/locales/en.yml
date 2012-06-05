@@ -1,0 +1,29 @@
+en:
+  activerecord:
+    models:
+      taurus/image: "Image Ads"
+      taurus/announcement: "Announcement"
+      taurus/slider_bar: "Slide Bar"
+      taurus/product_display: "Product Display"
+    attributes:
+      taurus/image:
+        page: "Page"
+        location: "Position"
+        image: "Image"
+        line_type: "Page Type"
+        href: "URL"
+      taurus/announcement:
+        title: "Title (Short)"
+        internal_title: "Title (Full)"
+        description: "Content"
+      taurus/slider_bar:
+        name: "Title"
+        description: "Description"
+        href: "URL"
+        image: "Image"
+        image_file_name: "Image"
+      taurus/product_display:
+        sequence: "Sequence"
+        product_name: "Product Name"
+
+
