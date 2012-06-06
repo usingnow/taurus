@@ -3,7 +3,7 @@
 
   <fieldset>
     <%= f.input :email %>
-    <%= f.input :password if @administrator.id.nil? %>
+    <%= f.input :password, :required => true if @administrator.id.nil? %>
     <%= f.input :name %>
     <%= f.input :address %>
     <%= f.input :phone %>

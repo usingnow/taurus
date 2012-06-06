@@ -330,6 +330,10 @@ zh-CN:
 
 
   admin:
+    modules:
+      my_account: "个人中心"
+    functions:
+      my_account:  
     misc:
       remove: "删除"
       add_new: "添加%{model}"
@@ -340,6 +344,7 @@ zh-CN:
       operation: "操作"
       back: "返回功能首页"
       clone: "复制"
+      sign_out: "退出"
       custom_property:
         belongs_to: "所属分类"
       company_extend:

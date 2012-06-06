@@ -197,3 +197,11 @@
           name: '查询'
           action: '[:all,:read,:order_tracks,:take_over_logs]'
           subject_class: 'Order'
+- id: 'account'
+  name: '个人中心'
+  url: '/admin/my/account/edit'
+  sequence: 0
+  functions: 
+    - id: 'account_fun_1'
+      name: '基础信息'
+      url: '/admin/my/account/edit'

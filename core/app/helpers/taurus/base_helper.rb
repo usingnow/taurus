@@ -31,7 +31,11 @@ module Taurus
           fun_str += content_tag(:li, (link_to fun['name'], fun['url'])) 
         end     
       end if component['functions']
-      content_tag(:ul, fun_str.html_safe, :id => 'admin-main-functionality', :class => 'nav nav-list')
+      if fun_str.blank?
+        nil
+      else
+        content_tag(:ul, fun_str.html_safe, :id => 'admin-main-functionality', :class => 'nav nav-list')
+      end
     end
 
     def breadcrumb

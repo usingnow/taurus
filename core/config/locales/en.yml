@@ -161,6 +161,8 @@ en:
       operation: "Actions"
       back: "Back to Homepage"
       clone: "Clone"
+      sign_out: "Sign Out"
+      my_account: "My Account"
       custom_property:
         belongs_to: "所属分类"
       company_extend:

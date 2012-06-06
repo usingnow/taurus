@@ -1,6 +1,6 @@
 module Taurus
 	module Admin
-		class MyPagesController < BaseController
+		class PageController < BaseController
       def index
       end
 		end

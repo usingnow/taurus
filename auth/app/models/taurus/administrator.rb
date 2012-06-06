@@ -10,6 +10,6 @@ module Taurus
     attr_accessible :email, :password, :password_confirmation, :remember_me, :status, :name, :address, :phone,
                     :fax, :mobile, :zip_code
 
-    validates_presence_of :password, :name, :email
+    validates_presence_of :name, :email
   end
 end  

@@ -1,0 +1,16 @@
+<%= simple_form_for @administrator, :url => admin_my_account_path, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.error_notification %>
+  <%= flash_messages %>
+  <fieldset>
+  	<%= f.input :email, :disabled => true %>
+  	<%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :phone %>
+    <%= f.input :fax %>
+    <%= f.input :mobile %>
+    <%= f.input :zip_code %>
+    <div class="form-actions">
+	    <%= f.button :submit, :class => "btn btn-primary" %>
+	  </div> 
+  </fieldset>
+<% end %>

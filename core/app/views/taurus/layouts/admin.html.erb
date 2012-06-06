@@ -33,13 +33,14 @@
         <a class="brand" href="#">采恪电子商务管理平台</a>
         <div class="nav-collapse">
           <%=raw components %>
-          <ul class="nav pull-right">
-            <li class="active">
-              <a href="#"><i class="icon-user"></i><%= current_administrator.name %></a>
-            </li>
-            <li>
-              <%= link_to '退出', destroy_administrator_session_path, :method => :delete %>
-            </li>
+        </div>
+        <div class="btn-group pull-right">
+          <button class="btn"><i class="icon-user"></i> <%= current_administrator.name %></button>
+          <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><%= link_to t('admin.misc.my_account'), edit_admin_my_account_path %></li>
+            <li class="divider"></li>
+            <li><%= link_to t('admin.misc.sign_out'), destroy_administrator_session_path, :method => :delete %></li>
           </ul>
         </div>
       </div>

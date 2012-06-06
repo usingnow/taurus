@@ -6,7 +6,7 @@ Taurus::Core::Engine.routes.draw do
     end
   end    
 
-  namespace :admin do 
+  namespace :admin do
     resources :home
     resources :functions
     resources :industries
@@ -59,7 +59,11 @@ Taurus::Core::Engine.routes.draw do
       end
     end
     resources :alipays
-    resources :my_pages
+
+    namespace :my do
+      resource :page
+      resource :account
+    end
   end
 
   namespace :index do 
