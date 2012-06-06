@@ -1,28 +1,36 @@
-<div class="grid_button">
-  <%= link_to '新增企业类型', new_admin_company_type_path %>
+<div class="well">
+  <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
+    <%= f.text_field :name_cont, :placeholder => t('activerecord.attributes.taurus/company_type.name'), :class => "trk-non-inline-margin" %>
+    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
+  <% end %>
+  <hr />
+  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/company_type'))}".html_safe, new_admin_company_type_path, :class => "btn btn-primary" %>
 </div>
 
-<table class="grid">
+<%= flash_messages %>
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>
-      <th>名称</th>
-      <th>顺序</th>
-      <th></th>
+      <th><%= t('activerecord.attributes.taurus/company_type.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/company_type.sequence') %></th>
+      <th><%= t('admin.misc.operation') %></th>
     </tr>
   </thead>
-  
-<% @company_types.each_with_index do |company_type,index| %>
-  <tr class="<%= cycle "odd", "even" %>">
-    <td><%= index+1 %></td>
-    <td><%= company_type.name %></td>
-    <td><%= company_type.sequence %></td>
-    <td><%= link_to '修改', edit_admin_company_type_path(company_type) %></td>
-  </tr>
-<% end %>
-<tfoot>
-  <tr><td colspan="4"><%= will_paginate @company_types %></td></tr>
-</tfoot>
+  <tbody>
+    <% @company_types.each_with_index do |company_type,index| %>
+      <tr>
+        <td><%= index+1 %></td>
+        <td><%= company_type.name %></td>
+        <td><%= company_type.sequence %></td>
+        <td><%= link_to t('admin.actions.edit.menu'), edit_admin_company_type_path(company_type), :class => "btn btn-primary trk-btn-short" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="4"><%= will_paginate @company_types, :renderer => BootstrapPagination::Rails %></td></tr>
+  </tfoot>
 </table>
 
 

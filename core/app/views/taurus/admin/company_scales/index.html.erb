@@ -1,25 +1,36 @@
-<div class="grid_button">
-  <%= link_to '新增规模', new_admin_company_scale_path %>
+<div class="well">
+  <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
+    <%= f.text_field :name_cont, :placeholder => t('activerecord.attributes.taurus/company_scale.name'), :class => "trk-non-inline-margin" %>
+    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
+  <% end %>
+  <hr />
+  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/company_scale'))}".html_safe, new_admin_company_scale_path, :class => "btn btn-primary" %>
 </div>
 
-<table class="grid">
+<%= flash_messages %>
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>
-      <th>名称</th>
-      <th>顺序</th>
-      <th></th>
+      <th><%= t('activerecord.attributes.taurus/company_scale.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/company_scale.sequence') %></th>
+      <th><%= t('admin.misc.operation') %></th>
     </tr>
   </thead>
-  
-<% @company_scales.each_with_index do |company_scale,index| %>
-  <tr class="<%= cycle "odd", "even" %>">
-    <td><%= index+1 %></td>
-    <td><%= company_scale.name %></td>
-    <td><%= company_scale.sequence %></td>
-    <td><%= link_to '修改', edit_admin_company_scale_path(company_scale) %></td>
-  </tr>
-<% end %>
+  <tbody>
+    <% @company_scales.each_with_index do |company_scale,index| %>
+      <tr class="<%= cycle "odd", "even" %>">
+        <td><%= index+1 %></td>
+        <td><%= company_scale.name %></td>
+        <td><%= company_scale.sequence %></td>
+        <td><%= link_to t('admin.actions.edit.menu'), edit_admin_company_scale_path(company_scale), :class => "btn btn-primary trk-btn-short" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="4"><%= will_paginate @company_scales, :renderer => BootstrapPagination::Rails %></td></tr>
+  </tfoot>
 </table>
 
 

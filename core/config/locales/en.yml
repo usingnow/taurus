@@ -17,6 +17,9 @@ en:
       taurus/product_image: "Image"
       taurus/order: "Order"
       taurus/alipay: "Alipay"
+      taurus/industry: "Company Industry"
+      taurus/company_type: "Company Type"
+      taurus/company_scale: "Company Size"
     attributes:
       taurus/supplier:
         number: "Supplier Number"
@@ -134,6 +137,15 @@ en:
         seller_email: "Seller's Mail"
         subject: "Title"
         body: "Remarks"
+      taurus/industry:
+        name: "Company Industry Name"
+        sequence: "Sort"
+      taurus/company_type:
+        name: "Company Type Name"
+        sequence: "Sort"  
+      taurus/company_scale:
+        name: "Company Size Name"
+        sequence: "Sort"  
 
   helpers:
     select:

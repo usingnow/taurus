@@ -212,6 +212,9 @@ zh-CN:
       taurus/product_image: "销售商品图片"
       taurus/order: "订单"
       taurus/alipay: "支付宝"
+      taurus/industry: "行业类别"
+      taurus/company_type: "企业类型"
+      taurus/company_scale: "企业规模"
     attributes:
       taurus/supplier:
         number: "供应商编号"
@@ -327,6 +330,15 @@ zh-CN:
         seller_email: "签约支付宝账号"
         subject: "标题"
         body: "备注"
+      taurus/industry:
+        name: "行业类别名称"
+        sequence: "顺序"
+      taurus/company_type:
+        name: "企业类型名称"
+        sequence: "顺序"
+      taurus/company_scale:
+        name: "企业规模名称"
+        sequence: "顺序"
 
 
   admin:

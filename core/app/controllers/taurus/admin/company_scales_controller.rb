@@ -2,7 +2,7 @@ module Taurus
 	module Admin
 	  class CompanyScalesController < BaseController
 	  	def index
-				@search     = CompanyScale.search(params[:q])
+				@search = CompanyScale.search(params[:q])
 				@company_scales = @search.result.paginate(:page => params[:page], :per_page => 20)
 	  	end
 
@@ -13,6 +13,7 @@ module Taurus
 	  	def create
 	  		@company_scale = CompanyScale.new params[:company_scale]
 	  		if @company_scale.save
+	  			flash[:success] = I18n.t('successfully_created')
 	  			redirect_to(admin_company_scales_url)
 	  	  else
 	  	  	render "new"
@@ -26,6 +27,7 @@ module Taurus
 	  	def update
 	  		@company_scale = CompanyScale.find(params[:id])
 	  		if @company_scale.update_attributes(params[:company_scale])
+	  			flash[:success] = I18n.t('successfully_updated')
 	  		  redirect_to(admin_company_scales_url)
 	  		else
 	  		  render "edit"

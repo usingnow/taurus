@@ -1,25 +1,36 @@
-<div class="grid_button">
-  <%= link_to '新增行业', new_admin_industry_path %>
+<div class="well">
+  <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
+    <%= f.text_field :name_cont, :placeholder => t('activerecord.attributes.taurus/industry.name'), :class => "trk-non-inline-margin" %>
+    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
+  <% end %>
+  <hr />
+  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/industry'))}".html_safe, new_admin_industry_path, :class => "btn btn-primary" %>
 </div>
 
-<table class="grid">
+<%= flash_messages %>
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>
-      <th>名称</th>
-      <th>顺序</th>
-      <th></th>
+      <th><%= t('activerecord.attributes.taurus/industry.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/industry.sequence') %></th>
+      <th><%= t('admin.misc.operation') %></th>
     </tr>
   </thead>
-  
-<% @industries.each_with_index do |industry,index| %>
-  <tr class="<%= cycle "odd", "even" %>">
-    <td><%= index+1 %></td>
-    <td><%= industry.name %></td>
-    <td><%= industry.sequence %></td>
-    <td><%= link_to '修改', edit_admin_industry_path(industry) %></td>
-  </tr>
-<% end %>
+  <tbody>
+    <% @industries.each_with_index do |industry,index| %>
+      <tr>
+        <td><%= index+1 %></td>
+        <td><%= industry.name %></td>
+        <td><%= industry.sequence %></td>
+        <td><%= link_to t('admin.actions.edit.menu'), edit_admin_industry_path(industry), :class => "btn btn-primary trk-btn-short" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan='4'><%= will_paginate @industries, :renderer => BootstrapPagination::Rails %></td></tr>
+  </tfoot>
 </table>
 
 

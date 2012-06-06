@@ -1,6 +1,17 @@
-<%= simple_form_for([:admin, @industry])  do |f| %>
+<div class="well">
+  <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_industries_path, :class => "btn pull-right" %>
+</div>
+
+<%= simple_form_for([:admin, @industry], :html => { :class => 'form-horizontal' }) do |f| %>
 	<%= f.error_notification %>
-	<%= f.input :name %>
-	<%= f.input :sequence %>
-	<%= f.button :submit %>
+
+	<fieldset>
+    <%= f.input :name %>
+		<%= f.input :sequence %>
+
+		<div class="form-actions">
+			<%= f.button :submit, :class=> "btn btn-primary" %>
+		</div>
+	</fieldset>
+	
 <% end %>

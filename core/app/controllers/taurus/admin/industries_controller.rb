@@ -13,6 +13,7 @@ module Taurus
 	  	def create
 	  		@industry = Industry.new params[:industry]
 	  		if @industry.save
+	  			flash[:success] = I18n.t('successfully_created')
 	  			redirect_to(admin_industries_url)
 	  	  else
 	  	  	render "new"
@@ -26,6 +27,7 @@ module Taurus
 	  	def update
 	  		@industry = Industry.find(params[:id])
 	  		if @industry.update_attributes(params[:industry])
+	  			flash[:success] = I18n.t('successfully_updated')
 	  		  redirect_to(admin_industries_url)
 	  		else
 	  		  render "edit"
