@@ -13,7 +13,7 @@ en:
       taurus/custom_property: "Custom Properties"
       taurus/sku: "SKU"
       taurus/product: "Product"
-      taurus/product_sku_line_item: "SKU in Product"
+      taurus/product_sku_line_item: "SKU"
       taurus/product_image: "Image"
       taurus/order: "Order"
       taurus/alipay: "Alipay"
@@ -153,7 +153,7 @@ en:
   admin:
     misc:
       remove: "Delete"
-      add_new: "Add"
+      add_new: "Add% {model}"
       search: "Search"
       preview: "%{model}Preview"
       submit: "Submit"

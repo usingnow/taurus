@@ -208,7 +208,7 @@ zh-CN:
       taurus/custom_property: "自定义属性"
       taurus/sku: "SKU"
       taurus/product: "销售商品"
-      taurus/product_sku_line_item: "销售商品SKU"
+      taurus/product_sku_line_item: "SKU"
       taurus/product_image: "销售商品图片"
       taurus/order: "订单"
       taurus/alipay: "支付宝"
@@ -332,7 +332,7 @@ zh-CN:
   admin:
     misc:
       remove: "删除"
-      add_new: "添加"
+      add_new: "添加%{model}"
       search: "查询"
       preview: "%{model}预览"
       submit: "提交"

@@ -39,7 +39,7 @@
 		</fieldset>
     
     <div class="form-actions">
-      <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/product_sku_line_item'))}".html_safe, "#", :class => "btn btn-primary", :id => "add_product_sku" %>
+      <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.misc.add_new', :model => t('activerecord.models.taurus/product_sku_line_item'))}".html_safe, "#", :class => "btn btn-primary", :id => "add_product_sku" %>
       <%= f.button :submit, :value => "更新销售商品", :class => "btn btn-primary" %>
     </div>
 <% end %>
