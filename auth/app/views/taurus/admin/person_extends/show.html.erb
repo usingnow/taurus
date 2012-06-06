@@ -13,7 +13,7 @@
       <%= u_f.association :role, :disabled => true %>
       <%= f.input :name, :disabled => true %>
       <%= f.input :sex, :collection => Taurus::PersonExtend::SEX, :label_method => :second, 
-                  :value_method => :first, :item_wrapper_class => 'inline', :checked => 1, 
+                  :value_method => :first, :item_wrapper_class => 'inline',
                   :as => :radio_buttons, :disabled => true %>
       <%= f.input :birth, :as => :date, :disabled => true %>   
       <%= f.input :district_id, :as => :area, :disabled => true %>   

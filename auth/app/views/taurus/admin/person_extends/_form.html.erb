@@ -5,7 +5,7 @@
       <%= render :partial => "taurus/admin/users/form", :locals => {:u_f => u_f, :object => @person_extend} %>
       <%= f.input :name %>
       <%= f.input :sex, :collection => Taurus::PersonExtend::SEX, :label_method => :second, 
-                  :value_method => :first, :item_wrapper_class => 'inline', :checked => 1, 
+                  :value_method => :first, :item_wrapper_class => 'inline', 
                   :as => :radio_buttons %>
       <%= f.input :birth, :as => :date %>   
       <%= f.input :district_id, :as => :area %>   

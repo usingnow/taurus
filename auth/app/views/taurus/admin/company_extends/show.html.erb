@@ -23,9 +23,9 @@
       <%= f.input :contact_dept, :disabled => true %>
       <%= f.input :phone, :hint => t('admin.misc.company_extend.phone_hint'), :disabled => true %>
       <%= f.input :contact_mobile, :disabled => true %>
-      <%= f.input :contact_sex, :collection => Taurus::CompanyExtend::SEX, :label_method => :second, 
-                  :value_method => :first, :item_wrapper_class => 'inline', :checked => 1, 
-                  :as => :radio_buttons, :disabled => true %>
+      <%= f.input :contact_sex, :collection => Taurus::CompanyExtend::SEX, 
+                  :label_method => :second, :value_method => :first, 
+                  :item_wrapper_class => 'inline', :as => :radio_buttons, :disabled => true %>
       <%= f.input :contact_post, :disabled => true %>
       <%= f.input :fax, :disabled => true %>
       <%= f.input :zip_code, :disabled => true %>
