@@ -19,6 +19,7 @@ en:
         zip_code: "Zip Cod"
         status: "Active"
         last_sign_in_at: "Last Sign in at"
+        language: "Language"
       taurus/group:
         name: "Admin Group"
         description: "Description"

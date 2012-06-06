@@ -47,6 +47,7 @@ class DeviseCreateTaurusAdministrators < ActiveRecord::Migration
       t.string :fax
       t.string :zip_code
       t.string :address
+      t.string :language
 
       t.timestamps
     end

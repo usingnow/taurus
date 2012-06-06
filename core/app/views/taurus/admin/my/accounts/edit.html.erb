@@ -9,8 +9,11 @@
     <%= f.input :fax %>
     <%= f.input :mobile %>
     <%= f.input :zip_code %>
+    <%= f.input :language, :collection => Taurus::Administrator::LANGUAGE, :label_method => :second, 
+                :value_method => :first, :as => :select %>
     <div class="form-actions">
-	    <%= f.button :submit, :class => "btn btn-primary" %>
+	    <%= f.button :submit, :class => "btn btn-primary",
+	                 :value => t('helpers.submit.update', :model => t('admin.functions.my_account.base_info')) %>
 	  </div> 
   </fieldset>
 <% end %>

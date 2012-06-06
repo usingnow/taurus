@@ -334,6 +334,7 @@ zh-CN:
       my_account: "个人中心"
     functions:
       my_account:  
+        base_info: "基础信息"
     misc:
       remove: "删除"
       add_new: "添加%{model}"
@@ -367,12 +368,12 @@ zh-CN:
         confirm: "确定删除？"
 
   helpers:
-      select:
-        prompt: "请选择"
-      submit:
-        create: "新增%{model}"
-        update: "更新%{model}"
-        submit: "储存%{model}"
+    select:
+      prompt: "请选择"
+    submit:
+      create: "新增%{model}"
+      update: "更新%{model}"
+      submit: "储存%{model}"
 
   #will_paginate
   will_paginate:

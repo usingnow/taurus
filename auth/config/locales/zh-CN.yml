@@ -19,6 +19,7 @@ zh-CN:
         zip_code: "邮编"
         status: "激活"
         last_sign_in_at: "上次登录时间"
+        language: "语言"
       taurus/group:
         name: "名称"
         description: "描述"  

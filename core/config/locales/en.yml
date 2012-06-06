@@ -151,6 +151,11 @@ en:
 
 
   admin:
+    modules:
+      my_account: "My Account"
+    functions:
+      my_account:  
+        base_info: "Details"
     misc:
       remove: "Delete"
       add_new: "Add% {model}"
@@ -162,7 +167,6 @@ en:
       back: "Back to Homepage"
       clone: "Clone"
       sign_out: "Sign Out"
-      my_account: "My Account"
       custom_property:
         belongs_to: "所属分类"
       company_extend:
