@@ -152,8 +152,28 @@ en:
 
   admin:
     modules:
+      product: "Products Management"
+      order: "Orders"
+      baisc_setting: "Baisc Settings"
+      auth: "Authorization Settings"
       my_account: "My Account"
     functions:
+      product:
+        product: "Products"
+        supplier: "Suppliers"
+        brand: "Brands"
+        product_category: "Product Categories"
+        sku: "SKU"
+      order:
+        order_in_progress: "Orders in Progress" 
+        all_order: "All Orders"
+      baisc_setting:
+        company_industry: "Company Industry"
+        company_type: "Company Type"
+        company_size: "Company Size"
+        regions_and_freight: "Regions and Freight"
+        order_processes: "Order Processes"
+        alipay_setting: "Alipay settings"
       my_account:  
         base_info: "Details"
     misc:

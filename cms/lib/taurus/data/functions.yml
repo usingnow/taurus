@@ -1,7 +1,8 @@
 - id: '06'
-  name: '前台设置'
+  name: <%= I18n.t('admin.modules.cms') %>
   url: '/admin/slider_bars'
   sequence: 2
+  display: true
   functions: 
     - id: 0601
       name: '前台滑动广告'

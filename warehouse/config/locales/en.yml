@@ -34,3 +34,13 @@ en:
         sku_amount: "Amount"
       taurus/replenishment_record_sku_line_item:
         sku_amount: "Amount"
+
+  admin:
+    modules:
+      stock: "Stock Information"
+    functions:
+      stock:
+        stock_situation: "Stock Situation"  
+        replishment: "Replishments"
+        delivery: "Deliveries"
+        order_delivery: "Order Deliveries"

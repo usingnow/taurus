@@ -26,4 +26,8 @@ zh-CN:
         sequence: "顺序"
         product_name: "销售商品名称"
 
+  admin:
+    modules:
+      cms: "前台设置"
+
 

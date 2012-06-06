@@ -1,10 +1,11 @@
 - id: '08'
-  name: '权限管理'
+  name: <%= I18n.t('admin.modules.auth') %>
   url: '/admin/company_extends'
   sequence: 0
+  display: true
   functions:
     - id: '0804'
-      name: '企业会员'
+      name: <%= I18n.t('admin.functions.auth.company_extend') %>
       url: '/admin/company_extends'
       operations: 
         - id: '080401'
@@ -22,7 +23,7 @@
           action: ':points'
           subject_class: 'CompanyExtend' 
     - id: '0805'
-      name: '个人会员'
+      name: <%= I18n.t('admin.functions.auth.person_extend') %>
       url: '/admin/person_extends'
       operations: 
         - id: '080501'
@@ -40,7 +41,7 @@
           action: ':points'
           subject_class: 'PersonExtend'
     - id: '0803'
-      name: '会员角色'
+      name: <%= I18n.t('admin.functions.auth.role') %>
       url: '/admin/roles'
       operations: 
         - id: '080301'
@@ -53,7 +54,7 @@
           action: '[:create,:update,:manage]'
           subject_class: '[Role,ProcedureRoleship]'      
     - id: '0801'
-      name: '员工账户'
+      name: <%= I18n.t('admin.functions.auth.administrator') %>
       url: '/admin/administrators'
       operations: 
         - id: '080101'
@@ -66,7 +67,7 @@
           action: '[:create,:update,:manage]'
           subject_class: '[Administrator,AdministratorGroupship]'
     - id: '0802'
-      name: '员工组'
+      name: <%= I18n.t('admin.functions.auth.group') %>
       url: '/admin/groups'
       operations: 
         - id: '080201'
@@ -79,7 +80,7 @@
           action: '[:create,:update]'
           subject_class: 'Group'
     - id: '0806'
-      name: '员工组权限'
+      name: <%= I18n.t('admin.functions.auth.permission') %>
       url: '/admin/permissions'
       operations: 
         - id: '080601'

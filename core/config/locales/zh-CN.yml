@@ -331,8 +331,27 @@ zh-CN:
 
   admin:
     modules:
+      product: "商品管理"
+      order: "订单"
+      baisc_setting: "基础信息设置"
       my_account: "个人中心"
     functions:
+      product:
+        product: "销售商品管理"
+        supplier: "供应商管理"
+        brand: "品牌管理"
+        product_category: "商品分类管理"
+        sku: "SKU"
+      order:
+        order_in_progress: "待处理订单" 
+        all_order: "全部订单"
+      baisc_setting:
+        company_industry: "行业类别"
+        company_type: "企业类型"
+        company_size: "企业规模"
+        regions_and_freight: "地区运费"
+        order_processes: "订单流程"
+        alipay_setting: "支付宝"
       my_account:  
         base_info: "基础信息"
     misc:

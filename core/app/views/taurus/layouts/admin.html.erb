@@ -35,7 +35,9 @@
           <%=raw components %>
         </div>
         <div class="btn-group pull-right">
-          <button class="btn"><i class="icon-user"></i> <%= current_administrator.name %></button>
+          <a class="btn" href="<%= edit_admin_my_account_path %>">
+            <i class="icon-user"></i> <%= current_administrator.name %>
+          </a>
           <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
           <ul class="dropdown-menu">
             <li><%= link_to t('admin.functions.my_account.base_info'), edit_admin_my_account_path %></li>

@@ -6,7 +6,7 @@ module Taurus
     end
 
     def components
-      coms = Taurus::Function.all.sort_by{ |c| -c["sequence"] }
+      coms = Taurus::Function.display.sort_by{ |c| -c["sequence"] }
       li = ''
       coms.each do |com|
         if component["id"] == com["id"]

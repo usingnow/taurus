@@ -70,3 +70,15 @@ zh-CN:
         phone: "会员联系电话"
         address: "会员联系地址"
         zip_code: "会员邮政编码"
+
+  admin:
+    modules:
+      auth: "权限管理"
+    functions:
+      auth:
+        company_extend: "企业会员"
+        person_extend: "个人会员"
+        role: "会员角色"
+        administrator: "员工账户"
+        group: "员工组"
+        permission: "员工组权限"

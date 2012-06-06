@@ -1,10 +1,11 @@
 - id: '01'
-  name: '商品管理'
+  name: <%= I18n.t('admin.modules.product') %>
   url: "/admin/products"
   sequence: 9
+  display: true
   functions: 
     - id: '0101'
-      name: '供应商管理'
+      name: <%= I18n.t('admin.functions.product.supplier') %>
       url: '/admin/suppliers'
       operations: 
         - id: '010101'
@@ -17,7 +18,7 @@
           action: '[:create,:update]'
           subject_class: 'Supplier'
     - id: '0102'
-      name: '品牌管理'
+      name: <%= I18n.t('admin.functions.product.brand') %>
       url: '/admin/brands'
       operations: 
         - id: '010201'
@@ -30,7 +31,7 @@
           action: '[:create,:update]'
           subject_class: 'Brand'
     - id: '0103'
-      name: '商品分类管理'
+      name: <%= I18n.t('admin.functions.product.product_category') %>
       url: '/admin/product_categories'
       operations: 
         - id: '010301'
@@ -43,7 +44,7 @@
           action: '[:create,:update]'
           subject_class: 'ProductCategory'
     - id: '0104'
-      name: 'SKU管理'
+      name: <%= I18n.t('admin.functions.product.sku') %>
       url: '/admin/skus'
       operations: 
         - id: '010401'
@@ -56,60 +57,16 @@
           action: '[:create,:update]'
           subject_class: 'Sku'
     - id: '0105'
-      name: '销售商品管理'
+      name: <%= I18n.t('admin.functions.product.product') %>
       url: '/admin/products'
-      operations: 
-        - id: '010501'
-          name: '查询'
-          action: ':read'
-          subject_class: 'Product'
-      operations: 
-        - id: '010502'
-          name: '管理'
-          action: '[:create,:update]'
-          subject_class: 'Product'
-      operations: 
-        - id: 53
-          name: '销售状态'
-          action: ':update_status'
-          subject_class: 'Sku'
-      operations: 
-        - id: 54
-          name: '上架查询'
-          action: ':read'
-          subject_class: 'SkuOnShelf'
-      operations: 
-        - id: 55
-          name: '上架时间添加'
-          action: ':create'
-          subject_class: 'SkuOnShelf'
-      operations: 
-        - id: 56
-          name: '上架状态修改'
-          action: ':update'
-          subject_class: 'SkuOnShelf'
-      operations: 
-        - id: 57
-          name: '上架时间删除'
-          action: ':destroy'
-          subject_class: 'SkuOnShelf'
-      operations: 
-        - id: 67
-          name: '相册查看'
-          action: ':read'
-          subject_class: 'SkuImage'
-      operations: 
-        - id: 68
-          name: '相册管理'
-          action: '[:create,:update,:destroy]'
-          subject_class: 'SkuImage'
 - id: '02'
-  name: '基础信息设置'
+  name: <%= I18n.t('admin.modules.baisc_setting') %>
   url: '/admin/industries'
   sequence: 1
+  display: true
   functions:
     - id: '0201'
-      name: '行业类别'
+      name: <%= I18n.t('admin.functions.baisc_setting.company_industry') %>
       url: '/admin/industries'
       operations: 
         - id: '020101'
@@ -117,7 +74,7 @@
           action: ':read'
           subject_class: 'Industry' 
     - id: '0202'
-      name: '企业类型'
+      name: <%= I18n.t('admin.functions.baisc_setting.company_type') %>
       url: '/admin/company_types'
       operations: 
         - id: '020201'
@@ -125,7 +82,7 @@
           action: ':read'
           subject_class: 'CompanyType'
     - id: '0203'
-      name: '企业规模'
+      name: <%= I18n.t('admin.functions.baisc_setting.company_size') %>
       url: '/admin/company_scales'
       operations: 
         - id: '020301'
@@ -133,7 +90,7 @@
           action: ':read'
           subject_class: 'CompanyScale'
     - id: '0204'
-      name: '地区运费'
+      name: <%= I18n.t('admin.functions.baisc_setting.regions_and_freight') %>
       url: '/admin/1'
       operations: 
         - id: '020401'
@@ -141,7 +98,7 @@
           action: ':read'
           subject_class: ''
     - id: '0205'
-      name: '订单流程'
+      name: <%= I18n.t('admin.functions.baisc_setting.order_processes') %>
       url: '/admin/2'
       operations: 
         - id: '020501'
@@ -149,59 +106,26 @@
           action: ':read'
           subject_class: ''       
     - id: '0206'
-      name: '支付宝'
+      name: <%= I18n.t('admin.functions.baisc_setting.alipay_setting') %>
       url: '/admin/alipays'
-      operations: 
-        - id: '020601'
-          name: '管理'
-          action: ':manage'
-          subject_class: 'Alipay'                     
-- id: '03'
-  name: '订单'
+- id: 'order'
+  name: <%= I18n.t('admin.modules.order') %>
   url: '/admin/orders'
   sequence: 8
+  display: true
   functions: 
-    - id: '0301'
-      name: '待处理订单'
+    - id: 'order_fun_1'
+      name: <%= I18n.t('admin.functions.order.order_in_progress') %>
       url: '/admin/orders'
-      operations: 
-        - id: 20
-          name: '查询'
-          action: '[:read,:order_tracks,:take_over_logs]'
-          subject_class: 'Order'
-      operations: 
-        - id: 40
-          name: '增加'
-          action: ':create'
-          subject_class: 'Order'
-      operations: 
-        - id: 41
-          name: '调整运费'
-          action: ':carriage_adjustment'
-          subject_class: 'Order'
-      operations: 
-        - id: 42
-          name: '其他费用'
-          action: ':other_cost'
-          subject_class: 'Order'
-      operations: 
-        - id: 66
-          name: '接管'
-          action: ':take_over'
-          subject_class: 'Order'
-    - id: 18
-      name: '全部订单'
+    - id: 'order_fun_2'
+      name: <%= I18n.t('admin.functions.order.all_order') %>
       url: '/admin/all_orders'
-      operations: 
-        - id: 27
-          name: '查询'
-          action: '[:all,:read,:order_tracks,:take_over_logs]'
-          subject_class: 'Order'
 - id: 'account'
-  name: '个人中心'
+  name: <%= I18n.t('admin.modules.my_account') %>
   url: '/admin/my/account/edit'
   sequence: 0
+  display: false
   functions: 
     - id: 'account_fun_1'
-      name: '基础信息'
+      name: <%= I18n.t('admin.functions.my_account.base_info') %>
       url: '/admin/my/account/edit'

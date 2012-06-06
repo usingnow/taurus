@@ -1,10 +1,11 @@
 - id: '05'
-  name: '进货出货'
+  name: <%= I18n.t('admin.modules.stock') %>
   url: '/admin/store_sku_line_items'
   sequence: 7
+  display: true
   functions: 
     - id: '0501'
-      name: '查看库存'
+      name: <%= I18n.t('admin.functions.stock.stock_situation') %>
       url: '/admin/store_sku_line_items'
       operations: 
         - id: '050101'
@@ -12,7 +13,7 @@
           action: ':read'
           subject_class: 'StoreSkuLineItem'
     - id: '0502'
-      name: '进货记录'
+      name: <%= I18n.t('admin.functions.stock.replishment') %>
       url: '/admin/replenishment_records'
       operations: 
         - id: '050201'
@@ -25,7 +26,7 @@
           action: '[:create,:update]'
           subject_class: 'StoreEntry'
     - id: '0503'
-      name: '出货记录'
+      name: <%= I18n.t('admin.functions.stock.delivery') %>
       url: '/admin/delivery_records'
       operations: 
         - id: '050301'
@@ -38,7 +39,7 @@
           action: ':create'
           subject_class: 'DeliveryRecord'
     - id: '0504'
-      name: '订单出货'
+      name: <%= I18n.t('admin.functions.stock.order_delivery') %>
       url: '/admin/order_delivery_records'
       operations: 
         - id: '050401'

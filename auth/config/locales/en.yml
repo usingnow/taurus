@@ -70,3 +70,16 @@ en:
         phone: "Phone"
         address: "Address"
         zip_code: "Zip Code"
+
+  admin:
+    modules:
+      auth: "Authorization Settings"
+    functions:
+      auth: 
+        company_extend: "Company Users"
+        person_extend: "Personal Users"
+        role: "User Roles"
+        administrator: "Admin Users"
+        group: "Admin Groups"
+        permission: "Admin Authorizations"
+

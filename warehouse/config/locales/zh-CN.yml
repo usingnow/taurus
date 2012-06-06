@@ -34,3 +34,13 @@ zh-CN:
         sku_amount: "SKU数量"
       taurus/replenishment_record_sku_line_item:
         sku_amount: "数量"
+
+  admin:
+    modules:
+      stock: "进货出货"
+    functions:
+      stock:
+        stock_situation: "查看库存"  
+        replishment: "进货记录"
+        delivery: "出货记录"
+        order_delivery: "订单出货记录"

@@ -27,3 +27,6 @@ en:
         product_name: "Product Name"
 
 
+  admin:
+    modules:
+      cms: "CMS"

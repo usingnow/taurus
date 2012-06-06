@@ -1,17 +1,23 @@
 module Taurus
 	class Function
+
 		def self.all
 			data = []
-			data += YAML.load(File.open(Taurus::Warehouse::Engine.root+"lib/taurus/data/functions.yml")) if defined?(Taurus::Warehouse)
-			data += YAML.load(File.open(Taurus::Auth::Engine.root+"lib/taurus/data/functions.yml")) if defined?(Taurus::Auth)
-			data += YAML.load(File.open(Taurus::Core::Engine.root+"lib/taurus/data/functions.yml")) if defined?(Taurus::Core)
-			data += YAML.load(File.open(Taurus::Cms::Engine.root+"lib/taurus/data/functions.yml")) if defined?(Taurus::Cms)
-			data += YAML.load(File.open(Taurus::Promo::Engine.root+"lib/taurus/data/functions.yml")) if defined?(Taurus::Promo)
+			['Core', 'Auth', 'Warehouse', 'Cms'].map do |engine|
+				if defined?(eval("Taurus::#{engine}"))
+					file_path = eval("Taurus::#{engine}::Engine.root") + "lib/taurus/data/functions.yml"
+        	data += YAML.load(ERB.new(File.read(file_path)).result)
+			  end
+			end
 			data
 		end	
 
 		def self.component(id)
 			Function.all.find { |c| c["id"] == id }
+		end
+
+		def self.display
+      Function.all.find_all { |c| c["display"] == true } || []
 		end	
 	end
 end
