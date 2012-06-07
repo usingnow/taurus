@@ -15,6 +15,10 @@ module Taurus
 		  	@orders = @search.result.paginate(:page => params[:page], :per_page => 20)
 		  end
 
+		  def show
+        @order = Order.find(params[:id])
+		  end
+
 		  def relieve_reserved
         @order = Order.find(params[:id])
         @order.relieve_reserved

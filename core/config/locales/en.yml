@@ -115,6 +115,7 @@ en:
         created_at: "Created at"
         state: "Order Status"
         remarks_by_customer: "Remarks by Customer"
+        remarks_internal: "Remarks Internal"
       taurus/order_delivery:
         attention: "Attention"
         district_id: "Country/State/City"

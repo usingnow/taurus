@@ -1,0 +1,17 @@
+<div class="well">
+  <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_orders_path, :class => "btn pull-right" %>
+</div>
+
+<%= simple_form_for @order, :url => "#", :html => { :class => "form-horizontal" } do |f| %>
+  <fieldset>
+    <%= f.input :number, :disabled => true %>
+    <%= f.input :customer_name, :disabled => true %>
+    <%= f.input :total_payment, :disabled => true %>
+    <%= f.input :state, :collection => Taurus::Order::STATE, :label_method => :second, 
+                :value_method => :first, :as => :select, :disabled => true %>
+    <%= f.input :remarks_internal, :disabled => true %>
+    <%= f.input :remarks_by_customer, :disabled => true %>
+    <%= f.input :created_at, :disabled => true %>
+
+  </fieldset>
+<% end %>
