@@ -1,0 +1,14 @@
+slider_bar_1:
+  id: '1'
+  name: '上海采恪企业管理'
+  href: 'http://tauru.usingnow.com'
+  description: '测试用slide'
+  created_at: '2012-05-29 14:54:46 +0800'
+  updated_at: '2012-06-01 16:40:06 +0800'
+slider_bar_2:
+  id: '2'
+  name: '采恪管理软件'
+  href: 'http://redmine.usingnow.com'
+  description: '采恪管理软件的介绍'
+  created_at: '2012-05-29 16:58:46 +0800'
+  updated_at: '2012-06-01 16:40:23 +0800'

@@ -1,0 +1,8 @@
+role_3:
+  id: '3'
+  name: 'VIP会员'
+  description: ''
+  is_reserved: 'false'
+  role_type: '0'
+  created_at: '2012-06-06 18:31:35 +0800'
+  updated_at: '2012-06-06 18:31:35 +0800'

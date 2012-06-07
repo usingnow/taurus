@@ -1,0 +1,20 @@
+<%
+51.upto(100) do |i|
+%>
+company_extend_<%= i %>:
+  id: <%= i %>
+  name: <%= Faker::Company.name %>
+  web_address: ''
+  district_id: <%= rand(1000) %>
+  address: ''
+  phone: '18616309925'
+  fax: ''
+  zip_code: ''
+  contact_name: <%= Faker::NameCN.name %>
+  contact_dept: ''
+  contact_post: ''
+  contact_mobile: <%= Faker.numerify('13#########') %>
+  contact_sex: '1'
+  created_by: '1'
+  updated_by: ''
+<% end %>

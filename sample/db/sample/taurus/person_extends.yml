@@ -1,0 +1,15 @@
+<%
+1.upto(50) do |i|
+%>
+person_extend_<%= i %>:
+  id: <%= i %>
+  name: <%= Faker::NameCN.name %>
+  sex: '0'
+  birth: '2012-03-02'
+  district_id: <%= rand(1000) %>
+  phone: <%= Faker.numerify('13#########') %>
+  address: ''
+  zip_code: ''
+  created_by: '1'
+  updated_by: '1'
+<% end %>
