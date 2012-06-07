@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'rails', '3.1.3'
+  s.add_dependency 'rails', '3.2.2'
   s.add_dependency 'jquery-rails', '1.0.19'
   s.add_dependency 'ckeditor', '3.7.0.rc2'
   s.add_dependency 'paperclip', '2.4.0'

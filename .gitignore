@@ -4,10 +4,6 @@
 **/.bundle
 doc
 
-sandbox/tmp/*
-sandbox/log/*
-sandbox/.sass-cache/*
-sandbox/db/schema.rb
-sandbox/public/taurus/*
+sandbox
 
 
