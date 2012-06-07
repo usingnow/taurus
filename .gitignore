@@ -4,6 +4,6 @@
 **/.bundle
 doc
 
-sandbox
+sandbox/*
 
 
