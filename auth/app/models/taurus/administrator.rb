@@ -9,7 +9,10 @@ module Taurus
 
     # Setup accessible (or protected) attributes for your model
     attr_accessible :email, :password, :password_confirmation, :remember_me, :status, :name, :address, :phone,
-                    :fax, :mobile, :zip_code, :language
+                    :fax, :mobile, :zip_code, :language, :admin_type
+    
+    has_many :administrator_group_line_items, :dependent => :destroy
+    has_many :groups, :through => :administrator_group_line_items
 
     validates_presence_of :name, :email
   end

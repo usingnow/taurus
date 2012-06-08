@@ -1,8 +1,6 @@
 module Taurus
   module Admin
     class GroupsController < BaseController
-      #before_filter :authenticate_administrator!
-      #authorize_resource
 
       def index
         @search = Group.search(params[:q])
@@ -25,7 +23,8 @@ module Taurus
         @group = Group.new params[:group]
 
         if @group.save
-          redirect_to admin_groups_url
+          flash[:success] = I18n.t('successfully_created')
+          redirect_to admin_group_url(@group)
         else
           render "new"
         end
@@ -35,7 +34,8 @@ module Taurus
         @group = Group.find(params[:id])
 
         if @group.update_attributes params[:group]
-          redirect_to admin_groups_url
+          flash[:success] = I18n.t('successfully_updated')
+          redirect_to admin_group_url(@group)
         else
           render "edit"
         end

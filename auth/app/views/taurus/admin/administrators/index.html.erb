@@ -21,7 +21,12 @@
         <td><%= admin.email %></td>
         <td><%= admin.last_sign_in_at %></td>
         <td><%= format_admin_status(admin.status) %></td>
-        <td><%= link_to t('admin.actions.edit.menu'), edit_admin_administrator_path(admin), :class => "btn btn-primary trk-btn-short" %></td>
+        <td>
+          <%= link_to t('admin.actions.edit.menu'), edit_admin_administrator_path(admin), :class => "btn btn-primary trk-btn-short" %>
+          <%= link_to t('admin.actions.edit.title', :model => t('activerecord.models.taurus/group')),
+                      new_admin_administrator_administrator_group_line_item_path(admin), 
+                      :class => "btn btn-primary trk-btn-short" %>
+        </td>
       </tr>
     <% end %>
   </tbody>

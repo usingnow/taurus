@@ -24,44 +24,25 @@ module Taurus
       def create
         @administrator = Administrator.new(params[:administrator])
 
-        respond_to do |format|
-          if @administrator.save
-            format.html { redirect_to(admin_administrators_url, :notice => 'Admin was successfully created.') }
-            format.xml  { render :xml => @administrator, :status => :created, :location => @administrator }
-          else
-            format.html { render :action => "new" }
-            format.xml  { render :xml => @administrator.errors, :status => :unprocessable_entity }
-          end
+        if @administrator.save
+          flash[:success] = I18n.t('successfully_created')
+          redirect_to(admin_administrator_url(@administrator))
+        else
+          render :action => "new"
         end
       end
 
-      # PUT /admins/1
-      # PUT /admins/1.xml
       def update
         @administrator = Administrator.find(params[:id])
 
-        respond_to do |format|
-          if @administrator.update_attributes(params[:administrator])
-            format.html { redirect_to(admin_administrators_url, :notice => 'Admin was successfully updated.') }
-            format.xml  { head :ok }
-          else
-            format.html { render :action => "edit" }
-            format.xml  { render :xml => @administrator.errors, :status => :unprocessable_entity }
-          end
+        if @administrator.update_attributes(params[:administrator])
+          flash[:success] = I18n.t('successfully_updated')
+          redirect_to(admin_administrator_url(@administrator))
+        else
+          render :action => "edit"
         end
       end
 
-      # DELETE /admins/1
-      # DELETE /admins/1.xml
-      def destroy
-        @admin = Admin.find(params[:id])
-        @admin.destroy
-
-        respond_to do |format|
-          format.html { redirect_to(admin_admins_url) }
-          format.xml  { head :ok }
-        end
-      end
     end
   end
 end    

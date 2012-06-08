@@ -1,0 +1,43 @@
+<div class="well">
+	<button class="btn btn-primary"><%= @administrator.email %></button>
+  <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_administrators_path, :class => "btn pull-right" %>
+</div>
+
+<%= simple_form_for(@administrator, :method => :post,
+                    :url => admin_administrator_administrator_group_line_items_path(@administrator), 
+                    :html => {:class => 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+
+  <fieldset>
+  	<ul class="nav nav-tabs">
+      <li class="active"><a href="#"><%= t('activerecord.models.taurus/group') %></a></li>
+    </ul>
+    <div class="control-group">
+      <div class="controls">
+      	<% @groups.each do |group| %>
+	        <label class="checkbox">
+	        	<% flag = false %>
+	          
+	          <% @administrator.administrator_group_line_items.each do |admin_group| %>
+	            <% if group.id == admin_group.group_id %>
+	              <% flag = true %>
+	            <% end %>
+	          <% end %>
+
+	          <% if flag == true %>
+	            <input checked="checked" name="group[]" type="checkbox" value="<%= group.id %>" />
+	          <% else %>
+	            <input name="group[]" type="checkbox" value="<%= group.id %>" />
+	          <% end %>
+	          <%= group.name %>
+	        </label>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, :value => t('helpers.submit.update', :model => t('activerecord.models.taurus/group')),
+                   :class => "btn btn-primary" %>
+    </div>
+  </fieldset>
+<% end %>
