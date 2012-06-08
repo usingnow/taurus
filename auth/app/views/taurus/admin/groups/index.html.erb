@@ -1,5 +1,5 @@
 <div class="well">
-  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/group'))}".html_safe, new_admin_group_path, :target => "_blank", :class => "btn btn-primary" %>
+  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/group'))}".html_safe, new_admin_group_path, :class => "btn btn-primary" %>
 </div>
 
 <table class="table table-striped">
@@ -12,9 +12,9 @@
     </tr>
   </thead>
   <% @groups.each_with_index do |group,index| %>
-    <tr class="<%= cycle("odd","even") %>">
+    <tr>
       <td><%= index+1 %></td>
-      <td><%= group.name %></td>
+      <td><%= link_to group.name, admin_group_path(group) %></td>
       <td><%= group.description %></td>
       <td><%= link_to t('admin.actions.edit.menu'), edit_admin_group_path(group), :class => "btn btn-primary trk-btn-short" %></td>
     </tr>
@@ -23,4 +23,3 @@
     <tr><td colspan="4"><%= will_paginate @groups, :renderer => BootstrapPagination::Rails %></td></tr>
   </tfoot>
 </table>
-

@@ -18,6 +18,18 @@ module Taurus
 
 		def self.display
       Function.all.find_all { |c| c["display"] == true } || []
+		end
+
+		def self.permissions(operation_id)
+			result = []
+      Function.all.each do |com|
+        com["functions"].each do |fun|
+          fun["operations"].each do |oper|
+            result += oper["permissions"] if oper["id"] == operation_id
+          end
+        end
+      end
+      result 
 		end	
 	end
 end

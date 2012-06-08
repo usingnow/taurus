@@ -1,10 +1,13 @@
 Taurus::Core::Engine.routes.draw do
   namespace :admin do
-    resources :administrators
+    resources :administrators do
+      resources :administrator_group_line_items
+    end
     resources :groups
     resources :roles
     resources :company_extends
     resources :person_extends
+    resources :permissions
   end
 
 

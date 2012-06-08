@@ -1,3 +1,4 @@
+#encoding:UTF-8
 module Taurus
   module Admin
   	class BaseController < Taurus::BaseController
@@ -12,6 +13,16 @@ module Taurus
 		  end
 
   		layout '/taurus/layouts/admin'
-  	end
+
+      private
+      #CanCan
+      def current_ability
+        @current_ability ||= Ability.new(current_administrator)
+      end
+
+      rescue_from CanCan::AccessDenied do
+        render :text => "访问被拒绝！"
+      end
+    end
   end
 end

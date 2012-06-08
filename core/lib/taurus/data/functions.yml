@@ -1,131 +1,150 @@
-- id: '01'
+- id: 'product'
   name: <%= I18n.t('admin.modules.product') %>
   url: "/admin/products"
   sequence: 9
   display: true
   functions: 
-    - id: '0101'
+    - id: 'product_supplier'
       name: <%= I18n.t('admin.functions.product.supplier') %>
       url: '/admin/suppliers'
       operations: 
-        - id: '010101'
+        - id: 'product_supplier_query'
           name: '查询'
-          action: ':read'
-          subject_class: 'Supplier'
-      operations: 
-        - id: '010102'
-          name: '管理'
-          action: '[:create,:update]'
-          subject_class: 'Supplier'
-    - id: '0102'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
+    - id: 'product_brand'
       name: <%= I18n.t('admin.functions.product.brand') %>
       url: '/admin/brands'
       operations: 
-        - id: '010201'
+        - id: 'product_brand_query'
           name: '查询'
-          action: ':read'
-          subject_class: 'Brand'
-      operations: 
-        - id: '010202'
-          name: '管理'
-          action: '[:create,:update]'
-          subject_class: 'Brand'
-    - id: '0103'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
+    - id: 'product_category'
       name: <%= I18n.t('admin.functions.product.product_category') %>
       url: '/admin/product_categories'
       operations: 
-        - id: '010301'
+        - id: 'product_category_query'
           name: '查询'
-          action: ':read'
-          subject_class: 'ProductCategory'
-      operations: 
-        - id: '010302'
-          name: '管理'
-          action: '[:create,:update]'
-          subject_class: 'ProductCategory'
-    - id: '0104'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
+    - id: 'product_sku'
       name: <%= I18n.t('admin.functions.product.sku') %>
       url: '/admin/skus'
       operations: 
-        - id: '010401'
+        - id: 'product_sku_query'
           name: '查询'
-          action: ':read'
-          subject_class: 'Sku'
-      operations: 
-        - id: '010402'
-          name: '管理'
-          action: '[:create,:update]'
-          subject_class: 'Sku'
-    - id: '0105'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
+    - id: 'product_product'
       name: <%= I18n.t('admin.functions.product.product') %>
       url: '/admin/products'
-- id: '02'
+      operations: 
+        - id: 'product_product_query'
+          name: '查询'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
+- id: 'baisc'
   name: <%= I18n.t('admin.modules.baisc_setting') %>
   url: '/admin/industries'
   sequence: 1
   display: true
   functions:
-    - id: '0201'
+    - id: 'baisc_industry'
       name: <%= I18n.t('admin.functions.baisc_setting.company_industry') %>
       url: '/admin/industries'
       operations: 
-        - id: '020101'
+        - id: 'baisc_industry_query'
           name: '查询'
-          action: ':read'
-          subject_class: 'Industry' 
-    - id: '0202'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
+    - id: 'baisc_companytype'
       name: <%= I18n.t('admin.functions.baisc_setting.company_type') %>
       url: '/admin/company_types'
       operations: 
-        - id: '020201'
+        - id: 'baisc_companytype_query'
           name: '查询'
-          action: ':read'
-          subject_class: 'CompanyType'
-    - id: '0203'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
+    - id: 'baisc_companyscale'
       name: <%= I18n.t('admin.functions.baisc_setting.company_size') %>
       url: '/admin/company_scales'
       operations: 
-        - id: '020301'
+        - id: 'baisc_companyscale_query'
           name: '查询'
-          action: ':read'
-          subject_class: 'CompanyScale'
-    - id: '0204'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
+    - id: 'baisc_area'
       name: <%= I18n.t('admin.functions.baisc_setting.regions_and_freight') %>
       url: '/admin/1'
       operations: 
-        - id: '020401'
+        - id: 'baisc_area_query'
           name: '查询'
-          action: ':read'
-          subject_class: ''
-    - id: '0205'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
+    - id: 'baisc_paymentmethod'
       name: <%= I18n.t('admin.functions.baisc_setting.order_processes') %>
       url: '/admin/2'
       operations: 
-        - id: '020501'
+        - id: 'baisc_paymentmethod_query'
           name: '查询'
-          action: ':read'
-          subject_class: ''       
-    - id: '0206'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'       
+    - id: 'baisc_alipay'
       name: <%= I18n.t('admin.functions.baisc_setting.alipay_setting') %>
       url: '/admin/alipays'
+      operations: 
+        - id: 'baisc_alipay_query'
+          name: '查询'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
 - id: 'order'
   name: <%= I18n.t('admin.modules.order') %>
   url: '/admin/orders'
   sequence: 8
   display: true
   functions: 
-    - id: 'order_fun_1'
+    - id: 'order_progress'
       name: <%= I18n.t('admin.functions.order.order_in_progress') %>
       url: '/admin/orders'
-    - id: 'order_fun_2'
+      operations: 
+        - id: 'order_progress_query'
+          name: '查询'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
+    - id: 'order_all'
       name: <%= I18n.t('admin.functions.order.all_order') %>
       url: '/admin/all_orders'
+      operations: 
+        - id: 'order_all_query'
+          name: '查询'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
 - id: 'account'
   name: <%= I18n.t('admin.modules.my_account') %>
   url: '/admin/my/account/edit'
   sequence: 0
   display: false
   functions: 
-    - id: 'account_fun_1'
+    - id: 'account_details'
       name: <%= I18n.t('admin.functions.my_account.base_info') %>
       url: '/admin/my/account/edit'
+      operations: 
+        - id: 'account_details_query'
+          name: '查询'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'

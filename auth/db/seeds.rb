@@ -8,7 +8,8 @@ Taurus::Administrator.create(
   :mobile => "13012345678",
   :fax => "12345678",
   :zip_code => "100000",
-  :address => "address"
+  :address => "address",
+  :admin_type => 0
 )
 
 default_path = File.join(File.dirname(__FILE__), 'default')

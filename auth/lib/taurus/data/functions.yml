@@ -1,94 +1,60 @@
-- id: '08'
+- id: 'auth'
   name: <%= I18n.t('admin.modules.auth') %>
   url: '/admin/company_extends'
   sequence: 0
   display: true
   functions:
-    - id: '0804'
+    - id: 'auth_company'
       name: <%= I18n.t('admin.functions.auth.company_extend') %>
       url: '/admin/company_extends'
       operations: 
-        - id: '080401'
+        - id: 'auth_company_query'
           name: '查询'
-          action: ':read'
-          subject_class: 'CompanyExtend'
-      operations: 
-        - id: '080402'
-          name: '管理'
-          action: '[:create,:update]'
-          subject_class: 'CompanyExtend'
-      operations: 
-        - id: '080403'
-          name: '积分修改'
-          action: ':points'
-          subject_class: 'CompanyExtend' 
-    - id: '0805'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
+    - id: 'auth_person'
       name: <%= I18n.t('admin.functions.auth.person_extend') %>
       url: '/admin/person_extends'
       operations: 
-        - id: '080501'
+        - id: 'auth_person_query'
           name: '查询'
-          action: ':read'
-          subject_class: 'PersonExtend'
-      operations: 
-        - id: '080502'
-          name: '管理'
-          action: '[:create,:update]'
-          subject_class: 'PersonExtend'
-      operations: 
-        - id: '080503'
-          name: '积分修改'
-          action: ':points'
-          subject_class: 'PersonExtend'
-    - id: '0803'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
+    - id: 'auth_role'
       name: <%= I18n.t('admin.functions.auth.role') %>
       url: '/admin/roles'
       operations: 
-        - id: '080301'
+        - id: 'auth_role_query'
           name: '查询'
-          action: ':read'
-          subject_class: 'Role'
-      operations: 
-        - id: '080302'
-          name: '管理'
-          action: '[:create,:update,:manage]'
-          subject_class: '[Role,ProcedureRoleship]'      
-    - id: '0801'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
+    - id: 'auth_administrator'
       name: <%= I18n.t('admin.functions.auth.administrator') %>
       url: '/admin/administrators'
       operations: 
-        - id: '080101'
+        - id: 'auth_administrator_query'
           name: '查询'
-          action: ':read'
-          subject_class: 'Administrator'
-      operations: 
-        - id: '080102'
-          name: '管理'
-          action: '[:create,:update,:manage]'
-          subject_class: '[Administrator,AdministratorGroupship]'
-    - id: '0802'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
+    - id: 'auth_group'
       name: <%= I18n.t('admin.functions.auth.group') %>
       url: '/admin/groups'
       operations: 
-        - id: '080201'
+        - id: 'auth_group_query'
           name: '查询'
-          action: ':read'
-          subject_class: 'Group'
-      operations: 
-        - id: '080202'
-          name: '管理'
-          action: '[:create,:update]'
-          subject_class: 'Group'
-    - id: '0806'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
+    - id: 'auth_permission'
       name: <%= I18n.t('admin.functions.auth.permission') %>
       url: '/admin/permissions'
       operations: 
-        - id: '080601'
+        - id: 'auth_permission_query'
           name: '查询'
-          action: ':read'
-          subject_class: 'Permission'
-      operations: 
-        - id: '080602'
-          name: '管理'
-          action: '[:create,:procedure_create]'
-          subject_class: 'Permission'
+          permissions:
+            - action_name: ':read'
+              class_name: 'Permission'

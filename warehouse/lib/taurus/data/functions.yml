@@ -1,53 +1,42 @@
-- id: '05'
+- id: 'warehouse'
   name: <%= I18n.t('admin.modules.stock') %>
   url: '/admin/store_sku_line_items'
   sequence: 7
   display: true
   functions: 
-    - id: '0501'
+    - id: 'warehouse_stock'
       name: <%= I18n.t('admin.functions.stock.stock_situation') %>
       url: '/admin/store_sku_line_items'
       operations: 
-        - id: '050101'
+        - id: 'warehouse_stock_query'
           name: '查询'
-          action: ':read'
-          subject_class: 'StoreSkuLineItem'
-    - id: '0502'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
+    - id: 'warehouse_replishment'
       name: <%= I18n.t('admin.functions.stock.replishment') %>
       url: '/admin/replenishment_records'
       operations: 
-        - id: '050201'
+        - id: 'warehouse_replishment_query'
           name: '查询'
-          action: ':read'
-          subject_class: 'StoreEntry'
-      operations: 
-        - id: '050202'
-          name: '管理'
-          action: '[:create,:update]'
-          subject_class: 'StoreEntry'
-    - id: '0503'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
+    - id: 'warehouse_delivery'
       name: <%= I18n.t('admin.functions.stock.delivery') %>
       url: '/admin/delivery_records'
       operations: 
-        - id: '050301'
+        - id: 'warehouse_delivery_query'
           name: '查询'
-          action: ':read'
-          subject_class: 'DeliveryRecord'
-      operations: 
-        - id: '050302'
-          name: '管理'
-          action: ':create'
-          subject_class: 'DeliveryRecord'
-    - id: '0504'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'
+    - id: 'warehouse_orderdelivery'
       name: <%= I18n.t('admin.functions.stock.order_delivery') %>
       url: '/admin/order_delivery_records'
       operations: 
-        - id: '050401'
+        - id: 'warehouse_orderdelivery_query'
           name: '查询'
-          action: ':orders'
-          subject_class: 'DeliveryRecord'
-      operations: 
-        - id: '050402'
-          name: '管理'
-          action: ':orders'
-          subject_class: 'DeliveryRecord'
+          permissions:
+            - action_name: '[:create,:update]'
+              class_name: 'Group'

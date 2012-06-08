@@ -48,6 +48,7 @@ class DeviseCreateTaurusAdministrators < ActiveRecord::Migration
       t.string :zip_code
       t.string :address
       t.string :language
+      t.integer :admin_type, :default => 1
 
       t.timestamps
     end

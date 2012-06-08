@@ -7,6 +7,7 @@ zh-CN:
       taurus/user: "会员"
       taurus/company_extend: "企业会员"
       taurus/person_extend: "个人会员"
+      taurus/fun_permission: "功能权限"
     attributes:
       taurus/administrator:
         email: "邮箱"
@@ -20,6 +21,7 @@ zh-CN:
         status: "激活"
         last_sign_in_at: "上次登录时间"
         language: "语言"
+        groups: "所属组"
       taurus/group:
         name: "名称"
         description: "描述"  

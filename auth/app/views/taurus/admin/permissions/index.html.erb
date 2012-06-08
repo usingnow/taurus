@@ -1,22 +1,25 @@
-<h1>组列表</h1>
-
-<table class="grid">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>
-      <th>名称</th>
-      <th>描述</th>
-      <th></th>
-      <th></th>
+      <th><%= t('activerecord.attributes.taurus/group.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/group.description') %></th>
+      <th><%= t('admin.misc.operation') %></th>
     </tr>
   </thead>
   <% @groups.each_with_index do |group,index| %>
-    <tr class="<%= set_odd_even_class index %>">
+    <tr>
       <td><%= index+1 %></td>
       <td><%= group.name %></td>
-      <td><%= group.desc %></td>
-      <td><%= link_to '设置功能权限', new_admin_permission_path(:group_id => group) if can? :create, Permission, :group_id => 2 %></td>
-      <td><%= link_to '设置流程权限', procedure_new_admin_permission_path(group) if can? :procedure_create, Permission.first %></td>
+      <td><%= group.description %></td>
+      <td>
+        <%= link_to t('admin.actions.edit.title', :model => t('activerecord.models.taurus/fun_permission')), 
+                    edit_admin_permission_path(group), :class => "btn btn-primary trk-btn-short" %>
+      </td>
     </tr>
   <% end %>
+  <tfoot>
+    <tr><td colspan="4"><%= will_paginate @groups, :renderer => BootstrapPagination::Rails %></td></tr>
+  </tfoot>
 </table>
+
