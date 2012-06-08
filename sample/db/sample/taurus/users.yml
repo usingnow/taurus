@@ -20,7 +20,7 @@ user_<%= i %>:
   email: <%= Faker::Internet.email %>
   encrypted_password: '$2a$10$8K2EBkOGMW2aiQFTrWUBXeK1RX4fX95PVomVBkNdy9EiiAeuNS2Ge'
   sign_in_count: '0'
-  taurus_userable_id: <%= i %>
+  taurus_userable_id: <%= (i-50) %>
   taurus_userable_type: 'Taurus::CompanyExtend'
   points: '0'
   role_id: '1'

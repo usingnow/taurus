@@ -3,6 +3,7 @@
 %>
 person_extend_<%= i %>:
   id: <%= i %>
+  number: <%= "P" + i.to_s.rjust(6,"0") %>
   name: <%= Faker::NameCN.name %>
   sex: '0'
   birth: '2012-03-02'
