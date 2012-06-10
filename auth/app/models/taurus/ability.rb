@@ -13,7 +13,13 @@ module Taurus
         can :manage, :all
       else
         administrator ||= Administrator.new 
-        
+        administrator.groups.each do |group|
+          group.fun_permissions.each do |fun_per|
+            fun_per.permissions.each do |per|
+              can eval(per.action_name), eval(per.class_name)
+            end
+          end
+        end
       end  
 
       #

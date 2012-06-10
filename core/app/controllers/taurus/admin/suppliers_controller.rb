@@ -1,6 +1,7 @@
 module Taurus
   module Admin
     class SuppliersController < BaseController
+      load_and_authorize_resource :class => "Taurus::Supplier"
 
       def index
         @search = Supplier.search(params[:q])

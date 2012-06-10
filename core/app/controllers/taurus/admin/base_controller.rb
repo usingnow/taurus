@@ -17,7 +17,7 @@ module Taurus
       private
       #CanCan
       def current_ability
-        @current_ability ||= Ability.new(current_administrator)
+        @current_ability ||= Taurus::Ability.new(current_administrator)
       end
 
       rescue_from CanCan::AccessDenied do
