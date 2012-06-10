@@ -43,7 +43,13 @@ module Taurus
 
       def destroy
         @group = Group.find(params[:id])
-        @group.destroy
+
+        if @group.destroy
+          flash[:success] = I18n.t('successfully_destroyed')
+        else
+          flash[:error] = I18n.t('failure_destroyed')
+        end
+
         redirect_to admin_groups_url
       end
     end

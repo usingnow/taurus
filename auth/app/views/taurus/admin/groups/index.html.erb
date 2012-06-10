@@ -2,6 +2,8 @@
   <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/group'))}".html_safe, new_admin_group_path, :class => "btn btn-primary" %>
 </div>
 
+<%= flash_messages %>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -16,10 +18,20 @@
       <td><%= index+1 %></td>
       <td><%= link_to group.name, admin_group_path(group) %></td>
       <td><%= group.description %></td>
-      <td><%= link_to t('admin.actions.edit.menu'), edit_admin_group_path(group), :class => "btn btn-primary trk-btn-short" %></td>
+      <td>
+        <%= link_to t('admin.actions.edit.menu'), edit_admin_group_path(group), 
+                    :class => "btn btn-primary trk-btn-short" %>
+        <%= link_to t('admin.actions.delete.menu'), admin_group_path(group), :method => :delete,
+                    :confirm => t("admin.actions.delete.confirm"), 
+                    :class => "btn btn-primary trk-btn-short" %>
+      </td>
     </tr>
   <% end %>
   <tfoot>
-    <tr><td colspan="4"><%= will_paginate @groups, :renderer => BootstrapPagination::Rails %></td></tr>
+    <tr>
+      <td colspan="4">
+        <%= will_paginate @groups, :renderer => BootstrapPagination::Rails %>
+      </td>
+    </tr>
   </tfoot>
 </table>
