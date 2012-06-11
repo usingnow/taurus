@@ -20,17 +20,26 @@ module Taurus
 
     def functions
       fun_str = ""
-      component['functions'].each_with_index do |fun,index|
-        if index == 0
-          fun_str += content_tag(:li, component['name'], :class => "nav-header")
-          fun_str += content_tag(:li, '', :class => 'divider')
+
+      if request.fullpath.gsub('//', '/') == "/admin"
+        coms = Taurus::Function.display.sort_by{ |c| -c["sequence"] }
+        coms.each do |com|
+          fun_str << content_tag(:li, (link_to com["name"], com["url"]))
         end
-        if request.fullpath.gsub('//', '/').starts_with?(fun["url"])
-          fun_str += content_tag(:li, (link_to fun['name'], fun['url']), :class => "active") 
-        else  
-          fun_str += content_tag(:li, (link_to fun['name'], fun['url'])) 
-        end     
-      end if component['functions']
+      else
+        component['functions'].each_with_index do |fun,index|
+          if index == 0
+            fun_str += content_tag(:li, component['name'], :class => "nav-header")
+            fun_str += content_tag(:li, '', :class => 'divider')
+          end
+          if request.fullpath.gsub('//', '/').starts_with?(fun["url"])
+            fun_str += content_tag(:li, (link_to fun['name'], fun['url']), :class => "active") 
+          else  
+            fun_str += content_tag(:li, (link_to fun['name'], fun['url'])) 
+          end     
+        end if component['functions']
+      end  
+
       if fun_str.blank?
         nil
       else

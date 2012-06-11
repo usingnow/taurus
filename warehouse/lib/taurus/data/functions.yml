@@ -11,8 +11,8 @@
         - id: 'warehouse_stock_query'
           name: '查询'
           permissions:
-            - action_name: '[:create,:update]'
-              class_name: 'Group'
+            - action_name: ':read'
+              class_name: 'StoreSkuLineItem'
     - id: 'warehouse_replishment'
       name: <%= I18n.t('admin.functions.stock.replishment') %>
       url: '/admin/replenishment_records'
@@ -20,8 +20,13 @@
         - id: 'warehouse_replishment_query'
           name: '查询'
           permissions:
-            - action_name: '[:create,:update]'
-              class_name: 'Group'
+            - action_name: ':read'
+              class_name: 'ReplishmentRecord'
+        - id: 'warehouse_replishment_create'
+          name: '新建'
+          permissions:
+            - action_name: ':create'
+              class_name: 'ReplishmentRecord'      
     - id: 'warehouse_delivery'
       name: <%= I18n.t('admin.functions.stock.delivery') %>
       url: '/admin/delivery_records'
@@ -29,8 +34,8 @@
         - id: 'warehouse_delivery_query'
           name: '查询'
           permissions:
-            - action_name: '[:create,:update]'
-              class_name: 'Group'
+            - action_name: ':read'
+              class_name: 'DeliveryRecord'
     - id: 'warehouse_orderdelivery'
       name: <%= I18n.t('admin.functions.stock.order_delivery') %>
       url: '/admin/order_delivery_records'
@@ -39,4 +44,4 @@
           name: '查询'
           permissions:
             - action_name: '[:create,:update]'
-              class_name: 'Group'
+              class_name: 'DeliveryRecord'

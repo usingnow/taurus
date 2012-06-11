@@ -114,24 +114,24 @@
           permissions:
             - action_name: '[:create,:update]'
               class_name: 'Group'
-    - id: 'baisc_area'
-      name: <%= I18n.t('admin.functions.baisc_setting.regions_and_freight') %>
-      url: '/admin/1'
-      operations: 
-        - id: 'baisc_area_query'
-          name: '查询'
-          permissions:
-            - action_name: '[:create,:update]'
-              class_name: 'Group'
-    - id: 'baisc_paymentmethod'
-      name: <%= I18n.t('admin.functions.baisc_setting.order_processes') %>
-      url: '/admin/2'
-      operations: 
-        - id: 'baisc_paymentmethod_query'
-          name: '查询'
-          permissions:
-            - action_name: '[:create,:update]'
-              class_name: 'Group'       
+#    - id: 'baisc_area'
+#      name: <%= I18n.t('admin.functions.baisc_setting.regions_and_freight') %>
+#      url: '/admin/1'
+#      operations: 
+#        - id: 'baisc_area_query'
+#          name: '查询'
+#          permissions:
+#            - action_name: '[:create,:update]'
+#              class_name: 'Group'
+#    - id: 'baisc_paymentmethod'
+#      name: <%= I18n.t('admin.functions.baisc_setting.order_processes') %>
+#      url: '/admin/2'
+#      operations: 
+#        - id: 'baisc_paymentmethod_query'
+#          name: '查询'
+#          permissions:
+#            - action_name: '[:create,:update]'
+#              class_name: 'Group'       
     - id: 'baisc_alipay'
       name: <%= I18n.t('admin.functions.baisc_setting.alipay_setting') %>
       url: '/admin/alipays'

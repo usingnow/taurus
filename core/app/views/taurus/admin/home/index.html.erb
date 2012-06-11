@@ -1,1 +1,22 @@
-<%= link_to "<i class='icon-edit'>abc</i>".html_safe %>
+<p style="font-size:16px">
+	<%= current_administrator.name %>,你好。
+</p>
+<p style="font-size:16px">	
+	请点击页面左侧或者上方的连接进入对应的功能模块。
+</p>	
+<p style="font-size:16px">	
+	如果需要调整访问权限，请联系系统管理员。
+</p>
+<p style="font-size:16px">	
+	如果对系统的使用有任何问题或者建议，请通过以下邮件与我们联系。
+</p>
+<p style="font-size:16px">	
+	<%= link_to "email: opensource@usingnow.com", "#", 
+	            :onclick => "return window.location.href='mailto:opensource@usingnow.com'"  %>
+</p>	
+<p style="font-size:16px">	
+	谢谢使用采恪电子商务管理平台。
+</p>	
+<p style="font-size:16px">	
+	上海采恪
+</p>		
