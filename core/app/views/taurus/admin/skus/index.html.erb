@@ -7,7 +7,10 @@
     <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
   <% end %>
   <hr />
-  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/sku'))}".html_safe, new_admin_sku_path, :class => "btn btn-primary" %>
+  <a href="<%= new_admin_sku_path %>" class="btn btn-primary" id="create_tag">
+    <i class="icon-plus-sign"></i>
+    <%= t('admin.actions.new.title',:model => t('activerecord.models.taurus/sku')) %>
+  </a>  
 </div>
 
 
@@ -28,8 +31,12 @@
       <td><%= sku.name %></td>
       <td><%= sku.product_category.name %></td>
       <td>
-        <%= link_to t('admin.actions.edit.menu'), edit_admin_sku_path(sku), :class => "btn btn-primary trk-btn-short" %>
-        <%= link_to t('admin.misc.clone'), clone_admin_sku_path(sku), :class => "btn btn-primary trk-btn-short" %>
+        <a href="<%= edit_admin_sku_path(sku) %>" class="btn btn-primary trk-btn-short update_tag">
+          <%= t('admin.actions.edit.menu') %>
+        </a> 
+        <a href="<%= clone_admin_sku_path(sku) %>" class="btn btn-primary trk-btn-short clone_tag">
+          <%= t('admin.misc.clone') %>
+        </a>
       </td>
     </tr>
   <% end %>

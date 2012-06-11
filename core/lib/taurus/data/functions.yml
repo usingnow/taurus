@@ -60,8 +60,13 @@
         - id: 'product_sku_query'
           name: '查询'
           permissions:
-            - action_name: '[:create,:update]'
-              class_name: 'Group'
+            - action_name: ':read'
+              class_name: 'Sku'
+        - id: 'product_brand_create#update#clone'
+          name: '新建、修改、复制'
+          permissions:
+            - action_name: '[:create, :update, :clone]'
+              class_name: 'Sku'
     - id: 'product_product'
       name: <%= I18n.t('admin.functions.product.product') %>
       url: '/admin/products'

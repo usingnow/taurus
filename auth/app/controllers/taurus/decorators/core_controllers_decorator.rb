@@ -9,3 +9,7 @@ end
 Taurus::Admin::ProductCategoriesController.class_eval do
   load_and_authorize_resource :class => "Taurus::ProductCategory"
 end
+
+Taurus::Admin::SkusController.class_eval do
+  load_and_authorize_resource :class => "Taurus::Sku"
+end
