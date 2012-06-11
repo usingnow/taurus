@@ -1,6 +1,9 @@
+#encoding:UTF-8
 module Taurus
   class ProductCategory < ActiveRecord::Base
     attr_accessor :parent_name
+
+    STATUS = { true => "激活", false => "未激活" }
 
   	has_many :custom_properties
   	has_many :skus
