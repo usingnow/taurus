@@ -13,3 +13,7 @@ end
 Taurus::Admin::SkusController.class_eval do
   load_and_authorize_resource :class => "Taurus::Sku"
 end
+
+Taurus::Admin::ProductsController.class_eval do
+  load_and_authorize_resource :class => "Taurus::Product"
+end
