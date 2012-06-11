@@ -1,9 +1,14 @@
 <div class="well">
-  <%= link_to "<i class='icon-edit'></i> #{t('admin.actions.edit.menu')}".html_safe, edit_admin_brand_path(@brand), :class => "btn btn-primary" %>
-  <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_brands_path, :class => "btn pull-right" %>
+  <a href="<%= edit_admin_brand_path(@brand) %>" class="btn btn-primary" id="update_tag">
+    <i class="icon-edit"></i>
+    <%= t('admin.actions.edit.menu') %>
+  </a>
+
+  <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_brands_path, 
+              :class => "btn pull-right" %>
 </div>
 
-<form class="form-horizontal">
+<%= simple_form_for(@brand, :url => "#", :html => {:multipart=>true, :class => 'form-horizontal'})  do |f| %>
   <fieldset>
     <div class="control-group">
       <label class="control-label"><%= t 'activerecord.attributes.taurus/brand.image' %></label>
@@ -11,48 +16,12 @@
         <%= image_tag @brand.image.url %>
       </div>
     </div> 
-
-    <div class="control-group">
-      <label class="control-label"><%= t 'activerecord.attributes.taurus/brand.chinese_name' %></label>
-      <div class="controls">
-        <span class="uneditable-input"><%= @brand.chinese_name %></span>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label"><%= t 'activerecord.attributes.taurus/brand.english_name' %></label>
-      <div class="controls">
-        <span class="uneditable-input"><%= @brand.english_name %></span>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label"><%= t 'activerecord.attributes.taurus/brand.pinyin' %></label>
-      <div class="controls">
-        <span class="uneditable-input"><%= @brand.pinyin %></span>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label"><%= t 'activerecord.attributes.taurus/brand.web_address' %></label>
-      <div class="controls">
-        <span class="uneditable-input"><%= @brand.web_address %></span>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label"><%= t 'activerecord.attributes.taurus/brand.company_name' %></label>
-      <div class="controls">
-        <span class="uneditable-input"><%= @brand.company_name %></span>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label"><%= t 'activerecord.attributes.taurus/brand.company_description' %></label>
-      <div class="controls">
-        <span class="uneditable-input"><%= @brand.company_description %></span>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label"><%= t 'activerecord.attributes.taurus/brand.status' %></label>
-      <div class="controls">
-        <span class="uneditable-input"><%= format_boolean(@brand.status) %></span>
-      </div>
-    </div>
+    <%= f.input :chinese_name, :disabled => true %>
+    <%= f.input :english_name, :disabled => true %>
+    <%= f.input :pinyin, :disabled => true %>
+    <%= f.input :web_address, :disabled => true %>
+    <%= f.input :company_name, :disabled => true %>
+    <%= f.input :company_description, :input_html => { :rows => 5 }, :disabled => true %>
+    <%= f.input :status, :disabled => true %>
   </fieldset>
-</form>
+<% end %>

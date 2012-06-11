@@ -4,7 +4,10 @@
     <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
   <% end %>
   <hr />
-  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/supplier'))}".html_safe, new_admin_supplier_path, :class => "btn btn-primary" if can? :create, Taurus::Supplier %>
+  <a href="<%= new_admin_supplier_path %>" class="btn btn-primary" id="create_tag">
+    <i class="icon-plus-sign"></i>
+    <%= t('admin.actions.new.title',:model => t('activerecord.models.taurus/supplier')) %>
+  </a>
 </div>
 
 
@@ -25,8 +28,9 @@
       <td><%= supplier.name %></td>
       <td><%= supplier.updated_at %></td>
       <td>
-        <%= link_to t('admin.actions.edit.menu'), edit_admin_supplier_path(supplier), 
-            :class => "btn btn-primary trk-btn-short" if can? :update, supplier %>
+        <a href="<%= edit_admin_supplier_path(supplier) %>" class="btn btn-primary trk-btn-short update_tag">
+          <%= t('admin.actions.edit.menu') %>
+        </a>
       </td>
     </tr>
   <% end %>

@@ -25,8 +25,13 @@
         - id: 'product_brand_query'
           name: '查询'
           permissions:
-            - action_name: '[:create,:update]'
-              class_name: 'Group'
+            - action_name: ':read'
+              class_name: 'Brand'
+        - id: 'product_brand_createupdate'
+          name: '新建、修改'
+          permissions:
+            - action_name: '[:create, :update]'
+              class_name: 'Brand'      
     - id: 'product_category'
       name: <%= I18n.t('admin.functions.product.product_category') %>
       url: '/admin/product_categories'

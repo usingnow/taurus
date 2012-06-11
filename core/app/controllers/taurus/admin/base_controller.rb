@@ -2,6 +2,7 @@
 module Taurus
   module Admin
   	class BaseController < Taurus::BaseController
+
       # 判断是否登录
   		before_filter do 
 		    redirect_to :administrator_session unless current_administrator

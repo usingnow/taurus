@@ -29,4 +29,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'will_paginate-bootstrap'
   s.add_dependency 'rails3-jquery-autocomplete'
   s.add_dependency 'state_machine', '= 1.1.2'
+  s.add_dependency 'deface', '>= 0.8.0'
 end

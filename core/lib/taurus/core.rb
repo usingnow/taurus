@@ -10,7 +10,7 @@ require 'twitter-bootstrap-rails'
 require 'will_paginate-bootstrap'
 require 'rails3-jquery-autocomplete'
 require 'state_machine'
-
+require 'deface'
 
 module Taurus
   module Core
