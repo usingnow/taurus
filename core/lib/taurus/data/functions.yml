@@ -13,7 +13,7 @@
           permissions:
             - action_name: ':read'
               class_name: 'Supplier'
-        - id: 'product_supplier_createupdate'
+        - id: 'product_supplier_create#update'
           name: '新建、修改'
           permissions:
             - action_name: '[:create, :update]'
@@ -27,7 +27,7 @@
           permissions:
             - action_name: ':read'
               class_name: 'Brand'
-        - id: 'product_brand_createupdate'
+        - id: 'product_brand_create#update'
           name: '新建、修改'
           permissions:
             - action_name: '[:create, :update]'
@@ -39,8 +39,20 @@
         - id: 'product_category_query'
           name: '查询'
           permissions:
-            - action_name: '[:create,:update]'
-              class_name: 'Group'
+            - action_name: ':read'
+              class_name: 'ProductCategory'
+        - id: 'product_brand_create#update#custom'
+          name: '新建、修改、自定义属性'
+          permissions:
+            - action_name: '[:create, :update]'
+              class_name: 'ProductCategory'
+            - action_name: ':manage'
+              class_name: 'CustomProperty'
+        - id: 'product_category_destroy'
+          name: '删除'
+          permissions:
+            - action_name: ':delete'
+              class_name: 'ProductCategory'
     - id: 'product_sku'
       name: <%= I18n.t('admin.functions.product.sku') %>
       url: '/admin/skus'
