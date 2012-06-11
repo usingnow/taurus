@@ -2,6 +2,7 @@ module Taurus
 	module Admin
 		class BrandsController < BaseController
 			def index
+				params[:q] = { :status_eq => true } unless params[:q]
 		    @search = Brand.search(params[:q])
 		    @brands = @search.result.paginate(:page => params[:page], :per_page => 20)
 		  end

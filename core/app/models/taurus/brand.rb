@@ -1,5 +1,8 @@
+#encoding:UTF-8
 module Taurus
   class Brand < ActiveRecord::Base
+    STATUS = { true => "激活", false => "未激活" }
+    
   	has_attached_file :image,
 	                    :url  => "/taurus/brands/:id/:style/:basename.:extension",
 	                    :path => ":rails_root/public/taurus/brands/:id/:style/:basename.:extension"
