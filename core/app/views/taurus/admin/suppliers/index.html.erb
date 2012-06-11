@@ -1,6 +1,8 @@
 <div class="well">
   <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
     <%= f.text_field :name_cont, :placeholder => t('activerecord.attributes.taurus/supplier.name'), :class => "trk-non-inline-margin" %>
+    <%= f.collection_select :status_eq, Taurus::Supplier::STATUS, :first, :second,
+                            :include_blank => "全部", :class => "trk-non-inline-margin" %>
     <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
   <% end %>
   <hr />

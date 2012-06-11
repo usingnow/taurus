@@ -3,6 +3,7 @@ module Taurus
     class SuppliersController < BaseController
 
       def index
+        params[:q] = { :status_eq => true } unless params[:q]
         @search = Supplier.search(params[:q])
         @suppliers = @search.result.paginate(:page => params[:page], :per_page => 20)
       end
