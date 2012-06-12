@@ -94,8 +94,13 @@
         - id: 'baisc_industry_query'
           name: '查询'
           permissions:
-            - action_name: '[:create,:update]'
-              class_name: 'Group'
+            - action_name: ':read'
+              class_name: 'Industry'
+        - id: 'baisc_industry_create#update'
+          name: '新建、修改'
+          permissions:
+            - action_name: '[:create, :update]'
+              class_name: 'Industry'      
     - id: 'baisc_companytype'
       name: <%= I18n.t('admin.functions.baisc_setting.company_type') %>
       url: '/admin/company_types'

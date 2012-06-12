@@ -22,6 +22,10 @@ Taurus::Admin::OrdersController.class_eval do
   load_and_authorize_resource :class => "Taurus::Order"
 end
 
+Taurus::Admin::IndustriesController.class_eval do
+  load_and_authorize_resource :class => "Taurus::Industry"
+end
+
 if defined?(Taurus::Warehouse)
   Taurus::Admin::StoreSkuLineItemsController.class_eval do
     load_and_authorize_resource :class => "Taurus::StoreSkuLineItem"
