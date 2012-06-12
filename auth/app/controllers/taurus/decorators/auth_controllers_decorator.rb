@@ -25,3 +25,15 @@ end
 Taurus::Admin::StoreSkuLineItemsController.class_eval do
   load_and_authorize_resource :class => "Taurus::StoreSkuLineItem"
 end
+
+Taurus::Admin::ReplenishmentRecordsController.class_eval do
+  load_and_authorize_resource :class => "Taurus::ReplenishmentRecord"
+end
+
+Taurus::Admin::DeliveryRecordsController.class_eval do
+  load_and_authorize_resource :class => "Taurus::DeliveryRecord"
+end
+
+Taurus::Admin::OrderDeliveryRecordsController.class_eval do
+  load_and_authorize_resource :class => "Taurus::DeliveryRecord"
+end

@@ -4,7 +4,10 @@
     <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
   <% end %>
   <hr />
-  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/replenishment_record'))}".html_safe, new_admin_replenishment_record_path, :class => "btn btn-primary" %>
+  <a href="<%= new_admin_replenishment_record_path %>" class="btn btn-primary" id="create_tag">
+    <i class="icon-plus-sign"></i>
+    <%= t('admin.actions.new.title',:model => t('activerecord.models.taurus/replenishment_record')) %>
+  </a>
 </div>
 
 <table class="table table-striped">

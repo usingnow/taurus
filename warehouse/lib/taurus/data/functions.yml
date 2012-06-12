@@ -21,12 +21,12 @@
           name: '查询'
           permissions:
             - action_name: ':read'
-              class_name: 'ReplishmentRecord'
+              class_name: 'ReplenishmentRecord'
         - id: 'warehouse_replishment_create'
           name: '新建'
           permissions:
             - action_name: ':create'
-              class_name: 'ReplishmentRecord'      
+              class_name: 'ReplenishmentRecord'      
     - id: 'warehouse_delivery'
       name: <%= I18n.t('admin.functions.stock.delivery') %>
       url: '/admin/delivery_records'
@@ -40,8 +40,8 @@
       name: <%= I18n.t('admin.functions.stock.order_delivery') %>
       url: '/admin/order_delivery_records'
       operations: 
-        - id: 'warehouse_orderdelivery_query'
-          name: '查询'
+        - id: 'warehouse_orderdelivery_query#create'
+          name: '查询、出库'
           permissions:
-            - action_name: '[:create,:update]'
+            - action_name: '[:read, :create]'
               class_name: 'DeliveryRecord'
