@@ -101,24 +101,34 @@
           permissions:
             - action_name: '[:create, :update]'
               class_name: 'Industry'      
-    - id: 'baisc_companytype'
+    - id: 'baisc_company#type'
       name: <%= I18n.t('admin.functions.baisc_setting.company_type') %>
       url: '/admin/company_types'
       operations: 
-        - id: 'baisc_companytype_query'
+        - id: 'baisc_company#type_query'
           name: '查询'
           permissions:
-            - action_name: '[:create,:update]'
-              class_name: 'Group'
+            - action_name: ':read'
+              class_name: 'CompanyType'
+        - id: 'baisc_company#type_create#update'
+          name: '新建、修改'
+          permissions:
+            - action_name: '[:create, :update]'
+              class_name: 'CompanyType'      
     - id: 'baisc_companyscale'
       name: <%= I18n.t('admin.functions.baisc_setting.company_size') %>
       url: '/admin/company_scales'
       operations: 
-        - id: 'baisc_companyscale_query'
+        - id: 'baisc_company#scale_query'
           name: '查询'
           permissions:
-            - action_name: '[:create,:update]'
-              class_name: 'Group'
+            - action_name: ':read'
+              class_name: 'CompanyScale'
+        - id: 'baisc_company#scale_create#update'
+          name: '新建、修改'
+          permissions:
+            - action_name: '[:create, :update]'
+              class_name: 'CompanyScale'      
 #    - id: 'baisc_area'
 #      name: <%= I18n.t('admin.functions.baisc_setting.regions_and_freight') %>
 #      url: '/admin/1'
@@ -141,11 +151,11 @@
       name: <%= I18n.t('admin.functions.baisc_setting.alipay_setting') %>
       url: '/admin/alipays'
       operations: 
-        - id: 'baisc_alipay_query'
-          name: '查询'
+        - id: 'baisc_alipay_manage'
+          name: '管理'
           permissions:
-            - action_name: '[:create,:update]'
-              class_name: 'Group'
+            - action_name: ':manage'
+              class_name: 'Alipay'
 - id: 'order'
   name: <%= I18n.t('admin.modules.order') %>
   url: '/admin/orders'

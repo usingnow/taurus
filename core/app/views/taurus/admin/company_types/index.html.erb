@@ -4,7 +4,10 @@
     <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
   <% end %>
   <hr />
-  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/company_type'))}".html_safe, new_admin_company_type_path, :class => "btn btn-primary" %>
+  <a href="<%= new_admin_company_type_path %>" class="btn btn-primary" id="create_tag">
+    <i class="icon-plus-sign"></i>
+    <%= t('admin.actions.new.title',:model => t('activerecord.models.taurus/company_type')) %>
+  </a>
 </div>
 
 <%= flash_messages %>
@@ -24,7 +27,12 @@
         <td><%= index+1 %></td>
         <td><%= company_type.name %></td>
         <td><%= company_type.sequence %></td>
-        <td><%= link_to t('admin.actions.edit.menu'), edit_admin_company_type_path(company_type), :class => "btn btn-primary trk-btn-short" %></td>
+        <td>
+          <a href="<%= edit_admin_company_type_path(company_type) %>" 
+             class="btn btn-primary trk-btn-short update_tag">
+            <%= t('admin.actions.edit.menu') %>
+          </a>
+        </td>
       </tr>
     <% end %>
   </tbody>
