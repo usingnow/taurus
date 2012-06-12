@@ -4,6 +4,8 @@ module Taurus
   	belongs_to :brand
   	belongs_to :supplier
     has_one :store_sku_line_item
+    has_many :product_sku_line_items
+    has_many :products, :through => :product_sku_line_items
 
     before_validation :default_value
     after_create :add_to_store
