@@ -30,6 +30,10 @@ Taurus::Admin::CompanyTypesController.class_eval do
   load_and_authorize_resource :class => "Taurus::CompanyType"
 end
 
+Taurus::Admin::CompanyScalesController.class_eval do
+  load_and_authorize_resource :class => "Taurus::CompanyScale"
+end
+
 if defined?(Taurus::Warehouse)
   Taurus::Admin::StoreSkuLineItemsController.class_eval do
     load_and_authorize_resource :class => "Taurus::StoreSkuLineItem"
