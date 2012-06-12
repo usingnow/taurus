@@ -26,7 +26,8 @@ module Taurus
         @supplier.updated_by = current_administrator.id
 
         if @supplier.save
-          redirect_to admin_suppliers_url
+          flash[:success] = I18n.t('successfully_created')
+          redirect_to admin_supplier_url(@supplier)
         else
           render :action => "new"
         end
@@ -37,7 +38,8 @@ module Taurus
         @supplier.updated_by = current_administrator.id
 
         if @supplier.update_attributes(params[:supplier])
-          redirect_to admin_suppliers_url
+          flash[:success] = I18n.t('successfully_updated')
+          redirect_to admin_supplier_url(@supplier)
         else
           render :action => "edit"
         end
@@ -46,7 +48,7 @@ module Taurus
       def destroy
         @supplier = Supplier.find(params[:id])
         @supplier.destroy
-
+     
         redirect_to(admin_suppliers_url) 
       end
     end
