@@ -65,3 +65,7 @@ if defined?(Taurus::Cms)
     load_and_authorize_resource :class => "Taurus::ProductDisplay"
   end
 end
+
+Taurus::Admin::CompanyExtendsController.class_eval do
+  load_and_authorize_resource :class => "Taurus::CompanyExtend"
+end

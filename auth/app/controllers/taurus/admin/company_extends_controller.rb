@@ -1,7 +1,6 @@
 module Taurus
   module Admin
     class CompanyExtendsController < BaseController
-      #authorize_resource
 
       def index
         @search = CompanyExtend.search(params[:q])

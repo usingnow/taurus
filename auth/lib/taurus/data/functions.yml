@@ -11,8 +11,13 @@
         - id: 'auth_company_query'
           name: '查询'
           permissions:
+            - action_name: ':read'
+              class_name: 'CompanyExtend'
+        - id: 'auth_company_create#update'
+          name: '新建、修改'
+          permissions:
             - action_name: '[:create,:update]'
-              class_name: 'Group'
+              class_name: 'CompanyExtend'      
     - id: 'auth_person'
       name: <%= I18n.t('admin.functions.auth.person_extend') %>
       url: '/admin/person_extends'
@@ -20,8 +25,13 @@
         - id: 'auth_person_query'
           name: '查询'
           permissions:
+            - action_name: ':read'
+              class_name: 'PersonExtend'
+        - id: 'auth_person_create#update'
+          name: '新建、修改'
+          permissions:
             - action_name: '[:create,:update]'
-              class_name: 'Group'
+              class_name: 'PersonExtend'
     - id: 'auth_role'
       name: <%= I18n.t('admin.functions.auth.role') %>
       url: '/admin/roles'
@@ -29,8 +39,13 @@
         - id: 'auth_role_query'
           name: '查询'
           permissions:
+            - action_name: ':read'
+              class_name: 'Role'
+        - id: 'auth_role_create#update'
+          name: '新建、修改'
+          permissions:
             - action_name: '[:create,:update]'
-              class_name: 'Group'
+              class_name: 'Role'
     - id: 'auth_administrator'
       name: <%= I18n.t('admin.functions.auth.administrator') %>
       url: '/admin/administrators'
@@ -38,14 +53,24 @@
         - id: 'auth_administrator_query'
           name: '查询'
           permissions:
+            - action_name: ':read'
+              class_name: 'Administrator'
+        - id: 'auth_administrator_create#update'
+          name: '新建、修改'
+          permissions:
             - action_name: '[:create,:update]'
-              class_name: 'Group'
+              class_name: 'Administrator'
     - id: 'auth_group'
       name: <%= I18n.t('admin.functions.auth.group') %>
       url: '/admin/groups'
       operations: 
         - id: 'auth_group_query'
           name: '查询'
+          permissions:
+            - action_name: ':read'
+              class_name: 'Group'
+        - id: 'auth_group_create#update'
+          name: '新建、修改'
           permissions:
             - action_name: '[:create,:update]'
               class_name: 'Group'

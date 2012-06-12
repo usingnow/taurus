@@ -5,8 +5,13 @@
     <%= f.text_field :user_email_cont, :placeholder => t('activerecord.attributes.taurus/user.email'), :class => "trk-non-inline-margin" %>
     <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
   <% end %>
+
   <hr />
-  <%= link_to "<i class='icon-plus-sign'></i> #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/company_extend'))}".html_safe, new_admin_company_extend_path, :class => "btn btn-primary" %>
+
+  <a href="<%= new_admin_company_extend_path %>" class="btn btn-primary" id="create_tag">
+    <i class="icon-plus-sign"></i>
+    <%= t('admin.actions.new.title',:model => t('activerecord.models.taurus/company_extend')) %>
+  </a>
 </div>
 
 <table class="table table-striped">
@@ -29,7 +34,12 @@
       <td><%= company_extend.name %></td>
       <td><%= company_extend.created_at %></td>
       <td><%= company_extend.user.role.name %></td>
-      <td><%= link_to t('admin.actions.edit.menu'), edit_admin_company_extend_path(company_extend), :class => "btn btn-primary trk-btn-short" %></td>
+      <td>
+        <a href="<%= edit_admin_company_extend_path(company_extend) %>" 
+           class="btn btn-primary trk-btn-short update_tag">
+          <%= t('admin.actions.edit.menu') %>
+        </a>
+      </td>
     </tr>
   <% end %>
   <tfoot>
