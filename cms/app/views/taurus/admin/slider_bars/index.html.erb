@@ -1,5 +1,8 @@
 <div class="well">
-  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/slider_bar'))}".html_safe, new_admin_slider_bar_path,  :class => "btn btn-primary" %>
+  <a href="<%= new_admin_slider_bar_path %>" class="btn btn-primary" id="create_tag">
+    <i class="icon-plus-sign"></i>
+    <%= t('admin.actions.new.title',:model => t('activerecord.models.taurus/slider_bar')) %>
+  </a>
 </div>
 
 <%= flash_messages %>
@@ -20,11 +23,15 @@
         <td><%= link_to image_tag(slider_bar.image.url(:small)), admin_slider_bar_path(slider_bar) %></td>
         <td><%= slider_bar.name %></td>
         <td>
-          <%= link_to t('admin.actions.edit.menu'), edit_admin_slider_bar_path(slider_bar), 
-                      :class => "btn btn-primary trk-btn-short" %>
-          <%= link_to t('admin.actions.delete.menu'), admin_slider_bar_path(slider_bar), 
-                      :confirm => t('admin.actions.delete.confirm'), :method => :delete, 
-                      :class => "btn btn-primary trk-btn-short" %>
+          <a href="<%= edit_admin_slider_bar_path(slider_bar) %>" 
+             class="btn btn-primary trk-btn-short update_tag">
+            <%= t('admin.actions.edit.menu') %>
+          </a>
+          <a href="<%= admin_slider_bar_path(slider_bar) %>" data-method="delete"
+             data-confirm="<%= t('admin.actions.delete.confirm') %>"
+             class="btn btn-primary trk-btn-short destroy_tag">
+            <%= t('admin.actions.delete.menu') %>
+          </a>
         </td>
       </tr>
     <% end %>

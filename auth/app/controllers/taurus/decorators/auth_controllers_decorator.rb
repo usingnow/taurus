@@ -37,3 +37,7 @@ end
 Taurus::Admin::OrderDeliveryRecordsController.class_eval do
   load_and_authorize_resource :class => "Taurus::DeliveryRecord"
 end
+
+Taurus::Admin::SliderBarsController.class_eval do
+  load_and_authorize_resource :class => "Taurus::SliderBar"
+end

@@ -1,9 +1,6 @@
 module Taurus
   module Admin
     class StoresController < BaseController
-      #before_filter :authenticate_administrator!
-      #authorize_resource
-
       def index
         @search = Store.search(params[:q])
         @stores = @search.result.paginate(:page => params[:page], :per_page => 20)
@@ -48,13 +45,6 @@ module Taurus
           end
         end
       end
-
-      def destroy
-        @store = Store.find(params[:id])
-        @store.destroy
-        redirect_to admin_stores_url
-      end
-
     end
   end
 end

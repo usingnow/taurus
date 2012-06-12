@@ -44,7 +44,7 @@
         - id: 'product_brand_create#update#custom'
           name: '新建、修改、自定义属性'
           permissions:
-            - action_name: '[:create, :update]'
+            - action_name: '[:create, :update, :autocomplete_product_category_name]'
               class_name: 'ProductCategory'
             - action_name: ':manage'
               class_name: 'CustomProperty'
@@ -65,7 +65,7 @@
         - id: 'product_brand_create#update#clone'
           name: '新建、修改、复制'
           permissions:
-            - action_name: '[:create, :update, :clone]'
+            - action_name: '[:create, :update, :clone, :autocomplete_product_category_name, :autocomplete_brand_chinese_name, :autocomplete_supplier_name]'
               class_name: 'Sku'
     - id: 'product_product'
       name: <%= I18n.t('admin.functions.product.product') %>
@@ -74,12 +74,12 @@
         - id: 'product_product_query'
           name: '查询'
           permissions:
-            - action_name: ':read'
+            - action_name: '[:read, :show_sales_status]'
               class_name: 'Product'
         - id: 'product_product_create#update'
           name: '新建、修改'
           permissions:
-            - action_name: '[:create, :update]'
+            - action_name: '[:create, :update, :autocomplete_product_category_name, :edit_sales_status, :update_sales_status]'
               class_name: 'Product'
 - id: 'baisc'
   name: <%= I18n.t('admin.modules.baisc_setting') %>
