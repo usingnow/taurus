@@ -26,7 +26,7 @@ module Taurus
         @supplier.updated_by = current_administrator.id
 
         if @supplier.save
-          flash[:success] = I18n.t('successfully_created')
+          flash[:success] = I18n.t('successfully_created') 
           redirect_to admin_supplier_url(@supplier)
         else
           render :action => "new"
