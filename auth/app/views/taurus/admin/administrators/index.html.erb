@@ -5,7 +5,10 @@
     <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
   <% end %>
   <hr />
-  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/administrator'))}".html_safe, new_admin_administrator_path,  :class => "btn btn-primary" %>
+  <a href="<%= new_admin_administrator_path %>" class="btn btn-primary" id="create_tag">
+    <i class="icon-plus-sign"></i>
+    <%= t('admin.actions.new.title',:model => t('activerecord.models.taurus/administrator')) %>
+  </a>
 </div>
 
 <table class="table table-striped">
@@ -20,18 +23,22 @@
     </tr>
   </thead>
   <tbody>
-    <% @administrators.each_with_index do |admin,index| %>
+    <% @administrators.each_with_index do |administrator,index| %>
       <tr>
         <td><%= index+1 %></td>
-        <td><%= link_to admin.name, admin_administrator_path(admin) %></td>
-        <td><%= admin.email %></td>
-        <td><%= admin.last_sign_in_at %></td>
-        <td><%= format_admin_status(admin.status) %></td>
+        <td><%= link_to administrator.name, admin_administrator_path(administrator) %></td>
+        <td><%= administrator.email %></td>
+        <td><%= administrator.last_sign_in_at %></td>
+        <td><%= format_admin_status(administrator.status) %></td>
         <td>
-          <%= link_to t('admin.actions.edit.menu'), edit_admin_administrator_path(admin), :class => "btn btn-primary trk-btn-short" %>
-          <%= link_to t('admin.actions.edit.title', :model => t('activerecord.models.taurus/group')),
-                      new_admin_administrator_administrator_group_line_item_path(admin), 
-                      :class => "btn btn-primary trk-btn-short" %>
+          <a href="<%= edit_admin_administrator_path(administrator) %>" 
+             class="btn btn-primary trk-btn-short update_tag">
+            <%= t('admin.actions.edit.menu') %>
+          </a>
+          <a href="<%= new_admin_administrator_administrator_group_line_item_path(administrator) %>" 
+             class="btn btn-primary trk-btn-short group_tag">
+            <%= t('admin.actions.edit.title', :model => t('activerecord.models.taurus/group')) %>
+          </a>
         </td>
       </tr>
     <% end %>

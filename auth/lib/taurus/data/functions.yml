@@ -56,10 +56,12 @@
             - action_name: ':read'
               class_name: 'Administrator'
         - id: 'auth_administrator_create#update'
-          name: '新建、修改'
+          name: '新建、修改、修改管理员组'
           permissions:
             - action_name: '[:create,:update]'
               class_name: 'Administrator'
+            - action_name: ':manage'
+              class_name: 'AdministratorGroupLineItem'  
     - id: 'auth_group'
       name: <%= I18n.t('admin.functions.auth.group') %>
       url: '/admin/groups'

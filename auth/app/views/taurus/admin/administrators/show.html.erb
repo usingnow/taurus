@@ -1,5 +1,15 @@
 <div class="well">
-  <%= link_to "<i class='icon-edit'></i> #{t('admin.actions.edit.menu')}".html_safe, edit_admin_administrator_path(@administrator), :class => "btn btn-primary" %>
+  <a href="<%= edit_admin_administrator_path(@administrator) %>" class="btn btn-primary" id="update_tag">
+    <i class="icon-edit"></i>
+    <%= t('admin.actions.edit.menu') %>
+  </a>
+
+  <a href="<%= new_admin_administrator_administrator_group_line_item_path(@administrator) %>" 
+     class="btn btn-primary" id="group_tag">
+    <i class='icon-edit'></i>
+    <%= t('admin.actions.edit.title', :model => t('activerecord.models.taurus/group')) %>
+  </a>
+
   <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_administrators_path, :class => "btn pull-right" %>
 </div>
 
