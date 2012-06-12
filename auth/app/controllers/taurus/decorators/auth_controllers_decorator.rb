@@ -73,3 +73,7 @@ end
 Taurus::Admin::PersonExtendsController.class_eval do
   load_and_authorize_resource :class => "Taurus::PersonExtend"
 end
+
+Taurus::Admin::RolesController.class_eval do
+  load_and_authorize_resource :class => "Taurus::Role"
+end

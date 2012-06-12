@@ -1,5 +1,8 @@
 <div class="well">
-  <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/role'))}".html_safe, new_admin_role_path, :target => "_blank", :class => "btn btn-primary" %>
+  <a href="<%= new_admin_role_path %>" class="btn btn-primary" id="create_tag">
+    <i class="icon-plus-sign"></i>
+    <%= t('admin.actions.new.title',:model => t('activerecord.models.taurus/role')) %>
+  </a>
 </div>
 
 <table class="table table-striped">
@@ -20,7 +23,11 @@
       <td><%= role.description %></td>
       <td><%= format_boolean(role.is_reserved) %></td>
       <td></td>
-      <td><%= link_to t('admin.actions.edit.menu'), edit_admin_role_path(role), :class => "btn btn-primary trk-btn-short" %></td>
+      <td>
+        <a href="<%= edit_admin_role_path(role) %>" class="btn btn-primary trk-btn-short update_tag">
+          <%= t('admin.actions.edit.menu') %>
+        </a>
+      </td>
     </tr>
   <% end %>
   <tfoot>
