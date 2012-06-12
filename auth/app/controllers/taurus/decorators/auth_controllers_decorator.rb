@@ -85,3 +85,11 @@ end
 Taurus::Admin::AdministratorGroupLineItemsController.class_eval do
   load_and_authorize_resource :class => "Taurus::AdministratorGroupLineItem"
 end
+
+Taurus::Admin::GroupsController.class_eval do
+  load_and_authorize_resource :class => "Taurus::Group"
+end
+
+Taurus::Admin::PermissionsController.class_eval do
+  load_and_authorize_resource :class => "Taurus::Permission"
+end

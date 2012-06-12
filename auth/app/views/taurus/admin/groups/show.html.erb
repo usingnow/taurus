@@ -1,6 +1,9 @@
 <div class="well">
-  <%= link_to "<i class='icon-edit'></i> #{t('admin.actions.edit.menu')}".html_safe, 
-              edit_admin_group_path(@group), :class => "btn btn-primary" %>
+  <a href="<%= edit_admin_group_path(@group) %>" class="btn btn-primary" id="update_tag">
+    <i class="icon-edit"></i>
+    <%= t('admin.actions.edit.menu') %>
+  </a>
+  
   <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_groups_path, 
               :class => "btn pull-right" %>
 </div>
