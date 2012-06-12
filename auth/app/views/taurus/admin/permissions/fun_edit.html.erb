@@ -5,8 +5,9 @@
 
 <%= flash_messages %>
 
-<%= simple_form_for(@group, :url => admin_permission_path(@group), 
+<%= simple_form_for(@group, :url => fun_update_admin_permissions_path, 
                     :html => {:class => 'form-horizontal'}) do |f| %>
+  <%= f.input :id, :as => :hidden %>                  
 
   <%= f.error_notification %>                  
 

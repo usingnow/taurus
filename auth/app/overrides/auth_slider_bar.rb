@@ -23,7 +23,7 @@ end
 Deface::Override.new(:virtual_path => "taurus/admin/slider_bars/index",
                      :name => "auth_slider_bar_index_destroy",
                      :replace => ".destroy_tag") do
-  "<% if can? :delete, Taurus::SliderBar %>
+  "<% if can? :destroy, Taurus::SliderBar %>
     <a href=\"<%= admin_slider_bar_path(slider_bar) %>\" data-method=\"delete\"
        data-confirm=\"<%= t('admin.actions.delete.confirm') %>\"
        class=\"btn btn-primary trk-btn-short destroy_tag\">

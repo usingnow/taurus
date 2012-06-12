@@ -14,7 +14,7 @@
       <td><%= group.description %></td>
       <td>
         <%= link_to t('admin.actions.edit.title', :model => t('activerecord.models.taurus/fun_permission')), 
-                    edit_admin_permission_path(group), :class => "btn btn-primary trk-btn-short" %>
+                    fun_edit_admin_permissions_path(:group_id => group), :class => "btn btn-primary trk-btn-short" %>
       </td>
     </tr>
   <% end %>

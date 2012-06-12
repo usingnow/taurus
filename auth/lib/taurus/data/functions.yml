@@ -79,7 +79,7 @@
         - id: 'auth_group_destroy'
           name: '删除'
           permissions:
-            - action_name: ':delete'
+            - action_name: ':destroy'
               class_name: 'Group'      
     - id: 'auth_permission'
       name: <%= I18n.t('admin.functions.auth.permission') %>

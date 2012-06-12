@@ -40,7 +40,7 @@
         - id: 'cms_display_destroy'
           name: '删除'
           permissions:
-            - action_name: ':delete'
+            - action_name: ':destroy'
               class_name: 'ProductDisplay'        
 #    - id: 'cms_image'
 #      name: '图片'

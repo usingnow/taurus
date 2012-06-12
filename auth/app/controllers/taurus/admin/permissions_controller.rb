@@ -1,18 +1,19 @@
 module Taurus
   module Admin
-	class PermissionsController < BaseController
-	  def index
-	    @search = Group.search(params[:q])
-	    @groups = @search.result.paginate(:page => params[:page], :per_page => 20)
-	  end
+	  class PermissionsController < BaseController
 
-	  def edit
-        @group = Group.find(params[:id])
+	    def index
+	      @search = Group.search(params[:q])
+	      @groups = @search.result.paginate(:page => params[:page], :per_page => 20)
+	    end
+
+	    def fun_edit
+        @group = Group.find(params[:group_id])
         @functions = Function.all
-	  end
+	    end
 
-	  def update
-        @group = Group.find(params[:id])
+	    def fun_update
+        @group = Group.find(params[:group][:id])
 
         @group.fun_permissions.destroy_all
 
@@ -26,12 +27,12 @@ module Taurus
 
         if @group.save
           flash[:success] = I18n.t('successfully_updated')
-          redirect_to(edit_admin_permission_url(@group))
+          redirect_to(fun_edit_admin_permissions_url(:group_id => @group))
         else
-          render :action => edit
+          render :action => :fun_edit
         end
-	  end
+	    end
       
-	end
+	  end
   end
 end

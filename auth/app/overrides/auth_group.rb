@@ -24,7 +24,7 @@ end
 Deface::Override.new(:virtual_path => "taurus/admin/groups/index",
                      :name => "auth_group_index_destroy",
                      :replace => ".destroy_tag") do
-  "<% if can? :delete, Taurus::Group %>
+  "<% if can? :destroy, Taurus::Group %>
     <a href=\"<%= admin_group_path(group) %>\" data-method=\"delete\"
       data-confirm=\"<%= t('admin.actions.delete.confirm') %>\" 
        class=\"btn btn-primary trk-btn-short destroy_tag\">

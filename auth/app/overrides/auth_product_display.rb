@@ -23,7 +23,7 @@ end
 Deface::Override.new(:virtual_path => "taurus/admin/product_displays/index",
                      :name => "auth_product_display_index_destroy",
                      :replace => ".destroy_tag") do
-  "<% if can? :delete, Taurus::ProductDisplay %>
+  "<% if can? :destroy, Taurus::ProductDisplay %>
     <a href=\"<%= admin_product_display_path(product_display) %>\" data-method=\"delete\"
        data-confirm=\"<%= t('admin.actions.delete.confirm') %>\"
        class=\"btn btn-primary trk-btn-short destroy_tag\">

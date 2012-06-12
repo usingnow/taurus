@@ -7,8 +7,7 @@ module Taurus
     include CanCan::Ability
 
     def initialize(administrator)
-      # Define abilities for the passed in user here. For example:
-      #
+      
       if administrator.admin_type == 0
         can :manage, :all
       else
@@ -21,7 +20,9 @@ module Taurus
           end
         end
       end  
-
+      
+      # Define abilities for the passed in user here. For example:
+      #
       #
       # The first argument to `can` is the action you are giving the user permission to do.
       # If you pass :manage it will apply to every action. Other common actions here are

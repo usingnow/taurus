@@ -1,6 +1,5 @@
 product_category_1:
   id: '1'
-  parent_id: ''
   number: '01_media'
   name: '图书音像'
   description: '图书音像'
@@ -10,7 +9,6 @@ product_category_1:
   updated_at: '2012-05-24 18:08:26 +0800'
 product_category_2:
   id: '2'
-  parent_id: ''
   number: '02_electric'
   name: '家用电器'
   description: ''
@@ -20,7 +18,6 @@ product_category_2:
   updated_at: '2012-05-24 18:08:26 +0800'
 product_category_3:
   id: '3'
-  parent_id: ''
   number: '03_mobile'
   name: '手机数码'
   description: ''

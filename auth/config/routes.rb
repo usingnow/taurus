@@ -7,7 +7,12 @@ Taurus::Core::Engine.routes.draw do
     resources :roles
     resources :company_extends
     resources :person_extends
-    resources :permissions
+    resources :permissions do
+      collection do
+        get :fun_edit
+        put :fun_update
+      end
+    end
   end
 
 
