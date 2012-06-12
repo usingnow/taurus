@@ -22,22 +22,30 @@ Taurus::Admin::OrdersController.class_eval do
   load_and_authorize_resource :class => "Taurus::Order"
 end
 
-Taurus::Admin::StoreSkuLineItemsController.class_eval do
-  load_and_authorize_resource :class => "Taurus::StoreSkuLineItem"
+if defined?(Taurus::Warehouse)
+  Taurus::Admin::StoreSkuLineItemsController.class_eval do
+    load_and_authorize_resource :class => "Taurus::StoreSkuLineItem"
+  end
+
+  Taurus::Admin::ReplenishmentRecordsController.class_eval do
+    load_and_authorize_resource :class => "Taurus::ReplenishmentRecord"
+  end
+
+  Taurus::Admin::DeliveryRecordsController.class_eval do
+    load_and_authorize_resource :class => "Taurus::DeliveryRecord"
+  end
+
+  Taurus::Admin::OrderDeliveryRecordsController.class_eval do
+    load_and_authorize_resource :class => "Taurus::DeliveryRecord"
+  end
 end
 
-Taurus::Admin::ReplenishmentRecordsController.class_eval do
-  load_and_authorize_resource :class => "Taurus::ReplenishmentRecord"
-end
+if defined?(Taurus::Cms)
+  Taurus::Admin::SliderBarsController.class_eval do
+    load_and_authorize_resource :class => "Taurus::SliderBar"
+  end
 
-Taurus::Admin::DeliveryRecordsController.class_eval do
-  load_and_authorize_resource :class => "Taurus::DeliveryRecord"
-end
-
-Taurus::Admin::OrderDeliveryRecordsController.class_eval do
-  load_and_authorize_resource :class => "Taurus::DeliveryRecord"
-end
-
-Taurus::Admin::SliderBarsController.class_eval do
-  load_and_authorize_resource :class => "Taurus::SliderBar"
+  Taurus::Admin::ProductDisplaysController.class_eval do
+    load_and_authorize_resource :class => "Taurus::ProductDisplay"
+  end
 end

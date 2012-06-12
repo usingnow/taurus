@@ -27,26 +27,36 @@
       name: '展示商品'
       url: '/admin/product_displays'
       operations: 
-        - id: 'cms_display_manage'
-          name: '管理'
+        - id: 'cms_display_query'
+          name: '查询'
           permissions:
-            - action_name: '[:create,:update]'
-              class_name: 'Group'    
-    - id: 'cms_image'
-      name: '图片'
-      url: '/admin/images'
-      operations: 
-        - id: 'cms_image_manage'
-          name: '管理'
+            - action_name: ':read'
+              class_name: 'ProductDisplay'   
+        - id: 'cms_display_create#update'
+          name: '新建、修改'
           permissions:
-            - action_name: '[:create,:update]'
-              class_name: 'Group'
-    - id: 'cms_announcement'
-      name: '公告'
-      url: '/admin/announcements'
-      operations: 
-        - id: 'cms_announcement_manage'
-          name: '管理'
+            - action_name: '[:create, :update]'
+              class_name: 'ProductDisplay'
+        - id: 'cms_display_destroy'
+          name: '删除'
           permissions:
-            - action_name: '[:create,:update]'
-              class_name: 'Group'
+            - action_name: ':delete'
+              class_name: 'ProductDisplay'        
+#    - id: 'cms_image'
+#      name: '图片'
+#      url: '/admin/images'
+#      operations: 
+#        - id: 'cms_image_manage'
+#          name: '管理'
+#          permissions:
+#            - action_name: '[:create,:update]'
+#              class_name: 'Group'
+#    - id: 'cms_announcement'
+#      name: '公告'
+#      url: '/admin/announcements'
+#      operations: 
+#        - id: 'cms_announcement_manage'
+#          name: '管理'
+#          permissions:
+#            - action_name: '[:create,:update]'
+#              class_name: 'Group'
