@@ -18,7 +18,7 @@ module Taurus
         @cart = current_cart
         @order = Order.new(session[:order_params])
         @order.user_id = current_user.id
-        @order.customer_name = current_user.taurus_userable.name  
+        @order.customer_name = current_user.userable.name  
         @order.total_payment = @cart.total_price
         @cart.cart_product_line_items.each do |line_item|
           @order.order_product_line_items << OrderProductLineItem.new(

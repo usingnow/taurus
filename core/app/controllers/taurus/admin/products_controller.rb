@@ -4,6 +4,7 @@ module Taurus
 			autocomplete :product_category, :name, :class_name => "Taurus::ProductCategory"
 
 			def index
+				params[:q] = { :sales_status_eq => true, :if_shown_on_web_eq => true } unless params[:q]
 		    @search = Product.search(params[:q])
 		    @products = @search.result.paginate(:page => params[:page], :per_page => 20)
 		  end

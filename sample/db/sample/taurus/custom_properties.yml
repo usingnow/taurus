@@ -4,7 +4,7 @@ custom_property_1:
   name: '出版社'
   property_type: '0'
   remarks: ''
-  status: 'false'
+  status: 1
   created_at: '2012-05-25 17:20:43 +0800'
   updated_at: '2012-06-05 16:35:02 +0800'
 custom_property_2:
@@ -13,7 +13,7 @@ custom_property_2:
   name: '作者'
   property_type: '0'
   remarks: ''
-  status: 'false'
+  status: 1
   created_at: '2012-05-25 17:21:02 +0800'
   updated_at: '2012-06-05 16:35:07 +0800'
 custom_property_3:
@@ -22,7 +22,7 @@ custom_property_3:
   name: '出版日期'
   property_type: '3'
   remarks: ''
-  status: 'true'
+  status: 1
   created_at: '2012-05-25 17:21:24 +0800'
   updated_at: '2012-05-25 17:21:24 +0800'
 custom_property_4:
@@ -31,7 +31,7 @@ custom_property_4:
   name: '作者邮箱'
   property_type: '0'
   remarks: ''
-  status: 'true'
+  status: 1
   created_at: '2012-05-25 17:22:05 +0800'
   updated_at: '2012-05-25 17:22:05 +0800'
 custom_property_5:
@@ -40,7 +40,7 @@ custom_property_5:
   name: '作者网名'
   property_type: '0'
   remarks: ''
-  status: 'true'
+  status: 1
   created_at: '2012-05-25 17:22:37 +0800'
   updated_at: '2012-05-25 17:22:37 +0800'
 custom_property_6:
@@ -49,7 +49,7 @@ custom_property_6:
   name: '媒介'
   property_type: '0'
   remarks: ''
-  status: 'true'
+  status: 1
   created_at: '2012-05-25 17:23:23 +0800'
   updated_at: '2012-05-25 17:23:23 +0800'
 custom_property_7:
@@ -58,7 +58,7 @@ custom_property_7:
   name: '风格'
   property_type: '0'
   remarks: ''
-  status: 'true'
+  status: 1
   created_at: '2012-05-25 17:23:59 +0800'
   updated_at: '2012-05-25 17:23:59 +0800'
 custom_property_8:
@@ -67,7 +67,7 @@ custom_property_8:
   name: '片长'
   property_type: '0'
   remarks: ''
-  status: 'true'
+  status: 1
   created_at: '2012-05-25 17:24:20 +0800'
   updated_at: '2012-05-25 17:24:20 +0800'
 custom_property_9:
@@ -76,7 +76,7 @@ custom_property_9:
   name: '适龄儿童'
   property_type: '0'
   remarks: ''
-  status: 'true'
+  status: 1
   created_at: '2012-05-25 17:24:36 +0800'
   updated_at: '2012-05-25 17:24:36 +0800'
 custom_property_10:
@@ -85,7 +85,7 @@ custom_property_10:
   name: '功率'
   property_type: '0'
   remarks: ''
-  status: 'true'
+  status: 1
   created_at: '2012-05-25 17:36:37 +0800'
   updated_at: '2012-05-25 17:36:37 +0800'
 custom_property_11:
@@ -94,7 +94,7 @@ custom_property_11:
   name: '出版社'
   property_type: '0'
   remarks: ''
-  status: 'false'
+  status: 1
   created_at: '2012-06-05 16:26:59 +0800'
   updated_at: '2012-06-05 16:27:03 +0800'
 custom_property_12:
@@ -103,7 +103,7 @@ custom_property_12:
   name: '作者'
   property_type: '0'
   remarks: ''
-  status: 'true'
+  status: 1
   created_at: '2012-06-05 16:27:11 +0800'
   updated_at: '2012-06-05 16:27:11 +0800'
 custom_property_13:
@@ -112,7 +112,7 @@ custom_property_13:
   name: '格式'
   property_type: '0'
   remarks: ''
-  status: 'true'
+  status: 1
   created_at: '2012-06-05 16:27:21 +0800'
   updated_at: '2012-06-05 16:27:21 +0800'
 custom_property_14:
@@ -121,7 +121,7 @@ custom_property_14:
   name: '出版日期'
   property_type: '3'
   remarks: ''
-  status: 'true'
+  status: 1
   created_at: '2012-06-05 16:27:32 +0800'
   updated_at: '2012-06-05 16:27:32 +0800'
 custom_property_15:
@@ -130,7 +130,7 @@ custom_property_15:
   name: '语言'
   property_type: '0'
   remarks: ''
-  status: 'true'
+  status: 1
   created_at: '2012-06-05 16:28:18 +0800'
   updated_at: '2012-06-05 16:28:18 +0800'
 custom_property_16:
@@ -139,7 +139,7 @@ custom_property_16:
   name: '出版社'
   property_type: '0'
   remarks: ''
-  status: 'true'
+  status: 1
   created_at: '2012-06-05 16:42:16 +0800'
   updated_at: '2012-06-05 16:42:16 +0800'
 custom_property_17:
@@ -148,7 +148,7 @@ custom_property_17:
   name: '媒介'
   property_type: '0'
   remarks: ''
-  status: 'true'
+  status: 1
   created_at: '2012-06-05 16:45:14 +0800'
   updated_at: '2012-06-05 16:45:14 +0800'
 custom_property_18:
@@ -157,6 +157,6 @@ custom_property_18:
   name: '媒介'
   property_type: '0'
   remarks: ''
-  status: 'true'
+  status: 1
   created_at: '2012-06-05 16:45:41 +0800'
   updated_at: '2012-06-05 16:45:41 +0800'

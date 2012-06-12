@@ -1,15 +1,18 @@
 #encoding:UTF-8
 module Taurus
   class Product < ActiveRecord::Base
+    SALES_STATUS = { true => "销售中", false => "非销售" }
+    SHOWN_STATUS = { true => "上架", false => "下架" }
+
   	belongs_to :product_category
   	has_many :custom_property_values, :dependent => :destroy
   	has_many :product_sku_line_items, :dependent => :destroy
   	has_many :product_images, :dependent => :destroy
     has_many :cart_product_line_items, :dependent => :destroy
     has_many :product_displays
-
-    scope :selling, where("if_shown_on_web = 1 and sales_status = 1 and sales_starts_at < '#{Time.now}'
-                           and sales_ends_at > '#{Time.now}'")
+    
+    scope :shown, where("if_shown_on_web = 1")
+    scope :selling, where("if_shown_on_web = 1 and sales_status = 1")
     scope :displays, joins(:product_displays).order("taurus_product_displays.sequence DESC")
 
   	attr_accessor :product_category_name, :current_step
@@ -20,23 +23,13 @@ module Taurus
 
   	validates_presence_of :number, :name, :product_category_name, :product_category_id, :weight, :price_after_tax
   
-    validate :greater_than_now, :less_than_now, :must_have_sku,
-             :if => Proc.new { current_step == "sales_status" }
-
+    validate :must_have_sku, :if => Proc.new { current_step == "sales_status" }
 
     def main_image(style = :small)
       product_images.main.last.image.url(style)
     end
 
     protected
-    def greater_than_now
-      errors.add(:sales_starts_at, "开始销售时间必须晚于当前时间") if sales_starts_at.to_i < Time.now.to_i
-    end
-
-    def less_than_now
-      errors.add(:sales_ends_at, "结束销售时间必须晚于开始销售时间") if sales_starts_at.to_i > sales_ends_at.to_i
-    end
-
     def must_have_sku
       if sales_status
        errors.add(:sales_status, "最少包含一个SKU") if product_sku_line_items.size == 0

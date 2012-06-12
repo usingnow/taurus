@@ -23,7 +23,7 @@
             <% if current_user %>
               <li><%= link_to "用户中心", index_user_centers_path %></li>
               <li> 
-                <a href="#"><i class="icon-user"></i><%= current_user.taurus_userable.name %></a>
+                <a href="#"><i class="icon-user"></i><%= current_user.userable.name %></a>
               </li>
               <li>
                 <%= link_to '退出', destroy_user_session_path, :method => :delete %>

@@ -288,9 +288,7 @@ zh-CN:
         price_after_tax: "税后售价" 
         weight: "重量（公斤）"
         description: "介绍"
-        sales_starts_at: "开始销售时间"
-        sales_ends_at: "结束销售时间"
-        sales_status: "销售时间是否启用"
+        sales_status: "是否销售"
         if_shown_on_web: "是否上架"
       taurus/product_sku_line_item: 
         sku_amount: "SKU数量"

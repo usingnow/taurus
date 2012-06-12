@@ -6,6 +6,7 @@ brand_1:
   pinyin: 'shanghaicaike'
   company_name: '上海采恪企业管理咨询服务有限公司'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_2:
@@ -16,6 +17,7 @@ brand_2:
   pinyin: ''
   company_name: '【测试数据】Taurus'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_3:
@@ -26,6 +28,7 @@ brand_3:
   pinyin: ''
   company_name: '【测试数据】安徽IT'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_4:
@@ -36,6 +39,7 @@ brand_4:
   pinyin: ''
   company_name: '【测试数据】北京冀鲁豫'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_5:
@@ -46,6 +50,7 @@ brand_5:
   pinyin: ''
   company_name: '【测试数据】木头人企业'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_6:
@@ -56,6 +61,7 @@ brand_6:
   pinyin: ''
   company_name: '【测试数据】塔拉斯'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_7:
@@ -66,6 +72,7 @@ brand_7:
   pinyin: ''
   company_name: '【测试数据】点亮公司'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_8:
@@ -76,6 +83,7 @@ brand_8:
   pinyin: ''
   company_name: '【测试数据】拐角公司'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_9:
@@ -86,6 +94,7 @@ brand_9:
   pinyin: ''
   company_name: '【测试数据】喜广公司'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_10:
@@ -96,6 +105,7 @@ brand_10:
   pinyin: ''
   company_name: '【测试数据】周桂公司'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_11:
@@ -106,6 +116,7 @@ brand_11:
   pinyin: ''
   company_name: '【测试数据】柟氦公司'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_12:
@@ -116,6 +127,7 @@ brand_12:
   pinyin: ''
   company_name: '【测试数据】南昌倍荷公司'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_13:
@@ -126,6 +138,7 @@ brand_13:
   pinyin: ''
   company_name: '【测试数据】降龙嗨药业公司'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_14:
@@ -136,6 +149,7 @@ brand_14:
   pinyin: ''
   company_name: '【测试数据】港祥公司'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_15:
@@ -146,6 +160,7 @@ brand_15:
   pinyin: ''
   company_name: '【测试数据】囡鹤公司'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_16:
@@ -156,6 +171,7 @@ brand_16:
   pinyin: ''
   company_name: '【测试数据】备互公司'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_17:
@@ -166,6 +182,7 @@ brand_17:
   pinyin: ''
   company_name: '【测试数据】湖南楠虎公司'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_18:
@@ -176,6 +193,7 @@ brand_18:
   pinyin: ''
   company_name: '【测试数据】江苏速将公司'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_19:
@@ -186,6 +204,7 @@ brand_19:
   pinyin: ''
   company_name: '【测试数据】江西戏匠团'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_20:
@@ -196,6 +215,7 @@ brand_20:
   pinyin: ''
   company_name: '【测试数据】吉林林际公司'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1
 brand_21:
@@ -206,5 +226,6 @@ brand_21:
   pinyin: ''
   company_name: '【测试数据】辽宁岭袅公司'
   company_description: ''
+  status: 1
   created_by: 1
   updated_by: 1

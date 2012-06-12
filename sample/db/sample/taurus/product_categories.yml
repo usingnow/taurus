@@ -5,7 +5,7 @@ product_category_1:
   name: '图书音像'
   description: '图书音像'
   sequence: '0'
-  status: 'true'
+  status: 1
   created_at: '2012-05-24 18:08:26 +0800'
   updated_at: '2012-05-24 18:08:26 +0800'
 product_category_2:
@@ -15,7 +15,7 @@ product_category_2:
   name: '家用电器'
   description: ''
   sequence: '1'
-  status: 'true'
+  status: 1
   created_at: '2012-05-24 18:08:26 +0800'
   updated_at: '2012-05-24 18:08:26 +0800'
 product_category_3:
@@ -25,7 +25,7 @@ product_category_3:
   name: '手机数码'
   description: ''
   sequence: '0'
-  status: 'false'
+  status: 1
   created_at: '2012-05-24 18:08:26 +0800'
   updated_at: '2012-06-04 20:51:52 +0800'
 product_category_13:
@@ -35,7 +35,7 @@ product_category_13:
   name: '书籍'
   description: ''
   sequence: '0'
-  status: 'true'
+  status: 1
   created_at: '2012-05-24 18:08:26 +0800'
   updated_at: '2012-06-05 17:37:38 +0800'
 product_category_14:
@@ -45,7 +45,7 @@ product_category_14:
   name: '音像'
   description: ''
   sequence: '0'
-  status: 'true'
+  status: 1
   created_at: '2012-05-24 18:08:26 +0800'
   updated_at: '2012-05-24 18:08:26 +0800'
 product_category_15:
@@ -55,7 +55,7 @@ product_category_15:
   name: '英文原版'
   description: ''
   sequence: '0'
-  status: 'true'
+  status: 1
   created_at: '2012-05-24 18:08:26 +0800'
   updated_at: '2012-05-24 18:08:26 +0800'
 product_category_24:
@@ -65,7 +65,7 @@ product_category_24:
   name: '电子书'
   description: ''
   sequence: '0'
-  status: 'true'
+  status: 1
   created_at: '2012-05-24 18:08:26 +0800'
   updated_at: '2012-05-24 18:08:26 +0800'
 product_category_25:
@@ -75,7 +75,7 @@ product_category_25:
   name: '网络原创'
   description: ''
   sequence: '0'
-  status: 'true'
+  status: 1
   created_at: '2012-05-24 18:08:26 +0800'
   updated_at: '2012-05-24 18:08:26 +0800'
 product_category_26:
@@ -85,7 +85,7 @@ product_category_26:
   name: '计算机'
   description: ''
   sequence: '0'
-  status: 'true'
+  status: 1
   created_at: '2012-05-24 18:08:26 +0800'
   updated_at: '2012-06-05 17:37:22 +0800'
 product_category_27:
@@ -95,7 +95,7 @@ product_category_27:
   name: '多媒体图书'
   description: ''
   sequence: '0'
-  status: 'true'
+  status: 1
   created_at: '2012-05-24 18:08:26 +0800'
   updated_at: '2012-05-24 18:08:26 +0800'
 product_category_28:
@@ -105,7 +105,7 @@ product_category_28:
   name: '音乐'
   description: ''
   sequence: '0'
-  status: 'true'
+  status: 1
   created_at: '2012-05-24 18:08:26 +0800'
   updated_at: '2012-05-24 18:08:26 +0800'
 product_category_29:
@@ -115,7 +115,7 @@ product_category_29:
   name: '影视'
   description: ''
   sequence: '0'
-  status: 'true'
+  status: 1
   created_at: '2012-05-24 18:08:26 +0800'
   updated_at: '2012-05-24 18:08:26 +0800'
 product_category_30:
@@ -125,7 +125,7 @@ product_category_30:
   name: '教育音像'
   description: ''
   sequence: '0'
-  status: 'true'
+  status: 1
   created_at: '2012-05-24 18:08:26 +0800'
   updated_at: '2012-05-24 18:08:26 +0800'
 product_category_36:
@@ -135,7 +135,7 @@ product_category_36:
   name: '大家电'
   description: ''
   sequence: '0'
-  status: 'true'
+  status: 1
   created_at: '2012-05-24 18:08:26 +0800'
   updated_at: '2012-05-24 18:08:26 +0800'
 product_category_37:
@@ -145,7 +145,7 @@ product_category_37:
   name: '生活电器'
   description: ''
   sequence: '0'
-  status: 'true'
+  status: 1
   created_at: '2012-05-24 18:08:26 +0800'
   updated_at: '2012-05-24 18:08:26 +0800'
 product_category_38:
@@ -155,6 +155,6 @@ product_category_38:
   name: '厨房电器'
   description: ''
   sequence: '0'
-  status: 'true'
+  status: 1
   created_at: '2012-05-24 18:08:26 +0800'
   updated_at: '2012-05-24 18:08:26 +0800'

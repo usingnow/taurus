@@ -95,8 +95,6 @@ en:
         price_after_tax: "Price after Tax"
         weight: "Weight (kg)"
         description: "Description"
-        sales_starts_at: "Sales Starts at"
-        sales_ends_at: "Sales Ends at"
         sales_status: "If use the sales period above"
         if_shown_on_web: "If shown on web"
       taurus/product_sku_line_item: 

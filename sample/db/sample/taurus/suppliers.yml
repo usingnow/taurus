@@ -4,7 +4,7 @@ suppliers_1:
   name: '上海采恪企业管理咨询服务有限公司'
   contact_name: '徐剑敏'
   contact_phone: '021-32221782'
-  status: false
+  status: 0
   remarks: ''
   created_by: 1
   updated_by: 1
@@ -15,7 +15,7 @@ suppliers_2:
   contact_name: 'Taurus Team'
   contact_phone: '978647'
   remarks: ''
-  status: true
+  status: 1
   created_by: 1
   updated_by: 1
 suppliers_3:
@@ -25,7 +25,7 @@ suppliers_3:
   contact_name: '王先生'
   contact_phone: '13812345678'
   remarks: ''
-  status: true
+  status: 1
   created_by: 1
   updated_by: 1
 suppliers_4:
@@ -35,7 +35,7 @@ suppliers_4:
   contact_name: '邱丽'
   contact_phone: '0931-34287523'
   remarks: ''
-  status: true
+  status: 1
   created_by: 1
   updated_by: 1
 suppliers_5:
@@ -45,7 +45,7 @@ suppliers_5:
   contact_name: '刘启新'
   contact_phone: '18618975447'
   remarks: ''
-  status: true
+  status: 1
   created_by: 1
   updated_by: 1
 suppliers_6:
@@ -55,7 +55,7 @@ suppliers_6:
   contact_name: 'Mr. John Don'
   contact_phone: '+1 2381527'
   remarks: ''
-  status: true
+  status: 1
   created_by: 1
   updated_by: 1
 suppliers_7:
@@ -65,7 +65,7 @@ suppliers_7:
   contact_name: 'Ms. Jean Don'
   contact_phone: '23157389 ext. 23'
   remarks: ''
-  status: true
+  status: 1
   created_by: 1
   updated_by: 1
 suppliers_8:
@@ -75,7 +75,7 @@ suppliers_8:
   contact_name: '张大妈'
   contact_phone: '13312345678'
   remarks: ''
-  status: true
+  status: 1
   created_by: 1
   updated_by: 1
 suppliers_9:
@@ -85,7 +85,7 @@ suppliers_9:
   contact_name: '秦先生'
   contact_phone: '18923456789'
   remarks: ''
-  status: true
+  status: 1
   created_by: 1
   updated_by: 1
 suppliers_10:
@@ -95,7 +95,7 @@ suppliers_10:
   contact_name: '贵小姐'
   contact_phone: '34785128'
   remarks: ''
-  status: true
+  status: 1
   created_by: 1
   updated_by: 1
 suppliers_11:
@@ -105,7 +105,7 @@ suppliers_11:
   contact_name: '海东楠'
   contact_phone: '1374582356'
   remarks: ''
-  status: true
+  status: 1
   created_by: 1
   updated_by: 1
 suppliers_12:
@@ -115,7 +115,7 @@ suppliers_12:
   contact_name: '何先生'
   contact_phone: '13487596245'
   remarks: ''
-  status: true
+  status: 1
   created_by: 1
   updated_by: 1
 suppliers_13:
@@ -125,7 +125,7 @@ suppliers_13:
   contact_name: '龙先生'
   contact_phone: '12345678901'
   remarks: ''
-  status: true
+  status: 1
   created_by: 1
   updated_by: 1
 suppliers_14:
@@ -135,7 +135,7 @@ suppliers_14:
   contact_name: '陈翔'
   contact_phone: '52147895'
   remarks: ''
-  status: true
+  status: 1
   created_by: 1
   updated_by: 1
 suppliers_15:
@@ -145,7 +145,7 @@ suppliers_15:
   contact_name: '贺先生'
   contact_phone: '12345678901'
   remarks: ''
-  status: true
+  status: 1
   created_by: 1
   updated_by: 1
 suppliers_16:
@@ -155,7 +155,7 @@ suppliers_16:
   contact_name: '老先生'
   contact_phone: '123456748901'
   remarks: ''
-  status: true
+  status: 1
   created_by: 1
   updated_by: 1
 suppliers_17:
@@ -165,7 +165,7 @@ suppliers_17:
   contact_name: '郝楠'
   contact_phone: '12345678901'
   remarks: ''
-  status: true
+  status: 1
   created_by: 1
   updated_by: 1
 suppliers_18:
@@ -175,7 +175,7 @@ suppliers_18:
   contact_name: '江先生'
   contact_phone: '12345678901'
   remarks: ''
-  status: true
+  status: 1
   created_by: 1
   updated_by: 1
 suppliers_19:
@@ -185,7 +185,7 @@ suppliers_19:
   contact_name: '江先生'
   contact_phone: '12345678901'
   remarks: ''
-  status: false
+  status: 0
   created_by: 1
   updated_by: 1
 suppliers_20:
@@ -195,7 +195,7 @@ suppliers_20:
   contact_name: '林先生'
   contact_phone: '12345678901'
   remarks: ''
-  status: false
+  status: 0
   created_by: 1
   updated_by: 1
 suppliers_21:
@@ -205,7 +205,7 @@ suppliers_21:
   contact_name: '宁先生'
   contact_phone: '12345678901'
   remarks: ''
-  status: false
+  status: 0
   created_by: 1
   updated_by: 1
 suppliers_22:
@@ -215,7 +215,7 @@ suppliers_22:
   contact_name: '蒙先生'
   contact_phone: '12345678901'
   remarks: ''
-  status: false
+  status: 0
   created_by: 1
   updated_by: 1
 suppliers_23:
@@ -225,7 +225,7 @@ suppliers_23:
   contact_name: '古小姐'
   contact_phone: '12345678901'
   remarks: ''
-  status: false
+  status: 0
   created_by: 1
   updated_by: 1
 suppliers_24:
@@ -235,7 +235,7 @@ suppliers_24:
   contact_name: '宁先生'
   contact_phone: '12345678901'
   remarks: ''
-  status: false
+  status: 0
   created_by: 1
   updated_by: 1
 suppliers_25:
@@ -245,7 +245,7 @@ suppliers_25:
   contact_name: '海先生'
   contact_phone: '12345678901'
   remarks: ''
-  status: false
+  status: 0
   created_by: 1
   updated_by: 1
 suppliers_26:
@@ -255,7 +255,7 @@ suppliers_26:
   contact_name: '侗先生'
   contact_phone: '12345678901'
   remarks: ''
-  status: false
+  status: 0
   created_by: 1
   updated_by: 1
 suppliers_27:
@@ -265,7 +265,7 @@ suppliers_27:
   contact_name: '习先生'
   contact_phone: '12345678901'
   remarks: ''
-  status: false
+  status: 0
   created_by: 1
   updated_by: 1
 suppliers_28:
@@ -275,7 +275,7 @@ suppliers_28:
   contact_name: '实先生'
   contact_phone: '12345678901'
   remarks: ''
-  status: false
+  status: 0
   created_by: 1
   updated_by: 1
 suppliers_29:
@@ -285,7 +285,7 @@ suppliers_29:
   contact_name: '楚先生'
   contact_phone: '12345678901'
   remarks: ''
-  status: false
+  status: 0
   created_by: 1
   updated_by: 1
 suppliers_30:
@@ -295,7 +295,7 @@ suppliers_30:
   contact_name: '田先生'
   contact_phone: '12345678901'
   remarks: ''
-  status: false
+  status: 0
   created_by: 1
   updated_by: 1
 suppliers_31:
@@ -305,7 +305,7 @@ suppliers_31:
   contact_name: '台先生'
   contact_phone: '12345678901'
   remarks: ''
-  status: false
+  status: 0
   created_by: 1
   updated_by: 1
 suppliers_32:
@@ -315,7 +315,7 @@ suppliers_32:
   contact_name: '乐先生'
   contact_phone: '12345678901'
   remarks: ''
-  status: false
+  status: 0
   created_by: 1
   updated_by: 1
 suppliers_33:
@@ -325,7 +325,7 @@ suppliers_33:
   contact_name: '克拉姆'
   contact_phone: '12345678901'
   remarks: ''
-  status: false
+  status: 0
   created_by: 1
   updated_by: 1
 suppliers_34:
@@ -335,7 +335,7 @@ suppliers_34:
   contact_name: '云先生'
   contact_phone: '12345678901'
   remarks: ''
-  status: false
+  status: 0
   created_by: 1
   updated_by: 1
 suppliers_35:
@@ -345,6 +345,6 @@ suppliers_35:
   contact_name: '江先生'
   contact_phone: '12345678901'
   remarks: ''
-  status: false
+  status: 0
   created_by: 1
   updated_by: 1

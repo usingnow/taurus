@@ -39,8 +39,8 @@ class DeviseCreateTaurusUsers < ActiveRecord::Migration
       ## Invitable
       # t.string :invitation_token
 
-      t.integer :taurus_userable_id
-      t.string  :taurus_userable_type
+      t.integer :userable_id
+      t.string  :userable_type
       t.integer :points, :default => 0
       t.integer :role_id
 
@@ -54,5 +54,7 @@ class DeviseCreateTaurusUsers < ActiveRecord::Migration
     # add_index :taurus_users, :authentication_token, :unique => true
     
     add_index :taurus_users, :role_id
+    add_index :taurus_users, :userable_id
+    add_index :taurus_users, :userable_type
   end
 end

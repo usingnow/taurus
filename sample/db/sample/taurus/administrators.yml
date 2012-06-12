@@ -4,7 +4,7 @@
 administrator_<%= i %>:
   id: <%= i %>
   email: <%= Faker::Internet.email %>
-  status: true
+  status: 1
   name: <%= Faker::NameCN.name %>
   phone: <%= Faker.numerify('########') %>
   mobile: <%= Faker.numerify('13#########') %>

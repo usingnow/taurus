@@ -1,7 +1,7 @@
 #encoding:UTF-8
 module Taurus
   class PersonExtend < ActiveRecord::Base
-    has_one :user, :as => :taurus_userable, :dependent => :destroy
+    has_one :user, :as => :userable, :dependent => :destroy
     accepts_nested_attributes_for :user
     belongs_to :district
     before_create :insert_number

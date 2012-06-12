@@ -2,8 +2,6 @@
 
 <%= simple_form_for(@product, :url => "#", :html => {:class => 'form-horizontal'}) do |f| %>
   <fieldset>
-    <%= f.input :sales_starts_at, :disabled => true %>
-    <%= f.input :sales_ends_at, :disabled => true %>
     <%= f.input :sales_status, :disabled => true %>
     <%= f.input :if_shown_on_web, :disabled => true %>
   </fieldset>
