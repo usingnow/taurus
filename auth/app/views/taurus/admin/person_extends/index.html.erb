@@ -6,7 +6,10 @@
     <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
   <% end %>
   <hr />
-  <%= link_to "<i class='icon-plus-sign'></i> #{t('admin.actions.new.title', :model => t('activerecord.models.taurus/person_extend'))}".html_safe, new_admin_person_extend_path, :class => "btn btn-primary" %>
+  <a href="<%= new_admin_person_extend_path %>" class="btn btn-primary" id="create_tag">
+    <i class="icon-plus-sign"></i>
+    <%= t('admin.actions.new.title',:model => t('activerecord.models.taurus/person_extend')) %>
+  </a>
 </div>
 
 <table class="table table-striped">
@@ -21,15 +24,20 @@
       <th><%= t('admin.misc.operation') %></th>
     </tr>
   </thead>
-  <% @person_extends.each_with_index do |person,index| %>
+  <% @person_extends.each_with_index do |person_extend,index| %>
     <tr>
       <td><%= index+1 %></td>
-      <td><%= link_to person.number, admin_person_extend_path(person) %></td>
-      <td><%= person.user.email %></td>
-      <td><%= person.name %></td>
-      <td><%= person.created_at %></td>
-      <td><%= person.user.role.name %></td>
-      <td><%= link_to t("admin.actions.edit.menu"), edit_admin_person_extend_path(person), :class => "btn btn-primary trk-btn-short" %></td>
+      <td><%= link_to person_extend.number, admin_person_extend_path(person_extend) %></td>
+      <td><%= person_extend.user.email %></td>
+      <td><%= person_extend.name %></td>
+      <td><%= person_extend.created_at %></td>
+      <td><%= person_extend.user.role.name %></td>
+      <td>
+        <a href="<%= edit_admin_person_extend_path(person_extend) %>" 
+           class="btn btn-primary trk-btn-short update_tag">
+          <%= t('admin.actions.edit.menu') %>
+        </a>
+      </td>
     </tr>
   <% end %>
     <tfoot>
