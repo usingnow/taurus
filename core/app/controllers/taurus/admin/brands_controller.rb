@@ -25,7 +25,8 @@ module Taurus
 				@brand.updated_by = current_administrator.id
 
 		    if @brand.save
-		    	redirect_to admin_brands_url
+		    	flash[:success] = I18n.t('successfully_created')  
+		    	redirect_to admin_brand_url(@brand)
 		    else
 		    	render :action => "new"
 		    end	
@@ -36,7 +37,8 @@ module Taurus
 				@brand.updated_by = current_administrator.id
 
 		    if @brand.update_attributes(params[:brand])
-		    	redirect_to admin_brands_url
+		    	flash[:success] = I18n.t('successfully_updated') 
+		    	redirect_to admin_brand_url(@brand)
 		    else
 		    	render :action => "edit"
 		    end
@@ -44,8 +46,11 @@ module Taurus
 
 		  def destroy
 		    @brand = Brand.find(params[:id])
-		    @brand.destroy
-
+		    if @brand.destroy
+		    	flash[:success] = I18n.t('successfully_destroyed')
+		    else
+		    	flash[:error] = I18n.t(:failure_destroyed)
+        end
 		    redirect_to admin_brands_url
 		  end 
     end

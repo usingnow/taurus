@@ -20,6 +20,17 @@ Deface::Override.new(:virtual_path => "taurus/admin/brands/index",
   <% end %>"                    	
 end
 
+Deface::Override.new(:virtual_path => "taurus/admin/brands/index",
+                     :name => "auth_brand_index_destroy",
+                     :replace => ".destroy_tag") do
+  "<% if can? :destroy, Taurus::Brand %>
+    <a href=\"<%= admin_brand_path(brand) %>\" class=\"btn btn-danger trk-btn-short destroy_tag\"
+       data-method=\"delete\" data-confirm=\"<%= t('admin.actions.delete.confirm') %>\">
+      <%= t('admin.actions.delete.menu') %>
+    </a>
+  <% end %>"                      
+end
+
 
 Deface::Override.new(:virtual_path => "taurus/admin/brands/show",
                      :name => "auth_brand_show_update",
@@ -30,4 +41,16 @@ Deface::Override.new(:virtual_path => "taurus/admin/brands/show",
       <%= t('admin.actions.edit.menu') %>
     </a>
   <% end %>"                    	
+end
+
+Deface::Override.new(:virtual_path => "taurus/admin/brands/show",
+                     :name => "auth_brand_show_destroy",
+                     :replace => "#destroy_tag") do
+  "<% if can? :destroy, Taurus::Brand %>
+    <a href=\"<%= admin_brand_path(@brand) %>\" class=\"btn btn-danger\" id=\"destroy_tag\"
+       data-method=\"delete\" data-confirm=\"<%= t('admin.actions.delete.confirm') %>\">
+      <i class=\"icon-remove-sign\"></i>
+      <%= t('admin.actions.delete.menu') %>
+    </a>
+  <% end %>"                      
 end

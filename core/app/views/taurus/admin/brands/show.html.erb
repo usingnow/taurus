@@ -4,9 +4,17 @@
     <%= t('admin.actions.edit.menu') %>
   </a>
 
+  <a href="<%= admin_brand_path(@brand) %>" class="btn btn-danger" id="destroy_tag"
+     data-method="delete" data-confirm="<%= t('admin.actions.delete.confirm') %>">
+    <i class="icon-remove-sign"></i>
+    <%= t('admin.actions.delete.menu') %>
+  </a>
+
   <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_brands_path, 
               :class => "btn pull-right" %>
 </div>
+
+<%= flash_messages %>
 
 <%= simple_form_for(@brand, :url => "#", :html => {:multipart=>true, :class => 'form-horizontal'})  do |f| %>
   <fieldset>

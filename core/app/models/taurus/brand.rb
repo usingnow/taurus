@@ -6,8 +6,17 @@ module Taurus
   	has_attached_file :image,
 	                    :url  => "/taurus/brands/:id/:style/:basename.:extension",
 	                    :path => ":rails_root/public/taurus/brands/:id/:style/:basename.:extension"
-	  has_many :skus, :dependent => :destroy                   
+	  has_many :skus
+
+	  before_destroy :destroy_validate                  
 
   	validates_presence_of :chinese_name, :english_name, :company_name, :created_by, :updated_by
+ 
+    protected
+	    def destroy_validate
+	      [:skus].map do |relation|
+	        return false if self.send(relation).size > 0
+	      end   
+	    end
   end
 end
