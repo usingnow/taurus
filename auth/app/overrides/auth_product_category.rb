@@ -37,7 +37,7 @@ Deface::Override.new(:virtual_path => "taurus/admin/product_categories/index",
   "<% if can? :destroy, Taurus::ProductCategory %>
     <a href=\"<%= admin_product_category_path(product_category) %>\" data-method=\"delete\"
       data-confirm=\"<%= t('admin.actions.delete.confirm') %>\" 
-       class=\"btn btn-primary trk-btn-short destroy_tag\">
+       class=\"btn btn-danger trk-btn-short destroy_tag\">
       <%= t('admin.actions.delete.menu') %>
     </a>
   <% end %>"                      
