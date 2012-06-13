@@ -1,7 +1,7 @@
 <div class="well">
   <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
     <%= f.text_field :number_cont, :placeholder => t('activerecord.attributes.taurus/delivery_record.number'), :class => "trk-non-inline-margin" %>
-    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
+    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary trk-btn-inline" %>
   <% end %>
 </div>
 

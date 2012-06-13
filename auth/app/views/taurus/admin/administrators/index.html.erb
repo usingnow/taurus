@@ -2,7 +2,7 @@
   <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
     <%= f.text_field :email_cont, :placeholder => t('activerecord.attributes.taurus/administrator.email'), :class => "trk-non-inline-margin" %>
     <%= f.text_field :name_cont, :placeholder => t('activerecord.attributes.taurus/administrator.name'), :class => "trk-non-inline-margin" %>
-    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
+    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary trk-btn-inline" %>
   <% end %>
   <hr />
   <a href="<%= new_admin_administrator_path %>" class="btn btn-primary" id="create_tag">

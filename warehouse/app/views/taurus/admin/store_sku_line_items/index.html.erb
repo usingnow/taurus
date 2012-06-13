@@ -2,7 +2,7 @@
   <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
     <%= f.text_field :sku_number_cont, :placeholder => t('activerecord.attributes.taurus/sku.number'), :class => "trk-non-inline-margin" %>
     <%= f.text_field :sku_name_cont, :placeholder => t('activerecord.attributes.taurus/sku.name'), :class => "trk-non-inline-margin" %>
-    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
+    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary trk-btn-inline" %>
   <% end %>
 </div>
 
