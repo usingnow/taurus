@@ -4,7 +4,9 @@
       <div class="carousel-inner">
         <% @slider_bars.each_with_index do |slider_bar,index| %>
           <div class="<%= index == 0 ? "active item" : "item" %>">
-            <%= image_tag slider_bar.image.url(:normal) %>
+            <a href="<%= slider_bar.href %>" target="_blank">
+              <%= image_tag slider_bar.image.url(:normal) %>
+            </a>
             <div class="carousel-caption">
               <h4><%= slider_bar.name %></h4>
               <p><%= slider_bar.description %></p>

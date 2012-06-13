@@ -1,6 +1,6 @@
 module Taurus
 	module Index
-		class HomeController < BaseController
+		class HomeController < Taurus::Index::BaseController
 			def index
 				@search = Product.search(params[:q])
 				@products = Product.shown.displays
