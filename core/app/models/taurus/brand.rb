@@ -5,7 +5,8 @@ module Taurus
     
   	has_attached_file :image,
 	                    :url  => "/taurus/brands/:id/:style/:basename.:extension",
-	                    :path => ":rails_root/public/taurus/brands/:id/:style/:basename.:extension"
+	                    :path => ":rails_root/public/taurus/brands/:id/:style/:basename.:extension",
+	                    :styles => { :logo => "100x40#" }
 	  has_many :skus
 
 	  before_destroy :destroy_validate                  
