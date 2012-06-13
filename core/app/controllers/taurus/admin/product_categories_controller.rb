@@ -58,7 +58,7 @@ module Taurus
 				if @product_category.destroy
 					flash[:success] = I18n.t(:successfully_destroyed)
 				else
-          flash[:error] = I18n.t(:failure_destroyed)
+          flash[:error] = I18n.t(:failure_destroyed, :models=> destroy_error_models(@product_category))
 				end
 			  redirect_to(:back)
 			end  

@@ -30,8 +30,11 @@ module Taurus
     protected
     def destroy_validate
       [:children, :skus, :products, :custom_properties].map do |relation|
-        return false if self.send(relation).size > 0
-      end   
+        if self.send(relation).size > 0
+          errors.add(relation, '')
+        end
+      end
+      return false if errors.any?   
     end  
 
     def default_value

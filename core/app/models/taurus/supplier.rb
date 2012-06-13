@@ -14,7 +14,10 @@ module Taurus
 		protected
     def destroy_validate
       [:skus].map do |relation|
-        return false if self.send(relation).size > 0
+      	if self.send(relation).size > 0
+          errors.add(:skus, '')
+          return false 
+        end
       end   
     end 
 	end

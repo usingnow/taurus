@@ -50,10 +50,10 @@ module Taurus
 		    	flash[:success] = I18n.t('successfully_destroyed')
 		    	redirect_to admin_brands_url
 		    else
-		    	flash[:error] = I18n.t(:failure_destroyed)
+		    	flash[:error] = I18n.t(:failure_destroyed, :models=> destroy_error_models(@brand))
 		    	redirect_to :back
         end
-		  end 
+		  end
     end
   end
 end    
