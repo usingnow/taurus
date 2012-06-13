@@ -48,10 +48,11 @@ module Taurus
 		    @brand = Brand.find(params[:id])
 		    if @brand.destroy
 		    	flash[:success] = I18n.t('successfully_destroyed')
+		    	redirect_to admin_brands_url
 		    else
 		    	flash[:error] = I18n.t(:failure_destroyed)
+		    	redirect_to :back
         end
-		    redirect_to admin_brands_url
 		  end 
     end
   end

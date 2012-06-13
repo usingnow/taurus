@@ -49,10 +49,11 @@ module Taurus
         @supplier = Supplier.find(params[:id])
         if @supplier.destroy
           flash[:success] = I18n.t('successfully_destroyed')
+          redirect_to(admin_suppliers_url)
         else
           flash[:error] = I18n.t(:failure_destroyed)
+          redirect_to(:back)
         end  
-        redirect_to(admin_suppliers_url) 
       end
     end
   end
