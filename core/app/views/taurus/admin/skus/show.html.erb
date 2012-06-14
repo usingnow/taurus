@@ -44,7 +44,7 @@
   <% @sku.products.each_with_index do |product,index| %>
     <tr>
       <td><%= index+1 %></td>
-      <td><%= link_to product.number, admin_product_path(product) %></td>
+      <td><%= link_to product.number, admin_product_path(product), :target => "_blank" %></td>
       <td><%= product.name %></td>
       <td><%= format_boolean product.sales_status %></td>
       <td><%= format_boolean product.if_shown_on_web %></td>
