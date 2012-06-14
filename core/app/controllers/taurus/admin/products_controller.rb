@@ -29,6 +29,7 @@ module Taurus
 				@product = Product.new params[:product]
 
 		    if @product.save
+		    	flash[:success] = I18n.t('admin.misc.product.successfully_created')
 		    	redirect_to edit_admin_product_url(@product)
 		    else
 		    	render :action => "new"

@@ -397,6 +397,7 @@ zh-CN:
         phone_hint: "固话与手机选填一项"
       product:
         sales_alert_info: "商品销售与上架的条件是，1）必须包含至少一个SKU，2）必须已设置主图片。"
+        successfully_created: "创建成功，请更新详细的商品信息。"
     actions:
       index:
         title: "%{model}列表"
