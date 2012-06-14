@@ -1,92 +1,22 @@
 <%= hidden_field_tag :sku_id, @sku.id %>
-<div class="control-group">
-  <label class="control-label"><%= t 'activerecord.attributes.taurus/sku.number' %></label>
-  <div class="controls">
-    <span class="uneditable-input" id="sku_number"><%= @sku.number %></span>
-  </div>
-</div>
-<div class="control-group">
-  <label class="control-label"><%= t 'activerecord.attributes.taurus/sku.product_category_id' %></label>
-  <div class="controls">
-    <span class="uneditable-input"><%= @sku.product_category.name %></span>
-  </div>
-</div>
-<div class="control-group">
-  <label class="control-label"><%= t 'activerecord.attributes.taurus/sku.brand_id' %></label>
-  <div class="controls">
-    <span class="uneditable-input"><%= @sku.brand.chinese_name %></span>
-  </div>
-</div>
-<div class="control-group">
-  <label class="control-label"><%= t 'activerecord.attributes.taurus/sku.supplier_id' %></label>
-  <div class="controls">
-    <span class="uneditable-input"><%= @sku.supplier.name %></span>
-  </div>
-</div>
-<div class="control-group">
-  <label class="control-label"><%= t 'activerecord.attributes.taurus/sku.weight' %></label>
-  <div class="controls">
-    <span class="uneditable-input"><%= @sku.weight %></span>
-  </div>
-</div>
-<div class="control-group">
-  <label class="control-label"><%= t 'activerecord.attributes.taurus/sku.place_of_origin' %></label>
-  <div class="controls">
-    <span class="uneditable-input"><%= @sku.place_of_origin %></span>
-  </div>
-</div>
-<div class="control-group">
-  <label class="control-label"><%= t 'activerecord.attributes.taurus/sku.unit' %></label>
-  <div class="controls">
-    <span class="uneditable-input"><%= @sku.unit %></span>
-  </div>
-</div>
-<div class="control-group">
-  <label class="control-label"><%= t 'activerecord.attributes.taurus/sku.model' %></label>
-  <div class="controls">
-    <span class="uneditable-input"><%= @sku.model %></span>
-  </div>
-</div>
-<div class="control-group">
-  <label class="control-label"><%= t 'activerecord.attributes.taurus/sku.specifications' %></label>
-  <div class="controls">
-    <span class="uneditable-input"><%= @sku.specifications %></span>
-  </div>
-</div>
-<div class="control-group">
-  <label class="control-label"><%= t 'activerecord.attributes.taurus/sku.dimensions' %></label>
-  <div class="controls">
-    <span class="uneditable-input"><%= @sku.dimensions %></span>
-  </div>
-</div>
-<div class="control-group">
-  <label class="control-label"><%= t 'activerecord.attributes.taurus/sku.cost_before_tax' %></label>
-  <div class="controls">
-    <span class="uneditable-input"><%= @sku.cost_before_tax %></span>
-  </div>
-</div>
-<div class="control-group">
-  <label class="control-label"><%= t 'activerecord.attributes.taurus/sku.cost_after_tax' %></label>
-  <div class="controls">
-    <span class="uneditable-input"><%= @sku.cost_after_tax %></span>
-  </div>
-</div>
-<div class="control-group">
-  <label class="control-label"><%= t 'activerecord.attributes.taurus/sku.delivery_days' %></label>
-  <div class="controls">
-    <span class="uneditable-input"><%= @sku.delivery_days %></span>
-  </div>
-</div>
-<div class="control-group">
-  <label class="control-label"><%= t 'activerecord.attributes.taurus/sku.delivery_notice' %></label>
-  <div class="controls">
-    <span class="uneditable-input"><%= @sku.delivery_notice %></span>
-  </div>
-</div>
-<div class="control-group">
-  <label class="control-label"><%= t 'activerecord.attributes.taurus/sku.remarks' %></label>
-  <div class="controls">
-    <span class="uneditable-input"><%= @sku.remarks %></span>
-  </div>
-</div>
+
+<%= simple_form_for(@sku, :url => "#", :html => {:class => 'form-horizontal'}) do |f| %>
+  <fieldset>
+    <%= f.input :name, :disabled => true %>
+    <%= f.input :product_category_name, :disabled => true %>
+    <%= f.input :brand_chinese_name, :disabled => true %>
+    <%= f.input :supplier_name, :disabled => true %>
+    <%= f.input :weight, :disabled => true %>
+    <%= f.input :place_of_origin, :disabled => true %>
+    <%= f.input :unit, :disabled => true %>
+    <%= f.input :model, :disabled => true %>
+    <%= f.input :specifications, :disabled => true %>
+    <%= f.input :dimensions, :disabled => true %>
+    <%= f.input :cost_before_tax, :disabled => true %>
+    <%= f.input :cost_after_tax, :disabled => true %>
+    <%= f.input :delivery_days, :disabled => true %>
+    <%= f.input :delivery_notice, :disabled => true %>
+    <%= f.input :remarks, :input_html => { :rows => 5 }, :disabled => true %>
+  </fieldset>
+<% end %>
  
