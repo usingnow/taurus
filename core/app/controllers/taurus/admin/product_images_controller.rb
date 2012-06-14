@@ -13,12 +13,13 @@ module Taurus
 
       def create
         @product = Product.find(params[:product_id])
-        @product.product_images.build(params[:product_image])
+        @product_image = @product.product_images.build(params[:product_image])
 
-        if @product.save
+        if @product_image.save
           redirect_to admin_product_product_images_url(@product)
         else
-          render :action => "index"
+          @product = Product.find(params[:product_id])
+          render :action => :index
         end
       end
 
@@ -26,7 +27,7 @@ module Taurus
         @product = Product.find(params[:product_id])
         @product_image = @product.product_images.find(params[:id])
 
-        render :action => "index"
+        render :action => :index
       end
 
       def update
@@ -36,7 +37,7 @@ module Taurus
         if @product_image.update_attributes(params[:product_image])
           redirect_to admin_product_product_images_url(@product)
         else
-          render :action => "index"
+          render :action => :index
         end
       end
 

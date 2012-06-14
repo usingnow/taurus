@@ -301,6 +301,7 @@ zh-CN:
         sku_name: "SKU名称"
       taurus/product_image:
         image: "图片"
+        image_file_name: "图片"
         is_main: "是否主图片"
         updated_at: "更新时间"
       taurus/cart_product_line_item:

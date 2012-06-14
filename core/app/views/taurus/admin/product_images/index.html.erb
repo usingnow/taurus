@@ -28,9 +28,12 @@
 
 <%= simple_form_for([:admin, @product, @product_image], :html => {:class => 'form-horizontal'}) do |f| %>
   <%= f.error_notification %>
+  
 		<fieldset>
 			<%= image_tag @product_image.image.url(:small)  if @product_image.id %>
-      <%= f.input :image %>
+      <%= f.input :image_file_name do
+        f.file_field :image
+      end %>
       <%= f.input :is_main %>      
 		</fieldset>
     
