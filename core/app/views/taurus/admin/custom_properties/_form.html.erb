@@ -4,7 +4,7 @@
   <fieldset>
     <%= f.input :name %>
     <%= f.input :property_type, :collection => Taurus::CustomProperty::PROPERTY_TYPE, :label_method => :second, 
-                :value_method => :first, :include_blank => false, :as => :select %>
+                :value_method => :first, :include_blank => false, :as => :select unless @custom_property.id %>
     <%= f.input :remarks %>
     <%= f.input :status %>
 
