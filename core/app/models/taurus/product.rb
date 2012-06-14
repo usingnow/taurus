@@ -22,7 +22,7 @@ module Taurus
   	end
 
   	validates_presence_of :number, :name, :product_category_name, :product_category_id, :weight, :price_after_tax
-  
+    validates_uniqueness_of :number
     validate :must_have_sku, :must_have_image, :if => Proc.new { current_step == "sales_status" }
 
     def main_image(style = :small)
