@@ -11,7 +11,7 @@
   <tbody id="line_items">
     <% @product.product_sku_line_items.each_with_index do |line_item,index| %>
 	    <tr>
-	      <td><%= line_item.sku.number %></td>
+	      <td><%= link_to line_item.sku.number, admin_sku_path(line_item.sku_id), :target => "_blank" %></td>
 	      <td><%= line_item.sku.name %></td>
 	      <td><%= line_item.sku_amount %></td>
 	    </tr>

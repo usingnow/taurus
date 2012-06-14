@@ -13,7 +13,7 @@
     <% @product.product_images.each_with_index do |product_image,index| %>
 	    <tr>
 	    	<td><%= index+1 %></td>
-	      <td><%= image_tag product_image.image.url(:s50) %></td>
+	      <td><%= image_tag product_image.image.url(:logo) %></td>
 	      <td><%= format_boolean product_image.is_main %></td>
 	      <td><%= product_image.updated_at %></td>
 	    </tr>
