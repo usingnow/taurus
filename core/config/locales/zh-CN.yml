@@ -386,6 +386,8 @@ zh-CN:
         belongs_to: "所属分类"
       company_extend:
         phone_hint: "固话与手机选填一项"
+      product:
+        sales_alert_info: "商品销售与上架的条件是，1）必须包含至少一个SKU，2）必须已设置主图片。"
     actions:
       index:
         title: "%{model}列表"
