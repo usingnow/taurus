@@ -9,8 +9,8 @@
   <%= f.error_notification %>
 
   <fieldset>
-    <%= f.input :sales_status %>
-    <%= f.input :if_shown_on_web %>
+    <%= f.input :sales_status, :boolean_style => :inline %>
+    <%= f.input :if_shown_on_web, :boolean_style => :inline %>
 
     <div class="form-actions">
       <%= f.button :submit, :class => "btn btn-primary" %>

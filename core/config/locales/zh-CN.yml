@@ -344,6 +344,14 @@ zh-CN:
       taurus/company_scale:
         name: "企业规模名称"
         sequence: "顺序"
+    errors:
+      models:  
+        taurus/product:
+          attributes:
+            sales_status:
+              must_have_sku: "必须包含至少一个SKU"
+            if_shown_on_web:  
+              must_have_image: "必须已设置主图片"
 
 
   admin:

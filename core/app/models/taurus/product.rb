@@ -23,7 +23,7 @@ module Taurus
 
   	validates_presence_of :number, :name, :product_category_name, :product_category_id, :weight, :price_after_tax
   
-    validate :must_have_sku, :if => Proc.new { current_step == "sales_status" }
+    validate :must_have_sku, :must_have_image, :if => Proc.new { current_step == "sales_status" }
 
     def main_image(style = :small)
       product_images.main.last.image.url(style)
@@ -32,11 +32,14 @@ module Taurus
     protected
     def must_have_sku
       if sales_status
-       errors.add(:sales_status, "最少包含一个SKU") if product_sku_line_items.size == 0
+        errors.add(:sales_status, :must_have_sku) if product_sku_line_items.size == 0
       end 
+    end
+
+    def must_have_image
       if if_shown_on_web
-      	errors.add(:if_shown_on_web, "最少包含一个SKU") if product_sku_line_items.size == 0
-      end	
+        errors.add(:if_shown_on_web, :must_have_image) if product_images.size == 0
+      end 
     end
   end
 end
