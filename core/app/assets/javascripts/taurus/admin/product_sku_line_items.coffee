@@ -13,7 +13,7 @@ jQuery ->
     if jQuery("#sku_id").length != 0 && flag
 	    jQuery("#line_items").append(
 	      "<tr class='sku_line_item' data-sku_id=\""+jQuery("#sku_id").val()+"\">"+
-		      "<td>"+jQuery("#sku_number").text()+"</td>"+
+		      "<td><a href='/admin/skus/"+jQuery("#sku_id").val()+"' target='_blank'>"+jQuery("#sku_number").val()+"</a></td>"+
 		      "<td>"+jQuery("#product_sku_line_item_sku_name").val()+"</td>"+
 		      "<td>"+
 		      	"<input name='sku_amount["+jQuery("#sku_id").val()+"]' class='numeric integer required' "+

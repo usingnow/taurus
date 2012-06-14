@@ -15,8 +15,8 @@
 		  </thead>
 		  <tbody id="line_items">
         <% @product.product_sku_line_items.each_with_index do |line_item,index| %>
-			    <tr class='sku_line_item' data-sku_id="<%= line_item.sku.id %>">
-			      <td><%= line_item.sku.number %></td>
+			    <tr class='sku_line_item' data-sku_id="<%= line_item.sku_id %>">
+			      <td><%= link_to line_item.sku.number, admin_sku_path(line_item.sku_id), :target => "_blank" %></td>
 			      <td><%= line_item.sku.name %></td>
 			      <td>
 			      	<%= text_field_tag :"sku_amount[#{line_item.sku_id}]", line_item.sku_amount, 
