@@ -5,6 +5,19 @@
     <%= t('admin.actions.edit.menu') %>
   </a>
 
+  <a href="<%= admin_product_category_custom_properties_path(@product_category) %>" 
+     class="btn btn-primary" id="custom_tag">
+    <i class="icon-wrench"></i>
+    <%= t('activerecord.attributes.taurus/product_category.custom_property') %>
+  </a>    
+
+  <a href="<%= admin_product_category_path(@product_category) %>" data-method="delete"
+     data-confirm="<%= t('admin.actions.delete.confirm') %>" 
+     class="btn btn-danger" id="destroy_tag">
+    <i class="icon-remove-sign"></i>
+    <%= t('admin.actions.delete.menu') %>
+  </a>  
+
   <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_product_categories_path, :class => "btn pull-right" %>
 </div>
 

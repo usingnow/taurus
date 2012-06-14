@@ -54,3 +54,29 @@ Deface::Override.new(:virtual_path => "taurus/admin/product_categories/show",
     </a>
   <% end %>"                    	
 end
+
+Deface::Override.new(:virtual_path => "taurus/admin/product_categories/show",
+                     :name => "auth_product_category_show_custom",
+                     :replace => "#custom_tag") do
+  "<% if can? :manage, Taurus::CustomProperty %>
+    <a href=\"<%= admin_product_category_custom_properties_path(@product_category) %>\" 
+       class=\"btn btn-primary\" id=\"custom_tag\">
+      <i class=\"icon-wrench\"></i>
+      <%= t('activerecord.attributes.taurus/product_category.custom_property') %>
+    </a> 
+  <% end %>"                      
+end
+
+
+Deface::Override.new(:virtual_path => "taurus/admin/product_categories/show",
+                     :name => "auth_product_category_show_destroy",
+                     :replace => "#destroy_tag") do
+  "<% if can? :destroy, Taurus::ProductCategory %>
+    <a href=\"<%= admin_product_category_path(@product_category) %>\" data-method=\"delete\"
+       data-confirm=\"<%= t('admin.actions.delete.confirm') %>\" 
+       class=\"btn btn-danger\" id=\"destroy_tag\">
+      <i class=\"icon-remove-sign\"></i>
+      <%= t('admin.actions.delete.menu') %>
+    </a>  
+  <% end %>"                      
+end
