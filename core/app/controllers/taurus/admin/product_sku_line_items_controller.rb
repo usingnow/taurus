@@ -23,7 +23,9 @@ module Taurus
 		  	params[:sku_amount].each do |key,value|
 	  			@product.product_sku_line_items << ProductSkuLineItem.new(:sku_id => key, :sku_amount => value)
 		  	end if params[:sku_amount]
-		  	@product.save
+		  	if @product.save
+		  		flash[:success] = I18n.t(:successfully_updated)
+		  	end
 		  	redirect_to(admin_product_product_sku_line_items_url(@product))
 		  end	
     end

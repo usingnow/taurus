@@ -31,10 +31,12 @@ module Taurus
           @product.custom_property_values << CustomPropertyValue.new(:custom_property_id => key, :text_value => value)
         end if params[:text_value]
 
-        @product.save
-
-
-        redirect_to(admin_product_custom_property_values_url(@product)) 
+        if @product.save
+          flash[:success] = I18n.t(:successfully_updated)
+          redirect_to(admin_product_custom_property_values_url(@product)) 
+        else
+          render :action => :index
+        end
 		  end
     end
   end

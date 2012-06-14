@@ -16,6 +16,7 @@ module Taurus
         @product_image = @product.product_images.build(params[:product_image])
 
         if @product_image.save
+          flash[:success] = I18n.t(:successfully_created)
           redirect_to admin_product_product_images_url(@product)
         else
           @product = Product.find(params[:product_id])
@@ -35,6 +36,7 @@ module Taurus
         @product_image = @product.product_images.find(params[:id])
 
         if @product_image.update_attributes(params[:product_image])
+          flash[:success] = I18n.t(:successfully_updated)
           redirect_to admin_product_product_images_url(@product)
         else
           render :action => :index

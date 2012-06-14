@@ -39,6 +39,7 @@ module Taurus
 				@product = Product.find(params[:id])
 
 		    if @product.update_attributes(params[:product])
+		    	flash[:success] = I18n.t(:successfully_updated)
 		    	redirect_to edit_admin_product_url(@product)
 		    else
 		    	render :action => "edit"
@@ -54,6 +55,7 @@ module Taurus
 				@product.current_step = "sales_status"
 
 		    if @product.update_attributes(params[:product])
+		    	flash[:success] = I18n.t(:successfully_updated)
 		    	redirect_to edit_sales_status_admin_product_url(@product)
 		    else
 		    	render :action => "edit_sales_status"
