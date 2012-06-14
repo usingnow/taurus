@@ -22,7 +22,8 @@ module Taurus
 				@sku = Sku.new params[:sku]
 
 				if @sku.save
-				  redirect_to(admin_skus_url)
+					flash[:success] = I18n.t('successfully_created')
+				  redirect_to(admin_sku_url(@sku))
 				else
 				  render :action => "new"
 				end
@@ -36,7 +37,8 @@ module Taurus
         @sku = Sku.find(params[:id])
 
         if @sku.update_attributes(params[:sku])
-				  redirect_to(admin_skus_url)
+        	flash[:success] = I18n.t('successfully_updated')
+				  redirect_to(admin_sku_url(@sku))
 				else
 				  render :action => "edit"
 				end
