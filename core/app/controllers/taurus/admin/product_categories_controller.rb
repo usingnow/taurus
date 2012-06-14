@@ -13,6 +13,7 @@ module Taurus
 
 			def show
 			  @product_category = ProductCategory.find(params[:id])
+			  @product_category.parent_name = @product_category.parent.name if @product_category.parent
 			end
 
 			def new 
