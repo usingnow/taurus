@@ -10,6 +10,10 @@ jQuery ->
     jQuery(".sku_line_item").each ->
     	if jQuery(this).attr("data-sku_id") == jQuery("#sku_id").val()
     		flag = false
+        
+    alert "所填写的SKU不存在，详细信息可在SKU模块查询。" if jQuery("#sku_id").length == 0
+    alert "所填写的SKU已存在" unless flag
+
     if jQuery("#sku_id").length != 0 && flag
 	    jQuery("#line_items").append(
 	      "<tr class='sku_line_item' data-sku_id=\""+jQuery("#sku_id").val()+"\">"+
