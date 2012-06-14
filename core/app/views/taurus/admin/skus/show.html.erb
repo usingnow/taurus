@@ -37,6 +37,8 @@
       <th>#</th>
       <th><%= t('activerecord.attributes.taurus/product.number') %></th>
       <th><%= t('activerecord.attributes.taurus/product.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/product.sales_status') %></th>
+      <th><%= t('activerecord.attributes.taurus/product.if_shown_on_web') %></th>
    </tr>
   </thead>
   <% @sku.products.each_with_index do |product,index| %>
@@ -44,6 +46,8 @@
       <td><%= index+1 %></td>
       <td><%= link_to product.number, admin_product_path(product) %></td>
       <td><%= product.name %></td>
+      <td><%= format_boolean product.sales_status %></td>
+      <td><%= format_boolean product.if_shown_on_web %></td>
     </tr>
   <% end %>
 </table>
