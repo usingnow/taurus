@@ -24,7 +24,7 @@
       <td><%= format_property_type custom_property.property_type %></td>
       <td><%= format_boolean custom_property.status %></td>
       <td>
-        <%= link_to t('admin.actions.edit.menu'), edit_admin_product_category_custom_property_path(custom_property.product_category_id, custom_property), :class => "btn btn-primary" %>
+        <%= link_to t('admin.actions.edit.menu'), edit_admin_product_category_custom_property_path(custom_property.product_category_id, custom_property), :class => "btn btn-primary trk-btn-short" %>
       </td>
     </tr>
   <% end %>
