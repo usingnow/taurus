@@ -16,6 +16,7 @@ skus_1:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-05-25 17:39:20 +0800'
   updated_at: '2012-06-05 17:19:30 +0800'
 skus_2:
@@ -36,6 +37,7 @@ skus_2:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-05-25 17:44:53 +0800'
   updated_at: '2012-06-05 17:23:43 +0800'
 skus_3:
@@ -56,6 +58,7 @@ skus_3:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-05-26 12:48:01 +0800'
   updated_at: '2012-06-05 17:23:52 +0800'
 skus_4:
@@ -76,6 +79,7 @@ skus_4:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-05-27 11:06:13 +0800'
   updated_at: '2012-06-05 17:32:30 +0800'
 skus_5:
@@ -96,6 +100,7 @@ skus_5:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-05-27 11:06:39 +0800'
   updated_at: '2012-06-06 16:51:34 +0800'
 skus_6:
@@ -116,6 +121,7 @@ skus_6:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-05-27 11:08:01 +0800'
   updated_at: '2012-06-05 17:15:59 +0800'
 skus_7:
@@ -136,6 +142,7 @@ skus_7:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-05-27 11:09:27 +0800'
   updated_at: '2012-06-05 17:35:17 +0800'
 skus_8:
@@ -156,6 +163,7 @@ skus_8:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-06-05 16:50:06 +0800'
   updated_at: '2012-06-05 17:36:33 +0800'
 skus_9:
@@ -176,6 +184,7 @@ skus_9:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-06-05 16:51:19 +0800'
   updated_at: '2012-06-05 17:36:48 +0800'
 skus_10:
@@ -196,6 +205,7 @@ skus_10:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-06-05 16:51:53 +0800'
   updated_at: '2012-06-05 17:37:08 +0800'
 skus_11:
@@ -216,6 +226,7 @@ skus_11:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-06-05 16:53:01 +0800'
   updated_at: '2012-06-06 18:17:06 +0800'
 skus_12:
@@ -236,6 +247,7 @@ skus_12:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-06-05 16:54:11 +0800'
   updated_at: '2012-06-05 17:20:41 +0800'
 skus_13:
@@ -256,6 +268,7 @@ skus_13:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-06-05 16:55:40 +0800'
   updated_at: '2012-06-05 17:21:14 +0800'
 skus_14:
@@ -276,6 +289,7 @@ skus_14:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-06-05 16:56:35 +0800'
   updated_at: '2012-06-05 17:21:24 +0800'
 skus_15:
@@ -296,6 +310,7 @@ skus_15:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-06-05 16:57:02 +0800'
   updated_at: '2012-06-05 17:21:34 +0800'
 skus_16:
@@ -316,6 +331,7 @@ skus_16:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-06-05 16:57:39 +0800'
   updated_at: '2012-06-05 17:21:42 +0800'
 skus_17:
@@ -336,6 +352,7 @@ skus_17:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-06-05 16:59:03 +0800'
   updated_at: '2012-06-05 17:19:46 +0800'
 skus_18:
@@ -356,6 +373,7 @@ skus_18:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-06-05 16:59:50 +0800'
   updated_at: '2012-06-05 17:20:00 +0800'
 skus_19:
@@ -376,6 +394,7 @@ skus_19:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-06-05 17:00:29 +0800'
   updated_at: '2012-06-05 17:22:01 +0800'
 skus_20:
@@ -396,6 +415,7 @@ skus_20:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-06-05 17:01:04 +0800'
   updated_at: '2012-06-05 17:22:13 +0800'
 skus_21:
@@ -416,6 +436,7 @@ skus_21:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-06-05 17:01:21 +0800'
   updated_at: '2012-06-05 17:22:24 +0800'
 skus_22:
@@ -436,6 +457,7 @@ skus_22:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-06-06 16:51:12 +0800'
   updated_at: '2012-06-06 16:51:12 +0800'
 skus_23:
@@ -456,6 +478,7 @@ skus_23:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-06-06 16:51:26 +0800'
   updated_at: '2012-06-06 16:51:26 +0800'
 skus_24:
@@ -476,6 +499,7 @@ skus_24:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-06-06 17:11:02 +0800'
   updated_at: '2012-06-06 17:11:02 +0800'
 skus_25:
@@ -496,5 +520,6 @@ skus_25:
   delivery_days: '0'
   delivery_notice: ''
   remarks: ''
+  status: '1'
   created_at: '2012-06-06 17:11:18 +0800'
   updated_at: '2012-06-06 17:11:18 +0800'

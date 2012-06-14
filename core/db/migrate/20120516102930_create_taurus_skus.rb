@@ -17,6 +17,7 @@ class CreateTaurusSkus < ActiveRecord::Migration
     	t.integer :delivery_days, :default => 0
     	t.string :delivery_notice
     	t.text :remarks
+        t.boolean :status
 
       t.timestamps
     end

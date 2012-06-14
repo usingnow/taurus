@@ -82,6 +82,7 @@ en:
         delivery_days: "Days for Procurement"
         delivery_notice: "Notice for Procurement"
         remarks: "Remarks"
+        status: "Active"
       taurus/product:
         number: "Product Number"
         name: "Product"

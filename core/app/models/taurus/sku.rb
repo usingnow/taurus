@@ -1,5 +1,8 @@
+#encoding:UTF-8
 module Taurus
   class Sku < ActiveRecord::Base
+    STATUS = { true => "激活", false => "未激活" }
+
     belongs_to :product_category
   	belongs_to :brand
   	belongs_to :supplier

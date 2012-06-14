@@ -6,6 +6,9 @@
                      :class => "trk-non-inline-margin" %>
     <%= f.text_field :product_category_name_cont, :class => "trk-non-inline-margin",
                      :placeholder => t('activerecord.attributes.taurus/product_category.name') %>
+    <br />
+    <%= f.collection_select :status_eq, Taurus::Sku::STATUS, :first, :second,
+                            :include_blank => "全部", :class => "trk-non-inline-margin" %>                 
     <%= f.submit t('admin.misc.search'), :class => "btn btn-primary trk-btn-inline" %>
   <% end %>
   <hr />

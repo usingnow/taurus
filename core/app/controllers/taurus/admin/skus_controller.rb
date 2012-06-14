@@ -6,6 +6,7 @@ module Taurus
 			autocomplete :supplier, :name, :class_name => "Taurus::Supplier"
 
 			def index
+				params[:q] = { :status_eq => true } unless params[:q]
 				@search = Sku.search(params[:q])
 				@skus = @search.result.paginate(:page => params[:page], :per_page => 20)
 			end
