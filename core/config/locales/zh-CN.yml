@@ -400,7 +400,9 @@ zh-CN:
         sales_alert_info: "商品销售与上架的条件是，1）必须包含至少一个SKU，2）必须已设置主图片。"
         successfully_created: "创建成功，请更新详细的商品信息。"
       sku:
-        new_alert: "供应商、品牌以及商品分类信息是生成SKU的必填项，可以在对应模块查询详细信息。"  
+        new_alert: "供应商、品牌以及商品分类信息是生成SKU的必填项，可以在对应模块查询详细信息。" 
+      product_category:
+        back_to_parent: "返回上级分类"   
     actions:
       index:
         title: "%{model}列表"

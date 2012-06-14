@@ -17,8 +17,12 @@
     <i class="icon-remove-sign"></i>
     <%= t('admin.actions.delete.menu') %>
   </a>  
+  
+  <div class="pull-right">
+    <%= back_to_parent %>
 
-  <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_product_categories_path, :class => "btn pull-right" %>
+    <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_product_categories_path, :class => "btn" %>
+  </div>
 </div>
 
 <%= flash_messages %>
