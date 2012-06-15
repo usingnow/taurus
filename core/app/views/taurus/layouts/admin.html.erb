@@ -9,14 +9,6 @@
   <%= csrf_meta_tag %>
   <script type="text/javascript">
     jQuery(document).ready(function () {
-      jQuery(document).keydown(function(event) {
-        if (event.keyCode == 13) {
-          jQuery('form').each(function() {
-            event.preventDefault();
-          });
-        }
-      });
-
       <%= yield(:ready) %> //动态加载js
     });
   </script>
@@ -36,17 +28,22 @@
         <div class="nav-collapse">
           <%=raw components %>
         </div>
-        <div class="btn-group pull-right">
-          <a class="btn" href="<%= edit_admin_my_account_path %>">
-            <i class="icon-user"></i> <%= current_administrator.name %>
-          </a>
-          <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <li><%= link_to t('admin.functions.my_account.base_info'), edit_admin_my_account_path %></li>
-            <li class="divider"></li>
-            <li><%= link_to t('admin.misc.sign_out'), destroy_administrator_session_path, :method => :delete %></li>
-          </ul>
-        </div>
+        <ul class="nav pull-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="icon-user"></i> <%= current_administrator.name %> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to t('admin.functions.my_account.base_info'), edit_admin_my_account_path %>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to t('admin.misc.sign_out'), destroy_administrator_session_path, :method => :delete %>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
