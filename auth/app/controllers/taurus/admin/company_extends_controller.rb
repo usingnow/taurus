@@ -3,6 +3,7 @@ module Taurus
     class CompanyExtendsController < BaseController
 
       def index
+        params[:q] = { :user_status_eq => true } unless params[:q]
         @search = CompanyExtend.search(params[:q])
         @company_extends = @search.result.paginate(:page => params[:page], :per_page => 20)
       end

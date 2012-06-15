@@ -43,6 +43,7 @@ class DeviseCreateTaurusUsers < ActiveRecord::Migration
       t.string  :userable_type
       t.integer :points, :default => 0
       t.integer :role_id
+      t.boolean :status
 
       t.timestamps
     end

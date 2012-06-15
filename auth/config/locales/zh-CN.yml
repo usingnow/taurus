@@ -41,6 +41,7 @@ zh-CN:
         role_id: "会员角色"
         role: "会员角色"
         created_at: "注册时间"
+        status: "激活"
       taurus/company_extend:
         number: "企业会员编号"
         name: "公司名称"

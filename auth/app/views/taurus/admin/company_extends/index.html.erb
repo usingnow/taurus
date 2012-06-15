@@ -3,6 +3,9 @@
     <%= f.text_field :number_cont, :placeholder => t('activerecord.attributes.taurus/company_extend.number'), :class => "trk-non-inline-margin" %>
     <%= f.text_field :name_cont, :placeholder => t('activerecord.attributes.taurus/company_extend.name'), :class => "trk-non-inline-margin" %>
     <%= f.text_field :user_email_cont, :placeholder => t('activerecord.attributes.taurus/user.email'), :class => "trk-non-inline-margin" %>
+    <br />
+    <%= f.collection_select :user_status_eq, Taurus::User::STATUS, :first, :second,
+                            :include_blank => "全部", :class => "trk-non-inline-margin" %>
     <%= f.submit t('admin.misc.search'), :class => "btn btn-primary trk-btn-inline" %>
   <% end %>
 
@@ -21,8 +24,8 @@
       <th><%= t('activerecord.attributes.taurus/company_extend.number') %></th>
       <th><%= t('activerecord.attributes.taurus/user.email') %></th>
       <th><%= t('activerecord.attributes.taurus/company_extend.name') %></th>
-      <th><%= t('activerecord.attributes.taurus/user.created_at') %></th>
       <th><%= t('activerecord.attributes.taurus/user.role') %></th>
+      <th><%= t('activerecord.attributes.taurus/user.status') %></th>
       <th><%= t('admin.misc.operation') %></th>
     </tr>
   </thead>
@@ -32,8 +35,8 @@
       <td><%= link_to company_extend.number, admin_company_extend_path(company_extend) %></td>
       <td><%= company_extend.user.email %></td>
       <td><%= company_extend.name %></td>
-      <td><%= company_extend.created_at %></td>
       <td><%= company_extend.user.role.name %></td>
+      <td><%= format_boolean company_extend.user.status %></td>
       <td>
         <a href="<%= edit_admin_company_extend_path(company_extend) %>" 
            class="btn btn-primary trk-btn-short update_tag">

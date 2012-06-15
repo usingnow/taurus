@@ -1,9 +1,9 @@
 module Taurus
   module Admin
     class PersonExtendsController < BaseController
-      #authorize_resource
 
       def index
+        params[:q] = { :user_status_eq => true } unless params[:q]
         @search = PersonExtend.search(params[:q])
         @person_extends = @search.result.paginate(:page => params[:page], :per_page => 20)
       end

@@ -39,6 +39,7 @@ en:
         role_id: "User Role"
         role: "User Role"
         created_at: "Signed up at"
+        status: "Active"
       taurus/company_extend:
         number: "Company User Number"
         name: "Company Name"
