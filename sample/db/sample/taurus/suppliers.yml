@@ -4,8 +4,9 @@ suppliers_1:
   name: '上海采恪企业管理咨询服务有限公司'
   contact_name: '徐剑敏'
   contact_phone: '021-32221782'
-  status: 0
+  email: <%= Faker::Internet.email %>
   remarks: ''
+  status: 0
   created_by: 1
   updated_by: 1
 suppliers_2:
@@ -14,6 +15,7 @@ suppliers_2:
   name: '【测试数据】Taurus Project Consultant Insititution'
   contact_name: 'Taurus Team'
   contact_phone: '978647'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 1
   created_by: 1
@@ -24,6 +26,7 @@ suppliers_3:
   name: '【测试数据】安徽IT服务公司'
   contact_name: '王先生'
   contact_phone: '13812345678'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 1
   created_by: 1
@@ -34,6 +37,7 @@ suppliers_4:
   name: '【测试数据】北京冀鲁豫外贸公司'
   contact_name: '邱丽'
   contact_phone: '0931-34287523'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 1
   created_by: 1
@@ -44,6 +48,7 @@ suppliers_5:
   name: '【测试数据】重庆一二三木头人企业'
   contact_name: '刘启新'
   contact_phone: '18618975447'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 1
   created_by: 1
@@ -54,6 +59,7 @@ suppliers_6:
   name: '【测试数据】福建塔拉斯精密仪器有限公司'
   contact_name: 'Mr. John Don'
   contact_phone: '+1 2381527'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 1
   created_by: 1
@@ -64,6 +70,7 @@ suppliers_7:
   name: '【测试数据】甘肃点亮照明有限公司'
   contact_name: 'Ms. Jean Don'
   contact_phone: '23157389 ext. 23'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 1
   created_by: 1
@@ -74,6 +81,7 @@ suppliers_8:
   name: '【测试数据】广东拐角文具用品商店'
   contact_name: '张大妈'
   contact_phone: '13312345678'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 1
   created_by: 1
@@ -84,6 +92,7 @@ suppliers_9:
   name: '【测试数据】广西喜广公司'
   contact_name: '秦先生'
   contact_phone: '18923456789'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 1
   created_by: 1
@@ -94,6 +103,7 @@ suppliers_10:
   name: '【测试数据】贵州周桂公司'
   contact_name: '贵小姐'
   contact_phone: '34785128'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 1
   created_by: 1
@@ -104,6 +114,7 @@ suppliers_11:
   name: '【测试数据】海南柟氦有限公司'
   contact_name: '海东楠'
   contact_phone: '1374582356'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 1
   created_by: 1
@@ -114,6 +125,7 @@ suppliers_12:
   name: '【测试数据】河北倍荷公司'
   contact_name: '何先生'
   contact_phone: '13487596245'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 1
   created_by: 1
@@ -124,6 +136,7 @@ suppliers_13:
   name: '【测试数据】黑龙江降龙嗨公司'
   contact_name: '龙先生'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 1
   created_by: 1
@@ -134,6 +147,7 @@ suppliers_14:
   name: '【测试数据】香港港祥公司'
   contact_name: '陈翔'
   contact_phone: '52147895'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 1
   created_by: 1
@@ -144,6 +158,7 @@ suppliers_15:
   name: '【测试数据】河南囡鹤有限公司'
   contact_name: '贺先生'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 1
   created_by: 1
@@ -154,6 +169,7 @@ suppliers_16:
   name: '【测试数据】湖北备互公司'
   contact_name: '老先生'
   contact_phone: '123456748901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 1
   created_by: 1
@@ -164,6 +180,7 @@ suppliers_17:
   name: '【测试数据】湖南楠虎公司'
   contact_name: '郝楠'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 1
   created_by: 1
@@ -174,6 +191,7 @@ suppliers_18:
   name: '【测试数据】江苏速将公司'
   contact_name: '江先生'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 1
   created_by: 1
@@ -184,6 +202,7 @@ suppliers_19:
   name: '【测试数据】江西戏匠团'
   contact_name: '江先生'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 0
   created_by: 1
@@ -194,6 +213,7 @@ suppliers_20:
   name: '【测试数据】吉林林际公司'
   contact_name: '林先生'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 0
   created_by: 1
@@ -204,6 +224,7 @@ suppliers_21:
   name: '【测试数据】辽宁岭袅公司'
   contact_name: '宁先生'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 0
   created_by: 1
@@ -214,6 +235,7 @@ suppliers_22:
   name: '【测试数据】澳门蒙骜公司'
   contact_name: '蒙先生'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 0
   created_by: 1
@@ -224,6 +246,7 @@ suppliers_23:
   name: '【测试数据】内蒙古故梦呢公司'
   contact_name: '古小姐'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 0
   created_by: 1
@@ -234,6 +257,7 @@ suppliers_24:
   name: '【测试数据】宁夏霞凝公司'
   contact_name: '宁先生'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 0
   created_by: 1
@@ -244,6 +268,7 @@ suppliers_25:
   name: '【测试数据】青海海卿公司'
   contact_name: '海先生'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 0
   created_by: 1
@@ -254,6 +279,7 @@ suppliers_26:
   name: '【测试数据】山东冬衫公司'
   contact_name: '侗先生'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 0
   created_by: 1
@@ -264,6 +290,7 @@ suppliers_27:
   name: '【测试数据】山西喜扇公司'
   contact_name: '习先生'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 0
   created_by: 1
@@ -274,6 +301,7 @@ suppliers_28:
   name: '【测试数据】陕西息膳饭店'
   contact_name: '实先生'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 0
   created_by: 1
@@ -284,6 +312,7 @@ suppliers_29:
   name: '【测试数据】四川楚安公司'
   contact_name: '楚先生'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 0
   created_by: 1
@@ -294,6 +323,7 @@ suppliers_30:
   name: '【测试数据】天津锦田公司'
   contact_name: '田先生'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 0
   created_by: 1
@@ -304,6 +334,7 @@ suppliers_31:
   name: '【测试数据】台湾湾泰公司'
   contact_name: '台先生'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 0
   created_by: 1
@@ -314,6 +345,7 @@ suppliers_32:
   name: '【测试数据】新疆匠心公司'
   contact_name: '乐先生'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 0
   created_by: 1
@@ -324,6 +356,7 @@ suppliers_33:
   name: '【测试数据】西藏瓒熹公司'
   contact_name: '克拉姆'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 0
   created_by: 1
@@ -334,6 +367,7 @@ suppliers_34:
   name: '【测试数据】云南楠韵公司'
   contact_name: '云先生'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 0
   created_by: 1
@@ -344,6 +378,7 @@ suppliers_35:
   name: '【测试数据】浙江绛哲公司'
   contact_name: '江先生'
   contact_phone: '12345678901'
+  email: <%= Faker::Internet.email %>
   remarks: ''
   status: 0
   created_by: 1

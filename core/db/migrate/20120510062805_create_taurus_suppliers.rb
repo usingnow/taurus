@@ -5,8 +5,9 @@ class CreateTaurusSuppliers < ActiveRecord::Migration
       t.string :name
       t.string :contact_name
       t.string :contact_phone
-      t.boolean :status
+      t.string :email
       t.string :remarks
+      t.boolean :status
       t.integer :created_by
       t.integer :updated_by
 

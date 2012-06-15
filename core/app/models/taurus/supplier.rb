@@ -7,7 +7,7 @@ module Taurus
 
 		before_destroy :destroy_validate
 		
-		validates_presence_of :number, :name, :contact_name, :contact_phone, :created_by, :updated_by
+		validates_presence_of :number, :name, :contact_name, :contact_phone, :email, :created_by, :updated_by
 		validates_uniqueness_of :number, :name
 
 
