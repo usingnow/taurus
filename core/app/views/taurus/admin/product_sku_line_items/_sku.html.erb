@@ -1,6 +1,6 @@
 <%= hidden_field_tag :sku_id, @sku.id %>
 
-<%= simple_form_for(@sku, :url => "#", :html => {:class => 'form-horizontal'}) do |f| %>
+<%= simple_form_for(@sku, :url => "#", :method => :post, :html => {:class => 'form-horizontal'}) do |f| %>
   <fieldset>
     <%= f.input :number, :disabled => true %>
     <%= f.input :name, :disabled => true %>

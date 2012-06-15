@@ -47,6 +47,7 @@ module Taurus
       template "rails/environment.rb", "#{dummy_path}/config/environment.rb", :force => true
       template "rails/routes.rb", "#{dummy_path}/config/routes.rb", :force => true
       template "rails/script/rails", "#{dummy_path}/spec/dummy/script/rails", :force => true
+      template "rails/favicon.ico", "#{dummy_path}/public/favicon.ico", :force => true
     end
 
     def test_dummy_clean
