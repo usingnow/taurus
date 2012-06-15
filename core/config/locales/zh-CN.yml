@@ -282,6 +282,7 @@ zh-CN:
         delivery_notice: "备货说明"
         remarks: "备注"
         status: "激活"
+        products: "关联销售商品"
       taurus/product:
         number: "销售商品编号"
         name: "销售商品名称"

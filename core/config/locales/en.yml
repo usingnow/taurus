@@ -83,6 +83,7 @@ en:
         delivery_notice: "Notice for Procurement"
         remarks: "Remarks"
         status: "Active"
+        products: "关联销售商品"
       taurus/product:
         number: "Product Number"
         name: "Product"
