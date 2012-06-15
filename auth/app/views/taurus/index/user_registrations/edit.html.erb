@@ -1,0 +1,22 @@
+<div class="row">
+  <%= render :partial => "taurus/index/shared/user_center_nav_list" %>  
+
+  <div class="span10">
+    <%= simple_form_for(resource, :as => resource_name, :url => user_registration_path, 
+                        :html => { :class => 'form-horizontal' }) do |f| %>
+      <%= f.error_notification %>
+      
+      <fieldset>
+        <%= f.input :current_password, :required => true %>
+        <%= f.input :password, :required => true %>
+        <%= f.input :password_confirmation, :required => true %>
+      </fieldset>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">修改密码</button>
+        <button type="button" class="btn">取消</button>
+      </div>
+    
+    <% end %>
+  </div>
+</div>
