@@ -366,8 +366,8 @@ zh-CN:
     functions:
       product:
         product: "销售商品管理"
-        supplier: "供应商管理"
-        brand: "品牌管理"
+        supplier: "供应商信息"
+        brand: "品牌信息"
         product_category: "商品分类管理"
         sku: "SKU"
       order:
