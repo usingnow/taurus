@@ -242,7 +242,6 @@ zh-CN:
         updated_at: "更新时间"
         company_name: "公司名称"
         company_description: "公司简介"
-        skus: "SKU"
       taurus/product_category:
         parent_name: "父分类"
         parent_id: "父分类"
@@ -254,7 +253,7 @@ zh-CN:
         updated_at: "更新时间"  
         custom_property: "自定义属性"
         custom_properties: "自定义属性"
-        skus: "SKU"
+        category_type: "类型"
         products: "销售商品"
         children: "子分类"
       taurus/custom_property: 
