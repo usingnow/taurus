@@ -3,10 +3,11 @@ module Taurus
 	module Admin
 		class ProductCategoriesController < BaseController
 			helper "taurus/product_categories"
-			autocomplete :product_category, :name, :class_name => "Taurus::ProductCategory"
+			autocomplete :product_category, :name, :class_name => "Taurus::ProductCategory", :scopes => [:single]
+			autocomplete :combined_category, :name, :class_name => "Taurus::ProductCategory", :scopes => [:combined]
 
 			def index
-				params[:q] = { :status_eq => true } unless params[:q]
+				params[:q] = { :status_eq => true, :category_type_eq => "0" } unless params[:q]
         @search = ProductCategory.search(params[:q])
         @product_categories = @search.result.paginate(:page => params[:page], :per_page => 20)
 			end
@@ -79,6 +80,30 @@ module Taurus
 				params[:q] = { :parent_id_eq => params[:id]}
 				index
 				render :action => "index"
+			end
+
+
+			def combined_new
+        @product_category = ProductCategory.new
+				if params[:parent_id]
+					@parent = ProductCategory.find(params[:parent_id])
+					@product_category.parent_id = @parent.id
+					@product_category.parent_name = @parent.name
+				else
+					@product_category.parent_name = "无"
+				end
+			end
+
+			def combined_create
+				@product_category = ProductCategory.new(params[:product_category])
+				@product_category.category_type = 1
+
+				if @product_category.save
+					flash[:success] = I18n.t('successfully_created')
+					redirect_to(admin_product_category_url(@product_category))
+				else
+					render :action => :combined_new
+				end
 			end
 		end
 	end

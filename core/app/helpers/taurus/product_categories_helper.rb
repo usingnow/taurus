@@ -1,11 +1,21 @@
 #encoding:UTF-8
 module Taurus
 	module ProductCategoriesHelper
-    # 顶级分类列表
+    # 顶级单品分类列表
 		def top_product_categories
+			if @search.category_type_eq == 0
+        all_name = "全部销售单品分类"
+        all_href = admin_product_categories_path
+        collection = Taurus::ProductCategory.single.tops
+			else
+        all_name = "全部组合商品分类"
+        all_href = admin_product_categories_path(:'q[category_type_eq]' => 1)
+        collection = Taurus::ProductCategory.combined.tops
+			end
+
 			if @product_category
-	      categories = content_tag(:li, "#{link_to "全部", admin_product_categories_path}".html_safe)
-	      Taurus::ProductCategory.tops.each do |category|
+	      categories = content_tag(:li, "#{link_to all_name, all_href}".html_safe)
+	      collection.each do |category|
 	      	if @product_category.id == category.id
 	        	categories << content_tag(:li, "#{link_to category.name, seconds_admin_product_category_path(category)}".html_safe, :class => "active") 
 	        else
@@ -13,14 +23,14 @@ module Taurus
 	        end      
 	      end
 	    else
-	    	categories = content_tag(:li, "#{link_to "全部", admin_product_categories_path}".html_safe, :class => "active")
-	      Taurus::ProductCategory.tops.each do |category|
+	    	categories = content_tag(:li, "#{link_to all_name, all_href}".html_safe, :class => "active")
+	      collection.each do |category|
 	        categories << content_tag(:li, "#{link_to category.name, seconds_admin_product_category_path(category)}".html_safe) 
 	      end
 	    end  
       content_tag(:ul, categories.html_safe, :id => 'admin-main-functionality', :class => 'nav nav-pills')
 		end
-    
+
 		def second_product_categories
 			return unless @product_category
 			categories = content_tag(:li,  @product_category.name, :class => "nav-header")
@@ -47,5 +57,6 @@ module Taurus
                 href, :class => "btn"
       end
 		end
+
 	end
 end

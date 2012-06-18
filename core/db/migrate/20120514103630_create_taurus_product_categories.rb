@@ -7,6 +7,7 @@ class CreateTaurusProductCategories < ActiveRecord::Migration
       t.text :description
       t.integer :sequence, :default => 0
       t.boolean :status
+      t.integer :category_type, :default => 0
 
       t.timestamps
     end

@@ -1,9 +1,13 @@
 <div class="well">
   <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
-    <%= f.text_field :number_cont, :placeholder => t('activerecord.attributes.taurus/product_category.number'), :class => "trk-non-inline-margin" %>
-    <%= f.text_field :name_cont, :placeholder => t('activerecord.attributes.taurus/product_category.name'), :class => "trk-non-inline-margin" %>
+    <%= f.text_field :number_cont, :placeholder => t('activerecord.attributes.taurus/product_category.number'), 
+                     :class => "trk-non-inline-margin span2" %>
+    <%= f.text_field :name_cont, :placeholder => t('activerecord.attributes.taurus/product_category.name'), 
+                     :class => "trk-non-inline-margin span2" %>
     <%= f.collection_select :status_eq, Taurus::ProductCategory::STATUS, :first, :second,
-                            :include_blank => "全部", :class => "trk-non-inline-margin" %>
+                            { :include_blank => "全部" }, { :class => "span1" } %>
+    <%= f.collection_select :category_type_eq, Taurus::ProductCategory::CATEGORY_TYPE, :first, :second, 
+                            {}, { :class => "span2" } %>                        
     <%= f.submit t('admin.misc.search'), :class => "btn btn-primary trk-btn-inline" %>
   <% end %>
   <hr />
@@ -12,7 +16,14 @@
      class="btn btn-primary" id="create_tag">
     <i class="icon-plus-sign"></i>
     <%= t('admin.actions.new.title',:model => t('activerecord.models.taurus/product_category')) %>
-  </a>  
+  </a>
+
+  <a href="<%= combined_new_admin_product_categories_path(:parent_id => @second_category_id ? 
+                                                          @second_category_id : @product_category) %>" 
+     class="btn btn-primary" id="combined_create_tag">
+    <i class="icon-plus-sign"></i>
+    <%= t('admin.actions.new.title',:model => t('activerecord.models.taurus/combined_category')) %>
+  </a>   
   <hr />
   <%=raw top_product_categories %>
 </div>

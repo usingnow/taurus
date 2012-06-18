@@ -5,7 +5,7 @@ module Taurus
 
 			def index
 				params[:q] = { :sales_status_eq => true, :if_shown_on_web_eq => true } unless params[:q]
-		    @search = Product.search(params[:q])
+		    @search = Product.single.search(params[:q])
 		    @products = @search.result.paginate(:page => params[:page], :per_page => 20)
 		  end
 
@@ -61,6 +61,12 @@ module Taurus
 		    else
 		    	render :action => "edit_sales_status"
 		    end
+		  end
+
+		  def combined
+        params[:q] = { :sales_status_eq => true, :if_shown_on_web_eq => true } unless params[:q]
+		    @search = Product.combined.search(params[:q])
+		    @products = @search.result.paginate(:page => params[:page], :per_page => 20)
 		  end
 
     end

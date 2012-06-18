@@ -1,0 +1,30 @@
+<div class="well">
+  <div class="pull-right">
+    <%= back_to_parent %>
+
+    <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, 
+                admin_product_categories_path(:'q[category_type_eq]' => 1), :class => "btn" %>
+  </div>  
+</div>
+
+<%= simple_form_for(@product_category, :url => combined_create_admin_product_categories_path,
+                    :html => {:class => 'form-horizontal'})  do |f| %>
+  <%= f.error_notification %>
+  
+  <fieldset>
+    <%= f.input :parent_name, :url => autocomplete_combined_category_name_admin_product_categories_path, 
+                :input_html => { :id_element => '#product_category_parent_id' }, :as => :autocomplete %>
+    <%= f.input :parent_id, :as => :hidden %>
+    <%= f.input :number %>
+    <%= f.input :name %>
+    <%= f.input :description, :input_html => { :rows => 5 } %>
+    <%= f.input :sequence %>
+    <%= f.input :status %>
+
+    <div class="form-actions">
+      <%= f.button :submit, :value => t('helpers.submit.create', 
+                                        :model => t('activerecord.models.taurus/combined_category')), 
+                   :class => "btn btn-primary" %>
+    </div>
+  </fieldset>
+<% end %>

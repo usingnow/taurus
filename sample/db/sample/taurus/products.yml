@@ -13,8 +13,7 @@ products_1:
   description: ''
   sales_status: 1
   if_shown_on_web: 1
-  created_at: '2012-05-27 11:10:14 +0800'
-  updated_at: '2012-06-05 18:10:36 +0800'
+  product_type: 0
 products_2:
   id: '2'
   number: 'ebook_002'
@@ -30,8 +29,7 @@ products_2:
   description: ''
   sales_status: 1
   if_shown_on_web: 1
-  created_at: '2012-05-27 11:15:44 +0800'
-  updated_at: '2012-06-05 18:11:37 +0800'
+  product_type: 0
 products_3:
   id: '3'
   number: 'ebook_003'
@@ -47,8 +45,7 @@ products_3:
   description: ''
   sales_status: 1
   if_shown_on_web: 1
-  created_at: '2012-05-27 11:17:56 +0800'
-  updated_at: '2012-06-06 14:31:15 +0800'
+  product_type: 0
 products_4:
   id: '4'
   number: 'ebook_004'
@@ -64,8 +61,7 @@ products_4:
   description: ''
   sales_status: 1
   if_shown_on_web: 1
-  created_at: '2012-06-01 17:21:40 +0800'
-  updated_at: '2012-06-06 15:02:04 +0800'
+  product_type: 0
 products_5:
   id: '5'
   number: 'audio_001'
@@ -81,8 +77,7 @@ products_5:
   description: ''
   sales_status: ''
   if_shown_on_web: ''
-  created_at: '2012-06-06 15:15:57 +0800'
-  updated_at: '2012-06-06 15:16:06 +0800'
+  product_type: 0
 products_6:
   id: '6'
   number: 'movie_001'
@@ -98,8 +93,7 @@ products_6:
   description: ''
   sales_status: ''
   if_shown_on_web: ''
-  created_at: '2012-06-06 16:26:40 +0800'
-  updated_at: '2012-06-06 17:12:09 +0800'
+  product_type: 0
 products_7:
   id: '7'
   number: 'movie_002'
@@ -115,8 +109,7 @@ products_7:
   description: ''
   sales_status: ''
   if_shown_on_web: ''
-  created_at: '2012-06-06 17:13:29 +0800'
-  updated_at: '2012-06-06 17:13:35 +0800'
+  product_type: 0
 products_8:
   id: '8'
   number: 'movie_003'
@@ -132,8 +125,7 @@ products_8:
   description: ''
   sales_status: ''
   if_shown_on_web: ''
-  created_at: '2012-06-06 17:17:40 +0800'
-  updated_at: '2012-06-06 17:17:45 +0800'
+  product_type: 0
 products_9:
   id: '9'
   number: 'movie_004'
@@ -149,8 +141,7 @@ products_9:
   description: ''
   sales_status: ''
   if_shown_on_web: ''
-  created_at: '2012-06-06 17:20:00 +0800'
-  updated_at: '2012-06-06 17:20:03 +0800'
+  product_type: 0
 products_10:
   id: '10'
   number: 'movie_005'
@@ -166,8 +157,7 @@ products_10:
   description: ''
   sales_status: ''
   if_shown_on_web: ''
-  created_at: '2012-06-06 17:20:53 +0800'
-  updated_at: '2012-06-06 17:20:55 +0800'
+  product_type: 0
 products_11:
   id: '11'
   number: 'movie_006'
@@ -183,8 +173,7 @@ products_11:
   description: ''
   sales_status: ''
   if_shown_on_web: ''
-  created_at: '2012-06-06 17:22:21 +0800'
-  updated_at: '2012-06-06 17:22:26 +0800'
+  product_type: 0
 products_12:
   id: '12'
   number: 'ebook_005'
@@ -200,8 +189,7 @@ products_12:
   description: ''
   sales_status: ''
   if_shown_on_web: ''
-  created_at: '2012-06-06 17:25:06 +0800'
-  updated_at: '2012-06-06 17:25:12 +0800'
+  product_type: 0
 products_13:
   id: '13'
   number: 'elec_001'
@@ -217,8 +205,7 @@ products_13:
   description: ''
   sales_status: ''
   if_shown_on_web: ''
-  created_at: '2012-06-06 18:04:48 +0800'
-  updated_at: '2012-06-06 18:05:02 +0800'
+  product_type: 0
 products_14:
   id: '14'
   number: 'ebook_006'
@@ -234,8 +221,7 @@ products_14:
   description: ''
   sales_status: ''
   if_shown_on_web: ''
-  created_at: '2012-06-06 18:10:20 +0800'
-  updated_at: '2012-06-06 18:10:26 +0800'
+  product_type: 0
 products_15:
   id: '15'
   number: 'ebook_007'
@@ -251,8 +237,7 @@ products_15:
   description: ''
   sales_status: ''
   if_shown_on_web: ''
-  created_at: '2012-06-06 18:13:07 +0800'
-  updated_at: '2012-06-06 18:13:13 +0800'
+  product_type: 0
 products_16:
   id: '16'
   number: 'ebook_008'
@@ -268,8 +253,7 @@ products_16:
   description: ''
   sales_status: ''
   if_shown_on_web: ''
-  created_at: '2012-06-06 18:14:06 +0800'
-  updated_at: '2012-06-06 18:14:06 +0800'
+  product_type: 0
 products_17:
   id: '17'
   number: 'ebook_009'
@@ -285,8 +269,7 @@ products_17:
   description: ''
   sales_status: ''
   if_shown_on_web: ''
-  created_at: '2012-06-06 18:15:55 +0800'
-  updated_at: '2012-06-06 18:16:17 +0800'
+  product_type: 0
 products_18:
   id: '18'
   number: 'elec_002'
@@ -302,8 +285,7 @@ products_18:
   description: ''
   sales_status: ''
   if_shown_on_web: ''
-  created_at: '2012-06-06 18:17:53 +0800'
-  updated_at: '2012-06-06 18:18:00 +0800'
+  product_type: 0
 products_19:
   id: '19'
   number: 'elec_003'
@@ -319,8 +301,7 @@ products_19:
   description: ''
   sales_status: ''
   if_shown_on_web: ''
-  created_at: '2012-06-06 18:22:29 +0800'
-  updated_at: '2012-06-06 18:22:35 +0800'
+  product_type: 0
 products_20:
   id: '20'
   number: 'elec_004'
@@ -336,8 +317,7 @@ products_20:
   description: ''
   sales_status: ''
   if_shown_on_web: ''
-  created_at: '2012-06-06 18:23:27 +0800'
-  updated_at: '2012-06-06 18:23:38 +0800'
+  product_type: 0
 products_21:
   id: '21'
   number: 'elec_005'
@@ -353,5 +333,4 @@ products_21:
   description: ''
   sales_status: ''
   if_shown_on_web: ''
-  created_at: '2012-06-06 18:24:29 +0800'
-  updated_at: '2012-06-06 18:24:42 +0800'
+  product_type: 0

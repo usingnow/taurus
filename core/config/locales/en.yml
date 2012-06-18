@@ -10,6 +10,7 @@ en:
       taurus/supplier: "Supplier"
       taurus/brand: "Brand"
       taurus/product_category: "Product Category"
+      taurus/combined_category: "Combined Category"
       taurus/custom_property: "Custom Properties"
       taurus/sku: "SKU"
       taurus/product: "Product"
@@ -180,10 +181,11 @@ en:
       my_account: "My Account"
     functions:
       product:
-        product: "Products"
         supplier: "Suppliers"
         brand: "Brands"
         product_category: "Product Categories"
+        combined_category: "Combined Categories"
+        product: "Products"
         combined: "Combined Products"
       order:
         order_in_progress: "Orders in Progress" 

@@ -14,6 +14,7 @@ class CreateTaurusProducts < ActiveRecord::Migration
     	t.text :description
         t.boolean :sales_status
         t.boolean :if_shown_on_web
+        t.integer :product_type, :default => 0
 
         t.timestamps
     end

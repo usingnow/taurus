@@ -1,0 +1,48 @@
+<div class="well">
+  <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
+    <%= f.text_field :number_cont, :placeholder => t('activerecord.attributes.taurus/product.number'), :class => "trk-non-inline-margin" %>
+    <%= f.text_field :name_cont, :placeholder => t('activerecord.attributes.taurus/product.name'), :class => "trk-non-inline-margin" %>
+    <%= f.text_field :product_category_name_cont, :class => "trk-non-inline-margin",
+                     :placeholder => t('activerecord.attributes.taurus/product_category.name') %>
+    <br />
+    <%= f.collection_select :sales_status_eq, Taurus::Product::SALES_STATUS, :first, :second,
+                            {:include_blank => "全部"}, {:class => "trk-non-inline-margin"} %> 
+    <%= f.collection_select :if_shown_on_web_eq, Taurus::Product::SHOWN_STATUS, :first, :second,
+                            {:include_blank => "全部"}, {:class => "trk-non-inline-margin"} %>                                           
+    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary" %>
+  <% end %>
+  <hr />
+  <a href="<%= new_admin_product_path %>" class="btn btn-primary" id="create_tag">
+    <i class="icon-plus-sign"></i>
+    <%= t('admin.actions.new.title',:model => t('activerecord.models.taurus/product')) %>
+  </a>
+</div>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('activerecord.attributes.taurus/product.number') %></th>
+      <th><%= t('activerecord.attributes.taurus/product.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/product.product_category_id') %></th>
+      <th><%= t('admin.misc.operation') %></th>
+   </tr>
+  </thead>
+  <% @products.each_with_index do |product,index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= link_to product.number, admin_product_path(product) %></td>
+      <td><%= product.name %></td>
+      <td><%= product.product_category.name %></td>
+      <td>
+        <a href="<%= edit_admin_product_path(product) %>" class="btn btn-primary trk-btn-short update_tag">
+          <%= t('admin.actions.edit.menu') %>
+        </a> 
+      </td>
+    </tr>
+  <% end %>
+  <tfoot>
+    <tr><td colspan='5'><%= will_paginate @products, :renderer => BootstrapPagination::Rails %></td></tr>
+  </tfoot>
+</table>

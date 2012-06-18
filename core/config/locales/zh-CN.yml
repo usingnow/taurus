@@ -204,7 +204,8 @@ zh-CN:
     models:
       taurus/supplier: "供应商"
       taurus/brand: "品牌"
-      taurus/product_category: "商品分类"
+      taurus/product_category: "销售单品分类"
+      taurus/combined_category: "组合商品分类"
       taurus/custom_property: "自定义属性"
       taurus/sku: "SKU"
       taurus/product: "销售商品"
@@ -262,28 +263,6 @@ zh-CN:
         property_type: "属性类型"
         remarks: "备注"
         status: "激活"
-      taurus/sku:
-        number: "SKU编号"
-        name: "SKU名称"
-        product_category_name: "商品分类"
-        product_category_id: "商品分类"
-        brand_chinese_name: "品牌中文名"
-        brand_id: "品牌"
-        supplier_name: "供应商"
-        supplier_id: "供应商"
-        place_of_origin: "产地"
-        unit: "单位"
-        model: "型号"
-        specifications: "规格"
-        dimensions: "尺寸"
-        weight: "重量（公斤）"
-        cost_before_tax: "税前成本"
-        cost_after_tax: "税后成本"
-        delivery_days: "备货天数"
-        delivery_notice: "备货说明"
-        remarks: "备注"
-        status: "激活"
-        products: "关联销售商品"
       taurus/product:
         number: "销售商品编号"
         name: "销售商品名称"
@@ -299,9 +278,6 @@ zh-CN:
         description: "介绍"
         sales_status: "是否销售"
         if_shown_on_web: "是否上架"
-      taurus/product_sku_line_item: 
-        sku_amount: "SKU数量"
-        sku_name: "SKU名称"
       taurus/product_image:
         image: "图片"
         image_file_name: "图片"
@@ -366,10 +342,11 @@ zh-CN:
       my_account: "个人中心"
     functions:
       product:
-        product: "销售单品管理"
         supplier: "供应商信息"
         brand: "品牌信息"
         product_category: "商品分类管理"
+        combined_category: "组合商品分类管理"
+        product: "销售单品管理"
         combined: "组合商品管理"
       order:
         order_in_progress: "待处理订单" 
