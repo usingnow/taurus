@@ -1,18 +1,18 @@
 - id: 'warehouse'
   name: <%= I18n.t('admin.modules.stock') %>
-  url: '/admin/store_sku_line_items'
+  url: '/admin/stocks'
   sequence: 7
   display: true
   functions: 
     - id: 'warehouse_stock'
       name: <%= I18n.t('admin.functions.stock.stock_situation') %>
-      url: '/admin/store_sku_line_items'
+      url: '/admin/stocks'
       operations: 
         - id: 'warehouse_stock_query'
           name: '查询'
           permissions:
             - action_name: ':read'
-              class_name: 'StoreSkuLineItem'
+              class_name: 'Stock'
     - id: 'warehouse_replishment'
       name: <%= I18n.t('admin.functions.stock.replishment') %>
       url: '/admin/replenishment_records'

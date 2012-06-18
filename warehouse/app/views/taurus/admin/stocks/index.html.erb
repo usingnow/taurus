@@ -1,0 +1,37 @@
+<div class="well">
+  <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
+    <%= f.text_field :product_number_cont, :placeholder => t('activerecord.attributes.taurus/product.number'), :class => "trk-non-inline-margin" %>
+    <%= f.text_field :product_name_cont, :placeholder => t('activerecord.attributes.taurus/product.name'), :class => "trk-non-inline-margin" %>
+    <%= f.submit t('admin.misc.search'), :class => "btn btn-primary trk-btn-inline" %>
+  <% end %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('activerecord.attributes.taurus/product.number') %></th>
+      <th><%= t('activerecord.attributes.taurus/product.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/stock.reserved') %></th>
+      <th><%= t('activerecord.attributes.taurus/stock.available') %></th>
+      <th><%= t('activerecord.attributes.taurus/stock.out_of_stock') %></th>
+      <th><%= t('activerecord.attributes.taurus/stock.in_stock') %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @stocks.each_with_index do |stock,index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= link_to stock.product.number, admin_product_path(stock.product_id), :target => "_blank" %></td>
+      <td><%= stock.product.name %></td>
+      <td><%= stock.reserved %></td>
+      <td><%= stock.available %></td>
+      <td><%= stock.out_of_stock %></td>
+      <td><%= stock.in_stock %></td>
+    </tr>
+  <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan='7'><%= will_paginate @stocks, :renderer => BootstrapPagination::Rails %></td></tr>
+  </tfoot>
+</table>

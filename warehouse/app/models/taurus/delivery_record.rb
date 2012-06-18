@@ -7,13 +7,12 @@ module Taurus
   	DELIVERY_TYPE = { 0 => "快递", 1 => "自配", 2 => "客户自提" }
 
 		belongs_to :order
-		belongs_to :store
 		belongs_to :administrator
-		has_many :delivery_record_sku_line_items, :dependent => :destroy
+		has_many :delivery_record_product_line_items, :dependent => :destroy
 
 		before_validation :default_value, :on => :create
 
-		validates_presence_of :number, :store_id, :delivery_record_type, :delivery_type, :administrator_id
+		validates_presence_of :number, :delivery_record_type, :delivery_type, :administrator_id
 		validates_uniqueness_of :number
 		validates_presence_of :delivery_name, :delivery_date, :if => Proc.new{ delivery_type == 1 }
 		validates_presence_of :courier, :courier_number, :delivery_date, :if => Proc.new{ delivery_type == 0 }
@@ -27,13 +26,12 @@ module Taurus
 		protected
 		def default_value
       self.number = "D" + Array.new(9){rand(9)}.join
-      self.store_id = 1
 		end
 
 		def available_stock?
-      delivery_record_sku_line_items.each do |line_item|
-        unless line_item.sku.store_sku_line_item.available?(line_item.sku_amount)
-          errors.add("$stock#{line_item.sku.name}(#{line_item.sku.number})", "库存不足")
+      delivery_record_product_line_items.each do |line_item|
+        unless line_item.product.stock.available?(line_item.product_amount)
+          errors.add("$stock#{line_item.product.name}(#{line_item.product.number})", "库存不足")
         end
       end
     end

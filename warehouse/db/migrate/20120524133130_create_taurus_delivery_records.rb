@@ -3,7 +3,6 @@ class CreateTaurusDeliveryRecords < ActiveRecord::Migration
     create_table :taurus_delivery_records do |t|
       t.string :number
       t.integer :order_id
-      t.integer :store_id, :null => false
       t.integer :delivery_record_type, :default => 9
       t.integer :delivery_type, :default => 0
       t.string :delivery_name
@@ -21,7 +20,6 @@ class CreateTaurusDeliveryRecords < ActiveRecord::Migration
     end
     add_index :taurus_delivery_records, :number, :unique => true
     add_index :taurus_delivery_records, :order_id
-    add_index :taurus_delivery_records, :store_id
     add_index :taurus_delivery_records, :administrator_id
   end
 end

@@ -16,9 +16,6 @@
   <li <%== 'class="active"' if current == "custom_properties" %>>
   	<%= link_to "自定义属性", type == "show" ? admin_product_custom_property_value_path(@product,0) : admin_product_custom_property_values_path(@product) %>
   </li>
-  <li <%== 'class="active"' if current == "SKUS" %>>
-  	<%= link_to "SKU", type == "show" ? admin_product_product_sku_line_item_path(@product,0) : admin_product_product_sku_line_items_path(@product) %>
-  </li>
   <li <%== 'class="active"' if current == "images" %>>
   	<%= link_to "图片", type == "show" ? admin_product_product_image_path(@product,0) : admin_product_product_images_path(@product) %>
   </li>

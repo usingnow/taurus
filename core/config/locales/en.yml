@@ -184,7 +184,7 @@ en:
         supplier: "Suppliers"
         brand: "Brands"
         product_category: "Product Categories"
-        sku: "SKU"
+        combined: "Combined Products"
       order:
         order_in_progress: "Orders in Progress" 
         all_order: "All Orders"

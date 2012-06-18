@@ -366,11 +366,11 @@ zh-CN:
       my_account: "个人中心"
     functions:
       product:
-        product: "销售商品管理"
+        product: "销售单品管理"
         supplier: "供应商信息"
         brand: "品牌信息"
         product_category: "商品分类管理"
-        sku: "SKU"
+        combined: "组合商品管理"
       order:
         order_in_progress: "待处理订单" 
         all_order: "全部订单"

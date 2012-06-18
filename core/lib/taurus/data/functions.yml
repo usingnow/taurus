@@ -63,20 +63,6 @@
           permissions:
             - action_name: ':destroy'
               class_name: 'ProductCategory'
-    - id: 'product_sku'
-      name: <%= I18n.t('admin.functions.product.sku') %>
-      url: '/admin/skus'
-      operations: 
-        - id: 'product_sku_query'
-          name: '查询'
-          permissions:
-            - action_name: ':read'
-              class_name: 'Sku'
-        - id: 'product_brand_create#update#clone'
-          name: '新建、修改、复制'
-          permissions:
-            - action_name: '[:create, :update, :clone, :autocomplete_product_category_name, :autocomplete_brand_chinese_name, :autocomplete_supplier_name]'
-              class_name: 'Sku'
     - id: 'product_product'
       name: <%= I18n.t('admin.functions.product.product') %>
       url: '/admin/products'
