@@ -354,6 +354,9 @@ zh-CN:
         back_to_parent: "返回上级分类"   
         single: "销售单品分类"
         combined: "组合商品分类"
+        instruction: "销售单品分类仅可添加销售单品，组合商品分类仅可添加组合商品，不可通用。"
+        single_instruction: "销售单品分类内仅可添加销售单品，不可添加组合商品。"
+        combined_instruction: "组合商品分类内仅可添加组合商品，不可添加销售单品。" 
     actions:
       index:
         title: "%{model}列表"

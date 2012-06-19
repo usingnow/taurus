@@ -170,8 +170,11 @@ en:
         combined: "组合商品"
       product_category:
         back_to_parent: "返回上级分类"   
-        single: "销售单品分类"
-        combined: "组合商品分类"    
+        single: "Single Product Category"
+        combined: "Combined Product Category"    
+        instruction: "Single product categories are separated from the ones of combined product."
+        single_instruction: "The single product category is only used to group the single product, not the combined ones."
+        combined_instruction: "The combined product category is only used to group the combined product, not the single ones." 
     actions:
       index:
         title: "%{model}list"

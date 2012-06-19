@@ -32,7 +32,13 @@
 
 <div class="row">
   <%=raw second_product_categories %>
+
   <div class="<%= @product_category ? "span8" : "span10" %>">
+    <div class="alert alert-info">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <%= t('admin.misc.product_category.instruction') %>
+    </div>
+    
     <table class="table table-striped">
       <thead>
         <tr>

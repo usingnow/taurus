@@ -7,6 +7,11 @@
   </div>  
 </div>
 
+<div class="alert alert-info">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <%= t('admin.misc.product_category.combined_instruction') %>
+</div>
+
 <%= simple_form_for(@product_category, :url => combined_create_admin_product_categories_path,
                     :html => {:class => 'form-horizontal'})  do |f| %>
   <%= f.error_notification %>
