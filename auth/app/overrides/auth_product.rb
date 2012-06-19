@@ -4,7 +4,7 @@ Deface::Override.new(:virtual_path => "taurus/admin/products/index",
   "<% if can? :create, Taurus::Product %>
 	  <a href=\"<%= new_admin_product_path %>\" class=\"btn btn-primary\" id=\"create_tag\">
 	    <i class=\"icon-plus-sign\"></i>
-	    <%= t('admin.actions.new.title',:model => t('activerecord.models.taurus/product')) %>
+	    <%= t('admin.actions.new.title',:model => t('admin.misc.product.single')) %>
 	  </a>
   <% end %>"                    	
 end

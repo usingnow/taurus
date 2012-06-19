@@ -30,6 +30,9 @@ Taurus::Core::Engine.routes.draw do
     resources :products do
       collection do 
         get :autocomplete_product_category_name
+        get :autocomplete_combined_category_name
+        get :combined_new
+        post :combined_create
       end
       member do
         get :show_sales_status
@@ -37,12 +40,8 @@ Taurus::Core::Engine.routes.draw do
         put :update_sales_status
       end
       resources :custom_property_values
-      resources :product_sku_line_items do 
-        get :autocomplete_sku_name, :on => :collection
-        member do
-          get :show_sku
-          get :add_product_sku
-        end
+      resources :combined_products do
+        get :autocomplete_product_name, :on => :collection
       end
       resources :product_images
     end

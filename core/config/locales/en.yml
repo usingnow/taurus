@@ -10,11 +10,8 @@ en:
       taurus/supplier: "Supplier"
       taurus/brand: "Brand"
       taurus/product_category: "Product Category"
-      taurus/combined_category: "Combined Category"
       taurus/custom_property: "Custom Properties"
-      taurus/sku: "SKU"
       taurus/product: "Product"
-      taurus/product_sku_line_item: "SKU"
       taurus/product_image: "Image"
       taurus/order: "Order"
       taurus/alipay: "Alipay"
@@ -78,9 +75,9 @@ en:
         description: "Description"
         sales_status: "If use the sales period above"
         if_shown_on_web: "If shown on web"
-      taurus/product_sku_line_item: 
-        sku_amount: "SKU Amount"
-        sku_name: "SKU Name"
+        product_type: "Type"
+      taurus/combined_product:
+        product_name: "销售单品"  
       taurus/product_image:
         image: "Image"
         image_file_name: "Image"
@@ -194,12 +191,14 @@ en:
       company_extend:
         phone_hint: "固话与手机选填一项"
       product:
-        sales_alert_info: "商品销售与上架的条件是，1）必须包含至少一个SKU，2）必须已设置主图片。"  
+        sales_alert_info: "商品销售与上架的条件是，1）必须已设置主图片。"
         successfully_created: "创建成功，请更新详细的商品信息。"
-      sku:
-        new_alert: "供应商、品牌以及商品分类信息是生成SKU的必填项，可以在对应模块查询详细信息。"   
+        single: "销售单品"
+        combined: "组合商品"
       product_category:
-        back_to_parent: "返回上级分类"    
+        back_to_parent: "返回上级分类"   
+        single: "销售单品分类"
+        combined: "组合商品分类"    
     actions:
       index:
         title: "%{model}list"
