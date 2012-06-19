@@ -11,7 +11,8 @@
     <%= f.input :number %>
     <%= f.input :name %>
     <%= f.input :product_category_name, :url => autocomplete_combined_category_name_admin_products_path, 
-                :input_html => { :id_element => '#product_product_category_id' }, :as => :autocomplete %>
+                :input_html => { :id_element => '#product_product_category_id' }, :as => :autocomplete,
+                :hint => t('admin.misc.product.combined_category_hint') %>
     <%= f.input :product_category_id, :as => :hidden %>
     <%= f.input :weight %>
     <%= f.input :price_after_tax %>
