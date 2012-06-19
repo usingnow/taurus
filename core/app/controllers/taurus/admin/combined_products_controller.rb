@@ -2,6 +2,10 @@ module Taurus
 	module Admin
 		class CombinedProductsController < BaseController
 			autocomplete :product, :name, :class_name => "Taurus::Product", :extra_data => [:number], :scopes => [:single]
+      
+      def index
+        @product = Product.find(params[:product_id])
+      end
 
 			def new
         @product = Product.find(params[:product_id])

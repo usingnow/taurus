@@ -1,0 +1,26 @@
+<%= render :partial => "taurus/admin/shared/product_tabs", 
+           :locals => { :current => "combined", :type => "show" } %>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t('activerecord.attributes.taurus/product.number') %></th>
+      <th><%= t('activerecord.attributes.taurus/product.name') %></th>
+   </tr>
+  </thead>
+  <tbody id="combined_products">
+    <% @product.combined_products.each_with_index do |combined_product,index| %>
+	    <tr>
+	      <td>
+	      	<%= link_to combined_product.related.number, admin_product_path(combined_product.related_id), 
+	      	            :target => "_blank" %>
+        </td>
+	      <td>
+	      	<%= combined_product.related.name %>
+	      </td>
+	    </tr>
+	  <% end %>
+  </tbody>
+</table>
+
