@@ -18,7 +18,9 @@
     <%= t('admin.actions.new.title',:model => t('admin.misc.product.single')) %>
   </a>
 
-  <a href="<%= combined_new_admin_products_path %>" class="btn btn-primary" id="combined_create_tag">
+  <a href="<%= combined_new_admin_products_path %>" class="btn btn-primary" id="combined_create_tag"
+     rel="popover" data-original-title="<%= t('admin.misc.product.combined_new_btn_popover_title') %>" 
+     data-content="<%= t('admin.misc.product.combined_new_btn_popover_content') %>" >
     <i class="icon-plus-sign"></i>
     <%= t('admin.actions.new.title',:model => t('admin.misc.product.combined')) %>
   </a>

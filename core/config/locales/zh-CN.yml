@@ -350,6 +350,8 @@ zh-CN:
         successfully_created: "创建成功，请更新详细的商品信息。"
         single: "销售单品"
         combined: "组合商品"
+        combined_new_btn_popover_title: "组合商品"
+        combined_new_btn_popover_content: "可将多个销售单品捆绑在一起销售"
       product_category:
         back_to_parent: "返回上级分类"   
         single: "销售单品分类"

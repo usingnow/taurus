@@ -12,4 +12,6 @@ $(function(){
 	$('.ui-autocomplete-input').live('click', function(){ 
 		$('.ui-autocomplete').attr("class", "typeahead dropdown-menu");
 	});
+
+	$("[rel='popover']").popover();
 });

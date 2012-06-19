@@ -168,6 +168,8 @@ en:
         successfully_created: "创建成功，请更新详细的商品信息。"
         single: "销售单品"
         combined: "组合商品"
+        combined_new_btn_popover_title: "combined product"
+        combined_new_btn_popover_content: "it is used to sell several single products in a package with a new price"
       product_category:
         back_to_parent: "返回上级分类"   
         single: "Single Product Category"
