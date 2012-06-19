@@ -5,7 +5,6 @@ Taurus::Core::Engine.routes.draw do
     resources :order_delivery_records
     resources :replenishment_records do 
       collection do 
-        get :autocomplete_supplier_name
         get :autocomplete_product_name
       end
     end

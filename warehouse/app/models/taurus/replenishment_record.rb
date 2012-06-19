@@ -1,7 +1,7 @@
 #encoding:UTF-8
 module Taurus
-	class ReplenishmentRecord < ActiveRecord::Base
-    attr_accessor :supplier_name, :product_number, :product_name, :product_id, :product_amount
+  class ReplenishmentRecord < ActiveRecord::Base
+    attr_accessor :product_number, :product_name, :product_id, :product_amount
     REPLENISHMENT_TYPE = { 0 => "进货", 1 => "退换货", 2 => "其他" }
 
     has_many :replenishment_record_product_line_items, :dependent => :destroy
@@ -19,5 +19,5 @@ module Taurus
     def line_items_empty?
       errors.add(:product_name, "至少有一个商品") if replenishment_record_product_line_items.empty?
     end 
-	end
+  end
 end

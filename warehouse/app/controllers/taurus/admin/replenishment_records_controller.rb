@@ -1,7 +1,6 @@
 module Taurus
   module Admin
     class ReplenishmentRecordsController < BaseController
-      autocomplete :supplier, :name, :class_name => "Taurus::Supplier"
       autocomplete :product, :name, :class_name => "Taurus::Product", :extra_data => [:number]
 
       def index

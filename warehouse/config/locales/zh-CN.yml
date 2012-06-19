@@ -27,7 +27,7 @@ zh-CN:
         product_amount: "数量"
       taurus/replenishment_record:
         number: "补货单编号"
-        supplier_name: "供应商"
+        supplier: "供应商"
         replenishment_type: "补货类型"
         remarks: "备注"
         product_name: "商品名称"

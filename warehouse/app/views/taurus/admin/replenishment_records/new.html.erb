@@ -2,10 +2,7 @@
   <%= f.error_notification %>
   
   <fieldset>
-    <%= f.input :supplier_name, :url => autocomplete_supplier_name_admin_replenishment_records_path, 
-                :input_html => { :id_element => '#replenishment_record_supplier_id' }, 
-                :as => :autocomplete %>
-    <%= f.input :supplier_id, :as => :hidden %>
+    <%= f.input :supplier %>
 
     <%= f.input :replenishment_type, :label_method => :second, :value_method => :first, 
                 :collection => Taurus::ReplenishmentRecord::REPLENISHMENT_TYPE, 

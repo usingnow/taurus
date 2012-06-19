@@ -27,7 +27,7 @@ en:
         product_amount: "Product Amount"
       taurus/replenishment_record:
         number: "Replenishment Number"
-        supplier_name: "Supplier"
+        supplier: "Supplier"
         replenishment_type: "Purpose"
         remarks: "Remarks"
         product_name: "Product Name"
