@@ -3,6 +3,7 @@
 **/spec/dummy
 **/.bundle
 doc
+.rvmrc
 
 sandbox/*
 
