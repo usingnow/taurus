@@ -4,44 +4,6 @@
   sequence: 9
   display: true
   functions: 
-    - id: 'product_supplier'
-      name: <%= I18n.t('admin.functions.product.supplier') %>
-      url: '/admin/suppliers'
-      operations: 
-        - id: 'product_supplier_query'
-          name: '查询'
-          permissions:
-            - action_name: ':read'
-              class_name: 'Supplier'
-        - id: 'product_supplier_create#update'
-          name: '新建、修改'
-          permissions:
-            - action_name: '[:create, :update]'
-              class_name: 'Supplier'
-        - id: 'product_supplier_destroy'
-          name: '删除'
-          permissions:
-            - action_name: ':destroy'
-              class_name: 'Supplier'            
-    - id: 'product_brand'
-      name: <%= I18n.t('admin.functions.product.brand') %>
-      url: '/admin/brands'
-      operations: 
-        - id: 'product_brand_query'
-          name: '查询'
-          permissions:
-            - action_name: ':read'
-              class_name: 'Brand'
-        - id: 'product_brand_create#update'
-          name: '新建、修改'
-          permissions:
-            - action_name: '[:create, :update]'
-              class_name: 'Brand' 
-        - id: 'product_brand_destroy'
-          name: '删除'
-          permissions:
-            - action_name: ':destroy'
-              class_name: 'Brand'            
     - id: 'product_category'
       name: <%= I18n.t('admin.functions.product.product_category') %>
       url: '/admin/product_categories'
@@ -51,7 +13,7 @@
           permissions:
             - action_name: '[:read, :seconds, :thirds]'
               class_name: 'ProductCategory'
-        - id: 'product_brand_create#update#custom'
+        - id: 'product_category_create#update#custom'
           name: '新建、修改、自定义属性'
           permissions:
             - action_name: '[:create, :update, :autocomplete_product_category_name]'
@@ -63,20 +25,6 @@
           permissions:
             - action_name: ':destroy'
               class_name: 'ProductCategory'
-    - id: 'product_sku'
-      name: <%= I18n.t('admin.functions.product.sku') %>
-      url: '/admin/skus'
-      operations: 
-        - id: 'product_sku_query'
-          name: '查询'
-          permissions:
-            - action_name: ':read'
-              class_name: 'Sku'
-        - id: 'product_brand_create#update#clone'
-          name: '新建、修改、复制'
-          permissions:
-            - action_name: '[:create, :update, :clone, :autocomplete_product_category_name, :autocomplete_brand_chinese_name, :autocomplete_supplier_name]'
-              class_name: 'Sku'
     - id: 'product_product'
       name: <%= I18n.t('admin.functions.product.product') %>
       url: '/admin/products'

@@ -1,10 +1,11 @@
 module Taurus
 	module Admin
 		class ProductsController < BaseController
-			autocomplete :product_category, :name, :class_name => "Taurus::ProductCategory"
+			autocomplete :product_category, :name, :class_name => "Taurus::ProductCategory", :scopes => [:single]
+      autocomplete :combined_category, :name, :class_name => "Taurus::ProductCategory", :scopes => [:combined]
 
 			def index
-				params[:q] = { :sales_status_eq => true, :if_shown_on_web_eq => true } unless params[:q]
+				params[:q] = { :sales_status_eq => true, :if_shown_on_web_eq => true, :product_type_eq => 0 } unless params[:q]
 		    @search = Product.search(params[:q])
 		    @products = @search.result.paginate(:page => params[:page], :per_page => 20)
 		  end
@@ -61,6 +62,22 @@ module Taurus
 		    else
 		    	render :action => "edit_sales_status"
 		    end
+		  end
+
+		  def combined_new
+        @product = Product.new
+		  end
+
+		  def combined_create
+				@product = Product.new params[:product]
+        @product.product_type = 1				
+
+		    if @product.save
+		    	flash[:success] = I18n.t('admin.misc.product.successfully_created')
+		    	redirect_to edit_admin_product_url(@product)
+		    else
+		    	render :action => :combined_new
+		    end	
 		  end
 
     end

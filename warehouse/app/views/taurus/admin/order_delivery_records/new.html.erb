@@ -65,18 +65,18 @@
       <thead>
         <tr>
           <th>#</th>
-          <th><%= t('activerecord.attributes.taurus/sku.number') %></th>
-          <th><%= t('activerecord.attributes.taurus/sku.name') %></th>
-          <th><%= t('activerecord.attributes.taurus/delivery_record_sku_line_item.sku_amount') %></th>
+          <th><%= t('activerecord.attributes.taurus/product.number') %></th>
+          <th><%= t('activerecord.attributes.taurus/product.name') %></th>
+          <th><%= t('activerecord.attributes.taurus/delivery_record_product_line_item.product_amount') %></th>
         </tr>
       </thead>
       <tbody>
-      <% @line_items.each_with_index do |line_item,index| %>
+      <% @order.order_product_line_items.each_with_index do |line_item,index| %>
         <tr>
           <td><%= index+1 %></td>
-          <td><%= line_item.sku.number %></td>
-          <td><%= line_item.sku.name %></td>
-          <td><%= line_item.sku_amount %></td>
+          <td><%= line_item.product.number %></td>
+          <td><%= line_item.product.name %></td>
+          <td><%= line_item.product_amount %></td>
         </tr>
       <% end %>
       </tbody>

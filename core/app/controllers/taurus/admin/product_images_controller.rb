@@ -48,9 +48,24 @@ module Taurus
         @product = Product.find(params[:product_id])
         @product_image = @product.product_images.find(params[:id])
 
-        @product_image.destroy
+        if @product_image.destroy
+          flash[:success] = I18n.t(:successfully_destroyed)
+        else
+          flash[:error] = I18n.t(:failure_destroyed)
+        end 
 
         redirect_to(admin_product_product_images_url(@product)) 
+      end
+
+      def set_up_main_img
+        @product = Product.find(params[:product_id])
+        @product_image = @product.product_images.find(params[:id])
+
+        if @product_image.update_attributes(:is_main => true)
+          flash[:success] = I18n.t(:successfully_updated)
+        end
+
+        redirect_to(admin_product_product_images_url(@product))   
       end
     end
   end

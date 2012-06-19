@@ -2,10 +2,7 @@
   <%= f.error_notification %>
   
   <fieldset>
-    <%= f.input :supplier_name, :url => autocomplete_supplier_name_admin_replenishment_records_path, 
-                :input_html => { :id_element => '#replenishment_record_supplier_id' }, 
-                :as => :autocomplete %>
-    <%= f.input :supplier_id, :as => :hidden %>
+    <%= f.input :supplier %>
 
     <%= f.input :replenishment_type, :label_method => :second, :value_method => :first, 
                 :collection => Taurus::ReplenishmentRecord::REPLENISHMENT_TYPE, 
@@ -16,10 +13,10 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th><%= t('activerecord.attributes.taurus/sku.number') %></th>
-          <th><%= t('activerecord.attributes.taurus/sku.name') %></th>
+          <th><%= t('activerecord.attributes.taurus/product.number') %></th>
+          <th><%= t('activerecord.attributes.taurus/product.name') %></th>
           <th>
-            <%= t('activerecord.attributes.taurus/replenishment_record_sku_line_item.sku_amount') %>
+            <%= t('activerecord.attributes.taurus/replenishment_record_product_line_item.product_amount') %>
           </th>
           <th><%= t('admin.misc.operation') %></th>
        </tr>
@@ -28,21 +25,21 @@
       </tbody>
     </table>            
 
-    <%= f.input :sku_name, :url => autocomplete_sku_name_admin_replenishment_records_path,
+    <%= f.input :product_name, :url => autocomplete_product_name_admin_replenishment_records_path,
                 :input_html => { 
                   :update_elements => { 
-                    :id => '#replenishment_record_sku_id', 
-                    :number => '#replenishment_record_sku_number'
+                    :id => '#replenishment_record_product_id', 
+                    :number => '#replenishment_record_product_number'
                   } 
                 }, :as => :autocomplete %>
-    <%= f.input :sku_id, :as => :hidden %>
-    <%= f.input :sku_number, :as => :hidden %>
-    <%= f.input :sku_amount, :input_html => { :value => 1 }, :as => :integer %>
+    <%= f.input :product_id, :as => :hidden %>
+    <%= f.input :product_number, :as => :hidden %>
+    <%= f.input :product_amount, :input_html => { :value => 1 }, :as => :integer %>
 
     
 
     <div class="form-actions">
-      <%= link_to "#{t('admin.actions.new.title', :model => t('activerecord.models.taurus/replenishment_record_sku_line_item'))}".html_safe, "#", :class => "btn btn-primary", :id => "add_replenishment_record_sku" %>
+      <%= link_to "#{t('admin.actions.new.title', :model => t('activerecord.models.taurus/replenishment_record_product_line_item'))}".html_safe, "#", :class => "btn btn-primary", :id => "add_replenishment_record_product" %>
       <%= f.button :submit, :class => "btn btn-primary" %>
     </div>
   </fieldset>

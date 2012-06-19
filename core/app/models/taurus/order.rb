@@ -18,11 +18,10 @@ module Taurus
   	accepts_nested_attributes_for :order_delivery
   	has_many :order_product_line_items, :dependent => :destroy
     has_many :products, :through => :order_product_line_items
-    has_many :product_sku_line_items, :through => :products
     belongs_to :user
 
     before_validation :generate_order_number, :on => :create
-    after_create :judge_reserved
+    after_create :first_state
     after_create :add_reserved_amount
     
     validates_presence_of :user_id, :customer_name, :total_payment
@@ -37,8 +36,7 @@ module Taurus
 	  end  
 
     state_machine :initial => :start do
-      event :judge_reserved do
-        transition :from => :start, :to => :reserved, :if => :reserved?
+      event :first_state do
         transition :from => :start, :to => :waiting_for_payment, 
                    :if => Proc.new{ |order| order.order_payment.payment_method_id == 1 }
         transition :from => :start, :to => :delivering
@@ -66,48 +64,17 @@ module Taurus
 
     end
   	
-    def reserved?
-      flag = false
-      if user.role.is_reserved
-        flag = true
-      elsif available_stock? 
-        flag = true
-      end
-      flag
-    end
-
     protected
     def generate_order_number
       self.number = "O" + Array.new(9){rand(9)}.join
     end
 
-    def available_stock?
-      attributes = Array.new
-      order_product_line_items.each do |product_line_item|
-        product_line_item.product.product_sku_line_items.each do |sku_line_item|
-          attribute = attributes.find { |attr| attr[:sku_id] == sku_line_item.sku_id}
-          if attribute
-            attribute[:sku_amount] += sku_line_item.sku_amount*product_line_item.product_amount
-          else
-            attributes << {
-              :sku_id => sku_line_item.sku_id, 
-              :sku_amount => sku_line_item.sku_amount*product_line_item.product_amount
-            }
-          end
-        end
-      end
-      !StoreSkuLineItem.available?(attributes)
-    end
-     
     # 增加销售预留
     def add_reserved_amount
       order_product_line_items.each do |product_line_item|
-        product_line_item.product.product_sku_line_items.each do |sku_line_item|
-          store_sku_line_item = StoreSkuLineItem.find_by_sku_id(sku_line_item.sku_id)
-          store_sku_line_item.update_attributes(
-            :reserved => store_sku_line_item.reserved += sku_line_item.sku_amount * product_line_item.product_amount
-          ) 
-        end
+        product_line_item.product.stock.update_attributes(
+          :reserved => product_line_item.product.stock.reserved += product_line_item.product_amount
+        ) 
       end
     end
 

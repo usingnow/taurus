@@ -6,7 +6,7 @@ Deface::Override.new(:virtual_path => "taurus/admin/product_categories/index",
                                                                 @second_category_id : @product_category) %>\" 
        class=\"btn btn-primary\" id=\"create_tag\">
 	    <i class=\"icon-plus-sign\"></i>
-	    <%= t('admin.actions.new.title',:model => t('activerecord.models.taurus/product_category')) %>
+	    <%= t('admin.actions.new.title',:model => t('admin.misc.product_category.single')) %>
 	  </a>
   <% end %>"                    	
 end

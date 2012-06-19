@@ -1,17 +1,5 @@
-Taurus::Admin::SuppliersController.class_eval do
-  load_and_authorize_resource :class => "Taurus::Supplier"
-end
-
-Taurus::Admin::BrandsController.class_eval do
-  load_and_authorize_resource :class => "Taurus::Brand"
-end
-
 Taurus::Admin::ProductCategoriesController.class_eval do
   load_and_authorize_resource :class => "Taurus::ProductCategory"
-end
-
-Taurus::Admin::SkusController.class_eval do
-  load_and_authorize_resource :class => "Taurus::Sku"
 end
 
 Taurus::Admin::ProductsController.class_eval do
@@ -39,8 +27,8 @@ Taurus::Admin::AlipaysController.class_eval do
 end
 
 if defined?(Taurus::Warehouse)
-  Taurus::Admin::StoreSkuLineItemsController.class_eval do
-    load_and_authorize_resource :class => "Taurus::StoreSkuLineItem"
+  Taurus::Admin::StocksController.class_eval do
+    load_and_authorize_resource :class => "Taurus::Stock"
   end
 
   Taurus::Admin::ReplenishmentRecordsController.class_eval do

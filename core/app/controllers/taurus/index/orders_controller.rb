@@ -1,7 +1,7 @@
 #encoding:UTF-8
 module Taurus
 	module Index
-		class OrdersController < BaseController
+		class OrdersController < Taurus::Index::BaseController
       before_filter :authenticate_user!
       helper "taurus/orders"
 

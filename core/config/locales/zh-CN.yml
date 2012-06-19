@@ -202,11 +202,8 @@ zh-CN:
 
   activerecord:
     models:
-      taurus/supplier: "供应商"
-      taurus/brand: "品牌"
       taurus/product_category: "商品分类"
       taurus/custom_property: "自定义属性"
-      taurus/sku: "SKU"
       taurus/product: "销售商品"
       taurus/product_sku_line_item: "SKU"
       taurus/product_image: "销售商品图片"
@@ -216,32 +213,6 @@ zh-CN:
       taurus/company_type: "企业类型"
       taurus/company_scale: "企业规模"
     attributes:
-      taurus/supplier:
-        number: "供应商编号"
-        name: "供应商名称"
-        contact_name: "联系人"
-        contact_phone: "供应商联系电话"
-        fax: "供应商传真"
-        email: "邮箱"
-        remarks: "备注"
-        status: "激活"
-        created_by: "创建者"
-        updated_by: "更新者"
-        updated_at: "更新时间"
-        skus: "SKU"
-      taurus/brand:
-        chinese_name: "品牌中文名称"
-        english_name: "品牌英文名称"
-        pinyin: "拼音"
-        web_address: "网址"
-        image: "图片"
-        status: "激活"
-        created_by: "创建者"
-        updated_by: "更新者"
-        updated_at: "更新时间"
-        company_name: "公司名称"
-        company_description: "公司简介"
-        skus: "SKU"
       taurus/product_category:
         parent_name: "父分类"
         parent_id: "父分类"
@@ -253,7 +224,7 @@ zh-CN:
         updated_at: "更新时间"  
         custom_property: "自定义属性"
         custom_properties: "自定义属性"
-        skus: "SKU"
+        category_type: "类型"
         products: "销售商品"
         children: "子分类"
       taurus/custom_property: 
@@ -262,33 +233,12 @@ zh-CN:
         property_type: "属性类型"
         remarks: "备注"
         status: "激活"
-      taurus/sku:
-        number: "SKU编号"
-        name: "SKU名称"
-        product_category_name: "商品分类"
-        product_category_id: "商品分类"
-        brand_chinese_name: "品牌中文名"
-        brand_id: "品牌"
-        supplier_name: "供应商"
-        supplier_id: "供应商"
-        place_of_origin: "产地"
-        unit: "单位"
-        model: "型号"
-        specifications: "规格"
-        dimensions: "尺寸"
-        weight: "重量（公斤）"
-        cost_before_tax: "税前成本"
-        cost_after_tax: "税后成本"
-        delivery_days: "备货天数"
-        delivery_notice: "备货说明"
-        remarks: "备注"
-        status: "激活"
-        products: "关联销售商品"
       taurus/product:
         number: "销售商品编号"
         name: "销售商品名称"
         product_category_name: "商品分类"
         product_category_id: "商品分类"
+        brand: "品牌"
         place_of_origin: "产地"
         unit: "单位"
         manufacturer: "生产企业"
@@ -299,9 +249,8 @@ zh-CN:
         description: "介绍"
         sales_status: "是否销售"
         if_shown_on_web: "是否上架"
-      taurus/product_sku_line_item: 
-        sku_amount: "SKU数量"
-        sku_name: "SKU名称"
+      taurus/combined_product:
+        product_name: "销售单品"  
       taurus/product_image:
         image: "图片"
         image_file_name: "图片"
@@ -366,11 +315,9 @@ zh-CN:
       my_account: "个人中心"
     functions:
       product:
-        product: "销售商品管理"
-        supplier: "供应商信息"
-        brand: "品牌信息"
         product_category: "商品分类管理"
-        sku: "SKU"
+        combined_category: "组合商品分类管理"
+        product: "销售商品管理"
       order:
         order_in_progress: "待处理订单" 
         all_order: "全部订单"
@@ -399,12 +346,23 @@ zh-CN:
       company_extend:
         phone_hint: "固话与手机选填一项"
       product:
-        sales_alert_info: "商品销售与上架的条件是，1）必须包含至少一个SKU，2）必须已设置主图片。"
+        sales_alert_info: "商品销售与上架的条件是，1）必须已设置主图片。"
         successfully_created: "创建成功，请更新详细的商品信息。"
-      sku:
-        new_alert: "供应商、品牌以及商品分类信息是生成SKU的必填项，可以在对应模块查询详细信息。" 
+        single: "销售单品"
+        combined: "组合商品"
+        combined_new_btn_popover_title: "组合商品"
+        combined_new_btn_popover_content: "可将多个销售单品捆绑在一起销售"
+        single_category_hint: "仅可关联销售单品分类，<a href='/admin/product_categories' target='_blank'>详细分类信息</a>"
+        combined_category_hint: "仅可关联组合商品分类，<a href='/admin/product_categories?q%5Bcategory_type_eq%5D=1' target='_blank'>详细分类信息</a>"
+      product_image:
+        set_up_main_img: "设置主图片"
       product_category:
         back_to_parent: "返回上级分类"   
+        single: "销售单品分类"
+        combined: "组合商品分类"
+        instruction: "销售单品分类仅可添加销售单品，组合商品分类仅可添加组合商品，不可通用。"
+        single_instruction: "销售单品分类内仅可添加销售单品，不可添加组合商品。"
+        combined_instruction: "组合商品分类内仅可添加组合商品，不可添加销售单品。" 
     actions:
       index:
         title: "%{model}列表"

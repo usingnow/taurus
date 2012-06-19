@@ -1,25 +1,22 @@
-# encoding: UTF-8
-require 'rubygems'
-begin
-  require 'bundler/setup'
-rescue LoadError
-  puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
-end
-
 require 'rake'
-require 'rake/rdoctask'
-
-require 'rspec/core'
+require 'rake/testtask'
+require 'rake/packagetask'
+require 'rubygems/package_task'
 require 'rspec/core/rake_task'
+require 'taurus/core/testing_support/common_rake'
 
-RSpec::Core::RakeTask.new(:spec)
+RSpec::Core::RakeTask.new
 
 task :default => :spec
 
-Rake::RDocTask.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'Store'
-  rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README.rdoc')
-  rdoc.rdoc_files.include('lib/**/*.rb')
+spec = eval(File.read('taurus_warehouse.gemspec'))
+
+Gem::PackageTask.new(spec) do |p|
+  p.gem_spec = spec
+end
+
+desc "Generates a dummy app for testing"
+task :test_app do
+  ENV['LIB_NAME'] = 'taurus/warehouse'
+  Rake::Task['common:test_app'].invoke
 end

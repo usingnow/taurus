@@ -1,12 +1,12 @@
 en:
   activerecord:
     models:
-      taurus/store_sku_line_item: "Stock"
+      taurus/stock: "Stock"
       taurus/delivery_record: "Delivery Record"
       taurus/replenishment_record: "Replenishment Record"
-      taurus/replenishment_record_sku_line_item: "Replenishment SKU"
+      taurus/replenishment_record_product_line_item: "Replenishment Product"
     attributes:
-      taurus/store_sku_line_item:
+      taurus/stock:
         reserved: "Reserved for Sales"
         out_of_stock: "Out of Stock"
         available: "Available for Sales"
@@ -23,17 +23,17 @@ en:
         customer_phone: "Phone"
         pick_up_date: "Pick up Date"
         remarks: "Remarks"
-      taurus/delivery_record_sku_line_item:
-        sku_amount: "SKU Amount"
+      taurus/delivery_record_product_line_item:
+        product_amount: "Product Amount"
       taurus/replenishment_record:
         number: "Replenishment Number"
-        supplier_name: "Supplier"
+        supplier: "Supplier"
         replenishment_type: "Purpose"
         remarks: "Remarks"
-        sku_name: "SKU Name"
-        sku_amount: "Amount"
-      taurus/replenishment_record_sku_line_item:
-        sku_amount: "Amount"
+        product_name: "Product Name"
+        product_amount: "Amount"
+      taurus/replenishment_record_product_line_item:
+        product_amount: "Amount"
 
   admin:
     modules:

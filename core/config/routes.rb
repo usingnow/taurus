@@ -12,42 +12,38 @@ Taurus::Core::Engine.routes.draw do
     resources :industries
     resources :company_types
     resources :company_scales
-    resources :suppliers
-    resources :brands
     resources :product_categories do
-      get :autocomplete_product_category_name, :on => :collection
+      collection do 
+        get :autocomplete_product_category_name
+        get :autocomplete_combined_category_name
+        get :combined_new
+        post :combined_create
+      end
       member do
         get :seconds
         get :thirds
       end
       resources :custom_properties
     end
-    resources :skus do 
-       collection do
-         get :autocomplete_product_category_name
-         get :autocomplete_brand_chinese_name 
-         get :autocomplete_supplier_name
-       end
-       member do
-         get :clone
-       end
-    end
     resources :products do
-      get :autocomplete_product_category_name, :on => :collection
+      collection do 
+        get :autocomplete_product_category_name
+        get :autocomplete_combined_category_name
+        get :combined_new
+        post :combined_create
+      end
       member do
         get :show_sales_status
         get :edit_sales_status
         put :update_sales_status
       end
       resources :custom_property_values
-      resources :product_sku_line_items do 
-        get :autocomplete_sku_name, :on => :collection
-        member do
-          get :show_sku
-          get :add_product_sku
-        end
+      resources :combined_products do
+        get :autocomplete_product_name, :on => :collection
       end
-      resources :product_images
+      resources :product_images do
+        put :set_up_main_img, :on => :member
+      end
     end
     resources :orders do
       member do 

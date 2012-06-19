@@ -1,6 +1,6 @@
 module Taurus
 	module Index
-		class UserCentersController < BaseController
+		class UserCentersController < Taurus::Index::BaseController
 			before_filter :authenticate_user!
 			helper "taurus/orders"
 

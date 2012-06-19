@@ -16,12 +16,15 @@
   <li <%== 'class="active"' if current == "custom_properties" %>>
   	<%= link_to "自定义属性", type == "show" ? admin_product_custom_property_value_path(@product,0) : admin_product_custom_property_values_path(@product) %>
   </li>
-  <li <%== 'class="active"' if current == "SKUS" %>>
-  	<%= link_to "SKU", type == "show" ? admin_product_product_sku_line_item_path(@product,0) : admin_product_product_sku_line_items_path(@product) %>
-  </li>
   <li <%== 'class="active"' if current == "images" %>>
   	<%= link_to "图片", type == "show" ? admin_product_product_image_path(@product,0) : admin_product_product_images_path(@product) %>
   </li>
+  <% if @product.product_type == 1 %>
+    <li <%== 'class="active"' if current == "combined" %>>
+      <%= link_to "组合商品", type == "show" ? admin_product_combined_products_path(@product) : 
+                                              new_admin_product_combined_product_path(@product) %>
+    </li>
+  <% end %>
   <li <%== 'class="active"' if current == "sales" %>>
     <%= link_to "销售状态", type == "show" ? show_sales_status_admin_product_path(@product) : edit_sales_status_admin_product_path(@product) %>
   </li>

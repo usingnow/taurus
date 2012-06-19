@@ -1,0 +1,105 @@
+stock_1:
+  id: '1'
+  product_id: '1'
+  reserved: '0'
+  in_stock: '0'
+stock_2:
+  id: '2'
+  product_id: '2'
+  reserved: '0'
+  in_stock: '0'
+stock_3:
+  id: '3'
+  product_id: '3'
+  reserved: '0'
+  in_stock: '0'
+stock_4:
+  id: '4'
+  product_id: '4'
+  reserved: '0'
+  in_stock: '0'
+stock_5:
+  id: '5'
+  product_id: '5'
+  reserved: '0'
+  in_stock: '0'
+stock_6:
+  id: '6'
+  product_id: '6'
+  reserved: '0'
+  in_stock: '0'
+stock_7:
+  id: '7'
+  product_id: '7'
+  reserved: '0'
+  in_stock: '0'
+stock_8:
+  id: '8'
+  product_id: '8'
+  reserved: '0'
+  in_stock: '0'
+stock_9:
+  id: '9'
+  product_id: '9'
+  reserved: '0'
+  in_stock: '0'
+stock_10:
+  id: '10'
+  product_id: '10'
+  reserved: '0'
+  in_stock: '0'
+stock_11:
+  id: '11'
+  product_id: '11'
+  reserved: '0'
+  in_stock: '0'
+stock_12:
+  id: '12'
+  product_id: '12'
+  reserved: '0'
+  in_stock: '0'
+stock_13:
+  id: '13'
+  product_id: '13'
+  reserved: '0'
+  in_stock: '0'
+stock_14:
+  id: '14'
+  product_id: '14'
+  reserved: '0'
+  in_stock: '0'
+stock_15:
+  id: '15'
+  product_id: '15'
+  reserved: '0'
+  in_stock: '0'
+stock_16:
+  id: '16'
+  product_id: '16'
+  reserved: '0'
+  in_stock: '0'
+stock_17:
+  id: '17'
+  product_id: '17'
+  reserved: '0'
+  in_stock: '0'
+stock_18:
+  id: '18'
+  product_id: '18'
+  reserved: '0'
+  in_stock: '0'
+stock_19:
+  id: '19'
+  product_id: '19'
+  reserved: '0'
+  in_stock: '0'
+stock_20:
+  id: '20'
+  product_id: '20'
+  reserved: '0'
+  in_stock: '0'
+stock_21:
+  id: '21'
+  product_id: '21'
+  reserved: '0'
+  in_stock: '0'

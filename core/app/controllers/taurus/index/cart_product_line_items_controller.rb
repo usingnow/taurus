@@ -1,6 +1,6 @@
 module Taurus
 	module Index
-		class CartProductLineItemsController < BaseController
+		class CartProductLineItemsController < Taurus::Index::BaseController
 			def index
 				@cart = current_cart
       end
