@@ -170,6 +170,7 @@ en:
         combined: "组合商品"
         combined_new_btn_popover_title: "combined product"
         combined_new_btn_popover_content: "it is used to sell several single products in a package with a new price"
+        single_category_hint: "only the single product category accepted. <a href='/admin/product_categories' target='_blank'>Details</a>"
       product_category:
         back_to_parent: "返回上级分类"   
         single: "Single Product Category"
