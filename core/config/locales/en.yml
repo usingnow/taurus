@@ -7,8 +7,6 @@ en:
 
   activerecord:
     models:
-      taurus/supplier: "Supplier"
-      taurus/brand: "Brand"
       taurus/product_category: "Product Category"
       taurus/custom_property: "Custom Properties"
       taurus/product: "Product"
@@ -19,30 +17,6 @@ en:
       taurus/company_type: "Company Type"
       taurus/company_scale: "Company Size"
     attributes:
-      taurus/supplier:
-        number: "Supplier Number"
-        name: "Supplier"
-        contact_name: "Contact Person"
-        contact_phone: "Phone"
-        fax: "Fax"
-        status: "Active"
-        email: "Email"
-        remarks: "Remarks"
-        created_by: "Created by"
-        updated_by: "Updated by"
-        updated_at: "Updated at"
-      taurus/brand:
-        chinese_name: "Brand in CN"
-        english_name: "Brand in EN"
-        pinyin: "Chinese Pinyin"
-        web_address: "Web"
-        image: "Image"
-        status: "Active"
-        created_by: "Created by"
-        updated_by: "Updated by"
-        updated_at: "Updated at"
-        company_name: "Company"
-        company_description: "Company Description"
       taurus/product_category:
         parent_name: "Parent Category"
         parent_id: "Parent Category Number"
@@ -65,6 +39,7 @@ en:
         name: "Product"
         product_category_name: "Product Category"
         product_category_id: "Product Category Number"
+        brand: "Brand"
         place_of_origin: "Place of Origin"
         unit: "Unit"
         manufacturer: "Manufacturer"
@@ -157,8 +132,6 @@ en:
       my_account: "My Account"
     functions:
       product:
-        supplier: "Suppliers"
-        brand: "Brands"
         product_category: "Product Categories"
         combined_category: "Combined Categories"
         product: "Products"

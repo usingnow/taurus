@@ -12,8 +12,6 @@ Taurus::Core::Engine.routes.draw do
     resources :industries
     resources :company_types
     resources :company_scales
-    resources :suppliers
-    resources :brands
     resources :product_categories do
       collection do 
         get :autocomplete_product_category_name

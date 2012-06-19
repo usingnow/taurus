@@ -25,7 +25,7 @@
         - id: 'warehouse_replishment_create'
           name: '新建'
           permissions:
-            - action_name: '[:create, :autocomplete_supplier_name, :autocomplete_sku_name]'
+            - action_name: '[:create, :autocomplete_product_name]'
               class_name: 'ReplenishmentRecord'      
     - id: 'warehouse_delivery'
       name: <%= I18n.t('admin.functions.stock.delivery') %>

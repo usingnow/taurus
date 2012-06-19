@@ -202,8 +202,6 @@ zh-CN:
 
   activerecord:
     models:
-      taurus/supplier: "供应商"
-      taurus/brand: "品牌"
       taurus/product_category: "商品分类"
       taurus/custom_property: "自定义属性"
       taurus/product: "销售商品"
@@ -215,31 +213,6 @@ zh-CN:
       taurus/company_type: "企业类型"
       taurus/company_scale: "企业规模"
     attributes:
-      taurus/supplier:
-        number: "供应商编号"
-        name: "供应商名称"
-        contact_name: "联系人"
-        contact_phone: "供应商联系电话"
-        fax: "供应商传真"
-        email: "邮箱"
-        remarks: "备注"
-        status: "激活"
-        created_by: "创建者"
-        updated_by: "更新者"
-        updated_at: "更新时间"
-        skus: "SKU"
-      taurus/brand:
-        chinese_name: "品牌中文名称"
-        english_name: "品牌英文名称"
-        pinyin: "拼音"
-        web_address: "网址"
-        image: "图片"
-        status: "激活"
-        created_by: "创建者"
-        updated_by: "更新者"
-        updated_at: "更新时间"
-        company_name: "公司名称"
-        company_description: "公司简介"
       taurus/product_category:
         parent_name: "父分类"
         parent_id: "父分类"
@@ -265,6 +238,7 @@ zh-CN:
         name: "销售商品名称"
         product_category_name: "商品分类"
         product_category_id: "商品分类"
+        brand: "品牌"
         place_of_origin: "产地"
         unit: "单位"
         manufacturer: "生产企业"
@@ -341,8 +315,6 @@ zh-CN:
       my_account: "个人中心"
     functions:
       product:
-        supplier: "供应商信息"
-        brand: "品牌信息"
         product_category: "商品分类管理"
         combined_category: "组合商品分类管理"
         product: "销售商品管理"

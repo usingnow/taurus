@@ -8,7 +8,7 @@ module Taurus
 
     before_create :default_value
 
-    validates_presence_of :supplier_name, :supplier_id, :replenishment_type
+    validates_presence_of :replenishment_type
     validate :line_items_empty?
 
     protected

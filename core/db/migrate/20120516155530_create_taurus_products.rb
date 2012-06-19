@@ -4,6 +4,7 @@ class CreateTaurusProducts < ActiveRecord::Migration
     	t.string :number
     	t.string :name
     	t.integer :product_category_id
+        t.string :brand
     	t.string :place_of_origin
     	t.string :unit
     	t.string :manufacturer
