@@ -41,7 +41,9 @@ Taurus::Core::Engine.routes.draw do
       resources :combined_products do
         get :autocomplete_product_name, :on => :collection
       end
-      resources :product_images
+      resources :product_images do
+        put :set_up_main_img, :on => :member
+      end
     end
     resources :orders do
       member do 

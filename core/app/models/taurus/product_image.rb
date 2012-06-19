@@ -18,11 +18,11 @@ module Taurus
     protected
     # 同一商品只能有一个主图片
     def check_is_main
-      product_image = ProductImage.find_by_product_id_and_is_main(product_id,true)
-      if product_image && product_image.id != id
-        product_image.update_attribute(:is_main,false) if is_main
+      if is_main
+        product.product_images.update_all(:is_main => false)
+        self.is_main = true
       else
-      	self.is_main = true 
+        self.is_main = true if product.product_images.find_by_is_main(true)
       end
     end
 	end

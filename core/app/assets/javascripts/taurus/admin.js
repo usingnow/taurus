@@ -14,4 +14,5 @@ $(function(){
 	});
 
 	$("[rel='popover']").popover();
+	$("a.disabled").click(function(){return false});
 });

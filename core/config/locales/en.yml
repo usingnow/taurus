@@ -172,6 +172,8 @@ en:
         combined_new_btn_popover_content: "it is used to sell several single products in a package with a new price"
         single_category_hint: "only the single product category accepted. <a href='/admin/product_categories' target='_blank'>Details</a>"
         combined_category_hint: "only the combined product category accepted. <a href='/admin/product_categories?q%5Bcategory_type_eq%5D=1' target='_blank'>Details</a>"    
+      product_image:
+        set_up_main_img: "Set up mian image"
       product_category:
         back_to_parent: "返回上级分类"   
         single: "Single Product Category"
