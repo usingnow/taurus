@@ -164,7 +164,7 @@ en:
       company_extend:
         phone_hint: "固话与手机选填一项"
       product:
-        single_sales_instruction: "商品销售与上架的条件是，1）必须已设置主图片。"
+        single_sales_instruction: "The product must have at least a picture for start selling and showing on the website."
         combined_sales_instruction: "The combined product must have at least a picture and contain two single products before starting selling and showing on the website."
         successfully_created: "创建成功，请更新详细的商品信息。"
         single: "销售单品"

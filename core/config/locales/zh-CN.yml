@@ -346,7 +346,7 @@ zh-CN:
       company_extend:
         phone_hint: "固话与手机选填一项"
       product:
-        single_sales_instruction: "商品销售与上架的条件是，1）必须已设置主图片。"
+        single_sales_instruction: "销售单品“开始销售”与“上架”的条件是，必须已设置主图片。"
         combined_sales_instruction: "组合商品“开始销售”与“上架”的条件是，1）已设置主图片，2）至少包含2件销售单品。"
         successfully_created: "创建成功，请更新详细的商品信息。"
         single: "销售单品"
