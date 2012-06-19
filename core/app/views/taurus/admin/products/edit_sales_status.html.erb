@@ -2,7 +2,11 @@
 
 <div class="alert alert-info">
   <button type="button" class="close" data-dismiss="alert">×</button>
-  <%= t('admin.misc.product.sales_alert_info') %>
+  <% if @product.product_type == 0 %>
+    <%= t('admin.misc.product.single_sales_instruction') %>
+  <% else %>
+    <%= t('admin.misc.product.combined_sales_instruction') %>
+  <% end %>  
 </div>
 
 <%= simple_form_for(@product, :url => update_sales_status_admin_product_path(@product), :html => {:class => 'form-horizontal'}) do |f| %>

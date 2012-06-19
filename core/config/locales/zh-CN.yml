@@ -302,7 +302,7 @@ zh-CN:
         taurus/product:
           attributes:
             sales_status:
-              must_have_sku: "必须包含至少一个SKU"
+              must_contain_two_single_product: "至少包含2件销售单品"
             if_shown_on_web:  
               must_have_image: "必须已设置主图片"
 
@@ -346,7 +346,8 @@ zh-CN:
       company_extend:
         phone_hint: "固话与手机选填一项"
       product:
-        sales_alert_info: "商品销售与上架的条件是，1）必须已设置主图片。"
+        single_sales_instruction: "商品销售与上架的条件是，1）必须已设置主图片。"
+        combined_sales_instruction: "组合商品“开始销售”与“上架”的条件是，1）已设置主图片，2）至少包含2件销售单品。"
         successfully_created: "创建成功，请更新详细的商品信息。"
         single: "销售单品"
         combined: "组合商品"

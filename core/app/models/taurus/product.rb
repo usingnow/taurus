@@ -21,6 +21,7 @@ module Taurus
     validates_presence_of :number, :name, :product_category_name, :product_category_id, :weight, :price_after_tax
     validates_uniqueness_of :number
     validate :must_have_image, :if => Proc.new { current_step == "sales_status" }
+    validate :must_contain_two_single_product, :if => Proc.new { current_step == "sales_status" && product_type == 1 }
 
     
     scope :shown, where("if_shown_on_web = 1")
@@ -45,6 +46,12 @@ module Taurus
       if if_shown_on_web
         errors.add(:if_shown_on_web, :must_have_image) if product_images.size == 0
       end 
+    end
+
+    def must_contain_two_single_product
+      if sales_status
+        errors.add(:sales_status, :must_contain_two_single_product) if combined_products.size < 2
+      end
     end
 
     def add_to_store
