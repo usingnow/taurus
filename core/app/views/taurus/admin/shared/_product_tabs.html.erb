@@ -6,7 +6,9 @@
     </a>
   <% end %>
 
-  <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_products_path, :class => "btn pull-right" %>
+  <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, 
+              @product.product_type == 0 ? admin_products_path : admin_products_path(:'q[product_type_eq]' => 1), 
+              :class => "btn pull-right" %>
 </div>
 
 <ul class="nav nav-tabs">
