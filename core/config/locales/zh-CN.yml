@@ -341,6 +341,7 @@ zh-CN:
       back: "返回功能首页"
       clone: "复制"
       sign_out: "退出"
+      cancel: "取消"
       autocomplete_instruction: "输入首两字，在下拉列表点选所需项目。"
       custom_property:
         belongs_to: "所属分类"

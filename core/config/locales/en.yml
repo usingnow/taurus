@@ -150,7 +150,7 @@ en:
         base_info: "Details"
     misc:
       remove: "Delete"
-      add_new: "Add% {model}"
+      add_new: "Add %{model}"
       search: "Search"
       preview: "%{model}Preview"
       submit: "Submit"
@@ -159,6 +159,7 @@ en:
       back: "Back to Homepage"
       clone: "Clone"
       sign_out: "Sign Out"
+      cancel: "Cancel"
       autocomplete_instruction: "Please type in the first two letters and choose the item from the drop down list."
       custom_property:
         belongs_to: "所属分类"
