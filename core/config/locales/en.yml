@@ -159,6 +159,7 @@ en:
       back: "Back to Homepage"
       clone: "Clone"
       sign_out: "Sign Out"
+      autocomplete_instruction: "请输入首两个字，再选择自动补齐后的项目。"
       custom_property:
         belongs_to: "所属分类"
       company_extend:
