@@ -36,8 +36,6 @@
         <%= f.input :is_main %>      
   		</fieldset>
       
-      <div class="form-actions">
-        <%= f.button :submit, :class => "btn btn-primary" %>
-      </div>
+      <%= render :partial => "taurus/admin/shared/product_form_actions", :locals => { :f => f } %>
   <% end %>
 </div>

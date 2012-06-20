@@ -16,8 +16,6 @@
     <%= f.input :sales_status, :boolean_style => :inline, :hint => t('admin.misc.product.sales_status_hint') %>
     <%= f.input :if_shown_on_web, :boolean_style => :inline, :hint => t('admin.misc.product.if_shown_on_web_hint') %>
 
-    <div class="form-actions">
-      <%= f.button :submit, :class => "btn btn-primary" %>
-    </div>
+    <%= render :partial => "taurus/admin/shared/product_form_actions", :locals => { :f => f } %>
   </fieldset>
 <% end %>

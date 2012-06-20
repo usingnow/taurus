@@ -6,9 +6,7 @@
   <fieldset>
     <%=raw custom_property_values(f) %>
 
-    <div class="form-actions">
-      <%= f.button :submit, :class => "btn btn-primary" %>
-    </div>
+    <%= render :partial => "taurus/admin/shared/product_form_actions", :locals => { :f => f } %>
   </fieldset>
 <% end %>
 
