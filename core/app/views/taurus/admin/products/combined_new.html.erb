@@ -19,6 +19,7 @@
     
     <div class="form-actions">
       <%= f.button :submit, :class => "btn btn-primary" %>
+      <%= link_to t('admin.misc.cancel'), admin_products_path(:'q[product_type_eq]' => 1), :class => "btn" %>
     </div>
   </fieldset>
 <% end %>

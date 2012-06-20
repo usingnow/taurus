@@ -31,7 +31,7 @@ permission_5:
 permission_6:
   id: '6'
   class_name: 'Product'
-  action_name: '[:create, :update, :autocomplete_product_category_name, :edit_sales_status, :update_sales_status]'
+  action_name: '[:create, :update, :combined_new, :combined_create, :autocomplete_product_category_name, :edit_sales_status, :update_sales_status]'
   permissionable_id: '5'
   permissionable_type: 'Taurus::FunPermission'
 permission_7:
@@ -271,7 +271,7 @@ permission_45:
 permission_46:
   id: '46'
   class_name: 'Product'
-  action_name: '[:create, :update, :autocomplete_product_category_name, :edit_sales_status, :update_sales_status]'
+  action_name: '[:create, :update, :combined_new, :combined_create, :autocomplete_product_category_name, :edit_sales_status, :update_sales_status]'
   permissionable_id: '43'
   permissionable_type: 'Taurus::FunPermission'
 permission_47:
