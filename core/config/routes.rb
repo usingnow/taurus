@@ -1,4 +1,6 @@
 Taurus::Core::Engine.routes.draw do 
+  mount Ckeditor::Engine => '/ckeditor'
+  
   resources :areas do 
     collection do 
       get :cities

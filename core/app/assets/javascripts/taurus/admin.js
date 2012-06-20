@@ -5,6 +5,7 @@
 //= require twitter/bootstrap
 //= require taurus/area_input
 //= require taurus/jquery.placeholder.min
+//= require ckeditor/init
 
 $(function(){
 	$('input, textarea').placeholder();
