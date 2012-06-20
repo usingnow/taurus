@@ -370,6 +370,8 @@ zh-CN:
         instruction: "销售单品分类仅可添加销售单品，组合商品分类仅可添加组合商品，不可通用。"
         single_instruction: "销售单品分类内仅可添加销售单品，不可添加组合商品。"
         combined_instruction: "组合商品分类内仅可添加组合商品，不可添加销售单品。" 
+        combined_new_btn_popover_title: "组合商品分类"
+        combined_new_btn_popover_content: "仅关联组合商品。组合商品可将多个销售单品打包出售。"
     actions:
       index:
         title: "%{model}列表"
