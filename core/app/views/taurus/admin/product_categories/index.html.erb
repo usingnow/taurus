@@ -13,15 +13,15 @@
   <hr />
   <a href="<%= new_admin_product_category_path(:parent_id => @second_category_id ? 
                                                              @second_category_id : @product_category) %>" 
-     class="btn btn-primary" id="create_tag">
-    <i class="icon-plus-sign"></i>
+     class="btn btn-primary create_tag">
+    <i class="icon-tag"></i>
     <%= t('admin.actions.new.title',:model => t('admin.misc.product_category.single')) %>
   </a>
 
   <a href="<%= combined_new_admin_product_categories_path(:parent_id => @second_category_id ? 
                                                           @second_category_id : @product_category) %>" 
-     class="btn btn-success" id="combined_create_tag">
-    <i class="icon-plus-sign"></i>
+     class="btn btn-success create_tag">
+    <i class="icon-tags"></i>
     <%= t('admin.actions.new.title',:model => t('admin.misc.product_category.combined')) %>
   </a>   
 

@@ -1,14 +1,7 @@
 Deface::Override.new(:virtual_path => "taurus/admin/product_categories/index",
                      :name => "auth_product_category_index_create",
-                     :replace => "#create_tag") do
-  "<% if can? :create, Taurus::ProductCategory %>
-	  <a href=\"<%= new_admin_product_category_path(:parent_id => @second_category_id ? 
-                                                                @second_category_id : @product_category) %>\" 
-       class=\"btn btn-primary\" id=\"create_tag\">
-	    <i class=\"icon-plus-sign\"></i>
-	    <%= t('admin.actions.new.title',:model => t('admin.misc.product_category.single')) %>
-	  </a>
-  <% end %>"                    	
+                     :surround => ".create_tag") do
+  "<% if can? :create, Taurus::ProductCategory %><%= render_original %><% end %>"                    	
 end
 
 

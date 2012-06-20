@@ -16,7 +16,7 @@
         - id: 'product_category_create#update#custom'
           name: '新建、修改、自定义属性'
           permissions:
-            - action_name: '[:create, :update, :autocomplete_product_category_name]'
+            - action_name: '[:create, :combined_new, :combined_create, :update, :autocomplete_product_category_name]'
               class_name: 'ProductCategory'
             - action_name: ':manage'
               class_name: 'CustomProperty'
