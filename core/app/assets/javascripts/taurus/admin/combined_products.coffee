@@ -23,6 +23,9 @@ jQuery ->
                 #{jQuery("#combined_product_product_name").val()}
                 <input type='hidden' name='related_ids[]' value=\"#{jQuery("#related_id").val()}\"/>
               </td>
+              <td>
+                <input class='amount' name='amount[#{jQuery("#related_id").val()}]' 
+                       step='1' type='number' value=\"#{jQuery("#combined_product_amount").val()}\"></td>
               <td><a href='#' class='btn btn-primary trk-btn-short remove_line_item'>删除</a></td>
             </tr>"
 
@@ -34,7 +37,9 @@ jQuery ->
   jQuery(".remove_line_item").live 'click', (event) ->
   	jQuery(this).parent().parent().remove()
   	false
-			      
-			      
-			        
-	
+
+  jQuery(".amount").live 'change', (event)->
+    if @value.search("^-?\\d+$") != 0
+      jQuery(this).val(1)
+    else
+      jQuery(this).val(1) if @value < 1

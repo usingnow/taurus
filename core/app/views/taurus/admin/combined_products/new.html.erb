@@ -16,6 +16,7 @@
 		    <tr>
 		      <th><%= t('activerecord.attributes.taurus/product.number') %></th>
 		      <th><%= t('activerecord.attributes.taurus/product.name') %></th>
+		      <th><%= t('activerecord.attributes.taurus/combined_product.amount') %></th>
 		      <th><%= t('admin.misc.operation') %></th>
 		   </tr>
 		  </thead>
@@ -28,7 +29,10 @@
 	          </td>
 			      <td>
 			      	<%= combined_product.related.name %>
-			      	<%= hidden_field_tag :'related_ids[]', combined_product.related_id %>
+			      </td>
+			      <td>
+			      	<%= number_field_tag :"amount[#{combined_product.related_id}]", 
+			      	                     combined_product.amount, :class => "amount" %>
 			      </td>
 			      <td>
 			      	<%= link_to t('admin.actions.delete.menu'), "#", 
@@ -51,7 +55,8 @@
 	                  :input_html => { :update_elements => {:id => '#related_id', :number => '#related_number'} },
 	                  :as => :autocomplete %>
 	      <%= hidden_field_tag :related_id %>
-	      <%= hidden_field_tag :related_number %>   
+	      <%= hidden_field_tag :related_number %>  
+        <%= f.input :amount, :input_html => { :class => "amount" } %>	      
         
         <div class="form-actions">
           <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.misc.add_new', 

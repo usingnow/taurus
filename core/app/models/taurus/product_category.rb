@@ -14,6 +14,7 @@ module Taurus
     before_destroy :destroy_validate
     before_save :default_value
   	
+    scope :actived, where(:status => true)
     scope :tops, where(:parent_id => nil)
     scope :combined, where("category_type = 1")
     scope :single, where("category_type = 0")

@@ -250,7 +250,8 @@ zh-CN:
         sales_status: "是否可销售"
         if_shown_on_web: "是否已上架"
       taurus/combined_product:
-        product_name: "销售单品"  
+        product_name: "销售单品" 
+        amount: "数量" 
       taurus/product_image:
         image: "图片"
         image_file_name: "图片"

@@ -53,6 +53,7 @@ en:
         product_type: "Type"
       taurus/combined_product:
         product_name: "Single Product"  
+        amount: "Amount" 
       taurus/product_image:
         image: "Image"
         image_file_name: "Image"

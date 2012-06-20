@@ -14,11 +14,11 @@ module Taurus
 
 			def create
 		  	@product = Product.find(params[:product_id])
-
+        
 		  	@product.combined_products.destroy_all
-		  	params[:related_ids].each do |value|
-	  			@product.combined_products << CombinedProduct.new(:related_id => value)
-		  	end if params[:related_ids]
+		  	params[:amount].each do |key, value|
+	  			@product.combined_products << CombinedProduct.new(:related_id => key, :amount => value)
+		  	end if params[:amount]
 		  	if @product.save
 		  		flash[:success] = I18n.t(:successfully_updated)
 		  	end

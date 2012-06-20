@@ -1,8 +1,8 @@
 module Taurus
 	module Admin
 		class ProductsController < BaseController
-			autocomplete :product_category, :name, :class_name => "Taurus::ProductCategory", :scopes => [:single]
-      autocomplete :combined_category, :name, :class_name => "Taurus::ProductCategory", :scopes => [:combined]
+			autocomplete :product_category, :name, :class_name => "Taurus::ProductCategory", :scopes => [:single, :actived]
+      autocomplete :combined_category, :name, :class_name => "Taurus::ProductCategory", :scopes => [:combined, :actived]
 
 			def index
 				params[:q] = { :sales_status_eq => true, :if_shown_on_web_eq => true, :product_type_eq => 0 } unless params[:q]
