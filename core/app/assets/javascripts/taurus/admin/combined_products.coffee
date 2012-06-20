@@ -1,7 +1,8 @@
 jQuery -> 
   jQuery('#combined_product_product_name').bind 'railsAutocomplete.select', (event, data) ->
+    jQuery('#combined_product_product_name').next().remove()
     jQuery('#combined_product_product_name').parent().parent().addClass("success")
-    jQuery('#combined_product_product_name').after("<span class='help-inline'>选择成功！</span>")
+    jQuery('#combined_product_product_name').after("<span class='help-inline'>选择成功，请点击添加销售单品按钮。</span>")
 
 
   jQuery("#add_single_product").click -> 
@@ -25,6 +26,8 @@ jQuery ->
               <td><a href='#' class='btn btn-primary trk-btn-short remove_line_item'>删除</a></td>
             </tr>"
 
+      jQuery('#combined_product_product_name').next().remove()
+      jQuery('#combined_product_product_name').parent().parent().removeClass("success")
 	    jQuery("#combined_products").append(tr)
     false
 

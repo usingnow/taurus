@@ -159,7 +159,7 @@ en:
       back: "Back to Homepage"
       clone: "Clone"
       sign_out: "Sign Out"
-      autocomplete_instruction: "输入首两字，在下拉列表点选所需项目。"
+      autocomplete_instruction: "Please type in the first two letters and choose the item from the drop down list."
       custom_property:
         belongs_to: "所属分类"
       company_extend:
@@ -174,6 +174,8 @@ en:
         combined_new_btn_popover_content: "it is used to sell several single products in a package with a new price"
         single_category_hint: "only the single product category accepted. <a href='/admin/product_categories' target='_blank'>Details</a>"
         combined_category_hint: "only the combined product category accepted. <a href='/admin/product_categories?q%5Bcategory_type_eq%5D=1' target='_blank'>Details</a>"    
+      combined_product:
+        edit_instruction: "点击“更新销售商品”按钮,才会保存修改后结果！"
       product_image:
         set_up_main_img: "Set up mian image"
       product_category:

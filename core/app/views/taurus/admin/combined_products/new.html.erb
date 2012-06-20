@@ -3,6 +3,11 @@
 
 <%= hidden_field_tag :product_id, @product.id %>
 
+<div class="alert alert-info">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <%= t('admin.misc.combined_product.edit_instruction') %> 
+</div>
+
 <%= simple_form_for(@combined_product, :url => admin_product_combined_products_path(@product), 
                     :html => {:class => 'form-horizontal', :method => :post}) do |f| %>
   <%= f.error_notification %>
@@ -35,10 +40,10 @@
 		</table>
 
 		<div class="form-actions">
-			<%= f.button :submit, :value => "更新销售商品", :class => "btn btn-primary" %>
+			<%= f.button :submit, :value => "更新销售商品", :class => "btn btn-large btn-warning" %>
 		</div>	
      
-    <div class="well">
+    <div class="alert alert-info">
     	<fieldset>
 	      <%= f.input :product_name, 
 	                  :url => autocomplete_product_name_admin_product_combined_products_path(@product),
