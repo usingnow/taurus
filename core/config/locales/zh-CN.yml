@@ -341,7 +341,7 @@ zh-CN:
       back: "返回功能首页"
       clone: "复制"
       sign_out: "退出"
-      autocomplete_instruction: "请输入首两个字，再选择自动补齐后的项目。"
+      autocomplete_instruction: "输入首两字，在下拉列表点选所需项目。"
       custom_property:
         belongs_to: "所属分类"
       company_extend:
