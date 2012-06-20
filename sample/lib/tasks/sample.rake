@@ -15,7 +15,7 @@ namespace :taurus_sample do
     	eval("Taurus::#{args.model_name.camelcase}.all").each do |object|
       	f.puts "#{args.model_name}_#{object.id}:" 
       	object.attributes.keys.each do |key|
-          f.puts "  #{key}: '#{object.send(key)}'"
+          f.puts "  #{key}: '#{object.send(key)}'" unless ["created_at", "updated_at"].member?(key)
       	end
     	end
     }

@@ -1,0 +1,312 @@
+fun_permission_1:
+  id: '1'
+  group_id: '1'
+  operation_id: 'product_category_query'
+fun_permission_2:
+  id: '2'
+  group_id: '1'
+  operation_id: 'product_category_create#update#custom'
+fun_permission_3:
+  id: '3'
+  group_id: '1'
+  operation_id: 'product_category_destroy'
+fun_permission_4:
+  id: '4'
+  group_id: '1'
+  operation_id: 'product_product_query'
+fun_permission_5:
+  id: '5'
+  group_id: '1'
+  operation_id: 'product_product_create#update'
+fun_permission_6:
+  id: '6'
+  group_id: '1'
+  operation_id: 'baisc_industry_query'
+fun_permission_7:
+  id: '7'
+  group_id: '1'
+  operation_id: 'baisc_industry_create#update'
+fun_permission_8:
+  id: '8'
+  group_id: '1'
+  operation_id: 'baisc_company#type_query'
+fun_permission_9:
+  id: '9'
+  group_id: '1'
+  operation_id: 'baisc_company#type_create#update'
+fun_permission_10:
+  id: '10'
+  group_id: '1'
+  operation_id: 'baisc_company#scale_query'
+fun_permission_11:
+  id: '11'
+  group_id: '1'
+  operation_id: 'baisc_company#scale_create#update'
+fun_permission_12:
+  id: '12'
+  group_id: '1'
+  operation_id: 'baisc_alipay_manage'
+fun_permission_13:
+  id: '13'
+  group_id: '1'
+  operation_id: 'order_progress_query'
+fun_permission_14:
+  id: '14'
+  group_id: '1'
+  operation_id: 'order_all_query'
+fun_permission_15:
+  id: '15'
+  group_id: '1'
+  operation_id: 'account_details_query'
+fun_permission_16:
+  id: '16'
+  group_id: '1'
+  operation_id: 'auth_company_query'
+fun_permission_17:
+  id: '17'
+  group_id: '1'
+  operation_id: 'auth_company_create#update'
+fun_permission_18:
+  id: '18'
+  group_id: '1'
+  operation_id: 'auth_person_query'
+fun_permission_19:
+  id: '19'
+  group_id: '1'
+  operation_id: 'auth_person_create#update'
+fun_permission_20:
+  id: '20'
+  group_id: '1'
+  operation_id: 'auth_role_query'
+fun_permission_21:
+  id: '21'
+  group_id: '1'
+  operation_id: 'auth_role_create#update'
+fun_permission_22:
+  id: '22'
+  group_id: '1'
+  operation_id: 'auth_administrator_query'
+fun_permission_23:
+  id: '23'
+  group_id: '1'
+  operation_id: 'auth_administrator_create#update'
+fun_permission_24:
+  id: '24'
+  group_id: '1'
+  operation_id: 'auth_group_query'
+fun_permission_25:
+  id: '25'
+  group_id: '1'
+  operation_id: 'auth_group_create#update'
+fun_permission_26:
+  id: '26'
+  group_id: '1'
+  operation_id: 'auth_group_destroy'
+fun_permission_27:
+  id: '27'
+  group_id: '1'
+  operation_id: 'auth_permission_manage'
+fun_permission_28:
+  id: '28'
+  group_id: '1'
+  operation_id: 'warehouse_stock_query'
+fun_permission_29:
+  id: '29'
+  group_id: '1'
+  operation_id: 'warehouse_replishment_query'
+fun_permission_30:
+  id: '30'
+  group_id: '1'
+  operation_id: 'warehouse_replishment_create'
+fun_permission_31:
+  id: '31'
+  group_id: '1'
+  operation_id: 'warehouse_delivery_query'
+fun_permission_32:
+  id: '32'
+  group_id: '1'
+  operation_id: 'warehouse_orderdelivery_query#create'
+fun_permission_33:
+  id: '33'
+  group_id: '1'
+  operation_id: 'cms_slider_query'
+fun_permission_34:
+  id: '34'
+  group_id: '1'
+  operation_id: 'cms_slider_create#update'
+fun_permission_35:
+  id: '35'
+  group_id: '1'
+  operation_id: 'cms_slider_destroy'
+fun_permission_36:
+  id: '36'
+  group_id: '1'
+  operation_id: 'cms_display_query'
+fun_permission_37:
+  id: '37'
+  group_id: '1'
+  operation_id: 'cms_display_create#update'
+fun_permission_38:
+  id: '38'
+  group_id: '1'
+  operation_id: 'cms_display_destroy'
+fun_permission_39:
+  id: '39'
+  group_id: '2'
+  operation_id: 'product_category_query'
+fun_permission_40:
+  id: '40'
+  group_id: '2'
+  operation_id: 'product_category_create#update#custom'
+fun_permission_41:
+  id: '41'
+  group_id: '2'
+  operation_id: 'product_category_destroy'
+fun_permission_42:
+  id: '42'
+  group_id: '2'
+  operation_id: 'product_product_query'
+fun_permission_43:
+  id: '43'
+  group_id: '2'
+  operation_id: 'product_product_create#update'
+fun_permission_44:
+  id: '44'
+  group_id: '2'
+  operation_id: 'account_details_query'
+fun_permission_45:
+  id: '45'
+  group_id: '2'
+  operation_id: 'warehouse_stock_query'
+fun_permission_46:
+  id: '46'
+  group_id: '2'
+  operation_id: 'warehouse_replishment_query'
+fun_permission_47:
+  id: '47'
+  group_id: '2'
+  operation_id: 'cms_slider_query'
+fun_permission_48:
+  id: '48'
+  group_id: '2'
+  operation_id: 'cms_display_query'
+fun_permission_49:
+  id: '49'
+  group_id: '2'
+  operation_id: 'cms_display_create#update'
+fun_permission_50:
+  id: '50'
+  group_id: '2'
+  operation_id: 'cms_display_destroy'
+fun_permission_51:
+  id: '51'
+  group_id: '3'
+  operation_id: 'product_category_query'
+fun_permission_52:
+  id: '52'
+  group_id: '3'
+  operation_id: 'product_product_query'
+fun_permission_53:
+  id: '53'
+  group_id: '3'
+  operation_id: 'order_progress_query'
+fun_permission_54:
+  id: '54'
+  group_id: '3'
+  operation_id: 'order_all_query'
+fun_permission_55:
+  id: '55'
+  group_id: '3'
+  operation_id: 'account_details_query'
+fun_permission_56:
+  id: '56'
+  group_id: '3'
+  operation_id: 'auth_company_query'
+fun_permission_57:
+  id: '57'
+  group_id: '3'
+  operation_id: 'auth_company_create#update'
+fun_permission_58:
+  id: '58'
+  group_id: '3'
+  operation_id: 'auth_person_query'
+fun_permission_59:
+  id: '59'
+  group_id: '3'
+  operation_id: 'auth_person_create#update'
+fun_permission_60:
+  id: '60'
+  group_id: '3'
+  operation_id: 'auth_role_query'
+fun_permission_61:
+  id: '61'
+  group_id: '3'
+  operation_id: 'auth_role_create#update'
+fun_permission_62:
+  id: '62'
+  group_id: '3'
+  operation_id: 'warehouse_stock_query'
+fun_permission_63:
+  id: '63'
+  group_id: '3'
+  operation_id: 'warehouse_delivery_query'
+fun_permission_64:
+  id: '64'
+  group_id: '4'
+  operation_id: 'product_product_query'
+fun_permission_65:
+  id: '65'
+  group_id: '4'
+  operation_id: 'account_details_query'
+fun_permission_66:
+  id: '66'
+  group_id: '4'
+  operation_id: 'warehouse_stock_query'
+fun_permission_67:
+  id: '67'
+  group_id: '4'
+  operation_id: 'warehouse_replishment_query'
+fun_permission_68:
+  id: '68'
+  group_id: '4'
+  operation_id: 'warehouse_replishment_create'
+fun_permission_69:
+  id: '69'
+  group_id: '4'
+  operation_id: 'warehouse_delivery_query'
+fun_permission_70:
+  id: '70'
+  group_id: '4'
+  operation_id: 'warehouse_orderdelivery_query#create'
+fun_permission_71:
+  id: '71'
+  group_id: '5'
+  operation_id: 'product_product_query'
+fun_permission_72:
+  id: '72'
+  group_id: '5'
+  operation_id: 'account_details_query'
+fun_permission_73:
+  id: '73'
+  group_id: '5'
+  operation_id: 'cms_slider_query'
+fun_permission_74:
+  id: '74'
+  group_id: '5'
+  operation_id: 'cms_slider_create#update'
+fun_permission_75:
+  id: '75'
+  group_id: '5'
+  operation_id: 'cms_slider_destroy'
+fun_permission_76:
+  id: '76'
+  group_id: '5'
+  operation_id: 'cms_display_query'
+fun_permission_77:
+  id: '77'
+  group_id: '5'
+  operation_id: 'cms_display_create#update'
+fun_permission_78:
+  id: '78'
+  group_id: '5'
+  operation_id: 'cms_display_destroy'

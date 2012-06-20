@@ -1,0 +1,20 @@
+group_1:
+  id: '1'
+  name: '系统管理员'
+  description: '可修改所有系统设置及信息'
+group_2:
+  id: '2'
+  name: '商品管理'
+  description: '可修改与商品相关的信息'
+group_3:
+  id: '3'
+  name: '客服部'
+  description: '可查询商品信息，以及维护客户与订单数据'
+group_4:
+  id: '4'
+  name: '仓管人员'
+  description: '负责录入商品的进出货记录'
+group_5:
+  id: '5'
+  name: '前台网站管理员'
+  description: '负责维护前台网站的内容更新'
