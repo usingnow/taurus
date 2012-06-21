@@ -1,5 +1,11 @@
 <%= render :partial => "taurus/admin/shared/product_tabs", :locals => { :current => "custom_properties", :type => "edit" } %>
 
+<div class="alert alert-info">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <%=raw t('admin.misc.custom_property_value.instruction', 
+           :href => admin_product_category_custom_properties_path(@product.product_category_id)) %> 
+</div>
+
 <%= simple_form_for(@product, :url => admin_product_custom_property_values_path(@product), :html => {:class => 'form-horizontal', :method => :post}) do |f| %>
   <%= f.error_notification %>
 
