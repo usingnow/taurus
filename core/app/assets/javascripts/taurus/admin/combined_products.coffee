@@ -24,7 +24,7 @@ jQuery ->
                 <input type='hidden' name='related_ids[]' value=\"#{jQuery("#related_id").val()}\"/>
               </td>
               <td>
-                <input class='amount' name='amount[#{jQuery("#related_id").val()}]' 
+                <input class='amount span1' name='amount[#{jQuery("#related_id").val()}]' 
                        step='1' type='number' value=\"#{jQuery("#combined_product_amount").val()}\"></td>
               <td><a href='#' class='btn btn-primary trk-btn-short remove_line_item'>删除</a></td>
             </tr>"

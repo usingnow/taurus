@@ -3,14 +3,16 @@
 
 <%= hidden_field_tag :product_id, @product.id %>
 
-<div class="alert alert-info">
-  <button type="button" class="close" data-dismiss="alert">×</button>
-  <%= t('admin.misc.combined_product.edit_instruction') %> 
-</div>
-
 <%= simple_form_for(@combined_product, :url => admin_product_combined_products_path(@product), 
-                    :html => {:class => 'form-horizontal', :method => :post}) do |f| %>
-  <%= f.error_notification %>
+                    :html => {:class => 'row', :method => :post}) do |f| %>
+  <div class="span7">
+    <div class="alert alert-info">
+		  <button type="button" class="close" data-dismiss="alert">×</button>
+		  <%= t('admin.misc.combined_product.edit_instruction') %> 
+		</div>                
+
+	  <%= f.error_notification %>
+
     <table class="table table-striped">
 		  <thead>
 		    <tr>
@@ -32,7 +34,7 @@
 			      </td>
 			      <td>
 			      	<%= number_field_tag :"amount[#{combined_product.related_id}]", 
-			      	                     combined_product.amount, :class => "amount" %>
+			      	                     combined_product.amount, :class => "amount span1" %>
 			      </td>
 			      <td>
 			      	<%= link_to t('admin.actions.delete.menu'), "#", 
@@ -42,22 +44,25 @@
 			  <% end %>
 		  </tbody>
 		</table>
-
+   
 		<div class="form-actions">
 			<%= f.button :submit, :value => "更新销售商品", :class => "btn btn-large btn-warning" %>
 
 			<%= link_to t('admin.misc.cancel'), admin_product_path(@product), :class => "btn" %>
 		</div>	
-     
-    <div class="alert alert-info">
+  </div> 
+
+  <div class="span3">
+  	<div class="alert alert-info">
     	<fieldset>
 	      <%= f.input :product_name, 
 	                  :url => autocomplete_product_name_admin_product_combined_products_path(@product),
-	                  :input_html => { :update_elements => {:id => '#related_id', :number => '#related_number'} },
+	                  :input_html => { :update_elements => {:id => '#related_id', :number => '#related_number'},
+	                                   :class => "span2" },
 	                  :as => :autocomplete %>
 	      <%= hidden_field_tag :related_id %>
 	      <%= hidden_field_tag :related_number %>  
-        <%= f.input :amount, :input_html => { :class => "amount" } %>	      
+        <%= f.input :amount, :input_html => { :class => "amount span2" } %>	      
         
         <div class="form-actions">
           <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.misc.add_new', 
@@ -66,4 +71,5 @@
         </div>
 		 </fieldset>
     </div>
+  </div>  
 <% end %>
