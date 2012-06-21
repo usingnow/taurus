@@ -31,8 +31,6 @@ module Taurus
     scope :single, where("product_type = 0")
 
 
-
-
   	def product_category_name
   		product_category ? product_category.name : nil
   	end

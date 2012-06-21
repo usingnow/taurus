@@ -1,22 +1,24 @@
 <%= render :partial => "taurus/admin/shared/product_tabs", :locals => { :current => "images", :type => "show" } %>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-    	<th>#</th>
-      <th><%= t('activerecord.attributes.taurus/product_image.image') %></th>
-      <th><%= t('activerecord.attributes.taurus/product_image.is_main') %></th>
-      <th><%= t('activerecord.attributes.taurus/product_image.updated_at') %></th>
-   </tr>
-  </thead>
-  <tbody>
-    <% @product.product_images.each_with_index do |product_image,index| %>
-	    <tr>
-	    	<td><%= index+1 %></td>
-	      <td><%= image_tag product_image.image.url(:logo) %></td>
-	      <td><%= format_boolean product_image.is_main %></td>
-	      <td><%= product_image.updated_at %></td>
-	    </tr>
-	  <% end %>
-  </tbody>
-</table>
+<ul class="thumbnails">
+  <% @product.product_images.each do |product_image| %>
+    <li class="span3">
+      <div class="thumbnail">
+        <%= image_tag product_image.image.url(:small) %>
+
+        <% if product_image.is_main %>
+          <div class="caption">
+            <p>
+              <%= t('activerecord.attributes.taurus/product.market_price') %> ：
+              <%= format_price @product.market_price %>
+            </p>
+            <p>
+              <%= t('activerecord.attributes.taurus/product.price_after_tax') %> : 
+              <%= format_price @product.price_after_tax %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+</ul>

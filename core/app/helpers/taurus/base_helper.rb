@@ -72,7 +72,7 @@ module Taurus
     end  
 
     def format_price(price)
-      content_tag(:em, (number_to_currency price, :unit => "￥"), :class => "cny")
+      content_tag(:em, (number_to_currency price, :unit => "￥"), :class => "price")
     end
 
     def grey_cny(price)
