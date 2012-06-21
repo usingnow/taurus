@@ -31,10 +31,10 @@
     <div class="span3">
       <%= form_for(resource, :as => resource_name, :url => administrator_session_path, :html => {:class => "well"}) do |f| %>
           <%= f.label :email %>
-          <%= f.text_field :email %>
+          <%= f.text_field :email, :class => "span2" %>
 
           <%= f.label :password %>
-          <%= f.password_field :password %>
+          <%= f.password_field :password, :class => "span2" %>
 
           <% if devise_mapping.rememberable? -%>
           <label for="administrator_remember_me" class="checkbox">
