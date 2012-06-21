@@ -182,7 +182,8 @@ en:
       combined_product:
         edit_instruction: "Click 'Update' to keep the results."
       product_image:
-        set_up_main_img: "Set up mian image"
+        set_up_main_img: "Set Up Main Image"
+        main_img: "Main Image"
       custom_property_value:
         instruction: "Custom properties can be defined in the product categories session. <a href='%{href}' target='_blank'><i class='icon-share'></i>Details</a>"    
       product_category:

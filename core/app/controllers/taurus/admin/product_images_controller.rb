@@ -1,6 +1,7 @@
 module Taurus
   module Admin
     class ProductImagesController < BaseController
+      helper "taurus/product_images"
 
       def index
         @product = Product.find(params[:product_id])

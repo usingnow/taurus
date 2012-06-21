@@ -365,6 +365,7 @@ zh-CN:
         edit_instruction: "点击“更新销售商品”按钮,才会保存修改后结果！"
       product_image:
         set_up_main_img: "设置主图片"
+        main_img: "主图片"
       custom_property_value:
         instruction: "“自定义属性”可在商品分类管理中设置，若此页无填写项目，则商品所属分类中无自定义属性。<a href='%{href}' target='_blank'><i class='icon-share'></i>查看详细信息</a>"  
       product_category:

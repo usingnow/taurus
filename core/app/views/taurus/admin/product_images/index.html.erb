@@ -7,9 +7,7 @@
         <%= image_tag product_image.image.url(:small) %>
         <div class="caption">
           <p>
-            <%= link_to t('admin.misc.product_image.set_up_main_img'),  
-                        set_up_main_img_admin_product_product_image_path(@product, product_image), 
-                        :method => :put, :class => "btn btn-success #{"disabled" if product_image.is_main}" %>
+            <%= set_up_main_img_btn(product_image) %>
             <%= link_to t('admin.actions.edit.menu'), 
                         edit_admin_product_product_image_path(@product,product_image), 
                         :class => "btn btn-primary" %> 
