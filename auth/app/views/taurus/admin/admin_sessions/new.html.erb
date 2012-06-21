@@ -29,7 +29,8 @@
       </div>
     </div>
     <div class="span3">
-      <%= form_for(resource, :as => resource_name, :url => administrator_session_path, :html => {:class => "well"}) do |f| %>
+      <%= form_for(resource, :as => resource_name, :url => administrator_session_path, 
+                   :html => {:class => "well"}) do |f| %>
           <%= f.label :email %>
           <%= f.text_field :email, :class => "span2" %>
 
@@ -37,14 +38,14 @@
           <%= f.password_field :password, :class => "span2" %>
 
           <% if devise_mapping.rememberable? -%>
-          <label for="administrator_remember_me" class="checkbox">
-            <%= f.check_box :remember_me %>记住我
-          </label>
+            <label for="administrator_remember_me" class="checkbox">
+              <%= f.check_box :remember_me %>记住我
+            </label>
           <% end -%>
 
           <%= f.submit "登录", :class => "btn btn-primary" %>
-          <a class="btn">忘记密码</a>
       <% end %>
+      
       <% unless alert.nil? %>
           <div class="alert alert-block alert-error fade in"><%= alert %>
             <a class="close" data-dismiss="alert" href="#">&times;</a></div>
