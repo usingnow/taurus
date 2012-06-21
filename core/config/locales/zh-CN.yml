@@ -247,7 +247,7 @@ zh-CN:
         price_after_tax: "税后售价" 
         weight: "重量（公斤）"
         description: "介绍"
-        sales_status: "是否可销售"
+        sales_status: "是否销售中"
         if_shown_on_web: "是否已上架"
       taurus/combined_product:
         product_name: "销售单品" 

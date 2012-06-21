@@ -48,8 +48,8 @@ en:
         price_after_tax: "Price after Tax"
         weight: "Weight (kg)"
         description: "Description"
-        sales_status: "If use the sales period above"
-        if_shown_on_web: "If shown on web"
+        sales_status: "If in sale"
+        if_shown_on_web: "If shown in the website"
         product_type: "Type"
       taurus/combined_product:
         product_name: "Single Product"  
