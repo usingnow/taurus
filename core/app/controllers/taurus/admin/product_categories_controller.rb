@@ -7,8 +7,12 @@ module Taurus
 			autocomplete :combined_category, :name, :class_name => "Taurus::ProductCategory", :scopes => [:combined]
 
 			def index
-				params[:q] = { :status_eq => true, :category_type_eq => "0" } unless params[:q]
-        @search = ProductCategory.search(params[:q])
+				params_q = params[:q] || {}
+
+				params_q.deep_merge!(:status_eq => true) unless params_q[:status_eq]
+				params_q.deep_merge!(:category_type_eq => 0) unless params_q[:category_type_eq]
+
+        @search = ProductCategory.search(params_q)
         @product_categories = @search.result.paginate(:page => params[:page], :per_page => 20)
 			end
 
@@ -84,7 +88,7 @@ module Taurus
 
 
 			def combined_new
-        @product_category = ProductCategory.new
+        @product_category = ProductCategory.new(:category_type => 1)
 				if params[:parent_id]
 					@parent = ProductCategory.find(params[:parent_id])
 					@product_category.parent_id = @parent.id

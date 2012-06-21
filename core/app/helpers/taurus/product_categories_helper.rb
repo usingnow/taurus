@@ -68,5 +68,19 @@ module Taurus
       end
 		end
 
+    def form_cancel_btn
+      if @product_category.parent_id
+        if @product_category.parent.parent_id.nil?
+          href = seconds_admin_product_category_path(@product_category.parent_id) 
+        else
+          href = thirds_admin_product_category_path(@product_category.parent_id) 
+        end
+      else
+        href = admin_product_categories_path(:'q[category_type_eq]' => @product_category.category_type)
+      end
+
+      link_to t('admin.misc.cancel'), href, :class => "btn"
+    end
+
 	end
 end

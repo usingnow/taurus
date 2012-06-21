@@ -1,5 +1,5 @@
 <div class="well">
-  <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
+  <%= search_form_for [:admin,@search] do |f| %>
     <%= f.text_field :number_cont, :placeholder => t('activerecord.attributes.taurus/product.number'), :class => "span2" %>
     <%= f.text_field :name_cont, :placeholder => t('activerecord.attributes.taurus/product.name'), :class => "span2" %>
     <%= f.text_field :product_category_name_cont, :class => "span2",
