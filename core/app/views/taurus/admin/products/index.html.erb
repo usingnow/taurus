@@ -4,6 +4,9 @@
     <%= f.text_field :name_cont, :placeholder => t('activerecord.attributes.taurus/product.name'), :class => "span2" %>
     <%= f.text_field :product_category_name_cont, :class => "span2",
                      :placeholder => t('activerecord.attributes.taurus/product_category.name') %>
+
+    <br />
+    
     <%= f.collection_select :sales_status_eq, Taurus::Product::SALES_STATUS, :first, :second,
                             {:include_blank => "全部"}, {:class => "span2"} %> 
     <%= f.collection_select :if_shown_on_web_eq, Taurus::Product::SHOWN_STATUS, :first, :second,

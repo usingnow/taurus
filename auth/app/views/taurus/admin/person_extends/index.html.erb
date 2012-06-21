@@ -1,11 +1,13 @@
 <div class="well">
-  <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
-    <%= f.text_field :number_cont, :placeholder => t('activerecord.attributes.taurus/person_extend.number'), :class => "trk-non-inline-margin" %>
-    <%= f.text_field :name_cont, :placeholder => t('activerecord.attributes.taurus/person_extend.name'), :class => "trk-non-inline-margin" %>
-    <%= f.text_field :user_email_cont, :placeholder => t('activerecord.attributes.taurus/user.email'), :class => "trk-non-inline-margin" %>
-    <br />
+  <%= search_form_for [:admin,@search] do |f| %>
+    <%= f.text_field :number_cont, :placeholder => t('activerecord.attributes.taurus/person_extend.number'), 
+                     :class => "trk-non-inline-margin span2" %>
+    <%= f.text_field :name_cont, :placeholder => t('activerecord.attributes.taurus/person_extend.name'), 
+                     :class => "trk-non-inline-margin span2" %>
+    <%= f.text_field :user_email_cont, :placeholder => t('activerecord.attributes.taurus/user.email'), 
+                     :class => "trk-non-inline-margin span2" %>
     <%= f.collection_select :user_status_eq, Taurus::User::STATUS, :first, :second,
-                            :include_blank => "全部", :class => "trk-non-inline-margin" %>
+                            { :include_blank => "全部" }, { :class => "span2" } %>
     <%= f.submit t('admin.misc.search'), :class => "btn btn-primary trk-btn-inline" %>
   <% end %>
   <hr />
