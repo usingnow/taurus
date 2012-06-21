@@ -254,7 +254,7 @@ zh-CN:
         amount: "数量" 
       taurus/product_image:
         image: "图片"
-        image_file_name: "图片"
+        image_file_name: "添加新图片"
         is_main: "是否主图片"
         updated_at: "更新时间"
       taurus/cart_product_line_item:

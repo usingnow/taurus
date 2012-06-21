@@ -56,7 +56,7 @@ en:
         amount: "Amount" 
       taurus/product_image:
         image: "Image"
-        image_file_name: "Image"
+        image_file_name: "Add New Image"
         is_main: "If main image"
         updated_at: "updated at"
       taurus/cart_product_line_item:
