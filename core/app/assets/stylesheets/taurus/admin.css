@@ -6,3 +6,5 @@
  *= require taurus/bootstrap_and_overrides
  *= require taurus/simple_form
 */
+
+@import 'font-awesome';

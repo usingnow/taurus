@@ -11,6 +11,7 @@ require 'will_paginate-bootstrap'
 require 'rails3-jquery-autocomplete'
 require 'state_machine'
 require 'deface'
+require 'font-awesome-sass-rails'
 
 module Taurus
   module Core
