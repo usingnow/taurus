@@ -81,6 +81,7 @@ Taurus::Core::Engine.routes.draw do
       resources :order_deliveries
     end
     resources :user_centers
+    resources :products
   end
 
   match '/admin', :to => 'admin/home#index'
