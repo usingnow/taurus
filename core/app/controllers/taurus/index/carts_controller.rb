@@ -1,13 +1,8 @@
 module Taurus
 	module Index
-		class CartProductLineItemsController < Taurus::Index::BaseController
+		class CartsController < Taurus::Index::BaseController
 			def index
 				@cart = current_cart
-
-        respond_to do |format|
-          format.html
-          format.json { render :json => @cart.to_json(:methods => :total_amount) }
-        end
       end
 
       def create
