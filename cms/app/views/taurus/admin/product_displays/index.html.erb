@@ -38,6 +38,11 @@
       </tr>
     <% end %>
   </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="5"><%= will_paginate @product_displays, :renderer => BootstrapPagination::Rails %></td>
+    </tr>
+  </tfoot>
 </table>
 
 

@@ -1,7 +1,7 @@
 products_1:
   id: '1'
   number: 'ebook_001'
-  name: '【测试数据】Taurus使用手册'
+  name: '[测试数据]Taurus使用手册'
   product_category_id: '24'
   place_of_origin: ''
   unit: ''
@@ -17,7 +17,7 @@ products_1:
 products_2:
   id: '2'
   number: 'ebook_002'
-  name: '【测试数据】Ebook全套'
+  name: '[测试数据]Ebook全套'
   product_category_id: '24'
   place_of_origin: ''
   unit: ''
@@ -33,7 +33,7 @@ products_2:
 products_3:
   id: '3'
   number: 'ebook_003'
-  name: '【测试数据】Ebook （上册）'
+  name: '[测试数据]Ebook （上册）'
   product_category_id: '24'
   place_of_origin: ''
   unit: ''
@@ -49,7 +49,7 @@ products_3:
 products_4:
   id: '4'
   number: 'ebook_004'
-  name: '【测试数据】Ebook （下册）'
+  name: '[测试数据]Ebook （下册）'
   product_category_id: '15'
   place_of_origin: ''
   unit: ''
@@ -65,7 +65,7 @@ products_4:
 products_5:
   id: '5'
   number: 'audio_001'
-  name: '【测试数据】Do Re Mi 学音乐 2002年版 '
+  name: '[测试数据]Do Re Mi 学音乐 2002年版 '
   product_category_id: '28'
   place_of_origin: ''
   unit: ''
@@ -81,7 +81,7 @@ products_5:
 products_6:
   id: '6'
   number: 'movie_001'
-  name: '【测试数据】2007年电影集锦'
+  name: '[测试数据]2007年电影集锦'
   product_category_id: '29'
   place_of_origin: ''
   unit: ''
@@ -97,7 +97,7 @@ products_6:
 products_7:
   id: '7'
   number: 'movie_002'
-  name: '【测试数据】2008年电影集锦'
+  name: '[测试数据]2008年电影集锦'
   product_category_id: '29'
   place_of_origin: ''
   unit: ''
@@ -113,7 +113,7 @@ products_7:
 products_8:
   id: '8'
   number: 'movie_003'
-  name: '【测试数据】2009年电影集锦'
+  name: '[测试数据]2009年电影集锦'
   product_category_id: '29'
   place_of_origin: ''
   unit: ''
@@ -129,7 +129,7 @@ products_8:
 products_9:
   id: '9'
   number: 'movie_004'
-  name: '【测试数据】2010年电影集锦 '
+  name: '[测试数据]2010年电影集锦 '
   product_category_id: '29'
   place_of_origin: ''
   unit: ''
@@ -145,7 +145,7 @@ products_9:
 products_10:
   id: '10'
   number: 'movie_005'
-  name: '【测试数据】2011年电影集锦 '
+  name: '[测试数据]2011年电影集锦 '
   product_category_id: '29'
   place_of_origin: ''
   unit: ''
@@ -161,7 +161,7 @@ products_10:
 products_11:
   id: '11'
   number: 'movie_006'
-  name: '【测试数据】2007-2011年电影集锦大合集 '
+  name: '[测试数据]2007-2011年电影集锦大合集 '
   product_category_id: '29'
   place_of_origin: ''
   unit: ''
@@ -177,7 +177,7 @@ products_11:
 products_12:
   id: '12'
   number: 'ebook_005'
-  name: '【测试数据】Dummies Book for the IT Projects Management '
+  name: '[测试数据]Dummies Book for the IT Projects Management '
   product_category_id: '15'
   place_of_origin: ''
   unit: ''
@@ -193,7 +193,7 @@ products_12:
 products_13:
   id: '13'
   number: 'elec_001'
-  name: '【测试数据】新示界16:9高清电视机 '
+  name: '[测试数据]新示界16:9高清电视机 '
   product_category_id: '36'
   place_of_origin: ''
   unit: ''
@@ -209,7 +209,7 @@ products_13:
 products_14:
   id: '14'
   number: 'ebook_006'
-  name: '【测试数据】不可思议的穿越小说 第一册 '
+  name: '[测试数据]不可思议的穿越小说 第一册 '
   product_category_id: '25'
   place_of_origin: ''
   unit: ''
@@ -225,7 +225,7 @@ products_14:
 products_15:
   id: '15'
   number: 'ebook_007'
-  name: '【测试数据】Math Geek '
+  name: '[测试数据]Math Geek '
   product_category_id: '26'
   place_of_origin: ''
   unit: ''
@@ -241,7 +241,7 @@ products_15:
 products_16:
   id: '16'
   number: 'ebook_008'
-  name: '【测试数据】七彩童话'
+  name: '[测试数据]七彩童话'
   product_category_id: '27'
   place_of_origin: ''
   unit: ''
@@ -257,7 +257,7 @@ products_16:
 products_17:
   id: '17'
   number: 'ebook_009'
-  name: '【测试数据】早教一千零一问'
+  name: '[测试数据]早教一千零一问'
   product_category_id: '30'
   place_of_origin: ''
   unit: ''
@@ -273,7 +273,7 @@ products_17:
 products_18:
   id: '18'
   number: 'elec_002'
-  name: '【测试数据】埃尔埃单门小冰箱 '
+  name: '[测试数据]埃尔埃单门小冰箱 '
   product_category_id: '38'
   place_of_origin: ''
   unit: ''
@@ -289,7 +289,7 @@ products_18:
 products_19:
   id: '19'
   number: 'elec_003'
-  name: '【测试数据】埃尔埃车载冰箱'
+  name: '[测试数据]埃尔埃车载冰箱'
   product_category_id: '37'
   place_of_origin: ''
   unit: ''
@@ -305,7 +305,7 @@ products_19:
 products_20:
   id: '20'
   number: 'elec_004'
-  name: '【测试数据】其正按摩椅'
+  name: '[测试数据]其正按摩椅'
   product_category_id: '37'
   place_of_origin: ''
   unit: ''
@@ -321,7 +321,7 @@ products_20:
 products_21:
   id: '21'
   number: 'elec_005'
-  name: '【测试数据】埃尔埃榨汁机'
+  name: '[测试数据]埃尔埃榨汁机'
   product_category_id: '38'
   place_of_origin: ''
   unit: ''

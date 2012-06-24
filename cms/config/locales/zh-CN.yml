@@ -16,6 +16,7 @@ zh-CN:
         title: "短标题"
         internal_title: "长标题"
         description: "内容"  
+        created_at: "发布时间"
       taurus/slider_bar:
         name: "标题"
         description: "描述"

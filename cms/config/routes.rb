@@ -11,4 +11,8 @@ Taurus::Core::Engine.routes.draw do
       get :autocomplete_product_name, :on => :collection
     end
   end
+
+  namespace :index do 
+    resources :announcements
+  end
 end

@@ -12,6 +12,7 @@ require 'rails3-jquery-autocomplete'
 require 'state_machine'
 require 'deface'
 require 'font-awesome-sass-rails'
+require 'cells'
 
 module Taurus
   module Core

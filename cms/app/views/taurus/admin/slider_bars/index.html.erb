@@ -36,6 +36,11 @@
       </tr>
     <% end %>
   </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4"><%= will_paginate @slider_bars, :renderer => BootstrapPagination::Rails %></td>
+    </tr>
+  </tfoot>
 </table>
 
 

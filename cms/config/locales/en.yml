@@ -16,6 +16,7 @@ en:
         title: "Title (Short)"
         internal_title: "Title (Full)"
         description: "Content"
+        created_at: "发布时间"
       taurus/slider_bar:
         name: "Title"
         description: "Description"

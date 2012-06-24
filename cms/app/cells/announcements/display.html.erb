@@ -1,0 +1,5 @@
+<ul>
+	<% @announcements.each do |announcement| %>
+  	<li><%= link_to announcement.title, "/index/announcements/#{announcement.id}" %></li>
+  <% end %>
+</ul>

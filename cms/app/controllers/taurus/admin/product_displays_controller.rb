@@ -5,7 +5,8 @@ module Taurus
       autocomplete :product, :name, :class_name => "Taurus::Product"
 
       def index
-        @product_displays = ProductDisplay.all
+        @search = ProductDisplay.search(params[:q])
+        @product_displays = @search.result.paginate(:page => params[:page], :per_page => 20)
       end
 
       def show

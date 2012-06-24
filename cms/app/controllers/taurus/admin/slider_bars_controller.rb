@@ -1,8 +1,10 @@
 module Taurus
   module Admin
     class SliderBarsController < BaseController
+      
       def index
-        @slider_bars = SliderBar.all
+        @search = SliderBar.search(params[:q])
+        @slider_bars = @search.result.paginate(:page => params[:page], :per_page => 20)
       end
 
       def show
