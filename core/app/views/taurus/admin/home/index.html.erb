@@ -1,22 +1,37 @@
-<p style="font-size:16px">
-	<%= current_administrator.name %>,你好。
-</p>
-<p style="font-size:16px">	
-	请点击页面左侧或者上方的连接进入对应的功能模块。
-</p>	
-<p style="font-size:16px">	
-	如果需要调整访问权限，请联系系统管理员。
-</p>
-<p style="font-size:16px">	
-	如果对系统的使用有任何问题或者建议，请通过以下邮件与我们联系。
-</p>
-<p style="font-size:16px">	
-	<%= link_to "email: opensource@usingnow.com", "#", 
-	            :onclick => "return window.location.href='mailto:opensource@usingnow.com'"  %>
-</p>	
-<p style="font-size:16px">	
-	谢谢使用采恪电子商务管理平台。
-</p>	
-<p style="font-size:16px">	
-	上海采恪
-</p>		
+<div class="row">
+	<div class="span6 well">
+		<p style="font-size:14px">
+			<%= current_administrator.name %>，您好！
+		</p>
+		<p class="trk-text-indent">
+			请参考下方图例，点击页面左侧或者上方的链接进入对应的功能模块。<br />
+			<p class="alert alert-danger">
+				如果您是开源程序员：对系统开发有任何问题或者建议，请通过开源联系方式联系我们。<br />
+				<i class="icon-envelope"></i> opensource@usingnow.com
+			</p>
+			<p class="alert alert-info">
+				如果您是电子商务的使用者：需要进一步了解采恪电子商务的详细情况和技术支持方案，请通过商务联系方式联系我们。<br />
+				<i class="icon-envelope"></i> sales@usingnow.com
+			</p>
+		</p>
+		<p class="trk-text-indent">	
+			感谢使用采恪电子商务管理平台。您的回馈，我们的动力！
+		</p>
+		<p class="pull-right">
+			上海采恪 Tracker Enterprise Consulting
+		</p>
+	</div>
+	<div class="span4 well" style="width: 290px;">
+		<p class="alert alert-success trk-right-padding-14"><i class="icon-hand-up"></i> 开源建议：opensource@usingnow.com</p>
+		<p class="alert alert-success"><i class="icon-hand-up"></i> 商务咨询： sales@usingnow.com</p>
+		<p class="alert alert-success trk-right-padding-14"><i class="icon-github"></i> GitHub： <a href="https://github.com/usingnow" target="blank">https://github.com/usingnow</a></p>
+		<p class="alert alert-success trk-right-padding-14"><i class="icon-share"></i> 采恪博客： <a href="http://usingnow.github.com" target="blank">http://usingnow.github.com</a></p>
+		<p class="alert alert-success"><i class="icon-share"></i> 新浪微博： 
+			<%= image_tag "sina_16.png", :width => "14px", :height => "14px" %>
+			<a href="http://weibo.com/u/2188086405" target="blank">上海采恪</a>
+		</p>
+	</div>
+</div>
+<a class="thumbnail">
+	<%= image_tag "screenshot.png" %>
+</a>		
