@@ -19,7 +19,11 @@ module Taurus
   	end
 
     def total_price
-      cart_product_line_items.to_a.sum{ |line_item| line_item.subtotal }
+      cart_product_line_items.to_a.sum { |line_item| line_item.subtotal }
+    end
+
+    def total_amount
+      cart_product_line_items.to_a.sum { |line_item| line_item.product_amount }
     end
   	
   end
