@@ -17,6 +17,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
+        <a class="brand" style="padding-top: 6px; padding-bottom:6px;"><%= image_tag "logo.png" %></a>
         <%= link_to "采恪电子商务管理平台", index_home_index_path, :class => "brand" %>
         <div class="nav-collapse">
           <ul class="nav pull-right">
@@ -25,7 +26,8 @@
                 <i class="icon-shopping-cart"></i>
                 购物车（<strong id="cart_amount">0</strong>）
               </a>
-            </li>  
+            </li>
+            <li class="divider-vertical"></li>  
             <% if current_user %>
               <li> 
                 <a href="<%= index_user_centers_path %>">
@@ -37,10 +39,11 @@
               </li>
             <% else %>
               <li>
-                <%= link_to "登录", user_session_path %>
+                <%= link_to '<i class="icon-home"></i> 登录'.html_safe, user_session_path %>
               </li>
-              <li><%= link_to "个人用户注册", new_user_registration_path %></li>
-              <li><%= link_to "企业用户注册", index_company_sign_up_path %></li>
+              <li class="divider-vertical"></li>
+              <li><%= link_to "个人注册", new_user_registration_path %></li>
+              <li><%= link_to "企业注册", index_company_sign_up_path %></li>
             <% end %>  
           </ul>
         </div>
