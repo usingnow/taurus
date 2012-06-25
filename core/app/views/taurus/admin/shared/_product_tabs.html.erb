@@ -11,24 +11,47 @@
               :class => "btn pull-right" %>
 </div>
 
+<%= simple_form_for(@product, :url => "#", :html => {:class => 'form-horizontal'}) do |f| %>
+  <fieldset>
+    <div class="row">
+      <div class="span5">
+        <%= f.input :number, :disabled => true %>
+        <%= f.input :product_category_name, :disabled => true %>
+      </div>
+      <div class="span5">
+        <%= f.input :name, :disabled => true %>
+        <%= f.input :price_after_tax, :disabled => true %>
+      </div>
+    </div>
+  </fieldset>
+<% end %>
+
 <ul class="nav nav-tabs">
   <li <%== 'class="active"' if current == "details" %>>
-    <%= link_to "商品基本信息", type == "show" ? admin_product_path(@product) : edit_admin_product_path(@product) %>
+    <%= link_to t('admin.misc.product.details'), 
+                type == "show" ? admin_product_path(@product) : edit_admin_product_path(@product) %>
   </li>
   <li <%== 'class="active"' if current == "custom_properties" %>>
-  	<%= link_to "自定义属性", type == "show" ? admin_product_custom_property_value_path(@product,0) : admin_product_custom_property_values_path(@product) %>
+  	<%= link_to t('admin.misc.product.custom_properties'), 
+                type == "show" ? admin_product_custom_property_value_path(@product,0) : 
+                                 admin_product_custom_property_values_path(@product) %>
   </li>
   <li <%== 'class="active"' if current == "images" %>>
-  	<%= link_to "图片", type == "show" ? admin_product_product_image_path(@product,0) : admin_product_product_images_path(@product) %>
+  	<%= link_to t('admin.misc.product.images'), 
+                type == "show" ? admin_product_product_image_path(@product,0) : 
+                                 admin_product_product_images_path(@product) %>
   </li>
   <% if @product.product_type == 1 %>
     <li <%== 'class="active"' if current == "combined" %>>
-      <%= link_to "组合商品", type == "show" ? admin_product_combined_products_path(@product) : 
-                                              new_admin_product_combined_product_path(@product) %>
+      <%= link_to t('admin.misc.product.combined_products'), 
+                  type == "show" ? admin_product_combined_products_path(@product) : 
+                                   new_admin_product_combined_product_path(@product) %>
     </li>
   <% end %>
   <li <%== 'class="active"' if current == "sales" %>>
-    <%= link_to "销售状态", type == "show" ? show_sales_status_admin_product_path(@product) : edit_sales_status_admin_product_path(@product) %>
+    <%= link_to t('admin.misc.product.sales_status'), 
+                type == "show" ? show_sales_status_admin_product_path(@product) : 
+                                 edit_sales_status_admin_product_path(@product) %>
   </li>
 </ul>
 

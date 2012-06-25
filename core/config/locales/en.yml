@@ -106,7 +106,7 @@ en:
         taurus/product:
           attributes:
             sales_status:
-              must_contain_two_single_product: "must contain two single products"
+              must_contain_two_product: "must contain two single products"
             if_shown_on_web:  
               must_have_image: "must have at least a picture"         
 
@@ -180,6 +180,11 @@ en:
         single_category_hint: "only the single product category accepted. <a href='/admin/product_categories' target='_blank'>Details</a>"
         combined_category_hint: "only the combined product category accepted. <a href='/admin/product_categories?q%5Bcategory_type_eq%5D=1' target='_blank'>Details</a>"    
         instruction: "The single product is the smallist selling unit, while a combined product must contains several single products."
+        details: "Details"
+        custom_properties: "Custom Properties"
+        images: "Images"
+        combined_products: "Combined Products"
+        sales_status: "Sales Status"
       combined_product:
         edit_instruction: "Click 'Update' to keep the results."
       product_image:

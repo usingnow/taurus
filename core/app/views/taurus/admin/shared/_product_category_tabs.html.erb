@@ -29,8 +29,6 @@
   <% end %>  
 </div>
 
-<%= flash_messages %>
-
 <%= simple_form_for(@product_category, :url => "#", :html => {:class => 'form-horizontal'})  do |f| %>
   <fieldset>
     <div class="row">
@@ -64,3 +62,5 @@
     </a>
   </li>
 </ul>
+
+<%= flash_messages %>
