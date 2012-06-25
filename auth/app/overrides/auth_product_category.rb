@@ -31,13 +31,6 @@ Deface::Override.new(:virtual_path => "taurus/admin/product_categories/show",
 end
 
 Deface::Override.new(:virtual_path => "taurus/admin/product_categories/show",
-                     :name => "auth_product_category_show_custom",
-                     :surround => "#custom_tag") do
-  "<% if can? :manage, Taurus::CustomProperty %><%= render_original %><% end %>"                      
-end
-
-
-Deface::Override.new(:virtual_path => "taurus/admin/product_categories/show",
                      :name => "auth_product_category_show_destroy",
                      :surround => "#destroy_tag") do
   "<% if can? :destroy, Taurus::ProductCategory %><%= render_original %><% end %>"                      

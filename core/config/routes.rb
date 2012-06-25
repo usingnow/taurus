@@ -24,6 +24,7 @@ Taurus::Core::Engine.routes.draw do
       member do
         get :seconds
         get :thirds
+        get :children
       end
       resources :custom_properties
     end

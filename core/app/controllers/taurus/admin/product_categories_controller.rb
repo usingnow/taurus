@@ -67,6 +67,10 @@ module Taurus
           flash[:error] = I18n.t(:failure_destroyed, :models=> destroy_error_models(@product_category))
 				end
 			  redirect_to(:back)
+			end
+
+			def children
+        @product_category = ProductCategory.find(params[:id]) 
 			end  
       
       #第二级分类

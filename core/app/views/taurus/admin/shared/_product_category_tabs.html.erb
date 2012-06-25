@@ -1,0 +1,53 @@
+<div class="well">
+  <a href="<%= edit_admin_product_category_path(@product_category) %>" class="btn btn-primary" 
+     id="update_tag">
+    <i class="icon-edit"></i>
+    <%= t('admin.actions.edit.menu') %>
+  </a>
+
+  <a href="<%= admin_product_category_path(@product_category) %>" data-method="delete"
+     data-confirm="<%= t('admin.actions.delete.confirm') %>" 
+     class="btn btn-danger" id="destroy_tag">
+    <i class="icon-remove-sign"></i>
+    <%= t('admin.actions.delete.menu') %>
+  </a>  
+  
+  <div class="pull-right">
+    <%= back_to_parent %>
+
+    <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_product_categories_path, :class => "btn" %>
+  </div>
+</div>
+
+<%= flash_messages %>
+
+<%= simple_form_for(@product_category, :url => "#", :html => {:class => 'form-horizontal'})  do |f| %>
+  <fieldset>
+    <div class="row">
+      <div class="span5">
+        <%= f.input :number, :disabled => true %>
+      </div>
+      <div class="span5">
+        <%= f.input :name, :disabled => true %>
+      </div>
+    </div>
+  </fieldset>
+<% end %>
+
+<ul class="nav nav-tabs">
+  <li <%== 'class="active"' if current == "details" %>>
+    <a href="<%= admin_product_category_path(@product_category) %>">
+    	<%= t('admin.misc.product_category.details') %>
+    </a>
+  </li>
+  <li <%== 'class="active"' if current == "children" %>>
+    <a href="<%= children_admin_product_category_path(@product_category) %>">
+    	<%= t('activerecord.attributes.taurus/product_category.children') %>
+    </a>
+  </li>
+  <li <%== 'class="active"' if current == "custom_property" %>>
+    <a href="<%= admin_product_category_custom_properties_path(@product_category) %>">
+      <%= t('activerecord.attributes.taurus/product_category.custom_property') %>
+    </a>
+  </li>
+</ul>

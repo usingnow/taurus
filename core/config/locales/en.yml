@@ -195,6 +195,7 @@ en:
         combined_instruction: "The combined product category is only used to group the combined product, not the single ones." 
         combined_new_btn_popover_title: "Combined product category"
         combined_new_btn_popover_content: "It's the category of the combined product, which is used to sell several single products in a package with a new price."
+        details: "Details"
     actions:
       index:
         title: "%{model}list"

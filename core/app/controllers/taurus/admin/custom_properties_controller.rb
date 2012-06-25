@@ -3,6 +3,7 @@ module Taurus
 		class CustomPropertiesController < BaseController
 			helper "taurus/custom_properties"
 			helper "taurus/product_categories"
+			
 	    def index
 	    	@product_category = ProductCategory.find(params[:product_category_id])
         @search = @product_category.custom_properties.search(params[:q])

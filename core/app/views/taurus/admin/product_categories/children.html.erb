@@ -1,0 +1,26 @@
+<%= render :partial => "taurus/admin/shared/product_category_tabs", :locals => { :current => "children" } %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('activerecord.attributes.taurus/product_category.number') %></th>
+      <th><%= t('activerecord.attributes.taurus/product_category.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/product_category.status') %></th>
+      <th><%= t('activerecord.attributes.taurus/product_category.custom_property') %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @product_category.children.each_with_index do |product_category,index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td>
+        <%= link_to product_category.number, admin_product_category_path(product_category), :target => "_blank" %>
+      </td>
+      <td><%= product_category.name %></td>
+      <td><%= format_boolean product_category.status %></td>
+      <td><%= format_boolean product_category.custom_property? %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
