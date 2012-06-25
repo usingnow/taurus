@@ -1,35 +1,141 @@
-<% @product.product_images.each do |product_image| %>
-  <%= image_tag product_image.image.url(:small) %>
-<% end %>
+<ul class="breadcrumb">
+  <li>
+    <i class="icon-home"></i>
+    <a href="#">Home</a> <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="#">Library</a> <span class="divider">/</span>
+  </li>
+  <li class="active">Data</li>
+</ul>
 
-
-<%= simple_form_for(@product, :url => "#", :html => {:class => 'form-horizontal'}) do |f| %>
-  <fieldset>
-    <%= f.input :number, :disabled => true %>
-    <%= f.input :name, :disabled => true %>
-    <%= f.input :product_category_name, :disabled => true %>
-    <%= f.input :brand, :disabled => true %>
-    <%= f.input :weight, :disabled => true %>
-    <%= f.input :price_after_tax, :disabled => true %>
-    <%= f.input :tax, :disabled => true %>
-    <%= f.input :market_price, :disabled => true %>
-    <%= f.input :place_of_origin, :disabled => true %>
-    <%= f.input :unit, :disabled => true %>
-    <%= f.input :manufacturer, :disabled => true %>
-
-    
-  </fieldset>
-<% end %>
-
-<%=raw @product.description %>
-
-
-自定义属性:
-<% @product.custom_property_values.each do |custom_property_value| %>
-   <div>
-     <%= custom_property_value.custom_property.name %>
-     ：
-     <%= custom_property_value.custom_property.property_type == 9 ? 
-         custom_property_value.text_value : custom_property_value.string_value %>
-   </div>
-<% end %>
+<div class="row">
+  <div class="span6">
+    <ul class="thumbnails">
+      <li class="span6">
+        <a class="thumbnail">
+          <% @product.product_images.each do |product_image| %>
+            <%= image_tag product_image.image.url(:normal), :width => "560px", :height => "360px" %>
+          <% end %>
+        </a>
+      </li>
+      <li class="span1">
+        <a class="thumbnail">
+          <%= image_tag "logo.png", :width => "65px", :height => "45px" %>
+        </a>
+      </li>
+      <li class="span1">
+        <a class="thumbnail">
+          <%= image_tag "logo.png", :width => "65px", :height => "45px" %>
+        </a>
+      </li>
+      <li class="span1">
+        <a class="thumbnail">
+          <%= image_tag "logo.png", :width => "65px", :height => "45px" %>
+        </a>
+      </li>
+      <li class="span1">
+        <a class="thumbnail">
+          <%= image_tag "logo.png", :width => "65px", :height => "45px" %>
+        </a>
+      </li>
+      <li class="span1">
+        <a class="thumbnail">
+          <%= image_tag "logo.png", :width => "65px", :height => "45px" %>
+        </a>
+      </li>
+      <li class="span1">
+        <a class="thumbnail">
+          <%= image_tag "logo.png", :width => "65px", :height => "45px" %>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="span6">
+    <h3 style="margin-bottom: 20px;"><%= @product.name %></h3>
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <td>
+            <%= t('activerecord.attributes.taurus/product.number') %>
+          </td>
+          <td>
+            <%= @product.number %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= t('activerecord.attributes.taurus/product.brand') %>
+          </td>
+          <td>
+            <%= @product.brand %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= t('activerecord.attributes.taurus/product.weight') %>
+          </td>
+          <td>
+            <%= @product.weight %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= t('activerecord.attributes.taurus/product.tax') %>
+          </td>
+          <td>
+            <%= @product.tax %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= t('activerecord.attributes.taurus/product.place_of_origin') %>
+          </td>
+          <td>
+            <%= @product.place_of_origin %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= t('activerecord.attributes.taurus/product.unit') %>
+          </td>
+          <td>
+            <%= @product.unit %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= t('activerecord.attributes.taurus/product.manufacturer') %>
+          </td>
+          <td>
+            <%= @product.manufacturer %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="span4">
+      <strong class="trk-price"><%= format_price @product.price_after_tax %></strong>
+      <em class="trk-market-price"> 市场价：<%= format_price @product.market_price%></em>
+    </div>
+    <button class="btn btn-warning btn-large pull-right"><i class="icon-shopping-cart"></i> 加入购物车</button>
+    <div class="btn-group pull-right" style="clear: both; margin-top: 20px;">
+      <button class="btn btn-info"><i class="icon-info-sign"></i> 其他详细信息</button>
+      <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+      <ul class="dropdown-menu span4">
+        <% @product.custom_property_values.each do |custom_property_value| %>
+        <li><a>
+           <%= custom_property_value.custom_property.name %>
+           ：
+           <%= custom_property_value.custom_property.property_type == 9 ? 
+               custom_property_value.text_value : custom_property_value.string_value %></a>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="span12">
+    <div class="well">
+      <%=raw @product.description %>
+    </div>
+  </div>
+</div>
