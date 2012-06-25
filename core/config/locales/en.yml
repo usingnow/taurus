@@ -177,7 +177,7 @@ en:
         combined: "Combined Product"
         combined_new_btn_popover_title: "combined product"
         combined_new_btn_popover_content: "it is used to sell several single products in a package with a new price"
-        single_category_hint: "only the single product category accepted. <a href='/admin/product_categories' target='_blank'>Details</a>"
+        single_category_hint: "<strong class='stress'>only the single product category accepted. </strong> %{autocomplete_instruction} <a href='/admin/product_categories' target='_blank'>Details</a>"
         combined_category_hint: "<strong class='stress'>only the combined product category accepted.</strong> %{autocomplete_instruction} <a href='/admin/product_categories?q%5Bcategory_type_eq%5D=1' target='_blank'>Details</a>"    
         instruction: "The single product is the smallist selling unit, while a combined product must contains several single products."
         details: "Details"
