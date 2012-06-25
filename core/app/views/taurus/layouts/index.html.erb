@@ -54,5 +54,39 @@
   <div class="container">
     <%= yield %>
   </div>
+
+  <div class="container trk-footer">
+    <div class="row" id="footer">
+      <div class="span2 trk-footer-col">
+        <ul>
+          <h3><i class="icon-question-sign"></i> 常见问题</h3>
+          <li><a href="#">运费计算</a></li>
+          <li><a href="#">支付方式</a></li>
+        </ul>
+      </div>
+      <div class="span2 trk-footer-col">
+        <ul>
+          <h3><i class="icon-hand-right"></i> 联系我们</h3>
+          <li>(86) 400-6666-6666</li>
+          <li>sales@usingnow.com</li>
+        </ul>
+      </div>
+      <div class="span2 trk-footer-col">
+        <ul>
+          <h3><i class="icon-file"></i> 更多信息</h3>
+          <li><i class="icon-github"></i> <a href="#">Github <i class="icon-share"></i></a></li>
+          <li><%= image_tag "sina_16.png", :width => "14px", :height => "14px" %> <a href="#">新浪微博 <i class="icon-share"></i></a></li>
+        </ul>
+      </div>
+      <div class="span4 trk-footer-col">
+        <h3><i class="icon-group"></i> 关于我们</h3>
+        <p>采恪位于上海，这个滨海的世界大都市</p>
+      </div>
+      <div class="span1">
+        <%= image_tag "logo.png" %> Powered by ©采恪<br />
+        2010 - 2012
+      </div>
+    </div>
+  </div>
 </body>
 </html>
