@@ -8,3 +8,8 @@
 */
 
 @import 'font-awesome';
+
+.stress {
+	color: #980905;
+	font-weight: normal;
+}

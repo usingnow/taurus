@@ -360,7 +360,7 @@ zh-CN:
         combined_new_btn_popover_title: "组合商品"
         combined_new_btn_popover_content: "可将多个销售单品捆绑在一起销售"
         single_category_hint: "仅可关联销售单品分类，<a href='/admin/product_categories' target='_blank'><i class='icon-share'></i>详细分类信息</a>"
-        combined_category_hint: "仅可关联组合商品分类，<a href='/admin/product_categories?q%5Bcategory_type_eq%5D=1' target='_blank'><i class='icon-share'></i>详细分类信息</a>"
+        combined_category_hint: "<strong class='stress'>仅可关联组合商品分类。</strong>%{autocomplete_instruction} <a href='/admin/product_categories?q%5Bcategory_type_eq%5D=1' target='_blank'><i class='icon-share'></i>详细分类信息</a>"
         instruction: "销售单品仅为一件可售商品，而组合商品须有多件销售单品组成。"
         details: "详细信息"
         custom_properties: "自定义属性"
