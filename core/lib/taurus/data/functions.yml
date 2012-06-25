@@ -11,7 +11,7 @@
         - id: 'product_category_query'
           name: '查询'
           permissions:
-            - action_name: '[:read, :seconds, :thirds]'
+            - action_name: '[:read, :seconds, :thirds, :children]'
               class_name: 'ProductCategory'
         - id: 'product_category_create#update#custom'
           name: '新建、修改、自定义属性'

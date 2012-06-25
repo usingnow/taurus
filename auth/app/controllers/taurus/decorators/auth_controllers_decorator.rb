@@ -1,3 +1,15 @@
+#encoding:UTF-8
+Taurus::Admin::BaseController.class_eval do
+  def current_ability
+    @current_ability ||= Taurus::Ability.new(current_administrator)
+  end
+
+  rescue_from CanCan::AccessDenied do
+    render :text => "访问被拒绝！"
+  end
+end
+
+
 Taurus::Admin::ProductCategoriesController.class_eval do
   load_and_authorize_resource :class => "Taurus::ProductCategory"
 end

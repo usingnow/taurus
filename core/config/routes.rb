@@ -25,6 +25,11 @@ Taurus::Core::Engine.routes.draw do
         get :seconds
         get :thirds
         get :children
+        get :edit_children
+        get :edit_child
+        put :update_child
+        delete :destroy_child
+        post :create_child
       end
       resources :custom_properties
     end

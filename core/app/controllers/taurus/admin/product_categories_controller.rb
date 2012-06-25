@@ -22,7 +22,7 @@ module Taurus
 			end
 
 			def new 
-				@product_category = ProductCategory.new
+				@product_category = ProductCategory.new(:status => true)
 				if params[:parent_id]
 					@parent = ProductCategory.find(params[:parent_id])
 					@product_category.parent_id = @parent.id
@@ -72,6 +72,65 @@ module Taurus
 			def children
         @product_category = ProductCategory.find(params[:id]) 
 			end  
+
+			def edit_children
+        @product_category = ProductCategory.find(params[:id]) 
+        @child_category = ProductCategory.new
+        @child_category.parent_id = @product_category.id
+        @child_category.parent_name = @product_category.name
+			end
+
+			def create_child
+        @product_category = ProductCategory.find(params[:id])
+        @child_category = ProductCategory.new(params[:product_category])
+        @child_category.parent_id = @product_category.id 
+        @child_category.parent_name = @product_category.name
+
+        if @child_category.save
+        	flash[:success] = I18n.t(:successfully_created)
+        	redirect_to(edit_children_admin_product_category_path(@product_category))
+        else
+        	render :action => :edit_children
+        end
+			end
+
+			def edit_child
+        @child_category = ProductCategory.find(params[:id])
+
+        @product_category = @child_category.parent
+
+        @child_category.parent_id = @product_category.id
+        @child_category.parent_name = @product_category.name
+
+        render :action => :edit_children
+			end
+
+			def update_child
+				@child_category = ProductCategory.find(params[:id])
+        @product_category = @child_category.parent
+        @child_category.parent_name = @product_category.name
+
+        if @child_category.update_attributes(params[:product_category])
+        	flash[:success] = I18n.t(:successfully_updated)
+        	redirect_to(edit_children_admin_product_category_path(@product_category))
+        else
+          @child_category.parent_name = @product_category.name
+        	render :action => :edit_children
+        end
+			end
+
+			def destroy_child
+        @child_category = ProductCategory.find(params[:id])
+        @product_category = @child_category.parent
+
+        if @child_category.destroy
+        	flash[:success] = I18n.t(:successfully_destroyed)
+        else
+          flash[:error] = I18n.t(:failure_destroyed)
+        end
+
+        redirect_to(edit_children_admin_product_category_path(@product_category))
+			end
       
       #第二级分类
 			def seconds
@@ -92,7 +151,8 @@ module Taurus
 
 
 			def combined_new
-        @product_category = ProductCategory.new(:category_type => 1)
+        @product_category = ProductCategory.new(:category_type => 1, :status => true)
+        
 				if params[:parent_id]
 					@parent = ProductCategory.find(params[:parent_id])
 					@product_category.parent_id = @parent.id

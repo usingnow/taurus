@@ -1,29 +1,18 @@
-<div class="well">
-  <div class="pull-right">
-    <%= back_to_parent %>
-
-    <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_product_categories_path, :class => "btn" %>
-  </div>  
-</div>
-
-<div class="alert alert-info">
-  <button type="button" class="close" data-dismiss="alert">×</button>
-  <%= t('admin.misc.product_category.single_instruction') %>
-</div>
-
-
 <%= simple_form_for([:admin,@product_category],:html => {:class => 'form-horizontal'})  do |f| %>
   <%= f.error_notification %>
   
   <fieldset>
-    <%= f.input :parent_name, :url => autocomplete_product_category_name_admin_product_categories_path, 
+    <%= f.input :parent_name, 
+                :url => @product_category.category_type == 1 ?
+                        autocomplete_combined_category_name_admin_product_categories_path : 
+                        autocomplete_product_category_name_admin_product_categories_path, 
                 :input_html => { :id_element => '#product_category_parent_id' }, :as => :autocomplete %>
     <%= f.input :parent_id, :as => :hidden %>
     <%= f.input :number %>
     <%= f.input :name %>
     <%= f.input :description, :input_html => { :rows => 5 } %>
     <%= f.input :sequence %>
-    <%= f.input :status %>
+    <%= f.input :status, :hint => t('admin.misc.product_category.status_hint') %>
 
     <div class="form-actions">
       <%= f.button :submit, :class => "btn btn-primary" %>

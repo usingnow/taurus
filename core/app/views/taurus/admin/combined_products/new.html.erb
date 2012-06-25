@@ -64,11 +64,9 @@
 	      <%= hidden_field_tag :related_number %>  
         <%= f.input :amount, :input_html => { :class => "amount span2" } %>	      
         
-        <div class="form-actions">
-          <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.misc.add_new', 
-                  :model => t('admin.misc.product.single'))}".html_safe, "#", 
-                  :class => "btn btn-success", :id => "add_single_product" %> 
-        </div>
+        <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} #{t('admin.misc.add_new', 
+                :model => t('admin.misc.product.single'))}".html_safe, "#", 
+                :class => "btn btn-success", :id => "add_single_product" %> 
 		 </fieldset>
     </div>
   </div>  

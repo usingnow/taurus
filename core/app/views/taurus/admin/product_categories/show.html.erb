@@ -1,4 +1,5 @@
-<%= render :partial => "taurus/admin/shared/product_category_tabs", :locals => { :current => "details" } %>
+<%= render :partial => "taurus/admin/shared/product_category_tabs", 
+           :locals => { :current => "details", :type => "show" } %>
 
 <%= simple_form_for(@product_category, :url => "#", :html => {:class => 'form-horizontal'})  do |f| %>
   <fieldset>
