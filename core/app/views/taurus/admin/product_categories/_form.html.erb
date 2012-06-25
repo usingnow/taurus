@@ -1,17 +1,3 @@
-<div class="well">
-  <div class="pull-right">
-    <%= back_to_parent %>
-
-    <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_product_categories_path, :class => "btn" %>
-  </div>  
-</div>
-
-<div class="alert alert-info">
-  <button type="button" class="close" data-dismiss="alert">×</button>
-  <%= t('admin.misc.product_category.single_instruction') %>
-</div>
-
-
 <%= simple_form_for([:admin,@product_category],:html => {:class => 'form-horizontal'})  do |f| %>
   <%= f.error_notification %>
   

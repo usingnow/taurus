@@ -1,22 +1,32 @@
 <div class="well">
-  <a href="<%= edit_admin_product_category_path(@product_category) %>" class="btn btn-primary" 
-     id="update_tag">
-    <i class="icon-edit"></i>
-    <%= t('admin.actions.edit.menu') %>
-  </a>
+  <% if type == "show" %>
+    <a href="<%= edit_admin_product_category_path(@product_category) %>" class="btn btn-primary" 
+       id="update_tag">
+      <i class="icon-edit"></i>
+      <%= t('admin.actions.edit.menu') %>
+    </a>
 
-  <a href="<%= admin_product_category_path(@product_category) %>" data-method="delete"
-     data-confirm="<%= t('admin.actions.delete.confirm') %>" 
-     class="btn btn-danger" id="destroy_tag">
-    <i class="icon-remove-sign"></i>
-    <%= t('admin.actions.delete.menu') %>
-  </a>  
-  
+    <a href="<%= admin_product_category_path(@product_category) %>" data-method="delete"
+       data-confirm="<%= t('admin.actions.delete.confirm') %>" 
+       class="btn btn-danger" id="destroy_tag">
+      <i class="icon-remove-sign"></i>
+      <%= t('admin.actions.delete.menu') %>
+    </a>  
+  <% end %> 
   <div class="pull-right">
     <%= back_to_parent %>
 
     <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_product_categories_path, :class => "btn" %>
   </div>
+</div>
+
+<div class="alert alert-info">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <% if @product_category.category_type == 0 %>
+    <%= t('admin.misc.product_category.single_instruction') %>
+  <% else %>
+    <%= t('admin.misc.product_category.combined_instruction') %>
+  <% end %>  
 </div>
 
 <%= flash_messages %>
@@ -36,17 +46,20 @@
 
 <ul class="nav nav-tabs">
   <li <%== 'class="active"' if current == "details" %>>
-    <a href="<%= admin_product_category_path(@product_category) %>">
+    <a href="<%= type == "show" ? admin_product_category_path(@product_category) : 
+                                  edit_admin_product_category_path(@product_category) %>">
     	<%= t('admin.misc.product_category.details') %>
     </a>
   </li>
   <li <%== 'class="active"' if current == "children" %>>
-    <a href="<%= children_admin_product_category_path(@product_category) %>">
+    <a href="<%= type == "show" ? children_admin_product_category_path(@product_category) :
+                                  edit_children_admin_product_category_path(@product_category) %>">
     	<%= t('activerecord.attributes.taurus/product_category.children') %>
     </a>
   </li>
   <li <%== 'class="active"' if current == "custom_property" %>>
-    <a href="<%= admin_product_category_custom_properties_path(@product_category) %>">
+    <a href="<%= type == "show" ? admin_product_category_custom_properties_path(@product_category) :
+                                  new_admin_product_category_custom_property_path(@product_category) %>">
       <%= t('activerecord.attributes.taurus/product_category.custom_property') %>
     </a>
   </li>

@@ -21,26 +21,48 @@ module Taurus
 	    
 	    def create
         @product_category = ProductCategory.find(params[:product_category_id])
-	    	@custom_property = @product_category.custom_properties.build(params[:custom_property])
+
+	    	@custom_property = CustomProperty.new(params[:custom_property])
+	    	@custom_property.product_category_id = @product_category.id
+
 	    	if @custom_property.save
-	    		redirect_to(admin_product_category_custom_properties_path(@product_category))
+	    		flash[:success] = I18n.t(:successfully_created)
+	    		redirect_to(new_admin_product_category_custom_property_path(@product_category))
 	    	else
-	    		render :action => "new"
+	    		render :action => :new
 	    	end
 	    end	
 
 	    def edit
 	    	@product_category = ProductCategory.find(params[:product_category_id])
 	    	@custom_property = CustomProperty.find(params[:id])
+
+	    	render :action => :new
 	    end
 
 	    def update
+	    	@product_category = ProductCategory.find(params[:product_category_id])
 	    	@custom_property = CustomProperty.find(params[:id])
+	    	
 	    	if @custom_property.update_attributes(params[:custom_property])
-	    		redirect_to(admin_product_category_custom_properties_path(@custom_property.product_category_id))
+	    		flash[:success] = I18n.t(:successfully_updated)
+	    		redirect_to(new_admin_product_category_custom_property_path(@product_category))
 	    	else
-	    		render :action => "edit"
+	    		render :action => :new
 	    	end
+	    end
+
+	    def destroy
+        @product_category = ProductCategory.find(params[:product_category_id])
+        @custom_property = CustomProperty.find(params[:id])
+
+        if @custom_property.destroy
+	    		flash[:success] = I18n.t(:successfully_destroyed)
+	    	else
+	    		flash[:error] = I18n.t(:failure_destroyed)
+	    	end
+
+	    	redirect_to(new_admin_product_category_custom_property_path(@product_category))
 	    end
 		end
 	end
