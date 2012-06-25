@@ -43,22 +43,28 @@
       <th><%= t('activerecord.attributes.taurus/product.number') %></th>
       <th><%= t('activerecord.attributes.taurus/product.name') %></th>
       <th><%= t('activerecord.attributes.taurus/product.product_category_id') %></th>
+      <th><%= t('activerecord.attributes.taurus/product.sales_status') %></th>
+      <th><%= t('activerecord.attributes.taurus/product.if_shown_on_web') %></th>
       <th><%= t('admin.misc.operation') %></th>
    </tr>
   </thead>
-  <% @products.each_with_index do |product,index| %>
-    <tr>
-      <td><%= index+1 %></td>
-      <td><%= link_to product.number, admin_product_path(product) %></td>
-      <td><%= product.name %></td>
-      <td><%= product.product_category.name %></td>
-      <td>
-        <a href="<%= edit_admin_product_path(product) %>" class="btn btn-primary trk-btn-short update_tag">
-          <%= t('admin.actions.edit.menu') %>
-        </a> 
-      </td>
-    </tr>
-  <% end %>
+  <tbody>
+    <% @products.each_with_index do |product,index| %>
+      <tr>
+        <td><%= index+1 %></td>
+        <td><%= link_to product.number, admin_product_path(product) %></td>
+        <td><%= product.name %></td>
+        <td><%= product.product_category.name %></td>
+        <td><%= format_boolean product.sales_status %></td>
+        <td><%= format_boolean product.if_shown_on_web %></td>
+        <td>
+          <a href="<%= edit_admin_product_path(product) %>" class="btn btn-primary trk-btn-short update_tag">
+            <%= t('admin.actions.edit.menu') %>
+          </a> 
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
   <tfoot>
     <tr><td colspan='5'><%= will_paginate @products, :renderer => BootstrapPagination::Rails %></td></tr>
   </tfoot>
