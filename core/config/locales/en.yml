@@ -34,6 +34,7 @@ en:
         property_type: "Type"
         remarks: "Remarks"
         status: "Active"
+        products: "Product"
       taurus/product:
         number: "Product Number"
         name: "Product"

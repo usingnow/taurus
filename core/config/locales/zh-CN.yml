@@ -233,6 +233,7 @@ zh-CN:
         property_type: "属性类型"
         remarks: "备注"
         status: "激活"
+        products: "商品"
       taurus/product:
         number: "销售商品编号"
         name: "销售商品名称"

@@ -56,11 +56,11 @@ module Taurus
         @product_category = ProductCategory.find(params[:product_category_id])
         @custom_property = CustomProperty.find(params[:id])
 
-        if @custom_property.destroy
-	    		flash[:success] = I18n.t(:successfully_destroyed)
-	    	else
-	    		flash[:error] = I18n.t(:failure_destroyed)
-	    	end
+	    	if @custom_property.destroy
+					flash[:success] = I18n.t(:successfully_destroyed)
+				else
+          flash[:error] = I18n.t(:failure_destroyed, :models=> destroy_error_models(@custom_property))
+				end
 
 	    	redirect_to(new_admin_product_category_custom_property_path(@product_category))
 	    end
