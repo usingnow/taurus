@@ -8,6 +8,9 @@
 
         <% if product_image.is_main %>
           <div class="caption">
+            <h4>
+              <%= @product.name %>
+            </h4>  
             <p>
               <%= t('activerecord.attributes.taurus/product.market_price') %> ：
               <%= format_price @product.market_price %>
