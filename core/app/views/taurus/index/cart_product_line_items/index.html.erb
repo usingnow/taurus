@@ -1,35 +1,51 @@
-<%= link_to "返回首页", index_home_index_path, :class => "btn btn-primary trk-btn-short" %>
+<div class="row">
+  <div class="span3">
+    <%= link_to '<i class="icon-hand-right"></i> 继续购物'.html_safe, index_home_index_path, :class => "btn btn-success btn-large" %>
+    <hr />
+    <div class="well">
 
-<%= simple_form_for @cart, :url => index_cart_product_line_item_path(@cart), :method => :put do |f| %>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th><%= t('activerecord.attributes.taurus/product.number') %></th>
-      <th><%= t('activerecord.attributes.taurus/product.name') %></th>
-      <th><%= t('activerecord.attributes.taurus/cart_product_line_item.product_amount') %></th>
-      <th>单价</th>
-      <th>小计</th>
-      <th><%= t('admin.misc.operation') %></th>
-   </tr>
-  </thead>
-  <% @cart.cart_product_line_items.each_with_index do |line_item,index| %>
-    <tr>
-      <td><%= index+1 %></td>
-      <td><%= line_item.product.number %></td>
-      <td><%= line_item.product.name %></td>
-      <td><%= text_field_tag :"product_amount[#{line_item.id}]", line_item.product_amount, :type => "number", :step => "1" %></td>
-      <td><%= format_price line_item.product.price_after_tax %></td>
-      <td><%= format_price line_item.subtotal %></td>
-      <td>
-        <%= link_to "删除", index_cart_product_line_item_path(line_item), 
-                    :method => :delete, :confirm => t('admin.actions.delete.confirm'),
-                    :class => "btn btn-primary trk-btn-short" %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+    </div>  
+  </div>
+  <div class="span9">
 
-  <%= f.button :submit, :value => "更新", :class => "btn btn-primary" %>
-  <%= link_to "结算", new_index_order_path, :class => "btn btn-primary" %>
-<% end %>
+    <%= simple_form_for @cart, :url => index_cart_product_line_item_path(@cart), :method => :put do |f| %>
+    <div class="alert alert-info">
+      <button class="close" data-dismiss="alert">×</button>
+      <strong>注意：</strong> 如果您修改了商品数量，请在前往结算前，点击蓝色的更新按钮。
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th><%= t('activerecord.attributes.taurus/product.number') %></th>
+          <th><%= t('activerecord.attributes.taurus/product.name') %></th>
+          <th><%= t('activerecord.attributes.taurus/cart_product_line_item.product_amount') %></th>
+          <th>单价</th>
+          <th>小计</th>
+          <th><%= t('admin.misc.operation') %></th>
+       </tr>
+      </thead>
+      <% @cart.cart_product_line_items.each_with_index do |line_item,index| %>
+        <tr>
+          <td><%= index+1 %></td>
+          <td><%= line_item.product.number %></td>
+          <td><%= line_item.product.name %></td>
+          <td><%= text_field_tag :"product_amount[#{line_item.id}]", line_item.product_amount, :type => "number", :step => "1", :class => "span1" %></td>
+          <td><%= format_price line_item.product.price_after_tax %></td>
+          <td><%= format_price line_item.subtotal %></td>
+          <td>
+            <%= link_to '<i class="icon-trash"></i> 删除'.html_safe, index_cart_product_line_item_path(line_item), 
+                        :method => :delete, :confirm => t('admin.actions.delete.confirm'),
+                        :class => "btn btn-danger trk-btn-short" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+    <hr />
+
+    <button type="submit" class="btn btn-primary"><i class="icon-refresh"></i> 更新购物车</button>
+    <%= link_to '<i class="icon-credit-card"></i> 结算'.html_safe, new_index_order_path, :class => "btn btn-warning btn-large pull-right" %>
+    <% end %>
+  </div>
+</div>

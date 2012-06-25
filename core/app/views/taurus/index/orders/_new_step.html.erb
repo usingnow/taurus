@@ -1,15 +1,15 @@
 <fieldset>
   <%= f.fields_for :order_delivery do |d_f| %>
-    <%= d_f.input :attention %>
-    <%= d_f.input :district_id, :as => :area %>
-    <%= d_f.input :address %>
-    <%= d_f.input :telephone %>
-    <%= d_f.input :mobile %>
+    <%= d_f.input :attention, :input_html => {:class => "span2"} %>
+    <%= d_f.input :district_id, :as => :area, :input_html => {:class => "span2"} %>
+    <%= d_f.input :address, :input_html => {:class => "span3"} %>
+    <%= d_f.input :telephone, :input_html => {:class => "span2"} %>
+    <%= d_f.input :mobile, :input_html => {:class => "span2"} %>
 
   <% end %>
 
   <%= f.fields_for :order_payment do |p_f| %>
-     <%= p_f.association :payment_method, :include_blank => false %>
+     <%= p_f.association :payment_method, :include_blank => false, :input_html => {:class => "span2"} %>
      <%= p_f.input :receipt_type, :collection => Taurus::OrderPayment::RECEIPT_TYPE, 
                    :value_method => :first, :label_method => :second,
                    :item_wrapper_class => 'inline', :as => :radio  %>
@@ -47,10 +47,10 @@
 
   <% end %>
 
-  <%= f.input :remarks_by_customer %>
+  <%= f.input :remarks_by_customer, :input_html => {:class => "span3"} %>
 
-  <div class="form-actions">
-    <%= link_to "返回购物车", index_cart_product_line_items_path, :class => "btn btn-primary" %>
-    <%= f.button :submit, :value => "预览", :name => "preview_button", :class => "btn btn-primary" %>
-  </div>
+  <hr />
+
+  <%= link_to '<i class="icon-shopping-cart"></i> 返回购物车'.html_safe, index_cart_product_line_items_path, :class => "btn btn-primary" %>
+  <button type="submit" name="preview_button" class="btn btn-warning btn-large pull-right"><i class="icon-zoom-in"></i> 订单预览</button>
 </fieldset>
