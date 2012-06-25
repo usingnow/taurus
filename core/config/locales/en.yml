@@ -202,6 +202,7 @@ en:
         combined_new_btn_popover_title: "Combined product category"
         combined_new_btn_popover_content: "It's the category of the combined product, which is used to sell several single products in a package with a new price."
         details: "Details"
+        status_hint: "Inactive categories will not be displayed in the drop down list while creating/modifing a product category information."
     actions:
       index:
         title: "%{model}list"

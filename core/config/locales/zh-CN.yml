@@ -384,6 +384,7 @@ zh-CN:
         combined_new_btn_popover_title: "组合商品分类"
         combined_new_btn_popover_content: "仅关联组合商品。组合商品可将多个销售单品打包出售。"
         details: "详细信息"
+        status_hint: "在新建或修改商品信息时，“非激活“的分类不会显示在可选择的下拉列表中。"
     actions:
       index:
         title: "%{model}列表"

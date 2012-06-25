@@ -16,14 +16,6 @@ module Taurus
   		layout '/taurus/layouts/admin'
 
       private
-        #CanCan
-        def current_ability
-          @current_ability ||= Taurus::Ability.new(current_administrator)
-        end
-
-        rescue_from CanCan::AccessDenied do
-          render :text => "访问被拒绝！"
-        end
 
         # 获得因关联模型而删除失败的关联模型
         def destroy_error_models(object)

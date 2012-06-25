@@ -2,14 +2,17 @@
   <%= f.error_notification %>
   
   <fieldset>
-    <%= f.input :parent_name, :url => autocomplete_product_category_name_admin_product_categories_path, 
+    <%= f.input :parent_name, 
+                :url => @product_category.category_type == 1 ?
+                        autocomplete_combined_category_name_admin_product_categories_path : 
+                        autocomplete_product_category_name_admin_product_categories_path, 
                 :input_html => { :id_element => '#product_category_parent_id' }, :as => :autocomplete %>
     <%= f.input :parent_id, :as => :hidden %>
     <%= f.input :number %>
     <%= f.input :name %>
     <%= f.input :description, :input_html => { :rows => 5 } %>
     <%= f.input :sequence %>
-    <%= f.input :status %>
+    <%= f.input :status, :hint => t('admin.misc.product_category.status_hint') %>
 
     <div class="form-actions">
       <%= f.button :submit, :class => "btn btn-primary" %>

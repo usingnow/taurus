@@ -22,7 +22,7 @@ module Taurus
 			end
 
 			def new 
-				@product_category = ProductCategory.new
+				@product_category = ProductCategory.new(:status => true)
 				if params[:parent_id]
 					@parent = ProductCategory.find(params[:parent_id])
 					@product_category.parent_id = @parent.id
@@ -151,7 +151,8 @@ module Taurus
 
 
 			def combined_new
-        @product_category = ProductCategory.new(:category_type => 1)
+        @product_category = ProductCategory.new(:category_type => 1, :status => true)
+        
 				if params[:parent_id]
 					@parent = ProductCategory.find(params[:parent_id])
 					@product_category.parent_id = @parent.id
