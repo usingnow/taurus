@@ -47,6 +47,12 @@ Spork.prefork do
     # rspec-rails.
     config.infer_base_class_for_anonymous_controllers = false
   end
+
+  RSpec::Matchers.define :have_valid_factory do |factory_name|
+    match do |model|
+      Factory(factory_name).new_record?.should be_false
+    end
+  end
 end
 
 Spork.each_run do
