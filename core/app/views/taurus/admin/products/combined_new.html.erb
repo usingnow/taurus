@@ -1,4 +1,8 @@
 <div class="well">
+  <h2 class="pull-left">
+    <%= t('admin.actions.new.title', :model => t('admin.misc.product.combined')) %>
+  </h2>
+
   <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_products_path(:'q[product_type_eq]' => 1), :class => "btn pull-right" %>
 </div>
 
@@ -12,7 +16,8 @@
     <%= f.input :name %>
     <%= f.input :product_category_name, :url => autocomplete_combined_category_name_admin_products_path, 
                 :input_html => { :id_element => '#product_product_category_id' }, :as => :autocomplete,
-                :hint => t('admin.misc.autocomplete_instruction') + t('admin.misc.product.combined_category_hint') %>
+                :hint => t('admin.misc.product.combined_category_hint', 
+                           :autocomplete_instruction => t('admin.misc.autocomplete_instruction')) %>
     <%= f.input :product_category_id, :as => :hidden %>
     <%= f.input :weight %>
     <%= f.input :price_after_tax %>

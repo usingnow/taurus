@@ -187,6 +187,7 @@ zh-CN:
       even: "必须为双数"
       taken: "已经被使用"
       record_invalid: "验证失败: %{errors}"
+      phone_or_mobile: "固话与手机选填一项"
     template: &errors_template
       header:
         one: "有 1 个错误发生导致「%{model}」无法被保存。"
@@ -205,7 +206,6 @@ zh-CN:
       taurus/product_category: "商品分类"
       taurus/custom_property: "自定义属性"
       taurus/product: "销售商品"
-      taurus/product_sku_line_item: "SKU"
       taurus/product_image: "销售商品图片"
       taurus/order: "订单"
       taurus/alipay: "支付宝"
@@ -264,16 +264,19 @@ zh-CN:
         number: "订单编号"
         customer_name: "客户名称"
         total_payment: "总金额"
+        products_price: "商品总金额"
         created_at: "下单时间"
         state: "订单状态"
         remarks_by_customer: "备注" 
-        remarks_internal: "内部备注"      
+        remarks_internal: "内部备注"
       taurus/order_delivery:
         attention: "收货人"
         district_id: "地区"
         address: "地址"
         telephone: "固定电话"
         mobile: "移动电话"
+        shipping_standard_cost: "标准运费"
+        shipping_cost: "实际运费"
       taurus/order_payment:
         payment_method_id: "支付方式"
         payment_method: "支付方式"
@@ -285,6 +288,9 @@ zh-CN:
         vat_number: "增值税登记号"
         registered_telephone: "注册电话"
         registered_address: "注册地址"
+      taurus/order_product_line_item:
+        product_amount: "数量"
+        unit_price: "单价"  
       taurus/alipay:
         partner: "合作伙伴ID"
         seller_email: "签约支付宝账号"
@@ -359,14 +365,16 @@ zh-CN:
         combined: "组合商品"
         combined_new_btn_popover_title: "组合商品"
         combined_new_btn_popover_content: "可将多个销售单品捆绑在一起销售"
-        single_category_hint: "仅可关联销售单品分类，<a href='/admin/product_categories' target='_blank'><i class='icon-share'></i>详细分类信息</a>"
-        combined_category_hint: "仅可关联组合商品分类，<a href='/admin/product_categories?q%5Bcategory_type_eq%5D=1' target='_blank'><i class='icon-share'></i>详细分类信息</a>"
+        single_category_hint: "<strong class='stress'>仅可关联销售单品分类。</strong>%{autocomplete_instruction} <a href='/admin/product_categories' target='_blank'><i class='icon-share'></i>详细分类信息</a>"
+        combined_category_hint: "<strong class='stress'>仅可关联组合商品分类。</strong>%{autocomplete_instruction} <a href='/admin/product_categories?q%5Bcategory_type_eq%5D=1' target='_blank'><i class='icon-share'></i>详细分类信息</a>"
         instruction: "销售单品仅为一件可售商品，而组合商品须有多件销售单品组成。"
         details: "详细信息"
         custom_properties: "自定义属性"
         images: "图片"
         combined_products: "组合商品"
         sales_status: "销售状态"
+        all_single: "全部销售单品"
+        all_combined: "全部组合商品"
       combined_product:
         edit_instruction: "点击“更新销售商品”按钮,才会保存修改后结果！"
       product_image:
@@ -385,6 +393,11 @@ zh-CN:
         combined_new_btn_popover_content: "仅关联组合商品。组合商品可将多个销售单品打包出售。"
         details: "详细信息"
         status_hint: "在新建或修改商品信息时，“非激活“的分类不会显示在可选择的下拉列表中。"
+      order:
+        details: "详细信息"
+        address: "收货信息"
+        payment: "支付信息"
+        products: "商品信息"
     actions:
       index:
         title: "%{model}列表"

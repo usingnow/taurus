@@ -61,6 +61,9 @@ Taurus::Core::Engine.routes.draw do
       collection do
         get :all
       end
+      resources :order_deliveries
+      resources :order_payments
+      resources :order_product_line_items
     end
     resources :alipays
 
@@ -77,6 +80,7 @@ Taurus::Core::Engine.routes.draw do
       member do 
         get :online_payment
         get :sign
+        get :success
       end
       collection do 
         get :online_payment_notify

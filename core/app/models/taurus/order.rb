@@ -63,6 +63,10 @@ module Taurus
       end
 
     end
+
+    def products_price
+      order_product_line_items.to_a.sum { |line_item| line_item.subtotal }
+    end
   	
     protected
     def generate_order_number

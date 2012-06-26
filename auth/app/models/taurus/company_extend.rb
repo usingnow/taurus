@@ -13,11 +13,14 @@ module Taurus
     SEX = { 0 => "女", 1 => "男" }
 
     validates_presence_of :name, :contact_name
-    validates_presence_of :phone, :if => Proc.new { contact_mobile.blank? }
-    validates_presence_of :contact_mobile, :if => Proc.new { phone.blank? }
     validates_uniqueness_of :name
+    validate :phone_or_mobile
 
     protected
+    def phone_or_mobile
+      errors.add(:phone, :phone_or_mobile) if phone.blank? && contact_mobile.blank?
+    end
+
     def insert_number
 	  last = CompanyExtend.last
 	  self.number = "U" + (last ? (last.number[1,7].to_i+1).to_s.rjust(6,"0") : "000001")

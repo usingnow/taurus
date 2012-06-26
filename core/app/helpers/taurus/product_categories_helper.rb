@@ -18,7 +18,7 @@ module Taurus
         end
         categories << content_tag(:li, "#{link_to category.name, seconds_admin_product_category_path(category)}".html_safe, options) 
       end
-      content_tag(:ul, categories.html_safe, :id => 'admin-main-functionality', :class => 'nav nav-pills')
+      content_tag(:ul, categories.html_safe, :class => 'nav nav-pills')
 		end
 
 		# 顶级组合商品分类列表
@@ -38,7 +38,7 @@ module Taurus
         end
         categories << content_tag(:li, "#{link_to category.name, seconds_admin_product_category_path(category)}".html_safe, options) 
       end
-      content_tag(:ul, categories.html_safe, :id => 'admin-main-functionality', :class => 'nav nav-pills trk-non-inline-margin')
+      content_tag(:ul, categories.html_safe, :class => 'nav nav-pills trk-non-inline-margin')
 		end
 
 		def second_product_categories

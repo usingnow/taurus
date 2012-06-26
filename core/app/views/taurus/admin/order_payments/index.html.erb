@@ -1,0 +1,26 @@
+<%= render :partial => "taurus/admin/shared/order_tabs", 
+           :locals => { :current => "payment", :type => "show" } %>
+
+
+<%= simple_form_for @order_payment, :url => "#", :html => { :class => "form-horizontal" } do |f| %>
+  <fieldset>
+  	<%= f.association :payment_method, :input_html => {:class => "span2"}, :disabled => true %>
+  	<%= f.input :receipt_type, :collection => Taurus::OrderPayment::RECEIPT_TYPE, 
+                   :value_method => :first, :label_method => :second,
+                   :item_wrapper_class => 'inline', :as => :radio, :disabled => true  %>
+
+	  <% if @order_payment.receipt_type >= 2 %>
+	  	<%= f.input :receipt_title, :input_html => {:class => "span2"}, :disabled => true %>
+	  <% end %>
+
+  	<% if @order_payment.receipt_type > 2 %>
+  	  <%= f.input :bank_name, :input_html => {:class => "span2"}, :disabled => true %>
+      <%= f.input :company_name, :input_html => {:class => "span2"}, :disabled => true %>
+      <%= f.input :bank_account, :input_html => {:class => "span2"}, :disabled => true %>
+      <%= f.input :vat_number, :input_html => {:class => "span2"}, :disabled => true %>
+      <%= f.input :registered_telephone, :input_html => {:class => "span2"}, :disabled => true %>
+      <%= f.input :registered_address, :input_html => {:class => "span2"}, :disabled => true %>
+  	<% end %>
+
+  </fieldset>
+<% end %>

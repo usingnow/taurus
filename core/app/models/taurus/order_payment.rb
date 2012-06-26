@@ -2,6 +2,7 @@
 module Taurus
   class OrderPayment < ActiveRecord::Base
   	belongs_to :order, :dependent => :destroy
+    accepts_nested_attributes_for :order
   	belongs_to :payment_method
 
   	RECEIPT_TYPE = { 0 => '无需发票', 1 => '普通（个人）', 2 => '普通（单位）', 3 => '增值税（单位）' }

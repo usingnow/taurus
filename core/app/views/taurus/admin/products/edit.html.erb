@@ -9,8 +9,7 @@
     <%= f.input :name %>
     <%= f.input :product_category_name, :url => autocomplete_product_category_name_admin_products_path, 
                 :input_html => { :id_element => '#product_product_category_id' }, :as => :autocomplete, 
-                :hint => t('admin.misc.autocomplete_instruction') + 
-                         t("admin.misc.product.#{@product.product_type == 0 ? "single" : "combined"}_category_hint") %>
+                :hint => t("admin.misc.product.#{@product.product_type == 0 ? "single" : "combined"}_category_hint", :autocomplete_instruction => t('admin.misc.autocomplete_instruction')) %>
     <%= f.input :product_category_id, :as => :hidden %>
     <%= f.input :brand %>
     <%= f.input :weight %>

@@ -1,0 +1,45 @@
+<div class="well">
+  <a href="#" class="btn btn-primary"><i class="icon-truck"></i> 安排订单出库</a>
+  
+
+  <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_orders_path, 
+              :class => "btn pull-right" %>
+</div>
+
+
+<%= simple_form_for(@order, :url => "#", :html => {:class => 'form-horizontal'}) do |f| %>
+  <fieldset>
+    <div class="row">
+      <div class="span5">
+        <%= f.input :number, :disabled => true %>
+      </div>
+      <div class="span5">
+        <%= f.input :total_payment, :disabled => true %>
+      </div>
+    </div>
+  </fieldset>
+<% end %>
+
+<ul class="nav nav-tabs">
+  <li <%== 'class="active"' if current == "details" %>>
+    <%= link_to t('admin.misc.order.details'), 
+                type == "show" ? admin_order_path(@order) : edit_admin_order_path(@order) %>
+  </li>
+  <li <%== 'class="active"' if current == "address" %>>
+  	<%= link_to t('admin.misc.order.address'), 
+                type == "show" ? admin_order_order_deliveries_path(@order) : 
+                                 edit_admin_order_order_delivery_path(@order, @order.order_delivery_id) %>
+  </li>
+  <li <%== 'class="active"' if current == "payment" %>>
+  	<%= link_to t('admin.misc.order.payment'), 
+                type == "show" ? admin_order_order_payments_path(@order) : 
+                                 edit_admin_order_order_payment_path(@order, @order.order_payment_id) %>
+  </li>
+  <li <%== 'class="active"' if current == "products" %>>
+    <%= link_to t('admin.misc.order.products'), 
+                type == "show" ? admin_order_order_product_line_items_path(@order) : 
+                                 new_admin_order_order_product_line_item_path(@order) %>
+  </li>
+</ul>
+
+<%= flash_messages %>
