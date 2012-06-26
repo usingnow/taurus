@@ -1,0 +1,55 @@
+<%= render :partial => "taurus/admin/shared/order_tabs", 
+           :locals => { :current => "products", :type => "show" } %>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('activerecord.attributes.taurus/product.number') %></th>
+      <th><%= t('activerecord.attributes.taurus/product.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/product.product_category_id') %></th>
+      <th><%= t('activerecord.attributes.taurus/order_product_line_item.unit_price') %></th>
+      <th><%= t('activerecord.attributes.taurus/order_product_line_item.product_amount') %></th>
+   </tr>
+  </thead>
+  <tbody>
+    <% @order.order_product_line_items.each_with_index do |line_item,index| %>
+      <tr>
+        <td><%= index+1 %></td>
+        <td>
+        	<%= link_to line_item.product.number, admin_product_path(line_item.product_id), :target => "_blank" %>
+        </td>
+        <td><%= line_item.product.name %></td>
+        <td><%= line_item.product.product_category.name %></td>
+        <td><%= format_price line_item.unit_price %></td>
+        <td><%= line_item.product_amount %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="pull-right">
+	<table class="table table-striped span4">
+	  <tr>
+	    <td><%= t('activerecord.attributes.taurus/order.products_price') %></td>
+	    <td><%= format_price @order.products_price %></td>
+	  </tr>
+	  <tr>
+	  	<td><%= t('activerecord.attributes.taurus/order_delivery.shipping_standard_cost') %></td>
+	  	<td><%= format_price @order.order_delivery.shipping_standard_cost %></td>
+	  </tr>
+	  <tr>
+	  	<td><%= t('activerecord.attributes.taurus/order_delivery.shipping_cost') %></td>
+	  	<td><%= format_price @order.order_delivery.shipping_cost %></td>
+	  </tr>
+	  <tr>
+	  	<td>调整金额</td>
+	  	<td><%= format_price 0 %></td>
+	  </tr>
+	  <tr>
+	  	<td><%= t('activerecord.attributes.taurus/order.total_payment') %></td>
+	  	<td><%= format_price @order.total_payment %></td>
+	  </tr>
+	</table>
+</div>

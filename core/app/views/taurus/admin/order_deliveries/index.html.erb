@@ -1,0 +1,13 @@
+<%= render :partial => "taurus/admin/shared/order_tabs", 
+           :locals => { :current => "address", :type => "show" } %>
+
+
+<%= simple_form_for @order_delivery, :url => "#", :html => { :class => "form-horizontal" } do |f| %>
+  <fieldset>
+    <%= f.input :attention, :input_html => {:class => "span2"}, :disabled => true %>
+    <%= f.input :district_id, :as => :area, :input_html => {:class => "span2"}, :disabled => true %>
+    <%= f.input :address, :input_html => {:class => "span3"}, :disabled => true %>
+    <%= f.input :telephone, :input_html => {:class => "span2"}, :disabled => true %>
+    <%= f.input :mobile, :input_html => {:class => "span2"}, :disabled => true %>
+  </fieldset>
+<% end %>

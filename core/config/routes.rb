@@ -61,6 +61,9 @@ Taurus::Core::Engine.routes.draw do
       collection do
         get :all
       end
+      resources :order_deliveries
+      resources :order_payments
+      resources :order_product_line_items
     end
     resources :alipays
 

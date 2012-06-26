@@ -70,6 +70,7 @@ en:
         number: "Order Number"
         customer_name: "Customer Name"
         total_payment: "Total Payment"
+        products_price: "商品总金额"
         created_at: "Created at"
         state: "Order Status"
         remarks_by_customer: "Remarks by Customer"
@@ -80,6 +81,8 @@ en:
         address: "Address"
         telephone: "Phone"
         mobile: "Mobile"
+        shipping_standard_cost: "Shipping Standard Cost"
+        shipping_cost: "Shipping Cost"
       taurus/order_payment:
         payment_method_id: "Payment Method"
         payment_method: "Payment Method"
@@ -91,6 +94,9 @@ en:
         vat_number: "VAT number"
         registered_telephone: "Registered Telephone"
         registered_address: "Registered Address"
+      taurus/order_product_line_item:
+        product_amount: "Product Amount"
+        unit_price: "Unit Price"  
       taurus/alipay:
         partner: "Partner ID"
         seller_email: "Seller's Mail"

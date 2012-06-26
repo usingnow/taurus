@@ -5,5 +5,8 @@ module Taurus
 
   	validates_presence_of :product_id
   	
+  	def subtotal
+      unit_price * product_amount
+  	end
   end
 end

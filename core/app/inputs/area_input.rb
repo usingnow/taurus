@@ -27,13 +27,21 @@ class AreaInput < SimpleForm::Inputs::Base
 	    	province_options << "<option value=\"#{province.id}\">#{province.name}</option>"
 	    end	
   	end
+    
+    province_input_options = city_input_options = input_options.clone
+    province_input_html_options = city_input_html_options = input_html_options.clone
 
-    input_options.merge!(:include_blank => "--请选择区--")
-    input_html_options.merge!(:id => "district_id")
-  	"<select id='province_id' #{input_options[:disabled] ? "disabled='disabled'" : ""}>#{province_options}</select> " +
-  	"<select id='city_id' #{input_options[:disabled] ? "disabled='disabled'" : ""}>#{city_options}</select> " +
+    @builder.select(
+      :district_id, province_options.html_safe, province_input_options, 
+      province_input_html_options.merge!(:name => "province_id", :id => "province_id")
+    ) + " " +
+    @builder.select(
+      :district_id, city_options.html_safe, city_input_options, 
+      city_input_html_options.merge!(:name => "city_id", :id => "city_id")
+    ) + " " +
   	@builder.collection_select(
-  		attribute_name, collection, :id, :name, input_options, input_html_options
+  		attribute_name, collection, :id, :name, input_options.merge!(:include_blank => "--请选择区--"), 
+      input_html_options.merge!(:id => "district_id")
   	)
   end
 end

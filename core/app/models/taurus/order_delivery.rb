@@ -1,5 +1,7 @@
 module Taurus
   class OrderDelivery < ActiveRecord::Base
+    attr_accessor :province_id, :city_id
+
   	belongs_to :order, :dependent => :destroy
   	belongs_to :district
 
