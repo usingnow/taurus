@@ -20,6 +20,5 @@ namespace :common do
     end
 
     system(cmd)
-    puts "abc"
   end
 end

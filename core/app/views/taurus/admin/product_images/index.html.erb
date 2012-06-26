@@ -1,39 +1,43 @@
-<%= render :partial => "taurus/admin/shared/product_tabs", :locals => { :current => "images", :type => "edit" } %>
+<%= render :partial => "taurus/admin/shared/product_tabs", 
+           :locals => { :current => "images", :type => "edit" } %>
 
-<ul class="thumbnails">
-  <% @product.product_images.each do |product_image| %>
-    <li class="span3">
-      <div class="thumbnail">
-        <%= image_tag product_image.image.url(:small) %>
-        <div class="caption">
-          <p>
-            <%= set_up_main_img_btn(product_image) %>
-            <%= link_to t('admin.actions.edit.menu'), 
-                        edit_admin_product_product_image_path(@product,product_image), 
-                        :class => "btn btn-primary" %> 
+<div class="row">
+  <ul class="thumbnails span7">
+    <% @product.product_images.each do |product_image| %>
+      <li class="span3">
+        <div class="thumbnail">
+          <%= image_tag product_image.image.url(:small) %>
+          <div class="caption">
+            <p>
+              <%= set_up_main_img_btn(product_image) %>
+              <%= link_to t('admin.actions.edit.menu'), 
+                          edit_admin_product_product_image_path(@product,product_image), 
+                          :class => "btn btn-primary" %> 
 
-            <%= link_to t('admin.actions.delete.menu'), admin_product_product_image_path(@product,product_image), 
-                        :method => :delete, :confirm => t('admin.actions.delete.confirm'), 
-                        :class => "btn btn-danger" %>
-          </p>
+              <%= link_to t('admin.actions.delete.menu'), admin_product_product_image_path(@product,product_image), 
+                          :method => :delete, :confirm => t('admin.actions.delete.confirm'), 
+                          :class => "btn btn-danger" %>
+            </p>
+          </div>
         </div>
-      </div>
-    </li>
-  <% end %>
-</ul>
+      </li>
+    <% end %>
+  </ul>
 
-<div class="alert alert-info">
-  <%= simple_form_for([:admin, @product, @product_image], :html => {:class => 'form-horizontal'}) do |f| %>
-    <%= f.error_notification %>
-    
-  		<fieldset>
-  			<%= image_tag @product_image.image.url(:small)  if @product_image.id %>
-        <%= f.input :image_file_name do
-          f.file_field :image
-        end %>
-        <%= f.input :is_main %>      
-  		</fieldset>
+  <div class="alert alert-info span3">
+    <%= simple_form_for([:admin, @product, @product_image]) do |f| %>
+      <%= f.error_notification %>
       
-      <%= render :partial => "taurus/admin/shared/product_form_actions", :locals => { :f => f } %>
-  <% end %>
+    		<fieldset>
+    			<%= image_tag @product_image.image.url(:small)  if @product_image.id %>
+          <%= f.input :image_file_name do
+            f.file_field :image
+          end %>
+          <%= f.input :is_main %>      
+    		</fieldset>
+        
+        <%= f.button :submit, :class => "btn btn-large btn-warning" %>
+        <%= link_to t('admin.misc.cancel'), admin_product_path(@product), :class => "btn" %>
+    <% end %>
+  </div>
 </div>

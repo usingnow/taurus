@@ -6,7 +6,7 @@ Bundler.require(*Rails.groups)
 
 require '<%= lib_name %>'
 
-module Sandbox
+module <%= module_name %>
   class Application < Rails::Application
 
     config.to_prepare do
