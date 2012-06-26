@@ -42,9 +42,13 @@ module Taurus
         else  
           @cart.destroy
           session[:order_step] = session[:order_params] = session[:cart_id] = nil  
-          redirect_to index_home_index_url  
+          redirect_to success_index_order_url(@order)  
         end
 			end
+
+      def success
+        @order = current_user.orders.find(params[:id])
+      end
 
       def sign
         @order = current_user.orders.find(params[:id])
@@ -85,6 +89,8 @@ module Taurus
           render :text => "支付失败"
         end
       end
+
+
         
 		end
 	end

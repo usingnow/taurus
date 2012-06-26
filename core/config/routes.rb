@@ -77,6 +77,7 @@ Taurus::Core::Engine.routes.draw do
       member do 
         get :online_payment
         get :sign
+        get :success
       end
       collection do 
         get :online_payment_notify
