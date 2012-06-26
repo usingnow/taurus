@@ -189,6 +189,8 @@ en:
         images: "Images"
         combined_products: "Combined Products"
         sales_status: "Sales Status"
+        all_single: "All Single Products"
+        all_combined: "All Combined Products"
       combined_product:
         edit_instruction: "Click 'Update' to keep the results."
       product_image:

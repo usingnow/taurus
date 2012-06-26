@@ -368,6 +368,8 @@ zh-CN:
         images: "图片"
         combined_products: "组合商品"
         sales_status: "销售状态"
+        all_single: "全部销售单品"
+        all_combined: "全部组合商品"
       combined_product:
         edit_instruction: "点击“更新销售商品”按钮,才会保存修改后结果！"
       product_image:

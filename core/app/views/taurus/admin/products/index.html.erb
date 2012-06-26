@@ -31,6 +31,29 @@
   </a>
 </div>
 
+<div class="well">
+  <ul class="nav nav-pills trk-non-inline-margin">
+    <li <%== "class='active'" if @search.product_type_eq == 0 && @search.sales_status_eq.blank? && @search.if_shown_on_web_eq.blank? %>>
+      <%= link_to t('admin.misc.product.all_single'), 
+                  admin_products_path(:'q[number_cont]' => '',
+                                      :'q[name_cont]' => '',
+                                      :'q[product_category_name_cont]' => '',
+                                      :'q[sales_status_eq]' => '',
+                                      :'q[if_shown_on_web_eq]' => '',
+                                      :'q[product_type_eq]' => '0') %>
+    </li>
+    <li <%== "class='active'" if @search.product_type_eq == 1 && @search.sales_status_eq.blank? && @search.if_shown_on_web_eq.blank? %>>
+      <%= link_to t('admin.misc.product.all_combined'), 
+                  admin_products_path(:'q[number_cont]' => '',
+                                      :'q[name_cont]' => '',
+                                      :'q[product_category_name_cont]' => '',
+                                      :'q[sales_status_eq]' => '',
+                                      :'q[if_shown_on_web_eq]' => '',
+                                      :'q[product_type_eq]' => '1') %>
+    </li>
+  </ul>
+</div>
+
 <div class="alert alert-info">
   <button type="button" class="close" data-dismiss="alert">×</button>
   <%= t('admin.misc.product.instruction') %>

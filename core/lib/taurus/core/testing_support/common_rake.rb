@@ -6,7 +6,7 @@ desc "Generates a dummy app for testing"
 namespace :common do
   task :test_app do
     require "#{ENV['LIB_NAME']}"
-
+    
     Taurus::DummyGenerator.start ["--lib_name=#{ENV['LIB_NAME']}", "--database=#{ENV['DB_NAME']}", "--quiet"]
     Taurus::InstallGenerator.start ["--lib_name=#{ENV['LIB_NAME']}", "--auto-accept", "--migrate=false", "--seed=false", "--sample=false", "--quiet"]
 
@@ -20,5 +20,6 @@ namespace :common do
     end
 
     system(cmd)
+    puts "abc"
   end
 end
