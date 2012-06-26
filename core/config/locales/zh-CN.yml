@@ -187,6 +187,7 @@ zh-CN:
       even: "必须为双数"
       taken: "已经被使用"
       record_invalid: "验证失败: %{errors}"
+      phone_or_mobile: "固话与手机选填一项"
     template: &errors_template
       header:
         one: "有 1 个错误发生导致「%{model}」无法被保存。"

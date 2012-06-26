@@ -4,6 +4,10 @@ en:
   successfully_destroyed: "Item deleted successfully！"
   failure_destroyed: "Failed to delete the item！"
 
+  errors:
+    format: "%{attribute} %{message}"
+    messages: &errors_messages
+      phone_or_mobile: "Please fill in the mobile or telephone number. Either will do."
 
   activerecord:
     models:
