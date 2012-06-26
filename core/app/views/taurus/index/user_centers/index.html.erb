@@ -1,7 +1,7 @@
 <div class="row">
   <%= render :partial => "taurus/index/shared/user_center_nav_list" %>  
 
-  <div class="span10">
+  <div class="span10" style="min-height: 440px;">
     <div class="well">
       <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
         <%= f.text_field :number_cont, :placeholder => t('activerecord.attributes.taurus/order.number'), :class => "trk-non-inline-margin" %>
@@ -35,7 +35,7 @@
       <% end %>
       </tbody>
       <tfoot>
-        <tr><td colspan='6'><%= will_paginate @orders, :renderer => BootstrapPagination::Rails %></td></tr>
+        <tr><td colspan='7'><%= will_paginate @orders, :renderer => BootstrapPagination::Rails %></td></tr>
       </tfoot>
     </table>
   </div>
