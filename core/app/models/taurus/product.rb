@@ -29,6 +29,7 @@ module Taurus
     scope :displays, joins(:product_displays).order("taurus_product_displays.sequence DESC")
     scope :combined, where("product_type = 1")
     scope :single, where("product_type = 0")
+    scope :available, joins(:stock).where("taurus_stocks.in_stock > taurus_stocks.reserved")
 
 
   	def product_category_name
@@ -37,6 +38,10 @@ module Taurus
 
     def main_image(style = :small)
       product_images.main.last.image.url(style)
+    end
+
+    def available?
+      stock.in_stock > stock.reserved
     end
 
     protected

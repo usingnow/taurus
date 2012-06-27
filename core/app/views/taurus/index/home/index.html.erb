@@ -51,8 +51,12 @@
               <h5><%= product.name %></h5>
               <p></p>
               <p>
-                <a href="<%= index_cart_product_line_items_path(:product_id => product.id) %>" 
-                   data-method="post" class="btn btn-primary">加入购物车</a> 
+                <% if product.available? %>
+                  <a href="<%= index_cart_product_line_items_path(:product_id => product.id) %>" 
+                     data-method="post" class="btn btn-primary">加入购物车</a> 
+                <% else %>
+                  <a href="#" ref="disabled" class="btn btn-primary disabled">加入购物车</a>      
+                <% end %>   
                 <a href="<%= index_product_path(product) %>" class="btn">详情</a>
               </p>
             </div>

@@ -12,8 +12,14 @@ module Taurus
 
       def create
       	@cart = current_cart
-      	@cart_product_line_item = @cart.add_product(params[:product_id])
-      	@cart_product_line_item.save
+        
+        @product = Product.available.find_by_id(params[:product_id])
+
+        if @product
+        	@cart_product_line_item = @cart.add_product(@product.id)
+        	@cart_product_line_item.save
+        end
+          
         redirect_to(index_cart_product_line_items_url)
       end
 

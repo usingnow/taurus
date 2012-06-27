@@ -14,4 +14,6 @@ $(function(){
       jQuery('#cart_amount').html(data.cart.total_amount);
     }
   }); 
+
+  $("a.disabled").click(function(){return false});
 });

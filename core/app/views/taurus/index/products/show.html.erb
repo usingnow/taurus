@@ -117,7 +117,16 @@
       <strong class="trk-price"><%= format_price @product.price_after_tax %></strong>
       <em class="trk-market-price"> 市场价：<%= format_price @product.market_price%></em>
     </div>
-    <button class="btn btn-warning btn-large pull-right"><i class="icon-shopping-cart"></i> 加入购物车</button>
+    <% if @product.available? %>
+      <a href="<%= index_cart_product_line_items_path(:product_id => @product.id) %>" 
+         data-method="post" class="btn btn-warning btn-large pull-right">
+         <i class="icon-shopping-cart"></i> 加入购物车
+      </a>
+    <% else %>
+      <a href="#" class="btn btn-warning btn-large pull-right disabled">
+         <i class="icon-shopping-cart"></i> 加入购物车
+      </a>
+    <% end %>  
     <div class="btn-group pull-right" style="clear: both; margin-top: 20px;">
       <button class="btn btn-info"><i class="icon-info-sign"></i> 其他详细信息</button>
       <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
