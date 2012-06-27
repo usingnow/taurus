@@ -1,4 +1,4 @@
-<div class="well">
+<!-- 原来的数据 <div class="well">
   <h2 class="pull-left">
     <%= t('admin.actions.new.title', :model => t('admin.misc.product.single')) %>
   </h2>
@@ -23,6 +23,107 @@
     
     <div class="form-actions">
       <%= f.button :submit, :class => "btn btn-primary" %>
+      <%= link_to t('admin.misc.cancel'), admin_products_path, :class => "btn" %>
+    </div>
+  </fieldset>
+<% end %>
+-->
+
+<div class="well">
+  <h2 class="pull-left">
+    <%= t('admin.actions.new.title', :model => t('admin.misc.product.single')) %>
+  </h2>
+
+  <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_products_path, :class => "btn pull-right" %>
+</div>
+
+
+<%= simple_form_for([:admin,@product], :html => {:class => 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+
+<div class="alert alert-info">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  *为必填项。
+</div>
+
+<ul class="nav nav-tabs">
+  <li class="active">
+    <a href="#">1. 填写商品详细信息</a>
+  </li>
+  <li>
+    <a href="#">2. 填写定义属性</a>
+  </li>
+  <li>
+    <a href="#">3. 添加商品图片</a>
+  </li>
+  <li>
+    <a href="#">4. 确认销售状态</a>
+  </li>
+</ul>
+
+<!-- 填写详细详细的tab -->
+  <fieldset>
+    <%= f.input :number %>
+    <%= f.input :name %>
+    <%= f.input :product_category_name, :url => autocomplete_product_category_name_admin_products_path, 
+                :input_html => { :id_element => '#product_product_category_id' }, :as => :autocomplete, 
+                :hint => t('admin.misc.product.single_category_hint', 
+                           :autocomplete_instruction => t('admin.misc.autocomplete_instruction')) %>
+    <%= f.input :product_category_id, :as => :hidden %>
+    <%= f.input :weight %>
+    <%= f.input :price_after_tax %>
+    
+    <div class="control-group string optional">
+      <label class="string optional control-label" for="product_brand">品牌</label>
+      <div class="controls">
+        <input class="string optional" id="product_brand" name="product[brand]" size="50" type="text">
+      </div>
+    </div>
+    
+    <div class="control-group decimal optional">
+      <label class="decimal optional control-label" for="product_tax">税率</label>
+      <div class="controls">
+        <input class="numeric decimal optional" id="product_tax" name="product[tax]" step="any" type="number" value="0.0">
+      </div>
+    </div>
+
+    <div class="control-group decimal optional">
+      <label class="decimal optional control-label" for="product_market_price">市场价</label>
+      <div class="controls">
+        <input class="numeric decimal optional" id="product_market_price" name="product[market_price]" step="any" type="number" value="0.0">
+      </div>
+    </div>
+
+    <div class="control-group string optional">
+      <label class="string optional control-label" for="product_place_of_origin">产地</label>
+      <div class="controls">
+        <input class="string optional" id="product_place_of_origin" name="product[place_of_origin]" size="50" type="text" value="">
+      </div>
+    </div>
+
+    <div class="control-group string optional">
+      <label class="string optional control-label" for="product_unit">单位</label>
+      <div class="controls">
+        <input class="string optional" id="product_unit" name="product[unit]" size="50" type="text" value="">
+      </div>
+    </div>
+
+    <div class="control-group string optional">
+      <label class="string optional control-label" for="product_manufacturer">生产企业</label>
+      <div class="controls">
+        <input class="string optional" id="product_manufacturer" name="product[manufacturer]" size="50" type="text" value="">
+      </div>
+    </div>
+
+    <div class="control-group string optional">
+      <label class="string optional control-label" for="product_manufacturer">商品介绍</label>
+      <div class="controls">
+        <input class="string optional" id="product_manufacturer" name="product[manufacturer]" size="50" type="text" value="插件">
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <a href="" class="btn btn-large btn-success"><i class="icon-circle-arrow-right"></i> 进入步骤二：填写自定义属性</a>
       <%= link_to t('admin.misc.cancel'), admin_products_path, :class => "btn" %>
     </div>
   </fieldset>
