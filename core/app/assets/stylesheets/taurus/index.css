@@ -7,6 +7,10 @@
  *= require taurus/simple_form
 */
 
+.main {
+	min-height: 550px;
+}
+
 .footer {
 	margin-top: 45px;
 	padding: 35px 0 36px;
