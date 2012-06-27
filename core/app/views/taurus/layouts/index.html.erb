@@ -22,10 +22,7 @@
         <div class="nav-collapse">
           <ul class="nav pull-right">
             <li>
-              <a href="<%= index_cart_product_line_items_path %>">
-                <i class="icon-shopping-cart"></i>
-                购物车（<strong id="cart_amount">0</strong>）
-              </a>
+              <%= render_cell :cart, :display, :cart_id => cookies[:cart_id] %>
             </li>
             <li class="divider-vertical"></li>  
             <% if current_user %>
