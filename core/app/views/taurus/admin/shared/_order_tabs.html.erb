@@ -1,7 +1,6 @@
 <div class="well">
-  <a href="#" class="btn btn-primary"><i class="icon-truck"></i> 安排订单出库</a>
+  <%= order_operations(@order) %>
   
-
   <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_orders_path, 
               :class => "btn pull-right" %>
 </div>

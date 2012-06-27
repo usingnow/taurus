@@ -19,7 +19,7 @@
       <td><%= format_price order.total_payment %></td>
       <td><%= format_order_state order.state %></td>
       <td><%= order.created_at %></td>
-      <td><%= order_operations(order) %></td>
+      <td><%= order_operations(order, "trk-btn-short") %></td>
     </tr>
   <% end %>
   </tbody>
