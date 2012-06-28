@@ -1,10 +1,10 @@
-<%= render :partial => "taurus/admin/shared/new_product_tabs", 
-           :locals => { :current => "combined_products", :type => "combined" } %>
+<%= render :partial => "taurus/admin/shared/product_tabs", 
+           :locals => { :current => "combined", :type => "edit" } %>
 
 <%= hidden_field_tag :product_id, @product.id %>
 
-<%= simple_form_for(@combined_product, :url => admin_product_combined_products_path(@product), 
-                    :html => {:class => 'row', :method => :post}) do |f| %>
+<%= simple_form_for(@combined_product, :url => admin_product_combined_product_path(@product, 0), 
+                    :html => {:class => 'row', :method => :put}) do |f| %>
   <div class="span7">
     <div class="alert alert-info">
 		  <button type="button" class="close" data-dismiss="alert">×</button>
@@ -46,13 +46,9 @@
 		</table>
    
 		<div class="form-actions">
-			<button type="submit" class="btn btn-large btn-success">
-        <i class="icon-circle-arrow-right"></i> 进入步骤五：确认销售状态
-      </button>
-      <a href="<%= new_admin_product_product_image_path(@product) %>" 
-         class="btn">
-        <i class="icon-circle-arrow-left"></i> 返回上一步
-      </a>
+			<%= f.button :submit, :value => "更新销售商品", :class => "btn btn-large btn-warning" %>
+
+			<%= link_to t('admin.misc.cancel'), admin_product_path(@product), :class => "btn" %>
 		</div>	
   </div> 
 

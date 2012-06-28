@@ -6,7 +6,8 @@
            :href => admin_product_category_custom_properties_path(@product.product_category_id)) %> 
 </div>
 
-<%= simple_form_for(@product, :url => admin_product_custom_property_values_path(@product), :html => {:class => 'form-horizontal', :method => :post}) do |f| %>
+<%= simple_form_for(@product, :url => admin_product_custom_property_value_path(@product,0), 
+                    :html => {:class => 'form-horizontal', :method => :put}) do |f| %>
   <%= f.error_notification %>
 
   <fieldset>

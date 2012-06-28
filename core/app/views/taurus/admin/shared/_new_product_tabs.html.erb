@@ -1,0 +1,22 @@
+<div class="well">
+  <h2 class="pull-left">
+    <%= t('admin.actions.new.title', :model => t("admin.misc.product.#{type}")) %>
+  </h2>
+
+  <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_products_path, :class => "btn pull-right" %>
+</div>
+
+<ul class="nav nav-tabs">
+  <% 
+    tabs = ["details", "custom_properties", "images"] 
+    tabs << "combined_products" if type == "combined"
+    tabs << "sales_status"
+  %>
+
+  <% tabs.each_with_index do |tab, index| %>
+    <li <%== 'class="active"' if current == tab %>>
+      <a href="#"><%= index+1 %>. <%= t("admin.misc.product.new_#{tab}") %></a>
+    </li>
+  <% end %>
+</ul>
+

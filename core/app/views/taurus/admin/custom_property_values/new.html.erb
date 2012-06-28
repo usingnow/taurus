@@ -1,0 +1,28 @@
+<%= render :partial => "taurus/admin/shared/new_product_tabs", 
+           :locals => { :current => "custom_properties", 
+                        :type => @product.product_type == 0 ? "single" : "combined" } %>
+
+<div class="alert alert-info">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <%=raw t('admin.misc.custom_property_value.instruction', 
+           :href => admin_product_category_custom_properties_path(@product.product_category_id)) %> 
+</div>
+
+<%= simple_form_for(@product, :url => admin_product_custom_property_values_path(@product), :html => {:class => 'form-horizontal', :method => :post}) do |f| %>
+  <%= f.error_notification %>
+
+  <fieldset>
+    <%=raw custom_property_values(f) %>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-large btn-success">
+        <i class="icon-circle-arrow-right"></i> 进入步骤三：添加商品图片
+      </button>
+      <a href="<%= @product.product_type == 0 ? new_admin_product_path(:product_id => @product) : 
+                                                combined_new_admin_products_path(:product_id => @product) %>" 
+         class="btn">
+        <i class="icon-circle-arrow-left"></i> 返回上一步
+      </a>
+    </div>
+  </fieldset>
+<% end %>

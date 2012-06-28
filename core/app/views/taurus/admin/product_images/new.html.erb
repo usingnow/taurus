@@ -1,0 +1,61 @@
+<%= render :partial => "taurus/admin/shared/new_product_tabs", 
+           :locals => { :current => "images", :type => @product.product_type == 0 ? "single" : "combined" } %>
+
+<div class="row">
+  <ul class="thumbnails span7">
+    <% @product.product_images.each do |product_image| %>
+      <li class="span3">
+        <div class="thumbnail">
+          <%= image_tag product_image.image.url(:small) %>
+          <div class="caption">
+            <p>
+              <%= set_up_main_img_btn(product_image, :from_view => "new") %>
+              <%= link_to t('admin.actions.edit.menu'), 
+                          edit_admin_product_product_image_path(@product,product_image, :from_view => "new"), 
+                          :class => "btn btn-primary" %> 
+
+              <%= link_to t('admin.actions.delete.menu'), 
+                          admin_product_product_image_path(@product,product_image, :from_view => "new"), 
+                          :method => :delete, :confirm => t('admin.actions.delete.confirm'), 
+                          :class => "btn btn-danger" %>
+            </p>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="alert alert-info span3">
+    <%= simple_form_for([:admin, @product, @product_image]) do |f| %>
+      <%= f.error_notification %>
+      
+    		<fieldset>
+    			<%= image_tag @product_image.image.url(:small)  if @product_image.id %>
+          <%= f.input :image_file_name do
+            f.file_field :image
+          end %>
+          <%= f.input :is_main %>
+          <%= hidden_field_tag :from_view, "new" %>      
+    		</fieldset>
+        
+        <%= f.button :submit, :class => "btn btn-large btn-warning" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-actions">
+    <% if @product.product_type == 0 %>
+      <a href="<%= new_sales_status_admin_product_path(@product) %>" class="btn btn-large btn-success">
+        <i class="icon-circle-arrow-right"></i> 进入步骤四：确认销售状态
+      </a>
+    <% else %>
+      <a href="<%= new_admin_product_combined_product_path(@product) %>" class="btn btn-large btn-success">
+        <i class="icon-circle-arrow-right"></i> 进入步骤四：添加组合商品
+      </a>
+    <% end %>
+    <a href="<%= new_admin_product_custom_property_value_path(@product) %>" class="btn">
+      <i class="icon-circle-arrow-left"></i> 返回上一步
+    </a>
+  </div>
+</div>

@@ -12,16 +12,21 @@ module Taurus
         @product = Product.find(params[:product_id])
       end
 
+      def new
+        @product = Product.find(params[:product_id])
+        @product_image = ProductImage.new
+      end
+
       def create
         @product = Product.find(params[:product_id])
         @product_image = @product.product_images.build(params[:product_image])
 
         if @product_image.save
           flash[:success] = I18n.t(:successfully_created)
-          redirect_to admin_product_product_images_url(@product)
+          redirect_to params[:from_view] ? new_admin_product_product_image_url(@product) : admin_product_product_images_url(@product)
         else
           @product = Product.find(params[:product_id])
-          render :action => :index
+          render :action => params[:from_view] ? :new : :index
         end
       end
 
@@ -29,7 +34,7 @@ module Taurus
         @product = Product.find(params[:product_id])
         @product_image = @product.product_images.find(params[:id])
 
-        render :action => :index
+        render :action => params[:from_view] ? :new : :index
       end
 
       def update
@@ -38,9 +43,9 @@ module Taurus
 
         if @product_image.update_attributes(params[:product_image])
           flash[:success] = I18n.t(:successfully_updated)
-          redirect_to admin_product_product_images_url(@product)
+          redirect_to params[:from_view] ? new_admin_product_product_image_url(@product) : admin_product_product_images_url(@product)
         else
-          render :action => :index
+          render :action => params[:from_view] ? :new : :index
         end
       end
 
@@ -55,7 +60,7 @@ module Taurus
           flash[:error] = I18n.t(:failure_destroyed)
         end 
 
-        redirect_to(admin_product_product_images_url(@product)) 
+        redirect_to params[:from_view] ? new_admin_product_product_image_url(@product) : admin_product_product_images_url(@product) 
       end
 
       def set_up_main_img
@@ -66,7 +71,7 @@ module Taurus
           flash[:success] = I18n.t(:successfully_updated)
         end
 
-        redirect_to(admin_product_product_images_url(@product))   
+        redirect_to params[:from_view] ? new_admin_product_product_image_url(@product) : admin_product_product_images_url(@product)   
       end
     end
   end

@@ -1,16 +1,11 @@
-<div class="well">
-  <h2 class="pull-left">
-    <%= t('admin.actions.new.title', :model => t('admin.misc.product.single')) %>
-  </h2>
-
-  <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_products_path, :class => "btn pull-right" %>
-</div>
-
+<%= render :partial => "taurus/admin/shared/new_product_tabs", 
+           :locals => { :current => "details", :type => "single" } %>
 
 <%= simple_form_for([:admin,@product], :html => {:class => 'form-horizontal'}) do |f| %>
   <%= f.error_notification %>
 
   <fieldset>
+    <%= hidden_field_tag :from_view, "new" %>
     <%= f.input :number %>
     <%= f.input :name %>
     <%= f.input :product_category_name, :url => autocomplete_product_category_name_admin_products_path, 
@@ -21,9 +16,20 @@
     <%= f.input :weight %>
     <%= f.input :price_after_tax %>
     
+    <%= f.input :brand %>
+    <%= f.input :weight %>
+    <%= f.input :price_after_tax %>
+    <%= f.input :tax %>
+    <%= f.input :market_price %>
+    <%= f.input :place_of_origin %>
+    <%= f.input :unit %>
+    <%= f.input :manufacturer %>
+    <%= f.input :description, :as => :ckeditor, :input_html => { :toolbar => 'Full' } %>
+
     <div class="form-actions">
-      <%= f.button :submit, :class => "btn btn-primary" %>
-      <%= link_to t('admin.misc.cancel'), admin_products_path, :class => "btn" %>
+      <button type="submit" class="btn btn-large btn-success">
+        <i class="icon-circle-arrow-right"></i> 进入步骤二：填写自定义属性
+      </button>
     </div>
   </fieldset>
 <% end %>

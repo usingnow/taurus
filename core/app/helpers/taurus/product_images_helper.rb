@@ -1,6 +1,6 @@
 module Taurus
 	module ProductImagesHelper
-    def set_up_main_img_btn(product_image)
+    def set_up_main_img_btn(product_image, from_view = "edit")
     	html_class = "btn btn-success"
 
       if product_image.is_main
@@ -9,7 +9,7 @@ module Taurus
       	html_class << " disabled"
       else
         name = t('admin.misc.product_image.set_up_main_img')
-      	href = set_up_main_img_admin_product_product_image_path(@product, product_image)
+      	href = set_up_main_img_admin_product_product_image_path(@product, product_image, :from_view => from_view)
       end	
 
       link_to name,  href, :method => :put, :class => html_class

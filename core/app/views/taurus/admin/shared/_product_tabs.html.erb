@@ -45,7 +45,7 @@
     <li <%== 'class="active"' if current == "combined" %>>
       <%= link_to t('admin.misc.product.combined_products'), 
                   type == "show" ? admin_product_combined_products_path(@product) : 
-                                   new_admin_product_combined_product_path(@product) %>
+                                   edit_admin_product_combined_product_path(@product, 0) %>
     </li>
   <% end %>
   <li <%== 'class="active"' if current == "sales" %>>

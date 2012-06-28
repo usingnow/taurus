@@ -1,0 +1,34 @@
+<%= render :partial => "taurus/admin/shared/new_product_tabs", 
+           :locals => { :current => "sales_status", 
+           :type => @product.product_type == 0 ? "single" : "combined" } %>
+
+
+<% if @product.product_images.size == 0 %>
+  <div class="alert alert-error">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    商品未添加图片， 上架后将显示默认图片。
+  </div>
+<% end %>
+
+<%= simple_form_for(@product, :url => update_sales_status_admin_product_path(@product), 
+                    :html => {:class => 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+
+  <fieldset>
+    <%= hidden_field_tag :from_view, "new" %>
+    <%= f.input :sales_status, :boolean_style => :inline, :hint => t('admin.misc.product.sales_status_hint') %>
+    <%= f.input :if_shown_on_web, :boolean_style => :inline, 
+                :hint => t('admin.misc.product.if_shown_on_web_hint') %>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-large btn-success">
+        <i class="icon-circle-arrow-right"></i> 完成商品新建
+      </button>
+      <a href="<%= @product.product_type == 0 ? new_admin_product_product_image_path(@product) : 
+                                                new_admin_product_combined_product_path(@product) %>" 
+         class="btn">
+        <i class="icon-circle-arrow-left"></i> 返回上一步
+      </a>
+    </div>
+  </fieldset>
+<% end %>

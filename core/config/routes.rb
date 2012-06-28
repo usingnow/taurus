@@ -43,6 +43,7 @@ Taurus::Core::Engine.routes.draw do
       member do
         get :show_sales_status
         get :edit_sales_status
+        get :new_sales_status
         put :update_sales_status
       end
       resources :custom_property_values

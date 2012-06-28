@@ -19,7 +19,7 @@ module Taurus
 		  end
 
 		  def new
-		    @product = Product.new
+		    @product = Product.find_by_id(params[:product_id]) || Product.new
 		  end
 
 		  def edit
@@ -31,7 +31,7 @@ module Taurus
 
 		    if @product.save
 		    	flash[:success] = I18n.t('admin.misc.product.successfully_created')
-		    	redirect_to edit_admin_product_url(@product)
+		    	redirect_to new_admin_product_custom_property_value_url(@product)
 		    else
 		    	render :action => "new"
 		    end	
@@ -42,10 +42,14 @@ module Taurus
 
 		    if @product.update_attributes(params[:product])
 		    	flash[:success] = I18n.t(:successfully_updated)
-		    	redirect_to edit_admin_product_url(@product)
+		    	redirect_to params[:from_view] ? new_admin_product_custom_property_value_url(@product) : edit_admin_product_url(@product)
 		    else
-		    	render :action => "edit"
+		    	render :action => params[:from_view] ? :new : :edit
 		    end
+		  end
+
+		  def new_sales_status
+        @product = Product.find(params[:id])
 		  end
 
 		  def edit_sales_status
@@ -58,14 +62,14 @@ module Taurus
 
 		    if @product.update_attributes(params[:product])
 		    	flash[:success] = I18n.t(:successfully_updated)
-		    	redirect_to edit_sales_status_admin_product_url(@product)
+		    	redirect_to params[:from_view] ? admin_product_path(@product) : edit_sales_status_admin_product_url(@product)
 		    else
-		    	render :action => "edit_sales_status"
+		    	render :action => params[:from_view] ? :new_sales_status : :edit_sales_status
 		    end
 		  end
 
 		  def combined_new
-        @product = Product.new
+        @product = Product.find_by_id(params[:product_id]) || Product.new
 		  end
 
 		  def combined_create
@@ -74,7 +78,7 @@ module Taurus
 
 		    if @product.save
 		    	flash[:success] = I18n.t('admin.misc.product.successfully_created')
-		    	redirect_to edit_admin_product_url(@product)
+		    	redirect_to new_admin_product_custom_property_value_url(@product)
 		    else
 		    	render :action => :combined_new
 		    end	
