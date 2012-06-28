@@ -11,5 +11,13 @@ module Taurus
       end
       errors.html_safe
     end
+
+    def format_delivery_record_type(type)
+      DeliveryRecord::DELIVERY_RECORD_TYPE[type]
+    end
+
+    def format_delivery_type(type)
+      DeliveryRecord::DELIVERY_TYPE[type]
+    end
 	end
 end

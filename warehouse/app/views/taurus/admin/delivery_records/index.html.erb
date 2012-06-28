@@ -11,17 +11,23 @@
     <tr>
       <th>#</th>
       <th><%= t('activerecord.attributes.taurus/delivery_record.number') %></th>
+      <th><%= t('activerecord.attributes.taurus/delivery_record.delivery_record_type') %></th>
+      <th><%= t('activerecord.attributes.taurus/delivery_record.delivery_type') %></th>
+      <th><%= t('activerecord.attributes.taurus/delivery_record.created_at') %></th>
     </tr>
   </thead>
   <tbody>
   <% @delivery_records.each_with_index do |delivery_record,index| %>
     <tr>
       <td><%= index+1 %></td>
-      <td><%= delivery_record.number %></td>
+      <td><%= link_to delivery_record.number, admin_delivery_record_path(delivery_record) %></td>
+      <td><%= format_delivery_record_type delivery_record.delivery_record_type %></td>
+      <td><%= format_delivery_type delivery_record.delivery_type %></td>
+      <td><%= delivery_record.created_at %></td>
     </tr>
   <% end %>
   </tbody>
   <tfoot>
-    <tr><td colspan='6'><%= will_paginate @delivery_records, :renderer => BootstrapPagination::Rails %></td></tr>
+    <tr><td colspan='5'><%= will_paginate @delivery_records, :renderer => BootstrapPagination::Rails %></td></tr>
   </tfoot>
 </table>

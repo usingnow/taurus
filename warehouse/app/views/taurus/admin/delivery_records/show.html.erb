@@ -1,0 +1,71 @@
+<div class="well">
+  <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_delivery_records_path, :class => "btn pull-right" %>
+</div>
+
+<%= simple_form_for(@delivery_record, :url => "#", :html => {:class => 'form-horizontal'})  do |f| %>
+  
+  <fieldset>
+    <%= f.input :number, :disabled => true %>
+    <%= f.input :delivery_record_type, :collection => Taurus::DeliveryRecord::DELIVERY_RECORD_TYPE, 
+                :label_method => :second, :value_method => :first, :include_blank => false, 
+                :as => :select, :disabled => true %>
+
+    <% if @delivery_record.delivery_record_type == 0 %>  
+      <%= f.fields_for :order do |o_f| %>
+        <%= o_f.input :number, :disabled => true %>
+        <%= o_f.input :created_at, :input_html => { :class => "span1" }, :disabled => true %>
+        <%= o_f.input :customer_name, :disabled => true %>
+      <% end %>          
+    <% end %>
+
+    <%= f.input :delivery_type, :collection => Taurus::DeliveryRecord::DELIVERY_TYPE, 
+                :label_method => :second, :value_method => :first, :include_blank => false, 
+                :as => :select, :disabled => true %>
+
+    <% if @delivery_record.delivery_type == 0 %>
+      <%= f.input :courier, :required => true, :disabled => true %>
+      <%= f.input :courier_number, :required => true, :disabled => true %>
+      <%= f.input :delivery_date, :input_html => { :class => "span1" }, :required => true, :disabled => true %>
+    <% elsif @delivery_record.delivery_type == 1 %>
+      <%= f.input :delivery_name, :required => true, :disabled => true %>
+      <%= f.input :delivery_date, :input_html => { :class => "span1" }, :required => true, :disabled => true %>
+    <% else %>
+      <%= f.input :customer_name, :required => true, :disabled => true %>
+      <%= f.input :customer_phone, :required => true, :disabled => true %>
+      <%= f.input :pick_up_date, :input_html => { :class => "span1" }, :required => true, :disabled => true %>
+    <% end %>
+
+    <%= f.input :remarks %>
+    
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#"><%= t('activerecord.models.taurus/delivery_record_product_line_item') %></a>
+      </li>
+    </ul>  
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th><%= t('activerecord.attributes.taurus/product.number') %></th>
+          <th><%= t('activerecord.attributes.taurus/product.name') %></th>
+          <th><%= t('activerecord.attributes.taurus/delivery_record_product_line_item.product_amount') %></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @delivery_record.delivery_record_product_line_items.each_with_index do |line_item,index| %>
+        <tr>
+          <td><%= index+1 %></td>
+          <td>
+            <%= link_to line_item.product.number, admin_product_path(line_item.product_id), 
+                        :target => "_blank" %>
+          </td>
+          <td><%= line_item.product.name %></td>
+          <td><%= line_item.product_amount %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+  </fieldset>
+<% end %>

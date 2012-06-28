@@ -7,6 +7,7 @@ module Taurus
   	DELIVERY_TYPE = { 0 => "快递", 1 => "自配", 2 => "客户自提" }
 
 		belongs_to :order
+		accepts_nested_attributes_for :order
 		belongs_to :administrator
 		has_many :delivery_record_product_line_items, :dependent => :destroy
 

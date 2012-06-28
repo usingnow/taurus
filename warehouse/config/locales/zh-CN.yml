@@ -2,7 +2,8 @@ zh-CN:
   activerecord:
     models:
       taurus/stock: "库存"
-      taurus/delivery_record: "出库记录"
+      taurus/delivery_record: "出货记录"
+      taurus/delivery_record_product_line_item: "出货商品"
       taurus/replenishment_record: "补货记录"
       taurus/replenishment_record_product_line_item: "补货商品"
     attributes:
@@ -14,6 +15,7 @@ zh-CN:
       taurus/delivery_record:
         number: "出库单编号"
         order_id: "订单"
+        delivery_record_type: "出库类型"
         delivery_type: "出库方式"
         courier: "快递公司"
         courier_number: "运单号"
@@ -23,6 +25,7 @@ zh-CN:
         customer_phone: "客户电话"
         pick_up_date: "提货日期"
         remarks: "备注"
+        created_at: "出库日期"
       taurus/delivery_record_product_line_item:
         product_amount: "数量"
       taurus/replenishment_record:

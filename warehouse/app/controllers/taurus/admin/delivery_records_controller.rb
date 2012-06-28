@@ -6,7 +6,12 @@ module Taurus
 
       def index
         @search = DeliveryRecord.search(params[:q])
+        @search.sorts = "created_at DESC"
         @delivery_records = @search.result.paginate(:page => params[:page], :per_page => 20)
+      end
+
+      def show 
+        @delivery_record = DeliveryRecord.find(params[:id])
       end
       
 		end
