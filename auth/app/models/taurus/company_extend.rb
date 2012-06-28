@@ -10,7 +10,7 @@ module Taurus
     
     before_create :insert_number
 
-    SEX = { 0 => "女", 1 => "男" }
+    SEX = { 0 => "女士", 1 => "先生" }
 
     validates_presence_of :name, :contact_name
     validates_uniqueness_of :name

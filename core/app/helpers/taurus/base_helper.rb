@@ -1,8 +1,12 @@
 #encoding:UTF-8
 module Taurus
   module BaseHelper
+    def boolean_hash
+      { false => "否", true => "是" }
+    end
+
     def format_boolean(boolean)
-      { false => "否", true => "是" }[boolean]
+      boolean_hash[boolean]
     end
 
     def components
@@ -88,6 +92,29 @@ module Taurus
         end
       end.join("\n").html_safe
     end
+
+    def show_input(object, method, options = {})
+      content_tag :div, :class => "control-group" do
+        input = content_tag :label, :class => "control-label" do
+          I18n.t("activerecord.attributes.#{object.class.to_s.underscore}.#{method.to_s}")
+        end
+        input += content_tag :div, :class => "controls" do 
+          if options[:class] 
+            options[:class] << " uneditable-input"
+          else
+            options[:class] = "uneditable-input"
+          end  
+          content_tag :span, options do
+            if options[:format]
+              options[:format][object.send(method)]
+            else
+              object.send(method).to_s
+            end
+          end
+        end
+      end
+    end
+      
 
     protected
     def component

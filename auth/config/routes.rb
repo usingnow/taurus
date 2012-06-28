@@ -15,6 +15,10 @@ Taurus::Core::Engine.routes.draw do
     end
   end
 
+  namespace :index do
+    resource :person_extend
+  end
+
 
   devise_for :administrator,
              :class_name => 'Taurus::Administrator',

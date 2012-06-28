@@ -1,0 +1,42 @@
+<ul class="breadcrumb">
+  <li>
+    <i class="icon-home"></i>
+    <a href="/">首页</a> 
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="<%= index_user_centers_path %>">用户中心</a> 
+    <span class="divider">/</span>
+  </li>
+  <li class="active">
+    用户信息
+  </li>
+</ul>
+
+<div class="row">
+  <%= render :partial => "taurus/index/shared/user_center_nav_list" %>  
+
+  <div class="span10 form-horizontal">
+    <div class="well">
+      <a href="<%= edit_index_person_extend_path %>" class="btn btn-primary">
+        <i class='icon-edit'></i> 修改
+      </a>
+    </div>
+
+    <%= flash_messages %>  
+
+    <fieldset>
+      <%= show_input @person_extend.user, :email, :class => "span3" %>
+      <%= show_input @person_extend.user, :points, :class => "span3" %>
+      <%= show_input @person_extend.user.role, :name, :class => "span3" %>
+      <%= show_input @person_extend, :sex, :class => "span3", 
+                     :format => Taurus::PersonExtend::SEX %>
+      <%= show_input @person_extend, :birth, :class => "span3" %>
+      <%= show_input @person_extend.district, :area, :class => "span3" %>
+      <%= show_input @person_extend, :address, :class => "span3" %>
+      <%= show_input @person_extend, :phone, :class => "span3" %>
+      <%= show_input @person_extend, :zip_code, :class => "span3" %>
+      <%= show_input @person_extend.user, :status, :class => "span3", :format => boolean_hash %>
+    </fieldset>
+  </div>
+</div>

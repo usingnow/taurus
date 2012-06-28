@@ -26,8 +26,8 @@ zh-CN:
         name: "名称"
         description: "描述"  
       taurus/role:
-        name: "会员角色名称"
-        description: "会员角色描述"
+        name: "角色名称"
+        description: "角色描述"
         is_reserved: "是否保留"
         set_procedure_permission: "设置流程权限"
       taurus/user:
@@ -58,7 +58,7 @@ zh-CN:
         contact_name: "联系人姓名"
         phone: "电话"
         contact_mobile: "手机"
-        contact_sex: "性别"
+        contact_sex: "会员称谓"
         contact_dept: "联系人部门"
         contact_post: "联系人职位"
         fax: "传真"
@@ -66,7 +66,7 @@ zh-CN:
       taurus/person_extend:
         name: "会员姓名"
         number: "会员编号"
-        sex: "会员性别"
+        sex: "会员称谓"
         birth: "会员出生日期"
         district: "会员所属地区"
         district_id: "会员所属地区"

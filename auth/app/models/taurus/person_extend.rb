@@ -6,7 +6,7 @@ module Taurus
     belongs_to :district
     before_create :insert_number
 
-    SEX = { 0 => "女", 1 => "男" }
+    SEX = { 0 => "女士", 1 => "先生" }
 
     validates_presence_of :name
 

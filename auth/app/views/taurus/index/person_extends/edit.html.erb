@@ -1,0 +1,55 @@
+<ul class="breadcrumb">
+  <li>
+    <i class="icon-home"></i>
+    <a href="/">首页</a> 
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="<%= index_user_centers_path %>">用户中心</a> 
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="<%= index_person_extend_path %>">用户信息</a> 
+    <span class="divider">/</span>
+  </li>
+  <li class="active">
+    修改
+  </li>
+</ul>
+
+<div class="row">
+  <%= render :partial => "taurus/index/shared/user_center_nav_list" %>  
+
+  <div class="span10 form-horizontal">
+    <div class="well">
+      <a href="<%= index_person_extend_path %>" class="btn pull-right">
+        <i class='icon-arrow-left'></i> 返回
+      </a>
+    </div>  
+
+    <%= simple_form_for @person_extend, :url => index_person_extend_path, 
+                        :html => {:class => 'form-horizontal'} do |f| %>
+      <%= f.error_notification %>
+
+      <fieldset>
+        <%= show_input @person_extend.user, :email, :class => "span3" %>
+        <%= show_input @person_extend.user, :points, :class => "span3" %>
+        <%= show_input @person_extend.user.role, :name, :class => "span3" %>
+        <%= f.input :name, :input_html => { :class => "span2" } %>
+        <%= f.input :sex, :collection => Taurus::PersonExtend::SEX, :label_method => :second, 
+                    :value_method => :first, :item_wrapper_class => 'inline', 
+                    :as => :radio_buttons %>
+        <%= f.input :birth, :input_html => { :class => "span1" }, :as => :date %>   
+        <%= f.input :district_id, :input_html => { :class => "span2" }, :as => :area %>   
+        <%= f.input :address, :input_html => { :class => "span3" } %>     
+        <%= f.input :phone, :input_html => { :class => "span2" } %> 
+        <%= f.input :zip_code, :input_html => { :class => "span2" } %>
+
+        <div class="form-actions">
+          <%= f.button :submit, :class => "btn btn-warning btn-large" %>
+          <%= link_to "取消", index_person_extend_path, :class => "btn" %>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

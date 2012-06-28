@@ -111,6 +111,8 @@ en:
       taurus/company_scale:
         name: "Company Size Name"
         sequence: "Sort" 
+      taurus/district:
+        area: "所属地区"  
     errors:
       models:  
         taurus/product:
