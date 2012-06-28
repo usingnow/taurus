@@ -4,42 +4,18 @@
   <div class="span6">
     <ul class="thumbnails">
       <li class="span6">
-        <a class="thumbnail">
-          <% @product.product_images.each do |product_image| %>
-            <%= image_tag product_image.image.url(:normal), :width => "560px", :height => "360px" %>
-          <% end %>
+        <a class="thumbnail" href="#">
+          <%= image_tag @product.main_image(:normal), :width => "560px", :id => "normal_img" %>
         </a>
       </li>
-      <li class="span1">
-        <a class="thumbnail">
-          <%= image_tag "logo.png", :width => "65px", :height => "45px" %>
-        </a>
-      </li>
-      <li class="span1">
-        <a class="thumbnail">
-          <%= image_tag "logo.png", :width => "65px", :height => "45px" %>
-        </a>
-      </li>
-      <li class="span1">
-        <a class="thumbnail">
-          <%= image_tag "logo.png", :width => "65px", :height => "45px" %>
-        </a>
-      </li>
-      <li class="span1">
-        <a class="thumbnail">
-          <%= image_tag "logo.png", :width => "65px", :height => "45px" %>
-        </a>
-      </li>
-      <li class="span1">
-        <a class="thumbnail">
-          <%= image_tag "logo.png", :width => "65px", :height => "45px" %>
-        </a>
-      </li>
-      <li class="span1">
-        <a class="thumbnail">
-          <%= image_tag "logo.png", :width => "65px", :height => "45px" %>
-        </a>
-      </li>
+      <% @product.product_images.each do |product_image| %>
+        <li class="span1">
+          <a class="thumbnail logo_img" href="<%= product_image.image.url(:normal) %>">
+            <%= image_tag product_image.image.url(:logo), :width => "65px", 
+                          :height => "45px" %>
+          </a>
+        </li>
+      <% end %>
     </ul>
   </div>
   <div class="span6">
