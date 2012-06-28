@@ -1,11 +1,17 @@
 module Taurus
   module Admin
     class ReplenishmentRecordsController < BaseController
+      helper "taurus/replenishment_records"
       autocomplete :product, :name, :class_name => "Taurus::Product", :extra_data => [:number]
 
       def index
         @search = ReplenishmentRecord.search(params[:q])
+        @search.sorts = "created_at DESC"
         @replenishment_records = @search.result.paginate(:page => params[:page], :per_page => 20)
+      end
+
+      def show
+        @replenishment_record = ReplenishmentRecord.find(params[:id])
       end
 
       def new

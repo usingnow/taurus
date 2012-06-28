@@ -32,6 +32,8 @@ zh-CN:
         remarks: "备注"
         product_name: "商品名称"
         product_amount: "商品数量"
+        created_at: "补货时间"
+        administrator: "补货人"
       taurus/replenishment_record_product_line_item:
         product_amount: "数量"
 

@@ -5,6 +5,7 @@ module Taurus
     REPLENISHMENT_TYPE = { 0 => "进货", 1 => "退换货", 2 => "其他" }
 
     has_many :replenishment_record_product_line_items, :dependent => :destroy
+    belongs_to :administrator
 
     before_create :default_value
 

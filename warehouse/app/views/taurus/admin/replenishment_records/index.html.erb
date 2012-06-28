@@ -16,17 +16,25 @@
     <tr>
       <th>#</th>
       <th><%= t('activerecord.attributes.taurus/replenishment_record.number') %></th>
+      <th><%= t('activerecord.attributes.taurus/replenishment_record.supplier') %></th>
+      <th><%= t('activerecord.attributes.taurus/replenishment_record.replenishment_type') %></th>
+      <th><%= t('activerecord.attributes.taurus/replenishment_record.created_at') %></th>
     </tr>
   </thead>
   <tbody>
   <% @replenishment_records.each_with_index do |replenishment_record,index| %>
     <tr>
       <td><%= index+1 %></td>
-      <td><%= replenishment_record.number %></td>
+      <td>
+        <%= link_to replenishment_record.number, admin_replenishment_record_path(replenishment_record) %>
+      </td>
+      <td><%= replenishment_record.supplier %></td>
+      <td><%= format_replenishment_type replenishment_record.replenishment_type %></td>
+      <td><%= replenishment_record.created_at %></td>
     </tr>
   <% end %>
   </tbody>
   <tfoot>
-    <tr><td colspan='6'><%= will_paginate @replenishment_records, :renderer => BootstrapPagination::Rails %></td></tr>
+    <tr><td colspan='5'><%= will_paginate @replenishment_records, :renderer => BootstrapPagination::Rails %></td></tr>
   </tfoot>
 </table>

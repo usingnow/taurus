@@ -1,0 +1,51 @@
+<div class="well">
+  <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_replenishment_records_path, :class => "btn pull-right" %>
+</div>
+
+<%= simple_form_for(@replenishment_record, :url => "#", :html => {:class => 'form-horizontal'} )  do |f| %>
+  
+  <fieldset>
+    <%= f.input :supplier, :disabled => true %>
+
+    <%= f.input :replenishment_type, :label_method => :second, :value_method => :first, 
+                :collection => Taurus::ReplenishmentRecord::REPLENISHMENT_TYPE, 
+                :include_blank => false, :as => :select, :disabled => true %>
+
+    <%= f.input :created_at, :input_html => { :class => "span1" }, :disabled => true %>
+
+    <%= f.association :administrator, :disabled => true %>
+ 
+    <%= f.input :remarks, :disabled => true %>
+
+
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#"><%= t('activerecord.models.taurus/replenishment_record_product_line_item') %></a>
+      </li>
+    </ul>       
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t('activerecord.attributes.taurus/product.number') %></th>
+          <th><%= t('activerecord.attributes.taurus/product.name') %></th>
+          <th>
+            <%= t('activerecord.attributes.taurus/replenishment_record_product_line_item.product_amount') %>
+          </th>
+       </tr>
+      </thead>
+      <tbody>
+        <% @replenishment_record.replenishment_record_product_line_items.each do |line_item| %>
+          <tr>
+            <td>
+              <%= link_to line_item.product.number, admin_product_path(line_item.product_id), 
+                  :target => "_blank" %>
+            </td>
+            <td><%= line_item.product.name %></td>
+            <td><%= line_item.product_amount %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>            
+  </fieldset>
+<% end %>
