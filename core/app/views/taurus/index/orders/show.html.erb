@@ -1,0 +1,138 @@
+<ul class="breadcrumb">
+  <li>
+    <i class="icon-home"></i>
+    <a href="/">首页</a> 
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="<%= index_user_centers_path %>">用户中心</a> 
+    <span class="divider">/</span>
+  </li>
+  <li class="active">订单</li>
+</ul>
+
+<div class="row">
+  <%= render :partial => "taurus/index/shared/user_center_nav_list" %>  
+
+  <div class="span10">
+    <div class="well">
+      <a href="<%= index_user_centers_path %>" class="btn pull-right">
+        <i class='icon-arrow-left'></i> 返回
+      </a>
+    </div>
+
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#">详细信息</a></li>
+    </ul> 
+    
+    <div class="form-horizontal">
+      <fieldset>
+        <%= show_input @order, :number, :class => "span3" %>
+        <%= show_input @order, :total_payment, :class => "span3" %>
+        <%= show_input @order, :state, :class => "span3", :format => Taurus::Order::STATE %>
+        <%= show_input @order, :created_at, :class => "span3" %>
+        <%= show_input @order, :remarks_by_customer, :class => "span3" %>
+      </fieldset> 
+    </div>
+
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#">收货信息</a></li>
+    </ul> 
+    
+    <div class="form-horizontal">
+      <fieldset>
+        <%= show_input @order.order_delivery, :attention, :class => "span3" %>
+        <%= show_input @order.order_delivery.district, :area, :class => "span3" %>
+        <%= show_input @order.order_delivery, :address, :class => "span3" %>
+        <%= show_input @order.order_delivery, :telephone, :class => "span3" %>
+        <%= show_input @order.order_delivery, :mobile, :class => "span3" %>
+      </fieldset> 
+    </div>
+
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#">支付信息</a></li>
+    </ul> 
+    
+    <div class="form-horizontal">
+      <fieldset>
+        <%= show_input @order.order_payment.payment_method, :name, :class => "span3" %>
+        <%= show_input @order.order_payment, :receipt_type, :class => "span3", 
+                      :format => Taurus::OrderPayment::RECEIPT_TYPE %>
+        <% if @order.order_payment.receipt_type >= 2 %>
+          <%= show_input @order.order_payment, :receipt_title, :class => "span3" %>
+        <% end %>
+        
+        <% if @order.order_payment.receipt_type > 2 %>
+          <%= show_input @order.order_payment, :bank_name, :class => "span3" %>
+          <%= show_input @order.order_payment, :company_name, :class => "span3" %>
+          <%= show_input @order.order_payment, :bank_account, :class => "span3" %>
+          <%= show_input @order.order_payment, :vat_number, :class => "span3" %>
+          <%= show_input @order.order_payment, :registered_telephone, :class => "span3" %>
+          <%= show_input @order.order_payment, :registered_address, :class => "span3" %>
+        <% end %>
+      </fieldset> 
+    </div>
+    
+
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#">商品信息</a></li>
+    </ul> 
+    
+    <div class="form-horizontal">
+      <fieldset>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th><%= t('activerecord.attributes.taurus/product.number') %></th>
+              <th><%= t('activerecord.attributes.taurus/product.name') %></th>
+              <th><%= t('activerecord.attributes.taurus/product.product_category_id') %></th>
+              <th><%= t('activerecord.attributes.taurus/order_product_line_item.unit_price') %></th>
+              <th><%= t('activerecord.attributes.taurus/order_product_line_item.product_amount') %></th>
+           </tr>
+          </thead>
+          <tbody>
+            <% @order.order_product_line_items.each_with_index do |line_item,index| %>
+              <tr>
+                <td><%= index+1 %></td>
+                <td>
+                  <%= link_to line_item.product.number, index_product_path(line_item.product_id), 
+                              :target => "_blank" %>
+                </td>
+                <td><%= line_item.product.name %></td>
+                <td><%= line_item.product.product_category.name %></td>
+                <td><%= format_price line_item.unit_price %></td>
+                <td><%= line_item.product_amount %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <div class="pull-right">
+          <table class="table table-striped span4">
+            <tr>
+              <td><%= t('activerecord.attributes.taurus/order.products_price') %></td>
+              <td><%= format_price @order.products_price %></td>
+            </tr>
+            <tr>
+              <td><%= t('activerecord.attributes.taurus/order_delivery.shipping_standard_cost') %></td>
+              <td><%= format_price @order.order_delivery.shipping_standard_cost %></td>
+            </tr>
+            <tr>
+              <td><%= t('activerecord.attributes.taurus/order_delivery.shipping_cost') %></td>
+              <td><%= format_price @order.order_delivery.shipping_cost %></td>
+            </tr>
+            <tr>
+              <td>调整金额</td>
+              <td><%= format_price 0 %></td>
+            </tr>
+            <tr>
+              <td><%= t('activerecord.attributes.taurus/order.total_payment') %></td>
+              <td><%= format_price @order.total_payment %></td>
+            </tr>
+          </table>
+        </div>
+      </fieldset> 
+    </div>
+  </div>
+</div>

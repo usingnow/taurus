@@ -307,6 +307,8 @@ zh-CN:
         sequence: "顺序"
       taurus/district:
         area: "所属地区"
+      taurus/payment_method:
+        name: "支付方式"
     errors:
       models:  
         taurus/product:

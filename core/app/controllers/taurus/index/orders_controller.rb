@@ -5,6 +5,10 @@ module Taurus
       before_filter :authenticate_user!
       helper "taurus/orders"
 
+      def show
+        @order = current_user.orders.find(params[:id])
+      end
+
 			def new
         session[:order_step] = nil
         session[:order_params] ||= {}
