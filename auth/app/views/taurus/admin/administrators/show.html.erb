@@ -25,7 +25,32 @@
     <%= f.input :mobile, :disabled => true %>
     <%= f.input :zip_code, :disabled => true %>
     <%= f.input :status, :as => :boolean, :disabled => true %>
-    <%= f.association :groups, :disabled => true %>
+
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#"><%= t('activerecord.attributes.taurus/administrator.groups') %></a>
+      </li>
+    </ul>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th><%= t('activerecord.attributes.taurus/group.name') %></th>
+          <th><%= t('activerecord.attributes.taurus/group.description') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @administrator.groups.each_with_index do |group,index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= link_to group.name, admin_group_path(group), :target => "_blank" %></td>
+            <td><%= group.description %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
   </fieldset>
 <% end %>
 
