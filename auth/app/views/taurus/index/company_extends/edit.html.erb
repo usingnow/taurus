@@ -1,0 +1,64 @@
+<ul class="breadcrumb">
+  <li>
+    <i class="icon-home"></i>
+    <a href="/">首页</a> 
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="<%= index_user_centers_path %>">用户中心</a> 
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="<%= index_company_extend_path %>">用户信息</a> 
+    <span class="divider">/</span>
+  </li>
+  <li class="active">
+    修改
+  </li>
+</ul>
+
+<div class="row">
+  <%= render :partial => "taurus/index/shared/user_center_nav_list" %>  
+
+  <div class="span10 form-horizontal">
+    <div class="well">
+      <a href="<%= index_company_extend_path %>" class="btn pull-right">
+        <i class='icon-arrow-left'></i> 返回
+      </a>
+    </div>  
+
+    <%= simple_form_for @company_extend, :url => index_company_extend_path, 
+                        :html => {:class => 'form-horizontal'} do |f| %>
+      <%= f.error_notification %>
+
+      <fieldset>
+        <%= show_input @company_extend.user, :email, :class => "span3" %>
+        <%= show_input @company_extend.user, :points, :class => "span3" %>
+        <%= show_input @company_extend.user.role, :name, :class => "span3" %>
+        <%= f.input :name, :input_html => { :class => "span3" } %>
+        <%= f.association :industry, :input_html => { :class => "span3" } %>
+        <%= f.association :company_type, :input_html => { :class => "span2" } %>        
+        <%= f.association :company_scale, :input_html => { :class => "span2" } %> 
+        <%= f.input :district_id, :as => :area, :input_html => { :class => "span2" } %>  
+        <%= f.input :address, :input_html => { :class => "span3" } %>                
+        <%= f.input :web_address, :input_html => { :class => "span3" } %>        
+        <%= f.input :contact_name, :input_html => { :class => "span3" } %> 
+        <%= f.input :contact_dept, :input_html => { :class => "span3" } %>
+        <%= f.input :phone, :hint => t('admin.misc.company_extend.phone_hint'), 
+                    :input_html => { :class => "span3" } %>
+        <%= f.input :contact_mobile, :input_html => { :class => "span3" } %>
+        <%= f.input :contact_sex, :collection => Taurus::CompanyExtend::SEX, 
+                    :label_method => :second, :value_method => :first, 
+                    :item_wrapper_class => 'inline', :as => :radio_buttons %>
+        <%= f.input :contact_post, :input_html => { :class => "span3" } %>
+        <%= f.input :fax, :input_html => { :class => "span3" } %>
+        <%= f.input :zip_code, :input_html => { :class => "span3" } %>
+
+        <div class="form-actions">
+          <%= f.button :submit, :value => "更新用户信息", :class => "btn btn-warning btn-large" %>
+          <%= link_to "取消", index_company_extend_path, :class => "btn" %>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

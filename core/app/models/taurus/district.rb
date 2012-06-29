@@ -3,7 +3,7 @@ module Taurus
 	  belongs_to :city
 
 	  def area
-      "#{city.province.name} #{city.name} #{name}"
+      "#{city.province.name} #{city.name} #{name}" if city
 	  end
 	end
 end

@@ -17,6 +17,7 @@ Taurus::Core::Engine.routes.draw do
 
   namespace :index do
     resource :person_extend
+    resource :company_extend
   end
 
 

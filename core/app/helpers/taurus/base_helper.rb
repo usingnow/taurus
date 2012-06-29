@@ -105,10 +105,12 @@ module Taurus
             options[:class] = "uneditable-input"
           end  
           content_tag :span, options do
-            if options[:format]
-              options[:format][object.send(method)]
-            else
-              object.send(method).to_s
+            if object
+              if options[:format]
+                options[:format][object.send(method)]
+              else
+                object.send(method).to_s
+              end
             end
           end
         end

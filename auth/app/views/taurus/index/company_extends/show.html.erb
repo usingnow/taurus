@@ -1,0 +1,53 @@
+<ul class="breadcrumb">
+  <li>
+    <i class="icon-home"></i>
+    <a href="/">首页</a> 
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="<%= index_user_centers_path %>">用户中心</a> 
+    <span class="divider">/</span>
+  </li>
+  <li class="active">
+    用户信息
+  </li>
+</ul>
+
+<div class="row">
+  <%= render :partial => "taurus/index/shared/user_center_nav_list" %>  
+
+  <div class="span10 form-horizontal">
+    <div class="well">
+      <a href="<%= edit_index_company_extend_path %>" class="btn btn-primary">
+        <i class='icon-edit'></i> 修改
+      </a>
+    </div>
+
+    <%= flash_messages %>  
+
+    <fieldset>
+      <%= show_input @company_extend.user, :email, :class => "span3" %>
+      <%= show_input @company_extend.user, :points, :class => "span3" %>
+      <%= show_input @company_extend.user.role, :name, :class => "span3" %>
+      <%= show_input @company_extend, :name, :class => "span3" %>
+      <%= show_input @company_extend.industry ? @company_extend.industry : Taurus::Industry.new, :name, 
+                     :class => "span3" %>
+      <%= show_input @company_extend.company_type ? @company_extend.company_type : Taurus::CompanyType.new, 
+                     :name, :class => "span3" %>
+      <%= show_input @company_extend.company_scale ? @company_extend.company_scale : Taurus::CompanyScale.new, 
+                     :name, :class => "span3" %>       
+      <%= show_input @company_extend.district ? @company_extend.district : Taurus::District.new, :area, 
+                     :class => "span3" %>  
+      <%= show_input @company_extend, :address, :class => "span3" %>
+      <%= show_input @company_extend, :web_address, :class => "span3" %>             
+      <%= show_input @company_extend, :contact_name, :class => "span3" %>          
+      <%= show_input @company_extend, :contact_dept, :class => "span3" %> 
+      <%= show_input @company_extend, :phone, :class => "span3" %>
+      <%= show_input @company_extend, :contact_mobile, :class => "span3" %>
+      <%= show_input @company_extend, :contact_sex, :class => "span3", :format => Taurus::CompanyExtend::SEX %>
+      <%= show_input @company_extend, :contact_post, :class => "span3" %>
+      <%= show_input @company_extend, :fax, :class => "span3" %>
+      <%= show_input @company_extend, :zip_code, :class => "span3" %>
+    </fieldset>
+  </div>
+</div>

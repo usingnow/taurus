@@ -3,10 +3,10 @@
     <li class="nav-header">用户中心</li>
     <li class="divider"></li>
     <li>
-    	<a href="<%= index_person_extend_path %>">用户信息</a>
+      <a href="<%= eval("index_#{current_user.userable_type.demodulize.underscore}_path") %>">用户信息</a>
     </li>
     <li>
-    	<a href="<%= edit_user_registration_path %>">修改密码</a>
+      <a href="<%= edit_user_registration_path %>">修改密码</a>
     </li>
   </ul>
 </div>
