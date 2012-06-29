@@ -25,10 +25,31 @@ module Taurus
         @delivery_record.administrator_id = current_administrator.id
 
         @order.order_product_line_items.each do |line_item|
-          @delivery_record.delivery_record_product_line_items << DeliveryRecordProductLineItem.new(
-            :product_id => line_item.product_id,
-            :product_amount => line_item.product_amount
-          )
+          if line_item.product.product_type == 0
+            product_line_item = @delivery_record.delivery_record_product_line_items.find { |delivery_line_item| delivery_line_item.product_id == line_item.product_id}
+            
+            if product_line_item
+              product_line_item.product_amount += line_item.product_amount * combined_product.amount
+            else
+              @delivery_record.delivery_record_product_line_items << DeliveryRecordProductLineItem.new(
+                :product_id => line_item.product_id,
+                :product_amount => line_item.product_amount
+              )
+            end
+          else
+            line_item.product.combined_products.each do |combined_product|
+              product_line_item = @delivery_record.delivery_record_product_line_items.find { |delivery_line_item| delivery_line_item.product_id == combined_product.related_id}
+              
+              if product_line_item
+                product_line_item.product_amount += line_item.product_amount * combined_product.amount
+              else
+                @delivery_record.delivery_record_product_line_items << DeliveryRecordProductLineItem.new(
+                  :product_id => combined_product.related_id,
+                  :product_amount => line_item.product_amount * combined_product.amount
+                )
+              end
+            end
+          end  
         end
 
         if @delivery_record.save

@@ -1,6 +1,7 @@
 module Taurus
 	module Admin
 		class OrderPaymentsController < BaseController
+			helper "taurus/orders"
 
 		  def index
 		  	@order = Order.find(params[:order_id])

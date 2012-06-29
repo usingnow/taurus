@@ -1,3 +1,7 @@
+<div class="well">
+  <%= link_to "#{content_tag(:i, '', :class => "icon-arrow-left")} #{t('admin.misc.back')}".html_safe, admin_order_delivery_records_path, :class => "btn pull-right" %>
+</div>
+
 <%= simple_form_for(@delivery_record, :url => admin_order_delivery_records_path,
       :html => {:class => 'form-horizontal'}
     )  do |f| %>
@@ -6,24 +10,10 @@
   
   
   <fieldset>
-    <div class="control-group">
-      <label class="control-label"><%= t 'activerecord.attributes.taurus/order.number' %></label>
-      <div class="controls">
-        <span class="uneditable-input"><%= @order.number %></span>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label"><%= t 'activerecord.attributes.taurus/order.created_at' %></label>
-      <div class="controls">
-        <span class="uneditable-input"><%= @order.created_at %></span>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label"><%= t 'activerecord.attributes.taurus/order.customer_name' %></label>
-      <div class="controls">
-        <span class="uneditable-input"><%= @order.customer_name %></span>
-      </div>
-    </div>
+    <%= show_input @order, :number, :class => "span2" %>
+    <%= show_input @order, :created_at, :class => "span2" %>
+    <%= show_input @order, :customer_name, :class => "span2" %>
+
     <%= f.input :order_id, :as => :hidden %>
     <%= f.input :delivery_type, :collection => Taurus::DeliveryRecord::DELIVERY_TYPE, 
                 :label_method => :second, :value_method => :first, :include_blank => false, 

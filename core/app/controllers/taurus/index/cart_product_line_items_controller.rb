@@ -13,9 +13,9 @@ module Taurus
       def create
       	@cart = current_cart
         
-        @product = Product.available.find_by_id(params[:product_id])
+        @product = Product.find(params[:product_id])
 
-        if @product
+        if @product.available?
         	@cart_product_line_item = @cart.add_product(@product.id)
         	@cart_product_line_item.save
         end

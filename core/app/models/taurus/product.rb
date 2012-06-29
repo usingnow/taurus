@@ -28,7 +28,6 @@ module Taurus
     scope :displays, joins(:product_displays).order("taurus_product_displays.sequence DESC")
     scope :combined, where("product_type = 1")
     scope :single, where("product_type = 0")
-    scope :available, joins(:stock).where("taurus_stocks.in_stock > taurus_stocks.reserved")
 
 
   	def product_category_name
@@ -40,7 +39,20 @@ module Taurus
     end
 
     def available?
-      stock.in_stock > stock.reserved
+      result = true
+
+      if product_type == 0
+        result = stock.in_stock > stock.reserved
+      else
+        combined_products.each do |combined_product|
+          if combined_product.related.stock.in_stock <= combined_product.related.stock.reserved
+            result = false
+            break
+          end
+        end
+      end 
+      
+      result 
     end
 
     protected

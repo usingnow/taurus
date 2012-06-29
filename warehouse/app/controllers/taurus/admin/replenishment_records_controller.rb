@@ -2,7 +2,7 @@ module Taurus
   module Admin
     class ReplenishmentRecordsController < BaseController
       helper "taurus/replenishment_records"
-      autocomplete :product, :name, :class_name => "Taurus::Product", :extra_data => [:number]
+      autocomplete :product, :name, :class_name => "Taurus::Product", :extra_data => [:number], :scopes => [:single]
 
       def index
         @search = ReplenishmentRecord.search(params[:q])

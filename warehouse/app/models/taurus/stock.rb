@@ -27,6 +27,7 @@ module Taurus
       result
 		end
 
+    # 是否可销售
     def available?(product_amount)
       available > product_amount
     end
@@ -38,6 +39,11 @@ module Taurus
 		def available
       (in_stock - reserved) < 0 ? 0 : (in_stock - reserved)
 		end
+    
+    # 是否可出库
+    def delivery?(product_amount)
+      in_stock > product_amount
+    end
 
 	end
 end

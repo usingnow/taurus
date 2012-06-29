@@ -31,7 +31,7 @@ module Taurus
 
 		def available_stock?
       delivery_record_product_line_items.each do |line_item|
-        unless line_item.product.stock.available?(line_item.product_amount)
+        unless line_item.product.stock.delivery?(line_item.product_amount)
           errors.add("$stock#{line_item.product.name}(#{line_item.product.number})", "库存不足")
         end
       end

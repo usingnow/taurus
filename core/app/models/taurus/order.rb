@@ -76,9 +76,18 @@ module Taurus
     # 增加销售预留
     def add_reserved_amount
       order_product_line_items.each do |product_line_item|
-        product_line_item.product.stock.update_attributes(
-          :reserved => product_line_item.product.stock.reserved += product_line_item.product_amount
-        ) 
+        if product_line_item.product.product_type == 0
+          product_line_item.product.stock.update_attributes(
+            :reserved => product_line_item.product.stock.reserved += product_line_item.product_amount
+          ) 
+        else
+          product_line_item.product.combined_products.each do |combined_product|
+            combined_product.related.stock.update_attributes(
+              :reserved => combined_product.related.stock.reserved += 
+                           product_line_item.product_amount * combined_product.amount
+            )
+          end
+        end  
       end
     end
 

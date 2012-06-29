@@ -7,6 +7,7 @@
     <tr>
       <th><%= t('activerecord.attributes.taurus/product.number') %></th>
       <th><%= t('activerecord.attributes.taurus/product.name') %></th>
+      <th><%= t('activerecord.attributes.taurus/combined_product.amount') %></th>
    </tr>
   </thead>
   <tbody id="combined_products">
@@ -19,6 +20,7 @@
 	      <td>
 	      	<%= combined_product.related.name %>
 	      </td>
+        <td><%= combined_product.amount %></td>
 	    </tr>
 	  <% end %>
   </tbody>
