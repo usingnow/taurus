@@ -9,6 +9,7 @@
 
 <div class="container">
   <div class="row">
+    <!-- 广告区域
     <div class="span9">
       <div class="hero-unit">
         <h2>The latest updates are always ready for you!</h2>
@@ -27,9 +28,11 @@
           </a>
         </p>
       </div>
-    </div>
+    </div>-->
+
     <div class="span3">
       <%= form_for(resource, :as => resource_name, :url => user_session_path, :html => {:class => "well"}) do |f| %>
+          <h2 style="padding-bottom: 10px">登录</h2>
           <%= f.label :email %>
           <%= f.text_field :email %>
 
@@ -50,9 +53,35 @@
             <a class="close" data-dismiss="alert" href="#">&times;</a></div>
       <% end %>
     </div>
+
+    <div class="span4">
+      <form  class="alert" style="padding-top:19px; padding-bottom:19px; padding-left:60px; padding-right:50px">
+        <h2 style="padding-bottom:10px; padding-right:5px;  display:inline-block">新个人用户注册</h2>
+        <a href="">企业用户注册</a>
+        <label for="user_email">邮箱</label>
+        <input id="user_email" name="user[email]" size="30" type="text" value="">
+
+        <label for="user_password">密码</label>
+        <input id="user_password" name="user[password]" size="30" type="password">
+
+        <label for="user_password">确认密码</label>
+        <input id="user_password" name="user[password]" size="30" type="password">
+
+        <label>姓</label>
+        <input type="text" class="span1">
+        <label class="control-label">选择称谓</label>
+        <select  class="span1">
+          <option>先生</option>
+          <option>小姐</option>
+          <option>女士</option>
+          <option>太太  </option>
+         </select>
+
+        </br><input class="btn btn-warning  " type="submit" value="提交信息">
+
+      </form>
+    </div>
   </div>
-  <hr />
-  <p>Powered by &copy;Tracker</p>
 </div>
 
 
