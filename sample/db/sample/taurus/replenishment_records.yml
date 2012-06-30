@@ -1,0 +1,14 @@
+replenishment_record_1:
+  id: '1'
+  number: 'S375225626'
+  supplier: ''
+  replenishment_type: '0'
+  remarks: ''
+  administrator_id: '1'
+replenishment_record_2:
+  id: '2'
+  number: 'S245215861'
+  supplier: ''
+  replenishment_type: '0'
+  remarks: ''
+  administrator_id: '1'

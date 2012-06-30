@@ -1,0 +1,15 @@
+announcement_1:
+  id: '1'
+  title: '我的商城，我做主'
+  internal_title: '我的电子商城正式开张'
+  description: '<p>&nbsp;&nbsp;</p><p>采恪电子商务管理平台是一个开源的软件。</p><p>我们会不断改进和完善这个系统，使之更符合电子商家的使用需求。</p><p>&nbsp;&nbsp;</p><p>请相信，这只是个开始。</p><p>&nbsp;&nbsp;</p>'
+announcement_2:
+  id: '2'
+  title: '门店是我的，渠道是你的，网络是我们的'
+  internal_title: '门店是我的，渠道是你的，网络是我们的'
+  description: '<p>&nbsp;</p><p style="margin: 0px 0px 9px; color: rgb(51, 51, 51); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18px; ">采恪电子商务管理平台是一个开源的软件。</p><p style="margin: 0px 0px 9px; color: rgb(51, 51, 51); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18px; ">我们会不断改进和完善这个系统，使之更符合电子商家的使用需求。</p><p style="margin: 0px 0px 9px; color: rgb(51, 51, 51); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18px; ">&nbsp;&nbsp;</p><p style="margin: 0px 0px 9px; color: rgb(51, 51, 51); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18px; ">请相信，这只是个开始。</p>'
+announcement_3:
+  id: '3'
+  title: '采恪电子商务管理平台新版本发布v1.5'
+  internal_title: '采恪电子商务管理平台新版本发布v1.5'
+  description: '<p>&nbsp;</p><p style="margin: 0px 0px 9px; color: rgb(51, 51, 51); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18px; ">采恪电子商务管理平台是一个开源的软件。</p><p style="margin: 0px 0px 9px; color: rgb(51, 51, 51); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18px; ">我们会不断改进和完善这个系统，使之更符合电子商家的使用需求。</p><p style="margin: 0px 0px 9px; color: rgb(51, 51, 51); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18px; ">&nbsp;&nbsp;</p><p style="margin: 0px 0px 9px; color: rgb(51, 51, 51); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18px; ">请相信，这只是个开始。</p><p style="margin: 0px 0px 9px; color: rgb(51, 51, 51); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18px; ">&nbsp;&nbsp;</p>'

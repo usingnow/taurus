@@ -1,8 +1,8 @@
 stock_1:
   id: '1'
   product_id: '1'
-  reserved: '0'
-  in_stock: '0'
+  reserved: '1'
+  in_stock: '99'
 stock_2:
   id: '2'
   product_id: '2'
@@ -11,13 +11,13 @@ stock_2:
 stock_3:
   id: '3'
   product_id: '3'
-  reserved: '0'
-  in_stock: '0'
+  reserved: '1'
+  in_stock: '8'
 stock_4:
   id: '4'
   product_id: '4'
   reserved: '0'
-  in_stock: '0'
+  in_stock: '8'
 stock_5:
   id: '5'
   product_id: '5'

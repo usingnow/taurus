@@ -3,7 +3,7 @@
 %>
 user_<%= i %>:
   id: <%= i %>
-  email: <%= Faker::Internet.email %>
+  email: <%= i == 1 ? "guesta@guest.com" : Faker::Internet.email %>
   encrypted_password: '$2a$10$8K2EBkOGMW2aiQFTrWUBXeK1RX4fX95PVomVBkNdy9EiiAeuNS2Ge'
   sign_in_count: '0'
   userable_id: <%= i %> 
@@ -18,7 +18,7 @@ user_<%= i %>:
 %>
 user_<%= i %>:
   id: <%= i %>
-  email: <%= Faker::Internet.email %>
+  email: <%= i == 51 ? "guestc@guest.com" : Faker::Internet.email %>
   encrypted_password: '$2a$10$8K2EBkOGMW2aiQFTrWUBXeK1RX4fX95PVomVBkNdy9EiiAeuNS2Ge'
   sign_in_count: '0'
   userable_id: <%= (i-50) %>

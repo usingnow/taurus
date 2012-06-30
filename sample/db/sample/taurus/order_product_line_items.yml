@@ -1,0 +1,42 @@
+order_product_line_item_1:
+  id: '1'
+  order_id: '1'
+  product_id: '3'
+  product_amount: '1'
+  unit_price: '12.0'
+order_product_line_item_2:
+  id: '2'
+  order_id: '1'
+  product_id: '4'
+  product_amount: '1'
+  unit_price: '12.8'
+order_product_line_item_3:
+  id: '3'
+  order_id: '2'
+  product_id: '1'
+  product_amount: '1'
+  unit_price: '16.48'
+order_product_line_item_4:
+  id: '4'
+  order_id: '2'
+  product_id: '4'
+  product_amount: '1'
+  unit_price: '12.8'
+order_product_line_item_5:
+  id: '5'
+  order_id: '2'
+  product_id: '3'
+  product_amount: '1'
+  unit_price: '12.0'
+order_product_line_item_6:
+  id: '6'
+  order_id: '3'
+  product_id: '1'
+  product_amount: '1'
+  unit_price: '16.48'
+order_product_line_item_7:
+  id: '7'
+  order_id: '3'
+  product_id: '3'
+  product_amount: '1'
+  unit_price: '12.0'

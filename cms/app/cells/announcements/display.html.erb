@@ -1,6 +1,6 @@
 <h3>网站公告</h3>
 <hr />
-<ul>
+<ul class="trk-ul-list">
 	<% @announcements.each do |announcement| %>
   	<li class="trk-home-announcement">
   		<%= link_to announcement.title, "/index/announcements/#{announcement.id}" %>

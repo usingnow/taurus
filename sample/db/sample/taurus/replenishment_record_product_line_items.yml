@@ -1,0 +1,15 @@
+replenishment_record_product_line_item_1:
+  id: '1'
+  replenishment_record_id: '1'
+  product_id: '3'
+  product_amount: '10'
+replenishment_record_product_line_item_2:
+  id: '2'
+  replenishment_record_id: '1'
+  product_id: '4'
+  product_amount: '10'
+replenishment_record_product_line_item_3:
+  id: '3'
+  replenishment_record_id: '2'
+  product_id: '1'
+  product_amount: '100'
