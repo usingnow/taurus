@@ -3,6 +3,7 @@
 <head>
   <title>Taurus</title>
   <%= stylesheet_link_tag 'taurus/admin', :medmia => "all" %>
+  <%= stylesheet_link_tag params[:controller], :media => "all" %>
   <%= javascript_include_tag "taurus/admin" %>
   <%= csrf_meta_tag %>
 </head>
