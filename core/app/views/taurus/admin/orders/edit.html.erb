@@ -1,0 +1,22 @@
+<%= render :partial => "taurus/admin/shared/order_tabs", 
+           :locals => { :current => "details", :type => "edit" } %>
+
+
+<%= simple_form_for @order, :url => admin_order_path(@order), 
+                    :html => { :class => "form-horizontal" } do |f| %>
+  <fieldset>
+    <%= f.input :number, :disabled => true, :input_html => {:class => "span2"} %>
+    <%= f.input :customer_name, :disabled => true, :input_html => {:class => "span2"}%>
+    <%= f.input :total_payment, :disabled => true , :input_html => {:class => "span2"}%>
+    <%= f.input :state, :collection => Taurus::Order::STATE, :label_method => :second, 
+                :value_method => :first, :as => :select, :disabled => true, :input_html => {:class => "span2"} %>
+    <%= f.input :created_at, :disabled => true, :input_html => {:class => "span1"} %>            
+    <%= f.input :remarks_by_customer, :disabled => true, :input_html => {:class => "span3"} %>
+    <%= f.input :remarks_internal, :input_html => {:class => "span3"} %>
+    <%= f.input :adjustment_total, :input_html => {:class => "span2"} %>
+  </fieldset>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => "btn btn-primary" %>
+  </div>
+<% end %>           

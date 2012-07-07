@@ -1,5 +1,5 @@
 <div class="well">
-  <%= order_operations(@order) %>
+  <%= order_operations(@order) if type == "show" %>
   
   <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_orders_path, 
               :class => "btn pull-right" %>
@@ -14,7 +14,7 @@
         <%= f.input :customer_name, :disabled => true, :input_html => {:class => "span2"} %>
       </div>
       <div class="span5">
-        <%= f.input :total_payment, :disabled => true, :input_html => {:class => "span2"} %>
+        <%= f.input :total, :disabled => true, :input_html => {:class => "span2"} %>
         <%= f.input :state, :collection => Taurus::Order::STATE, :label_method => :second, 
                     :value_method => :first, :as => :select, :disabled => true, 
                     :input_html => {:class => "span2"} %>
@@ -31,18 +31,20 @@
   <li <%== 'class="active"' if current == "address" %>>
   	<%= link_to t('admin.misc.order.address'), 
                 type == "show" ? admin_order_order_deliveries_path(@order) : 
-                                 edit_admin_order_order_delivery_path(@order, @order.order_delivery_id) %>
+                                 edit_admin_order_order_delivery_path(@order, @order.order_delivery) %>
   </li>
   <li <%== 'class="active"' if current == "payment" %>>
   	<%= link_to t('admin.misc.order.payment'), 
                 type == "show" ? admin_order_order_payments_path(@order) : 
-                                 edit_admin_order_order_payment_path(@order, @order.order_payment_id) %>
+                                 edit_admin_order_order_payment_path(@order, @order.order_payment) %>
   </li>
-  <li <%== 'class="active"' if current == "products" %>>
-    <%= link_to t('admin.misc.order.products'), 
-                type == "show" ? admin_order_order_product_line_items_path(@order) : 
-                                 new_admin_order_order_product_line_item_path(@order) %>
-  </li>
+  <% if type == "show" %>
+    <li <%== 'class="active"' if current == "products" %>>
+      <%= link_to t('admin.misc.order.products'), 
+                  type == "show" ? admin_order_order_product_line_items_path(@order) : 
+                                   new_admin_order_order_product_line_item_path(@order) %>
+    </li>
+  <% end %>
 </ul>
 
 <%= flash_messages %>

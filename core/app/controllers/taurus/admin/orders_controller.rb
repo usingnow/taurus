@@ -19,6 +19,21 @@ module Taurus
         @order = Order.find(params[:id])
 		  end
 
+      def edit
+        @order = Order.find(params[:id])
+      end
+
+      def update
+        @order = Order.find(params[:id])
+
+        if @order.update_attributes(params[:order])
+        	flash[:success] = I18n.t('successfully_updated')
+        	redirect_to(edit_admin_order_url(@order))
+        else
+        	render :action => :edit
+        end
+      end
+
 		  def relieve_reserved
         @order = Order.find(params[:id])
         @order.relieve_reserved

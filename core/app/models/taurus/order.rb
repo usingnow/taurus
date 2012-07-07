@@ -1,7 +1,7 @@
 #encoding:UTF-8
 module Taurus
   class Order < ActiveRecord::Base
-    attr_accessor :current_step
+    attr_accessor :current_step, :total
 
     STATE = { 
       "start" => "开始", "reserved" => "订单处理中", "waiting_for_payment" => "等待付款",
@@ -66,6 +66,10 @@ module Taurus
 
     def products_price
       order_product_line_items.to_a.sum { |line_item| line_item.subtotal }
+    end
+
+    def total
+      total_payment + adjustment_total
     end
   	
     protected

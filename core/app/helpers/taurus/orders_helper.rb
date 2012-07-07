@@ -10,8 +10,10 @@ module Taurus
 		end
 
 		def order_operations(order, html_class = "")
-			buttons = ''
+			buttons = link_to(I18n.t('admin.actions.edit.menu'), edit_admin_order_path(order), 
+	        	            :class => "btn btn-primary " + html_class)
       order.state_events.each do |event|
+      	buttons << " "
       	if event != :online_payment && event != :sign && event != :product_delivery
 	        buttons << (
 	        	link_to format_order_enent(event), eval("#{event.to_s}_admin_order_path(order)"), 

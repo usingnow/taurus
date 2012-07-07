@@ -28,7 +28,7 @@
     <div class="form-horizontal">
       <fieldset>
         <%= show_input @order, :number, :class => "span3" %>
-        <%= show_input @order, :total_payment, :class => "span3" %>
+        <%= show_input @order, :total, :class => "span3" %>
         <%= show_input @order, :state, :class => "span3", :format => Taurus::Order::STATE %>
         <%= show_input @order, :created_at, :class => "span3" %>
         <%= show_input @order, :remarks_by_customer, :class => "span3" %>
@@ -123,12 +123,12 @@
               <td><%= format_price @order.order_delivery.shipping_cost %></td>
             </tr>
             <tr>
-              <td>调整金额</td>
-              <td><%= format_price 0 %></td>
+              <td><%= t('activerecord.attributes.taurus/order.adjustment_total') %></td>
+              <td><%= format_price @order.adjustment_total %></td>
             </tr>
             <tr>
-              <td><%= t('activerecord.attributes.taurus/order.total_payment') %></td>
-              <td><%= format_price @order.total_payment %></td>
+              <td><%= t('activerecord.attributes.taurus/order.total') %></td>
+              <td><%= format_price @order.total %></td>
             </tr>
           </table>
         </div>

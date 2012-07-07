@@ -44,12 +44,12 @@
 	  	<td><%= format_price @order.order_delivery.shipping_cost %></td>
 	  </tr>
 	  <tr>
-	  	<td>调整金额</td>
-	  	<td><%= format_price 0 %></td>
+	  	<td><%= t('activerecord.attributes.taurus/order.adjustment_total') %></td>
+	  	<td><%= format_price @order.adjustment_total %></td>
 	  </tr>
 	  <tr>
-	  	<td><%= t('activerecord.attributes.taurus/order.total_payment') %></td>
-	  	<td><%= format_price @order.total_payment %></td>
+	  	<td><%= t('activerecord.attributes.taurus/order.total') %></td>
+	  	<td><%= format_price @order.total %></td>
 	  </tr>
 	</table>
 </div>
