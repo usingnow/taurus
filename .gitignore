@@ -2,7 +2,7 @@
 .idea/*
 **/spec/dummy
 **/.bundle
-doc
+doc/*
 .rvmrc
 
 sandbox/*

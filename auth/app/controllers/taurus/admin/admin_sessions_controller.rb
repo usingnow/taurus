@@ -8,7 +8,7 @@ module Taurus
           format.json do
             resource = warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#failure")
             sign_in(resource_name, resource)
-            render :json => {:success => true, :content => "abc"}
+            render :json => { :success => true }
           end
 
           format.html { super }
@@ -16,7 +16,7 @@ module Taurus
       end
 
       def failure
-        render :json => {:success => false, :errors => ["Login failed."]}
+        render :json => {:success => false, :error => I18n.t("devise.failure.invalid")}
       end
 
       protected
