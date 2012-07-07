@@ -9,5 +9,36 @@
     <%= f.input :address, :input_html => {:class => "span3"}, :disabled => true %>
     <%= f.input :telephone, :input_html => {:class => "span2"}, :disabled => true %>
     <%= f.input :mobile, :input_html => {:class => "span2"}, :disabled => true %>
+    
   </fieldset>
+<% end %>
+
+<% if @order.delivery_records.any? %>
+  <ul class="nav nav-tabs">
+    <li class="active">
+    	<a href="#"><%= t('activerecord.attributes.taurus/delivery_record.number') %></a>
+    </li>
+  </ul>
+  
+  <table class="table table-striped">
+	  <thead>
+	    <tr>
+	      <th><%= t('activerecord.attributes.taurus/delivery_record.number') %></th>
+	      <th><%= t('activerecord.attributes.taurus/delivery_record.delivery_type') %></th>
+	      <th><%= t('activerecord.attributes.taurus/delivery_record.created_at') %></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+      <% @order.delivery_records.each do |delivery_record| %>
+		    <tr>
+		      <td>
+		      	<%= link_to delivery_record.number, admin_delivery_record_path(delivery_record),
+		      	            :target => "_blank" %>
+		      </td>
+		      <td><%= format_delivery_type delivery_record.delivery_type %></td>
+		      <td><%= delivery_record.created_at %></td>
+		    </tr>
+		  <% end %>
+	  </tbody>
+	</table>
 <% end %>

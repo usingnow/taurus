@@ -19,6 +19,7 @@ module Taurus
   	has_many :order_product_line_items, :dependent => :destroy
     has_many :products, :through => :order_product_line_items
     belongs_to :user
+    has_many :delivery_records
 
     before_validation :generate_order_number, :on => :create
     after_create :first_state
