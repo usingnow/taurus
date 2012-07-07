@@ -292,6 +292,8 @@ zh-CN:
         vat_number: "增值税登记号"
         registered_telephone: "注册电话"
         registered_address: "注册地址"
+        alipay_trade_no: "支付宝交易流水号"
+        alipay_buyer_email: "支付宝买家帐号"
       taurus/order_product_line_item:
         product_amount: "数量"
         unit_price: "单价"  
@@ -411,6 +413,7 @@ zh-CN:
         address: "收货信息"
         payment: "支付信息"
         products: "商品信息"
+        confirm_online_payment_errors: "请先填写支付宝交易流水号与买家支付宝帐号"
     actions:
       index:
         title: "%{model}列表"

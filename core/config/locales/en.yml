@@ -98,6 +98,8 @@ en:
         vat_number: "VAT number"
         registered_telephone: "Registered Telephone"
         registered_address: "Registered Address"
+        alipay_trade_no: "Alipay Trade No"
+        alipay_buyer_email: "Alipay Buyer Email"
       taurus/order_product_line_item:
         product_amount: "Product Amount"
         unit_price: "Unit Price"  
@@ -226,6 +228,12 @@ en:
         combined_new_btn_popover_content: "It's the category of the combined product, which is used to sell several single products in a package with a new price."
         details: "Details"
         status_hint: "Inactive categories will not be displayed in the drop down list while creating/modifing a product category information."
+      order:
+        details: "详细信息"
+        address: "收货信息"
+        payment: "支付信息"
+        products: "商品信息"
+        confirm_online_payment_errors: "请先填写支付宝交易流水号与买家支付宝帐号"    
     actions:
       index:
         title: "%{model}list"

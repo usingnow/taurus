@@ -73,6 +73,10 @@ module Taurus
       end
 
       def online_payment_notify
+        @order = current_user.orders.find_by_number(params[:out_trade_no])
+        @order.order_payment.update_attributes(:alipay_trade_no => params[:trade_no],
+                                               :alipay_buyer_email => params[:buyer_email])
+
         render :text => '成功'
       end
 

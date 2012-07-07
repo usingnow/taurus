@@ -5,11 +5,13 @@ module Taurus
 
     STATE = { 
       "start" => "开始", "reserved" => "订单处理中", "waiting_for_payment" => "等待付款",
-      "delivering" => "正在拣货出库", "product_delivered" => "等待签收", "completed" => "完成"
+      "delivering" => "正在拣货出库", "product_delivered" => "等待签收", "completed" => "完成",
+      "canceled" => "取消"
     }
     EVENT = {
       :relieve_reserved => "解除保留", :confirm_online_payment => "确认在线付款", 
-      :online_payment => "在线支付", :sign => "确认签收", :product_delivery => "拣货出库"
+      :online_payment => "在线支付", :sign => "确认签收", :product_delivery => "拣货出库",
+      :cancel => "取消"
     }
 
   	has_one :order_payment, :dependent => :destroy
@@ -53,6 +55,11 @@ module Taurus
 
       event :confirm_online_payment do
         transition :from => :waiting_for_payment, :to => :delivering
+      end
+
+      event :cancel do
+        transition :from => :waiting_for_payment, :to => :canceled
+        transition :from => :delivering, :to => :canceled
       end
 
       event :product_delivery do
