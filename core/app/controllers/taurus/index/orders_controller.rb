@@ -54,12 +54,6 @@ module Taurus
         @order = current_user.orders.find(params[:id])
       end
 
-      def sign
-        @order = current_user.orders.find(params[:id])
-        @order.sign
-        redirect_to(index_user_centers_url)
-      end
-
       def online_payment
         @alipay = Alipay.first
 

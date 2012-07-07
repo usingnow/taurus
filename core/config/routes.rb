@@ -58,6 +58,7 @@ Taurus::Core::Engine.routes.draw do
       member do 
         get :relieve_reserved
         get :confirm_online_payment
+        get :sign
       end
       collection do
         get :all
@@ -80,7 +81,6 @@ Taurus::Core::Engine.routes.draw do
     resources :orders do
       member do 
         get :online_payment
-        get :sign
         get :success
       end
       collection do 

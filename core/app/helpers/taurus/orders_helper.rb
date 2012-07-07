@@ -14,7 +14,7 @@ module Taurus
 	        	            :class => "btn btn-primary " + html_class)
       order.state_events.each do |event|
       	buttons << " "
-      	if event != :online_payment && event != :sign && event != :product_delivery
+      	if event != :online_payment && event != :product_delivery
 	        buttons << (
 	        	link_to format_order_enent(event), eval("#{event.to_s}_admin_order_path(order)"), 
 	        	        :class => "btn btn-primary " + html_class
@@ -32,7 +32,7 @@ module Taurus
 		def order_customer_operations(order)
       buttons = ''
       order.state_events.each do |event|
-      	if event == :online_payment || event == :sign
+      	if event == :online_payment
 	        buttons << (
 	        	link_to format_order_enent(event), eval("#{event.to_s}_index_order_path(order)"), 
 	        	        :class => "btn btn-primary trk-btn-short"

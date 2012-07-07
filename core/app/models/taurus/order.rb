@@ -9,7 +9,7 @@ module Taurus
     }
     EVENT = {
       :relieve_reserved => "解除保留", :confirm_online_payment => "确认在线付款", 
-      :online_payment => "在线支付", :sign => "签收", :product_delivery => "拣货出库"
+      :online_payment => "在线支付", :sign => "确认签收", :product_delivery => "拣货出库"
     }
 
   	has_one :order_payment, :dependent => :destroy

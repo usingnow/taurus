@@ -45,6 +45,12 @@ module Taurus
         @order.confirm_online_payment
         redirect_to(:back)
 		  end
+
+		  def sign
+        @order = Order.find(params[:id])
+        @order.sign
+        redirect_to(:back)
+      end
 		end
 	end	
 end		
