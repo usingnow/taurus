@@ -10,10 +10,14 @@
   <fieldset>
     <div class="row">
       <div class="span5">
-        <%= f.input :number, :disabled => true %>
+        <%= f.input :number, :disabled => true, :input_html => {:class => "span2"} %>
+        <%= f.input :customer_name, :disabled => true, :input_html => {:class => "span2"} %>
       </div>
       <div class="span5">
-        <%= f.input :total_payment, :disabled => true %>
+        <%= f.input :total_payment, :disabled => true, :input_html => {:class => "span2"} %>
+        <%= f.input :state, :collection => Taurus::Order::STATE, :label_method => :second, 
+                    :value_method => :first, :as => :select, :disabled => true, 
+                    :input_html => {:class => "span2"} %>
       </div>
     </div>
   </fieldset>
