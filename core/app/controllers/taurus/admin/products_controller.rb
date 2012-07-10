@@ -8,6 +8,12 @@ module Taurus
 				params[:q] = { :sales_status_eq => true, :if_shown_on_web_eq => true, :product_type_eq => 0 } unless params[:q]
 		    @search = Product.search(params[:q])
 		    @products = @search.result.paginate(:page => params[:page], :per_page => 20)
+		    
+		    respond_with(@products) do |format|
+          format.json do
+            render :json => @products.to_json(:methods => :main_logo)
+          end
+		    end
 		  end
 
 		  def show

@@ -85,6 +85,7 @@ module Taurus
         @child_category = ProductCategory.new(params[:product_category])
         @child_category.parent_id = @product_category.id 
         @child_category.parent_name = @product_category.name
+        @child_category.category_type = @product_category.category_type
 
         if @child_category.save
         	flash[:success] = I18n.t(:successfully_created)

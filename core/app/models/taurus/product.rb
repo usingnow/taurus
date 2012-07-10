@@ -38,6 +38,10 @@ module Taurus
       product_images.main.last.image.url(style)
     end
 
+    def main_logo
+      main_image(:logo)
+    end
+
     def available?
       result = true
 
