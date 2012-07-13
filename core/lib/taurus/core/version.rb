@@ -1,5 +1,5 @@
 module Taurus
   def self.version
-    "0.1"
+    "1.5.1"
   end
 end

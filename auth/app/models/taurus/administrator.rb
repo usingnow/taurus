@@ -5,7 +5,7 @@ module Taurus
     LANGUAGE = { 'zh-CN' => "Simplified Chinese (简体中文)", 'en' => "English" }
 
     devise :database_authenticatable, :registerable, :timeoutable,
-           :recoverable, :rememberable, :trackable, :validatable, :timeout_in => 150.minutes
+           :recoverable, :rememberable, :trackable, :validatable
 
     # Setup accessible (or protected) attributes for your model
     attr_accessible :email, :password, :password_confirmation, :remember_me, :status, :name, :address, :phone,

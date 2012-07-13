@@ -4,8 +4,14 @@ module Taurus
   	class BaseController < Taurus::BaseController
 
       # 判断是否登录
-  		before_filter do 
-		    redirect_to :administrator_session unless current_administrator
+  		before_filter do
+        unless current_administrator
+          if request.format == "text/html"
+            redirect_to :administrator_session 
+          else
+            head :unauthorized
+          end
+        end 
 		  end
       
       # 获取I18n locale
