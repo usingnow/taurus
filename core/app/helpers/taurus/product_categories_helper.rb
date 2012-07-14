@@ -42,17 +42,33 @@ module Taurus
 		end
 
 		def second_product_categories
-			return unless @product_category
-			categories = content_tag(:li,  @product_category.name, :class => "nav-header")
-			categories << content_tag(:li, '', :class => 'divider')
-			@product_category.children.each do |category|
-				if @second_category_id.to_i == category.id
-        	categories << content_tag(:li, "#{link_to category.name, thirds_admin_product_category_path(category)}".html_safe, :class => "active") 
-			  else
-			  	categories << content_tag(:li, "#{link_to category.name, thirds_admin_product_category_path(category)}".html_safe) 
-			  end
-			end
-			ul = content_tag(:ul, categories.html_safe, :id => 'admin-main-functionality', :class => 'nav nav-list')
+			unless @product_category
+        if @search.category_type_eq == 0
+          header_name = "全部销售单品分类"
+          collection  = Taurus::ProductCategory.single.tops
+        else
+          header_name = "全部组合商品分类"
+          collection  = Taurus::ProductCategory.combined.tops
+        end
+        current_category_id = nil
+        category_href       = "seconds_admin_product_category_path(category)"
+      else 
+        header_name         = @product_category.name
+        collection          = @product_category.children
+        current_category_id = @second_category_id.to_i
+        category_href       = "thirds_admin_product_category_path(category)"
+      end
+
+      categories = content_tag(:li,  header_name, :class => "nav-header")
+      categories << content_tag(:li, '', :class => 'divider')
+      collection.each do |category|
+        if current_category_id == category.id
+          categories << content_tag(:li, "#{link_to category.name, eval(category_href)}".html_safe, :class => "active") 
+        else
+          categories << content_tag(:li, "#{link_to category.name, eval(category_href)}".html_safe) 
+        end
+      end
+      ul = content_tag(:ul, categories.html_safe, :class => 'nav nav-list')
       content_tag(:div, ul.html_safe, :class => "span2 show-grid")
 		end	
 

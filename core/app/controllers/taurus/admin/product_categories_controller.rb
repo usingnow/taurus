@@ -12,7 +12,7 @@ module Taurus
 				params_q.deep_merge!(:status_eq => true) unless params_q[:status_eq]
 				params_q.deep_merge!(:category_type_eq => 0) unless params_q[:category_type_eq]
 
-        @search = ProductCategory.search(params_q)
+        @search = ProductCategory.tops.search(params_q)
         @product_categories = @search.result.paginate(:page => params[:page], :per_page => 20)
 			end
 
