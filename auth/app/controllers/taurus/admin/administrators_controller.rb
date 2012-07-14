@@ -6,6 +6,7 @@ module Taurus
 
       def index
         @search = Administrator.search(params[:q])
+        @search.sorts = "updated_at DESC"
         @administrators = @search.result.paginate(:page => params[:page], :per_page => 20)
       end
 
