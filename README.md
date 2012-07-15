@@ -7,29 +7,26 @@ As an open-source Taurus is built with Ruby on Rails as an E-commerece solution.
 It aligns with the most popular online shopping processes in China.
 
 The latest version released is v1.5.1 with the following main functions:
-1) Product management
-2) Order management
-3) User management
-4) CMS with the default website template
+- Product management
+- Order management
+- User management
+- CMS with the default website template
 
 Two payment processes are provided in this version:
-1) by Alipay
-2) cash against delivery
-* The other two shopping processes will be released in the future: bank transfer & monthly statement.
+- by Alipay
+- cash against delivery
+- The other two shopping processes will be released in the future: bank transfer & monthly statement.
 
 体验站 Demo
 -------------
 
 The demo site is:
 website - http://taurus.usingnow.com
-	personal user: guesta@usingnow.com
-	password: 123456
-	company user: guestc@usingnow.com
-	passowrd: 123456
+- personal user: guesta@usingnow.com password: 123456
+- company user: guestc@usingnow.com passowrd: 123456
 
 admin system - http://taurus.usingnow.com/admin
-	user: adminguest@usingnow.com
-	password: 123456
+- user: adminguest@usingnow.com password: 123456
 
 If you have any questions or advice, please contact: 
 opensource@usingnow.com
