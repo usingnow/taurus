@@ -11,7 +11,7 @@ module Taurus
 		    
 		    respond_with(@products) do |format|
           format.json do
-            render :json => @products.to_json(:methods => :main_logo)
+            render :json => @products.to_json(:methods => :main_logo, :include => :product_category)
           end
 		    end
 		  end
