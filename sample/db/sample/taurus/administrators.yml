@@ -3,7 +3,8 @@
 %>
 administrator_<%= i %>:
   id: <%= i %>
-  email: <%= Faker::Internet.email %>
+  email: <%= i == 2 ? "adminguest@usingnow.com" : Faker::Internet.email %>
+  encrypted_password: '$2a$10$8K2EBkOGMW2aiQFTrWUBXeK1RX4fX95PVomVBkNdy9EiiAeuNS2Ge'
   status: 1
   name: <%= Faker::NameCN.name %>
   phone: <%= Faker.numerify('########') %>

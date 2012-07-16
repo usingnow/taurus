@@ -22,8 +22,8 @@ Two payment processes are provided in this version:
 
 The demo site is:
 website - http://taurus.usingnow.com
-- personal user: guesta@usingnow.com password: 123456
-- company user: guestc@usingnow.com passowrd: 123456
+- personal user: guesta@guest.com password: 123456
+- company user: guestc@guest.com passowrd: 123456
 
 admin system - http://taurus.usingnow.com/admin
 - user: adminguest@usingnow.com password: 123456
