@@ -1,0 +1,39 @@
+<div class="well">
+  <%= link_to "<i class='icon-arrow-left'></i> #{t('admin.misc.back')}".html_safe, admin_orders_path, :class => "btn pull-right" %>
+</div>
+
+
+<%= simple_form_for(@order, :url => "#", :html => {:class => 'form-horizontal'}) do |f| %>
+  <fieldset>
+    <div class="row">
+      <div class="span5">
+        <%= f.input :number, :disabled => true, :input_html => {:class => "span2"} %>
+        <%= f.input :customer_name, :disabled => true, :input_html => {:class => "span2"} %>
+      </div>
+      <div class="span5">
+        <%= f.input :total, :disabled => true, :input_html => {:class => "span2"} %>
+        <%= f.input :state, :collection => Taurus::Order::STATE, :label_method => :second, 
+                    :value_method => :first, :as => :select, :disabled => true, 
+                    :input_html => {:class => "span2"} %>
+      </div>
+    </div>
+  </fieldset>
+<% end %>
+
+<hr />
+
+<%= simple_form_for(@order, :url => delivery_sign_admin_order_path(@order), :method => :put,
+                    :html => {:class => 'form-horizontal'}) do |f| %>
+  <fieldset>
+    <%= f.fields_for :order_payment do |p_f| %>
+	    <%= p_f.input :delivery_payment_type, :item_wrapper_class => 'inline',
+	                  :collection => Taurus::OrderPayment::DELIVERY_PEYMENT_TYPE, 
+	                  :label_method => :second, :value_method => :first, :as => :radio,
+	                  :required => true %>
+    <% end %>
+  </fieldset>
+
+  <div class="form-actions">
+    <%= f.button :submit, :value => "确认已支付", :class => "btn btn-primary" %>
+  </div>
+<% end %>

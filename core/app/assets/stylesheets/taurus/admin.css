@@ -7,8 +7,6 @@
  *= require taurus/simple_form
 */
 
-@import 'font-awesome';
-
 .stress {
 	color: red;
 	font-weight: normal;

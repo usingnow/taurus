@@ -18,8 +18,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-#pdf打印
-gem 'prawn', '0.12.0'
+group :development do
+  # turn off assets pipeline log
+  gem 'quiet_assets'
+end
 
 
 group :test do
@@ -39,5 +41,3 @@ group :test do
 end
 
 gemspec
-
-

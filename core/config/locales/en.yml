@@ -233,7 +233,8 @@ en:
         address: "收货信息"
         payment: "支付信息"
         products: "商品信息"
-        confirm_online_payment_errors: "请先填写支付宝交易流水号与买家支付宝帐号"    
+        confirm_online_payment_errors: "请先填写支付宝交易流水号与买家支付宝帐号"   
+        completed: "Products received and order completed. The record can be found in 'All Orders' session." 
     actions:
       index:
         title: "%{model}list"

@@ -294,6 +294,7 @@ zh-CN:
         registered_address: "注册地址"
         alipay_trade_no: "支付宝交易流水号"
         alipay_buyer_email: "支付宝买家帐号"
+        delivery_payment_type: "付款方式"
       taurus/order_product_line_item:
         product_amount: "数量"
         unit_price: "单价"  
@@ -414,6 +415,7 @@ zh-CN:
         payment: "支付信息"
         products: "商品信息"
         confirm_online_payment_errors: "请先填写支付宝交易流水号与买家支付宝帐号"
+        completed: "订单已完成，可至全部订单中查看详细信息。"
     actions:
       index:
         title: "%{model}列表"

@@ -55,8 +55,23 @@ module Taurus
 
 		  def sign
         @order = Order.find(params[:id])
-        @order.sign
-        redirect_to(:back)
+        if @order.order_payment.payment_method_id == 1
+          flash[:success] = I18n.t('admin.misc.order.completed') if @order.sign
+          redirect_to(:back)
+        else
+          @order.order_payment.delivery_payment_type = 0
+          render :action => :delivery_confirm_sign
+        end
+      end
+      
+      def delivery_sign
+        @order = Order.find(params[:id])
+
+        if @order.update_attributes(params[:order])
+          flash[:success] = I18n.t('admin.misc.order.completed') if @order.sign
+        end
+
+        redirect_to(admin_orders_url)
       end
 
       def cancel

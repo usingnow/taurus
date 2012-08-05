@@ -59,6 +59,7 @@ Taurus::Core::Engine.routes.draw do
         get :relieve_reserved
         get :confirm_online_payment
         get :sign
+        put :delivery_sign
         get :cancel
       end
       collection do

@@ -8,22 +8,28 @@ module Taurus
 		def format_order_state(state)
       Order::STATE[state]
 		end
-
+    
+    # 后台订单操作
 		def order_operations(order, html_class = "")
 			buttons = link_to(I18n.t('admin.actions.edit.menu'), edit_admin_order_path(order), 
 	        	            :class => "btn btn-primary " + html_class)
       order.state_events.each do |event|
       	buttons << " "
-      	if event != :online_payment && event != :product_delivery
+      	if event == :product_delivery	
+	      	buttons << (
+		      	link_to format_order_enent(event), new_admin_order_delivery_record_path(:order_id => order), 
+		        	      :class => "btn btn-primary " + html_class, :target => "_blank"
+		      )
+		    elsif event == :sign
+		    	buttons << (
+		      	link_to format_order_enent(event), eval("#{event.to_s}_admin_order_path(order)"), :confirm => "请再次确认客户已签收商品？",
+		                :class => "btn btn-primary " + html_class
+		      )
+      	elsif event != :online_payment
 	        buttons << (
 	        	link_to format_order_enent(event), eval("#{event.to_s}_admin_order_path(order)"), 
 	        	        :class => "btn btn-primary " + html_class
 	      	)
-	      elsif event == :product_delivery	
-	      	buttons << (
-		      	link_to format_order_enent(event), new_admin_order_delivery_record_path(:order_id => order), 
-		        	      :class => "btn btn-primary " + html_class, :target => "_blank"
-		      )  	      
       	end
       end
       buttons.html_safe

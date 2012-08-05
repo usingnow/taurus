@@ -6,6 +6,7 @@ module Taurus
   	belongs_to :payment_method
 
   	RECEIPT_TYPE = { 0 => '无需发票', 1 => '普通（个人）', 2 => '普通（单位）', 3 => '增值税（单位）' }
+    DELIVERY_PEYMENT_TYPE = { 0 => '现金（Cash）', 1 => 'Pos刷卡（Pos）' }
 
   	validates_presence_of :payment_method_id
   	validates_presence_of :receipt_title, :if => Proc.new { receipt_type >= 2 }
