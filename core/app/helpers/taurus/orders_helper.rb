@@ -20,7 +20,11 @@ module Taurus
 
       order.state_events.each do |event|
       	buttons << " "
-      	if event == :product_delivery	
+      	if event == :confirm_online_payment
+          buttons << (
+		      	link_to format_order_enent(event), "##{order.id}", :class => "confirm-modal btn btn-primary " + html_class
+		      )
+      	elsif event == :product_delivery	
 	      	buttons << (
 		      	link_to format_order_enent(event), new_admin_order_delivery_record_path(:order_id => order), 
 		        	      :class => "btn btn-primary " + html_class

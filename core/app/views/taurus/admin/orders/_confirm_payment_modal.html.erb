@@ -1,0 +1,33 @@
+<%= form_tag("#", :method => :put, :class => "form-horizontal", :id => "confirm-payment-form") do %>
+  <div class="modal hide fade" id="confirm-payment-modal">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3>确认在线付款</h3>
+    </div>
+    <div class="modal-body">
+      <fieldset>
+        <div class="control-group">
+          <label class="control-label" for="alipay_buyer_email">
+            <%= t('activerecord.attributes.taurus/order_payment.alipay_buyer_email') %>
+          </label>
+          <div class="controls">
+            <input type="text" class="input-xlarge" name="alipay_buyer_email" id="alipay_buyer_email">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="alipay_trade_no">
+            <%= t('activerecord.attributes.taurus/order_payment.alipay_trade_no') %>
+          </label>
+          <div class="controls">
+            <input type="text" class="input-xlarge" name="alipay_trade_no" id="alipay_trade_no">
+          </div>
+        </div>
+      </fieldset> 
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="btn" data-dismiss="modal">取消</a>
+      <button type="submit" class="btn btn-primary">确认在线付款</button>
+    </div>
+  </div>
+<% end %>

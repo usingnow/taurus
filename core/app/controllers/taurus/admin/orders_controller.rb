@@ -42,14 +42,14 @@ module Taurus
 
 		  def confirm_online_payment
         @order = Order.find(params[:id])
-        alipay_trade_no = @order.order_payment.alipay_trade_no
-        alipay_buyer_email = @order.order_payment.alipay_buyer_email
+        @order_payment = @order.order_payment
 
-        if alipay_trade_no && alipay_buyer_email
-          @order.confirm_online_payment unless alipay_trade_no.blank? && alipay_buyer_email.blank?
-        else
-          flash[:error] = I18n.t('admin.misc.order.confirm_online_payment_errors')
-        end
+        @order_payment.alipay_trade_no = params[:alipay_trade_no]
+        @order_payment.alipay_buyer_email = params[:alipay_buyer_email]
+        @order_payment.save
+
+        @order.confirm_online_payment
+        
         redirect_to(:back)
 		  end
 
