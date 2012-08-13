@@ -29,6 +29,8 @@ module Taurus
     
     validates_presence_of :user_id, :customer_name, :total_payment
     validates_uniqueness_of :number
+    validates_numericality_of :adjustment_total, :greater_than => Proc.new { |order| order.total_payment * -1 },
+                              :message => :greater_than_zero
 
     scope :available_deliveries, where(:state => "delivering")
     scope :processing, where("state != 'completed'")

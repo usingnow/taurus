@@ -13,7 +13,7 @@
     <%= f.input :created_at, :disabled => true, :input_html => {:class => "span1"} %>            
     <%= f.input :remarks_by_customer, :disabled => true, :input_html => {:class => "span3"} %>
     <%= f.input :remarks_internal, :input_html => {:class => "span3"} %>
-    <%= f.input :adjustment_total, :input_html => {:class => "span2"} %>
+    <%= f.input :adjustment_total, :input_html => {:class => "span2"}, :hint => "调整金额会计入订单总金额，可为负数。" %>
   </fieldset>
 
   <div class="form-actions">

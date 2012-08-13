@@ -325,6 +325,11 @@ zh-CN:
               must_contain_two_product: "至少包含2件销售单品"
             if_shown_on_web:  
               must_have_image: "必须已设置主图片"
+        taurus/order:
+          attributes:
+            adjustment_total:
+              greater_than_zero: "订单总金额不能小于0"
+
 
 
   admin:
