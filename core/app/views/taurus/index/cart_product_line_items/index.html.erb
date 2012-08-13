@@ -9,6 +9,7 @@
   <div class="span9">
 
     <%= simple_form_for @cart, :url => index_cart_product_line_item_path(@cart), :method => :put do |f| %>
+    <%= flash_messages %>
     <div class="alert alert-info">
       <button class="close" data-dismiss="alert">×</button>
       <strong>注意：</strong> 如果您修改了商品数量，请在前往结算前，点击蓝色的更新按钮。

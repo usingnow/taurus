@@ -12,6 +12,7 @@ PATH
       devise (~> 2.0)
       taurus_core (= 1.5.2)
     taurus_cms (1.5.2)
+      taurus_core (= 1.5.2)
     taurus_core (1.5.2)
       cells (= 3.8.5)
       ckeditor (= 3.7.1)

@@ -10,11 +10,16 @@ module Taurus
       end
 
 			def new
-        session[:order_step] = nil
-        session[:order_params] ||= {}
-        @order = Order.new
-        @order.order_delivery = OrderDelivery.new
-        @order.order_payment = OrderPayment.new
+        if current_cart.cart_product_line_items.empty?
+          flash[:error] = '必须包含一件以上商品'
+          redirect_to(index_cart_product_line_items_url)
+        else
+          session[:order_step] = nil
+          session[:order_params] ||= {}
+          @order = Order.new
+          @order.order_delivery = OrderDelivery.new
+          @order.order_payment = OrderPayment.new
+        end
 			end
 
 			def create

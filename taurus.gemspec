@@ -14,9 +14,9 @@ Gem::Specification.new do |s|
   s.required_ruby_version     = '>= 1.8.7'
   s.required_rubygems_version = ">= 1.3.6"
 
-  s.author       = ''
-  s.email        = ''
-  s.homepage     = ''
+  s.author       = 'Zhang Xiangyu'
+  s.email        = 'xiangyu.zhang@usingnow.com'
+  s.homepage     = 'http://www.usingnow.com'
 
   s.add_dependency 'taurus_core', version
   s.add_dependency 'taurus_cms', version

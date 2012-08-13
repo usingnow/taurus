@@ -9,13 +9,13 @@ Gem::Specification.new do |s|
   s.description = ''
 
   s.required_ruby_version = '>= 1.8.7'
-  s.author      = ''
-  s.email       = ''
-  s.homepage    = ''
+  s.author       = 'Zhang Xiangyu'
+  s.email        = 'xiangyu.zhang@usingnow.com'
+  s.homepage     = 'http://www.usingnow.com'
 
   s.files        = Dir['README', 'LICENSE', 'app/**/*', 'config/**/*', 'lib/**/*', 'db/**/*']
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  #s.add_dependency 'taurus_core', version
+  s.add_dependency 'taurus_core', version
 end
