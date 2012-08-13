@@ -10,10 +10,14 @@ module Taurus
       end
 
       def new
-        @order = Order.available_deliveries.find(params[:order_id])
+        @order = Order.available_deliveries.find_by_id(params[:order_id])
         
-        @delivery_record = DeliveryRecord.new
-        @delivery_record.order_id = @order.id
+        if @order
+          @delivery_record = DeliveryRecord.new
+          @delivery_record.order_id = @order.id
+        else
+          redirect_to(admin_orders_url)
+        end
       end
 
       def create

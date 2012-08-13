@@ -23,7 +23,7 @@ module Taurus
       	if event == :product_delivery	
 	      	buttons << (
 		      	link_to format_order_enent(event), new_admin_order_delivery_record_path(:order_id => order), 
-		        	      :class => "btn btn-primary " + html_class, :target => "_blank"
+		        	      :class => "btn btn-primary " + html_class
 		      )
 		    elsif event == :sign
 		    	buttons << (
