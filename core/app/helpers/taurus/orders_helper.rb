@@ -11,8 +11,13 @@ module Taurus
     
     # 后台订单操作
 		def order_operations(order, html_class = "")
-			buttons = link_to(I18n.t('admin.actions.edit.menu'), edit_admin_order_path(order), 
-	        	            :class => "btn btn-primary " + html_class)
+			buttons = '' 
+			
+			if order.state != "completed"
+        buttons << link_to(I18n.t('admin.actions.edit.menu'), edit_admin_order_path(order), 
+	        	               :class => "btn btn-primary " + html_class)
+			end
+
       order.state_events.each do |event|
       	buttons << " "
       	if event == :product_delivery	
