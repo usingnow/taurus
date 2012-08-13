@@ -7,9 +7,6 @@
   <fieldset>
   	<%= f.association :payment_method, :input_html => {:class => "span2"}, :disabled => true %>
   	
-    <%= f.input :alipay_trade_no %>
-    <%= f.input :alipay_buyer_email %>
-
     <%= f.input :receipt_type, :collection => Taurus::OrderPayment::RECEIPT_TYPE, 
                    :value_method => :first, :label_method => :second,
                    :item_wrapper_class => 'inline', :as => :radio %>
