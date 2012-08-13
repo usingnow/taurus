@@ -33,7 +33,7 @@ module Taurus
                               :message => :greater_than_zero
 
     scope :available_deliveries, where(:state => "delivering")
-    scope :processing, where("state != 'completed'")
+    scope :processing, where("state != 'completed' and state != 'canceled'")
     
     # 多步骤表单
     def current_step  
