@@ -298,6 +298,7 @@ zh-CN:
       taurus/order_product_line_item:
         product_amount: "数量"
         unit_price: "单价"  
+        subtotal: "小计"
       taurus/alipay:
         partner: "合作伙伴ID"
         seller_email: "签约支付宝账号"

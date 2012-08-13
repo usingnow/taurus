@@ -103,6 +103,7 @@ en:
       taurus/order_product_line_item:
         product_amount: "Product Amount"
         unit_price: "Unit Price"  
+        subtotal: "Subtotal"
       taurus/alipay:
         partner: "Partner ID"
         seller_email: "Seller's Mail"
