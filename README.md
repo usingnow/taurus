@@ -6,9 +6,9 @@ Taurus是一个完整的开源电子商务系统基于Ruby on Rails实现。
 As an open-source Taurus is built with Ruby on Rails as an E-commerece solution.
 It aligns with the most popular online shopping processes in China.
 
-The latest version released is v1.5.3 with the following main functions:
-- Update the order management in receipt confirmation; 
-- Update the product category management in "new category" actions;
+The latest version released is v1.5.4 with the following fixes:
+- Update the detail functions in order management.
+
 
 Two payment processes are provided in this version:
 - by Alipay
