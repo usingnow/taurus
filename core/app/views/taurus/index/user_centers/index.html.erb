@@ -41,12 +41,16 @@
           <td><%= format_price order.total %></td>
           <td><%= format_order_state order.state %></td>
           <td><%= order.created_at %></td>
-          <td><%= order_customer_operations(order) %></td>
+          <td><%= order_customer_operations(order, "trk-btn-short") %></td>
         </tr>
       <% end %>
       </tbody>
       <tfoot>
-        <tr><td colspan='7'><%= will_paginate @orders, :renderer => BootstrapPagination::Rails %></td></tr>
+        <tr>
+          <td colspan='7'>
+            <%= will_paginate @orders, :renderer => BootstrapPagination::Rails %>
+          </td>
+        </tr>
       </tfoot>
     </table>
   </div>

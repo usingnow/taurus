@@ -43,14 +43,15 @@ module Taurus
       end
       buttons.html_safe
 		end
-
-		def order_customer_operations(order)
+    
+    # 前台订单操作
+		def order_customer_operations(order, html_class = "")
       buttons = ''
       order.state_events.each do |event|
       	if event == :online_payment
 	        buttons << (
 	        	link_to format_order_enent(event), eval("#{event.to_s}_index_order_path(order)"), 
-	        	        :class => "btn btn-primary trk-btn-short"
+	        	        :class => "btn btn-primary #{html_class}"
 	      	)
       	end
       end
