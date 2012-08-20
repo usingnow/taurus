@@ -5,6 +5,15 @@
 <%= simple_form_for @order_payment, :url => "#", :html => { :class => "form-horizontal" } do |f| %>
   <fieldset>
   	<%= f.association :payment_method, :input_html => {:class => "span2"}, :disabled => true %>
+    <% if @order_payment.payment_method_id == 1 %>
+      <%= f.input :alipay_trade_no, :input_html => {:class => "span2"}, :disabled => true %>
+      <%= f.input :alipay_buyer_email, :input_html => {:class => "span2"}, :disabled => true %>
+    <% else %>
+      <%= f.input :delivery_payment_type, 
+                  :collection => Taurus::OrderPayment::DELIVERY_PEYMENT_TYPE, 
+                  :label_method => :second, :value_method => :first,
+                  :item_wrapper_class => 'inline', :as => :radio, :disabled => true %>
+    <% end %>
   	<%= f.input :receipt_type, :collection => Taurus::OrderPayment::RECEIPT_TYPE, 
                    :value_method => :first, :label_method => :second,
                    :item_wrapper_class => 'inline', :as => :radio, :disabled => true  %>
