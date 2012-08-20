@@ -17,11 +17,13 @@ module Taurus
       end
       line_item
   	end
-
+    
+    # 总价格
     def total_price
       cart_product_line_items.to_a.sum { |line_item| line_item.subtotal }
     end
-
+    
+    # 总数量
     def total_amount
       cart_product_line_items.to_a.sum { |line_item| line_item.product_amount }
     end

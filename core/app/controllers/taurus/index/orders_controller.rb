@@ -10,7 +10,9 @@ module Taurus
       end
 
 			def new
-        if current_cart.cart_product_line_items.empty?
+        @cart = current_cart
+
+        if @cart.cart_product_line_items.empty?
           flash[:error] = '必须包含一件以上商品'
           redirect_to(index_cart_product_line_items_url)
         else

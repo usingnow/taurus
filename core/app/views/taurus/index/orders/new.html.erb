@@ -1,6 +1,23 @@
 <div class="row">
 	<div class="span3 alert alert-info">
-		<strong>订单摘要</strong>
+		<table class="cart_items">
+			<% @cart.cart_product_line_items.each_with_index do |line_item, index| %>
+			  <% if index < 5 %>
+			    <tr>
+			      <td><%= line_item.product_amount %>&times;</td>
+			      <td><%= line_item.product.name %></td>
+			      <td class="subtotal"><%= format_price line_item.subtotal %></td>
+			    </tr>
+		    <% end %>
+	    <% end %>
+	    <tr class="total_price">
+	    	<td colspan="2">
+	    		<%= link_to "返回查看全部商品", index_cart_product_line_items_path if @cart.cart_product_line_items.size > 5 %>
+	    		总金额
+	    	</td>
+	    	<td><%= format_price @cart.total_price %></td>
+	    </tr>
+		</table>
 	</div>
 	<div class="span8" style="width: 819px">
 		<div class="alert alert-success">
@@ -14,5 +31,3 @@
 		<% end %>
 	</div>
 </div>
-
-
