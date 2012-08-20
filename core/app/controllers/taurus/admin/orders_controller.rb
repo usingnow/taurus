@@ -7,12 +7,16 @@ module Taurus
 		  	@search = Order.search(params[:q])
 		  	@search.sorts = "updated_at desc"
 		  	@orders = @search.result.processing.paginate(:page => params[:page], :per_page => 20)
+        @states = Order::STATE
+        @states.delete("completed")
+        @states.delete("canceled")
 		  end
 
 		  def all
         @search = Order.search(params[:q])
 		  	@search.sorts = "updated_at desc"
 		  	@orders = @search.result.paginate(:page => params[:page], :per_page => 20)
+        @states = Order::STATE
 		  end
 
 		  def show

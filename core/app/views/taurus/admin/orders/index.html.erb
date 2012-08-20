@@ -1,7 +1,18 @@
 <div class="well">
   <%= search_form_for [:admin,@search] do |f| %>
-    <%= f.text_field :number_cont, :placeholder => t('activerecord.attributes.taurus/order.number'), 
+    <%= f.text_field :number_cont, 
+                     :placeholder => t('activerecord.attributes.taurus/order.number'), 
                      :class => "trk-non-inline-margin span2" %>
+    <%= f.text_field :customer_name_cont, 
+                     :placeholder => t('activerecord.attributes.taurus/order.customer_name'),
+                     :class => "trk-non-inline-margin span2" %>
+    <%= f.collection_select :state_eq,  @states, :first, :second,
+                            {:include_blank => "全部"}, {:class => "span2" }  %>  
+
+    <br />
+    <%= f.date_select :created_at_gt, { :include_blank => true }, {:class => "span1" } %>
+    ~
+    <%= f.date_select :created_at_lt, { :include_blank => true }, {:class => "span1" } %>                                       
     <%= f.submit t('admin.misc.search'), :class => "btn btn-primary trk-btn-inline" %>
   <% end %>
 </div>
