@@ -1,104 +1,130 @@
-<fieldset>
-  <div class="control-group">
-    <label class="control-label"><%= t 'activerecord.attributes.taurus/order_delivery.attention' %></label>
-    <div class="controls">
-      <span class="uneditable-input span2"><%= @order.order_delivery.attention %></span>
-    </div>
+<div class="span3 alert alert-info">
+  <table class="cart_items">
+    <% @cart.cart_product_line_items.each do |line_item| %>
+      <tr>
+        <td><%= line_item.product_amount %>&times;</td>
+        <td><%= line_item.product.name %></td>
+        <td class="subtotal"><%= format_price line_item.subtotal %></td>
+      </tr>
+    <% end %>
+    <tr class="total_price">
+      <td colspan="2">
+        总金额
+      </td>
+      <td><%= format_price @cart.total_price %></td>
+    </tr>
+  </table>
+</div>
+<div class="span8" style="width: 819px">
+  <div class="alert alert-success">
+    <button class="close" data-dismiss="alert">×</button>
+    请确认收货信息。
   </div>
-  <div class="control-group">
-    <label class="control-label"><%= t 'activerecord.attributes.taurus/order_delivery.district_id' %></label>
-    <div class="controls">
-      <span class="uneditable-input span2"><%= @order.order_delivery.district.area %></span>
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label"><%= t 'activerecord.attributes.taurus/order_delivery.address' %></label>
-    <div class="controls">
-      <span class="uneditable-input span3"><%= @order.order_delivery.address %></span>
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label"><%= t 'activerecord.attributes.taurus/order_delivery.telephone' %></label>
-    <div class="controls">
-      <span class="uneditable-input span2"><%= @order.order_delivery.telephone %></span>
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label"><%= t 'activerecord.attributes.taurus/order_delivery.mobile' %></label>
-    <div class="controls">
-      <span class="uneditable-input span2"><%= @order.order_delivery.mobile %></span>
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label"><%= t 'activerecord.attributes.taurus/order_payment.payment_method' %></label>
-    <div class="controls">
-      <span class="uneditable-input span2"><%= @order.order_payment.payment_method.name %></span>
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label"><%= t 'activerecord.attributes.taurus/order_payment.receipt_type' %></label>
-    <div class="controls">
-      <span class="uneditable-input span2"><%= format_receipt_type @order.order_payment.receipt_type %></span>
-    </div>
-  </div>
-  <% if @order.order_payment.receipt_type >= 2 %>
-    <div class="control-group">
-      <label class="control-label"><%= t 'activerecord.attributes.taurus/order_payment.receipt_title' %></label>
-      <div class="controls">
-        <span class="uneditable-input span2"><%= @order.order_payment.receipt_title %></span>
+
+  <%= simple_form_for([:index,@order],:html => {:class => 'form-horizontal'})  do |f| %>
+    <fieldset>
+      <div class="control-group">
+        <label class="control-label"><%= t 'activerecord.attributes.taurus/order_delivery.attention' %></label>
+        <div class="controls">
+          <span class="uneditable-input span2"><%= @order.order_delivery.attention %></span>
+        </div>
       </div>
-    </div>
+      <div class="control-group">
+        <label class="control-label"><%= t 'activerecord.attributes.taurus/order_delivery.district_id' %></label>
+        <div class="controls">
+          <span class="uneditable-input span2"><%= @order.order_delivery.district.area %></span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label"><%= t 'activerecord.attributes.taurus/order_delivery.address' %></label>
+        <div class="controls">
+          <span class="uneditable-input span3"><%= @order.order_delivery.address %></span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label"><%= t 'activerecord.attributes.taurus/order_delivery.telephone' %></label>
+        <div class="controls">
+          <span class="uneditable-input span2"><%= @order.order_delivery.telephone %></span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label"><%= t 'activerecord.attributes.taurus/order_delivery.mobile' %></label>
+        <div class="controls">
+          <span class="uneditable-input span2"><%= @order.order_delivery.mobile %></span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label"><%= t 'activerecord.attributes.taurus/order_payment.payment_method' %></label>
+        <div class="controls">
+          <span class="uneditable-input span2"><%= @order.order_payment.payment_method.name %></span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label"><%= t 'activerecord.attributes.taurus/order_payment.receipt_type' %></label>
+        <div class="controls">
+          <span class="uneditable-input span2"><%= format_receipt_type @order.order_payment.receipt_type %></span>
+        </div>
+      </div>
+      <% if @order.order_payment.receipt_type >= 2 %>
+        <div class="control-group">
+          <label class="control-label"><%= t 'activerecord.attributes.taurus/order_payment.receipt_title' %></label>
+          <div class="controls">
+            <span class="uneditable-input span2"><%= @order.order_payment.receipt_title %></span>
+          </div>
+        </div>
+      <% end %>
+      <% if @order.order_payment.receipt_type > 2 %>
+        <div class="control-group">
+          <label class="control-label"><%= t 'activerecord.attributes.taurus/order_payment.bank_name' %></label>
+          <div class="controls">
+            <span class="uneditable-input span2"><%= @order.order_payment.bank_name %></span>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label"><%= t 'activerecord.attributes.taurus/order_payment.company_name' %></label>
+          <div class="controls">
+            <span class="uneditable-input span2"><%= @order.order_payment.company_name %></span>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label"><%= t 'activerecord.attributes.taurus/order_payment.bank_account' %></label>
+          <div class="controls">
+            <span class="uneditable-input span2"><%= @order.order_payment.bank_account %></span>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label"><%= t 'activerecord.attributes.taurus/order_payment.vat_number' %></label>
+          <div class="controls">
+            <span class="uneditable-input span2"><%= @order.order_payment.vat_number %></span>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label"><%= t 'activerecord.attributes.taurus/order_payment.registered_telephone' %></label>
+          <div class="controls">
+            <span class="uneditable-input span2"><%= @order.order_payment.registered_telephone %></span>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label"><%= t 'activerecord.attributes.taurus/order_payment.registered_address' %></label>
+          <div class="controls">
+            <span class="uneditable-input span2"><%= @order.order_payment.registered_address %></span>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="control-group">
+        <label class="control-label"><%= t 'activerecord.attributes.taurus/order.remarks_by_customer' %></label>
+        <div class="controls">
+          <span class="uneditable-input span3"><%= @order.remarks_by_customer %></span>
+        </div>
+      </div>
+
+      <hr />
+
+      <button type="submit" name="back_button" class="btn btn-primary"><i class="icon-edit"></i> 返回修改</button>
+      <button type="submit" name="commit_button" class="btn btn-warning btn-large pull-right"><i class="icon-file"></i> 提交订单</button>
+
+
+    </fieldset>
   <% end %>
-  <% if @order.order_payment.receipt_type > 2 %>
-    <div class="control-group">
-      <label class="control-label"><%= t 'activerecord.attributes.taurus/order_payment.bank_name' %></label>
-      <div class="controls">
-        <span class="uneditable-input span2"><%= @order.order_payment.bank_name %></span>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label"><%= t 'activerecord.attributes.taurus/order_payment.company_name' %></label>
-      <div class="controls">
-        <span class="uneditable-input span2"><%= @order.order_payment.company_name %></span>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label"><%= t 'activerecord.attributes.taurus/order_payment.bank_account' %></label>
-      <div class="controls">
-        <span class="uneditable-input span2"><%= @order.order_payment.bank_account %></span>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label"><%= t 'activerecord.attributes.taurus/order_payment.vat_number' %></label>
-      <div class="controls">
-        <span class="uneditable-input span2"><%= @order.order_payment.vat_number %></span>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label"><%= t 'activerecord.attributes.taurus/order_payment.registered_telephone' %></label>
-      <div class="controls">
-        <span class="uneditable-input span2"><%= @order.order_payment.registered_telephone %></span>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label"><%= t 'activerecord.attributes.taurus/order_payment.registered_address' %></label>
-      <div class="controls">
-        <span class="uneditable-input span2"><%= @order.order_payment.registered_address %></span>
-      </div>
-    </div>
-  <% end %>
-
-  <div class="control-group">
-    <label class="control-label"><%= t 'activerecord.attributes.taurus/order.remarks_by_customer' %></label>
-    <div class="controls">
-      <span class="uneditable-input span3"><%= @order.remarks_by_customer %></span>
-    </div>
-  </div>
-
-<hr />
-
-  <button type="submit" name="back_button" class="btn btn-primary"><i class="icon-edit"></i> 返回修改</button>
-  <button type="submit" name="commit_button" class="btn btn-warning btn-large pull-right"><i class="icon-file"></i> 提交订单</button>
-
-
-</fieldset>
+</div>
