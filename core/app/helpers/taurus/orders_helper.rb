@@ -13,7 +13,7 @@ module Taurus
 		def order_operations(order, html_class = "")
 			buttons = '' 
 			
-			if order.state != "completed"
+			if order.state != "completed" && order.state != "canceled"
         buttons << link_to(I18n.t('admin.actions.edit.menu'), edit_admin_order_path(order), 
 	        	               :class => "btn btn-primary " + html_class)
 			end
