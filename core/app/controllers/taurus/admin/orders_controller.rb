@@ -7,7 +7,7 @@ module Taurus
 		  	@search = Order.search(params[:q])
 		  	@search.sorts = "updated_at desc"
 		  	@orders = @search.result.processing.paginate(:page => params[:page], :per_page => 20)
-        @states = Order::STATE
+        @states = Hash[Order::STATE]
         @states.delete("completed")
         @states.delete("canceled")
 		  end

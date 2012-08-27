@@ -5,10 +5,6 @@ module Taurus
       OrderPayment::RECEIPT_TYPE[receipt_type]
 		end
 
-		def format_order_state(state)
-      Order::STATE[state]
-		end
-    
     # 后台订单操作
 		def order_operations(order, html_class = "")
 			buttons = '' 
@@ -69,6 +65,10 @@ module Taurus
 
 		def format_order_enent(event)
       Order::EVENT[event]
+		end
+
+		def format_order_state(state)
+      Order::STATE[state]
 		end
 	end
 end

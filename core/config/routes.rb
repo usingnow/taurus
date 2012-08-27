@@ -100,6 +100,13 @@ Taurus::Core::Engine.routes.draw do
 
   match '/admin', :to => 'admin/home#index'
   match '/admin/all_orders', :to => 'admin/orders#all'
+  match '/admin/all_orders/:id', :to => 'admin/orders#show'
+  match '/admin/all_orders/:order_id/order_deliveries', :to => "admin/order_deliveries#index"
+  match '/admin/all_orders/:order_id/order_payments', :to => "admin/order_payments#index"
+  match '/admin/all_orders/:order_id/order_product_line_items', :to => "admin/order_product_line_items#index"
+  match '/admin/all_orders/:id/edit', :to => "admin/orders#edit"
+  match '/admin/all_orders/:order_id/order_deliveries/:id/edit', :to => "admin/order_deliveries#edit"
+  match '/admin/all_orders/:order_id/order_payments/:id/edit', :to => "admin/order_payments#edit"
   root :to => 'index/home#index' 
 
 	

@@ -22,27 +22,34 @@
     </div>
   </fieldset>
 <% end %>
-
 <ul class="nav nav-tabs">
+  <% 
+    path = request.fullpath.gsub('//', '/')
+
+    if type == "show"
+      details_href = path.starts_with?("/admin/all_orders") ? "/admin/all_orders/#{@order.id}" : admin_order_path(@order)
+      delivery_href = path.starts_with?("/admin/all_orders") ? "/admin/all_orders/#{@order.id}/order_deliveries" : admin_order_order_deliveries_path(@order)
+      payment_href = path.starts_with?("/admin/all_orders") ? "/admin/all_orders/#{@order.id}/order_payments" :  admin_order_order_payments_path(@order)
+      products_href = path.starts_with?("/admin/all_orders") ? "/admin/all_orders/#{@order.id}/order_product_line_items" : admin_order_order_product_line_items_path(@order)
+    else
+      details_href = path.starts_with?("/admin/all_orders") ? "/admin/all_orders/#{@order.id}/edit" : edit_admin_order_path(@order)
+      delivery_href = path.starts_with?("/admin/all_orders") ? "/admin/all_orders/#{@order.id}/order_deliveries/#{@order.order_delivery.id}" : edit_admin_order_order_delivery_path(@order, @order.order_delivery)
+      payment_href = path.starts_with?("/admin/all_orders") ? "/admin/all_orders/#{@order.id}/order_payments/#{@order.order_payment.id}" : edit_admin_order_order_payment_path(@order, @order.order_payment)
+    end
+  %>
+
   <li <%== 'class="active"' if current == "details" %>>
-    <%= link_to t('admin.misc.order.details'), 
-                type == "show" ? admin_order_path(@order) : edit_admin_order_path(@order) %>
+    <%= link_to t('admin.misc.order.details'), details_href %>
   </li>
   <li <%== 'class="active"' if current == "address" %>>
-  	<%= link_to t('admin.misc.order.address'), 
-                type == "show" ? admin_order_order_deliveries_path(@order) : 
-                                 edit_admin_order_order_delivery_path(@order, @order.order_delivery) %>
+  	<%= link_to t('admin.misc.order.address'), delivery_href %>
   </li>
   <li <%== 'class="active"' if current == "payment" %>>
-  	<%= link_to t('admin.misc.order.payment'), 
-                type == "show" ? admin_order_order_payments_path(@order) : 
-                                 edit_admin_order_order_payment_path(@order, @order.order_payment) %>
+  	<%= link_to t('admin.misc.order.payment'), payment_href %>
   </li>
   <% if type == "show" %>
     <li <%== 'class="active"' if current == "products" %>>
-      <%= link_to t('admin.misc.order.products'), 
-                  type == "show" ? admin_order_order_product_line_items_path(@order) : 
-                                   new_admin_order_order_product_line_item_path(@order) %>
+      <%= link_to t('admin.misc.order.products'), products_href %>
     </li>
   <% end %>
 </ul>

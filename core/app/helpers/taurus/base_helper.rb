@@ -36,6 +36,7 @@ module Taurus
             fun_str += content_tag(:li, component['name'], :class => "nav-header")
             fun_str += content_tag(:li, '', :class => 'divider')
           end
+
           if request.fullpath.gsub('//', '/').starts_with?(fun["url"])
             fun_str += content_tag(:li, (link_to fun['name'], fun['url']), :class => "active") 
           else  

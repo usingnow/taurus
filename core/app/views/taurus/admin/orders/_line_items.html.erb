@@ -14,7 +14,9 @@
   <% @orders.each_with_index do |order,index| %>
     <tr>
       <td><%= index+1 %></td>
-      <td><%= link_to order.number, admin_order_path(order) %></td>
+      <td>
+        <%= link_to order.number, params[:action] == "index" ? admin_order_path(order) : "/admin/all_orders/#{order.id}" %>
+      </td>
       <td><%= order.customer_name %></td>
       <td><%= format_price order.total_payment %></td>
       <td><%= format_order_state order.state %></td>
