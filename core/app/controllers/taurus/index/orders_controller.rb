@@ -99,7 +99,11 @@ module Taurus
         end
       end
 
-
+      def cancel
+        @order = Order.find(params[:id])
+        @order.cancel
+        redirect_to(:back)
+      end
         
 		end
 	end

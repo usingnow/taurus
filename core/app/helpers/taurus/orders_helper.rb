@@ -47,11 +47,20 @@ module Taurus
     # 前台订单操作
 		def order_customer_operations(order, html_class = "")
       buttons = ''
+      
       order.state_events.each do |event|
       	if event == :online_payment
 	        buttons << (
 	        	link_to format_order_enent(event), eval("#{event.to_s}_index_order_path(order)"), 
 	        	        :class => "btn btn-primary #{html_class}"
+	      	)
+      	end
+
+      	if event != :sign && event != :cancel
+          buttons << (
+	        	link_to format_order_enent(:cancel), cancel_index_order_path(order), 
+	        	        :class => "btn btn-primary #{html_class}", :method => :delete,
+	        	        :confirm => "确定取消订单么？"
 	      	)
       	end
       end

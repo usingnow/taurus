@@ -84,6 +84,7 @@ Taurus::Core::Engine.routes.draw do
       member do 
         get :online_payment
         get :success
+        delete :cancel
       end
       collection do 
         get :online_payment_notify
