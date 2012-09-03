@@ -1,0 +1,20 @@
+administrator_group_line_item_1:
+  id: 1
+  administrator_id: 2
+  group_id: 1
+administrator_group_line_item_2:
+  id: 2
+  administrator_id: 2
+  group_id: 2
+administrator_group_line_item_3:
+  id: 3
+  administrator_id: 2
+  group_id: 3
+administrator_group_line_item_4:
+  id: 4
+  administrator_id: 2
+  group_id: 4
+administrator_group_line_item_5:
+  id: 5
+  administrator_id: 2
+  group_id: 5
