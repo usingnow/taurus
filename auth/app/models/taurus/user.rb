@@ -18,10 +18,15 @@ module Taurus
 
     validates_presence_of :email, :role_id
 
+
     def self.find_for_authentication(conditions={}) 
       conditions[:status] = true 
       find(:first, :conditions => conditions) 
     end 
+
+    def name
+      userable.name
+    end
 
     protected
       def default_value

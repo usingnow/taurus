@@ -1,8 +1,8 @@
+#encoding:UTF-8
 module Taurus
 	module Admin
 		class OrdersController < BaseController
 			helper "taurus/orders"
-      autocomplete :user, :name, :class_name => "Taurus::User"
 
 		  def index
 		  	@search = Order.search(params[:q])
@@ -91,6 +91,12 @@ module Taurus
         @order = Order.find(params[:id])
         @order.cancel
         redirect_to(:back)
+      end
+
+      def autocomplete_user_name
+        @search = User.search({:'userable_of_Taurus::PersonExtend_type_name_cont' => "安纯"})
+        @users = @search.result
+        render :json => json_for_autocomplete(@users, :name)
       end
 		end
 	end	
