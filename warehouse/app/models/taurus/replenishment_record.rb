@@ -2,7 +2,7 @@
 module Taurus
   class ReplenishmentRecord < ActiveRecord::Base
     attr_accessor :product_number, :product_name, :product_id, :product_amount
-    REPLENISHMENT_TYPE = { 0 => "进货", 1 => "退换货", 2 => "其他" }
+    REPLENISHMENT_TYPE = { 0 => "进货", 1 => "退货", 9 => "其他" }
 
     has_many :replenishment_record_product_line_items, :dependent => :destroy
     belongs_to :administrator

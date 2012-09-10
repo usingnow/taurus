@@ -17,8 +17,8 @@ module Taurus
 
 		  def all
         @search = Order.search(params[:q])
-		  	@search.sorts = "updated_at desc"
-		  	@orders = @search.result.paginate(:page => params[:page], :per_page => 20)
+        @search.sorts = "updated_at desc"
+        @orders = @search.result.paginate(:page => params[:page], :per_page => 20)
         @states = Hash[Order::STATE]
         @states.delete("start")
         @states.delete("reserved")
