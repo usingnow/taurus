@@ -10,6 +10,7 @@ module Taurus
 		accepts_nested_attributes_for :order
 		belongs_to :administrator
 		has_many :delivery_record_product_line_items, :dependent => :destroy
+		has_many :products, :through => :delivery_record_product_line_items
 
 		before_validation :default_value, :on => :create
 

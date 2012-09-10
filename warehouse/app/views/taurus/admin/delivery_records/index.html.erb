@@ -1,7 +1,17 @@
 <div class="well">
   <%= search_form_for [:admin,@search], :class => "form-inline" do |f| %>
-    <%= f.text_field :number_cont, :placeholder => t('activerecord.attributes.taurus/delivery_record.number'), 
-                     :class => "trk-non-inline-margin span2" %>
+    <%= f.text_field :number_cont, :class => "trk-non-inline-margin span2",
+                     :placeholder => t('activerecord.attributes.taurus/delivery_record.number') %>
+    <%= f.text_field :products_name_cont, :class => "trk-non-inline-margin span2", 
+                     :placeholder => t('activerecord.attributes.taurus/product.name') %>
+    <%= f.text_field :products_number_cont, :class => "trk-non-inline-margin span2", 
+                     :placeholder => t('activerecord.attributes.taurus/product.number') %>
+    <br />
+
+    <%= f.date_select :created_at_gt, { :include_blank => true }, {:class => "span1" } %>
+    ~
+    <%= f.date_select :created_at_lt, { :include_blank => true }, {:class => "span1" } %>
+
     <%= f.submit t('admin.misc.search'), :class => "btn btn-primary trk-btn-inline" %>
   <% end %>
 </div>
