@@ -14,9 +14,14 @@
     ~
     <%= f.date_select :created_at_lt, { :include_blank => true }, {:class => "span1" } %>                                       
     <%= f.submit t('admin.misc.search'), :class => "btn btn-primary trk-btn-inline" %>
-
-    <a href=""></a>
   <% end %>
+ 
+<!--  
+  <a href="<%= new_admin_order_path %>" class="btn btn-primary" id="create_tag">
+    <i class="icon-plus-sign"></i>
+    <%= t('admin.actions.new.title',:model => t('activerecord.models.taurus/order')) %>
+  </a>
+-->
 </div>
 
 <%= flash_messages %>

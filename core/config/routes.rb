@@ -64,6 +64,7 @@ Taurus::Core::Engine.routes.draw do
       end
       collection do
         get :all
+        get :autocomplete_user_name
       end
       resources :order_deliveries
       resources :order_payments

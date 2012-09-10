@@ -2,6 +2,7 @@ module Taurus
 	module Admin
 		class OrdersController < BaseController
 			helper "taurus/orders"
+      autocomplete :user, :name, :class_name => "Taurus::User"
 
 		  def index
 		  	@search = Order.search(params[:q])
@@ -10,14 +11,22 @@ module Taurus
         @states = Hash[Order::STATE]
         @states.delete("completed")
         @states.delete("canceled")
+        @states.delete("start")
+        @states.delete("reserved")
 		  end
 
 		  def all
         @search = Order.search(params[:q])
 		  	@search.sorts = "updated_at desc"
 		  	@orders = @search.result.paginate(:page => params[:page], :per_page => 20)
-        @states = Order::STATE
+        @states = Hash[Order::STATE]
+        @states.delete("start")
+        @states.delete("reserved")
 		  end
+
+      def new
+        @order = Order.new
+      end
 
 		  def show
         @order = Order.find(params[:id])
