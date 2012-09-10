@@ -7,7 +7,7 @@ module Taurus
       def index
         @search = ReplenishmentRecord.search(params[:q])
         @search.sorts = "created_at DESC"
-        @replenishment_records = @search.result.paginate(:page => params[:page], :per_page => 20)
+        @replenishment_records = @search.result(:distinct => true).paginate(:page => params[:page], :per_page => 20)
       end
 
       def show
