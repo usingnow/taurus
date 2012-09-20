@@ -8,8 +8,8 @@ jQuery ->
   jQuery("#add_single_product").click -> 
     flag = true
     jQuery(".combined_products").each ->
-    	if jQuery(this).attr("data-related_id") == jQuery("#related_id").val()
-    		flag = false
+      if jQuery(this).attr("data-related_id") == jQuery("#related_id").val()
+        flag = false
         
     if jQuery("#related_id").val() != "" && flag
 
@@ -31,12 +31,12 @@ jQuery ->
 
       jQuery('#combined_product_product_name').next().remove()
       jQuery('#combined_product_product_name').parent().parent().removeClass("success")
-	    jQuery("#combined_products").append(tr)
+      jQuery("#combined_products").append(tr)
     false
 
   jQuery(".remove_line_item").live 'click', (event) ->
-  	jQuery(this).parent().parent().remove()
-  	false
+    jQuery(this).parent().parent().remove()
+    false
 
   jQuery(".amount").live 'change', (event)->
     if @value.search("^-?\\d+$") != 0

@@ -55,7 +55,7 @@ module Taurus
           session[:order_step] = session[:order_params] = session[:cart_id] = nil  
           redirect_to success_index_order_url(@order)  
         end
-			end
+      end
 
       def success
         @order = current_user.orders.find(params[:id])

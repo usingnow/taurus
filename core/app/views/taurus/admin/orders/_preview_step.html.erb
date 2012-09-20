@@ -1,0 +1,89 @@
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">用户</a></li>
+</ul>
+<%= show_input @order, :customer_name, :class => "span3" %>
+
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">商品</a></li>
+</ul>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t('activerecord.attributes.taurus/product.number') %></th>
+      <th><%= t('activerecord.attributes.taurus/product.name') %></th>
+      <th>
+        <%= t('activerecord.attributes.taurus/order_product_line_item.unit_price') %>
+      </th>
+      <th>
+        <%= t('activerecord.attributes.taurus/order_product_line_item.product_amount') %>
+      </th>
+    </tr>
+  </thead>
+  <tbody id="products">
+    <% @order.order_product_line_items.each do |line_item| %>
+      <tr class='products' data-product_id="<%= line_item.product_id %>">
+        <td>
+          <a href="<%= admin_product_path(line_item.product_id) %>" target='_blank'>
+            <%= line_item.product.number %>
+          </a>
+        </td>
+        <td>
+          <%= line_item.product.name %>
+        </td>
+        <td>
+          <%= line_item.product.price_after_tax %>
+        </td>
+        <td>
+          <%= line_item.product_amount %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">收获地址</a></li>
+</ul>
+<%= show_input @order.order_delivery, :attention, :class => "span2" %>
+<%= show_input @order.order_delivery.district, :area, :class => "span3" %>
+<%= show_input @order.order_delivery, :address, :class => "span2" %>
+<%= show_input @order.order_delivery, :telephone, :class => "span2" %>
+<%= show_input @order.order_delivery, :mobile, :class => "span2" %>
+
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">支付方式</a></li>
+</ul>
+<%= show_input @order.order_payment.payment_method, :name, :class => "span2" %>
+<%= show_input @order.order_payment, :receipt_type, :class => "span2", 
+               :format => Taurus::OrderPayment::RECEIPT_TYPE %>
+
+<% if @order.order_payment.receipt_type >= 2 %>
+  <%= show_input @order.order_payment, :receipt_title, :class => "span2" %>
+<% end %>
+
+<% if @order.order_payment.receipt_type > 2 %>
+  <%= show_input @order.order_payment, :bank_name, :class => "span2" %>
+  <%= show_input @order.order_payment, :company_name, :class => "span2" %>
+  <%= show_input @order.order_payment, :bank_account, :class => "span2" %>
+  <%= show_input @order.order_payment, :vat_number, :class => "span2" %>
+  <%= show_input @order.order_payment, :registered_telephone, :class => "span2" %>
+  <%= show_input @order.order_payment, :registered_address, :class => "span2" %>
+<% end %>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">备注</a></li>
+</ul>
+<%= show_input @order, :remarks_by_customer, :class => "span3" %>
+
+<div class="form-actions">
+  <button type="submit" name="back_button" class="btn btn-primary">
+    <i class="icon-edit"></i> 返回修改
+  </button>
+
+  <button type="submit" name="commit_button" class="btn btn-warning btn-large">
+    <i class="icon-file"></i> 提交订单
+  </button>
+</div>

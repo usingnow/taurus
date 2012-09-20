@@ -3,10 +3,8 @@
 </div>
 
 <%= simple_form_for [:admin, @order], :html => { :class => "form-horizontal" } do |f| %>
-   <%= f.error_notification %>
-   <fieldset>
-     <%= f.input :customer_name, :url => autocomplete_user_name_admin_orders_path, 
-                 :input_html => { :id_element => '#order_user_id' }, :as => :autocomplete %>
-     <%= f.input :user_id, :as => :hidden %>
-   </fieldset>
+  <%= f.error_notification %>
+  <fieldset>
+    <%= render :partial => "#{@order.current_step}_step", :locals => { :f => f } %>
+  </fieldset>
 <% end %>

@@ -37,7 +37,7 @@
         - id: 'product_product_create#update'
           name: '新建、修改'
           permissions:
-            - action_name: '[:create, :update, :combined_new, :combined_create, :autocomplete_product_category_name, :edit_sales_status, :update_sales_status]'
+            - action_name: '[:create, :update, :combined_new, :combined_create, :autocomplete_product_category_name, :autocomplete_combined_category_name, :edit_sales_status, :update_sales_status]'
               class_name: 'Product'
 - id: 'baisc'
   name: <%= I18n.t('admin.modules.baisc_setting') %>

@@ -1,0 +1,157 @@
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">选择用户</a></li>
+</ul>
+ 
+<%= f.input :customer_name, :url => autocomplete_user_name_admin_orders_path, 
+            :input_html => { :id_element => '#order_user_id' }, :as => :autocomplete %>
+<%= f.input :user_id, :as => :hidden %>
+ 
+ 
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">选择商品</a></li>
+</ul>
+
+<div class="row">
+  <div class="span7">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t('activerecord.attributes.taurus/product.number') %></th>
+          <th><%= t('activerecord.attributes.taurus/product.name') %></th>
+          <th>
+            <%= t('activerecord.attributes.taurus/order_product_line_item.unit_price') %>
+          </th>
+          <th>
+            <%= t('activerecord.attributes.taurus/order_product_line_item.product_amount') %>
+          </th>
+          <th><%= t('admin.misc.operation') %></th>
+        </tr>
+      </thead>
+      <tbody id="products">
+        <% @order.order_product_line_items.each do |line_item| %>
+          <tr class='products' data-product_id="<%= line_item.product_id %>">
+            <td>
+              <a href="<%= admin_product_path(line_item.product_id) %>" target='_blank'>
+                <%= line_item.product.number %>
+              </a>
+            </td>
+            <td>
+              <%= line_item.product.name %>
+            </td>
+            <td>
+              <%= line_item.product.price_after_tax %>
+            </td>
+            <td>
+              <input class='amount span1' name='amount[<%= line_item.product_id %>]' 
+                     step='1' type='number' value="<%= line_item.product_amount %>">
+            </td>
+            <td>
+              <a href='#' class='btn btn-primary trk-btn-short remove_line_item'>删除</a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div> 
+
+  <div class="span3">
+    <div class="alert alert-info normal-form">
+      <div class="control-group autocomplete optional">
+        <label class="autocomplete optional control-label">商品名称</label>
+        <div class="controls">
+          <%= autocomplete_field_tag :product_name, '', 
+                                     autocomplete_product_name_admin_orders_path, 
+                                     :class => "span2", 
+                                     :update_elements => { 
+                                       :id => '#product_id', 
+                                       :number => "#product_number",
+                                       :price_after_tax => '#product_unit_price' 
+                                     } %>
+        </div>
+      </div>
+      <%= hidden_field_tag :product_id %>
+      <%= hidden_field_tag :product_number %>
+      <%= hidden_field_tag :product_unit_price %>
+      <div class="control-group autocomplete optional">
+        <label class="autocomplete optional control-label">数量</label>
+        <div class="controls">
+          <%= text_field_tag :product_amount, 1, :class => "amount span2" %>
+        </div>
+      </div>
+
+      <%= link_to "#{content_tag(:i, '', :class => 'icon-plus-sign')} 添加商品".html_safe, 
+                  "#",  :class => "btn btn-success", :id => "add_product" %> 
+    </div>
+  </div> 
+</div>
+
+
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">填写收获地址</a></li>
+</ul>
+
+<%= f.fields_for :order_delivery do |d_f| %>
+  <%= d_f.input :attention, :input_html => {:class => "span2"} %>
+  <%= d_f.input :district_id, :as => :area, :input_html => {:class => "span2"} %>
+  <%= d_f.input :address, :input_html => {:class => "span3"} %>
+  <%= d_f.input :telephone, :hint => "固话与手机选填一项", 
+                :input_html => {:class => "span2"} %>
+  <%= d_f.input :mobile, :input_html => {:class => "span2"} %>
+<% end %>
+
+
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">选择支付方式</a></li>
+</ul>
+
+<%= f.fields_for :order_payment do |p_f| %>
+  <%= p_f.association :payment_method, :include_blank => false, 
+                      :input_html => { :class => "span2" } %>
+  <%= p_f.input :receipt_type, :collection => Taurus::OrderPayment::RECEIPT_TYPE, 
+                :value_method => :first, :label_method => :second,
+                :item_wrapper_class => 'inline', :as => :radio  %>
+
+  <div id="receipt"></div>
+
+  <script type="text/javascript">
+    $("#order_order_payment_attributes_receipt_type_0").click(function(){
+      $("#receipt").html("");
+    });
+
+    $("#order_order_payment_attributes_receipt_type_1").click(function(){
+      $("#receipt").html("");
+    });
+
+    $("#order_order_payment_attributes_receipt_type_2").click(function(){
+      $("#receipt").html('<%= p_f.input :receipt_title, :required => true %>');
+    });
+
+    $("#order_order_payment_attributes_receipt_type_3").click(function(){
+      $("#receipt").html('<%= j(
+        (p_f.input :receipt_title, :required => true)+
+        (p_f.input :bank_name, :required => true)+
+        (p_f.input :company_name, :required => true)+
+        (p_f.input :bank_account, :required => true)+
+        (p_f.input :vat_number, :required => true)+
+        (p_f.input :registered_telephone, :required => true)+
+        (p_f.input :registered_address, :required => true)
+      ) %>');
+    });
+
+    $("#order_order_payment_attributes_receipt_type_<%= @order.order_payment.receipt_type %>").click();
+  </script>
+<% end %>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">备注</a></li>
+</ul>
+<%= f.input :remarks_by_customer, :input_html => { :class => "span3" } %>
+
+<div class="form-actions">
+  <button type="submit" name="preview_button" class="btn btn-warning btn-large">
+    <i class="icon-zoom-in"></i> 订单预览
+  </button>
+</div>

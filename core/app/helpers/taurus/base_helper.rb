@@ -117,22 +117,21 @@ module Taurus
         end
       end
     end
-      
-
-    protected
-    def component
-      Function.all.each do |com|
-        if request.fullpath.gsub('//', '/').starts_with?(com["url"])
-          return com 
-        end
-        com['functions'].each do |fun|
-          if request.fullpath.gsub('//', '/').starts_with?(fun["url"])
+   
+    private
+      def component
+        Function.all.each do |com|
+          if request.fullpath.gsub('//', '/').starts_with?(com["url"])
             return com 
           end
-        end if com['functions']
-      end if request.fullpath.gsub('//', '/') != "/admin"
-      Hash.new
-    end
+          com['functions'].each do |fun|
+            if request.fullpath.gsub('//', '/').starts_with?(fun["url"])
+              return com 
+            end
+          end if com['functions']
+        end if request.fullpath.gsub('//', '/') != "/admin"
+        Hash.new
+      end
 
   end
 end

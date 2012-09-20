@@ -14,11 +14,11 @@ module Taurus
       :cancel => "取消"
     }
 
-  	has_one :order_payment, :dependent => :destroy
+    has_one :order_payment, :dependent => :destroy
     accepts_nested_attributes_for :order_payment
-  	has_one :order_delivery, :dependent => :destroy
-  	accepts_nested_attributes_for :order_delivery
-  	has_many :order_product_line_items, :dependent => :destroy
+    has_one :order_delivery, :dependent => :destroy
+    accepts_nested_attributes_for :order_delivery
+    has_many :order_product_line_items, :dependent => :destroy
     has_many :products, :through => :order_product_line_items
     belongs_to :user
     has_many :delivery_records
@@ -31,14 +31,15 @@ module Taurus
     validates_uniqueness_of :number
     validates_numericality_of :adjustment_total, :greater_than => Proc.new { |order| order.total_payment * -1 },
                               :message => :greater_than_zero
+    validate :must_have_product
 
     scope :available_deliveries, where(:state => "delivering")
     scope :processing, where("state != 'completed' and state != 'canceled'")
     
     # 多步骤表单
     def current_step  
-	    @current_step || "new"  
-	  end  
+      @current_step || "new"  
+    end  
 
     state_machine :initial => :start do
       event :first_state do
@@ -81,29 +82,35 @@ module Taurus
     def total
       total_payment + adjustment_total
     end
-  	
-    protected
-    def generate_order_number
-      self.number = "O" + Array.new(9){rand(9)}.join
-    end
-
-    # 增加销售预留
-    def add_reserved_amount
-      order_product_line_items.each do |product_line_item|
-        if product_line_item.product.product_type == 0
-          product_line_item.product.stock.update_attributes(
-            :reserved => product_line_item.product.stock.reserved += product_line_item.product_amount
-          ) 
-        else
-          product_line_item.product.combined_products.each do |combined_product|
-            combined_product.related.stock.update_attributes(
-              :reserved => combined_product.related.stock.reserved += 
-                           product_line_item.product_amount * combined_product.amount
-            )
-          end
-        end  
+    
+    private
+      def generate_order_number
+        self.number = "O" + Array.new(9){rand(9)}.join
       end
-    end
+
+      # 增加销售预留
+      def add_reserved_amount
+        order_product_line_items.each do |product_line_item|
+          if product_line_item.product.product_type == 0
+            product_line_item.product.stock.update_attributes(
+              :reserved => product_line_item.product.stock.reserved += product_line_item.product_amount
+            ) 
+          else
+            product_line_item.product.combined_products.each do |combined_product|
+              combined_product.related.stock.update_attributes(
+                :reserved => combined_product.related.stock.reserved += 
+                             product_line_item.product_amount * combined_product.amount
+              )
+            end
+          end  
+        end
+      end
+
+      def must_have_product
+        if order_product_line_items.empty?
+          errors.add(:order_product_line_items, "至少一件商品") 
+        end
+      end
 
   end
 end
