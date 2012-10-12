@@ -7,11 +7,15 @@
         <td class="subtotal"><%= format_price line_item.subtotal %></td>
       </tr>
     <% end %>
-    <tr class="total_price">
-      <td colspan="2">
-        总金额
+    <tr class="shipping-cost">
+      <td colspan="3">
+        运费 <%= format_price @shipping_cost.cost %>（<%= @shipping_cost.remarks %>）
       </td>
-      <td><%= format_price @cart.total_price %></td>
+    </tr>
+    <tr class="total-price">
+      <td colspan="3">
+        总金额 <%= format_price @order.total_payment %>
+      </td>
     </tr>
   </table>
 </div>

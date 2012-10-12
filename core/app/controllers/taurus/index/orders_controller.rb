@@ -21,16 +21,20 @@ module Taurus
           @order = Order.new
           @order.order_delivery = OrderDelivery.new
           @order.order_payment = OrderPayment.new
+          @shipping_cost = ShippingCost.first
         end
 			end
 
 			def create
         session[:order_params].deep_merge!(params[:order]) if params[:order]
         @cart = current_cart
+        @shipping_cost = ShippingCost.first
         @order = Order.new(session[:order_params])
         @order.user_id = current_user.id
-        @order.customer_name = current_user.userable.name  
-        @order.total_payment = @cart.total_price
+        @order.customer_name = current_user.userable.name
+        @order.order_delivery.shipping_standard_cost = @shipping_cost.cost
+        @order.order_delivery.shipping_cost = @shipping_cost.cost 
+        @order.total_payment = @cart.total_price + @shipping_cost.cost
         @cart.cart_product_line_items.each do |line_item|
           @order.order_product_line_items << OrderProductLineItem.new(
             :product_id => line_item.product_id, :product_amount => line_item.product_amount, 

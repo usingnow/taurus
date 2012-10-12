@@ -9,12 +9,16 @@
         </tr>
       <% end %>
     <% end %>
-    <tr class="total_price">
-      <td colspan="2">
-        <%= link_to "返回查看全部商品", index_cart_product_line_items_path if @cart.cart_product_line_items.size > 5 %>
-        总金额
+    <tr class="shipping-cost">
+      <td colspan="3">
+        运费 <%= format_price @shipping_cost.cost %>（<%= @shipping_cost.remarks %>）
       </td>
-      <td><%= format_price @cart.total_price %></td>
+    </tr>
+    <tr class="total-price">
+      <td colspan="3">
+        <%= link_to "返回查看全部商品", index_cart_product_line_items_path if @cart.cart_product_line_items.size > 5 %>
+        总金额 <%= format_price(@cart.total_price + @shipping_cost.cost) %>
+      </td>
     </tr>
   </table>
 </div>

@@ -18,7 +18,7 @@
       <tr>
         <td><%= index+1 %></td>
         <td>
-        	<%= link_to line_item.product.number, admin_product_path(line_item.product_id), :target => "_blank" %>
+          <%= link_to line_item.product.number, admin_product_path(line_item.product_id), :target => "_blank" %>
         </td>
         <td><%= line_item.product.name %></td>
         <td><%= line_item.product.product_category.name %></td>
@@ -30,26 +30,26 @@
 </table>
 
 <div class="pull-right">
-	<table class="table table-striped span4">
-	  <tr>
-	    <td><%= t('activerecord.attributes.taurus/order.products_price') %></td>
-	    <td><%= format_price @order.products_price %></td>
-	  </tr>
-	  <tr>
-	  	<td><%= t('activerecord.attributes.taurus/order_delivery.shipping_standard_cost') %></td>
-	  	<td><%= format_price @order.order_delivery.shipping_standard_cost %></td>
-	  </tr>
-	  <tr>
-	  	<td><%= t('activerecord.attributes.taurus/order_delivery.shipping_cost') %></td>
-	  	<td><%= format_price @order.order_delivery.shipping_cost %></td>
-	  </tr>
-	  <tr>
-	  	<td><%= t('activerecord.attributes.taurus/order.adjustment_total') %></td>
-	  	<td><%= format_price @order.adjustment_total %></td>
-	  </tr>
-	  <tr>
-	  	<td><%= t('activerecord.attributes.taurus/order.total') %></td>
-	  	<td><%= format_price @order.total %></td>
-	  </tr>
-	</table>
+  <table class="table table-striped span4">
+    <tr>
+      <td><%= t('activerecord.attributes.taurus/order.products_price') %></td>
+      <td><%= format_price @order.products_price %></td>
+    </tr>
+    <tr>
+      <td><%= t('activerecord.attributes.taurus/order_delivery.shipping_standard_cost') %></td>
+      <td><%= format_price @order.order_delivery.shipping_standard_cost %></td>
+    </tr>
+    <tr>
+      <td><%= t('activerecord.attributes.taurus/order_delivery.shipping_cost') %></td>
+      <td><%= format_price @order.order_delivery.shipping_cost %></td>
+    </tr>
+    <tr>
+      <td><%= t('activerecord.attributes.taurus/order.adjustment_total') %></td>
+      <td><%= format_price @order.adjustment_total %></td>
+    </tr>
+    <tr>
+      <td><%= t('activerecord.attributes.taurus/order.total') %></td>
+      <td><%= format_price @order.total %></td>
+    </tr>
+  </table>
 </div>

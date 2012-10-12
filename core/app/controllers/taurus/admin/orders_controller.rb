@@ -41,8 +41,10 @@ module Taurus
         session[:order_params].deep_merge!(params[:order]) if params[:order]
 
         @order = Order.new(session[:order_params])
+
+        @shipping_cost = ShippingCost.first 
         
-        total_payment = 0
+        total_payment = @shipping_cost.cost
 
         session[:amount] = params[:amount] if params[:amount]
 
@@ -55,9 +57,11 @@ module Taurus
           )
 
           total_payment += current_product.price_after_tax * value.to_i
-        end 
+        end
 
         @order.total_payment = total_payment
+        @order.order_delivery.shipping_standard_cost = @shipping_cost.cost
+        @order.order_delivery.shipping_cost = @shipping_cost.cost
 
         @order.current_step = session[:order_step]
 
@@ -149,7 +153,7 @@ module Taurus
       end
 
       def autocomplete_product_name
-        @search = Product.search({:'name_cont' => params[:term]})
+        @search = Product.shown.displays.search({:'name_cont' => params[:term]})
         @products = @search.result
         render :json => json_for_autocomplete(@products, :name, [:number, :price_after_tax])
       end

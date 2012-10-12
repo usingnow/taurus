@@ -38,6 +38,10 @@ Taurus::Admin::AlipaysController.class_eval do
   load_and_authorize_resource :class => "Taurus::Alipay"
 end
 
+Taurus::Admin::ShippingCostsController.class_eval do
+  load_and_authorize_resource :class => "Taurus::ShippingCost"
+end
+
 if defined?(Taurus::Warehouse)
   Taurus::Admin::StocksController.class_eval do
     load_and_authorize_resource :class => "Taurus::Stock"

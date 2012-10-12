@@ -40,6 +40,14 @@
       </tr>
     <% end %>
   </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4" class="total-price">
+        运费 <%= format_price @shipping_cost.cost %>（<%= @shipping_cost.remarks %>）  
+        总金额 <%= format_price @order.total_payment %>
+      </td>
+    </tr>
+  </tfoot>
 </table>
 
 
