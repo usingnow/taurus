@@ -104,7 +104,16 @@
 #          name: '查询'
 #          permissions:
 #            - action_name: '[:create,:update]'
-#              class_name: 'Group'       
+#              class_name: 'Group'
+    - id: 'baisc_shipping#cost'
+      name: <%= I18n.t('admin.functions.baisc_setting.shipping_cost') %>
+      url: '/admin/shipping_costs'
+      operations: 
+        - id: 'baisc_shipping#cost_manage'
+          name: '管理'
+          permissions:
+            - action_name: ':manage'
+              class_name: 'ShippingCost' 
     - id: 'baisc_alipay'
       name: <%= I18n.t('admin.functions.baisc_setting.alipay_setting') %>
       url: '/admin/alipays'

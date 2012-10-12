@@ -214,6 +214,7 @@ zh-CN:
       taurus/industry: "行业类别"
       taurus/company_type: "企业类型"
       taurus/company_scale: "企业规模"
+      taurus/shipping_cost: "运费"
     attributes:
       taurus/product_category:
         parent_name: "父分类"
@@ -317,6 +318,9 @@ zh-CN:
         area: "所属地区"
       taurus/payment_method:
         name: "支付方式"
+      taurus/shipping_cost:
+        cost: "成本"
+        remarks: "备注"
     errors:
       models:  
         taurus/product:
@@ -353,6 +357,7 @@ zh-CN:
         regions_and_freight: "地区运费"
         order_processes: "订单流程"
         alipay_setting: "支付宝"
+        shipping_cost: "运费"
       my_account:  
         base_info: "基础信息"
     misc:

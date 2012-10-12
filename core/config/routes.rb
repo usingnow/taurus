@@ -72,7 +72,7 @@ Taurus::Core::Engine.routes.draw do
       resources :order_product_line_items
     end
     resources :alipays
-
+    resources :shipping_costs
     namespace :my do
       resource :page
       resource :account
