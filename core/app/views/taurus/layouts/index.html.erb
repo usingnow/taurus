@@ -26,6 +26,11 @@
             <li>
               <%= render_cell :cart, :display, :cart_id => cookies[:cart_id] %>
             </li>
+            <% if params[:controller] != "taurus/index/home" %>
+              <li>
+                <%= link_to  "返回首页", index_home_index_path %>
+              </li>
+            <% end %>
             <li class="divider-vertical"></li>  
             <% if current_user %>
               <li> 
