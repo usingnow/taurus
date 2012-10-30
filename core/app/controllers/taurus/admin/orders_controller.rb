@@ -42,7 +42,7 @@ module Taurus
 
         @order = Order.new(session[:order_params])
 
-        @shipping_cost = ShippingCost.first 
+        @shipping_cost = ShippingCost.first || ShippingCost.create
         
         total_payment = @shipping_cost.cost
 

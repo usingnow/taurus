@@ -21,14 +21,14 @@ module Taurus
           @order = Order.new
           @order.order_delivery = OrderDelivery.new
           @order.order_payment = OrderPayment.new
-          @shipping_cost = ShippingCost.first
+          @shipping_cost = ShippingCost.first || ShippingCost.create
         end
 			end
 
 			def create
         session[:order_params].deep_merge!(params[:order]) if params[:order]
         @cart = current_cart
-        @shipping_cost = ShippingCost.first
+        @shipping_cost = ShippingCost.first || ShippingCost.create
         @order = Order.new(session[:order_params])
         @order.user_id = current_user.id
         @order.customer_name = current_user.userable.name
